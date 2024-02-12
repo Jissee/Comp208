@@ -9,3 +9,16 @@ D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208.csproj.GenerateResource
 D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208.csproj.CoreCompileInputs.cache
 D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208.exe
 D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208.pdb
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\bin\Debug\Comp208.exe.config
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\bin\Debug\Comp208.exe
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\bin\Debug\Comp208.pdb
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\obj\Debug\Comp208.csproj.AssemblyReference.cache
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\obj\Debug\Comp208.MainForm.resources
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\obj\Debug\Comp208.Properties.Resources.resources
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\obj\Debug\Comp208.TradeManagerForm.resources
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\obj\Debug\Comp208.csproj.GenerateResource.cache
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\obj\Debug\Comp208.csproj.CoreCompileInputs.cache
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\obj\Debug\Comp208.exe
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\obj\Debug\Comp208.pdb
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\obj\Debug\Comp208.Form1.resources
+C:\Users\32171\Source\Repos\HateUsername\Comp208\Comp208\obj\Debug\Comp208.IPinput.resources
