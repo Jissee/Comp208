@@ -1,0 +1,7 @@
+D:\e-textbook3\comp208\Comp208\Console\bin\Debug\Console.exe.config
+D:\e-textbook3\comp208\Comp208\Console\bin\Debug\Console.exe
+D:\e-textbook3\comp208\Comp208\Console\bin\Debug\Console.pdb
+D:\e-textbook3\comp208\Comp208\Console\obj\Debug\Console.csproj.AssemblyReference.cache
+D:\e-textbook3\comp208\Comp208\Console\obj\Debug\Console.csproj.CoreCompileInputs.cache
+D:\e-textbook3\comp208\Comp208\Console\obj\Debug\Console.exe
+D:\e-textbook3\comp208\Comp208\Console\obj\Debug\Console.pdb

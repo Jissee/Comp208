@@ -1,0 +1,15 @@
+D:\e-textbook3\comp208\Comp208\Comp208WPF\bin\Debug\Comp208WPF.exe.config
+D:\e-textbook3\comp208\Comp208\Comp208WPF\bin\Debug\Comp208WPF.exe
+D:\e-textbook3\comp208\Comp208\Comp208WPF\bin\Debug\Comp208WPF.pdb
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\Comp208WPF.csproj.AssemblyReference.cache
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\MainWindow.g.cs
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\App.g.cs
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\Comp208WPF_MarkupCompile.cache
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\Comp208WPF_MarkupCompile.lref
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\MainWindow.baml
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\Comp208WPF.g.resources
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\Comp208WPF.Properties.Resources.resources
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\Comp208WPF.csproj.GenerateResource.cache
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\Comp208WPF.csproj.CoreCompileInputs.cache
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\Comp208WPF.exe
+D:\e-textbook3\comp208\Comp208\Comp208WPF\obj\Debug\Comp208WPF.pdb

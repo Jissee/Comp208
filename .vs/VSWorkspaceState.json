@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Comp208",
+    "\\Comp208\\obj",
+    "\\Comp208\\obj\\Debug"
   ],
+  "SelectedNode": "\\Comp208.sln",
   "PreviewInSolutionExplorer": false
 }

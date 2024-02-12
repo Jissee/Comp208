@@ -1,0 +1,65 @@
+﻿<Window x:Class="Comp208WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Comp208WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Icon="/a.gif">
+    <Grid>
+        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="53,41,0,0" VerticalAlignment="Top" Height="73" Width="165" Click="Button_Click" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="23.844"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <ListView Margin="293,33,69,72" RenderTransformOrigin="0.5,0.5">
+            <ListView.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-17.09"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListView.RenderTransform>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <DataGrid HorizontalAlignment="Left" Height="127" Margin="37,212,0,0" VerticalAlignment="Top" Width="233" d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-36.153"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+        </DataGrid>
+        <Rectangle HorizontalAlignment="Left" Height="54" Margin="218,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="87" KeyDown="Rectangle_KeyDown"/>
+        <Frame Content="Frame" HorizontalAlignment="Left" Height="90" Margin="10,127,0,0" VerticalAlignment="Top" Width="154"/>
+        <Menu x:Name="menu1" HorizontalAlignment="Right" Height="25" VerticalAlignment="Top" Width="636" Margin="0,38,106,0">
+            <MenuItem Header="0000" Name="menu1item1" ToolTip="aa" ItemStringFormat="bb" ></MenuItem>
+            <MenuItem Header="MenuItem"/>
+            <MenuItem Header="MenuItem"/>
+        </Menu>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="58,0,0,0" VerticalAlignment="Center" Height="90" Width="529" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="377.917"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
+
+    </Grid>
+</Window>

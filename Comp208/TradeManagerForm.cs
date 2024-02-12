@@ -59,15 +59,14 @@ namespace Comp208
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(71, 70);
+            this.listView1.Location = new System.Drawing.Point(43, 44);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(488, 161);
+            this.listView1.Size = new System.Drawing.Size(897, 316);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -76,7 +75,7 @@ namespace Comp208
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(1017, 80);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(638, 323);
@@ -84,7 +83,6 @@ namespace Comp208
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -105,13 +103,13 @@ namespace Comp208
             // 
             // TradeManagerForm
             // 
-            this.ClientSize = new System.Drawing.Size(662, 347);
+            this.ClientSize = new System.Drawing.Size(1111, 654);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.tabControl1);
             this.Name = "TradeManagerForm";
             this.Text = "TradeManager";
             this.Load += new System.EventHandler(this.TradeManagerForm_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

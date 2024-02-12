@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comp208", "Comp208\Comp208.csproj", "{7560A25F-B0FA-4195-B54B-D254F9A1D303}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comp208WinForm", "Comp208\Comp208WinForm.csproj", "{7560A25F-B0FA-4195-B54B-D254F9A1D303}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comp208WPF", "Comp208WPF\Comp208WPF.csproj", "{8B924EA9-BA77-41A0-8636-05B1AD767A09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{B46A40F0-4DAE-485A-AF57-AB2657F6B696}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{7560A25F-B0FA-4195-B54B-D254F9A1D303}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7560A25F-B0FA-4195-B54B-D254F9A1D303}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7560A25F-B0FA-4195-B54B-D254F9A1D303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B924EA9-BA77-41A0-8636-05B1AD767A09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B924EA9-BA77-41A0-8636-05B1AD767A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B924EA9-BA77-41A0-8636-05B1AD767A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B924EA9-BA77-41A0-8636-05B1AD767A09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B46A40F0-4DAE-485A-AF57-AB2657F6B696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B46A40F0-4DAE-485A-AF57-AB2657F6B696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B46A40F0-4DAE-485A-AF57-AB2657F6B696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B46A40F0-4DAE-485A-AF57-AB2657F6B696}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

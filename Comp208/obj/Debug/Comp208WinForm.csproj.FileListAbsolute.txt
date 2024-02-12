@@ -1,0 +1,11 @@
+D:\e-textbook3\comp208\Comp208\Comp208\bin\Debug\Comp208.exe.config
+D:\e-textbook3\comp208\Comp208\Comp208\bin\Debug\Comp208.exe
+D:\e-textbook3\comp208\Comp208\Comp208\bin\Debug\Comp208.pdb
+D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208WinForm.csproj.AssemblyReference.cache
+D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208.MainForm.resources
+D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208.Properties.Resources.resources
+D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208.TradeManagerForm.resources
+D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208WinForm.csproj.GenerateResource.cache
+D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208WinForm.csproj.CoreCompileInputs.cache
+D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208.exe
+D:\e-textbook3\comp208\Comp208\Comp208\obj\Debug\Comp208.pdb
