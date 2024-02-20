@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "EoEClient/1.0.0": {
+        "dependencies": {
+          "EoE": "1.0.0"
+        },
+        "runtime": {
+          "EoEClient.dll": {}
+        }
+      },
+      "EoE/1.0.0": {
+        "runtime": {
+          "EoE.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EoEClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EoE/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
