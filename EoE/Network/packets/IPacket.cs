@@ -15,8 +15,5 @@ namespace EoE.Network
         abstract static T Decode(BinaryReader reader);
 
     }
-    public interface IBasePacket
-    {
-        void Handle(PacketContext context);
-    }
+
 }

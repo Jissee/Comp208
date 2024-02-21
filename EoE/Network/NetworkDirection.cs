@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EoE.Network
 {
-    public class PacketContext
+    public enum NetworkDirection
     {
-        public Distribution Distribution { get; set; }
-        public int PlayerID {  get; set; }
+        Server2Client,
+        Client2Server
     }
 }

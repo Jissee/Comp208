@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EoE
+namespace EoE.Network
 {
-    public enum Distribution
+    public interface IBasePacket
     {
-        Server,
-        Client
+        void Handle(PacketContext context);
     }
 }

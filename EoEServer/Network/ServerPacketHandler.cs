@@ -1,25 +1,22 @@
 ﻿using EoE.Network;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
-namespace EoE.Client
+namespace EoE.Server.Network
 {
-    internal class ClientPacketHandler : PacketHandler
+    public class ServerPacketHandler : PacketHandler
     {
-        Client client;
-        
-        public ClientPacketHandler(Client client) 
-        { 
-            this.client = client;
+        private Server server;
+        public ServerPacketHandler(Server server)
+        {
+            this.server = server;
         }
 
-        public override void ReceivePacket(byte[] data)
+        public override void ReceivePacket(byte[] data, PacketContext context)
         {
             MemoryStream stream = new MemoryStream(data);
             BinaryReader br = new BinaryReader(stream);
@@ -41,7 +38,7 @@ namespace EoE.Client
             IBasePacket packet = (IBasePacket)decoder.DynamicInvoke(br);
             if (packet != null)
             {
-                packet.Handle(new PacketContext { Distribution = EoE.Distribution.Client });
+                packet.Handle(context);
             }
             else
             {
@@ -49,7 +46,7 @@ namespace EoE.Client
             }
         }
 
-        public override void SendPacket<T>(T packet)
+        public override void SendPacket<T>(T packet, Socket connection)
         {
             MemoryStream ms = new MemoryStream();
             BinaryWriter bw = new BinaryWriter(ms);
@@ -77,7 +74,10 @@ namespace EoE.Client
 
             byte[] data = ms.ToArray();
 
-            
+
+            connection.Send(data);
+
+            //return data;
         }
     }
 }

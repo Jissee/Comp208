@@ -1,5 +1,5 @@
 ﻿using EoE.Network;
-using EoE.Server;
+using EoE.Server.Network;
 
 namespace EoE.Server
 {
@@ -7,9 +7,9 @@ namespace EoE.Server
     {
         static void Main(string[] args)
         {
-            DedicatedServer dserver = new DedicatedServer("0.0.0.0", 25566);
-            ServerPacketHandler sph = new ServerPacketHandler(dserver);
-            dserver.Start();
+            Server server = new Server("127.0.0.1", 25566);
+            server.Start();
+
             while (true)
             {
                 string str = Console.ReadLine();

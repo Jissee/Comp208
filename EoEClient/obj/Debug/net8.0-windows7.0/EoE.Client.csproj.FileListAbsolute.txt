@@ -22,3 +22,4 @@ D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\refint\EoE.Clie
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.sourcelink.json
