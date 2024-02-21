@@ -1,4 +1,6 @@
-﻿using EoE.Server.Network;
+﻿using EoE.Network.Packets;
+using EoE.Server.Network;
+using EoE.Server.Network.Packets;
 using System;
 using System.Collections.Generic;
 using System.Linq;

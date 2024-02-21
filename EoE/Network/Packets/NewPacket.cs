@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Network.Packets
 {
-    public interface IBasePacket
+    public class NewPacket
     {
-        void Handle(PacketContext context);
     }
 }

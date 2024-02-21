@@ -1,4 +1,5 @@
 ﻿using EoE.Network;
+using EoE.Network.Packets;
 using EoE.Server.Network;
 using System;
 using System.Collections.Generic;

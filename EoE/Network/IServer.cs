@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Packets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;

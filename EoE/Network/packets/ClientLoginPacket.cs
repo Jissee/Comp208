@@ -1,4 +1,5 @@
 ﻿using EoE.Network;
+using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EoE.Server.Network
+namespace EoE.Server.Network.Packets
 {
     public class ClientLoginPacket : IPacket<ClientLoginPacket>
     {

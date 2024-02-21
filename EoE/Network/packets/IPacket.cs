@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EoE.Network
+namespace EoE.Network.Packets
 {
     public delegate void Encoder<in T>(T obj, BinaryWriter writer);
     public delegate T Decoder<out T>(BinaryReader reader);
