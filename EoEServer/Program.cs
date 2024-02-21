@@ -7,7 +7,7 @@ namespace EoE.Server
     {
         static void Main(string[] args)
         {
-            Server server = new Server("127.0.0.1", 25566);
+            Server server = new Server("0.0.0.0", 25566);
             server.Start();
 
             while (true)

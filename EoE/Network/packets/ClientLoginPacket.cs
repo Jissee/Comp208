@@ -38,13 +38,16 @@ namespace EoE.Server.Network
                         {
                             player.PlayerName = playerName;
                             Console.WriteLine($"{playerName} logged in");
+                            server.SendPacket(new ClientLoginPacket(playerName), player);
+                            server.Broadcast(new ClientLoginPacket(playerName), (player1) => player1 != player);
                         }
                     }
                 }
             }
             else
             {
-                throw new Exception("Wrong direction");
+                IClient ne = (IClient)context.Receiver;
+                ne.MsgBox($"{playerName}, has logged in.");
             }
         }
     }

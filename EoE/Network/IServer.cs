@@ -13,5 +13,8 @@ namespace EoE.Network
         public List<IPlayer> Clients { get; }
         void Start();
         void Stop();
+        void SendPacket<T>(T packet, string playerName) where T : IPacket<T>;
+        void SendPacket<T>(T packet, IPlayer player) where T : IPacket<T>;
+        void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;
     }
 }

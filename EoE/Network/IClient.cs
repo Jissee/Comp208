@@ -8,5 +8,6 @@ namespace EoE.Network
 {
     public interface IClient : INetworkEntity
     {
+        void MsgBox(string msg);
     }
 }

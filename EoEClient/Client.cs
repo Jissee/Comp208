@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EoE.Client
 {
@@ -27,7 +28,16 @@ namespace EoE.Client
         {
             lock (this)
             {
-                Socket.Connect(host, port);
+                try
+                {
+                    Socket.Connect(host, port);
+                }catch (SocketException ex)
+                {
+                    MsgBox(ex.ToString());
+                    Console.WriteLine(ex);
+                    return;
+                }
+                
                 isRunning = true;
                 Task.Run(MessageLoop);
             }
@@ -82,5 +92,9 @@ namespace EoE.Client
             }
         }
 
+        public void MsgBox(string msg)
+        {
+            MessageBox.Show(msg);
+        }
     }
 }

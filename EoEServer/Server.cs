@@ -124,10 +124,36 @@ namespace EoE.Server
             }
 
         }
+        public void SendPacket<T>(T packet, IPlayer player) where T : IPacket<T>
+        {
+            lock (Clients)
+            {
+                foreach (ServerPlayer player1 in Clients)
+                {
+                    if (player1.PlayerName == player.PlayerName && player1.Connection.Connected)
+                    {
+                        handler.SendPacket(packet, player.Connection);
+                    }
+                }
+            }
+        }
         private static bool socConnected(Socket s)
         {
             return !((s.Poll(1000, SelectMode.SelectRead) && (s.Available == 0)) || !s.Connected);
         }
 
+        public void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>
+        {
+            lock (Clients)
+            {
+                foreach (ServerPlayer player in Clients)
+                {
+                    if (condition(player))
+                    {
+                        SendPacket<T>(packet, player);
+                    }
+                }
+            }
+        }
     }
 }

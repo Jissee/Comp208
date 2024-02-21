@@ -18,7 +18,7 @@ namespace EoE.Client
     public partial class MainWindow : Window
     {
         private Client client = new Client("Alice");
-        
+        private Client client1 = new Client("Bob");
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +32,16 @@ namespace EoE.Client
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             client.Disconnect();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            client1.Disconnect();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            client1.Connect("127.0.0.1", 25566);
         }
     }
 }

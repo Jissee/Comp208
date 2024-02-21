@@ -16,7 +16,13 @@ namespace EoE.Network
             Receiver = receiver;
         }
         public NetworkDirection NetworkDirection { get; }
+        /// <summary>
+        /// 信息发送方，仅在接收方为服务端时有效
+        /// </summary>
         public IPlayer? PlayerSender { get; }
-        public INetworkEntity? Receiver { get; }
+        /// <summary>
+        /// 信息接收方，为服务端或客户端
+        /// </summary>
+        public INetworkEntity Receiver { get; }
     }
 }
