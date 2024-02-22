@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using EoE.Network.Packets;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -42,6 +43,11 @@ namespace EoE.Client
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             client1.Connect("127.0.0.1", 25566);
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            client.SendPacket(new NewPacket(1, 1.111));
         }
     }
 }

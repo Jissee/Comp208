@@ -21,6 +21,7 @@ namespace EoE.Network
         {
             packetTypes = new Dictionary<string, Type>();
             Register<ClientLoginPacket>();
+            Register<NewPacket>();
         }
 
         public static void Register<T>() where T : IPacket<T>
