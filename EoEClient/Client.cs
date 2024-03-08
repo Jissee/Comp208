@@ -90,8 +90,7 @@ namespace EoE.Client
         {
             lock(this)
             {
-                byte[] data = handler.PreparePacket(packet);
-                Socket.Send(data);
+                handler.SendPacket(packet);
             }
         }
 

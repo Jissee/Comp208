@@ -46,10 +46,10 @@ namespace EoE.Network
 
 
         /// <summary>
-        /// 准备数据包，将其编码成二进制数据，以便发送数据
+        /// 把数据包对象编码成二进制数据，然后从网络发送数据
         /// </summary>
         /// <param name="packet"></param>
-        public abstract byte[] PreparePacket<T>(T packet) where T : IPacket<T>;
+        public abstract void SendPacket<T>(T packet, Socket connection) where T : IPacket<T>;
 
 
 

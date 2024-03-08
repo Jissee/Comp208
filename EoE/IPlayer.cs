@@ -1,5 +1,4 @@
-﻿using EoE.Network.Packets;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -10,12 +9,7 @@ namespace EoE
 {
     public interface IPlayer
     {
-        //Socket Connection { get; }
+        Socket Connection { get; }
         string PlayerName { get; set; }
-        bool IsConnected { get; }
-        void SendPacketRaw(byte[] data);
-        void Disconnect();
-        int AvailableData();
-        byte[] GetPacketBuf();
     }
 }

@@ -50,7 +50,12 @@ namespace EoE.Client.Network
             }
         }
 
-        public override byte[] PreparePacket<T>(T packet)
+        public void SendPacket<T>(T packet) where T : IPacket<T>
+        {
+            SendPacket(packet, client.Socket);
+        }
+
+        public override void SendPacket<T>(T packet, Socket connection)
         {
             MemoryStream ms = new MemoryStream();
             BinaryWriter bw = new BinaryWriter(ms);
@@ -72,11 +77,13 @@ namespace EoE.Client.Network
             catch (Exception ex)
             {
                 Console.WriteLine($"Cannot find encoder for {packetTypeString}, it is not registered.");
-                return [];
+                return;
             }
             encoder.DynamicInvoke(packet, bw);
 
-            return ms.ToArray();
+            byte[] data = ms.ToArray();
+
+            connection.Send(data);
         }
     }
 }
