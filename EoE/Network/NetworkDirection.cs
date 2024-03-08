@@ -9,7 +9,6 @@ namespace EoE.Network
     public enum NetworkDirection
     {
         Server2Client,
-        Client2Server,
-        Client2Client
+        Client2Server
     }
 }
