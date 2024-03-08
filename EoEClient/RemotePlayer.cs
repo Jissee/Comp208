@@ -26,7 +26,7 @@ namespace EoE.Client
 
         public void SendPacket<T>(T packet) where T : IPacket<T>
         {
-            client.Handler.SendPacket(packet, client.Socket, this);
+            client.Handler.SendPacket(packet, client.Connection, this);
         }
     }
 }

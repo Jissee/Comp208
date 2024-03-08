@@ -34,7 +34,7 @@ namespace EoE.Network.Packets
             if(context.NetworkDirection == NetworkDirection.Server2Client)
             {
                 IClient client = (IClient)context.Receiver;
-                client.MsgBox($"{client.PlayerName} received, x = {x}, y = {y}");
+                client.MsgBox($"{client.PlayerName} received from {context.PlayerSender.PlayerName}, x = {x}, y = {y}");
             }
             else
             {

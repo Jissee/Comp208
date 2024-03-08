@@ -27,6 +27,10 @@ namespace EoE.Client.Network
             bool isRedirected = br.ReadBoolean();
             if (isRedirected)
             {
+                string sender = br.ReadString();
+                RemotePlayer remote = client.GetRemotePlayer(sender);
+                PacketContext newContext = new PacketContext(context.NetworkDirection, remote, context.Receiver);
+                context = newContext;
                 string redirectTarget = br.ReadString();
                 if(redirectTarget != client.PlayerName)
                 {
@@ -64,9 +68,11 @@ namespace EoE.Client.Network
             
             MemoryStream ms = new MemoryStream();
             BinaryWriter bw = new BinaryWriter(ms);
+            bw.Write(0L);
             if(redirectTarget is RemotePlayer remote)
             {
                 bw.Write(true);
+                bw.Write(client.PlayerName);
                 bw.Write(remote.PlayerName);
             }
             else
@@ -95,6 +101,10 @@ namespace EoE.Client.Network
                 return;
             }
             encoder.DynamicInvoke(packet, bw);
+
+            long length = ms.Position - 8;
+            bw.Seek(0, SeekOrigin.Begin);
+            bw.Write(length);
 
             byte[] data = ms.ToArray();
 

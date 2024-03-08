@@ -25,11 +25,20 @@ namespace EoE.Server.Network
             bool needRedirect = br.ReadBoolean();
             if (needRedirect)
             {
+                string sender = br.ReadString();
                 string redirectTarget = br.ReadString();
                 IPlayer? player = server.GetPlayer(redirectTarget);
                 if (player != null)
                 {
-                    player.Connection.Send(data);
+                    MemoryStream ms = new MemoryStream();
+                    BinaryWriter bw = new BinaryWriter(ms);
+                    bw.Write((long)data.Length);
+
+                    byte[] newData = ms.ToArray();
+
+                    newData = newData.Concat(data).ToArray();
+
+                    player.Connection.Send(newData);
                     return;
                 }
                 throw new Exception($"Cannot find player {redirectTarget}");
@@ -65,6 +74,7 @@ namespace EoE.Server.Network
         {
             MemoryStream ms = new MemoryStream();
             BinaryWriter bw = new BinaryWriter(ms);
+            bw.Write(0L);
             bw.Write(false);
             Type packetType = packet.GetType();
             string packetTypeString = packetType.FullName;
@@ -87,6 +97,10 @@ namespace EoE.Server.Network
                 return;
             }
             encoder.DynamicInvoke(packet, bw);
+
+            long length = ms.Position - 8;
+            bw.Seek(0, SeekOrigin.Begin);
+            bw.Write(length);
 
             byte[] data = ms.ToArray();
 

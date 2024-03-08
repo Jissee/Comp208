@@ -100,7 +100,14 @@ namespace EoE.Server
                     {
                         if (player.Connection.Available > 0)
                         {
-                            byte[] buf = new byte[player.Connection.Available];
+                            byte[] lengthBuf = new byte[8];
+
+                            player.Connection.Receive(lengthBuf);
+                            MemoryStream msLen = new MemoryStream(lengthBuf);
+                            BinaryReader br = new BinaryReader(msLen);
+                            long length = br.ReadInt64();
+
+                            byte[] buf = new byte[length];
                             int i = player.Connection.Receive(buf);
                             //Console.WriteLine(i);
                             PacketContext context = new PacketContext(NetworkDirection.Client2Server, player, this);

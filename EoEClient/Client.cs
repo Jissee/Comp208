@@ -5,6 +5,7 @@ using EoE.Server.Network;
 using EoE.Server.Network.Packets;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -16,14 +17,14 @@ namespace EoE.Client
 {
     internal class Client : IClient
     {
-        public Socket Socket { get; private set; }
+        public Socket Connection { get; private set; }
         public string PlayerName { get; }
         private List<RemotePlayer> remotePlayers = new List<RemotePlayer>();
         private bool isRunning;
         public PacketHandler Handler { get; }
         public Client(string playerName) 
         {
-            Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Handler = new ClientPacketHandler(this);
             PlayerName = playerName;
         }
@@ -33,7 +34,7 @@ namespace EoE.Client
             {
                 try
                 {
-                    Socket.Connect(host, port);
+                    Connection.Connect(host, port);
                 }catch (SocketException ex)
                 {
                     MsgBox(ex.ToString());
@@ -50,9 +51,9 @@ namespace EoE.Client
         {
             lock (this)
             {
-                Socket.Close();
+                Connection.Close();
                 isRunning = false;
-                Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             }
         }
 
@@ -60,7 +61,7 @@ namespace EoE.Client
         {
             lock (this)
             {
-                Socket?.Close();
+                Connection?.Close();
                 isRunning = false;
             }
         }
@@ -71,12 +72,20 @@ namespace EoE.Client
             {
                 lock(this)
                 {
-                    if (Socket.Connected)
+                    if (Connection.Connected)
                     {
-                        if (Socket.Available > 0)
+                        if (Connection.Available > 0)
                         {
-                            byte[] buf = new byte[Socket.Available];
-                            int i = Socket.Receive(buf);
+                            byte[] lengthBuf = new byte[8];
+
+                            Connection.Receive(lengthBuf);
+                            MemoryStream msLen = new MemoryStream(lengthBuf);
+                            BinaryReader br = new BinaryReader(msLen);
+                            long length = br.ReadInt64();
+
+
+                            byte[] buf = new byte[length];
+                            int i = Connection.Receive(buf);
                             Console.WriteLine(i);
                             PacketContext context = new PacketContext(NetworkDirection.Server2Client, null, this);
                             Handler.ReceivePacket(buf, context);
@@ -91,7 +100,7 @@ namespace EoE.Client
         {
             lock(this)
             {
-                Handler.SendPacket(packet, this.Socket, null);
+                Handler.SendPacket(packet, this.Connection, null);
             }
         }
 

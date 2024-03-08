@@ -18,8 +18,9 @@ namespace EoE.Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Client client = new Client("Alice");
-        private Client client1 = new Client("Bob");
+        private int X = 0;
+        private Client clientAlice = new Client("Alice");
+        private Client clientBob = new Client("Bob");
         public MainWindow()
         {
             InitializeComponent();
@@ -27,32 +28,31 @@ namespace EoE.Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            client.Connect("127.0.0.1", 25566);
+            clientAlice.Connect("127.0.0.1", 25566);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            client.Disconnect();
+            clientAlice.Disconnect();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            client1.Disconnect();
+            clientBob.Disconnect();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            client1.Connect("127.0.0.1", 25566);
+            clientBob.Connect("127.0.0.1", 25566);
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            //client.SendPacket(new NewPacket(1, 1.111));
             //Alice send to bob
-            RemotePlayer? plr = client.GetRemotePlayer("Bob");
+            RemotePlayer? plr = clientAlice.GetRemotePlayer("Bob");
             if(plr != null)
             {
-                plr.SendPacket(new NewPacket(10,1.12));
+                plr.SendPacket(new NewPacket(X++, 1.12));
             }
         }
     }
