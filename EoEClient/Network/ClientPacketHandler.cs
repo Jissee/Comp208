@@ -29,7 +29,7 @@ namespace EoE.Client.Network
             {
                 string sender = br.ReadString();
                 RemotePlayer remote = client.GetRemotePlayer(sender);
-                PacketContext newContext = new PacketContext(context.NetworkDirection, remote, context.Receiver);
+                PacketContext newContext = new PacketContext(NetworkDirection.Client2Client, remote, context.Receiver);
                 context = newContext;
                 string redirectTarget = br.ReadString();
                 if(redirectTarget != client.PlayerName)
