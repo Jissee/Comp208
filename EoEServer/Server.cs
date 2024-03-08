@@ -64,7 +64,7 @@ namespace EoE.Server
                 }
                 lock (Clients)
                 {
-                    Clients.Add(new ServerPlayer(cl));
+                    Clients.Add(new ServerPlayer(cl, this));
                 }
                 
             }
@@ -77,12 +77,12 @@ namespace EoE.Server
                 {
                     for(int i = 0; i < Clients.Count; i++)
                     {
-                        ServerPlayer c = (ServerPlayer)Clients[i];
-                        bool b = socConnected(c.Connection);
+                        ServerPlayer player = (ServerPlayer)Clients[i];
+                        bool b = player.IsConnected;
                         if (!b)
                         {
-                            Console.WriteLine(c + $" disconnected, name: {c.PlayerName}");
-                            Clients.Remove(c);
+                            Console.WriteLine(player + $" disconnected, name: {player.PlayerName}");
+                            Clients.Remove(player);
                         }
                         
                     }
@@ -98,10 +98,10 @@ namespace EoE.Server
                 {
                     foreach (ServerPlayer player in Clients)
                     {
-                        if (player.Connection.Available > 0)
+                        int available = player.AvailableData();
+                        if (available > 0)
                         {
-                            byte[] buf = new byte[player.Connection.Available];
-                            int i = player.Connection.Receive(buf);
+                            byte[] buf = player.GetPacketBuf();
                             //Console.WriteLine(i);
                             PacketContext context = new PacketContext(NetworkDirection.Client2Server, player, this);
                             handler.ReceivePacket(buf, context);
@@ -117,9 +117,10 @@ namespace EoE.Server
             {
                 foreach(ServerPlayer player in Clients)
                 {
-                    if(player.PlayerName == playerName && player.Connection.Connected)
+                    if(player.PlayerName == playerName && player.IsConnected)
                     {
-                        handler.SendPacket(packet, player.Connection);
+                        byte[] data = handler.PreparePacket(packet);
+                        player.SendPacketRaw(data);
                     }
                 }
             }
@@ -127,20 +128,7 @@ namespace EoE.Server
         }
         public void SendPacket<T>(T packet, IPlayer player) where T : IPacket<T>
         {
-            lock (Clients)
-            {
-                foreach (ServerPlayer player1 in Clients)
-                {
-                    if (player1.PlayerName == player.PlayerName && player1.Connection.Connected)
-                    {
-                        handler.SendPacket(packet, player.Connection);
-                    }
-                }
-            }
-        }
-        private static bool socConnected(Socket s)
-        {
-            return !((s.Poll(1000, SelectMode.SelectRead) && (s.Available == 0)) || !s.Connected);
+            SendPacket(packet, player.PlayerName);
         }
 
         public void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>
