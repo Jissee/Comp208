@@ -18,12 +18,13 @@ namespace EoE.Client
     {
         public Socket Socket { get; private set; }
         public string PlayerName { get; }
+        private List<RemotePlayer> remotePlayers = new List<RemotePlayer>();
         private bool isRunning;
-        private ClientPacketHandler handler;
+        public PacketHandler Handler { get; }
         public Client(string playerName) 
         {
             Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            handler = new ClientPacketHandler(this);
+            Handler = new ClientPacketHandler(this);
             PlayerName = playerName;
         }
         public void Connect(string host, int port)
@@ -43,7 +44,7 @@ namespace EoE.Client
                 isRunning = true;
                 Task.Run(MessageLoop);
             }
-            SendPacket(new ClientLoginPacket(PlayerName));
+            SendPacket(new PlayerLoginPacket(PlayerName));
         }
         public void Disconnect()
         {
@@ -78,7 +79,7 @@ namespace EoE.Client
                             int i = Socket.Receive(buf);
                             Console.WriteLine(i);
                             PacketContext context = new PacketContext(NetworkDirection.Server2Client, null, this);
-                            handler.ReceivePacket(buf, context);
+                            Handler.ReceivePacket(buf, context);
 
                         }
                     }
@@ -90,13 +91,60 @@ namespace EoE.Client
         {
             lock(this)
             {
-                handler.SendPacket(packet);
+                Handler.SendPacket(packet, this.Socket, null);
             }
         }
 
         public void MsgBox(string msg)
         {
             MessageBox.Show(msg);
+        }
+
+        public void AddRemotePlayer(string playerName)
+        {
+            lock(remotePlayers)
+            {
+                foreach(RemotePlayer remotePlayer in remotePlayers)
+                {
+                    if(remotePlayer.PlayerName == playerName)
+                    {
+                        return;
+                    }
+                }
+                remotePlayers.Add(new RemotePlayer(playerName, this));
+            }
+
+        }
+
+        public void RemoveRemotePlayer(string playerName)
+        {
+            lock (remotePlayers)
+            {
+                for(int i = 0; i < remotePlayers.Count; i++)
+                {
+                    if (remotePlayers[i].PlayerName == playerName)
+                    {
+                        remotePlayers.RemoveAt(i);
+                        return;
+                    }
+                }
+            }
+        }
+        public RemotePlayer? GetRemotePlayer(string playerName)
+        {
+            RemotePlayer remotePlayer = null;
+            lock(remotePlayers)
+            {
+                foreach(RemotePlayer player in remotePlayers)
+                {
+                    if(player.PlayerName == playerName)
+                    {
+                        remotePlayer = player;
+                        break;
+                    }
+                }
+            }
+            return remotePlayer;
         }
     }
 }

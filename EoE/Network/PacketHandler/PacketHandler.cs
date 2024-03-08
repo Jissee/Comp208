@@ -20,7 +20,8 @@ namespace EoE.Network
         static PacketHandler()
         {
             packetTypes = new Dictionary<string, Type>();
-            Register<ClientLoginPacket>();
+            Register<PlayerLoginPacket>();
+            Register<RemotePlayerSyncPacket>();
             Register<NewPacket>();
         }
 
@@ -49,7 +50,7 @@ namespace EoE.Network
         /// 把数据包对象编码成二进制数据，然后从网络发送数据
         /// </summary>
         /// <param name="packet"></param>
-        public abstract void SendPacket<T>(T packet, Socket connection) where T : IPacket<T>;
+        public abstract void SendPacket<T>(T packet, Socket connection, IPlayer redirectTarget) where T : IPacket<T>;
 
 
 

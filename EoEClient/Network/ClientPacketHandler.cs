@@ -24,6 +24,15 @@ namespace EoE.Client.Network
         {
             MemoryStream stream = new MemoryStream(data);
             BinaryReader br = new BinaryReader(stream);
+            bool isRedirected = br.ReadBoolean();
+            if (isRedirected)
+            {
+                string redirectTarget = br.ReadString();
+                if(redirectTarget != client.PlayerName)
+                {
+                    throw new Exception($"Illegal redirection, the packet of {redirectTarget} is received by {client.PlayerName}");
+                }
+            }
             string tp = br.ReadString();
 
             Type type = packetTypes[tp];
@@ -50,15 +59,21 @@ namespace EoE.Client.Network
             }
         }
 
-        public void SendPacket<T>(T packet) where T : IPacket<T>
+        public override void SendPacket<T>(T packet, Socket connection, IPlayer? redirectTarget)
         {
-            SendPacket(packet, client.Socket);
-        }
-
-        public override void SendPacket<T>(T packet, Socket connection)
-        {
+            
             MemoryStream ms = new MemoryStream();
             BinaryWriter bw = new BinaryWriter(ms);
+            if(redirectTarget is RemotePlayer remote)
+            {
+                bw.Write(true);
+                bw.Write(remote.PlayerName);
+            }
+            else
+            {
+                bw.Write(false);
+            }
+
             Type packetType = packet.GetType();
             string packetTypeString = packetType.FullName;
             if (packetTypeString == null)

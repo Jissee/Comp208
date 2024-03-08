@@ -16,18 +16,17 @@ namespace EoE.Server
     {
         public Socket ServerSocket { get; }
 
-        public List<IPlayer> Clients { get; }
+        public  List<IPlayer> Clients { get; }
 
-        private IPEndPoint address;
-        //private List<Socket> pendingClients;
+        private readonly IPEndPoint address;
         private bool isRunning;
-        private ServerPacketHandler handler;
+        public ServerPacketHandler PacketHandler { get; }
         public Server(string ip, int port) 
         {
             ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             address = new IPEndPoint(IPAddress.Parse(ip), port);
             Clients = new List<IPlayer>();
-            handler = new ServerPacketHandler(this);
+            PacketHandler = new ServerPacketHandler(this);
         }
 
         public void Start()
@@ -64,7 +63,7 @@ namespace EoE.Server
                 }
                 lock (Clients)
                 {
-                    Clients.Add(new ServerPlayer(cl));
+                    Clients.Add(new ServerPlayer(cl, this));
                 }
                 
             }
@@ -78,11 +77,12 @@ namespace EoE.Server
                     for(int i = 0; i < Clients.Count; i++)
                     {
                         ServerPlayer c = (ServerPlayer)Clients[i];
-                        bool b = socConnected(c.Connection);
+                        bool b = c.IsConnected;
                         if (!b)
                         {
-                            Console.WriteLine(c + $" disconnected, name: {c.PlayerName}");
+                            Console.WriteLine($"{c.PlayerName} logged out.");
                             Clients.Remove(c);
+                            Broadcast(new RemotePlayerSyncPacket(c.PlayerName, false), (player) => true);
                         }
                         
                     }
@@ -104,57 +104,34 @@ namespace EoE.Server
                             int i = player.Connection.Receive(buf);
                             //Console.WriteLine(i);
                             PacketContext context = new PacketContext(NetworkDirection.Client2Server, player, this);
-                            handler.ReceivePacket(buf, context);
+                            PacketHandler.ReceivePacket(buf, context);
                         }
                     }
                 }
             }
         }
 
-        public void SendPacket<T>(T packet, string playerName) where T : IPacket<T>
-        {
-            lock (Clients)
-            {
-                foreach(ServerPlayer player in Clients)
-                {
-                    if(player.PlayerName == playerName && player.Connection.Connected)
-                    {
-                        handler.SendPacket(packet, player.Connection);
-                    }
-                }
-            }
-
-        }
-        public void SendPacket<T>(T packet, IPlayer player) where T : IPacket<T>
-        {
-            lock (Clients)
-            {
-                foreach (ServerPlayer player1 in Clients)
-                {
-                    if (player1.PlayerName == player.PlayerName && player1.Connection.Connected)
-                    {
-                        handler.SendPacket(packet, player.Connection);
-                    }
-                }
-            }
-        }
-        private static bool socConnected(Socket s)
-        {
-            return !((s.Poll(1000, SelectMode.SelectRead) && (s.Available == 0)) || !s.Connected);
-        }
-
         public void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>
         {
-            lock (Clients)
+            foreach (ServerPlayer player in Clients)
             {
-                foreach (ServerPlayer player in Clients)
+                if (condition(player))
                 {
-                    if (condition(player))
-                    {
-                        SendPacket<T>(packet, player);
-                    }
+                    player.SendPacket(packet);
                 }
             }
+        }
+
+        public IPlayer? GetPlayer(string playerName)
+        {
+            foreach(ServerPlayer player in Clients)
+            {
+                if(player.PlayerName == playerName)
+                {
+                    return player;
+                }
+            }
+            return null;
         }
     }
 }
