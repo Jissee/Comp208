@@ -8,6 +8,9 @@ namespace EoE.Network
 {
     public interface IClient : INetworkEntity
     {
+        string PlayerName { get; }
         void MsgBox(string msg);
+        void AddRemotePlayer(string playerName);
+        void RemoveRemotePlayer(string playerName);
     }
 }

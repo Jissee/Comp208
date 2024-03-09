@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "zluW+vF87u2N9x3PVvl1sKOxYUqQwk/lcFh99hZp6BDYc5EVUAGTWh1yXxh5zPscDi9VrFF9y8fadjdYJA++cg==",
+=======
+  "dgSpecHash": "OG8QJeInlwANDmahXhi63d0qXRY1S/GhmJn9Lh0fUyOBJknyf1le+xZ2Etd5SptbgBVDhj5kB9OSwnOe8E7EYQ==",
+>>>>>>> 16b980a94e208ba5b519e9b474ca46e160de9384
   "success": true,
   "projectFilePath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
   "expectedPackageFiles": [],

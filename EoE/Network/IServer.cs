@@ -10,12 +10,12 @@ namespace EoE.Network
 {
     public interface IServer : INetworkEntity
     {
-        public Socket ServerSocket { get; }
-        public List<IPlayer> Clients { get; }
+        Socket ServerSocket { get; }
+        List<IPlayer> Clients { get; }
         void Start();
         void Stop();
-        void SendPacket<T>(T packet, string playerName) where T : IPacket<T>;
-        void SendPacket<T>(T packet, IPlayer player) where T : IPacket<T>;
         void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;
+        IPlayer? GetPlayer(string playerName);
+        
     }
 }

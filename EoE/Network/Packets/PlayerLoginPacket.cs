@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.Network.Packets
 {
-    public class ClientLoginPacket : IPacket<ClientLoginPacket>
+    public class PlayerLoginPacket : IPacket<PlayerLoginPacket>
     {
         private string playerName;
-        public ClientLoginPacket(string playerName)
+        public PlayerLoginPacket(string playerName)
         {
             this.playerName = playerName;
         }
-        public static ClientLoginPacket Decode(BinaryReader reader)
+        public static PlayerLoginPacket Decode(BinaryReader reader)
         {
-            return new ClientLoginPacket(reader.ReadString());
+            return new PlayerLoginPacket(reader.ReadString());
         }
 
-        public static void Encode(ClientLoginPacket obj, BinaryWriter writer)
+        public static void Encode(PlayerLoginPacket obj, BinaryWriter writer)
         {
             writer.Write(obj.playerName);
         }
@@ -39,16 +39,14 @@ namespace EoE.Server.Network.Packets
                         {
                             player.PlayerName = playerName;
                             Console.WriteLine($"{playerName} logged in");
-                            server.SendPacket(new ClientLoginPacket(playerName), player);
-                            server.Broadcast(new ClientLoginPacket(playerName), (player1) => player1 != player);
+                            foreach(IPlayer existPlayer in server.Clients)
+                            {
+                                player.SendPacket(new RemotePlayerSyncPacket(existPlayer.PlayerName, true));
+                            }
+                            server.Broadcast(new RemotePlayerSyncPacket(playerName, true), (player1) => player1.PlayerName != playerName);
                         }
                     }
                 }
-            }
-            else
-            {
-                IClient ne = (IClient)context.Receiver;
-                ne.MsgBox($"{playerName}, has logged in.");
             }
         }
     }

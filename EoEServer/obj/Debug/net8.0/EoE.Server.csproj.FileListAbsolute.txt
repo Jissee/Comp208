@@ -12,13 +12,13 @@ D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.GeneratedMSBuil
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfoInputs.cache
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfo.cs
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.CoreCompileInputs.cache
-D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.CopyComplete
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.dll
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.sourcelink.json
+<<<<<<< HEAD
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
@@ -40,3 +40,6 @@ C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\refi
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+=======
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
+>>>>>>> 16b980a94e208ba5b519e9b474ca46e160de9384

@@ -16,13 +16,13 @@ D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.Gene
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.AssemblyInfoInputs.cache
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.AssemblyInfo.cs
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.CoreCompileInputs.cache
-D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.CopyComplete
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.dll
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\refint\EoE.Client.dll
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.sourcelink.json
+<<<<<<< HEAD
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
@@ -48,3 +48,6 @@ C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-wind
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
+=======
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.Up2Date
+>>>>>>> 16b980a94e208ba5b519e9b474ca46e160de9384

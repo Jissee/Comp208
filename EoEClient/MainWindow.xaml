@@ -11,6 +11,9 @@
         <Button Content="Disconnect" HorizontalAlignment="Left" Height="65" Margin="594,217,0,0" VerticalAlignment="Top" Width="143" Click="Button_Click_1"/>
         <Button Content="Connect" HorizontalAlignment="Left" Height="65" Margin="238,318,0,0" VerticalAlignment="Top" Width="143" Click="Button_Click_3" />
         <Button Content="Disconnect" HorizontalAlignment="Left" Height="65" Margin="238,217,0,0" VerticalAlignment="Top" Width="143" Click="Button_Click_2" />
+        <Button Content="Bob send to Alice" HorizontalAlignment="Left" Height="92" Margin="424,84,0,0" VerticalAlignment="Top" Width="211" Click="Button_Click_4"/>
+        <Label Content="Bob" HorizontalAlignment="Left" Margin="268,176,0,0" VerticalAlignment="Top"/>
+        <Label Content="Alice" HorizontalAlignment="Left" Margin="666,176,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
