@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "2FC/yN8ETy1ec6kqYL71sfacaOpwNyy8Kje3Pe0XKS3tILzj2IJpKwW7mT5zE12abiG2uiQ9xctzaA/xeQvuWg==",
-=======
-  "dgSpecHash": "RKCcZGDResrDrFGwUsAH6cVP7dt5B59VJCg/00jmO2ulb3tmY7cPHcFMF1MNGm4T3Xwg+EMsasXG7x9sV84UMQ==",
->>>>>>> 16b980a94e208ba5b519e9b474ca46e160de9384
   "success": true,
   "projectFilePath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj",
   "expectedPackageFiles": [
@@ -22,5 +18,12 @@
     "C:\\Users\\32171\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\32171\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "读取缓存文件 C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoETest\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

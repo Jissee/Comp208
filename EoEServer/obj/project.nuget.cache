@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "F714ZJy8f7VSWwpRnC0TnUGXijiMOoQQh/FLL7SnPznmcb2aR3rCTWvlQbdKfrBv3k9IpdqyPo0qyBe8D8AvEA==",
-=======
-  "dgSpecHash": "GEBhw4uZPHH3v7F0CEa3ba3KRNZVBceohPjAMGQTyjfYlXj99ye42mPYVpX9HVLvx1rQOU30q6MhWzI9s6dAVg==",
->>>>>>> 16b980a94e208ba5b519e9b474ca46e160de9384
   "success": true,
   "projectFilePath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj",
   "expectedPackageFiles": [
@@ -12,5 +8,12 @@
     "C:\\Users\\32171\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\32171\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "读取缓存文件 C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
