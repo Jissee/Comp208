@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj": {}
+    "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {}
   },
   "projects": {
-    "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj": {
+    "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj",
+        "projectUniqueName": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj",
         "projectName": "EoE.Server",
-        "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj",
-        "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
-        "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\obj\\",
+        "projectPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj",
+        "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
-                "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj"
+              "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
+                "projectPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
               }
             }
           }
@@ -38,6 +42,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -65,21 +74,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
+    "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
+        "projectUniqueName": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
         "projectName": "EoE",
-        "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
-        "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
-        "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\obj\\",
+        "projectPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
+        "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -99,6 +112,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -120,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
