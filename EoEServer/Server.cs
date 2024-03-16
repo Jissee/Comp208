@@ -54,8 +54,9 @@ namespace EoE.Server
         public void ConnectionLoop()
         {
             while (isRunning)
-            {
+            {   // Accept one connection
                 Socket cl = ServerSocket.Accept();
+                // Extract the IP adress and Port num of client
                 EndPoint endp = cl.RemoteEndPoint;
                 if(endp is IPEndPoint iPEndPoint)
                 {
