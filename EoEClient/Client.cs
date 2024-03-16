@@ -106,7 +106,11 @@ namespace EoE.Client
 
         public void MsgBox(string msg)
         {
-            MessageBox.Show(msg);
+            Task.Run(() =>
+            {
+                MessageBox.Show(msg);
+            });
+            
         }
 
         public void AddRemotePlayer(string playerName)
