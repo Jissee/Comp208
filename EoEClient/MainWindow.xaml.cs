@@ -55,5 +55,6 @@ namespace EoE.Client
                 plr.SendPacket(new NewPacket(X++, 1.12));
             }
         }
+
     }
 }
