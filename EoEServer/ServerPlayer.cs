@@ -1,5 +1,6 @@
 ﻿using EoE.Network;
 using EoE.Network.Packets;
+using EoE.Server.GovernanceSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,8 @@ namespace EoE.Server
             } 
         }
         public bool IsAvailable => PlayerName != null;
-
+        public PlayerFieldList fieldList;
+        public PlayerResourceList resourceList;
         public ServerPlayer(Socket connection, Server server)
         {
             this.Connection = connection;
