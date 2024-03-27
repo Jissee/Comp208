@@ -8,8 +8,8 @@ namespace EoE.GovernanceSystem
         Copper,
         Iron,
         Aluminum,
-        ElectronicProduct,
-        IndustrialProduct,
+        Electronic,
+        Industrial,
 
         BattleArmy,
         InfomativeArmy,
