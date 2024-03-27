@@ -5,9 +5,7 @@
     "\\EoEClient\\Network",
     "\\EoEServer",
     "\\EoEServer\\GovernanceSystem",
-    "\\EoEServer\\Network",
-    "\\EoE\\Network",
-    "\\EoE\\Network\\Packets"
+    "\\EoEServer\\Network"
   ],
   "SelectedNode": "\\Comp208.sln",
   "PreviewInSolutionExplorer": false
