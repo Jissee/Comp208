@@ -1,11 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\EoE",
     "\\EoEClient",
     "\\EoEClient\\Network",
     "\\EoEServer",
     "\\EoEServer\\GovernanceSystem",
-    "\\EoEServer\\Network"
+    "\\EoEServer\\Network",
+    "\\EoE\\GovernanceSystem",
+    "\\EoE\\Network",
+    "\\EoE\\Network\\PacketHandler",
+    "\\EoE\\Network\\Packets"
   ],
   "SelectedNode": "\\Comp208.sln",
   "PreviewInSolutionExplorer": false

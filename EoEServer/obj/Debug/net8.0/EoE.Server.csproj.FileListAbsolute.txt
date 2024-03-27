@@ -19,3 +19,12 @@ C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\refi
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.AssemblyReference.cache
+C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfoInputs.cache
+C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfo.cs
+C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.CoreCompileInputs.cache
+C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.sourcelink.json
+C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.dll
+C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
+C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
