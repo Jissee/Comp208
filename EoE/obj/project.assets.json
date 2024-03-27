@@ -8,23 +8,23 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\32171\\.nuget\\packages\\": {},
-    "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ufowlc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
+      "projectUniqueName": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoE\\EoE.csproj",
       "projectName": "EoE",
-      "projectPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
-      "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\obj\\",
+      "projectPath": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoE\\EoE.csproj",
+      "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoE\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -33,6 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -74,13 +75,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "读取缓存文件 C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
