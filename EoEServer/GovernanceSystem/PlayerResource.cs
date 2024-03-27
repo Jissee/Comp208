@@ -15,7 +15,7 @@ namespace EoE.Server.GovernanceSystem
         private readonly int INIT_POPULATION = 18;// initial population
         private readonly int NORM_FIELD = 10;  // initial field contain
         private readonly int RICH_FIELD = 20; // initial rich field contain
-        private readonly int secNormRate = 2; // Secondary resource produce rate
+        private readonly int SecResProduceRate = 2; // Secondary resource produce rate
         private readonly int secRichRate = 4; // Secondary resource rich produce rate
 
 
@@ -28,10 +28,12 @@ namespace EoE.Server.GovernanceSystem
         private static float  popDecrease = 0.5F;
         private static int fieldMaxAllocation = 50;
 
-        private int [] resContain;
-        private int [] popAllocation;
-        private int [] secondaryResGenerateRate;
-       // private Dictionary<ResourcesType, int> secondaryResConsumeRate;//Synthetic consumption
+        private ResourceStack si;
+        private ResourceStack copper;
+        private ResourceStack iron;
+        private ResourceStack aluminum;
+
+        // private Dictionary<ResourcesType, int> secondaryResConsumeRate;//Synthetic consumption
         private int [] fieldsContain;
         public int AvailablePopulation { get; private set; }
  
@@ -72,18 +74,18 @@ namespace EoE.Server.GovernanceSystem
 
             if (flag)
             {
-                secondaryResGenerateRate.Add(GameResourceType.IndustrialProduct, secNormRate);
-                secondaryResGenerateRate.Add(GameResourceType.ElectronicProduct, secNormRate);
+                secondaryResGenerateRate.Add(GameResourceType.Industrial, SecResProduceRate);
+                secondaryResGenerateRate.Add(GameResourceType.Electronic, SecResProduceRate);
             }else
             {
                 if (rich == "Electronic Product")
                 {
-                    secondaryResGenerateRate.Add(GameResourceType.IndustrialProduct, secNormRate);
-                    secondaryResGenerateRate.Add(GameResourceType.ElectronicProduct, secRichRate);
+                    secondaryResGenerateRate.Add(GameResourceType.Industrial, SecResProduceRate);
+                    secondaryResGenerateRate.Add(GameResourceType.Electronic, secRichRate);
                 }else
                 {
-                    secondaryResGenerateRate.Add(GameResourceType.IndustrialProduct, secRichRate);
-                    secondaryResGenerateRate.Add(GameResourceType.ElectronicProduct, secNormRate);
+                    secondaryResGenerateRate.Add(GameResourceType.Industrial, secRichRate);
+                    secondaryResGenerateRate.Add(GameResourceType.Electronic, SecResProduceRate);
                 }
             }
 

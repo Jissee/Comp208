@@ -32,22 +32,21 @@ namespace EoE.Server.GovernanceSystem
         }
 
         /// <summary>
-        /// 
+        /// Add the adder to the target
         /// </summary>
         /// <param name="target"></param>
         /// <param name="adder"></param>
-        /// <returns></returns>
+        /// <returns>return target</returns>
         /// <exception cref="Exception"></exception>
-        public static FieldStack operator +(FieldStack target, FieldStack adder)
+        public void Add(FieldStack adder)
         {
-            if (target.Type != adder.Type)
+            if (this.Type != adder.Type)
             {
                 throw new Exception("Wrong resource type!");
             }
             else
             {
-                target.Count += adder.Count;
-                return target;
+                this.Count += adder.Count;
             }
         }
     }
