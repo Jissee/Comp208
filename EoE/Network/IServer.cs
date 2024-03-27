@@ -16,6 +16,7 @@ namespace EoE.Network
         void Stop();
         void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;
         IPlayer? GetPlayer(string playerName);
+        void CheckPlayerTickStatus();
         
     }
 }

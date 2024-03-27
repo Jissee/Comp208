@@ -32,22 +32,22 @@ namespace EoE.Server.GovernanceSystem
             switch (type)
             {
                 case GameResourceType.Silicon:
-                    countrySilicon.Add(adder);
+                    countryFieldSilicon.Add(adder);
                     break;
                 case GameResourceType.Copper:
-                    countryCopper.Add(adder);
+                    countryFieldCopper.Add(adder);
                     break;
                 case GameResourceType.Iron:
-                    countryIron.Add(adder);
+                    countryFieldIron.Add(adder);
                     break;
                 case GameResourceType.Aluminum:
-                    countryAluminum.Add(adder);
+                    countryFieldAluminum.Add(adder);
                     break;
                 case GameResourceType.Electronic:
-                    countryElectronic.Add(adder);
+                    countryFieldElectronic.Add(adder);
                     break;
                 case GameResourceType.Industrial:
-                    countryIndustry.Add(adder);
+                    countryFieldIndustry.Add(adder);
                     break;
                 default:
                     throw new Exception("no such type");
