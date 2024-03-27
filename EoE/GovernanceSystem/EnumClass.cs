@@ -2,21 +2,21 @@
 
 namespace EoE.GovernanceSystem
 {
-    public enum ResourcesType
+    public enum GameResourceType
     {
         Silicon,
         Copper,
         Iron,
         Aluminum,
         ElectronicProduct,
-        IndustrialProduct
+        IndustrialProduct,
+
+        BattleArmy,
+        InfomativeArmy,
+        MechanismArmy,
+
+
+
     }
 
-    public enum FieldsType
-    {
-        Silicon,
-        Copper,
-        Iron,
-        Aluminum,
-    }
 }
