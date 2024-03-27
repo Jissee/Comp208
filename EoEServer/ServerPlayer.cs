@@ -43,6 +43,8 @@ namespace EoE.Server
 
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
 
+        public bool FinishedTick { get; set; }
+
         public void SendPacket<T>(T packet) where T : IPacket<T>
         {
             if (IsConnected)

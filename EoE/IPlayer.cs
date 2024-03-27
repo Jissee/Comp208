@@ -14,5 +14,6 @@ namespace EoE
         string PlayerName { get; set; }
         bool IsConnected { get; }
         void SendPacket<T>(T packet) where T : IPacket<T>;
+        bool FinishedTick { get; set; }
     }
 }

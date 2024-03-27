@@ -6,7 +6,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EoE.Server.GovernanceSystem
+namespace EoE.GovernanceSystem
 {
     public class ResourceStack
     {
