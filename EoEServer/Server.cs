@@ -3,6 +3,7 @@ using EoE.Network.Packets;
 using EoE.Server.Network;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server
 {
-    public class Server : IServer
+    public class Server : IServer, ITickable
     {
         public Socket ServerSocket { get; }
 
@@ -140,6 +141,29 @@ namespace EoE.Server
                 }
             }
             return null;
+        }
+
+        public void Tick()
+        {
+            
+
+        }
+
+        public void CheckPlayerTickStatus()
+        {
+            bool allFinished = true;
+            foreach (var item in Clients)
+            {
+                if (!item.FinishedTick)
+                {
+                    allFinished = false;
+                }
+            }
+
+            if (allFinished)
+            {
+                this.Tick();
+            }
         }
     }
 }

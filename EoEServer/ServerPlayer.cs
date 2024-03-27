@@ -1,5 +1,6 @@
 ﻿using EoE.Network;
 using EoE.Network.Packets;
+using EoE.Server.GovernanceSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,8 @@ namespace EoE.Server
             } 
         }
         public bool IsAvailable => PlayerName != null;
-
+        public PlayerFieldList fieldList;
+        public PlayerResourceList resourceList;
         public ServerPlayer(Socket connection, Server server)
         {
             this.Connection = connection;
@@ -40,6 +42,8 @@ namespace EoE.Server
         }
 
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
+
+        public bool FinishedTick { get; set; }
 
         public void SendPacket<T>(T packet) where T : IPacket<T>
         {

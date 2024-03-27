@@ -11,12 +11,12 @@ namespace EoE.Server.GovernanceSystem
 {
     public class PlayerResource : ITickable
     {
-        private const int inilRes = 100; // initial resources contain
-        private const int inilPupolation = 18;// initial population
-        private const int normField = 10;  // initial field contain
-        private const int richField = 20; // initial rich field contain
-        private const int secNormRate = 2; // Secondary resource produce rate
-        private const int secRichRate = 4; // Secondary resource rich produce rate
+        private readonly int INIT_RESOURCE = 100; // initial resources contain
+        private readonly int INIT_POPULATION = 18;// initial population
+        private readonly int NORM_FIELD = 10;  // initial field contain
+        private readonly int RICH_FIELD = 20; // initial rich field contain
+        private readonly int SecResProduceRate = 2; // Secondary resource produce rate
+        private readonly int secRichRate = 4; // Secondary resource rich produce rate
 
 
 
@@ -28,72 +28,64 @@ namespace EoE.Server.GovernanceSystem
         private static float  popDecrease = 0.5F;
         private static int fieldMaxAllocation = 50;
 
-        private Dictionary<ResourcesType, int> resContain;
-        private Dictionary<ResourcesType, int> popAllocation;
-        private Dictionary<ResourcesType, int> secondaryResGenerateRate;
-       // private Dictionary<ResourcesType, int> secondaryResConsumeRate;//Synthetic consumption
-        private Dictionary<FieldsType, int> fieldContain;
-        public int Population { get; private set; }
- 
-        
+        private ResourceStack si;
+        private ResourceStack copper;
+        private ResourceStack iron;
+        private ResourceStack aluminum;
 
-        public PlayerResource(ResourcesType RichRes)
+        // private Dictionary<ResourcesType, int> secondaryResConsumeRate;//Synthetic consumption
+        private int [] fieldsContain;
+        public int AvailablePopulation { get; private set; }
+ 
+        public PlayerResource(GameResourceType RichRes)
         {
             bool flag = false;
-            Population = inilPupolation;
+            AvailablePopulation = INIT_POPULATION;
 
             // initialize resource contain 
-            resContain = new Dictionary<ResourcesType, int>();
-            foreach (ResourcesType res in Enum.GetValues(typeof(ResourcesType)))
+            resContain = new int [6];
+            for (int i = 0; i < resContain.Length; i++)
             {
-                resContain.Add(res, inilRes);
+                resContain[i] = INIT_RESOURCE;
             }
 
             // initialize population allocation 
-            popAllocation = new Dictionary<ResourcesType, int>();
-            foreach (ResourcesType res in Enum.GetValues(typeof(ResourcesType)))
+            popAllocation = new int[6];
+            for (int i = 0; i < popAllocation.Length; i++)
             {
-                popAllocation.Add(res, 0);
+                popAllocation[i] = 0;
             }
 
             // initialize field contian
-            fieldContain = new Dictionary<FieldsType, int>();
+            fieldsContain = new int[6];
             // get string type rich resource
-            String rich =  RichRes.ToString();
+            int rich =  (int)RichRes;
 
-            foreach (FieldsType field in Enum.GetValues(typeof(FieldsType)))
-            { 
-                String thisField = field.ToString();
-
-                if (rich == thisField)
+            for (int i = 0; i < fieldsContain.Length; i++)
+            {
+                if (i == rich)
                 {
-                    fieldContain.Add(field, richField);
-                    flag = true;
+                    fieldsContain[i] = RICH_FIELD;
                 }
-                else
-                {
-                    fieldContain.Add(field, normField);
-                }
-                
             }
 
             //initialize secondary product synthetic ratio
-            secondaryResGenerateRate = new Dictionary<ResourcesType, int>();
+            secondaryResGenerateRate = new Dictionary<GameResourceType, int>();
 
             if (flag)
             {
-                secondaryResGenerateRate.Add(ResourcesType.IndustrialProduct, secNormRate);
-                secondaryResGenerateRate.Add(ResourcesType.ElectronicProduct, secNormRate);
+                secondaryResGenerateRate.Add(GameResourceType.Industrial, SecResProduceRate);
+                secondaryResGenerateRate.Add(GameResourceType.Electronic, SecResProduceRate);
             }else
             {
                 if (rich == "Electronic Product")
                 {
-                    secondaryResGenerateRate.Add(ResourcesType.IndustrialProduct, secNormRate);
-                    secondaryResGenerateRate.Add(ResourcesType.ElectronicProduct, secRichRate);
+                    secondaryResGenerateRate.Add(GameResourceType.Industrial, SecResProduceRate);
+                    secondaryResGenerateRate.Add(GameResourceType.Electronic, secRichRate);
                 }else
                 {
-                    secondaryResGenerateRate.Add(ResourcesType.IndustrialProduct, secRichRate);
-                    secondaryResGenerateRate.Add(ResourcesType.ElectronicProduct, secNormRate);
+                    secondaryResGenerateRate.Add(GameResourceType.Industrial, secRichRate);
+                    secondaryResGenerateRate.Add(GameResourceType.Electronic, SecResProduceRate);
                 }
             }
 
@@ -104,7 +96,7 @@ namespace EoE.Server.GovernanceSystem
         /// </summary>
         /// <param name="resources">The name of the resource</param>
         /// <returns>The holding </returns>
-        public int GetResContain(ResourcesType resources)
+        public int GetResContain(GameResourceType resources)
         {
             return resContain [resources];
         }
@@ -112,45 +104,45 @@ namespace EoE.Server.GovernanceSystem
         /// <summary>
         /// Get all resourcce contain
         /// </summary>
-        /// <param name="all">Should be "ALL"</param>
         /// <returns>Dictionary <ResourcesType, int>, all resource and contain</returns>
-        public bool GetResContain(string all, out Dictionary<ResourcesType, int> result) 
+        public Dictionary<GameResourceType, int> GetResContain() 
         {
-            if (all =="ALL")
-            {
-                result = resContain;
-                return true;
-            }
-            else
-            {
-                result = new Dictionary<ResourcesType, int>();
-                return false;
-            }
+              return resContain;
         }
 
         /// <summary>
         /// Get population allocation
         /// </summary>
-        /// <param name="all">Should be "ALL"</param>
         /// <returns>Dictionary <ResourcesType, int>, all resource and population allocated</returns>
-        public bool GetpPopAllocation(string all, out Dictionary<ResourcesType, int> result)
+        public Dictionary<GameResourceType, int> GetpPopAllocation()
         {
-            if (all == "ALL")
-            {
-                result = popAllocation;
-                return true;
-            }
-            else
-            {
-                result = new Dictionary<ResourcesType, int>();
-                return false;
-            }
+            return popAllocation;
         }
 
-        public bool SetPopAllocation(Dictionary<ResourcesType, int> newAllocation)
+        /// <summary>
+        ///Get total population
+        /// </summary>
+        /// <returns>A int represent total population</returns>
+        public int GetTotalAllocation()
+        {
+            int totalPopulation = 0;
+            foreach (GameResourceType res in Enum.GetValues(typeof(GameResourceType)))
+            {
+                totalPopulation += popAllocation[res];
+            }
+            return totalPopulation;
+
+        }
+
+        /// <summary>
+        /// Set population allocation
+        /// </summary>
+        /// <param name="newAllocaation"> input a dictionary represent new population allocation <parameter>
+        /// <returns>A boolean indicate allocation successed or failed</returns>
+        public bool SetPopAllocation(Dictionary<GameResourceType, int> newAllocation)
         {
             int count = 0;
-            foreach (ResourcesType res in Enum.GetValues(typeof(ResourcesType)))
+            foreach (GameResourceType res in Enum.GetValues(typeof(GameResourceType)))
             {
                 if (newAllocation[res] < 0 )
                 {
@@ -164,7 +156,7 @@ namespace EoE.Server.GovernanceSystem
                 return false;
             }else
             {
-                foreach (ResourcesType res in Enum.GetValues(typeof(ResourcesType)))
+                foreach (GameResourceType res in Enum.GetValues(typeof(GameResourceType)))
                 {
                     popAllocation[res] = newAllocation[res];
                 }
@@ -179,12 +171,15 @@ namespace EoE.Server.GovernanceSystem
             int[] totalOutPut = new int[6];
             int consume = Population * resConsumeRate;
 
+           
+
             primaryOutPut = ProducePrimaryResources();
+
             totalOutPut = ProduceSecondaryResources(primaryOutPut);
 
             for (int j =0; j < 5; j++)
             {
-                resContain[(ResourcesType)j] += totalOutPut[j];
+                resContain[(GameResourceType)j] += totalOutPut[j];
             }
 
             bool rich = true;
@@ -195,10 +190,10 @@ namespace EoE.Server.GovernanceSystem
             // produce more than synthetic consumption
             if (totalOutPut[6] == -2)
             {
-                foreach (FieldsType field in Enum.GetValues(typeof(FieldsType)))
+                foreach (GameResourceType field in Enum.GetValues(typeof(GameResourceType)))
                 {
-                    ResourcesType res;
-                    bool success = Enum.TryParse<ResourcesType>(field.ToString(), out res);
+                    GameResourceType res;
+                    bool success = Enum.TryParse<GameResourceType>(field.ToString(), out res);
                     int turnSurplus = totalOutPut[i] - consume;
                     int resourceSurplus = resContain[res] + turnSurplus;
     
@@ -234,10 +229,10 @@ namespace EoE.Server.GovernanceSystem
             else if (totalOutPut[6] <= 2)
             {
                 
-                foreach (FieldsType field in Enum.GetValues(typeof(FieldsType)))
+                foreach (GameResourceType field in Enum.GetValues(typeof(GameResourceType)))
                 {
-                    ResourcesType res;
-                    bool success = Enum.TryParse<ResourcesType>(field.ToString(), out res);
+                    GameResourceType res;
+                    bool success = Enum.TryParse<GameResourceType>(field.ToString(), out res);
                     int resourceSurplus = resContain[res] + totalOutPut[i] - consume;
 
                     if (success)
@@ -263,10 +258,10 @@ namespace EoE.Server.GovernanceSystem
             }
             else if (totalOutPut[6] <= 6)
             {
-                foreach (FieldsType field in Enum.GetValues(typeof(FieldsType)))
+                foreach (GameResourceType field in Enum.GetValues(typeof(GameResourceType)))
                 {
-                    ResourcesType res;
-                    bool success = Enum.TryParse<ResourcesType>(field.ToString(), out res);
+                    GameResourceType res;
+                    bool success = Enum.TryParse<GameResourceType>(field.ToString(), out res);
                     int resourceSurplus = resContain[res] + totalOutPut[i] - consume;
 
                     if (success)
@@ -311,15 +306,15 @@ namespace EoE.Server.GovernanceSystem
             int workers = 0;
             int[] outPut = new int [4];
             int i = 0;
-            foreach (FieldsType field in Enum.GetValues(typeof(FieldsType)))
+            foreach (GameResourceType field in Enum.GetValues(typeof(GameResourceType)))
             {
                 String thisField = field.ToString();
-                bool flag = Enum.TryParse<ResourcesType>(thisField, out ResourcesType result);
+                bool flag = Enum.TryParse<GameResourceType>(thisField, out GameResourceType result);
                 if (flag)
                 {
                     workers = popAllocation[result];
                     // Check if allocate more than max
-                    int maxAllocation = fieldMaxAllocation * fieldContain[field];
+                    int maxAllocation = fieldMaxAllocation * fieldsContain[field];
                     if (workers < maxAllocation)
                     {
                         outPut[i] = workers * resProductRate;
@@ -359,7 +354,7 @@ namespace EoE.Server.GovernanceSystem
             int j = 0;
             for (int i = 3; i < 4; i++)
             {
-                ResourcesType thisResource = (ResourcesType)i;
+                GameResourceType thisResource = (GameResourceType)i;
                 workers = popAllocation[thisResource];
                 expectedOutPut = workers * secondaryResGenerateRate[thisResource];
                 expectedConsume = expectedOutPut * secondaryResConsumeRate;
@@ -370,7 +365,7 @@ namespace EoE.Server.GovernanceSystem
                     outPut[j+1] -= expectedConsume;
                     cases -= 1;
                 }
-                else if (resContain[(ResourcesType)j] + outPut[j] >= expectedConsume && resContain[(ResourcesType)(j+1)] + outPut[j+1] >= expectedConsume)
+                else if (resContain[(GameResourceType)j] + outPut[j] >= expectedConsume && resContain[(GameResourceType)(j+1)] + outPut[j+1] >= expectedConsume)
                 {
                     outPut[j] -= expectedConsume;
                     outPut[j + 1] -= expectedConsume;
@@ -379,7 +374,7 @@ namespace EoE.Server.GovernanceSystem
                 else
                 {
                     // check which synthetic raw material is lesser, base on this calculate actualOutPut
-                    actualConsume = (int) MathF.Min((resContain[(ResourcesType)j] + outPut[j]), (resContain[(ResourcesType)(j + 1)] + outPut[j + 1] )) / secondaryResConsumeRate * secondaryResConsumeRate;
+                    actualConsume = (int) MathF.Min((resContain[(GameResourceType)j] + outPut[j]), (resContain[(GameResourceType)(j + 1)] + outPut[j + 1] )) / secondaryResConsumeRate * secondaryResConsumeRate;
                     outPut[j] -= actualConsume;
                     outPut[j+1] -= actualConsume;
 
@@ -411,7 +406,6 @@ namespace EoE.Server.GovernanceSystem
         public void Tick()
         {
             UpdateResources();
-            PopulationExponentialGrowth();
         }
     }
    

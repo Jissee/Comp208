@@ -23,6 +23,7 @@ namespace EoE.Network
             Register<PlayerLoginPacket>();
             Register<RemotePlayerSyncPacket>();
             Register<NewPacket>();
+            Register<ResurceUpdatePacket>();
         }
 
         public static void Register<T>() where T : IPacket<T>

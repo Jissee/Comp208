@@ -12,6 +12,7 @@ namespace EoE.Server.Network.Packets
     public class PlayerLoginPacket : IPacket<PlayerLoginPacket>
     {
         private string playerName;
+
         public PlayerLoginPacket(string playerName)
         {
             this.playerName = playerName;
