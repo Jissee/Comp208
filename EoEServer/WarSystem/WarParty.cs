@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Server.GovernanceSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +9,15 @@ namespace EoE.Server.WarSystem
 {
     public class WarParty
     {
-        private ServerPlayer[] players = new ServerPlayer[5];
-        public int Count { get; private set; }
+        private Dictionary<ServerPlayer,Army> armies;
+        public int WarWidth => 60 / Count;
+        public int Count => armies.Count;
 
         public void AddPlayer(ServerPlayer player)
         {
-            players[Count++] = player;
-        }
-        public ServerPlayer this[int index]
-        {
-            get { return players[index]; }
+            Army army = new Army(this);
+            player.addArmy(army);
+            armies.Add(player, army);
         }
     }
 }
