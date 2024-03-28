@@ -6,15 +6,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.WarSystem
 {
-    internal class tmp111
+    internal class TEMP
     {
-<<<<<<< HEAD
-        public void func2()
-=======
-        public void func1()
->>>>>>> func1
-        {
-
-        }
     }
 }
