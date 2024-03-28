@@ -8,5 +8,9 @@ namespace EoE.Server.WarSystem
 {
     internal class tmp111
     {
+        public void func2()
+        {
+
+        }
     }
 }
