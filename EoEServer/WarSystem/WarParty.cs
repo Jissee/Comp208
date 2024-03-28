@@ -16,7 +16,7 @@ namespace EoE.Server.WarSystem
         public void AddPlayer(ServerPlayer player)
         {
             Army army = new Army(this);
-            player.addArmy(army);
+            player.AddArmy(army);
             armies.Add(player, army);
         }
     }

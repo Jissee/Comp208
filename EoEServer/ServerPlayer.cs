@@ -1,6 +1,8 @@
-﻿using EoE.Network;
+﻿using EoE.GovernanceSystem;
+using EoE.Network;
 using EoE.Network.Packets;
 using EoE.Server.GovernanceSystem;
+using EoE.Server.WarSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,11 @@ namespace EoE.Server
         public Socket Connection { get; }
         public Server Server { get; }
         private string name;
+        private Army army;
+        public void AddArmy(Army army)
+        {
+            this.army = army;
+        }
         public string PlayerName { 
             get 
             {
@@ -56,6 +63,22 @@ namespace EoE.Server
                 }
             }
 
+        }
+
+        public void FillFrontier(int battle, int informative, int mechanism)
+        {
+            if (resourceList.GetResourceCount(GameResourceType.BattleArmy) < battle)
+            {
+                // TODO:check
+            }
+            if (resourceList.GetResourceCount(GameResourceType.InfomativeArmy) < informative)
+            {
+                // TODO:
+            }
+            if (resourceList.GetResourceCount(GameResourceType.MechanismArmy) < mechanism)
+            {
+                // TODO:
+            }
         }
     }
 }
