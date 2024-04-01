@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj": {}
+    "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj": {
+    "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
+        "projectUniqueName": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj",
         "projectName": "EoE.Server",
-        "projectPath": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
-        "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoEServer\\obj\\",
+        "projectPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj",
+        "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
-                "projectPath": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
+              "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
+                "projectPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
               }
             }
           }
@@ -79,20 +78,20 @@
         }
       }
     },
-    "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
+    "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoE\\EoE.csproj",
+        "projectUniqueName": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
         "projectName": "EoE",
-        "projectPath": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoE\\EoE.csproj",
-        "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoE\\obj\\",
+        "projectPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
+        "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -101,7 +100,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

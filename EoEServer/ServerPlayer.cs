@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server
 {
-    public class ServerPlayer : IPlayer
+    public class ServerPlayer : IPlayer, ITickable
     {
         public Socket Connection { get; }
         public Server Server { get; }
@@ -56,6 +56,11 @@ namespace EoE.Server
                 }
             }
 
+        }
+
+        public void Tick()
+        {
+            throw new NotImplementedException();
         }
     }
 }

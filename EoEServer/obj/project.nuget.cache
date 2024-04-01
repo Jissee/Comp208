@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NIbyoo/lM870u/PlAkZbnaYyEUdqSwjygJgCoOuzaI4wTTY/noKWYPCeNOReYJGziMedaqsque2ioHKbcTy5pw==",
+  "dgSpecHash": "F714ZJy8f7VSWwpRnC0TnUGXijiMOoQQh/FLL7SnPznmcb2aR3rCTWvlQbdKfrBv3k9IpdqyPo0qyBe8D8AvEA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ufowlc\\Source\\Repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
+  "projectFilePath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ufowlc\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+    "C:\\Users\\32171\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",
+    "C:\\Users\\32171\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
+    "C:\\Users\\32171\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
   ],
   "logs": []
 }

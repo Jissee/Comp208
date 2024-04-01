@@ -17,6 +17,8 @@ namespace EoE.Server.GovernanceSystem
         private ResourceStack countryElectronic;
         private ResourceStack countryIndustry;
 
+        private int siliconProduceRate;
+
         public PlayerResourceList()
         {
             countrySilicon = new ResourceStack(GameResourceType.Silicon, 0);
