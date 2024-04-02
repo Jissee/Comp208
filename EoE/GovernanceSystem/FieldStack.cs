@@ -1,5 +1,4 @@
-﻿using EoE.GovernanceSystem;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,25 +17,31 @@ namespace EoE.GovernanceSystem
             this.Count = count;
         }
 
-        public FieldStack Split(int count)
+        /// <summary>
+        /// Subtract filed
+        /// </summary>
+        /// <param name="field"></param>
+        /// <exception cref="Exception"></exception>
+        public void Sub(FieldStack field)
         {
-            if (count > Count)
+            if (this.Type != field.Type)
             {
-                return this;
+                throw new Exception("Wrong resource type!");
+            }
+            else if (field.Count > Count)
+            {
+                throw new Exception("Try to subtract a larger FieldStack !");
             }
             else
             {
-                this.Count -= count;
-                return new FieldStack(Type, count);
+                this.Count -= field.Count;
             }
         }
 
         /// <summary>
         /// Add the adder to the target
         /// </summary>
-        /// <param name="target"></param>
         /// <param name="adder"></param>
-        /// <returns>return target</returns>
         /// <exception cref="Exception"></exception>
         public void Add(FieldStack adder)
         {
@@ -47,6 +52,25 @@ namespace EoE.GovernanceSystem
             else
             {
                 this.Count += adder.Count;
+            }
+        }
+
+        public FieldStack Split(FieldStack spliter)
+        {
+            if (this.Type != spliter.Type)
+            {
+                throw new Exception("Wrong resource type!");
+            }
+            if (this.Count >= spliter.Count)
+            {
+                this.Sub(spliter);
+                return spliter;
+            }
+            else
+            {
+                int count = this.Count;
+                this.Count = 0;
+                return new FieldStack(this.Type, count);
             }
         }
     }

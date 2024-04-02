@@ -12,41 +12,45 @@ namespace EoE.Server.GovernanceSystem
         float produceRate,
         FieldStack producingFields,
         ResourceStack? input1,
-        ResourceStack? input2
+        ResourceStack? input2,
+        int? input1Synthetic,
+        int? input2Synthetic
     );
     public static class Recipies
     {
         private static int maxAllocation = 50;
 
-        public static Recipie produceSilicon = (input, produceRate,fields,_,_) =>
+        public static Recipie producePrimaryResource = (population, produceRate,fields,_,_,_,_) =>
         {
-            int count = (int)(Math.Max(input * fields.Count, maxAllocation * fields.Count) * produceRate);
+            int count = (int)(Math.Max(population, maxAllocation * fields.Count) * produceRate);
             return new ResourceStack(fields.Type, count);
         };
-        public static Recipie produceCopper = (input, produceRate, fields, _, _) =>
+        public static Recipie produceSecondaryResource = (population, produceRate, fields, consumable1, consumable2, input1Synthetic, input2Synthetic) =>
         {
-            return null;
+            int expectProduce = (int)(Math.Max(population, maxAllocation * fields.Count) * produceRate);
+
+            if (consumable1.Count >= expectProduce * input1Synthetic && consumable2.Count >= expectProduce * input2Synthetic)
+            {
+                return new ResourceStack(fields.Type, expectProduce);
+            }
+            else
+            {
+                int acutalProduce = 0;
+                if (consumable1.Count >= consumable2.Count)
+                {
+                    acutalProduce = (int)(consumable1.Count / input1Synthetic);
+                }
+                else
+                {
+                    acutalProduce = (int)(consumable2.Count / input2Synthetic);
+                }
+                consumable1.Count -= (int)(acutalProduce * input1Synthetic);
+                consumable2.Count -= (int)(acutalProduce * input2Synthetic);
+
+                return new ResourceStack(fields.Type, acutalProduce);
+            }
+
         }; 
-        public static Recipie produceIron = (input, produceRate, fields, _, _) =>
-        {
-            return null;
-        }; 
-        public static Recipie produceAluminium = (input, produceRate, fields, _, _) =>
-        {
-            return null;
-        };
-        public static Recipie produceElectronic = (input, produceRat , fields, i1, i2) =>
-        {
-
-            return null;
-        };
-        public static Recipie produeIndustrial = (input, produceRat, fields, i1, i2) =>
-        {
-
-            return null;
-        };
-
-
 
     }
 }

@@ -18,6 +18,7 @@ namespace EoE.Server
         public Server Server { get; }
         private string name;
         private Army army;
+        public PlayerGonverance GonveranceManager { get; }
         public void AddArmy(Army army)
         {
             this.army = army;
@@ -40,8 +41,6 @@ namespace EoE.Server
             } 
         }
         public bool IsAvailable => PlayerName != null;
-        public PlayerFieldList fieldList;
-        public PlayerResourceList resourceList;
         public ServerPlayer(Socket connection, Server server)
         {
             this.Connection = connection;
@@ -64,21 +63,21 @@ namespace EoE.Server
             }
 
         }
-
         public void FillFrontier(int battle, int informative, int mechanism)
         {
-            if (resourceList.GetResourceCount(GameResourceType.BattleArmy) < battle)
+            if (GonveranceManager.ResourceList.GetResourceCount(GameResourceType.BattleArmy) < battle)
             {
                 // TODO:check
             }
-            if (resourceList.GetResourceCount(GameResourceType.InfomativeArmy) < informative)
+            if (GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InfomativeArmy) < informative)
             {
                 // TODO:
             }
-            if (resourceList.GetResourceCount(GameResourceType.MechanismArmy) < mechanism)
+            if (GonveranceManager.ResourceList.GetResourceCount(GameResourceType.MechanismArmy) < mechanism)
             {
                 // TODO:
             }
         }
+
     }
 }
