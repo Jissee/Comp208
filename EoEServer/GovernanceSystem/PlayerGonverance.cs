@@ -12,64 +12,64 @@ namespace EoE.Server.GovernanceSystem
     {
         public PlayerFieldList FieldList { get; }
         public PlayerResourceList ResourceList { get; }
-        private int[] populationAllocation = new int [6];
-        public int AvailablePopulationt { get; set; }
+
+        public Modifier CountryResourceModifier { get; init; }
+        public Modifier CountryPrimaryModifier { get; init; }
+        public Modifier CountrySecondaryModifier { get; init; }
+        public Modifier CountrySiliconModifier { get; init; }
+        public Modifier CountryCopperModifier { get; init; }
+        public Modifier CountryIronModifier { get; init; }
+        public Modifier CountryAluminumModifier { get; init; }
+
+
+        public int TotalPopulation => FieldList.TotalPopulation;
         public Productivity PlayerProductivity { get; }
         public PlayerGonverance()
         {
             FieldList = new PlayerFieldList();
             ResourceList = new PlayerResourceList();
-            populationAllocation = new int[6];
-            for (int i = 0; i < populationAllocation.Length; i++)
-            {
-                populationAllocation[i] = 0;
-            }
             PlayerProductivity = new Productivity();
-            AvailablePopulationt = 100;
+
+            CountryResourceModifier = new Modifier("", Modifier.ModifierType.Plus);
+            CountryPrimaryModifier = new Modifier("", Modifier.ModifierType.Plus);
+            CountrySecondaryModifier = new Modifier("", Modifier.ModifierType.Plus);
+            CountrySiliconModifier = new Modifier("", Modifier.ModifierType.Plus);
+            CountryCopperModifier = new Modifier("", Modifier.ModifierType.Plus);
+            CountryIronModifier = new Modifier("", Modifier.ModifierType.Plus);
+            CountryAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
         }
 
-        public int GetTotalPopulation()
+        public void PrepareModifier(Server server)
         {
-            int count = 0;
-            for (int i = 0; i < populationAllocation.Length; i++)
-            {
-                count += populationAllocation[i];
-            }
-            count += AvailablePopulationt;
-            return count;
+            CountrySiliconModifier
+                .AddNode(CountryPrimaryModifier)
+                .AddNode(CountryResourceModifier)
+                .AddNode(server.GlobalSiliconModifier)
+                .AddNode(server.GlobalPrimaryModifier)
+                .AddNode(server.GlobalResourceModifier);
+
+
+
+
         }
-
-        public int[] GetPopulationAllocation()
-        {
-            return populationAllocation;
-        }
-
-
 
         private void UpdatePrimaryResource()
         {
-            float produceRate = PlayerProductivity.PrimaryProductivity * PlayerProductivity.SiliconProdcutivity * PlayerProductivity.ProductionBonus;
-            ResourceList.CountrySilicon.Add( Recipies.producePrimaryResource(populationAllocation[0], produceRate,FieldList.CountryFieldSilicon,null,null,null,null));
+            ResourceStack producedSilicon = Recipies.producePrimaryResource(FieldList.SiliconPop, FieldList.CountryFieldSilicon, null, null);
+            producedSilicon.Count = (int)CountrySiliconModifier.Apply(producedSilicon.Count);
+            ResourceList.CountrySilicon.Add(producedSilicon);
 
-            produceRate = PlayerProductivity.PrimaryProductivity * PlayerProductivity.CopperProdcutivity * PlayerProductivity.ProductionBonus;
-            ResourceList.CountryCopper.Add( Recipies.producePrimaryResource(populationAllocation[1], produceRate, FieldList.CountryFieldCopper, null, null,null,null));
 
-            produceRate = PlayerProductivity.PrimaryProductivity * PlayerProductivity.IronProdcutivity * PlayerProductivity.ProductionBonus;
-            ResourceList.CountryIron.Add( Recipies.producePrimaryResource(populationAllocation[2], produceRate, FieldList.CountryFieldIron, null, null,null,null));
+            ResourceList.CountryCopper.Add(Recipies.producePrimaryResource(FieldList.CopperPop, FieldList.CountryFieldCopper, null, null));
+            ResourceList.CountryIron.Add(Recipies.producePrimaryResource(FieldList.IronPop, FieldList.CountryFieldIron, null, null));
+            ResourceList.CountryAluminum.Add(Recipies.producePrimaryResource(FieldList.AluminumPop, FieldList.CountryFieldAluminum, null, null));
 
-            produceRate = PlayerProductivity.PrimaryProductivity * PlayerProductivity.AluminumProdcutivity * PlayerProductivity.ProductionBonus;
-            ResourceList.CountryAluminum.Add( Recipies.producePrimaryResource(populationAllocation[3], produceRate, FieldList.CountryFieldAluminum, null, null,null,null));
         }
 
         private void UpdateSecondaryResource()
         {
-            float produceRate = PlayerProductivity.SecondaryProductivity * PlayerProductivity.IndustrialProdcutivity * PlayerProductivity.ProductionBonus;
-            ResourceList.CountryIndustry.Add(Recipies.produceSecondaryResource(populationAllocation[4], produceRate, FieldList.CountryFieldIndustry,
-                ResourceList.CountryIron, ResourceList.CountryAluminum, PlayerProductivity.IronSynthetic, PlayerProductivity.AluminumSynthetic));
-
-            produceRate = PlayerProductivity.SecondaryProductivity * PlayerProductivity.ElectronicProdcutivity * PlayerProductivity.ProductionBonus;
-            ResourceList.CountryIndustry.Add(Recipies.produceSecondaryResource(populationAllocation[5], produceRate, FieldList.CountryFieldElectronic,
-                ResourceList.CountrySilicon, ResourceList.CountryCopper, PlayerProductivity.SiliconSynthetic, PlayerProductivity.CopperSynthetic));
+            ResourceList.CountryElectronic.Add(Recipies.produceElectronic(FieldList.ElectronicPop, FieldList.CountryFieldElectronic, ResourceList.CountrySilicon, ResourceList.CountryCopper));
+            ResourceList.CountryIndustry.Add(Recipies.produceIndustry(FieldList.IndustryPop, FieldList.CountryFieldIndustry, ResourceList.CountryIron, ResourceList.CountryAluminum));
         }
 
         public void Tick()

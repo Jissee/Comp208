@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server
 {
-    public class ServerPlayer : IPlayer
+    public class ServerPlayer : IPlayer, ITickable
     {
         public Socket Connection { get; }
         public Server Server { get; }
@@ -45,6 +45,12 @@ namespace EoE.Server
         {
             this.Connection = connection;
             Server = server;
+            PrepareModifier(server);
+        }
+
+        public void PrepareModifier(Server server)
+        {
+
         }
 
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
@@ -79,5 +85,9 @@ namespace EoE.Server
             }
         }
 
+        public void Tick()
+        {
+            GonveranceManager.Tick();
+        }
     }
 }

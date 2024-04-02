@@ -54,24 +54,27 @@ namespace EoE.Server.GovernanceSystem
                     throw new Exception("no such type");
             }
         }
-
-        public ResourceStack SplitFidle(ResourceStack field)
+        public ResourceStack SplitResourceStack(GameResourceType type, int count)
         {
-            GameResourceType type = field.Type;
+            return SplitResourceStack(new ResourceStack(type, count));
+        }
+        public ResourceStack SplitResourceStack(ResourceStack stack)
+        {
+            GameResourceType type = stack.Type;
             switch (type)
             {
                 case GameResourceType.Silicon:
-                    return CountrySilicon.Split(field);
+                    return CountrySilicon.Split(stack.count);
                 case GameResourceType.Copper:
-                    return CountryCopper.Split(field);
+                    return CountryCopper.Split(stack.count);
                 case GameResourceType.Iron:
-                    return CountryIron.Split(field);
+                    return CountryIron.Split(stack.count);
                 case GameResourceType.Aluminum:
-                    return CountryAluminum.Split(field);
+                    return CountryAluminum.Split(stack.count);
                 case GameResourceType.Electronic:
-                    return CountryElectronic.Split(field);
+                    return CountryElectronic.Split(stack.count);
                 case GameResourceType.Industrial:
-                    return CountryIndustry.Split(field);
+                    return CountryIndustry.Split(stack.count);
                 default:
                     throw new Exception("no such type");
             }

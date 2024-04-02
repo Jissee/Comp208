@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,17 @@ namespace EoE.Server.GovernanceSystem
         public FieldStack CountryFieldElectronic{get; init;}
         public FieldStack CountryFieldIndustry{get; init;}
 
+        public int SiliconPop { get; private set; }
+        public int CopperPop { get;private set;}
+        public int IronPop {get;private set;}
+        public int AluminumPop {get;private set;}
+        public int ElectronicPop {get;private set;}
+        public int IndustryPop {get;private set;}
+
+        public int AvailablePopulationt { get; private set; }
+
+        public int TotalPopulation => SiliconPop + CopperPop + IronPop + AluminumPop + ElectronicPop + IndustryPop + AvailablePopulationt;
+
         public PlayerFieldList()
         {
             CountryFieldSilicon = new FieldStack(GameResourceType.Silicon, 20);
@@ -24,6 +36,14 @@ namespace EoE.Server.GovernanceSystem
             CountryFieldAluminum = new FieldStack(GameResourceType.Aluminum, 20);
             CountryFieldElectronic = new FieldStack(GameResourceType.Electronic, 20);
             CountryFieldIndustry = new FieldStack(GameResourceType.Industrial, 20);
+
+            SiliconPop = 0;
+            CopperPop = 0;
+            IronPop = 0;
+            AluminumPop = 0;
+            ElectronicPop = 0;
+            IndustryPop = 0;
+            AvailablePopulationt = 100;
         }
 
         public void addField(FieldStack adder)
@@ -95,6 +115,70 @@ namespace EoE.Server.GovernanceSystem
                 default:
                     throw new Exception("no such type");
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="count"></param>
+        /// <exception cref="InvalidPopAllocException"></exception>
+        public void SetAllocation(GameResourceType type, int count)
+        {
+            switch (type)
+            {
+                case GameResourceType.Silicon:
+                    SiliconPop = TrySet(SiliconPop, count);
+                    break;
+                case GameResourceType.Copper:
+                    CopperPop = TrySet(CopperPop, count);
+                    break;
+                case GameResourceType.Iron:
+                    IronPop = TrySet(IronPop, count);
+                    break;
+                case GameResourceType.Aluminum:
+                    AluminumPop = TrySet(AluminumPop, count);
+                    break;
+                case GameResourceType.Electronic:
+                    ElectronicPop = TrySet(ElectronicPop, count);
+                    break;
+                case GameResourceType.Industrial:
+                    IndustryPop = TrySet(IndustryPop, count);
+                    break;
+                default:
+                    throw new Exception("no such type");
+            }
+        }
+
+
+        private int TrySet(int population, int count)
+        {
+            if (count >= 0)
+            {
+                if (count > AvailablePopulationt)
+                {
+                    throw new InvalidPopAllocException();
+                }
+                else
+                {
+                    population += count;
+                    AvailablePopulationt -= count;
+                }
+            }
+            else
+            {
+                if (-count >= population)
+                {
+                    throw new InvalidPopAllocException();
+                }
+                else
+                {
+                    population += count;
+                    AvailablePopulationt += count;
+                }
+            }
+
+            return population;
         }
     }
   
