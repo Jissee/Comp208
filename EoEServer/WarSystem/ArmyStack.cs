@@ -10,8 +10,11 @@ namespace EoE.Server.WarSystem
 {
     public abstract class ArmyStack : ResourceStack
     {
-        public abstract int AttackPower {  get; }
-        public abstract int DefendPower {  get; }
+        public abstract int Worth {  get; }
+        public abstract int MechanAttack {  get; }
+        public abstract int MechanDefense {  get; }
+        public abstract int BattleAttack { get; }
+
         public ArmyStack(GameResourceType type, int count) : base(type, count)
         {
         }

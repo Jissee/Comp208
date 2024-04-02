@@ -9,8 +9,12 @@ namespace EoE.Server.WarSystem
 {
     public class BattleArmyStack : ArmyStack
     {
-        public override int AttackPower { get => 2; }
-        public override int DefendPower { get => 1; }
+        public override int Worth => 1;
+        public override int MechanAttack => 0;
+
+        public override int MechanDefense => 0;
+
+        public override int BattleAttack => 2;
 
         public BattleArmyStack(GameResourceType type, int count) : base(type, count)
         {

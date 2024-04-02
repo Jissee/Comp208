@@ -19,6 +19,29 @@ C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\refi
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 C:\Users\32171\Source\Repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+<<<<<<< HEAD
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.exe
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.pdb
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.pdb
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.AssemblyReference.cache
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.GeneratedMSBuildEditorConfig.editorconfig
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfoInputs.cache
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfo.cs
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.CoreCompileInputs.cache
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.sourcelink.json
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.dll
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+=======
 C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.AssemblyReference.cache
 C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfoInputs.cache
@@ -28,3 +51,4 @@ C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Serv
 C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.dll
 C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
 C:\Users\ufowlc\Source\Repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
+>>>>>>> bee773c58d65d47bf1796cecc34d3cf1ad1252a3

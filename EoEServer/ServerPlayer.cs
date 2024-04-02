@@ -1,6 +1,8 @@
-﻿using EoE.Network;
+﻿using EoE.GovernanceSystem;
+using EoE.Network;
 using EoE.Network.Packets;
 using EoE.Server.GovernanceSystem;
+using EoE.Server.WarSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +12,16 @@ using System.Threading.Tasks;
 
 namespace EoE.Server
 {
-    public class ServerPlayer : IPlayer, ITickable
+    public class ServerPlayer : IPlayer
     {
         public Socket Connection { get; }
         public Server Server { get; }
         private string name;
+        private Army army;
+        public void AddArmy(Army army)
+        {
+            this.army = army;
+        }
         public string PlayerName { 
             get 
             {
@@ -58,9 +65,20 @@ namespace EoE.Server
 
         }
 
-        public void Tick()
+        public void FillFrontier(int battle, int informative, int mechanism)
         {
-            throw new NotImplementedException();
+            if (resourceList.GetResourceCount(GameResourceType.BattleArmy) < battle)
+            {
+                // TODO:check
+            }
+            if (resourceList.GetResourceCount(GameResourceType.InfomativeArmy) < informative)
+            {
+                // TODO:
+            }
+            if (resourceList.GetResourceCount(GameResourceType.MechanismArmy) < mechanism)
+            {
+                // TODO:
+            }
         }
     }
 }
