@@ -58,7 +58,7 @@ namespace EoE.GovernanceSystem
         {
             return $"{(value > 0 ? "+" : "")}{value.ToString("#.###")}%";
         }
-        public void AddNode(Modifier modifier)
+        public Modifier AddNode(Modifier modifier)
         {
             if (CheckNode(modifier))
             {
@@ -68,6 +68,7 @@ namespace EoE.GovernanceSystem
             {
                 throw new Exception("Node exists");
             }
+            return this;
         }
         private bool CheckNode(Modifier modifier)
         {
@@ -88,9 +89,10 @@ namespace EoE.GovernanceSystem
         {
             nodes.RemoveAt(index);
         }
-        public void AddValue(string label, double percentage)
+        public Modifier AddValue(string label, double percentage)
         {
             values.Add(label, percentage);
+            return this;
         }
         public void RemoveValue(string label)
         {

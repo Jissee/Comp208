@@ -52,22 +52,18 @@ namespace EoE.GovernanceSystem
             }
         }
 
-        public ResourceStack Split(ResourceStack spliter)
+        public ResourceStack Split(int count)
         {
-            if (this.Type != spliter.Type)
+            if (this.Count >= count)
             {
-                throw new Exception("Wrong resource type!");
-            }
-            if (this.Count >= spliter.Count)
-            {
-                this.Sub(spliter);
-                return spliter;
+                this.Count -= count;
+                return new ResourceStack(this.Type, count);
             }
             else
             {
-                int count = this.Count;
+                int tmpcnt = this.Count;
                 this.Count = 0;
-                return new ResourceStack(this.Type, count);
+                return new ResourceStack(this.Type, tmpcnt);
             }
         }
     }
