@@ -1,4 +1,5 @@
-﻿using EoE.Network;
+﻿using EoE.GovernanceSystem;
+using EoE.Network;
 using EoE.Network.Packets;
 using EoE.Server.Network;
 using System;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,12 +24,29 @@ namespace EoE.Server
         private readonly IPEndPoint address;
         private bool isRunning;
         public ServerPacketHandler PacketHandler { get; }
+
+        public Modifier GlobalResourceModifier { get; init; }
+        public Modifier GlobalPrimaryModifier{ get; init; }
+        public Modifier GlobalSecondaryModifier{ get; init; }
+        public Modifier GlobalSiliconModifier{ get; init; }
+        public Modifier GlobalCopperModifier{ get; init; }
+        public Modifier GlobalIronModifier{ get; init; }
+        public Modifier GlobalAluminumModifier{ get; init; }
+
         public Server(string ip, int port) 
         {
             ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             address = new IPEndPoint(IPAddress.Parse(ip), port);
             Clients = new List<IPlayer>();
             PacketHandler = new ServerPacketHandler(this);
+
+            GlobalResourceModifier = new Modifier("", Modifier.ModifierType.Plus);
+            GlobalPrimaryModifier = new Modifier("", Modifier.ModifierType.Plus);
+            GlobalSecondaryModifier = new Modifier("", Modifier.ModifierType.Plus);
+            GlobalSiliconModifier = new Modifier("", Modifier.ModifierType.Plus);
+            GlobalCopperModifier = new Modifier("", Modifier.ModifierType.Plus);
+            GlobalIronModifier = new Modifier("", Modifier.ModifierType.Plus);
+            GlobalAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
         }
 
         public void Start()
@@ -145,7 +164,10 @@ namespace EoE.Server
 
         public void Tick()
         {
-            
+            foreach (ServerPlayer player in Clients)
+            {
+                player.Tick();
+            }
 
         }
 

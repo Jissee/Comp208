@@ -10,21 +10,21 @@ namespace EoE.Server.GovernanceSystem
 {
     public class PlayerResourceList
     {
-        private ResourceStack countrySilicon;
-        private ResourceStack countryCopper;
-        private ResourceStack countryIron;
-        private ResourceStack countryAluminum;
-        private ResourceStack countryElectronic;
-        private ResourceStack countryIndustry;
+        public ResourceStack CountrySilicon { get; set; }
+        public ResourceStack CountryCopper {get;set;}
+        public ResourceStack CountryIron {get;set;}
+        public ResourceStack CountryAluminum {get;set;}
+        public ResourceStack CountryElectronic {get;set;}
+        public ResourceStack CountryIndustry {get;set;}
 
         public PlayerResourceList()
         {
-            countrySilicon = new ResourceStack(GameResourceType.Silicon, 0);
-            countryCopper = new ResourceStack(GameResourceType.Copper, 0);
-            countryIron = new ResourceStack(GameResourceType.Iron, 0);
-            countryAluminum = new ResourceStack(GameResourceType.Aluminum, 0);
-            countryElectronic = new ResourceStack(GameResourceType.Electronic, 0);
-            countryIndustry = new ResourceStack(GameResourceType.Industrial, 0);
+            CountrySilicon = new ResourceStack(GameResourceType.Silicon, 0);
+            CountryCopper = new ResourceStack(GameResourceType.Copper, 0);
+            CountryIron = new ResourceStack(GameResourceType.Iron, 0);
+            CountryAluminum = new ResourceStack(GameResourceType.Aluminum, 0);
+            CountryElectronic = new ResourceStack(GameResourceType.Electronic, 0);
+            CountryIndustry = new ResourceStack(GameResourceType.Industrial, 0);
         }
 
         public void AddResource(ResourceStack adder)
@@ -33,56 +33,68 @@ namespace EoE.Server.GovernanceSystem
             switch (type)
             {
                 case GameResourceType.Silicon:
-                    countrySilicon.Add(adder);
+                    CountrySilicon.Add(adder);
                     break;
                 case GameResourceType.Copper:
-                    countryCopper.Add(adder);
+                    CountryCopper.Add(adder);
                     break;
                 case GameResourceType.Iron:
-                    countryIron.Add(adder);
+                    CountryIron.Add(adder);
                     break;
                 case GameResourceType.Aluminum:
-                    countryAluminum.Add(adder);
+                    CountryAluminum.Add(adder);
                     break;
                 case GameResourceType.Electronic:
-                    countryElectronic.Add(adder);
+                    CountryElectronic.Add(adder);
                     break;
                 case GameResourceType.Industrial:
-                    countryIndustry.Add(adder);
+                    CountryIndustry.Add(adder);
                     break;
                 default:
                     throw new Exception("no such type");
             }
         }
-
-        public ResourceStack SplitResource(ResourceStack target, int count)
+        public ResourceStack SplitResourceStack(GameResourceType type, int count)
         {
-            if (target.Count >= count)
+            return SplitResourceStack(new ResourceStack(type, count));
+        }
+        public ResourceStack SplitResourceStack(ResourceStack stack)
+        {
+            GameResourceType type = stack.Type;
+            switch (type)
             {
-                return target.Split(count);
-            }
-            else
-            {
-                return target.Split(target.Count);
+                case GameResourceType.Silicon:
+                    return CountrySilicon.Split(stack.count);
+                case GameResourceType.Copper:
+                    return CountryCopper.Split(stack.count);
+                case GameResourceType.Iron:
+                    return CountryIron.Split(stack.count);
+                case GameResourceType.Aluminum:
+                    return CountryAluminum.Split(stack.count);
+                case GameResourceType.Electronic:
+                    return CountryElectronic.Split(stack.count);
+                case GameResourceType.Industrial:
+                    return CountryIndustry.Split(stack.count);
+                default:
+                    throw new Exception("no such type");
             }
         }
-
         public int GetResourceCount(GameResourceType type)
         {
             switch (type)
             {
                 case GameResourceType.Silicon:
-                    return countrySilicon.Count;
+                    return CountrySilicon.Count;
                 case GameResourceType.Copper:
-                    return countryCopper.Count;
+                    return CountryCopper.Count;
                 case GameResourceType.Iron:
-                    return countryIron.Count;
+                    return CountryIron.Count;
                 case GameResourceType.Aluminum:
-                    return countryAluminum.Count;
+                    return CountryAluminum.Count;
                 case GameResourceType.Electronic:
-                    return countryElectronic.Count;
+                    return CountryElectronic.Count;
                 case GameResourceType.Industrial:
-                    return countryIndustry.Count;
+                    return CountryIndustry.Count;
                 default:
                     throw new Exception("no such type");
             }

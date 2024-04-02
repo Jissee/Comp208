@@ -15,35 +15,74 @@ namespace EoE.Server.GovernanceSystem
     );
     public static class Recipies
     {
+        private static float PrimaryProdcutivity = 1.2f;
+        private static float SecondaryProdcutivity =1.2f;
 
-        public static Recipie produceSilicon = (input, fields, _, _) =>
+        public static int SiliconSynthetic = 2;
+        public static int CopperSynthetic = 2;
+        public static int IronSynthetic = 2;
+        public static int AluminumSynthetic = 2;
+
+        private static int maxAllocation = 50;
+
+        public static Recipie producePrimaryResource = (population,fields,_,_) =>
         {
-            return null;
+            int count = (int)(Math.Max(population, maxAllocation * fields.Count) * PrimaryProdcutivity);
+            return new ResourceStack(fields.Type, count);
         };
-        public static Recipie produceCopper = (input, fields, _, _) =>
+        public static Recipie produceElectronic = (population, fields, Silicon, Copper) =>
         {
-            return null;
-        }; 
-        public static Recipie produceIron = (input, fields, _, _) =>
-        {
-            return null;
-        }; 
-        public static Recipie produceAluminium = (input, fields, _, _) =>
-        {
-            return null;
+            int expectProduce = (int)(Math.Max(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
+
+            if (Silicon.Count >= expectProduce * SiliconSynthetic && Copper.Count >= expectProduce * CopperSynthetic)
+            {
+                return new ResourceStack(fields.Type, expectProduce);
+            }
+            else
+            {
+                int acutalProduce = 0;
+                if (Silicon.Count >= Copper.Count)
+                {
+                    acutalProduce = (int)(Silicon.Count / SiliconSynthetic);
+                }
+                else
+                {
+                    acutalProduce = (int)(Copper.Count / CopperSynthetic);
+                }
+                Silicon.Count -= (int)(acutalProduce * SiliconSynthetic);
+                Copper.Count -= (int)(acutalProduce * CopperSynthetic);
+
+                return new ResourceStack(fields.Type, acutalProduce);
+            }
+
         };
-        public static Recipie produceElectronic = (input, fields, i1, i2) =>
+
+        public static Recipie produceIndustry = (population, fields, Iron, Aluminum) =>
         {
+            int expectProduce = (int)(Math.Max(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
 
-            return null;
+            if (Iron.Count >= expectProduce * IronSynthetic && Aluminum.Count >= expectProduce * AluminumSynthetic)
+            {
+                return new ResourceStack(fields.Type, expectProduce);
+            }
+            else
+            {
+                int acutalProduce = 0;
+                if (Iron.Count >= Aluminum.Count)
+                {
+                    acutalProduce = (int)(Iron.Count / IronSynthetic);
+                }
+                else
+                {
+                    acutalProduce = (int)(Aluminum.Count / AluminumSynthetic);
+                }
+                Iron.Count -= (int)(acutalProduce * IronSynthetic);
+                Aluminum.Count -= (int)(acutalProduce * AluminumSynthetic);
+
+                return new ResourceStack(fields.Type, acutalProduce);
+            }
+
         };
-        public static Recipie produeIndustrial = (input, fields, i1, i2) =>
-        {
-
-            return null;
-        };
-
-
 
     }
 }
