@@ -19,25 +19,26 @@ namespace EoE.GovernanceSystem
             this.Count = count;
         }
 
-        public ResourceStack Split(int count)
+        public void Sub(ResourceStack resource)
         {
-            if(count > Count)
+            if (this.Type != resource.Type)
             {
-                return this;
+                throw new Exception("Wrong resource type!");
+            }
+            else if (resource.Count > Count)
+            {
+                throw new Exception("Try to subtract a larger ResourceStack !");
             }
             else
             {
-                this.Count -= count;
-                return new ResourceStack(Type, count);
+                this.Count -= resource.Count;
             }
         }
 
         /// <summary>
         /// Add the adder to the target
         /// </summary>
-        /// <param name="target"></param>
         /// <param name="adder"></param>
-        /// <returns>return the target</returns>
         /// <exception cref="Exception"></exception>
         public void Add(ResourceStack adder)
         {
@@ -51,5 +52,23 @@ namespace EoE.GovernanceSystem
             }
         }
 
+        public ResourceStack Split(ResourceStack spliter)
+        {
+            if (this.Type != spliter.Type)
+            {
+                throw new Exception("Wrong resource type!");
+            }
+            if (this.Count >= spliter.Count)
+            {
+                this.Sub(spliter);
+                return spliter;
+            }
+            else
+            {
+                int count = this.Count;
+                this.Count = 0;
+                return new ResourceStack(this.Type, count);
+            }
+        }
     }
 }

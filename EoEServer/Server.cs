@@ -145,7 +145,10 @@ namespace EoE.Server
 
         public void Tick()
         {
-            
+            foreach (ServerPlayer player in Clients)
+            {
+                player.GonveranceManager.Tick();
+            }
 
         }
 
