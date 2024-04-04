@@ -74,23 +74,27 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
+        public FieldStack SplitFidle(GameResourceType type, int count)
+        {
+           return SplitFidle(new FieldStack(type, count));
+        }
         public FieldStack SplitFidle(FieldStack field)
         {
             GameResourceType type = field.Type;
             switch (type)
             {
                 case GameResourceType.Silicon:
-                    return CountryFieldSilicon.Split(field);
+                    return CountryFieldSilicon.Split(field.Count);
                 case GameResourceType.Copper:
-                    return CountryFieldCopper.Split(field);
+                    return CountryFieldCopper.Split(field.Count);
                 case GameResourceType.Iron:
-                    return CountryFieldIron.Split(field);
+                    return CountryFieldIron.Split(field.Count);
                 case GameResourceType.Aluminum:
-                    return CountryFieldAluminum.Split(field);
+                    return CountryFieldAluminum.Split(field.Count);
                 case GameResourceType.Electronic:
-                    return CountryFieldElectronic.Split(field);
+                    return CountryFieldElectronic.Split(field.Count);
                 case GameResourceType.Industrial:
-                    return CountryFieldIndustry.Split(field);
+                    return CountryFieldIndustry.Split(field.Count);
                 default:
                     throw new Exception("no such type");
             }
@@ -150,7 +154,10 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
-
+        public void PopGrow(int count)
+        {
+            AvailablePopulationt += count;
+        }
         private int TrySet(int population, int count)
         {
             if (count >= 0)

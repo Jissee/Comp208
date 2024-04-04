@@ -32,6 +32,8 @@ namespace EoE.Server
         public Modifier GlobalCopperModifier{ get; init; }
         public Modifier GlobalIronModifier{ get; init; }
         public Modifier GlobalAluminumModifier{ get; init; }
+        public Modifier GlobalElectronicModifier { get; init; }
+        public Modifier GlobalIndustryModifier { get; init; }
 
         public Server(string ip, int port) 
         {
@@ -47,6 +49,8 @@ namespace EoE.Server
             GlobalCopperModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalIronModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
+            GlobalElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
+            GlobalIndustryModifier = new Modifier("", Modifier.ModifierType.Plus);
         }
 
         public void Start()
