@@ -55,22 +55,18 @@ namespace EoE.GovernanceSystem
             }
         }
 
-        public FieldStack Split(FieldStack spliter)
+        public FieldStack Split(int count)
         {
-            if (this.Type != spliter.Type)
+            if (this.Count >= count)
             {
-                throw new Exception("Wrong resource type!");
-            }
-            if (this.Count >= spliter.Count)
-            {
-                this.Sub(spliter);
-                return spliter;
+                this.Count -= count;
+                return new FieldStack(this.Type, count);
             }
             else
             {
-                int count = this.Count;
+                int tmpcnt = this.Count;
                 this.Count = 0;
-                return new FieldStack(this.Type, count);
+                return new FieldStack(this.Type, tmpcnt);
             }
         }
     }

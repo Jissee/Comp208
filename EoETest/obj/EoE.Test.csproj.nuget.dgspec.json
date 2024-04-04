@@ -11,7 +11,7 @@
         "projectName": "EoE.Client",
         "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
         "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoEClient\\obj\\",
+        "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -156,7 +156,7 @@
         "projectName": "EoE.Test",
         "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj",
         "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\32171\\Source\\Repos\\HateUsername\\Comp208\\EoETest\\obj\\",
+        "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"

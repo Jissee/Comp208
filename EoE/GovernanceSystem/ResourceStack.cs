@@ -19,22 +19,6 @@ namespace EoE.GovernanceSystem
             this.Count = count;
         }
 
-        public void Sub(ResourceStack resource)
-        {
-            if (this.Type != resource.Type)
-            {
-                throw new Exception("Wrong resource type!");
-            }
-            else if (resource.Count > Count)
-            {
-                throw new Exception("Try to subtract a larger ResourceStack !");
-            }
-            else
-            {
-                this.Count -= resource.Count;
-            }
-        }
-
         /// <summary>
         /// Add the adder to the target
         /// </summary>

@@ -7,15 +7,21 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public delegate ResourceStack Recipie(
+    public delegate ResourceStack Recipe(
         int popCount,
-        FieldStack producingFields,
+        FieldStack? producingFields,
         ResourceStack? input1,
         ResourceStack? input2
     );
-    public static class Recipies
+
+    public delegate int PopModel(
+        int popCount,
+        int totalLack
+    );
+    public static class Recipes
     {
         private static float PrimaryProdcutivity = 1.2f;
+        private static int PrimaryComsueRate = 1;
         private static float SecondaryProdcutivity =1.2f;
 
         public static int SiliconSynthetic = 2;
@@ -23,14 +29,16 @@ namespace EoE.Server.GovernanceSystem
         public static int IronSynthetic = 2;
         public static int AluminumSynthetic = 2;
 
+        public static readonly int THRESHOLD = 10000;
+
         private static int maxAllocation = 50;
 
-        public static Recipie producePrimaryResource = (population,fields,_,_) =>
+        public static Recipe producePrimaryResource = (population,fields,_,_) =>
         {
             int count = (int)(Math.Max(population, maxAllocation * fields.Count) * PrimaryProdcutivity);
             return new ResourceStack(fields.Type, count);
         };
-        public static Recipie produceElectronic = (population, fields, Silicon, Copper) =>
+        public static Recipe produceElectronic = (population, fields, Silicon, Copper) =>
         {
             int expectProduce = (int)(Math.Max(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
 
@@ -57,7 +65,7 @@ namespace EoE.Server.GovernanceSystem
 
         };
 
-        public static Recipie produceIndustry = (population, fields, Iron, Aluminum) =>
+        public static Recipe produceIndustry = (population, fields, Iron, Aluminum) =>
         {
             int expectProduce = (int)(Math.Max(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
 
@@ -82,6 +90,32 @@ namespace EoE.Server.GovernanceSystem
                 return new ResourceStack(fields.Type, acutalProduce);
             }
 
+        };
+
+        public static PopModel calcPopGrowthProgress = (int population, int surplus ) =>
+        {
+            if (surplus >= THRESHOLD)
+            {
+                population *= 2;
+                // to do exposion growth
+            }
+            else if (surplus >= 0)
+            {
+                population = (int)(population * 0.1f);
+                // to do smooth growth
+            }
+            else if (surplus < 0)
+            {
+                population = -(int)(population * 0.1f);
+                // to do smooth decrease
+            }
+            else if(surplus <= -THRESHOLD)
+            {
+                population = -(int)(population * 2.0f);
+                // to do exposion decrease
+            }
+
+            return population;
         };
 
     }
