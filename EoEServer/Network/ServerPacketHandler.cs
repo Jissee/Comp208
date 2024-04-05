@@ -22,28 +22,6 @@ namespace EoE.Server.Network
             MemoryStream stream = new MemoryStream(data);
             BinaryReader br = new BinaryReader(stream);
 
-            bool needRedirect = br.ReadBoolean();
-            if (needRedirect)
-            {
-                string sender = br.ReadString();
-                string redirectTarget = br.ReadString();
-                IPlayer? player = server.GetPlayer(redirectTarget);
-                if (player != null)
-                {
-                    MemoryStream ms = new MemoryStream();
-                    BinaryWriter bw = new BinaryWriter(ms);
-                    bw.Write((long)data.Length);
-
-                    byte[] newData = ms.ToArray();
-
-                    newData = newData.Concat(data).ToArray();
-
-                    player.Connection.Send(newData);
-                    return;
-                }
-                throw new Exception($"Cannot find player {redirectTarget}");
-            }
-
             string tp = br.ReadString();
 
             Type type = packetTypes[tp];
