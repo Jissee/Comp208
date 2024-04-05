@@ -19,7 +19,6 @@ namespace EoE.Client
     {
         public Socket Connection { get; private set; }
         public string PlayerName { get; }
-        private List<RemotePlayer> remotePlayers = new List<RemotePlayer>();
         private bool isRunning;
         public PacketHandler Handler { get; }
         public Client(string playerName) 
@@ -113,51 +112,5 @@ namespace EoE.Client
             
         }
 
-        public void AddRemotePlayer(string playerName)
-        {
-            lock(remotePlayers)
-            {
-                foreach(RemotePlayer remotePlayer in remotePlayers)
-                {
-                    if(remotePlayer.PlayerName == playerName)
-                    {
-                        return;
-                    }
-                }
-                remotePlayers.Add(new RemotePlayer(playerName, this));
-            }
-
-        }
-
-        public void RemoveRemotePlayer(string playerName)
-        {
-            lock (remotePlayers)
-            {
-                for(int i = 0; i < remotePlayers.Count; i++)
-                {
-                    if (remotePlayers[i].PlayerName == playerName)
-                    {
-                        remotePlayers.RemoveAt(i);
-                        return;
-                    }
-                }
-            }
-        }
-        public RemotePlayer? GetRemotePlayer(string playerName)
-        {
-            RemotePlayer remotePlayer = null;
-            lock(remotePlayers)
-            {
-                foreach(RemotePlayer player in remotePlayers)
-                {
-                    if(player.PlayerName == playerName)
-                    {
-                        remotePlayer = player;
-                        break;
-                    }
-                }
-            }
-            return remotePlayer;
-        }
     }
 }

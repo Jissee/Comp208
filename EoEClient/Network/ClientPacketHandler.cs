@@ -24,19 +24,6 @@ namespace EoE.Client.Network
         {
             MemoryStream stream = new MemoryStream(data);
             BinaryReader br = new BinaryReader(stream);
-            bool isRedirected = br.ReadBoolean();
-            if (isRedirected)
-            {
-                string sender = br.ReadString();
-                RemotePlayer remote = client.GetRemotePlayer(sender);
-                PacketContext newContext = new PacketContext(context.NetworkDirection, remote, context.Receiver);
-                context = newContext;
-                string redirectTarget = br.ReadString();
-                if(redirectTarget != client.PlayerName)
-                {
-                    throw new Exception($"Illegal redirection, the packet of {redirectTarget} is received by {client.PlayerName}");
-                }
-            }
             string tp = br.ReadString();
 
             Type type = packetTypes[tp];
@@ -69,16 +56,6 @@ namespace EoE.Client.Network
             MemoryStream ms = new MemoryStream();
             BinaryWriter bw = new BinaryWriter(ms);
             bw.Write(0L);
-            if(redirectTarget is RemotePlayer remote)
-            {
-                bw.Write(true);
-                bw.Write(client.PlayerName);
-                bw.Write(remote.PlayerName);
-            }
-            else
-            {
-                bw.Write(false);
-            }
 
             Type packetType = packet.GetType();
             string packetTypeString = packetType.FullName;

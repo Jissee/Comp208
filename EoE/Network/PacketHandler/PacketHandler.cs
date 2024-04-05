@@ -21,7 +21,6 @@ namespace EoE.Network
         {
             packetTypes = new Dictionary<string, Type>();
             Register<PlayerLoginPacket>();
-            Register<RemotePlayerSyncPacket>();
             Register<NewPacket>();
             Register<ResurceUpdatePacket>();
         }

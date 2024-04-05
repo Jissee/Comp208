@@ -107,7 +107,6 @@ namespace EoE.Server
                         {
                             Console.WriteLine($"{c.PlayerName} logged out.");
                             Clients.Remove(c);
-                            Broadcast(new RemotePlayerSyncPacket(c.PlayerName, false), (player) => true);
                         }
                         
                     }

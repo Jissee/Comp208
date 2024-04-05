@@ -9,15 +9,9 @@
       "restore": {
         "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj",
         "projectName": "EoE.Client",
-<<<<<<< HEAD
         "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj",
         "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
         "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\obj\\",
-=======
-        "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
-        "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\obj\\",
->>>>>>> d2d17c499f06142dcdda9df5728bc282c6d220fe
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",

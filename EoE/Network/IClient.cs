@@ -10,7 +10,5 @@ namespace EoE.Network
     {
         string PlayerName { get; }
         void MsgBox(string msg);
-        void AddRemotePlayer(string playerName);
-        void RemoveRemotePlayer(string playerName);
     }
 }

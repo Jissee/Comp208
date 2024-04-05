@@ -40,11 +40,6 @@ namespace EoE.Server.Network.Packets
                         {
                             player.PlayerName = playerName;
                             Console.WriteLine($"{playerName} logged in");
-                            foreach(IPlayer existPlayer in server.Clients)
-                            {
-                                player.SendPacket(new RemotePlayerSyncPacket(existPlayer.PlayerName, true));
-                            }
-                            server.Broadcast(new RemotePlayerSyncPacket(playerName, true), (player1) => player1.PlayerName != playerName);
                         }
                     }
                 }
