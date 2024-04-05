@@ -12,12 +12,14 @@ namespace EoE.GovernanceSystem
     {
         public GameResourceType Type { get; init; }
         public int Count { get; set; }
-
+        public static readonly ResourceStack EMPTY = new ResourceStack(GameResourceType.None, 0);
         public ResourceStack(GameResourceType type, int count)
         {
             this.Type = type;
             this.Count = count;
         }
+
+       
 
         /// <summary>
         /// Add the adder to the target

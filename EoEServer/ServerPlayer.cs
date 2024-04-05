@@ -47,6 +47,7 @@ namespace EoE.Server
             this.Connection = connection;
             Server = server;
             PrepareModifier(server);
+            GonveranceManager = new PlayerGonverance(server);
         }
 
         public void PrepareModifier(Server server)
@@ -76,7 +77,7 @@ namespace EoE.Server
             {
                 // TODO:check
             }
-            if (GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InfomativeArmy) < informative)
+            if (GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InformativeArmy) < informative)
             {
                 // TODO:
             }
