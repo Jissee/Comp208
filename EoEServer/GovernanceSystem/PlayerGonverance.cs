@@ -19,6 +19,9 @@ namespace EoE.Server.GovernanceSystem
         public PlayerResourceList ResourceList { get; }
 
         public int UnidentifiedField = 100;
+        public int FieldExploreProgress { get; private set; }
+        public static readonly int FIELD_EXPLORE_THRESHOLD = 100;
+
         public Modifier CountryResourceModifier { get; init; }
         public Modifier CountryPrimaryModifier { get; init; }
         public Modifier CountrySecondaryModifier { get; init; }
@@ -30,13 +33,12 @@ namespace EoE.Server.GovernanceSystem
         public Modifier CountryIndustryModifier { get; init; }
 
         public int TotalPopulation => FieldList.TotalPopulation;
-        public readonly int POP_GROWTH_THRESHOLD = 100;
+        public static readonly int POP_GROWTH_THRESHOLD = 100;
         public int PopGrowthProgress { get; private set;}
         public PlayerGonverance()
         {
             FieldList = new PlayerFieldList();
             ResourceList = new PlayerResourceList();
-            PlayerProductivity = new Productivity();
 
             CountryResourceModifier = new Modifier("", Modifier.ModifierType.Plus);
             CountryPrimaryModifier = new Modifier("", Modifier.ModifierType.Plus);
@@ -140,7 +142,6 @@ namespace EoE.Server.GovernanceSystem
 
             PopGrowthProgress += Recipes.calcPopGrowthProgress(TotalPopulation, surplus);
         }
-
         private void UpdatePop()
         {
             if (Math.Abs(PopGrowthProgress)>= POP_GROWTH_THRESHOLD)
@@ -165,7 +166,6 @@ namespace EoE.Server.GovernanceSystem
             totalLack += CheckLackAndConsume(ResourceList.CountryAluminum, aluminumConsume);
             return totalLack;
         }
-
         private int CheckLackAndConsume(ResourceStack resource, int consume)
         {
 
@@ -182,7 +182,10 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
+        public void ExploreField(int count)
+        {
 
+        }
         public void Tick()
         {
             ProducePrimaryResource();
