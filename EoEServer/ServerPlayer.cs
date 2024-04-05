@@ -77,7 +77,7 @@ namespace EoE.Server
             {
                 // TODO:check
             }
-            if (GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InfomativeArmy) < informative)
+            if (GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InformativeArmy) < informative)
             {
                 // TODO:
             }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using EoE.Server.WarSystem;
 
 namespace EoE.Server.GovernanceSystem
 {
@@ -132,7 +133,7 @@ namespace EoE.Server.GovernanceSystem
 
             resource = Recipes.produceIndustry(FieldList.IndustrailPop, FieldList.CountryFieldIndustry, ResourceList.CountryIron, ResourceList.CountryAluminum);
             resource.Count = (int)CountryIndustryModifier.Apply(resource.Count);
-            ResourceList.CountryIndustry.Add(resource);
+            ResourceList.CountryIndustrial.Add(resource);
         }
 
         private void UpdatePopGrowthProgress(int totalLack)
@@ -192,7 +193,7 @@ namespace EoE.Server.GovernanceSystem
 
         public void SetExploration(int inutPopulation)
         {
-            if (inutPopulation > FieldList.AvailablePopulationt)
+            if (inutPopulation > FieldList.AvailablePopulation)
             {
                 throw new InvalidPopAllocException();
             }
@@ -232,8 +233,74 @@ namespace EoE.Server.GovernanceSystem
 
             if (exploredFieldCount > 0)
             {
-                
+                for (int i = 0; i < exploredFieldCount; i++)
+                {
+                    Random random = new Random();
+                    GameResourceType type = (GameResourceType) random.Next(4);
+                    switch (type)
+                    {
+                        case GameResourceType.Silicon:
+                            FieldList.addField(new FieldStack(GameResourceType.Silicon, 1));
+                            break;
+                        case GameResourceType.Copper:
+                            FieldList.addField(new FieldStack(GameResourceType.Copper, 1));
+                            break;
+                        case GameResourceType.Iron:
+                            FieldList.addField(new FieldStack(GameResourceType.Iron, 1));
+                            break;
+                        case GameResourceType.Aluminum:
+                            FieldList.addField(new FieldStack(GameResourceType.Aluminum, 1));
+                            break;
+                        default:
+                            throw new Exception("no such type");
+                    }
+                }
             }
+        }
+        public void SyntheticArmy(ArmyStack army)
+        {
+            GameResourceType type = army.Type;
+            int popCount;
+            ResourceStack resource;
+            switch (type)
+            {
+                case GameResourceType.BattleArmy:
+                    (popCount, resource) = Recipes.BattleArmyproduce(army);
+                    if (popCount >= FieldList.AvailablePopulation)
+                    {
+                        ResourceList.AddResource(army);
+                    }
+                    else
+                    {
+                        throw new InvalidPopAllocException();
+                    }
+                    break;
+                case GameResourceType.InformativeArmy:
+                    (popCount, resource) = Recipes.produceInfomativeArmy(army);
+                    if (popCount >= FieldList.AvailablePopulation && resource.Count <= ResourceList.CountryElectronic.Count)
+                    {
+                        ResourceList.AddResource(army);
+                    }
+                    else
+                    {
+                        throw new InvalidPopAllocException();
+                    }
+                    break;
+                case GameResourceType.MechanismArmy:
+                    (popCount, resource) = Recipes.produceMechanismArmy(army);
+                    if(popCount >= FieldList.AvailablePopulation && resource.Count <= ResourceList.CountryIndustrial.Count)
+                    {
+                        ResourceList.AddResource(army);
+                    }
+                    else
+                    {
+                        throw new InvalidPopAllocException();
+                    }
+                    break;
+                default:
+                    throw new Exception("no such type");
+            }
+
         }
 
         public void Tick()
@@ -244,6 +311,7 @@ namespace EoE.Server.GovernanceSystem
             UpdatePopGrowthProgress(totalLack);
             UpdatePop();
             UpdateFieldExplorationProgress();
+            UpdateField();
         }
     }
 }
