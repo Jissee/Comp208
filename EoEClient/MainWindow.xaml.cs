@@ -48,12 +48,7 @@ namespace EoE.Client
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            //Alice send to bob
-            RemotePlayer? plr = clientAlice.GetRemotePlayer("Bob");
-            if(plr != null)
-            {
-                plr.SendPacket(new NewPacket(X++, 1.12));
-            }
+            
         }
 
     }
