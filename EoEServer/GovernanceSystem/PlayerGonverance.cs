@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace EoE.Server.GovernanceSystem
 {

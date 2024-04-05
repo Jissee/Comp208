@@ -117,6 +117,6 @@ namespace EoE.Server.GovernanceSystem
 
             return population;
         };
-
+        [Obsolete]
     }
 }

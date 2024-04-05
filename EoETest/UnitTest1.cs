@@ -1,3 +1,5 @@
+using EoE.GovernanceSystem;
+
 namespace EoE.Test
 {
     [TestClass]
@@ -12,6 +14,11 @@ namespace EoE.Test
         public void TestMethod1()
         {
             Assert.AreEqual(10,10);
+            GameResourceType type1 = GameResourceType.Silicon;
+            GameResourceType type2 = GameResourceType.Copper;
+            GameResourceType type3 = type1 | type2;
+            Enum
+            var hasSilicon = type3 & GameResourceType.Silicon;
         }
     }
 }
