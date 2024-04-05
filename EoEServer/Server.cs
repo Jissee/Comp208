@@ -19,6 +19,7 @@ namespace EoE.Server
     {
         public Socket ServerSocket { get; }
 
+        public int UnidentifiedField { get; private set; } = 100;
         public  List<IPlayer> Clients { get; }
 
         private readonly IPEndPoint address;

@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.Server.WarSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,13 @@ namespace EoE.Server.GovernanceSystem
         int popCount,
         int totalLack
     );
+
+    public delegate (int, ResourceStack) ArmyPrduce(
+       ArmyStack requiredArmy
+   );
     public static class Recipes
     {
         private static float PrimaryProdcutivity = 1.2f;
-        private static int PrimaryComsueRate = 1;
         private static float SecondaryProdcutivity =1.2f;
 
         public static int SiliconSynthetic = 2;
@@ -29,9 +33,15 @@ namespace EoE.Server.GovernanceSystem
         public static int IronSynthetic = 2;
         public static int AluminumSynthetic = 2;
 
-        public static readonly int THRESHOLD = 10000;
+        public static readonly int POP_GROWTH_THRESHOLD = 10000;
 
         private static int maxAllocation = 50;
+
+        public static int InformativePopSynthetic = 2;
+        public static int InformativeResourceSynthetic = 2;
+        public static int MechanismPopSynthetic = 2;
+        public static int MechanismResourceSynthetic = 2;
+        public static int BattlePopSynthetic = 2;
 
         public static Recipe producePrimaryResource = (population,fields,_,_) =>
         {
@@ -51,14 +61,14 @@ namespace EoE.Server.GovernanceSystem
                 int acutalProduce = 0;
                 if (Silicon.Count >= Copper.Count)
                 {
-                    acutalProduce = (int)(Silicon.Count / SiliconSynthetic);
+                    acutalProduce = Silicon.Count / SiliconSynthetic;
                 }
                 else
                 {
-                    acutalProduce = (int)(Copper.Count / CopperSynthetic);
+                    acutalProduce = Copper.Count / CopperSynthetic;
                 }
-                Silicon.Count -= (int)(acutalProduce * SiliconSynthetic);
-                Copper.Count -= (int)(acutalProduce * CopperSynthetic);
+                Silicon.Count -= acutalProduce * SiliconSynthetic;
+                Copper.Count -= acutalProduce * CopperSynthetic;
 
                 return new ResourceStack(fields.Type, acutalProduce);
             }
@@ -92,9 +102,9 @@ namespace EoE.Server.GovernanceSystem
 
         };
 
-        public static PopModel calcPopGrowthProgress = (int population, int surplus ) =>
+        public static PopModel calcPopGrowthProgress = (population, surplus ) =>
         {
-            if (surplus >= THRESHOLD)
+            if (surplus >= POP_GROWTH_THRESHOLD)
             {
                 population *= 2;
                 // to do exposion growth
@@ -109,7 +119,7 @@ namespace EoE.Server.GovernanceSystem
                 population = -(int)(population * 0.1f);
                 // to do smooth decrease
             }
-            else if(surplus <= -THRESHOLD)
+            else if(surplus <= -POP_GROWTH_THRESHOLD)
             {
                 population = -(int)(population * 2.0f);
                 // to do exposion decrease
@@ -117,6 +127,23 @@ namespace EoE.Server.GovernanceSystem
 
             return population;
         };
-        [Obsolete]
+
+        public static ArmyPrduce BattleArmyproduce = (requiredArmy) =>
+        {
+            return (requiredArmy.Count * BattlePopSynthetic, ResourceStack.EMPTY);
+        };
+
+        public static ArmyPrduce produceInfomativeArmy = (requiredArmy) =>
+        {
+            return (requiredArmy.Count * InformativePopSynthetic,
+            new ResourceStack(GameResourceType.Electronic, requiredArmy.Count * InformativeResourceSynthetic));
+        };
+
+        public static ArmyPrduce produceMechanismArmy = (requiredArmy) =>
+        {
+            return (requiredArmy.Count * MechanismPopSynthetic,
+            new ResourceStack(GameResourceType.Industrial, requiredArmy.Count * MechanismResourceSynthetic));
+        };
+
     }
 }

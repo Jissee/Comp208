@@ -24,11 +24,11 @@ namespace EoE.Server.GovernanceSystem
         public int ElectronicPop {get;private set;}
         public int IndustrailPop {get;private set;}
 
-        public int AvailablePopulationt { get; private set; }
+        public int AvailablePopulation { get; private set; }
 
         public int TotalPopulation => SiliconPop + CopperPop + 
             IronPop + AluminumPop + ElectronicPop + 
-            IndustrailPop + AvailablePopulationt;
+            IndustrailPop + AvailablePopulation;
 
         public int TotalFieldCount => CountryFieldSilicon.Count + CountryFieldCopper.Count + 
             CountryFieldAluminum.Count + CountryFieldIron.Count + 
@@ -48,7 +48,7 @@ namespace EoE.Server.GovernanceSystem
             AluminumPop = 0;
             ElectronicPop = 0;
             IndustrailPop = 0;
-            AvailablePopulationt = 100;
+            AvailablePopulation = 100;
         }
 
         public void addField(FieldStack adder)
@@ -161,15 +161,15 @@ namespace EoE.Server.GovernanceSystem
 
         public void PopGrow(int count)
         {
-            AvailablePopulationt += count;
-            if (AvailablePopulationt < 0)
+            AvailablePopulation += count;
+            if (AvailablePopulation < 0)
             {
                 if (TotalPopulation < 0)
                 {
                     return; 
                 }
 
-                int decreasing = -AvailablePopulationt;
+                int decreasing = -AvailablePopulation;
 
                 for (int i = 0; i < decreasing; i++)
                 {
@@ -246,14 +246,14 @@ namespace EoE.Server.GovernanceSystem
         {
             if (count >= 0)
             {
-                if (count > AvailablePopulationt)
+                if (count > AvailablePopulation)
                 {
                     throw new InvalidPopAllocException();
                 }
                 else
                 {
                     onPositionPop += count;
-                    AvailablePopulationt -= count;
+                    AvailablePopulation -= count;
                 }
             }
             else
@@ -265,7 +265,7 @@ namespace EoE.Server.GovernanceSystem
                 else
                 {
                     onPositionPop += count;
-                    AvailablePopulationt += count;
+                    AvailablePopulation += count;
                 }
             }
 

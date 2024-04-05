@@ -12,11 +12,11 @@ namespace EoE.GovernanceSystem
         Industrial,
 
         BattleArmy,
-        InfomativeArmy,
+        InformativeArmy,
         MechanismArmy,
 
 
-
+        None
     }
 
 }
