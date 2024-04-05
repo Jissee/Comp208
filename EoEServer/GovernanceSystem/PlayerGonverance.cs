@@ -14,13 +14,19 @@ namespace EoE.Server.GovernanceSystem
         public readonly double COPPER_PER_POP_TICK = 1.0f;
         public readonly double IRON_PER_POP_TICK = 1.0f;
         public readonly double ALUMINUM_PER_POP_TICK = 1.0f;
+
+        public readonly int EXPLORE_RESOURCE_PER_POP = 5;
+        public readonly double EXPLORE_FIELD_PER_POP = 1.1f;
+        public int? ExploratoinPopulation { get; private set;}
+        public int FieldExplorationProgress { get; private set; }
+        public static readonly int FIELD_EXPLORE_THRESHOLD = 100;
+
         public bool IsLose => TotalPopulation <= 0 || FieldList.TotalFieldCount <= 0;
         public PlayerFieldList FieldList { get; }
         public PlayerResourceList ResourceList { get; }
 
-        public int UnidentifiedField = 100;
-        public int FieldExploreProgress { get; private set; }
-        public static readonly int FIELD_EXPLORE_THRESHOLD = 100;
+        private Server server;
+
 
         public Modifier CountryResourceModifier { get; init; }
         public Modifier CountryPrimaryModifier { get; init; }
@@ -35,8 +41,10 @@ namespace EoE.Server.GovernanceSystem
         public int TotalPopulation => FieldList.TotalPopulation;
         public static readonly int POP_GROWTH_THRESHOLD = 100;
         public int PopGrowthProgress { get; private set;}
-        public PlayerGonverance()
+        public PlayerGonverance(Server server)
         {
+            this.server = server;
+
             FieldList = new PlayerFieldList();
             ResourceList = new PlayerResourceList();
 
@@ -182,10 +190,52 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
-        public void ExploreField(int count)
+        public void SetExploration(int inutPopulation)
         {
+            if (inutPopulation > FieldList.AvailablePopulationt)
+            {
+                throw new InvalidPopAllocException();
+            }
+            else 
+            {
+                int consume = inutPopulation * EXPLORE_RESOURCE_PER_POP;
 
+                if (ResourceList.CountrySilicon.Count >= consume && ResourceList.CountryCopper.Count >= consume &&
+                    ResourceList.CountryAluminum.Count >= consume && ResourceList.CountryIron.Count >= consume)
+                {
+                    ResourceList.CountrySilicon.Count -= consume;
+                    ResourceList.CountryCopper.Count -= consume;
+                    ResourceList.CountryAluminum.Count -= consume;
+                    ResourceList.CountryIron.Count -= consume;
+                }
+                else
+                {
+                    throw new InvalidPopAllocException();
+                }
+
+                ExploratoinPopulation = inutPopulation;
+            }
         }
+
+        private void UpdateFieldExplorationProgress()
+        {
+            if (ExploratoinPopulation != null)
+            {
+                FieldExplorationProgress += (int)(ExploratoinPopulation * EXPLORE_FIELD_PER_POP);
+            }
+        }
+
+        private void UpdateField()
+        {
+            int exploredFieldCount = FieldExplorationProgress / FIELD_EXPLORE_THRESHOLD;
+            FieldExplorationProgress %= FIELD_EXPLORE_THRESHOLD;
+
+            if (exploredFieldCount > 0)
+            {
+                
+            }
+        }
+
         public void Tick()
         {
             ProducePrimaryResource();
@@ -193,6 +243,7 @@ namespace EoE.Server.GovernanceSystem
             int totalLack = ConsumePrimaryResource();
             UpdatePopGrowthProgress(totalLack);
             UpdatePop();
+            UpdateFieldExplorationProgress();
         }
     }
 }

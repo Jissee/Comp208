@@ -21,7 +21,6 @@ namespace EoE.Server.GovernanceSystem
     public static class Recipes
     {
         private static float PrimaryProdcutivity = 1.2f;
-        private static int PrimaryComsueRate = 1;
         private static float SecondaryProdcutivity =1.2f;
 
         public static int SiliconSynthetic = 2;

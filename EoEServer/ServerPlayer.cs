@@ -47,6 +47,7 @@ namespace EoE.Server
             this.Connection = connection;
             Server = server;
             PrepareModifier(server);
+            GonveranceManager = new PlayerGonverance(server);
         }
 
         public void PrepareModifier(Server server)
