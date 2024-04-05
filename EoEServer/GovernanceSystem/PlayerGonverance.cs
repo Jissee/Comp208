@@ -10,9 +10,15 @@ namespace EoE.Server.GovernanceSystem
 {
     public class PlayerGonverance : ITickable
     {
+        public readonly double SILICON_PER_POP_TICK = 1.0f;
+        public readonly double COPPER_PER_POP_TICK = 1.0f;
+        public readonly double IRON_PER_POP_TICK = 1.0f;
+        public readonly double ALUMINUM_PER_POP_TICK = 1.0f;
+        public bool IsLose => TotalPopulation <= 0 || FieldList.TotalFieldCount <= 0;
         public PlayerFieldList FieldList { get; }
         public PlayerResourceList ResourceList { get; }
 
+        public int UnidentifiedField = 100;
         public Modifier CountryResourceModifier { get; init; }
         public Modifier CountryPrimaryModifier { get; init; }
         public Modifier CountrySecondaryModifier { get; init; }
@@ -20,10 +26,12 @@ namespace EoE.Server.GovernanceSystem
         public Modifier CountryCopperModifier { get; init; }
         public Modifier CountryIronModifier { get; init; }
         public Modifier CountryAluminumModifier { get; init; }
-
+        public Modifier CountryElectronicModifier { get; init; }
+        public Modifier CountryIndustryModifier { get; init; }
 
         public int TotalPopulation => FieldList.TotalPopulation;
-        public Productivity PlayerProductivity { get; }
+        public readonly int POP_GROWTH_THRESHOLD = 100;
+        public int PopGrowthProgress { get; private set;}
         public PlayerGonverance()
         {
             FieldList = new PlayerFieldList();
@@ -37,6 +45,8 @@ namespace EoE.Server.GovernanceSystem
             CountryCopperModifier = new Modifier("", Modifier.ModifierType.Plus);
             CountryIronModifier = new Modifier("", Modifier.ModifierType.Plus);
             CountryAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
+            CountryElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
+            CountryIndustryModifier = new Modifier("", Modifier.ModifierType.Plus);
         }
 
         public void PrepareModifier(Server server)
@@ -48,34 +58,138 @@ namespace EoE.Server.GovernanceSystem
                 .AddNode(server.GlobalPrimaryModifier)
                 .AddNode(server.GlobalResourceModifier);
 
+            CountryCopperModifier
+                .AddNode(CountryPrimaryModifier)
+                .AddNode(CountryResourceModifier)
+                .AddNode(server.GlobalCopperModifier)
+                .AddNode(server.GlobalPrimaryModifier)
+                .AddNode(server.GlobalResourceModifier);
 
+            CountryIronModifier
+                .AddNode(CountryPrimaryModifier)
+                .AddNode(CountryResourceModifier)
+                .AddNode(server.GlobalIronModifier)
+                .AddNode(server.GlobalPrimaryModifier)
+                .AddNode(server.GlobalResourceModifier);
 
+            CountryAluminumModifier
+               .AddNode(CountryPrimaryModifier)
+                .AddNode(CountryResourceModifier)
+                .AddNode(server.GlobalAluminumModifier)
+                .AddNode(server.GlobalPrimaryModifier)
+                .AddNode(server.GlobalResourceModifier);
 
+            CountryElectronicModifier
+               .AddNode(CountrySecondaryModifier)
+                .AddNode(CountryResourceModifier)
+                .AddNode(server.GlobalElectronicModifier)
+                .AddNode(server.GlobalSecondaryModifier)
+                .AddNode(server.GlobalResourceModifier);
+
+            CountryIndustryModifier
+              .AddNode(CountrySecondaryModifier)
+               .AddNode(CountryResourceModifier)
+               .AddNode(server.GlobalIndustryModifier)
+               .AddNode(server.GlobalSecondaryModifier)
+               .AddNode(server.GlobalResourceModifier);
         }
 
-        private void UpdatePrimaryResource()
+        private void ProducePrimaryResource()
         {
-            ResourceStack producedSilicon = Recipies.producePrimaryResource(FieldList.SiliconPop, FieldList.CountryFieldSilicon, null, null);
-            producedSilicon.Count = (int)CountrySiliconModifier.Apply(producedSilicon.Count);
-            ResourceList.CountrySilicon.Add(producedSilicon);
+            ResourceStack resource = Recipes.producePrimaryResource(FieldList.SiliconPop, FieldList.CountryFieldSilicon, null, null);
+            resource.Count = (int)CountrySiliconModifier.Apply(resource.Count);
+            ResourceList.CountrySilicon.Add(resource);
 
+            resource = Recipes.producePrimaryResource(FieldList.CopperPop, FieldList.CountryFieldCopper, null, null);
+            resource.Count = (int)CountryCopperModifier.Apply(resource.Count);
+            ResourceList.CountryCopper.Add(resource);
 
-            ResourceList.CountryCopper.Add(Recipies.producePrimaryResource(FieldList.CopperPop, FieldList.CountryFieldCopper, null, null));
-            ResourceList.CountryIron.Add(Recipies.producePrimaryResource(FieldList.IronPop, FieldList.CountryFieldIron, null, null));
-            ResourceList.CountryAluminum.Add(Recipies.producePrimaryResource(FieldList.AluminumPop, FieldList.CountryFieldAluminum, null, null));
+            resource = Recipes.producePrimaryResource(FieldList.IronPop, FieldList.CountryFieldIron, null, null);
+            resource.Count = (int)CountryIronModifier.Apply(resource.Count);
+            ResourceList.CountryIron.Add(resource);
+
+            resource = Recipes.producePrimaryResource(FieldList.AluminumPop, FieldList.CountryFieldAluminum, null, null);
+            resource.Count = (int)CountryAluminumModifier.Apply(resource.Count);
+            ResourceList.CountryAluminum.Add(resource);
 
         }
 
-        private void UpdateSecondaryResource()
+        private void ProduceSecondaryResource()
         {
-            ResourceList.CountryElectronic.Add(Recipies.produceElectronic(FieldList.ElectronicPop, FieldList.CountryFieldElectronic, ResourceList.CountrySilicon, ResourceList.CountryCopper));
-            ResourceList.CountryIndustry.Add(Recipies.produceIndustry(FieldList.IndustryPop, FieldList.CountryFieldIndustry, ResourceList.CountryIron, ResourceList.CountryAluminum));
+            ResourceStack resource = Recipes.produceElectronic(FieldList.ElectronicPop, FieldList.CountryFieldElectronic, ResourceList.CountrySilicon, ResourceList.CountryCopper);
+            resource.Count = (int)CountryElectronicModifier.Apply(resource.Count);
+            ResourceList.CountryElectronic.Add(resource);
+
+            resource = Recipes.produceIndustry(FieldList.IndustrailPop, FieldList.CountryFieldIndustry, ResourceList.CountryIron, ResourceList.CountryAluminum);
+            resource.Count = (int)CountryIndustryModifier.Apply(resource.Count);
+            ResourceList.CountryIndustry.Add(resource);
         }
+
+        private void UpdatePopGrowthProgress(int totalLack)
+        {
+            int surplus = 0;
+            int count = FieldList.TotalPopulation;
+            if (totalLack > 0)
+            {
+                surplus = -totalLack;
+            }
+            else
+            {
+                surplus = ResourceList.CountrySilicon.Count + ResourceList.CountryIron.Count + ResourceList.CountryCopper.Count + ResourceList.CountryAluminum.Count;
+            }
+
+            PopGrowthProgress += Recipes.calcPopGrowthProgress(TotalPopulation, surplus);
+        }
+
+        private void UpdatePop()
+        {
+            if (Math.Abs(PopGrowthProgress)>= POP_GROWTH_THRESHOLD)
+            {
+                FieldList.PopGrow(PopGrowthProgress / POP_GROWTH_THRESHOLD);
+                PopGrowthProgress %= POP_GROWTH_THRESHOLD;
+            }
+        }
+        private int ConsumePrimaryResource()
+        {
+            int pop = FieldList.TotalPopulation;
+            
+            int silionConsume = (int)(pop * SILICON_PER_POP_TICK);
+            int copperConsume = (int)(pop * COPPER_PER_POP_TICK);
+            int ironConsume = (int)(pop * IRON_PER_POP_TICK);
+            int aluminumConsume = (int)(pop * ALUMINUM_PER_POP_TICK);
+
+            int totalLack = 0;
+            totalLack += CheckLackAndConsume(ResourceList.CountrySilicon, silionConsume);
+            totalLack += CheckLackAndConsume(ResourceList.CountryCopper, copperConsume);
+            totalLack += CheckLackAndConsume(ResourceList.CountryIron, ironConsume);
+            totalLack += CheckLackAndConsume(ResourceList.CountryAluminum, aluminumConsume);
+            return totalLack;
+        }
+
+        private int CheckLackAndConsume(ResourceStack resource, int consume)
+        {
+
+            if (resource.Count >= consume)
+            {
+                resource.Count -= consume;
+                return 0;
+            }
+            else
+            {
+                int lack = consume - resource.Count;
+                resource.Count = 0;
+                return lack;
+            }
+        }
+
 
         public void Tick()
         {
-            UpdatePrimaryResource();
-            UpdateSecondaryResource();
+            ProducePrimaryResource();
+            ProduceSecondaryResource();
+            int totalLack = ConsumePrimaryResource();
+            UpdatePopGrowthProgress(totalLack);
+            UpdatePop();
         }
     }
 }

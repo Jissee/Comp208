@@ -22,12 +22,17 @@ namespace EoE.Server.GovernanceSystem
         public int IronPop {get;private set;}
         public int AluminumPop {get;private set;}
         public int ElectronicPop {get;private set;}
-        public int IndustryPop {get;private set;}
+        public int IndustrailPop {get;private set;}
 
         public int AvailablePopulationt { get; private set; }
 
-        public int TotalPopulation => SiliconPop + CopperPop + IronPop + AluminumPop + ElectronicPop + IndustryPop + AvailablePopulationt;
+        public int TotalPopulation => SiliconPop + CopperPop + 
+            IronPop + AluminumPop + ElectronicPop + 
+            IndustrailPop + AvailablePopulationt;
 
+        public int TotalFieldCount => CountryFieldSilicon.Count + CountryFieldCopper.Count + 
+            CountryFieldAluminum.Count + CountryFieldIron.Count + 
+            CountryFieldElectronic.Count + CountryFieldIndustry.Count;
         public PlayerFieldList()
         {
             CountryFieldSilicon = new FieldStack(GameResourceType.Silicon, 20);
@@ -42,7 +47,7 @@ namespace EoE.Server.GovernanceSystem
             IronPop = 0;
             AluminumPop = 0;
             ElectronicPop = 0;
-            IndustryPop = 0;
+            IndustrailPop = 0;
             AvailablePopulationt = 100;
         }
 
@@ -74,23 +79,27 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
+        public FieldStack SplitFidle(GameResourceType type, int count)
+        {
+           return SplitFidle(new FieldStack(type, count));
+        }
         public FieldStack SplitFidle(FieldStack field)
         {
             GameResourceType type = field.Type;
             switch (type)
             {
                 case GameResourceType.Silicon:
-                    return CountryFieldSilicon.Split(field);
+                    return CountryFieldSilicon.Split(field.Count);
                 case GameResourceType.Copper:
-                    return CountryFieldCopper.Split(field);
+                    return CountryFieldCopper.Split(field.Count);
                 case GameResourceType.Iron:
-                    return CountryFieldIron.Split(field);
+                    return CountryFieldIron.Split(field.Count);
                 case GameResourceType.Aluminum:
-                    return CountryFieldAluminum.Split(field);
+                    return CountryFieldAluminum.Split(field.Count);
                 case GameResourceType.Electronic:
-                    return CountryFieldElectronic.Split(field);
+                    return CountryFieldElectronic.Split(field.Count);
                 case GameResourceType.Industrial:
-                    return CountryFieldIndustry.Split(field);
+                    return CountryFieldIndustry.Split(field.Count);
                 default:
                     throw new Exception("no such type");
             }
@@ -143,15 +152,97 @@ namespace EoE.Server.GovernanceSystem
                     ElectronicPop = TrySet(ElectronicPop, count);
                     break;
                 case GameResourceType.Industrial:
-                    IndustryPop = TrySet(IndustryPop, count);
+                    IndustrailPop = TrySet(IndustrailPop, count);
                     break;
                 default:
                     throw new Exception("no such type");
             }
         }
 
+        public void PopGrow(int count)
+        {
+            AvailablePopulationt += count;
+            if (AvailablePopulationt < 0)
+            {
+                if (TotalPopulation < 0)
+                {
+                    return; 
+                }
 
-        private int TrySet(int population, int count)
+                int decreasing = -AvailablePopulationt;
+
+                for (int i = 0; i < decreasing; i++)
+                {
+                    GameResourceType type = (GameResourceType)GetNextIndex();
+                    switch (type)
+                    {
+                        case GameResourceType.Silicon:
+                            if (SiliconPop > 0)
+                            {
+                                SiliconPop--;
+                            }
+                            else
+                            {
+                                i--;
+                            }
+                            break;
+                        case GameResourceType.Copper:
+                            if (CopperPop > 0)
+                            {
+                                CopperPop--;
+                            }
+                            else
+                            {
+                                i--;
+                            }
+                            break;
+                        case GameResourceType.Iron:
+                            if (IronPop > 0)
+                            {
+                                IronPop--;
+                            }
+                            else
+                            {
+                                i--;
+                            }
+                            break;
+                        case GameResourceType.Aluminum:
+                            if (AluminumPop > 0)
+                            {
+                                AluminumPop--;
+                            }
+                            else
+                            {
+                                i--;
+                            }
+                            break;
+                        case GameResourceType.Electronic:
+                            if (ElectronicPop > 0)
+                            {
+                                ElectronicPop--;
+                            }
+                            else
+                            {
+                                i--;
+                            }
+                            break;
+                        case GameResourceType.Industrial:
+                            if (IndustrailPop > 0)
+                            {
+                                IndustrailPop--;
+                            }
+                            else
+                            {
+                                i--;
+                            }
+                            break;
+                        default:
+                            throw new Exception("no such type");
+                    }               
+                }   
+            }
+        }
+        private int TrySet(int onPositionPop, int count)
         {
             if (count >= 0)
             {
@@ -161,24 +252,31 @@ namespace EoE.Server.GovernanceSystem
                 }
                 else
                 {
-                    population += count;
+                    onPositionPop += count;
                     AvailablePopulationt -= count;
                 }
             }
             else
             {
-                if (-count >= population)
+                if (-count >= onPositionPop)
                 {
                     throw new InvalidPopAllocException();
                 }
                 else
                 {
-                    population += count;
+                    onPositionPop += count;
                     AvailablePopulationt += count;
                 }
             }
 
-            return population;
+            return onPositionPop;
+        }
+
+        private int index = -1;
+        private int GetNextIndex()
+        {
+            index++;
+            return (index %= 6);
         }
     }
   

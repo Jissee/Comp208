@@ -64,17 +64,17 @@ namespace EoE.Server.GovernanceSystem
             switch (type)
             {
                 case GameResourceType.Silicon:
-                    return CountrySilicon.Split(stack.count);
+                    return CountrySilicon.Split(stack.Count);
                 case GameResourceType.Copper:
-                    return CountryCopper.Split(stack.count);
+                    return CountryCopper.Split(stack.Count);
                 case GameResourceType.Iron:
-                    return CountryIron.Split(stack.count);
+                    return CountryIron.Split(stack.Count);
                 case GameResourceType.Aluminum:
-                    return CountryAluminum.Split(stack.count);
+                    return CountryAluminum.Split(stack.Count);
                 case GameResourceType.Electronic:
-                    return CountryElectronic.Split(stack.count);
+                    return CountryElectronic.Split(stack.Count);
                 case GameResourceType.Industrial:
-                    return CountryIndustry.Split(stack.count);
+                    return CountryIndustry.Split(stack.Count);
                 default:
                     throw new Exception("no such type");
             }
@@ -99,5 +99,7 @@ namespace EoE.Server.GovernanceSystem
                     throw new Exception("no such type");
             }
         }
+
+
     }
 }
