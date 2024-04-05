@@ -17,6 +17,7 @@ namespace EoE.Server
         public Socket Connection { get; }
         public Server Server { get; }
         private string name;
+        public bool IsLose => GonveranceManager.IsLose;
         private Army army;
         public PlayerGonverance GonveranceManager { get; }
         public void AddArmy(Army army)
@@ -85,9 +86,19 @@ namespace EoE.Server
             }
         }
 
+        public void GameLose()
+        {
+            //ToDo  Cleaning
+        }
+
+
         public void Tick()
         {
             GonveranceManager.Tick();
+            if (IsLose)
+            {
+                GameLose();
+            }
         }
     }
 }

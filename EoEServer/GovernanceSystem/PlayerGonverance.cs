@@ -14,9 +14,11 @@ namespace EoE.Server.GovernanceSystem
         public readonly double COPPER_PER_POP_TICK = 1.0f;
         public readonly double IRON_PER_POP_TICK = 1.0f;
         public readonly double ALUMINUM_PER_POP_TICK = 1.0f;
+        public bool IsLose => TotalPopulation <= 0 || FieldList.TotalFieldCount <= 0;
         public PlayerFieldList FieldList { get; }
         public PlayerResourceList ResourceList { get; }
 
+        public int UnidentifiedField = 100;
         public Modifier CountryResourceModifier { get; init; }
         public Modifier CountryPrimaryModifier { get; init; }
         public Modifier CountrySecondaryModifier { get; init; }
@@ -30,7 +32,6 @@ namespace EoE.Server.GovernanceSystem
         public int TotalPopulation => FieldList.TotalPopulation;
         public readonly int POP_GROWTH_THRESHOLD = 100;
         public int PopGrowthProgress { get; private set;}
-        public Productivity PlayerProductivity { get; }
         public PlayerGonverance()
         {
             FieldList = new PlayerFieldList();
@@ -119,7 +120,7 @@ namespace EoE.Server.GovernanceSystem
             resource.Count = (int)CountryElectronicModifier.Apply(resource.Count);
             ResourceList.CountryElectronic.Add(resource);
 
-            resource = Recipes.produceIndustry(FieldList.IndustryPop, FieldList.CountryFieldIndustry, ResourceList.CountryIron, ResourceList.CountryAluminum);
+            resource = Recipes.produceIndustry(FieldList.IndustrailPop, FieldList.CountryFieldIndustry, ResourceList.CountryIron, ResourceList.CountryAluminum);
             resource.Count = (int)CountryIndustryModifier.Apply(resource.Count);
             ResourceList.CountryIndustry.Add(resource);
         }
