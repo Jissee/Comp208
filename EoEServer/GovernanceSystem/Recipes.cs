@@ -26,7 +26,7 @@ namespace EoE.Server.GovernanceSystem
    );
     public static class Recipes
     {
-        private static float PrimaryProdcutivity = 1.2f;
+        private static float PrimaryProdcutivity = 5.0f;
         private static float SecondaryProdcutivity =0.5f;
 
         public static int SiliconSynthetic = 2;
@@ -115,19 +115,20 @@ namespace EoE.Server.GovernanceSystem
             }
             else if (surplus >= 0)
             {
-                population = (int)(population * 0.1f);
+                population = (int)(population * 1.1f);
                 // to do smooth growth
             }
-            else if (surplus < 0)
-            {
-                population = -(int)(population * 0.1f);
-                // to do smooth decrease
-            }
-            else if(surplus <= -POP_GROWTH_THRESHOLD)
+            else if (surplus <= -POP_GROWTH_THRESHOLD)
             {
                 population = -(int)(population * 2.0f);
                 // to do exposion decrease
             }
+            else if (surplus < 0)
+            {
+                population = -(int)(population * 1.1f);
+                // to do smooth decrease
+            }
+            
 
             return population;
         };
