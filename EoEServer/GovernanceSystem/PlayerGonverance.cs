@@ -33,6 +33,7 @@ namespace EoE.Server.GovernanceSystem
         private PlayerStatus playerStatus;
 
         public int TotalPopulation => FieldList.TotalPopulation;
+        public int AvailablePopulation => FieldList.AvailablePopulation;
         public static readonly int POP_GROWTH_THRESHOLD = 100;
         public int PopGrowthProgress { get; private set;}
         public PlayerGonverance(GameStatus globalGameStatus)
@@ -136,7 +137,7 @@ namespace EoE.Server.GovernanceSystem
 
         public void SetExploration(int inutPopulation)
         {
-            if (inutPopulation > FieldList.AvailablePopulation)
+            if (inutPopulation > AvailablePopulation)
             {
                 throw new InvalidPopAllocException();
             }
@@ -214,7 +215,7 @@ namespace EoE.Server.GovernanceSystem
                 case GameResourceType.BattleArmy:
                     (popCount, resource) = Recipes.BattleArmyproduce(army);
 
-                    if (popCount <= FieldList.AvailablePopulation)
+                    if (popCount <= AvailablePopulation)
                     {
                         FieldList.AlterPop(-popCount);
                         ResourceList.AddResource(army);
@@ -226,7 +227,7 @@ namespace EoE.Server.GovernanceSystem
                     break;
                 case GameResourceType.InformativeArmy:
                     (popCount, resource) = Recipes.produceInfomativeArmy(army);
-                    if (popCount <= FieldList.AvailablePopulation && resource.Count <= ResourceList.CountryElectronic.Count)
+                    if (popCount <= AvailablePopulation && resource.Count <= ResourceList.CountryElectronic.Count)
                     {
                         FieldList.AlterPop(-popCount);
                         ResourceList.CountryElectronic.Count -= resource.Count;
@@ -239,7 +240,7 @@ namespace EoE.Server.GovernanceSystem
                     break;
                 case GameResourceType.MechanismArmy:
                     (popCount, resource) = Recipes.produceMechanismArmy(army);
-                    if(popCount <= FieldList.AvailablePopulation && resource.Count <= ResourceList.CountryIndustrial.Count)
+                    if(popCount <= AvailablePopulation && resource.Count <= ResourceList.CountryIndustrial.Count)
                     {
                         FieldList.AlterPop(-popCount);
                         ResourceList.CountryIndustrial.Count -= resource.Count;
