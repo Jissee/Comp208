@@ -59,6 +59,7 @@ namespace EoE.Server.GovernanceSystem
             CountryAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
             CountryElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
             CountryIndustryModifier = new Modifier("", Modifier.ModifierType.Plus);
+            PopGrowthProgress = 0;
         }
 
         public void PrepareModifier(Server server)
@@ -138,7 +139,8 @@ namespace EoE.Server.GovernanceSystem
             ResourceList.CountryIndustrial.Add(resource);
         }
 
-        private void UpdatePopGrowthProgress(int totalLack)
+        // 暂时改为public！！！
+        public void UpdatePopGrowthProgress(int totalLack)
         {
             int surplus = 0;
             int count = FieldList.TotalPopulation;
@@ -153,7 +155,8 @@ namespace EoE.Server.GovernanceSystem
 
             PopGrowthProgress += Recipes.calcPopGrowthProgress(TotalPopulation, surplus);
         }
-        private void UpdatePop()
+        // 暂时改为public！！！
+        public void UpdatePop()
         {
             if (Math.Abs(PopGrowthProgress)>= POP_GROWTH_THRESHOLD)
             {
@@ -161,7 +164,8 @@ namespace EoE.Server.GovernanceSystem
                 PopGrowthProgress %= POP_GROWTH_THRESHOLD;
             }
         }
-        private int ConsumePrimaryResource()
+        // 暂时改为public！！！
+        public int ConsumePrimaryResource()
         {
             int pop = FieldList.TotalPopulation;
             

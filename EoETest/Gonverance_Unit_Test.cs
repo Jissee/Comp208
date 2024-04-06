@@ -90,7 +90,45 @@ namespace EoE.Test
             Assert.AreEqual(2, playerGonverance.ResourceList.CountryAluminum.Count);
 
         }
+        [TestMethod]
+        public void TestConsume()
+        {
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            var playerGonverance = new PlayerGonverance(Server);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
 
+            playerGonverance.ProducePrimaryResource();
+            Assert.AreEqual(12, playerGonverance.ResourceList.CountrySilicon.Count);
+            Assert.AreEqual(12, playerGonverance.ResourceList.CountryCopper.Count);
+            Assert.AreEqual(12, playerGonverance.ResourceList.CountryIron.Count);
+            Assert.AreEqual(12, playerGonverance.ResourceList.CountryAluminum.Count);
+
+
+            playerGonverance.ProduceSecondaryResource();
+            Assert.AreEqual(5, playerGonverance.ResourceList.CountryElectronic.Count);
+            Assert.AreEqual(5, playerGonverance.ResourceList.CountryIndustrial.Count);
+            Assert.AreEqual(2, playerGonverance.ResourceList.CountrySilicon.Count);
+            Assert.AreEqual(2, playerGonverance.ResourceList.CountryCopper.Count);
+            Assert.AreEqual(2, playerGonverance.ResourceList.CountryIron.Count);
+            Assert.AreEqual(2, playerGonverance.ResourceList.CountryAluminum.Count);
+
+            //new test
+            int totalLack = playerGonverance.ConsumePrimaryResource();
+            Assert.AreEqual(5, playerGonverance.ResourceList.CountryElectronic.Count);
+            Assert.AreEqual(5, playerGonverance.ResourceList.CountryIndustrial.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountrySilicon.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryCopper.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryIron.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryAluminum.Count);
+            Assert.AreEqual(392, totalLack);
+        }
+
+        [TestMethod]
         public void TestPopulationDecrease()
         {
             Server.Server Server = new Server.Server("0.0.0.0", 25566);
@@ -117,7 +155,68 @@ namespace EoE.Test
             Assert.AreEqual(2, playerGonverance.ResourceList.CountryIron.Count);
             Assert.AreEqual(2, playerGonverance.ResourceList.CountryAluminum.Count);
 
+            int totalLack = playerGonverance.ConsumePrimaryResource();
+            Assert.AreEqual(5, playerGonverance.ResourceList.CountryElectronic.Count);
+            Assert.AreEqual(5, playerGonverance.ResourceList.CountryIndustrial.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountrySilicon.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryCopper.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryIron.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryAluminum.Count);
+            Assert.AreEqual(392, totalLack);
+
+            //new test
+            playerGonverance.UpdatePopGrowthProgress(totalLack);
+
+            Assert.AreEqual(-110, playerGonverance.PopGrowthProgress);
+            playerGonverance.UpdatePop();
+            Assert.AreEqual(-10, playerGonverance.PopGrowthProgress);
+            Assert.AreEqual(99, playerGonverance.TotalPopulation);
+            Assert.AreEqual(39, playerGonverance.FieldList.AvailablePopulation);
         }
 
+        public void TestPopulationIncrease()
+        {
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            var playerGonverance = new PlayerGonverance(Server);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 25);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 25);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 25);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 25);
+            //playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
+            //playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
+
+            playerGonverance.ProducePrimaryResource();
+            Assert.AreEqual(30, playerGonverance.ResourceList.CountrySilicon.Count);
+            Assert.AreEqual(30, playerGonverance.ResourceList.CountryCopper.Count);
+            Assert.AreEqual(30, playerGonverance.ResourceList.CountryIron.Count);
+            Assert.AreEqual(30, playerGonverance.ResourceList.CountryAluminum.Count);
+
+
+            playerGonverance.ProduceSecondaryResource();
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryElectronic.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryIndustrial.Count);
+            Assert.AreEqual(30, playerGonverance.ResourceList.CountrySilicon.Count);
+            Assert.AreEqual(30, playerGonverance.ResourceList.CountryCopper.Count);
+            Assert.AreEqual(30, playerGonverance.ResourceList.CountryIron.Count);
+            Assert.AreEqual(30, playerGonverance.ResourceList.CountryAluminum.Count);
+
+            int totalLack = playerGonverance.ConsumePrimaryResource();
+            Assert.AreEqual(5, playerGonverance.ResourceList.CountryElectronic.Count);
+            Assert.AreEqual(5, playerGonverance.ResourceList.CountryIndustrial.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountrySilicon.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryCopper.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryIron.Count);
+            Assert.AreEqual(0, playerGonverance.ResourceList.CountryAluminum.Count);
+            Assert.AreEqual(392, totalLack);
+
+            //new test
+            playerGonverance.UpdatePopGrowthProgress(totalLack);
+
+            Assert.AreEqual(-110, playerGonverance.PopGrowthProgress);
+            playerGonverance.UpdatePop();
+            Assert.AreEqual(-10, playerGonverance.PopGrowthProgress);
+            Assert.AreEqual(99, playerGonverance.TotalPopulation);
+            Assert.AreEqual(39, playerGonverance.FieldList.AvailablePopulation);
+        }
     }
 }
