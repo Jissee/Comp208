@@ -2,6 +2,7 @@
 using EoE.Server.WarSystem;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace EoE.Server.GovernanceSystem
     public static class Recipes
     {
         private static float PrimaryProdcutivity = 1.2f;
-        private static float SecondaryProdcutivity =1.2f;
+        private static float SecondaryProdcutivity =0.5f;
 
         public static int SiliconSynthetic = 2;
         public static int CopperSynthetic = 2;
@@ -45,15 +46,16 @@ namespace EoE.Server.GovernanceSystem
 
         public static Recipe producePrimaryResource = (population,fields,_,_) =>
         {
-            int count = (int)(Math.Max(population, maxAllocation * fields.Count) * PrimaryProdcutivity);
+            int count = (int)(Math.Min(population, maxAllocation * fields.Count) * PrimaryProdcutivity);
             return new ResourceStack(fields.Type, count);
         };
         public static Recipe produceElectronic = (population, fields, Silicon, Copper) =>
         {
-            int expectProduce = (int)(Math.Max(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
-
+            int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
             if (Silicon.Count >= expectProduce * SiliconSynthetic && Copper.Count >= expectProduce * CopperSynthetic)
             {
+                Silicon.Count -= expectProduce * SiliconSynthetic;
+                Copper.Count -= expectProduce * CopperSynthetic;
                 return new ResourceStack(fields.Type, expectProduce);
             }
             else
@@ -77,10 +79,12 @@ namespace EoE.Server.GovernanceSystem
 
         public static Recipe produceIndustry = (population, fields, Iron, Aluminum) =>
         {
-            int expectProduce = (int)(Math.Max(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
+            int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
 
             if (Iron.Count >= expectProduce * IronSynthetic && Aluminum.Count >= expectProduce * AluminumSynthetic)
             {
+                Iron.Count -= expectProduce * IronSynthetic;
+                Aluminum.Count -= expectProduce * AluminumSynthetic;
                 return new ResourceStack(fields.Type, expectProduce);
             }
             else
@@ -88,14 +92,14 @@ namespace EoE.Server.GovernanceSystem
                 int acutalProduce = 0;
                 if (Iron.Count >= Aluminum.Count)
                 {
-                    acutalProduce = (int)(Iron.Count / IronSynthetic);
+                    acutalProduce = Iron.Count / IronSynthetic;
                 }
                 else
                 {
-                    acutalProduce = (int)(Aluminum.Count / AluminumSynthetic);
+                    acutalProduce = Aluminum.Count / AluminumSynthetic;
                 }
-                Iron.Count -= (int)(acutalProduce * IronSynthetic);
-                Aluminum.Count -= (int)(acutalProduce * AluminumSynthetic);
+                Iron.Count -= acutalProduce * IronSynthetic;
+                Aluminum.Count -= acutalProduce * AluminumSynthetic;
 
                 return new ResourceStack(fields.Type, acutalProduce);
             }
