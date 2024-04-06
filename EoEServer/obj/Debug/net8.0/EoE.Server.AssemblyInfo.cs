@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("EoE.GlobalServerStatus")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("EoE.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e16e910108d4e7b53b8394abe136509a2c1b19b8")]
-[assembly: System.Reflection.AssemblyProductAttribute("EoE.GlobalServerStatus")]
-[assembly: System.Reflection.AssemblyTitleAttribute("EoE.GlobalServerStatus")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+861f50f76528a2183ffb9f60c37e9efceb1ae9bb")]
+[assembly: System.Reflection.AssemblyProductAttribute("EoE.Server")]
+[assembly: System.Reflection.AssemblyTitleAttribute("EoE.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
