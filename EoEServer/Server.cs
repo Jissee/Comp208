@@ -19,13 +19,13 @@ namespace EoE.Server
     {
         public Socket ServerSocket { get; }
 
-        public int UnidentifiedField { get; private set; } = 100;
         public  List<IPlayer> Clients { get; }
 
         private readonly IPEndPoint address;
         private bool isRunning;
         public ServerPacketHandler PacketHandler { get; }
 
+        public int UnidentifiedField { get; set; } = 100;
         public Modifier GlobalResourceModifier { get; init; }
         public Modifier GlobalPrimaryModifier{ get; init; }
         public Modifier GlobalSecondaryModifier{ get; init; }

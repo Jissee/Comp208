@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using EoE.Server.WarSystem;
+using System.Diagnostics;
 
 namespace EoE.Server.GovernanceSystem
 {
@@ -105,7 +106,8 @@ namespace EoE.Server.GovernanceSystem
                .AddNode(server.GlobalResourceModifier);
         }
 
-        private void ProducePrimaryResource()
+        // 暂时改为public！！！
+        public void ProducePrimaryResource()
         {
             ResourceStack resource = Recipes.producePrimaryResource(FieldList.SiliconPop, FieldList.CountryFieldSilicon, null, null);
             resource.Count = (int)CountrySiliconModifier.Apply(resource.Count);
@@ -125,12 +127,12 @@ namespace EoE.Server.GovernanceSystem
 
         }
 
-        private void ProduceSecondaryResource()
+        // 暂时改为public！！！
+        public void ProduceSecondaryResource()
         {
             ResourceStack resource = Recipes.produceElectronic(FieldList.ElectronicPop, FieldList.CountryFieldElectronic, ResourceList.CountrySilicon, ResourceList.CountryCopper);
             resource.Count = (int)CountryElectronicModifier.Apply(resource.Count);
             ResourceList.CountryElectronic.Add(resource);
-
             resource = Recipes.produceIndustry(FieldList.IndustrailPop, FieldList.CountryFieldIndustry, ResourceList.CountryIron, ResourceList.CountryAluminum);
             resource.Count = (int)CountryIndustryModifier.Apply(resource.Count);
             ResourceList.CountryIndustrial.Add(resource);
@@ -229,11 +231,13 @@ namespace EoE.Server.GovernanceSystem
         private void UpdateField()
         {
             int exploredFieldCount = FieldExplorationProgress / FIELD_EXPLORE_THRESHOLD;
-            FieldExplorationProgress %= FIELD_EXPLORE_THRESHOLD;
+            int acutalExplored = Math.Min(exploredFieldCount, server.UnidentifiedField);
+            FieldExplorationProgress -= acutalExplored * FIELD_EXPLORE_THRESHOLD;
+            server.UnidentifiedField -= acutalExplored;
 
-            if (exploredFieldCount > 0)
+            if (acutalExplored > 0)
             {
-                for (int i = 0; i < exploredFieldCount; i++)
+                for (int i = 0; i < acutalExplored; i++)
                 {
                     Random random = new Random();
                     GameResourceType type = (GameResourceType) random.Next(4);
