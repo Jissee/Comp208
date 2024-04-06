@@ -18,7 +18,7 @@ namespace EoE.Server
     public class Server : IServer, ITickable
     {
         public Socket ServerSocket { get; }
-
+        private int tickCount;
         public int UnidentifiedField { get; private set; } = 100;
         public  List<IPlayer> Clients { get; }
 
@@ -52,6 +52,7 @@ namespace EoE.Server
             GlobalAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalIndustryModifier = new Modifier("", Modifier.ModifierType.Plus);
+            tickCount = 0;
         }
 
         public void Start()
@@ -168,6 +169,7 @@ namespace EoE.Server
 
         public void Tick()
         {
+            tickCount++;
             foreach (ServerPlayer player in Clients)
             {
                 player.Tick();
