@@ -15,7 +15,7 @@ namespace EoE.Server.WarSystem
         public override int MechanDefense => 2;
 
         public override int BattleAttack => 1;
-        public InformativeArmyStack(GameResourceType type, int count) : base(type, count)
+        public InformativeArmyStack(int count) : base(GameResourceType.InformativeArmy, count)
         {
         }
     }

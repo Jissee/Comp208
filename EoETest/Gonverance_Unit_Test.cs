@@ -12,11 +12,9 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using EoE.Server;
-using System.Windows;
+using EoE.GovernanceSystem;
 using EoE.Server.WarSystem;
 namespace EoE.Test
-    
 {
     [TestClass]
     public class Gonverance_Unit_Test
@@ -305,12 +303,12 @@ namespace EoE.Test
             var playerGonverance = new PlayerGonverance(server.Status);
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Electronic, 19));
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Industrial, 100));
-            playerGonverance.SyntheticArmy(new BattleArmyStack(GovernanceSystem.GameResourceType.BattleArmy,10));
+            playerGonverance.SyntheticArmy(new BattleArmyStack(10));
             Assert.AreEqual(80, playerGonverance.TotalPopulation);
-            playerGonverance.SyntheticArmy(new InformativeArmyStack(GovernanceSystem.GameResourceType.InformativeArmy, 10));
+            playerGonverance.SyntheticArmy(new InformativeArmyStack(10));
             Assert.AreEqual(60, playerGonverance.TotalPopulation);
             Assert.AreEqual(80, playerGonverance.ResourceList.CountryElectronic.Count);
-            playerGonverance.SyntheticArmy(new MechanismArmyStack(GovernanceSystem.GameResourceType.MechanismArmy, 10));
+            playerGonverance.SyntheticArmy(new MechanismArmyStack(10));
             Assert.AreEqual(40, playerGonverance.TotalPopulation);
             Assert.AreEqual(80, playerGonverance.ResourceList.CountryIndustrial.Count);
 

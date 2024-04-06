@@ -52,5 +52,10 @@ namespace EoE.GovernanceSystem
                 return new ResourceStack(this.Type, tmpcnt);
             }
         }
+
+        public override string ToString()
+        {
+            return $"[{Type}/{Count}]";
+        }
     }
 }
