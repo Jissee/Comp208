@@ -19,36 +19,30 @@ namespace EoE.Server.GovernanceSystem
 
         public readonly int EXPLORE_RESOURCE_PER_POP = 5;
         public readonly double EXPLORE_FIELD_PER_POP = 1.1f;
-        public int? ExploratoinPopulation { get; private set;}
-        public int FieldExplorationProgress { get; private set; }
         public static readonly int FIELD_EXPLORE_THRESHOLD = 100;
+
+        public int ExploratoinPopulation { get; private set;}
+        public int FieldExplorationProgress { get; private set; }
+
 
         public bool IsLose => TotalPopulation <= 0 || FieldList.TotalFieldCount <= 0;
         public PlayerFieldList FieldList { get; }
         public PlayerResourceList ResourceList { get; }
 
-        private Server server;
-
-
-        public Modifier CountryResourceModifier { get; init; }
-        public Modifier CountryPrimaryModifier { get; init; }
-        public Modifier CountrySecondaryModifier { get; init; }
-        public Modifier CountrySiliconModifier { get; init; }
-        public Modifier CountryCopperModifier { get; init; }
-        public Modifier CountryIronModifier { get; init; }
-        public Modifier CountryAluminumModifier { get; init; }
-        public Modifier CountryElectronicModifier { get; init; }
-        public Modifier CountryIndustryModifier { get; init; }
+        private GameStatus globalGameStatus;
+        private PlayerStatus playerStatus;
 
         public int TotalPopulation => FieldList.TotalPopulation;
         public static readonly int POP_GROWTH_THRESHOLD = 100;
         public int PopGrowthProgress { get; private set;}
-        public PlayerGonverance(Server server)
+        public PlayerGonverance(GameStatus globalGameStatus)
         {
-            this.server = server;
+            this.globalGameStatus = globalGameStatus;
+            this.playerStatus = new PlayerStatus(globalGameStatus);
 
             FieldList = new PlayerFieldList();
             ResourceList = new PlayerResourceList();
+<<<<<<< HEAD
 
             CountryResourceModifier = new Modifier("", Modifier.ModifierType.Plus);
             CountryPrimaryModifier = new Modifier("", Modifier.ModifierType.Plus);
@@ -105,25 +99,27 @@ namespace EoE.Server.GovernanceSystem
                .AddNode(server.GlobalIndustryModifier)
                .AddNode(server.GlobalSecondaryModifier)
                .AddNode(server.GlobalResourceModifier);
+=======
+>>>>>>> 4d1f001942d5f0a7c5567cdcff6ecd2e0ca3af4a
         }
 
         // 暂时改为public！！！
         public void ProducePrimaryResource()
         {
             ResourceStack resource = Recipes.producePrimaryResource(FieldList.SiliconPop, FieldList.CountryFieldSilicon, null, null);
-            resource.Count = (int)CountrySiliconModifier.Apply(resource.Count);
+            resource.Count = (int)playerStatus.CountrySiliconModifier.Apply(resource.Count);
             ResourceList.CountrySilicon.Add(resource);
 
             resource = Recipes.producePrimaryResource(FieldList.CopperPop, FieldList.CountryFieldCopper, null, null);
-            resource.Count = (int)CountryCopperModifier.Apply(resource.Count);
+            resource.Count = (int)playerStatus.CountryCopperModifier.Apply(resource.Count);
             ResourceList.CountryCopper.Add(resource);
 
             resource = Recipes.producePrimaryResource(FieldList.IronPop, FieldList.CountryFieldIron, null, null);
-            resource.Count = (int)CountryIronModifier.Apply(resource.Count);
+            resource.Count = (int)playerStatus.CountryIronModifier.Apply(resource.Count);
             ResourceList.CountryIron.Add(resource);
 
             resource = Recipes.producePrimaryResource(FieldList.AluminumPop, FieldList.CountryFieldAluminum, null, null);
-            resource.Count = (int)CountryAluminumModifier.Apply(resource.Count);
+            resource.Count = (int)playerStatus.CountryAluminumModifier.Apply(resource.Count);
             ResourceList.CountryAluminum.Add(resource);
 
         }
@@ -132,10 +128,10 @@ namespace EoE.Server.GovernanceSystem
         public void ProduceSecondaryResource()
         {
             ResourceStack resource = Recipes.produceElectronic(FieldList.ElectronicPop, FieldList.CountryFieldElectronic, ResourceList.CountrySilicon, ResourceList.CountryCopper);
-            resource.Count = (int)CountryElectronicModifier.Apply(resource.Count);
+            resource.Count = (int)playerStatus.CountryElectronicModifier.Apply(resource.Count);
             ResourceList.CountryElectronic.Add(resource);
             resource = Recipes.produceIndustry(FieldList.IndustrailPop, FieldList.CountryFieldIndustry, ResourceList.CountryIron, ResourceList.CountryAluminum);
-            resource.Count = (int)CountryIndustryModifier.Apply(resource.Count);
+            resource.Count = (int)playerStatus.CountryIndustryModifier.Apply(resource.Count);
             ResourceList.CountryIndustrial.Add(resource);
         }
 
@@ -226,7 +222,7 @@ namespace EoE.Server.GovernanceSystem
 
         private void UpdateFieldExplorationProgress()
         {
-            if (ExploratoinPopulation != null)
+            if (ExploratoinPopulation > 0)
             {
                 FieldExplorationProgress += (int)(ExploratoinPopulation * EXPLORE_FIELD_PER_POP);
             }
@@ -235,9 +231,9 @@ namespace EoE.Server.GovernanceSystem
         private void UpdateField()
         {
             int exploredFieldCount = FieldExplorationProgress / FIELD_EXPLORE_THRESHOLD;
-            int acutalExplored = Math.Min(exploredFieldCount, server.UnidentifiedField);
+            int acutalExplored = Math.Min(exploredFieldCount, globalGameStatus.UnidentifiedField);
             FieldExplorationProgress -= acutalExplored * FIELD_EXPLORE_THRESHOLD;
-            server.UnidentifiedField -= acutalExplored;
+            globalGameStatus.UnidentifiedField -= acutalExplored;
 
             if (acutalExplored > 0)
             {

@@ -18,23 +18,13 @@ namespace EoE.Server
     public class Server : IServer, ITickable
     {
         public Socket ServerSocket { get; }
-
         public  List<IPlayer> Clients { get; }
-
         private readonly IPEndPoint address;
-        private bool isRunning;
+        private bool isServerRunning;
+        private bool isGameRunning;
         public ServerPacketHandler PacketHandler { get; }
+        public GameStatus Status {get; private set;}
 
-        public int UnidentifiedField { get; set; } = 100;
-        public Modifier GlobalResourceModifier { get; init; }
-        public Modifier GlobalPrimaryModifier{ get; init; }
-        public Modifier GlobalSecondaryModifier{ get; init; }
-        public Modifier GlobalSiliconModifier{ get; init; }
-        public Modifier GlobalCopperModifier{ get; init; }
-        public Modifier GlobalIronModifier{ get; init; }
-        public Modifier GlobalAluminumModifier{ get; init; }
-        public Modifier GlobalElectronicModifier { get; init; }
-        public Modifier GlobalIndustryModifier { get; init; }
 
         public Server(string ip, int port) 
         {
@@ -42,16 +32,16 @@ namespace EoE.Server
             address = new IPEndPoint(IPAddress.Parse(ip), port);
             Clients = new List<IPlayer>();
             PacketHandler = new ServerPacketHandler(this);
+            isServerRunning = false;
+            isGameRunning = false;
+            
 
-            GlobalResourceModifier = new Modifier("", Modifier.ModifierType.Plus);
-            GlobalPrimaryModifier = new Modifier("", Modifier.ModifierType.Plus);
-            GlobalSecondaryModifier = new Modifier("", Modifier.ModifierType.Plus);
-            GlobalSiliconModifier = new Modifier("", Modifier.ModifierType.Plus);
-            GlobalCopperModifier = new Modifier("", Modifier.ModifierType.Plus);
-            GlobalIronModifier = new Modifier("", Modifier.ModifierType.Plus);
-            GlobalAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
-            GlobalElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
-            GlobalIndustryModifier = new Modifier("", Modifier.ModifierType.Plus);
+        }
+        public void BeginGame()
+        {
+            Status = new GameStatus(500);
+            isGameRunning = true;
+
         }
 
         public void Start()
@@ -60,7 +50,7 @@ namespace EoE.Server
             {
                 ServerSocket.Bind(address);
                 ServerSocket.Listen(6);
-                isRunning = true;
+                isServerRunning = true;
                 Task.Run(ConnectionLoop);
                 Task.Run(DisconnectionLoop);
                 Task.Run(MessageLoop);
@@ -72,13 +62,13 @@ namespace EoE.Server
             lock(this)
             {
                 ServerSocket?.Close();
-                isRunning = false;
+                isServerRunning = false;
             }
         }
 
         public void ConnectionLoop()
         {
-            while (isRunning)
+            while (isServerRunning)
             {   // Accept one connection
                 Socket cl = ServerSocket.Accept();
                 // Extract the IP adress and Port num of client
@@ -96,7 +86,7 @@ namespace EoE.Server
         }
         public void DisconnectionLoop()
         {
-            while (isRunning)
+            while (isServerRunning)
             {
                 lock (Clients)
                 {
@@ -117,7 +107,7 @@ namespace EoE.Server
 
         public void MessageLoop()
         {
-            while (isRunning)
+            while (isServerRunning)
             {
                 lock (Clients)
                 {
@@ -168,6 +158,7 @@ namespace EoE.Server
 
         public void Tick()
         {
+            Status.Tick();
             foreach (ServerPlayer player in Clients)
             {
                 player.Tick();
