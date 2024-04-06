@@ -36,7 +36,7 @@ namespace EoE.Server.GovernanceSystem
         public PlayerFieldList()
         {
             CountryFieldSilicon = new FieldStack(GameResourceType.Silicon, 20);
-            CountryFieldCopper = new FieldStack(GameResourceType.Silicon, 20);
+            CountryFieldCopper = new FieldStack(GameResourceType.Copper, 20);
             CountryFieldIron = new FieldStack(GameResourceType.Iron, 20);
             CountryFieldAluminum = new FieldStack(GameResourceType.Aluminum, 20);
             CountryFieldElectronic = new FieldStack(GameResourceType.Electronic, 20);

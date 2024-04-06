@@ -18,7 +18,7 @@ namespace EoE.Server
     public class Server : IServer, ITickable
     {
         public Socket ServerSocket { get; }
-        private int tickCount;
+
         public int UnidentifiedField { get; private set; } = 100;
         public  List<IPlayer> Clients { get; }
 
@@ -26,6 +26,7 @@ namespace EoE.Server
         private bool isRunning;
         public ServerPacketHandler PacketHandler { get; }
 
+        public int UnidentifiedField { get; set; } = 100;
         public Modifier GlobalResourceModifier { get; init; }
         public Modifier GlobalPrimaryModifier{ get; init; }
         public Modifier GlobalSecondaryModifier{ get; init; }
