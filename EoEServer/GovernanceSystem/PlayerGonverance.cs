@@ -97,7 +97,7 @@ namespace EoE.Server.GovernanceSystem
         {
             if (Math.Abs(PopGrowthProgress)>= POP_GROWTH_THRESHOLD)
             {
-                FieldList.PopGrow(PopGrowthProgress / POP_GROWTH_THRESHOLD);
+                FieldList.AlterPop(PopGrowthProgress / POP_GROWTH_THRESHOLD);
                 PopGrowthProgress %= POP_GROWTH_THRESHOLD;
             }
         }
@@ -161,7 +161,8 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
-        private void UpdateFieldExplorationProgress()
+        // 暂时改为public！！！
+        public void UpdateFieldExplorationProgress()
         {
             if (ExploratoinPopulation > 0)
             {
@@ -169,7 +170,8 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
-        private void UpdateField()
+        // 暂时改为public！！！
+        public void UpdateField()
         {
             int exploredFieldCount = FieldExplorationProgress / FIELD_EXPLORE_THRESHOLD;
             int acutalExplored = Math.Min(exploredFieldCount, globalGameStatus.UnidentifiedField);
@@ -211,8 +213,10 @@ namespace EoE.Server.GovernanceSystem
             {
                 case GameResourceType.BattleArmy:
                     (popCount, resource) = Recipes.BattleArmyproduce(army);
-                    if (popCount >= FieldList.AvailablePopulation)
+
+                    if (popCount <= FieldList.AvailablePopulation)
                     {
+                        FieldList.AlterPop(-popCount);
                         ResourceList.AddResource(army);
                     }
                     else
@@ -222,8 +226,10 @@ namespace EoE.Server.GovernanceSystem
                     break;
                 case GameResourceType.InformativeArmy:
                     (popCount, resource) = Recipes.produceInfomativeArmy(army);
-                    if (popCount >= FieldList.AvailablePopulation && resource.Count <= ResourceList.CountryElectronic.Count)
+                    if (popCount <= FieldList.AvailablePopulation && resource.Count <= ResourceList.CountryElectronic.Count)
                     {
+                        FieldList.AlterPop(-popCount);
+                        ResourceList.CountryElectronic.Count -= resource.Count;
                         ResourceList.AddResource(army);
                     }
                     else
@@ -233,8 +239,10 @@ namespace EoE.Server.GovernanceSystem
                     break;
                 case GameResourceType.MechanismArmy:
                     (popCount, resource) = Recipes.produceMechanismArmy(army);
-                    if(popCount >= FieldList.AvailablePopulation && resource.Count <= ResourceList.CountryIndustrial.Count)
+                    if(popCount <= FieldList.AvailablePopulation && resource.Count <= ResourceList.CountryIndustrial.Count)
                     {
+                        FieldList.AlterPop(-popCount);
+                        ResourceList.CountryIndustrial.Count -= resource.Count;
                         ResourceList.AddResource(army);
                     }
                     else

@@ -159,7 +159,7 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
-        public void PopGrow(int count)
+        public void AlterPop(int count)
         {
             AvailablePopulation += count;
             if (AvailablePopulation < 0)
