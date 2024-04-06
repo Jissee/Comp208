@@ -16,7 +16,7 @@ namespace EoE.Server.WarSystem
 
         public override int BattleAttack => 2;
 
-        public BattleArmyStack(GameResourceType type, int count) : base(type, count)
+        public BattleArmyStack(int count) : base(GameResourceType.BattleArmy, count)
         {
         }
     }

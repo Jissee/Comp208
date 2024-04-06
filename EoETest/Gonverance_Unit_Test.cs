@@ -12,8 +12,8 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using EoE.GovernanceSystem;
 namespace EoE.Test
-    
 {
     [TestClass]
     public class Gonverance_Unit_Test
@@ -22,7 +22,7 @@ namespace EoE.Test
         public void TestPopAllocation()
         {
             Server.Server Server = new Server.Server("0.0.0.0", 25566);
-            var playerGonverance = new PlayerGonverance(Server);
+            var playerGonverance = new PlayerGonverance(Server.Status);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -44,7 +44,7 @@ namespace EoE.Test
         public void TestPrimaryGeneration()
         {
             Server.Server Server = new Server.Server("0.0.0.0", 25566);
-            var playerGonverance = new PlayerGonverance(Server);
+            var playerGonverance = new PlayerGonverance(Server.Status);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -65,7 +65,7 @@ namespace EoE.Test
         public void TestSecondaryGeneration()
         {
             Server.Server Server = new Server.Server("0.0.0.0", 25566);
-            var playerGonverance = new PlayerGonverance(Server);
+            var playerGonverance = new PlayerGonverance(Server.Status);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -94,7 +94,7 @@ namespace EoE.Test
         public void TestPopulationDecrease()
         {
             Server.Server Server = new Server.Server("0.0.0.0", 25566);
-            var playerGonverance = new PlayerGonverance(Server);
+            var playerGonverance = new PlayerGonverance(Server.Status);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);

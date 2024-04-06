@@ -16,7 +16,7 @@ namespace EoE.Server.WarSystem
 
         public override int BattleAttack => 0;
 
-        public MechanismArmyStack(GameResourceType type, int count) : base(type, count)
+        public MechanismArmyStack(int count) : base(GameResourceType.MechanismArmy, count)
         {
         }
 
