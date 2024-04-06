@@ -42,65 +42,6 @@ namespace EoE.Server.GovernanceSystem
 
             FieldList = new PlayerFieldList();
             ResourceList = new PlayerResourceList();
-<<<<<<< HEAD
-
-            CountryResourceModifier = new Modifier("", Modifier.ModifierType.Plus);
-            CountryPrimaryModifier = new Modifier("", Modifier.ModifierType.Plus);
-            CountrySecondaryModifier = new Modifier("", Modifier.ModifierType.Plus);
-            CountrySiliconModifier = new Modifier("", Modifier.ModifierType.Plus);
-            CountryCopperModifier = new Modifier("", Modifier.ModifierType.Plus);
-            CountryIronModifier = new Modifier("", Modifier.ModifierType.Plus);
-            CountryAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
-            CountryElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
-            CountryIndustryModifier = new Modifier("", Modifier.ModifierType.Plus);
-            PopGrowthProgress = 0;
-        }
-
-        public void PrepareModifier(Server server)
-        {
-            CountrySiliconModifier
-                .AddNode(CountryPrimaryModifier)
-                .AddNode(CountryResourceModifier)
-                .AddNode(server.GlobalSiliconModifier)
-                .AddNode(server.GlobalPrimaryModifier)
-                .AddNode(server.GlobalResourceModifier);
-
-            CountryCopperModifier
-                .AddNode(CountryPrimaryModifier)
-                .AddNode(CountryResourceModifier)
-                .AddNode(server.GlobalCopperModifier)
-                .AddNode(server.GlobalPrimaryModifier)
-                .AddNode(server.GlobalResourceModifier);
-
-            CountryIronModifier
-                .AddNode(CountryPrimaryModifier)
-                .AddNode(CountryResourceModifier)
-                .AddNode(server.GlobalIronModifier)
-                .AddNode(server.GlobalPrimaryModifier)
-                .AddNode(server.GlobalResourceModifier);
-
-            CountryAluminumModifier
-               .AddNode(CountryPrimaryModifier)
-                .AddNode(CountryResourceModifier)
-                .AddNode(server.GlobalAluminumModifier)
-                .AddNode(server.GlobalPrimaryModifier)
-                .AddNode(server.GlobalResourceModifier);
-
-            CountryElectronicModifier
-               .AddNode(CountrySecondaryModifier)
-                .AddNode(CountryResourceModifier)
-                .AddNode(server.GlobalElectronicModifier)
-                .AddNode(server.GlobalSecondaryModifier)
-                .AddNode(server.GlobalResourceModifier);
-
-            CountryIndustryModifier
-              .AddNode(CountrySecondaryModifier)
-               .AddNode(CountryResourceModifier)
-               .AddNode(server.GlobalIndustryModifier)
-               .AddNode(server.GlobalSecondaryModifier)
-               .AddNode(server.GlobalResourceModifier);
-=======
->>>>>>> 4d1f001942d5f0a7c5567cdcff6ecd2e0ca3af4a
         }
 
         // 暂时改为public！！！
