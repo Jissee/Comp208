@@ -12,13 +12,8 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
 using EoE.GovernanceSystem;
-=======
-using EoE.Server;
-using System.Windows;
 using EoE.Server.WarSystem;
->>>>>>> 7549d3cd96d4b2bb41edc47a3a179a4c4ce77d00
 namespace EoE.Test
 {
     [TestClass]
@@ -27,15 +22,10 @@ namespace EoE.Test
         [TestMethod]
         public void TestPopAllocation()
         {
-<<<<<<< HEAD
-            Server.Server Server = new Server.Server("0.0.0.0", 25566);
-            var playerGonverance = new PlayerGonverance(Server.Status);
-=======
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
             var playerGonverance = new PlayerGonverance(server.Status);
             
->>>>>>> 7549d3cd96d4b2bb41edc47a3a179a4c4ce77d00
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -56,14 +46,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestPrimaryGeneration()
         {
-<<<<<<< HEAD
-            Server.Server Server = new Server.Server("0.0.0.0", 25566);
-            var playerGonverance = new PlayerGonverance(Server.Status);
-=======
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
             var playerGonverance = new PlayerGonverance(server.Status);
->>>>>>> 7549d3cd96d4b2bb41edc47a3a179a4c4ce77d00
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -83,14 +68,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestSecondaryGeneration()
         {
-<<<<<<< HEAD
-            Server.Server Server = new Server.Server("0.0.0.0", 25566);
-            var playerGonverance = new PlayerGonverance(Server.Status);
-=======
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
             var playerGonverance = new PlayerGonverance(server.Status);
->>>>>>> 7549d3cd96d4b2bb41edc47a3a179a4c4ce77d00
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -118,14 +98,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestConsume()
         {
-<<<<<<< HEAD
-            Server.Server Server = new Server.Server("0.0.0.0", 25566);
-            var playerGonverance = new PlayerGonverance(Server.Status);
-=======
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
             var playerGonverance = new PlayerGonverance(server.Status);
->>>>>>> 7549d3cd96d4b2bb41edc47a3a179a4c4ce77d00
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -328,12 +303,12 @@ namespace EoE.Test
             var playerGonverance = new PlayerGonverance(server.Status);
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Electronic, 19));
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Industrial, 100));
-            playerGonverance.SyntheticArmy(new BattleArmyStack(GovernanceSystem.GameResourceType.BattleArmy,10));
+            playerGonverance.SyntheticArmy(new BattleArmyStack(10));
             Assert.AreEqual(80, playerGonverance.TotalPopulation);
-            playerGonverance.SyntheticArmy(new InformativeArmyStack(GovernanceSystem.GameResourceType.InformativeArmy, 10));
+            playerGonverance.SyntheticArmy(new InformativeArmyStack(10));
             Assert.AreEqual(60, playerGonverance.TotalPopulation);
             Assert.AreEqual(80, playerGonverance.ResourceList.CountryElectronic.Count);
-            playerGonverance.SyntheticArmy(new MechanismArmyStack(GovernanceSystem.GameResourceType.MechanismArmy, 10));
+            playerGonverance.SyntheticArmy(new MechanismArmyStack(10));
             Assert.AreEqual(40, playerGonverance.TotalPopulation);
             Assert.AreEqual(80, playerGonverance.ResourceList.CountryIndustrial.Count);
 
