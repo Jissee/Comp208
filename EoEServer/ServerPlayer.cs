@@ -46,13 +46,7 @@ namespace EoE.Server
         {
             this.Connection = connection;
             Server = server;
-            PrepareModifier(server);
-            GonveranceManager = new PlayerGonverance(server);
-        }
-
-        public void PrepareModifier(Server server)
-        {
-
+            GonveranceManager = new PlayerGonverance(server.Status);
         }
 
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
