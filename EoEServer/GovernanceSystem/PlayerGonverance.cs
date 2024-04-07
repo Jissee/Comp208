@@ -168,6 +168,8 @@ namespace EoE.Server.GovernanceSystem
             if (ExploratoinPopulation > 0)
             {
                 FieldExplorationProgress += (int)(ExploratoinPopulation * EXPLORE_FIELD_PER_POP);
+                FieldList.AlterPop(ExploratoinPopulation);
+                ExploratoinPopulation = 0;
             }
         }
 

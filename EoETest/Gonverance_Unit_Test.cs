@@ -41,6 +41,13 @@ namespace EoE.Test
             Assert.AreEqual(10, playerGonverance.FieldList.ElectronicPop);
             Assert.AreEqual(40, playerGonverance.FieldList.AvailablePopulation);
             Assert.AreEqual(100, playerGonverance.TotalPopulation);
+
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 11);
+            Assert.AreEqual(11, playerGonverance.FieldList.SiliconPop);
+            Assert.AreEqual(39, playerGonverance.FieldList.AvailablePopulation);
+            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 9);
+            Assert.AreEqual(9, playerGonverance.FieldList.SiliconPop);
+            Assert.AreEqual(41, playerGonverance.FieldList.AvailablePopulation);
         }
 
         [TestMethod]
