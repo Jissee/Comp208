@@ -19,7 +19,7 @@ namespace EoE.Server
         private string name;
         public bool IsLose => GonveranceManager.IsLose;
         private Army army;
-        public PlayerGonverance GonveranceManager { get; }
+        public PlayerGonverance GonveranceManager { get; private set; }
         public void AddArmy(Army army)
         {
             this.army = army;
@@ -46,7 +46,11 @@ namespace EoE.Server
         {
             this.Connection = connection;
             Server = server;
-            GonveranceManager = new PlayerGonverance(server.Status);
+            
+        }
+        public void BeginGame()
+        {
+            GonveranceManager = new PlayerGonverance(Server.Status);
         }
 
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);

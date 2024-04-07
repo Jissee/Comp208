@@ -34,14 +34,7 @@ namespace EoE.Server.Network.Packets
                 INetworkEntity ne = context.Receiver!;
                 if(ne is IServer server)
                 {
-                    foreach(IPlayer player in server.Clients)
-                    {
-                        if(player == context.PlayerSender)
-                        {
-                            player.PlayerName = playerName;
-                            Console.WriteLine($"{playerName} logged in");
-                        }
-                    }
+                    server.InitPlayerName(context.PlayerSender!, this.playerName);
                 }
             }
         }

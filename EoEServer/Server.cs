@@ -18,20 +18,21 @@ namespace EoE.Server
     public class Server : IServer, ITickable
     {
         public Socket ServerSocket { get; }
-        public  List<IPlayer> Clients { get; }
+
         private readonly IPEndPoint address;
         private bool isServerRunning;
         private bool isGameRunning;
         public ServerPacketHandler PacketHandler { get; }
         public GameStatus Status {get; private set;}
+        public ServerPlayerList PlayerList { get; private set;}
 
 
         public Server(string ip, int port) 
         {
             ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             address = new IPEndPoint(IPAddress.Parse(ip), port);
-            Clients = new List<IPlayer>();
             PacketHandler = new ServerPacketHandler(this);
+            PlayerList = new ServerPlayerList();
             isServerRunning = false;
             isGameRunning = false;
             
@@ -42,6 +43,13 @@ namespace EoE.Server
             Status = new GameStatus(500);
             isGameRunning = true;
 
+            lock (PlayerList)
+            {
+                foreach (var player in PlayerList.Players)
+                {
+                    player.BeginGame();
+                }
+            }
         }
 
         public void Start()
@@ -77,10 +85,14 @@ namespace EoE.Server
                 {
                     Console.WriteLine($"{iPEndPoint.Address.ToString()}:{iPEndPoint.Port} connecting.");
                 }
+                lock(PlayerList)
+                {
+                    PlayerList.PlayerLogin(new ServerPlayer(cl, this));
+                }/*
                 lock (Clients)
                 {
                     Clients.Add(new ServerPlayer(cl, this));
-                }
+                }*/
                 
             }
         }
@@ -88,6 +100,11 @@ namespace EoE.Server
         {
             while (isServerRunning)
             {
+                lock(PlayerList)
+                {
+                    PlayerList.HandlelayerDisconnection();
+                }
+                /*
                 lock (Clients)
                 {
                     for(int i = 0; i < Clients.Count; i++)
@@ -101,7 +118,7 @@ namespace EoE.Server
                         }
                         
                     }
-                }
+                }*/
             }
         }
 
@@ -109,78 +126,51 @@ namespace EoE.Server
         {
             while (isServerRunning)
             {
-                lock (Clients)
+                lock (PlayerList)
                 {
-                    foreach (ServerPlayer player in Clients)
-                    {
-                        if (player.Connection.Available > 0)
-                        {
-                            byte[] lengthBuf = new byte[8];
-
-                            player.Connection.Receive(lengthBuf);
-                            MemoryStream msLen = new MemoryStream(lengthBuf);
-                            BinaryReader br = new BinaryReader(msLen);
-                            long length = br.ReadInt64();
-
-                            byte[] buf = new byte[length];
-                            int i = player.Connection.Receive(buf);
-                            //Console.WriteLine(i);
-                            PacketContext context = new PacketContext(NetworkDirection.Client2Server, player, this);
-                            PacketHandler.ReceivePacket(buf, context);
-                        }
-                    }
+                    PlayerList.HandlePlayerMessage(PacketHandler, this);
                 }
             }
         }
 
         public void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>
         {
-            foreach (ServerPlayer player in Clients)
+            lock (PlayerList)
             {
-                if (condition(player))
-                {
-                    player.SendPacket(packet);
-                }
+                PlayerList.Broadcast(packet, condition);
             }
         }
 
         public IPlayer? GetPlayer(string playerName)
         {
-            foreach(ServerPlayer player in Clients)
-            {
-                if(player.PlayerName == playerName)
-                {
-                    return player;
-                }
-            }
-            return null;
+            return PlayerList.GetPlayer(playerName);
         }
 
         public void Tick()
         {
             Status.Tick();
-            foreach (ServerPlayer player in Clients)
+            lock(PlayerList)
             {
-                player.Tick();
+                PlayerList.Tick();
             }
-
         }
 
         public void CheckPlayerTickStatus()
         {
-            bool allFinished = true;
-            foreach (var item in Clients)
+            bool tickStatus;
+            lock (PlayerList)
             {
-                if (!item.FinishedTick)
-                {
-                    allFinished = false;
-                }
+                tickStatus = PlayerList.CheckPlayerTickStatus();
             }
+            if (tickStatus)
+            {
+                Tick();
+            }
+        }
 
-            if (allFinished)
-            {
-                this.Tick();
-            }
+        public void InitPlayerName(IPlayer player, string name)
+        {
+            PlayerList.InitPlayerName((ServerPlayer)player, name);
         }
     }
 }

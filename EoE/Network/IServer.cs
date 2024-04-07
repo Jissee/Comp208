@@ -11,7 +11,7 @@ namespace EoE.Network
     public interface IServer : INetworkEntity
     {
         Socket ServerSocket { get; }
-        List<IPlayer> Clients { get; }
+        void InitPlayerName(IPlayer player, string name);
         void Start();
         void Stop();
         void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;

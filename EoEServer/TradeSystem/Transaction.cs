@@ -15,6 +15,7 @@ namespace EoE.Server.TradeSystem
         private bool recipientConfirmed;
         public Dictionary<GameResourceType, int> offerorOffer = new Dictionary<GameResourceType, int>();
         public Dictionary<GameResourceType, int> recipientOffer = new Dictionary<GameResourceType, int>();
+        private string comment;
 
         public Transaction(ServerPlayer offeror) 
         {
@@ -30,6 +31,7 @@ namespace EoE.Server.TradeSystem
         {
             recipient = null;
         }
+        #region change offer
         public void AddOfferorOffer(GameResourceType type, int count)
         {
             AddOfferorOffer(new ResourceStack(type, count));
@@ -100,16 +102,37 @@ namespace EoE.Server.TradeSystem
                 return false;
             }
         }
+        #endregion
 
         public void OfferorDeal()
         {
             this.offerorConfirmed = true;
+            if(recipientConfirmed)
+            {
+                MakeDeal();
+            }
         }
         public void RecipientDeal()
         {
             this.recipientConfirmed = true;
+            if(offerorConfirmed)
+            {
+                MakeDeal();
+            }
+        }        
+
+        public void OfferorCancelDeal()
+        {
+            this.offerorConfirmed = false;
+        }
+        public void RecipientCancelDeal()
+        {
+            this.recipientConfirmed = false;
 
         }
+        private void MakeDeal()
+        {
 
+        }
     }
 }
