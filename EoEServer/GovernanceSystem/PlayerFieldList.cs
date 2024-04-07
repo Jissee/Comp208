@@ -239,7 +239,8 @@ namespace EoE.Server.GovernanceSystem
                         default:
                             throw new Exception("no such type");
                     }               
-                }   
+                }
+                AvailablePopulation = 0;
             }
         }
         private int TrySet(int onPositionPop, int count)

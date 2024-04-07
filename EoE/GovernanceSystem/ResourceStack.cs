@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,5 +58,16 @@ namespace EoE.GovernanceSystem
         {
             return $"[{Type}/{Count}]";
         }
+
+        public static Encoder<ResourceStack> encoder = (ResourceStack obj, BinaryWriter writer) =>
+        {
+            writer.Write((int)obj.Type);
+            writer.Write(obj.Count);
+        };
+
+        public static Decoder<ResourceStack> decoder = (BinaryReader reader) =>
+        {
+            return new ResourceStack((GameResourceType)reader.ReadInt32(), reader.ReadInt32());
+        };
     }
 }
