@@ -13,7 +13,7 @@ namespace EoE.Test
         
         public void Test(ServerPlayer player)
         {
-            Transaction transaction = new Transaction(player);
+            OpenTransaction transaction = new Transaction(player);
 
             transaction.AddOfferorOffer(null);
             transaction.AddOfferorOffer(null);
