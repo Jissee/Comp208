@@ -244,28 +244,29 @@ namespace EoE.Server.GovernanceSystem
         }
         private int TrySet(int onPositionPop, int count)
         {
-            if (count >= 0)
+            if (count >= onPositionPop)
             {
-                if (count > AvailablePopulation)
+                int newAllocate = count - onPositionPop;
+                if (newAllocate > AvailablePopulation)
                 {
                     throw new InvalidPopAllocException();
                 }
                 else
                 {
-                    onPositionPop += count;
-                    AvailablePopulation -= count;
+                    onPositionPop = count;
+                    AvailablePopulation -= (newAllocate);
                 }
             }
             else
             {
-                if (-count >= onPositionPop)
+                if (count < 0)
                 {
                     throw new InvalidPopAllocException();
                 }
                 else
                 {
-                    onPositionPop += count;
-                    AvailablePopulation += count;
+                    onPositionPop = count;
+                    AvailablePopulation += (onPositionPop - count);
                 }
             }
 
