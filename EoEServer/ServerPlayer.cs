@@ -52,7 +52,6 @@ namespace EoE.Server
         {
             GonveranceManager = new PlayerGonverance(Server.Status);
         }
-
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
 
         public bool FinishedTick { get; set; }
