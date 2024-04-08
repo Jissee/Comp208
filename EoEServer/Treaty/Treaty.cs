@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.Treaty
 {
-    public abstract class Treaty
+    public class Treaty
     {
         public ServerPlayer FirstParty { get; init; }
         public ServerPlayer SecondParty { get; init; }
 
-        public Treaty(ServerPlayer firstParty, ServerPlayer secondParty) 
-        { 
-            this.FirstParty = firstParty;
-            this.SecondParty = secondParty;
+        public Treaty(ServerPlayer firstParty, ServerPlayer secondParty)
+        {
+            FirstParty = firstParty;
+            SecondParty = secondParty;
         }
-
     }
 }
