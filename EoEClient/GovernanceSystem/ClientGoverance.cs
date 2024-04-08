@@ -26,5 +26,10 @@ namespace EoE.Client.GovernanceSystem
             ResourceList = new ClientResourceList();
             PopManager = new ClientPopulationManager();
         }
+
+        public void SetExploration(int inutPopulation)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

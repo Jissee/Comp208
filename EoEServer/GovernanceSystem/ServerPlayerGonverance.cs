@@ -12,7 +12,7 @@ using EoE.GovernanceSystem.Interface;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class PlayerGonverance : ITickable, IGonveranceManager
+    public class ServerPlayerGonverance : ITickable, IServerGonveranceManager
     {
         //consume rate
         public readonly double SILICON_PER_POP_TICK = 1.0f;
@@ -42,7 +42,7 @@ namespace EoE.Server.GovernanceSystem
         IResourceList IGonveranceManager.ResourceList => ResourceList;
         IPopulationManager IGonveranceManager.PopManager => PopManager;
 
-        public PlayerGonverance(GameStatus globalGameStatus)
+        public ServerPlayerGonverance(GameStatus globalGameStatus)
         {
             this.globalGameStatus = globalGameStatus;
             this.playerStatus = new PlayerStatus(globalGameStatus);

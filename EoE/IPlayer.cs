@@ -1,4 +1,5 @@
-﻿using EoE.Network.Packets;
+﻿using EoE.GovernanceSystem.Interface;
+using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace EoE
     public interface IPlayer
     {
         Socket Connection { get; }
+
+        IServerGonveranceManager GonveranceManager { get; }
         string PlayerName { get; set; }
         bool IsConnected { get; }
         void SendPacket<T>(T packet) where T : IPacket<T>;

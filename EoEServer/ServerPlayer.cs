@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.Interface;
 using EoE.Network;
 using EoE.Network.Packets;
 using EoE.Server.GovernanceSystem;
@@ -19,7 +20,8 @@ namespace EoE.Server
         private string name;
         public bool IsLose => GonveranceManager.IsLose;
 
-        public PlayerGonverance GonveranceManager { get; private set; }
+        public ServerPlayerGonverance GonveranceManager { get; private set; }
+        IServerGonveranceManager IPlayer.GonveranceManager => GonveranceManager;
 
         public string PlayerName { 
             get 
@@ -47,11 +49,13 @@ namespace EoE.Server
         }
         public void BeginGame()
         {
-            GonveranceManager = new PlayerGonverance(Server.Status);
+            GonveranceManager = new ServerPlayerGonverance(Server.Status);
         }
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
 
         public bool FinishedTick { get; set; }
+
+        
 
         public void SendPacket<T>(T packet) where T : IPacket<T>
         {
