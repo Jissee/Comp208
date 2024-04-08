@@ -1,5 +1,6 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.Server.WarSystem;
+using EoE.WarSystem;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

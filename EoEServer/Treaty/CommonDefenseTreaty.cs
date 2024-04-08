@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.Treaty
 {
-    internal class CommonDefenseTreaty : Treaty
+    public class CommonDefenseTreaty : RelationTreaty
     {
         public CommonDefenseTreaty(ServerPlayer firstParty, ServerPlayer secondParty) : base(firstParty, secondParty)
         {

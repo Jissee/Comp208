@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data;
 using EoE.Server.WarSystem;
 using System.Diagnostics;
+using EoE.WarSystem;
 
 namespace EoE.Server.GovernanceSystem
 {

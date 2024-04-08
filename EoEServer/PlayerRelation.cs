@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Server.Treaty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,12 @@ namespace EoE.Server
 {
     public class PlayerRelation
     {
+        public TreatyManager TreatyManager;
         public Dictionary<ServerPlayer, List<ServerPlayer>> ProtectedBy;
         private List<ServerPlayer> AlreadyIn;
-        public PlayerRelation()
+        public PlayerRelation(TreatyManager treatyManager)
         {
+            TreatyManager = treatyManager;
             ProtectedBy = new Dictionary<ServerPlayer, List<ServerPlayer>>();
             AlreadyIn = new List<ServerPlayer>();
         }
@@ -59,8 +62,9 @@ namespace EoE.Server
                 }
             }
         }
-        public List<ServerPlayer>? GetProtectorsRecursively(ServerPlayer target)
+        public List<ServerPlayer> GetProtectorsRecursively(ServerPlayer target)
         {
+            UpdateProtectGraph();
             AlreadyIn = new List<ServerPlayer>();
             DeepSearch(target);
             if(AlreadyIn.Contains(target))
@@ -68,6 +72,22 @@ namespace EoE.Server
                 AlreadyIn.Remove(target);
             }
             return AlreadyIn;
+        }
+        private void UpdateProtectGraph()
+        {
+            ProtectedBy.Clear();
+            foreach(var treaty in TreatyManager.RelationTreatyList)
+            {
+                if(treaty is ProtectiveTreaty)
+                {
+                    AddProtector(treaty.FirstParty, treaty.SecondParty);
+                }
+                else if(treaty is CommonDefenseTreaty)
+                {
+                    AddProtector(treaty.FirstParty, treaty.SecondParty);
+                    AddProtector(treaty.SecondParty, treaty.FirstParty);
+                }
+            }
         }
     }
 }

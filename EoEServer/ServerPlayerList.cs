@@ -11,12 +11,10 @@ namespace EoE.Server
     public class ServerPlayerList : ITickable
     {
         public List<ServerPlayer> Players { get; }
-        public PlayerRelation PlayerRelation { get; }
 
         public ServerPlayerList() 
         { 
             Players = new List<ServerPlayer>();
-            PlayerRelation = new PlayerRelation();
         }
 
         public void PlayerLogin(ServerPlayer player)

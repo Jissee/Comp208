@@ -18,12 +18,9 @@ namespace EoE.Server
         public Server Server { get; }
         private string name;
         public bool IsLose => GonveranceManager.IsLose;
-        private Army army;
+
         public PlayerGonverance GonveranceManager { get; private set; }
-        public void AddArmy(Army army)
-        {
-            this.army = army;
-        }
+
         public string PlayerName { 
             get 
             {
