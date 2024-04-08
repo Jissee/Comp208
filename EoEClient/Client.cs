@@ -1,4 +1,6 @@
-﻿using EoE.Client.Network;
+﻿using EoE.Client.GovernanceSystem;
+using EoE.Client.Network;
+using EoE.GovernanceSystem.Interface;
 using EoE.Network;
 using EoE.Network.Packets;
 using EoE.Server.Network;
@@ -21,11 +23,14 @@ namespace EoE.Client
         public string PlayerName { get; }
         private bool isRunning;
         public PacketHandler Handler { get; }
+
+        public IGonveranceManager GonveranceHandler { get; init; }
         public Client(string playerName) 
         {
             Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Handler = new ClientPacketHandler(this);
             PlayerName = playerName;
+            GonveranceHandler = new ClientGoverance();
         }
         public void Connect(string host, int port)
         {

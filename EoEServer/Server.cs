@@ -1,6 +1,8 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.Interface;
 using EoE.Network;
 using EoE.Network.Packets;
+using EoE.Server.GovernanceSystem;
 using EoE.Server.Network;
 using EoE.Server.TradeSystem;
 using EoE.TradeSystem;
@@ -159,7 +161,7 @@ namespace EoE.Server
 
         public void CheckPlayerTickStatus()
         {
-            bool tickStatus;
+            bool tickStatus = false;
             lock (PlayerList)
             {
                 tickStatus = PlayerList.CheckPlayerTickStatus();

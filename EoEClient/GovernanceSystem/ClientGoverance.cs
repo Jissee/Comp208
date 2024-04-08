@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,23 @@ using System.Threading.Tasks;
 
 namespace EoE.Client.GovernanceSystem
 {
-    public class ClientGoverance
+    public class ClientGoverance:IGonveranceManager
     {
-        private Dictionary<GameResourceType, int> resContain;
-        private Dictionary<GameResourceType, int> popAllocation;
-        private Dictionary<GameResourceType, int> secondaryResGenerateRate;
-        // private Dictionary<ResourcesType, int> secondaryResConsumeRate;//Synthetic consumption
-        private Dictionary<GameResourceType, int> fieldContain;
-        public int Population { get; private set; }
+        public ClientFieldList FieldList { get; init; }
+        public ClientResourceList ResourceList { get; init; }
+        public ClientPopulationManager PopManager { get; init; }
+
+        IFieldList IGonveranceManager.FieldList => FieldList;
+
+        IResourceList IGonveranceManager.ResourceList => ResourceList;
+
+        IPopulationManager IGonveranceManager.PopManager => PopManager;
+
+        public ClientGoverance()
+        {
+            FieldList = new ClientFieldList();
+            ResourceList = new ClientResourceList();
+            PopManager = new ClientPopulationManager();
+        }
     }
 }
