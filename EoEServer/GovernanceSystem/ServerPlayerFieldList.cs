@@ -1,4 +1,6 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.Interface;
+using EoE.Network.Packets;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class PlayerFieldList
+    public class ServerPlayerFieldList:IFieldList
     {
         public FieldStack CountryFieldSilicon { get; init;}
         public FieldStack CountryFieldCopper{get; init;}
@@ -20,14 +22,26 @@ namespace EoE.Server.GovernanceSystem
             CountryFieldAluminum.Count + CountryFieldIron.Count +
             CountryFieldElectronic.Count + CountryFieldIndustry.Count;
 
-        public PlayerFieldList()
+        public ServerPlayerFieldList(
+            int silicon,
+            int copper,
+            int iron,
+            int aluminum,
+            int electronic,
+            int industry
+            )
         {
-            CountryFieldSilicon = new FieldStack(GameResourceType.Silicon, 20);
-            CountryFieldCopper = new FieldStack(GameResourceType.Copper, 20);
-            CountryFieldIron = new FieldStack(GameResourceType.Iron, 20);
-            CountryFieldAluminum = new FieldStack(GameResourceType.Aluminum, 20);
-            CountryFieldElectronic = new FieldStack(GameResourceType.Electronic, 20);
-            CountryFieldIndustry = new FieldStack(GameResourceType.Industrial, 20);
+            CountryFieldSilicon = new FieldStack(GameResourceType.Silicon, silicon);
+            CountryFieldCopper = new FieldStack(GameResourceType.Copper, copper);
+            CountryFieldIron = new FieldStack(GameResourceType.Iron, iron);
+            CountryFieldAluminum = new FieldStack(GameResourceType.Aluminum, aluminum);
+            CountryFieldElectronic = new FieldStack(GameResourceType.Electronic, electronic);
+            CountryFieldIndustry = new FieldStack(GameResourceType.Industrial, industry);
+        }
+
+        public ServerPlayerFieldList() : this(20, 20, 20, 20, 20, 20)
+        {
+
         }
 
         public void addField(FieldStack adder)
@@ -86,27 +100,8 @@ namespace EoE.Server.GovernanceSystem
 
         public int GetFieldCount(GameResourceType type)
         {
-            switch (type)
-            {
-                case GameResourceType.Silicon:
-                    return CountryFieldSilicon.Count;
-                case GameResourceType.Copper:
-                    return CountryFieldCopper.Count;
-                case GameResourceType.Iron:
-                    return CountryFieldIron.Count;
-                case GameResourceType.Aluminum:
-                    return CountryFieldAluminum.Count;
-                case GameResourceType.Electronic:
-                    return CountryFieldElectronic.Count;
-                case GameResourceType.Industrial:
-                    return CountryFieldIndustry.Count;
-                default:
-                    throw new Exception("no such type");
-            }
+            return ((IFieldList)this).GetFieldCount(type);
         }
-
-       
-       
     }
   
 }

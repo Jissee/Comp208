@@ -1,5 +1,7 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.Interface;
 using EoE.Network.Packets;
+using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class PlayerResourceList:IPlayerResourceList
+    public class ServerPlayerResourceList:IResourceList
     {
         public ResourceStack CountrySilicon { get; init; }
         public ResourceStack CountryCopper {get;init;}
@@ -21,7 +23,7 @@ namespace EoE.Server.GovernanceSystem
         public ResourceStack CountryBattleArmy { get; init; }
         public ResourceStack CountryInformativeArmy { get; init; }
         public ResourceStack CountryMechanismArmy { get; init; }
-        public PlayerResourceList(
+        public ServerPlayerResourceList(
             int silicon,
             int copper,
             int iron, 
@@ -42,7 +44,7 @@ namespace EoE.Server.GovernanceSystem
             CountryInformativeArmy = new ResourceStack(GameResourceType.InformativeArmy, informativeArmy);
             CountryMechanismArmy = new ResourceStack(GameResourceType.MechanismArmy, mechanismArmy);
         }
-        public PlayerResourceList() : this(0, 0, 0, 0, 0, 0, 0, 0, 0)
+        public ServerPlayerResourceList() : this(0, 0, 0, 0, 0, 0, 0, 0, 0)
         {
 
         }
@@ -116,25 +118,12 @@ namespace EoE.Server.GovernanceSystem
         }
         public int GetResourceCount(GameResourceType type)
         {
-            return ((IPlayerResourceList)this).GetResourceCount(type);
+            return ((IResourceList)this).GetResourceCount(type);
         }
 
-        public static Encoder<PlayerResourceList> encoder = (PlayerResourceList obj, BinaryWriter writer) =>
+        public void Synchronization(ResourceListRecord resourceListRecord)
         {
-            ResourceStack.encoder(obj.CountrySilicon, writer);
-            ResourceStack.encoder(obj.CountryCopper, writer);
-            ResourceStack.encoder(obj.CountryIron, writer);
-            ResourceStack.encoder(obj.CountryAluminum, writer);
-            ResourceStack.encoder(obj.CountryElectronic, writer);
-            ResourceStack.encoder(obj.CountryIndustrial, writer);
-            ResourceStack.encoder(obj.CountryBattleArmy, writer);
-            ResourceStack.encoder(obj.CountryInformativeArmy, writer);
-            ResourceStack.encoder(obj.CountryMechanismArmy, writer);
-        };
-
-        public static Decoder<PlayerResourceList> decoder = (BinaryReader reader) =>
-        {
-            return new PlayerResourceList();
-        };
+            throw new NotImplementedException();
+        }
     }
 }

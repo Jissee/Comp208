@@ -17,7 +17,7 @@ namespace EoE.Network
         }
         public NetworkDirection NetworkDirection { get; }
         /// <summary>
-        /// 若接收方为服务端，则为发送的客户端；若数据包为转发包，则为客户端侧的远程玩家
+        /// 若接收方为服务端，则为发送的客户端
         /// </summary>
         public IPlayer? PlayerSender { get; }
         /// <summary>

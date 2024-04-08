@@ -1,5 +1,6 @@
 ﻿using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket;
+using EoE.Network.Packets.TradePacket;
 using EoE.Server.Network;
 using EoE.Server.Network.Packets;
 using System;
@@ -23,7 +24,12 @@ namespace EoE.Network
             packetTypes = new Dictionary<string, Type>();
             Register<PlayerLoginPacket>();
             Register<NewPacket>();
-            Register<ResurceUpdatePacket>();
+            Register<ResourceUpdatePacket>();
+            Register<FieldUpdatePacket>();
+            Register<ResourceUpdatePacket>();
+            Register<PopulationUpdatePacket>();
+            Register<OpenTransactionPacket>();
+            Register<SecretTransactionPacket>();
         }
 
         public static void Register<T>() where T : IPacket<T>

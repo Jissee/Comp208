@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class PopulationManger
+    public class ServerPopulationManger:IPopulationManager
     {
         public int SiliconPop { get; private set; }
         public int CopperPop { get; private set; }
@@ -22,7 +23,7 @@ namespace EoE.Server.GovernanceSystem
             IronPop + AluminumPop + ElectronicPop +
             IndustrailPop + AvailablePopulation;
 
-        public PopulationManger()
+        public ServerPopulationManger()
         {
             SiliconPop = 0;
             CopperPop = 0;
