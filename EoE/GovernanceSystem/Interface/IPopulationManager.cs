@@ -19,5 +19,7 @@ namespace EoE.GovernanceSystem.Interface
         public int AvailablePopulation { get; }
 
         public int TotalPopulation { get; }
+        void SetAllocation(GameResourceType type, int count);
+        void ResetPopAllocation();
     }
 }

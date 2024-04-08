@@ -24,7 +24,7 @@ namespace EoE.Test
         {
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
-            var playerGonverance = new PlayerGonverance(server.Status);
+            var playerGonverance = new ServerPlayerGonverance(server.Status);
             
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
@@ -55,7 +55,7 @@ namespace EoE.Test
         {
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
-            var playerGonverance = new PlayerGonverance(server.Status);
+            var playerGonverance = new ServerPlayerGonverance(server.Status);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -77,7 +77,7 @@ namespace EoE.Test
         {
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
-            var playerGonverance = new PlayerGonverance(server.Status);
+            var playerGonverance = new ServerPlayerGonverance(server.Status);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -107,7 +107,7 @@ namespace EoE.Test
         {
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
-            var playerGonverance = new PlayerGonverance(server.Status);
+            var playerGonverance = new ServerPlayerGonverance(server.Status);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -146,7 +146,7 @@ namespace EoE.Test
         {
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
-            var playerGonverance = new PlayerGonverance(server.Status);
+            var playerGonverance = new ServerPlayerGonverance(server.Status);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -193,7 +193,7 @@ namespace EoE.Test
         {
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
-            var playerGonverance = new PlayerGonverance(server.Status);
+            var playerGonverance = new ServerPlayerGonverance(server.Status);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 25);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 25);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 25);
@@ -240,7 +240,7 @@ namespace EoE.Test
         {
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
-            var playerGonverance = new PlayerGonverance(server.Status);
+            var playerGonverance = new ServerPlayerGonverance(server.Status);
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Silicon, 100));
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Copper, 100));
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Iron, 100));
@@ -258,7 +258,7 @@ namespace EoE.Test
         {
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
-            var playerGonverance = new PlayerGonverance(server.Status);
+            var playerGonverance = new ServerPlayerGonverance(server.Status);
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Silicon, 100));
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Copper, 100));
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Iron, 100));
@@ -283,7 +283,7 @@ namespace EoE.Test
         {
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
-            var playerGonverance = new PlayerGonverance(server.Status);
+            var playerGonverance = new ServerPlayerGonverance(server.Status);
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Silicon, 1000));
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Copper, 1000));
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Iron, 1000));
@@ -307,7 +307,7 @@ namespace EoE.Test
         {
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
-            var playerGonverance = new PlayerGonverance(server.Status);
+            var playerGonverance = new ServerPlayerGonverance(server.Status);
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Electronic, 19));
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Industrial, 100));
             playerGonverance.SyntheticArmy(new BattleArmyStack(10));

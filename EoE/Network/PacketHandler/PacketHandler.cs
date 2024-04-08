@@ -30,6 +30,8 @@ namespace EoE.Network
             Register<PopulationUpdatePacket>();
             Register<OpenTransactionPacket>();
             Register<SecretTransactionPacket>();
+            Register<SetPopAllocationPacket>();
+            Register<SetExplorationPacket>();
         }
 
         public static void Register<T>() where T : IPacket<T>

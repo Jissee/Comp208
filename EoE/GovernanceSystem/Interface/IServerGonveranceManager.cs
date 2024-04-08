@@ -8,6 +8,6 @@ namespace EoE.GovernanceSystem.Interface
 {
     public interface IServerGonveranceManager:IGonveranceManager
     {
-        void SetExploration(int inutPopulation);
+        
     }
 }

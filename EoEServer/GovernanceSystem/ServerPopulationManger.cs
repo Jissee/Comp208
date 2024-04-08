@@ -67,6 +67,17 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
+        public void ResetPopAllocation()
+        {
+            AvailablePopulation = TotalPopulation;
+            SiliconPop = 0;
+            CopperPop = 0;
+            IronPop = 0;
+            AluminumPop = 0;
+            ElectronicPop = 0;
+            IndustrailPop = 0;
+        }
+
         public void AlterPop(int count)
         {
             AvailablePopulation += count;
