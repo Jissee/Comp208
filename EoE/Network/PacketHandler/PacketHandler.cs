@@ -1,4 +1,5 @@
 ﻿using EoE.Network.Packets;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.Server.Network;
 using EoE.Server.Network.Packets;
 using System;

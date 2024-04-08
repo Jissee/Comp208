@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using EoE.GovernanceSystem;
 using EoE.TradeSystem;
+using Transaction = EoE.TradeSystem.Transaction;
 
 namespace EoE.Network.Packets.TradePacket
 {
@@ -46,11 +48,45 @@ namespace EoE.Network.Packets.TradePacket
                                 server.TradeHandler.CreatOponTransaction(transaction);
                                 break;
                             case OpenTransactionOperation.Accept:
-                                
+                                server.TradeHandler.AcceptOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);
+                                break;
+                            case OpenTransactionOperation.Cancel:
+                                server.TradeHandler.CancelOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);
+                                break;
+                            case OpenTransactionOperation.Alter:
+                                server.TradeHandler.AlterOpenTransaction(transaction.Id, transaction.OfferorOffer, transaction.RecipientOffer);
                                 break;
                             default:
                                 throw new Exception("no such type");
                         }
+                    }
+                    else
+                    {
+                        throw new Exception("wrong call, not open");
+                    }
+                }
+            }
+            else
+            {
+                IPlayer ne = context.PlayerSender!;
+                if (ne is IPlayer player)
+                {
+                    switch (operation)
+                    {
+                        case OpenTransactionOperation.Creat:
+                            //Todo
+                            break;
+                        case OpenTransactionOperation.Accept:
+                            //Todo
+                            break;
+                        case OpenTransactionOperation.Cancel:
+                            //Todo
+                            break;
+                        case OpenTransactionOperation.Alter:
+                            //Todo
+                            break;
+                        default:
+                            throw new Exception("no such type");
                     }
                 }
             }
