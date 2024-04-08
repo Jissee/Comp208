@@ -5,12 +5,14 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using EoE.TradeSystem;
 
 namespace EoE.Network
 {
     public interface IServer : INetworkEntity
     {
         Socket ServerSocket { get; }
+        public ITradeManager TradeHandler { get; }
         void InitPlayerName(IPlayer player, string name);
         void Start();
         void Stop();

@@ -26,28 +26,28 @@ namespace EoE.Test
             server.BeginGame();
             var playerGonverance = new PlayerGonverance(server.Status);
             
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
 
-            Assert.AreEqual(10, playerGonverance.FieldList.SiliconPop);
-            Assert.AreEqual(10, playerGonverance.FieldList.CopperPop);
-            Assert.AreEqual(10, playerGonverance.FieldList.IronPop);
-            Assert.AreEqual(10, playerGonverance.FieldList.AluminumPop);
-            Assert.AreEqual(10, playerGonverance.FieldList.IndustrailPop);
-            Assert.AreEqual(10, playerGonverance.FieldList.ElectronicPop);
-            Assert.AreEqual(40, playerGonverance.FieldList.AvailablePopulation);
-            Assert.AreEqual(100, playerGonverance.TotalPopulation);
+            Assert.AreEqual(10, playerGonverance.PopManager.SiliconPop);
+            Assert.AreEqual(10, playerGonverance.PopManager.CopperPop);
+            Assert.AreEqual(10, playerGonverance.PopManager.IronPop);
+            Assert.AreEqual(10, playerGonverance.PopManager.AluminumPop);
+            Assert.AreEqual(10, playerGonverance.PopManager.IndustrailPop);
+            Assert.AreEqual(10, playerGonverance.PopManager.ElectronicPop);
+            Assert.AreEqual(40, playerGonverance.PopManager.AvailablePopulation);
+            Assert.AreEqual(100, playerGonverance.PopManager.TotalPopulation);
 
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 11);
-            Assert.AreEqual(11, playerGonverance.FieldList.SiliconPop);
-            Assert.AreEqual(39, playerGonverance.FieldList.AvailablePopulation);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 9);
-            Assert.AreEqual(9, playerGonverance.FieldList.SiliconPop);
-            Assert.AreEqual(41, playerGonverance.FieldList.AvailablePopulation);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 11);
+            Assert.AreEqual(11, playerGonverance.PopManager.SiliconPop);
+            Assert.AreEqual(39, playerGonverance.PopManager.AvailablePopulation);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 9);
+            Assert.AreEqual(9, playerGonverance.PopManager.SiliconPop);
+            Assert.AreEqual(41, playerGonverance.PopManager.AvailablePopulation);
         }
 
         [TestMethod]
@@ -56,12 +56,12 @@ namespace EoE.Test
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
             var playerGonverance = new PlayerGonverance(server.Status);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
 
             // new test
             playerGonverance.ProducePrimaryResource();
@@ -78,12 +78,12 @@ namespace EoE.Test
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
             var playerGonverance = new PlayerGonverance(server.Status);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
 
             playerGonverance.ProducePrimaryResource();
             Assert.AreEqual(50, playerGonverance.ResourceList.CountrySilicon.Count);
@@ -108,12 +108,12 @@ namespace EoE.Test
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
             var playerGonverance = new PlayerGonverance(server.Status);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
 
             playerGonverance.ProducePrimaryResource();
             Assert.AreEqual(50, playerGonverance.ResourceList.CountrySilicon.Count);
@@ -147,12 +147,12 @@ namespace EoE.Test
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
             var playerGonverance = new PlayerGonverance(server.Status);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
 
             playerGonverance.ProducePrimaryResource();
             Assert.AreEqual(50, playerGonverance.ResourceList.CountrySilicon.Count);
@@ -184,8 +184,8 @@ namespace EoE.Test
             Assert.AreEqual(-110, playerGonverance.PopGrowthProgress);
             playerGonverance.UpdatePop();
             Assert.AreEqual(-10, playerGonverance.PopGrowthProgress);
-            Assert.AreEqual(99, playerGonverance.TotalPopulation);
-            Assert.AreEqual(39, playerGonverance.FieldList.AvailablePopulation);
+            Assert.AreEqual(99, playerGonverance.PopManager.TotalPopulation);
+            Assert.AreEqual(39, playerGonverance.PopManager.AvailablePopulation);
         }
 
         [TestMethod]
@@ -194,12 +194,12 @@ namespace EoE.Test
             Server.Server server = new Server.Server("0.0.0.0", 25566);
             server.BeginGame();
             var playerGonverance = new PlayerGonverance(server.Status);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 25);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Copper, 25);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Iron, 25);
-            playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 25);
-            //playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
-            //playerGonverance.FieldList.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 25);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 25);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 25);
+            playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Aluminum, 25);
+            //playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Industrial, 10);
+            //playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Electronic, 10);
 
             playerGonverance.ProducePrimaryResource();
             Assert.AreEqual(125, playerGonverance.ResourceList.CountrySilicon.Count);
@@ -231,8 +231,8 @@ namespace EoE.Test
             Assert.AreEqual(110, playerGonverance.PopGrowthProgress);
             playerGonverance.UpdatePop();
             Assert.AreEqual(10, playerGonverance.PopGrowthProgress);
-            Assert.AreEqual(101, playerGonverance.TotalPopulation);
-            Assert.AreEqual(1, playerGonverance.FieldList.AvailablePopulation);
+            Assert.AreEqual(101, playerGonverance.PopManager.TotalPopulation);
+            Assert.AreEqual(1, playerGonverance.PopManager.AvailablePopulation);
         }
 
         [TestMethod]
@@ -311,12 +311,12 @@ namespace EoE.Test
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Electronic, 19));
             playerGonverance.ResourceList.AddResource(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Industrial, 100));
             playerGonverance.SyntheticArmy(new BattleArmyStack(10));
-            Assert.AreEqual(80, playerGonverance.TotalPopulation);
+            Assert.AreEqual(80, playerGonverance.PopManager.TotalPopulation);
             playerGonverance.SyntheticArmy(new InformativeArmyStack(10));
-            Assert.AreEqual(60, playerGonverance.TotalPopulation);
+            Assert.AreEqual(60, playerGonverance.PopManager.TotalPopulation);
             Assert.AreEqual(80, playerGonverance.ResourceList.CountryElectronic.Count);
             playerGonverance.SyntheticArmy(new MechanismArmyStack(10));
-            Assert.AreEqual(40, playerGonverance.TotalPopulation);
+            Assert.AreEqual(40, playerGonverance.PopManager.TotalPopulation);
             Assert.AreEqual(80, playerGonverance.ResourceList.CountryIndustrial.Count);
 
         }

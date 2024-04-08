@@ -2,6 +2,8 @@
 using EoE.Network;
 using EoE.Network.Packets;
 using EoE.Server.Network;
+using EoE.Server.TradeSystem;
+using EoE.TradeSystem;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,6 +28,7 @@ namespace EoE.Server
         public GameStatus Status {get; private set;}
         public ServerPlayerList PlayerList { get; private set;}
 
+        public ITradeManager TradeHandler { get; private set; }
 
         public Server(string ip, int port) 
         {
@@ -35,11 +38,10 @@ namespace EoE.Server
             PlayerList = new ServerPlayerList();
             isServerRunning = false;
             isGameRunning = false;
-            
-
         }
         public void BeginGame()
         {
+            TradeHandler = new TradeManager(this);
             Status = new GameStatus(500);
             isGameRunning = true;
 
