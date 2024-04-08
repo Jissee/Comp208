@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using EoE.TradeSystem;
+using EoE.GovernanceSystem.Interface;
 
 namespace EoE.Network
 {

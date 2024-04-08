@@ -56,8 +56,8 @@ namespace EoE.Network.Packets.TradePacket
             }
             else
             {
-                IPlayer ne = context.PlayerSender!;
-                if (ne is IPlayer player)
+                INetworkEntity ne = context.Receiver!;
+                if (ne is IClient player)
                 {
                     switch (operation)
                     {

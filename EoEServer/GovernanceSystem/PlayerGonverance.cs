@@ -8,10 +8,11 @@ using System.Data;
 using EoE.Server.WarSystem;
 using System.Diagnostics;
 using EoE.WarSystem;
+using EoE.GovernanceSystem.Interface;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class PlayerGonverance : ITickable
+    public class PlayerGonverance : ITickable, IGonveranceManager
     {
         //consume rate
         public readonly double SILICON_PER_POP_TICK = 1.0f;
@@ -29,22 +30,26 @@ namespace EoE.Server.GovernanceSystem
         public int FieldExplorationProgress { get; private set; }
 
         public bool IsLose => PopManager.TotalPopulation <= 0 || FieldList.TotalFieldCount <= 0;
-        public PlayerFieldList FieldList { get; init; }
-        public PlayerResourceList ResourceList { get; init; }
+        public ServerPlayerFieldList FieldList { get; init; }
+        public ServerPlayerResourceList ResourceList { get; init; }
 
         private GameStatus globalGameStatus;
         private PlayerStatus playerStatus;
-        public PopulationManger PopManager { get; init; }
+        public ServerPopulationManger PopManager { get; init; }
         
         public int PopGrowthProgress { get; private set;}
+        IFieldList IGonveranceManager.FieldList => FieldList;
+        IResourceList IGonveranceManager.ResourceList => ResourceList;
+        IPopulationManager IGonveranceManager.PopManager => PopManager;
+
         public PlayerGonverance(GameStatus globalGameStatus)
         {
             this.globalGameStatus = globalGameStatus;
             this.playerStatus = new PlayerStatus(globalGameStatus);
 
-            FieldList = new PlayerFieldList();
-            ResourceList = new PlayerResourceList();
-            PopManager = new PopulationManger();
+            FieldList = new ServerPlayerFieldList();
+            ResourceList = new ServerPlayerResourceList();
+            PopManager = new ServerPopulationManger();
         }
 
         // 暂时改为public！！！

@@ -1,17 +1,20 @@
-﻿namespace EoE.GovernanceSystem
-{
-    public interface IPlayerResourceList
-    {
-        public ResourceStack CountrySilicon { get; init; }
-        public ResourceStack CountryCopper { get; init; }
-        public ResourceStack CountryIron { get; init; }
-        public ResourceStack CountryAluminum { get; init; }
-        public ResourceStack CountryElectronic { get; init; }
-        public ResourceStack CountryIndustrial { get; init; }
+﻿using EoE.Network.Packets;
+using EoE.Network.Packets.GonverancePacket.Record;
 
-        public ResourceStack CountryBattleArmy { get; init; }
-        public ResourceStack CountryInformativeArmy { get; init; }
-        public ResourceStack CountryMechanismArmy { get; init; }
+namespace EoE.GovernanceSystem.Interface
+{
+    public interface IResourceList
+    {
+        public ResourceStack CountrySilicon { get;}
+        public ResourceStack CountryCopper { get;}
+        public ResourceStack CountryIron { get;}
+        public ResourceStack CountryAluminum { get;}
+        public ResourceStack CountryElectronic { get;}
+        public ResourceStack CountryIndustrial { get;}
+
+        public ResourceStack CountryBattleArmy { get;}
+        public ResourceStack CountryInformativeArmy { get;}
+        public ResourceStack CountryMechanismArmy { get;}
 
         public int GetResourceCount(GameResourceType type)
         {
@@ -39,5 +42,6 @@
                     throw new Exception("no such type");
             }
         }
+        
     }
 }
