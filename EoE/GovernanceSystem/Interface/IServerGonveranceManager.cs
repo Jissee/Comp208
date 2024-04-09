@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace EoE.GovernanceSystem.Interface
 {
-    public interface IServerGonveranceManager:IGonveranceManager
+    public interface IServerGonveranceManager: IGonveranceManager
     {
-        
+        public IServerPopManager PopManager { get; }
+        void SetExploration(int inutPopulation);
     }
 }

@@ -1,4 +1,4 @@
-﻿using EoE.Network;
+﻿using EoE.Network.Entities;
 using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EoE.Server.Network.Packets
+namespace EoE.Network.Packets.GameEventPacket
 {
     public class PlayerLoginPacket : IPacket<PlayerLoginPacket>
     {
@@ -29,12 +29,12 @@ namespace EoE.Server.Network.Packets
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == NetworkDirection.Client2Server)
+            if (context.NetworkDirection == NetworkDirection.Client2Server)
             {
                 INetworkEntity ne = context.Receiver!;
-                if(ne is IServer server)
+                if (ne is IServer server)
                 {
-                    server.InitPlayerName(context.PlayerSender!, this.playerName);
+                    server.InitPlayerName(context.PlayerSender!, playerName);
                 }
             }
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class ServerPopulationManger:IPopulationManager
+    public class ServerPopulationManger: IServerPopManager
     {
         public int SiliconPop { get; private set; }
         public int CopperPop { get; private set; }

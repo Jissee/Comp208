@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Client.GovernanceSystem
 {
-    public class ClientGoverance:IGonveranceManager
+    public class ClientGoverance: IClietGonveranceManager
     {
         public ClientFieldList FieldList { get; init; }
         public ClientResourceList ResourceList { get; init; }
@@ -18,7 +18,7 @@ namespace EoE.Client.GovernanceSystem
 
         IResourceList IGonveranceManager.ResourceList => ResourceList;
 
-        IPopulationManager IGonveranceManager.PopManager => PopManager;
+        IPopulationManager IClietGonveranceManager.PopManager => PopManager;
 
         public ClientGoverance()
         {

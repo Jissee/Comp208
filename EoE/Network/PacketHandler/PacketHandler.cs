@@ -1,8 +1,8 @@
 ﻿using EoE.Network.Packets;
+using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.TradePacket;
-using EoE.Server.Network;
-using EoE.Server.Network.Packets;
+using EoE.Network;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Client.GovernanceSystem
 {
-    public class ClientFieldList : IFieldList
+    public class ClientFieldList : IClientFieldList
     {
         public FieldStack CountryFieldSilicon { get; init; }
         public FieldStack CountryFieldCopper { get; init; }

@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Transaction = EoE.TradeSystem.Transaction;
+using EoE.Network.Entities;
+using GameTransaction = EoE.TradeSystem.GameTransaction;
 
 namespace EoE.Network.Packets.TradePacket
 {
     public class SecretTransactionPacket : IPacket<SecretTransactionPacket>
     {
         private SecretTransactionOperation operation;
-        private Transaction transaction;
-        public SecretTransactionPacket(SecretTransactionOperation operation, Transaction transaction)
+        private GameTransaction transaction;
+        public SecretTransactionPacket(SecretTransactionOperation operation, GameTransaction transaction)
         {
             this.operation = operation;
             this.transaction = transaction;
         }
         public static SecretTransactionPacket Decode(BinaryReader reader)
         {
-            return new SecretTransactionPacket((SecretTransactionOperation)reader.ReadInt32(), Transaction.decoder(reader));
+            return new SecretTransactionPacket((SecretTransactionOperation)reader.ReadInt32(), GameTransaction.decoder(reader));
         }
 
         public static void Encode(SecretTransactionPacket obj, BinaryWriter writer)
         {
             writer.Write((int)obj.operation);
-            Transaction.encoder(obj.transaction, writer);
+            GameTransaction.encoder(obj.transaction, writer);
         }
 
         public void Handle(PacketContext context)

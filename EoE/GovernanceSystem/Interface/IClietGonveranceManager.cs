@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace EoE.GovernanceSystem.Interface
 {
-    public interface IGonveranceManager
+    public interface IClietGonveranceManager: IGonveranceManager
     {
-        public IFieldList FieldList { get; }
-        public IResourceList ResourceList { get; }
+        public IPopulationManager PopManager { get; }
     }
-    
 }

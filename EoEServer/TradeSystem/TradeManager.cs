@@ -8,20 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
-using Transaction = EoE.TradeSystem.Transaction;
 
 namespace EoE.Server.TradeSystem
 {
     public class TradeManager : ITradeManager
     {
-        private List<Transaction> openOrders = new List<Transaction>();
+        private List<GameTransaction> openOrders = new List<GameTransaction>();
         Server server;
         public TradeManager(Server server)
         {
             this.server = server;
         }
 
-        public void CreatOponTransaction(Transaction transaction)
+        public void CreatOponTransaction(GameTransaction transaction)
         {
             if (!transaction.IsOpen)
             {
@@ -40,7 +39,7 @@ namespace EoE.Server.TradeSystem
                 //Todo no enough resources
             }
         }
-        public void CreatSecretTransaction(Transaction transaction)
+        public void CreatSecretTransaction(GameTransaction transaction)
         {
             if (transaction.IsOpen)
             {
@@ -62,7 +61,7 @@ namespace EoE.Server.TradeSystem
 
         public void CancelOpenTransaction(Guid id,string operatorName)
         {
-            Transaction? transaction;
+            GameTransaction? transaction;
             transaction = openOrders.FirstOrDefault(t => t.Id == id);
             if (transaction != null)
             {
@@ -84,7 +83,7 @@ namespace EoE.Server.TradeSystem
         public void AcceptOpenTransaction(Guid id, string recipientName)
         {
             ServerPlayer recipient = (ServerPlayer)server.GetPlayer(recipientName)!;
-            Transaction? transaction;
+            GameTransaction? transaction;
             transaction = openOrders.FirstOrDefault(t => t.Id == id);
             if (transaction == null)
             {
@@ -102,7 +101,7 @@ namespace EoE.Server.TradeSystem
 
         public void AlterOpenTransaction(Guid id, ResourceStack offerorOffer, ResourceStack recipientOffer)
         {
-            Transaction? transaction;
+            GameTransaction? transaction;
             transaction = openOrders.FirstOrDefault(t => t.Id == id);
             if (transaction == null)
             {
@@ -157,7 +156,7 @@ namespace EoE.Server.TradeSystem
             }
         }
 
-        public void AcceptSecretTransaction(Transaction transaction)
+        public void AcceptSecretTransaction(GameTransaction transaction)
         {
             if (transaction.Recipient == null)
             {
@@ -170,7 +169,7 @@ namespace EoE.Server.TradeSystem
             // Todo send Packet
         }
 
-        private void SynchronousOpenTrading(Transaction transaction)
+        private void SynchronousOpenTrading(GameTransaction transaction)
         {
             if (transaction.IsOpen)
             {
@@ -180,7 +179,7 @@ namespace EoE.Server.TradeSystem
          
         }
 
-        private void ExchangeResource(ServerPlayer offeror, ServerPlayer recipient, Transaction transaction)
+        private void ExchangeResource(ServerPlayer offeror, ServerPlayer recipient, GameTransaction transaction)
         {
             if (recipient.GonveranceManager.ResourceList.GetResourceCount(transaction.RecipientOffer.Type) >= transaction.RecipientOffer.Count)
             {
