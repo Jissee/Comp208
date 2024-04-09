@@ -1,4 +1,5 @@
-﻿using EoE.GovernanceSystem.Interface;
+﻿using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.Interface;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,16 @@ namespace EoE.Client.GovernanceSystem
             ElectronicPop = popRecord.electronicPop;
             IndustrailPop = popRecord.industrailPop;
             AvailablePopulation = popRecord.availablePopulation;
+        }
+
+        public void SetAllocation(GameResourceType type, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ResetPopAllocation()
+        {
+            throw new NotImplementedException();
         }
     }
 }

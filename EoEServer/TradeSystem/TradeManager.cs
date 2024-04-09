@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.Server.GovernanceSystem;
 using EoE.TradeSystem;
 using System;
 using System.Collections.Generic;
@@ -110,7 +111,47 @@ namespace EoE.Server.TradeSystem
             }
             else
             {
-                transaction.OfferorOffer = offerorOffer;
+                ServerPlayer offeror = (ServerPlayer)server.GetPlayer(transaction.Offeror)!;
+                ServerPlayerResourceList resourceList = offeror.GonveranceManager.ResourceList;
+
+                if (offerorOffer.Type == transaction.OfferorOffer.Type)
+                {
+                    if (transaction.OfferorOffer.Count > offerorOffer.Count)
+                    {
+                        _ = transaction.OfferorOffer.Split(offerorOffer.Count);
+                        resourceList.AddResource(transaction.OfferorOffer);
+                        transaction.OfferorOffer = offerorOffer;
+                    }
+                    else if (transaction.OfferorOffer.Count < offerorOffer.Count)
+                    {
+                        int margin = offerorOffer.Count - transaction.OfferorOffer.Count;
+                        if (resourceList.GetResourceCount(offerorOffer.Type) >= margin)
+                        {
+                            _ = resourceList.SplitResourceStack(offerorOffer.Type, margin);
+                            transaction.OfferorOffer = offerorOffer;
+                        }
+                        else
+                        {
+                            throw new Exception("no enough resources");
+                            //TODO
+                        }
+                    }
+                }
+                else
+                {
+                    if (resourceList.GetResourceCount(offerorOffer.Type) >= offerorOffer.Count)
+                    {
+                        resourceList.AddResource(transaction.OfferorOffer);
+                        resourceList.SplitResourceStack(offerorOffer);
+                        transaction.OfferorOffer = offerorOffer;
+                    }
+                    else
+                    {
+                        throw new Exception("no enough resources");
+                        //TODO
+                    }
+                }
+
                 transaction.RecipientOffer = recipientOffer;
                 SynchronousOpenTrading(transaction);
             }

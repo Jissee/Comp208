@@ -35,9 +35,9 @@ namespace EoE.Network.Packets.GonverancePacket
                 if (ne is IClient client)
                 {
                    if( client.GonveranceHandler.FieldList is IClientFieldList fieldList)
-                    {
+                   {
                         fieldList.Synchronization(playerFieldList);
-                    }
+                   }
                 }
             }
         }

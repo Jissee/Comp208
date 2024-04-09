@@ -11,5 +11,8 @@ namespace EoE.GovernanceSystem.Interface
         public IFieldList FieldList { get; }
         public IResourceList ResourceList { get; }
         public IPopulationManager PopManager { get; }
+
+        void SetExploration(int inutPopulation);
     }
+    
 }
