@@ -64,7 +64,13 @@ namespace EoE.Network.Packets.GonverancePacket
                 {
                     IPlayer player = context.PlayerSender;
                     IServerPopManager populationManager = player.GonveranceManager.PopManager;
-                    if (siliconPop+copperPop+ironPop+aluminumPop+industrailPop+electronicPop > populationManager.TotalPopulation)
+                    List<int> list = [siliconPop, copperPop, ironPop, aluminumPop, electronicPop, industrailPop];
+                    if (list.Min() < 0)
+                    {
+                        //TODO send packet
+                    }
+                    int count = siliconPop + copperPop + ironPop + aluminumPop + industrailPop + electronicPop;
+                    if (count > populationManager.TotalPopulation)
                     {
                         throw new Exception("");
                         ///Todo

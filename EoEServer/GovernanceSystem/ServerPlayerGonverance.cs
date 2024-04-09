@@ -9,19 +9,19 @@ using EoE.Server.WarSystem;
 using System.Diagnostics;
 using EoE.WarSystem;
 using EoE.GovernanceSystem.Interface;
+using static EoE.GovernanceSystem.Interface.IGonveranceManager;
 
 namespace EoE.Server.GovernanceSystem
 {
     public class ServerPlayerGonverance : ITickable, IServerGonveranceManager
     {
         //consume rate
-        public readonly double SILICON_PER_POP_TICK = 1.0f;
-        public readonly double COPPER_PER_POP_TICK = 1.0f;
-        public readonly double IRON_PER_POP_TICK = 1.0f;
-        public readonly double ALUMINUM_PER_POP_TICK = 1.0f;
+        public static readonly double SILICON_PER_POP_TICK = 1.0f;
+        public static readonly double COPPER_PER_POP_TICK = 1.0f;
+        public static readonly double IRON_PER_POP_TICK = 1.0f;
+        public static readonly double ALUMINUM_PER_POP_TICK = 1.0f;
 
-        public readonly int EXPLORE_RESOURCE_PER_POP = 5;
-        public readonly double EXPLORE_FIELD_PER_POP = 1.1f;
+        public static readonly double EXPLORE_FIELD_PER_POP = 1.1f;
         public static readonly int FIELD_EXPLORE_THRESHOLD = 100;
 
         public static readonly int POP_GROWTH_THRESHOLD = 100;
@@ -144,6 +144,10 @@ namespace EoE.Server.GovernanceSystem
 
         public void SetExploration(int inutPopulation)
         {
+            if (inutPopulation < 0)
+            {
+                throw new InvalidPopAllocException();
+            }
             if (inutPopulation > PopManager.AvailablePopulation)
             {
                 throw new InvalidPopAllocException();

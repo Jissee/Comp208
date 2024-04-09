@@ -17,23 +17,31 @@ using System.Windows;
 
 namespace EoE.Client
 {
-    internal class Client : IClient
+    public class Client : IClient
     {
+        public static Client INSTANCE { get; }
         public Socket Connection { get; private set; }
-        public string PlayerName { get; }
+        public string PlayerName { get; private set; }
         private bool isRunning;
         public PacketHandler Handler { get; }
 
         public ClientGoverance GonveranceHandler { get; init; }
 
         IClietGonveranceManager IClient.GonveranceHandler => GonveranceHandler;
+        static Client() 
+        {
+            INSTANCE = new Client();
+        }
 
-        public Client(string playerName) 
+        private Client() 
         {
             Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            Handler = new ClientPacketHandler(this);
-            PlayerName = playerName;
+            Handler = new ClientPacketHandler();
             GonveranceHandler = new ClientGoverance();
+        }
+        public void SetPlayerName(string name)
+        {
+            PlayerName = name;
         }
         public void Connect(string host, int port)
         {
