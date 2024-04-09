@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem.Interface;
+using EoE.Network.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,8 +62,8 @@ namespace EoE.Network.Packets.GonverancePacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IServer server)
                 {
-                    IPlayer player = server.GetPlayer(context.PlayerSender.PlayerName);
-                    IPopulationManager populationManager = player.GonveranceManager.PopManager;
+                    IPlayer player = context.PlayerSender;
+                    IServerPopManager populationManager = player.GonveranceManager.PopManager;
                     if (siliconPop+copperPop+ironPop+aluminumPop+industrailPop+electronicPop > populationManager.TotalPopulation)
                     {
                         throw new Exception("");

@@ -9,11 +9,11 @@ namespace EoE.TradeSystem
 {
     public interface ITradeManager
     {
-        public void CreatOponTransaction(Transaction transaction);
-        public void CreatSecretTransaction(Transaction transaction);
-        public void CancelOpenTransaction(Guid id, string operatorName);
-        public void AcceptOpenTransaction(Guid id, string recipientName);
-        public void AlterOpenTransaction(Guid id, ResourceStack offerorOffer, ResourceStack recipientOffer);
-        public void AcceptSecretTransaction(Transaction transaction);
+        void CreatOponTransaction(GameTransaction transaction);
+        void CreatSecretTransaction(GameTransaction transaction);
+        void CancelOpenTransaction(Guid id, string operatorName);
+        void AcceptOpenTransaction(Guid id, string recipientName);
+        void AlterOpenTransaction(Guid id, ResourceStack offerorOffer, ResourceStack recipientOffer);
+        void AcceptSecretTransaction(GameTransaction transaction);
     }
 }

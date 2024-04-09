@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EoE.Network.Entities;
 
-namespace EoE.Network.Packets
+namespace EoE.Network.Packets.GameEventPacket
 {
     public class FinishTickPacket : IPacket<FinishTickPacket>
     {
@@ -39,7 +40,7 @@ namespace EoE.Network.Packets
                 }
 
             }
-            
+
 
         }
     }

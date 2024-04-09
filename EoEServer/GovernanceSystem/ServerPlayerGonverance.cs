@@ -40,7 +40,7 @@ namespace EoE.Server.GovernanceSystem
         public int PopGrowthProgress { get; private set;}
         IFieldList IGonveranceManager.FieldList => FieldList;
         IResourceList IGonveranceManager.ResourceList => ResourceList;
-        IPopulationManager IGonveranceManager.PopManager => PopManager;
+        IServerPopManager IServerGonveranceManager.PopManager => PopManager;
 
         public ServerPlayerGonverance(GameStatus globalGameStatus)
         {

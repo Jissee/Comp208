@@ -34,7 +34,7 @@ namespace EoE.Client.GovernanceSystem
             IndustrailPop = 0;
             AvailablePopulation = 0;
         }
-        public void Synchronization(PopulationRecord popRecord)
+        public void Synchronize(PopulationRecord popRecord)
         {
             SiliconPop = popRecord.siliconPop;
             CopperPop = popRecord.copperPop;
@@ -45,7 +45,7 @@ namespace EoE.Client.GovernanceSystem
             AvailablePopulation = popRecord.availablePopulation;
         }
 
-        public void SetAllocation(GameResourceType type, int count)
+        private void SetAllocation(GameResourceType type, int count)
         {
             throw new NotImplementedException();
         }

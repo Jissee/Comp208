@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem.Interface;
+using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 {
                     if (client.GonveranceHandler.PopManager is IClientPopulationManager popManager)
                     {
-                        popManager.Synchronization(populationRecord);
+                        popManager.Synchronize(populationRecord);
                     }
                 }
             }

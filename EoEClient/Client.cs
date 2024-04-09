@@ -2,9 +2,9 @@
 using EoE.Client.Network;
 using EoE.GovernanceSystem.Interface;
 using EoE.Network;
+using EoE.Network.Entities;
 using EoE.Network.Packets;
-using EoE.Server.Network;
-using EoE.Server.Network.Packets;
+using EoE.Network.Packets.GameEventPacket;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,7 +24,10 @@ namespace EoE.Client
         private bool isRunning;
         public PacketHandler Handler { get; }
 
-        public IGonveranceManager GonveranceHandler { get; init; }
+        public ClientGoverance GonveranceHandler { get; init; }
+
+        IClietGonveranceManager IClient.GonveranceHandler => GonveranceHandler;
+
         public Client(string playerName) 
         {
             Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);

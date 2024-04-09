@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using EoE.TradeSystem;
 using EoE.GovernanceSystem.Interface;
 
-namespace EoE.Network
+namespace EoE.Network.Entities
 {
     public interface IServer : INetworkEntity
     {
@@ -20,6 +20,6 @@ namespace EoE.Network
         void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;
         IPlayer? GetPlayer(string playerName);
         void CheckPlayerTickStatus();
-        
+
     }
 }
