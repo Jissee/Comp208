@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,7 +49,7 @@ namespace EoE.Network.Packets.WarPacket
                                select protector.PlayerName;
 
                 WarIntensionPacket packet = new WarIntensionPacket(targetPlayerName, nameEnum.ToArray());
-                targetPlayer.SendPacket(packet);
+                context.PlayerSender!.SendPacket(packet);
             }
             else
             {

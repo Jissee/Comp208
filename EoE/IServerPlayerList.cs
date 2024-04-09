@@ -12,6 +12,6 @@ namespace EoE
     {
         ITreatyManager TreatyManager { get; }
         IWarManager WarManager { get; }
-
+        public List<IPlayer> Players { get; }
     }
 }

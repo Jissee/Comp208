@@ -15,6 +15,7 @@ namespace EoE.Network.Packets.WarPacket
         }
         public static WarDeclarationPacket Decode(BinaryReader reader)
         {
+            return new WarDeclarationPacket();
         }
 
         public static void Encode(WarDeclarationPacket obj, BinaryWriter writer)

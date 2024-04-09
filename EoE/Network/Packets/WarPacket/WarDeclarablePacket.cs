@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace EoE.Network.Packets.WarPacket
 {
     public class WarDeclarablePacket : IPacket<WarDeclarablePacket>
     {
-        public string[] names;
+        private string[] names;
         public WarDeclarablePacket(string[] names) 
         {
             this.names = names;
@@ -43,6 +44,7 @@ namespace EoE.Network.Packets.WarPacket
                 var namesEnum = from player in list
                                 select player.PlayerName;
                 WarDeclarablePacket packet = new WarDeclarablePacket(namesEnum.ToArray());
+                context.PlayerSender!.SendPacket(packet);
             }
             else
             {

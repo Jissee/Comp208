@@ -15,10 +15,15 @@ namespace EoE.Server
 {
     public class ServerPlayerList : IServerPlayerList, ITickable
     {
-        public ITreatyManager TreatyManager { get; }
-        public IWarManager WarManager { get; }
+        public TreatyManager TreatyManager { get; }
+        public WarManager WarManager { get; }
         public List<ServerPlayer> Players { get; }
 
+        ITreatyManager IServerPlayerList.TreatyManager => TreatyManager;
+
+        IWarManager IServerPlayerList.WarManager => WarManager;
+
+        List<IPlayer> IServerPlayerList.Players => [.. Players];
 
         public ServerPlayerList() 
         { 
