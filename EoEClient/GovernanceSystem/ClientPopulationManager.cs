@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Interop;
+using System.Windows;
+using EoE.Network.Packets.GonverancePacket;
 
 namespace EoE.Client.GovernanceSystem
 {
@@ -45,14 +48,54 @@ namespace EoE.Client.GovernanceSystem
             AvailablePopulation = popRecord.availablePopulation;
         }
 
-        private void SetAllocation(GameResourceType type, int count)
+        public void SetAllocation(
+            int siliconPop,
+            int copperPop,
+            int ironPop,
+            int aluminumPop,
+            int electronicPop,
+            int industrailPop
+            )
         {
-            throw new NotImplementedException();
+            List<int> list = [siliconPop, copperPop, ironPop, aluminumPop, electronicPop, industrailPop];
+            if (list.Min() < 0)
+            {
+                Client.INSTANCE.MsgBox("Negative input");
+            }
+            int count = siliconPop + copperPop + ironPop + aluminumPop + electronicPop + industrailPop;
+            if (TotalPopulation >= count)
+            {
+                ResetPopAllocation();
+                SiliconPop = siliconPop;
+                CopperPop = copperPop;
+                IronPop = ironPop;
+                AluminumPop = aluminumPop;
+                ElectronicPop = electronicPop;
+                IndustrailPop = industrailPop;
+                AvailablePopulation = TotalPopulation - count;
+                Client.INSTANCE.SendPacket(new SetPopAllocationPacket(
+                    siliconPop, 
+                    copperPop, 
+                    ironPop, 
+                    aluminumPop,
+                    electronicPop, 
+                    industrailPop
+                    ));
+            }
+            else
+            {
+                Client.INSTANCE.MsgBox("Population insufficient");
+            }
         }
 
-        public void ResetPopAllocation()
+        private void ResetPopAllocation()
         {
-            throw new NotImplementedException();
+            SiliconPop = 0;
+            CopperPop = 0;
+            IronPop = 0;
+            AluminumPop = 0;
+            ElectronicPop = 0;
+            IndustrailPop = 0;
         }
     }
 }

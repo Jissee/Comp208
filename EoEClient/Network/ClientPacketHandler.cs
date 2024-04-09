@@ -13,11 +13,11 @@ namespace EoE.Client.Network
 {
     internal class ClientPacketHandler : PacketHandler
     {
-        private Client client;
+       
 
-        public ClientPacketHandler(Client client)
+        public ClientPacketHandler()
         {
-            this.client = client;
+            
         }
 
         public override void ReceivePacket(byte[] data, PacketContext context)

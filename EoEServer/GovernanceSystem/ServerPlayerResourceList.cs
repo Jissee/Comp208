@@ -120,10 +120,5 @@ namespace EoE.Server.GovernanceSystem
         {
             return ((IResourceList)this).GetResourceCount(type);
         }
-
-        public void Synchronization(ResourceListRecord resourceListRecord)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
