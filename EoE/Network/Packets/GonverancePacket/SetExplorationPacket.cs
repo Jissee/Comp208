@@ -1,4 +1,4 @@
-﻿using EoE.Network;
+﻿using EoE.Network.Entities;
 using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IServer server)
                 {
-                    IPlayer player = server.GetPlayer(context.PlayerSender.PlayerName);
+                    IPlayer player = context.PlayerSender;
                     player.GonveranceManager.SetExploration(explorationPop);
                 }
             }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EoE.TradeSystem
 {
-    public class Transaction
+    public class GameTransaction
     {
         public string Offeror { get; init; }
         public Guid Id { get; init; }
@@ -19,7 +19,7 @@ namespace EoE.TradeSystem
         public ResourceStack RecipientOffer { get; set; }
 
 
-        public Transaction(string offeror,Guid id, ResourceStack offerorOffer, ResourceStack recipientOffer,bool isOpen,string? recipient) 
+        public GameTransaction(string offeror,Guid id, ResourceStack offerorOffer, ResourceStack recipientOffer,bool isOpen,string? recipient) 
         {
             this.Offeror = offeror;
             this.Id = id;
@@ -30,7 +30,7 @@ namespace EoE.TradeSystem
             Recipient = recipient;
         }
 
-        public static Encoder<Transaction> encoder = (Transaction obj, BinaryWriter writer) =>
+        public static Encoder<GameTransaction> encoder = (GameTransaction obj, BinaryWriter writer) =>
         {
             writer.Write(obj.Offeror);
             writer.Write(obj.Id.ToByteArray());
@@ -43,7 +43,7 @@ namespace EoE.TradeSystem
             ResourceStack.encoder(obj.RecipientOffer, writer);
         };
 
-        public static Decoder<Transaction> decoder = (BinaryReader reader) =>
+        public static Decoder<GameTransaction> decoder = (BinaryReader reader) =>
         {
             string offer = reader.ReadString();
             byte[] bytes = reader.ReadBytes(16);
@@ -57,14 +57,14 @@ namespace EoE.TradeSystem
             ResourceStack offerorOffer = ResourceStack.decoder(reader);
             ResourceStack recipientOffer = ResourceStack.decoder(reader);
 
-            Transaction transaction;
+            GameTransaction transaction;
             if (isOpen)
             {
-                transaction = new Transaction(offer, id, offerorOffer, recipientOffer, isOpen, recipient);
+                transaction = new GameTransaction(offer, id, offerorOffer, recipientOffer, isOpen, recipient);
             }
             else
             {
-                transaction = new Transaction(offer, id, offerorOffer, recipientOffer, isOpen, recipient);
+                transaction = new GameTransaction(offer, id, offerorOffer, recipientOffer, isOpen, recipient);
             }
             return transaction;
         };

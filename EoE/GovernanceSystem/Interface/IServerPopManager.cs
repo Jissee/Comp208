@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace EoE.GovernanceSystem.Interface
 {
-    public interface IGonveranceManager
+    public interface IServerPopManager: IPopulationManager
     {
-        public IFieldList FieldList { get; }
-        public IResourceList ResourceList { get; }
+        void SetAllocation(GameResourceType type, int count);
     }
-    
 }

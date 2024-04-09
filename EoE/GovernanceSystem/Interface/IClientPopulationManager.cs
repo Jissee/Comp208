@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace EoE.GovernanceSystem.Interface
 {
-    public interface IClientPopulationManager:IPopulationManager
+    public interface IClientPopulationManager: IPopulationManager
     {
-        void Synchronization(PopulationRecord popRecord);
+        void Synchronize(PopulationRecord popRecord);
     }
 }

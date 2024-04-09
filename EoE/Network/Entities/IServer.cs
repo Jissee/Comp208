@@ -10,7 +10,7 @@ using EoE.GovernanceSystem.Interface;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
 
-namespace EoE.Network
+namespace EoE.Network.Entities
 {
     public interface IServer : INetworkEntity
     {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
+using EoE.Network.Entities;
 
 namespace EoE.Network
 {

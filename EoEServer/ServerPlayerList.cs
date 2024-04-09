@@ -1,4 +1,5 @@
 ﻿using EoE.Network;
+using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Server.Treaty;
 using EoE.Server.WarSystem;
