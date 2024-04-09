@@ -9,5 +9,6 @@ namespace EoE.GovernanceSystem.Interface
     public interface IServerPopManager: IPopulationManager
     {
         void SetAllocation(GameResourceType type, int count);
+        void ResetPopAllocation();
     }
 }
