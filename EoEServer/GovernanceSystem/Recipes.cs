@@ -10,20 +10,27 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public delegate ResourceStack Recipe(
+    public delegate ResourceStack Produce(
         int popCount,
-        FieldStack? producingFields,
-        ResourceStack? input1,
-        ResourceStack? input2
+        FieldStack producingFields,
+        int input1,
+        int input2
+    );
+
+    public delegate (ResourceStack, ResourceStack) ProductionConsume(
+        ResourceStack input
     );
 
     public delegate int PopModel(
         int popCount,
-        int totalLack
+        int silicon,
+        int copper,
+        int iron,
+        int aluminum
     );
 
     public delegate (int, ResourceStack) ArmyPrduce(
-       ArmyStack requiredArmy
+       ResourceStack requiredArmy
    );
     public static class Recipes
     {
@@ -45,93 +52,76 @@ namespace EoE.Server.GovernanceSystem
         public static int MechanismResourceSynthetic = 2;
         public static int BattlePopSynthetic = 2;
 
-        public static Recipe producePrimaryResource = (population,fields,_,_) =>
+        public static Produce calcPrimaryP = (population,fields,_,_) =>
         {
             int count = (int)(Math.Min(population, maxAllocation * fields.Count) * PrimaryProdcutivity);
             return new ResourceStack(fields.Type, count);
         };
-        public static Recipe produceElectronic = (population, fields, Silicon, Copper) =>
+        public static Produce calcElectronicP = (population, fields, silicon, copper) =>
         {
             int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
-            if (Silicon.Count >= expectProduce * SiliconSynthetic && Copper.Count >= expectProduce * CopperSynthetic)
+            if (silicon >= expectProduce * SiliconSynthetic && copper>= expectProduce * CopperSynthetic)
             {
-                Silicon.Count -= expectProduce * SiliconSynthetic;
-                Copper.Count -= expectProduce * CopperSynthetic;
                 return new ResourceStack(fields.Type, expectProduce);
             }
             else
             {
                 int acutalProduce = 0;
-                if (Silicon.Count >= Copper.Count)
+                if (silicon>= copper)
                 {
-                    acutalProduce = Silicon.Count / SiliconSynthetic;
+                    acutalProduce = silicon/ SiliconSynthetic;
                 }
                 else
                 {
-                    acutalProduce = Copper.Count / CopperSynthetic;
+                    acutalProduce = copper/ CopperSynthetic;
                 }
-                Silicon.Count -= acutalProduce * SiliconSynthetic;
-                Copper.Count -= acutalProduce * CopperSynthetic;
-
                 return new ResourceStack(fields.Type, acutalProduce);
             }
 
         };
 
-        public static Recipe produceIndustry = (population, fields, Iron, Aluminum) =>
+        public static Produce calcIndustrailP = (population, fields, iron, aluminum) =>
         {
             int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
 
-            if (Iron.Count >= expectProduce * IronSynthetic && Aluminum.Count >= expectProduce * AluminumSynthetic)
+            if (iron>= expectProduce * IronSynthetic && aluminum>= expectProduce * AluminumSynthetic)
             {
-                Iron.Count -= expectProduce * IronSynthetic;
-                Aluminum.Count -= expectProduce * AluminumSynthetic;
                 return new ResourceStack(fields.Type, expectProduce);
             }
             else
             {
                 int acutalProduce = 0;
-                if (Iron.Count >= Aluminum.Count)
+                if (iron>= aluminum)
                 {
-                    acutalProduce = Iron.Count / IronSynthetic;
+                    acutalProduce = iron/ IronSynthetic;
                 }
                 else
                 {
-                    acutalProduce = Aluminum.Count / AluminumSynthetic;
+                    acutalProduce = aluminum/ AluminumSynthetic;
                 }
-                Iron.Count -= acutalProduce * IronSynthetic;
-                Aluminum.Count -= acutalProduce * AluminumSynthetic;
-
                 return new ResourceStack(fields.Type, acutalProduce);
             }
-
         };
 
-        public static PopModel calcPopGrowthProgress = (population, surplus ) =>
+        public static ProductionConsume calcElectronicPC = (electronic) =>
         {
-            if (surplus >= POP_GROWTH_THRESHOLD)
-            {
-                population *= 2;
-                // to do exposion growth
-            }
-            else if (surplus >= 0)
-            {
-                population = (int)(population * 1.1f);
-                // to do smooth growth
-            }
-            else if (surplus <= -POP_GROWTH_THRESHOLD)
-            {
-                population = -(int)(population * 2.0f);
-                // to do exposion decrease
-            }
-            else if (surplus < 0)
-            {
-                population = -(int)(population * 1.1f);
-                // to do smooth decrease
-            }
-            
+            ResourceStack silicon = new ResourceStack(GameResourceType.Silicon, SiliconSynthetic * electronic.Count);
+            ResourceStack coppor = new ResourceStack(GameResourceType.Copper, CopperSynthetic * electronic.Count);
+            return (silicon, coppor);
+        };
 
-            return population;
+        public static ProductionConsume calcIndustrailPC = (industrail) =>
+        {
+            ResourceStack iron = new ResourceStack(GameResourceType.Iron, IronSynthetic * industrail.Count);
+            ResourceStack aluminum = new ResourceStack(GameResourceType.Aluminum, AluminumSynthetic * industrail.Count);
+            return (iron, aluminum);
+        };
+
+        public static PopModel calcPopGrowthProgress = (popCount, silicon, copper, iron, aluminum) =>
+        {
+            //TODO
+
+            return 0;
         };
 
         public static ArmyPrduce BattleArmyproduce = (requiredArmy) =>

@@ -1,6 +1,6 @@
 ﻿using EoE.Client.GovernanceSystem;
 using EoE.Client.Network;
-using EoE.GovernanceSystem.Interface;
+using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
@@ -27,7 +27,7 @@ namespace EoE.Client
 
         public ClientGoverance GonveranceHandler { get; init; }
 
-        IClietGonveranceManager IClient.GonveranceHandler => GonveranceHandler;
+        IClientGonveranceManager IClient.GonveranceHandler => GonveranceHandler;
         static Client() 
         {
             INSTANCE = new Client();

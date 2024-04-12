@@ -9,10 +9,25 @@ using System.Threading.Tasks;
 
 namespace EoE.GovernanceSystem
 {
-    public class ResourceStack
+    public struct ResourceStack
     {
         public GameResourceType Type { get; init; }
-        public int Count { get; set; }
+        private int count;
+        public int Count
+        { 
+            get => count; 
+            set 
+            {
+                if (value < 0)
+                {
+                    count = 0;
+                }
+                else
+                {
+                    count = value;
+                }
+            }
+        }
         public static readonly ResourceStack EMPTY = new ResourceStack(GameResourceType.None, 0);
         public ResourceStack(GameResourceType type, int count)
         {

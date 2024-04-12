@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.ClientInterface;
 using EoE.GovernanceSystem.Interface;
 using EoE.Network.Packets.GonverancePacket;
 using System;
@@ -10,17 +11,11 @@ using static EoE.GovernanceSystem.Interface.IGonveranceManager;
 
 namespace EoE.Client.GovernanceSystem
 {
-    public class ClientGoverance: IClietGonveranceManager
+    public class ClientGoverance: IClientGonveranceManager
     {
-        public ClientFieldList FieldList { get; init; }
-        public ClientResourceList ResourceList { get; init; }
-        public ClientPopulationManager PopManager { get; init; }
-
-        IFieldList IGonveranceManager.FieldList => FieldList;
-
-        IResourceList IGonveranceManager.ResourceList => ResourceList;
-
-        IPopulationManager IClietGonveranceManager.PopManager => PopManager;
+        public IClientFieldList FieldList { get; init; }
+        public IClientResourceList ResourceList { get; init; }
+        public IClientPopulationManager PopManager { get; init; }
 
         public ClientGoverance()
         {
@@ -43,13 +38,15 @@ namespace EoE.Client.GovernanceSystem
             {
                 int consume = inutPopulation * EXPLORE_RESOURCE_PER_POP;
 
-                if (ResourceList.CountrySilicon.Count >= consume && ResourceList.CountryCopper.Count >= consume &&
-                    ResourceList.CountryAluminum.Count >= consume && ResourceList.CountryIron.Count >= consume)
+                if (ResourceList.GetResourceCount(GameResourceType.Silicon) >= consume &&
+                    ResourceList.GetResourceCount(GameResourceType.Copper) >= consume &&
+                    ResourceList.GetResourceCount(GameResourceType.Iron) >= consume &&
+                    ResourceList.GetResourceCount(GameResourceType.Aluminum) >= consume)
                 {
-                    ResourceList.CountrySilicon.Count -= consume;
-                    ResourceList.CountryCopper.Count -= consume;
-                    ResourceList.CountryAluminum.Count -= consume;
-                    ResourceList.CountryIron.Count -= consume;
+                    ResourceList.SplitResource(GameResourceType.Silicon, consume);
+                    ResourceList.SplitResource(GameResourceType.Copper, consume);
+                    ResourceList.SplitResource(GameResourceType.Iron, consume);
+                    ResourceList.SplitResource(GameResourceType.Aluminum, consume);
                     Client.INSTANCE.SendPacket(new SetExplorationPacket(inutPopulation));
                 }
                 else

@@ -1,5 +1,5 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
+using EoE.GovernanceSystem.SrverInterface;
 using EoE.Network;
 using EoE.Network.Packets;
 using EoE.Server.GovernanceSystem;
@@ -49,7 +49,7 @@ namespace EoE.Server
         }
         public void BeginGame()
         {
-            GonveranceManager = new ServerPlayerGonverance(Server.Status);
+            GonveranceManager = new ServerPlayerGonverance(Server.Status,100,this);
         }
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
 

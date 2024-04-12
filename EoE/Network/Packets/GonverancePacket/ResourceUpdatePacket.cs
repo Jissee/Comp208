@@ -1,5 +1,4 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
 using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Network.Packets;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using EoE.GovernanceSystem.ClientInterface;
 
 
 namespace EoE.Network.Packets.GonverancePacket
@@ -40,7 +40,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 {
                     if( client.GonveranceHandler.ResourceList is IClientResourceList clientResourceList)
                     {
-                        clientResourceList.Synchronization(resourceList);
+                        clientResourceList.Synchronize(resourceList);
                     }
                 }
             }

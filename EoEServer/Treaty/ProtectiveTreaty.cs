@@ -27,8 +27,8 @@ namespace EoE.Server.Treaty
         {
             foreach(var entry in ConditionEntries)
             {
-                ResourceStack addStack = FirstParty.GonveranceManager.ResourceList.SplitResourceStack(entry.Key, entry.Value);
-                SecondParty.GonveranceManager.ResourceList.AddResource(addStack);
+                ResourceStack addStack = FirstParty.GonveranceManager.ResourceList.SplitResource(entry.Key, entry.Value);
+                SecondParty.GonveranceManager.ResourceList.AddResourceStack(addStack);
             }
         }
         public override void Tick()
