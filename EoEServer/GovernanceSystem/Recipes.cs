@@ -119,9 +119,30 @@ namespace EoE.Server.GovernanceSystem
 
         public static PopModel calcPopGrowthProgress = (popCount, silicon, copper, iron, aluminum) =>
         {
-            //TODO
+            int popGrowth = 0;
+            float rate = 1.05f;
+            int K = 0;
+            Dictionary<string, int> resources = new Dictionary<string, int>()
+                {
+                    { "silicon", silicon },
+                    { "copper", copper },
+                    { "iron", iron },
+                    { "aluminum", aluminum }
+                };
+            Dictionary<string, double> resourceSynthetic = new Dictionary<string, double>()
+                {
+                    { "silicon",  ServerPlayerGonverance.SILICON_PER_POP_TICK},
+                    { "copper", ServerPlayerGonverance.COPPER_PER_POP_TICK},
+                    { "iron", ServerPlayerGonverance.IRON_PER_POP_TICK},
+                    { "aluminum", ServerPlayerGonverance.ALUMINUM_PER_POP_TICK}
+                };
+                
+            var minResource = resources.OrderBy(r => r.Value).First();
+            var minResourceSynthetic = resourceSynthetic[minResource.Key];
+            K = (int)(minResource.Value / minResourceSynthetic);
+            popGrowth = (int)(popCount * rate * (1 - popCount / K));
 
-            return 0;
+            return popGrowth;
         };
 
         public static ArmyPrduce BattleArmyproduce = (requiredArmy) =>
