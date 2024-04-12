@@ -79,6 +79,12 @@ namespace EoE.Server.Events
             { 
                 tmp = new Event();
             }
+
+            public Builder ForServer(Server server)
+            {
+                tmp.server = server;
+                return this;
+            }
             public Builder ForPlayer(ServerPlayer player)
             {
                 tmp.player = player;
