@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Treaty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.Treaty
 {
-    public class TreatyManager : ITickable
+    public class TreatyManager : ITreatyManager, ITickable
     {
         public List<RelationTreaty> RelationTreatyList { get; init; }
         public List<TruceTreaty> TruceTreatyList { get; init; }
         public PlayerRelation PlayerRelation { get; init; }
-        public TreatyManager() 
+        private ServerPlayerList serverPlayerList;
+        public TreatyManager(ServerPlayerList serverPlayerList) 
         {
             RelationTreatyList = new List<RelationTreaty>();
             TruceTreatyList = new List<TruceTreaty>();
             PlayerRelation = new PlayerRelation(this);
+            this.serverPlayerList = serverPlayerList;
         }
         public void AddRelationTreaty(RelationTreaty treaty)
         {
@@ -92,6 +95,22 @@ namespace EoE.Server.Treaty
                 }
                 treaty.Tick();
             }
+        }
+        public List<IPlayer> FindNonTruce(IPlayer player)
+        {
+            List<IPlayer> remainPlayer = [.. serverPlayerList.Players];
+            foreach(var truceTreaty in TruceTreatyList)
+            {
+                if(truceTreaty.FirstParty == player)
+                {
+                    remainPlayer.Remove(truceTreaty.SecondParty);
+                }
+                if(truceTreaty.SecondParty == player)
+                {
+                    remainPlayer.Remove(truceTreaty.FirstParty);
+                }
+            }
+            return remainPlayer;
         }
         public void Tick()
         {

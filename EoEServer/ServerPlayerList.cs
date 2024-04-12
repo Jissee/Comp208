@@ -1,6 +1,10 @@
 ﻿using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
+using EoE.Server.Treaty;
+using EoE.Server.WarSystem;
+using EoE.Treaty;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +13,22 @@ using System.Threading.Tasks;
 
 namespace EoE.Server
 {
-    public class ServerPlayerList : ITickable
+    public class ServerPlayerList : IServerPlayerList, ITickable
     {
+        public TreatyManager TreatyManager { get; }
+        public WarManager WarManager { get; }
         public List<ServerPlayer> Players { get; }
+
+        ITreatyManager IServerPlayerList.TreatyManager => TreatyManager;
+
+        IWarManager IServerPlayerList.WarManager => WarManager;
+
+        List<IPlayer> IServerPlayerList.Players => [.. Players];
 
         public ServerPlayerList() 
         { 
+            TreatyManager = new TreatyManager(this);
+            WarManager = new WarManager();
             Players = new List<ServerPlayer>();
         }
 
@@ -28,7 +42,7 @@ namespace EoE.Server
             Console.WriteLine($"{player.PlayerName} logged out.");
             Players.Remove(player);
         }
-        public void HandlelayerDisconnection()
+        public void HandlePlayerDisconnection()
         {
             for (int i = 0; i < Players.Count; i++)
             {

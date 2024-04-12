@@ -2,10 +2,13 @@
 using EoE.GovernanceSystem.Interface;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
+using EoE.Server.Events;
 using EoE.Server.GovernanceSystem;
 using EoE.Server.Network;
 using EoE.Server.TradeSystem;
 using EoE.TradeSystem;
+using EoE.Treaty;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,16 +30,20 @@ namespace EoE.Server
         private bool isServerRunning;
         private bool isGameRunning;
         public ServerPacketHandler PacketHandler { get; }
+        public EventList EventList { get; }
         public GameStatus Status {get; private set;}
         public ServerPlayerList PlayerList { get; private set;}
 
         public ITradeManager TradeHandler { get; private set; }
+
+        IServerPlayerList IServer.PlayerList => PlayerList;
 
         public Server(string ip, int port) 
         {
             ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             address = new IPEndPoint(IPAddress.Parse(ip), port);
             PacketHandler = new ServerPacketHandler(this);
+            EventList = new EventList();
             PlayerList = new ServerPlayerList();
             isServerRunning = false;
             isGameRunning = false;
@@ -106,7 +113,7 @@ namespace EoE.Server
             {
                 lock(PlayerList)
                 {
-                    PlayerList.HandlelayerDisconnection();
+                    PlayerList.HandlePlayerDisconnection();
                 }
                 /*
                 lock (Clients)
@@ -175,6 +182,14 @@ namespace EoE.Server
         public void InitPlayerName(IPlayer player, string name)
         {
             PlayerList.InitPlayerName((ServerPlayer)player, name);
+        }
+
+        public List<IPlayer> GetProtectorsRecursively(IPlayer target)
+        {
+            List<IPlayer> protectors = new List<IPlayer>();
+            var gotProtectors = PlayerList.TreatyManager.PlayerRelation.GetProtectorsRecursively((ServerPlayer)target);
+            protectors.AddRange(gotProtectors);
+            return protectors;
         }
     }
 }
