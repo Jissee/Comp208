@@ -8,11 +8,11 @@ namespace EoE.Server.WarSystem
 {
     public class War : ITickable
     {
-        public string WarName { get; init; }
-        private WarParty attackers;
-        private WarParty defenders;
-        private WarTarget attackersTarget;
-        private WarTarget defendersTarget;
+        public string WarName { get; private set; }
+        public WarParty attackers { get; private set; }
+        public WarParty defenders { get; private set; }
+        public WarTarget attackersTarget { get; private set; }
+        public WarTarget defendersTarget { get; private set; }
 
         public War(WarParty attackers, WarParty defenders, string warName)
         {
@@ -30,6 +30,7 @@ namespace EoE.Server.WarSystem
         }
         public void End()
         {
+
         }
         public void Tick()
         {

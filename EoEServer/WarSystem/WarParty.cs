@@ -17,7 +17,6 @@ namespace EoE.Server.WarSystem
         private List<ServerPlayer> MechanismArmyOwner;
         public int WarWidth => 60 / Math.Max(Armies.Count - surrendered.Count, 1);
         public bool AllSurrendered => surrendered.Count == Armies.Count;
-        //public int Count => Armies.Count;
         public WarParty() 
         { 
             Armies = new Dictionary<ServerPlayer,Army>();
@@ -32,6 +31,19 @@ namespace EoE.Server.WarSystem
         public void PlayerSurrender(ServerPlayer player)
         {
             surrendered.Add(player);
+        }
+        public void RemoveLostPlayer(ServerPlayer player)
+        {
+            if(player.IsLose && !surrendered.Contains(player))
+            {
+                Armies.Remove(player);
+                return;
+            }
+            if (player.IsLose && surrendered.Contains(player))
+            {
+                Armies.Remove(player);
+                surrendered.Remove(player);
+            }
         }
 
         public void Dismiss()

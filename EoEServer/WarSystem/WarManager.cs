@@ -23,6 +23,13 @@ namespace EoE.Server.WarSystem
                 WarList.Remove(war);
             }
         }
+        public void PlayerLose(ServerPlayer player)
+        {
+            foreach (War war in WarList)
+            {
+                
+            }
+        }
         public void Tick()
         {
         }
