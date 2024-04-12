@@ -15,29 +15,23 @@ namespace EoE.Server
 {
     public class ServerPlayerList : IServerPlayerList, ITickable
     {
-        public TreatyManager TreatyManager { get; }
-        public WarManager WarManager { get; }
-        public List<ServerPlayer> Players { get; }
-
-        ITreatyManager IServerPlayerList.TreatyManager => TreatyManager;
-
-        IWarManager IServerPlayerList.WarManager => WarManager;
-
-        List<IPlayer> IServerPlayerList.Players => [.. Players];
+        public ITreatyManager TreatyManager { get; }
+        public IWarManager WarManager { get; }
+        public List<IPlayer> Players { get; }
 
         public ServerPlayerList() 
         { 
             TreatyManager = new TreatyManager(this);
             WarManager = new WarManager();
-            Players = new List<ServerPlayer>();
+            Players = new List<IPlayer>();
         }
 
-        public void PlayerLogin(ServerPlayer player)
+        public void PlayerLogin(IPlayer player)
         {
             Players.Add(player);
         }
 
-        public void PlayerLogout(ServerPlayer player)
+        public void PlayerLogout(IPlayer player)
         {
             Console.WriteLine($"{player.PlayerName} logged out.");
             Players.Remove(player);
@@ -46,7 +40,7 @@ namespace EoE.Server
         {
             for (int i = 0; i < Players.Count; i++)
             {
-                ServerPlayer c = Players[i];
+                IPlayer c = Players[i];
                 bool b = c.IsConnected;
                 if (!b)
                 {
@@ -54,9 +48,9 @@ namespace EoE.Server
                 }
             }
         }
-        public void HandlePlayerMessage(PacketHandler packetHandler, Server server)
+        public void HandlePlayerMessage(PacketHandler packetHandler, IServer server)
         {
-            foreach (ServerPlayer player in Players)
+            foreach (IPlayer player in Players)
             {
                 if (player.Connection.Available > 0)
                 {
@@ -78,7 +72,7 @@ namespace EoE.Server
 
         public void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>
         {
-            foreach (ServerPlayer player in Players)
+            foreach (IPlayer player in Players)
             {
                 if (condition(player))
                 {
@@ -87,7 +81,7 @@ namespace EoE.Server
             }
         }
 
-        public ServerPlayer? GetPlayer(string name)
+        public IPlayer? GetPlayer(string name)
         {
             foreach (var player in Players)
             {
@@ -95,7 +89,7 @@ namespace EoE.Server
             }
             return null;
         }
-        public void InitPlayerName(ServerPlayer playerRef, string name)
+        public void InitPlayerName(IPlayer playerRef, string name)
         {
             playerRef.PlayerName = name;
             Console.WriteLine($"{name} logged in");
@@ -116,7 +110,7 @@ namespace EoE.Server
 
         public void Tick()
         {
-            foreach (ServerPlayer player in Players)
+            foreach (IPlayer player in Players)
             {
                 player.Tick();
             }

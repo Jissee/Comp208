@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EoE.Server.GovernanceSystem
 {
@@ -76,6 +75,21 @@ namespace EoE.Server.GovernanceSystem
         public ResourceStack GetReourceStack(GameResourceType type)
         {
             return new ResourceStack(type, resources[type]);
+        }
+
+        public ResourceListRecord GetResourceListRecord()
+        {
+            return new ResourceListRecord(
+                resources[GameResourceType.Silicon],
+                resources[GameResourceType.Copper],
+                resources[GameResourceType.Iron],
+                resources[GameResourceType.Aluminum],
+                resources[GameResourceType.Electronic],
+                resources[GameResourceType.Industrial],
+                resources[GameResourceType.BattleArmy],
+                resources[GameResourceType.InformativeArmy],
+                resources[GameResourceType.MechanismArmy]
+                );
         }
     }
 }

@@ -32,11 +32,11 @@ namespace EoE.Server
         public ServerPacketHandler PacketHandler { get; }
         public EventList EventList { get; }
         public GameStatus Status {get; private set;}
-        public ServerPlayerList PlayerList { get; private set;}
+        public IServerPlayerList PlayerList { get; private set;}
 
         public ITradeManager TradeHandler { get; private set; }
 
-        IServerPlayerList IServer.PlayerList => PlayerList;
+
 
         public Server(string ip, int port) 
         {
@@ -60,6 +60,9 @@ namespace EoE.Server
                 {
                     player.BeginGame();
                 }
+                Event.Builder builder = new Event.Builder();
+                builder.ForServer(this).IfServer(server => true).IfPlayer(player => true);
+                EventList.AddEvent(builder.Build());
             }
         }
 

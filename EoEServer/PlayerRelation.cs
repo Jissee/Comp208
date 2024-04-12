@@ -1,4 +1,5 @@
 ﻿using EoE.Server.Treaty;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server
 {
-    public class PlayerRelation
+    public class PlayerRelation: IPlayerRelation
     {
         public TreatyManager TreatyManager;
         public Dictionary<ServerPlayer, List<ServerPlayer>> ProtectedBy;
