@@ -1,5 +1,5 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.SrverInterface;
+using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network;
 using EoE.Network.Packets;
 using EoE.Server.GovernanceSystem;
@@ -20,8 +20,7 @@ namespace EoE.Server
         private string name;
         public bool IsLose => GonveranceManager.IsLose;
 
-        public ServerPlayerGonverance GonveranceManager { get; private set; }
-        IServerGonveranceManager IPlayer.GonveranceManager => GonveranceManager;
+        public IServerGonveranceManager GonveranceManager { get; private set; }
 
         public string PlayerName { 
             get 

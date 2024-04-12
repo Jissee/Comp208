@@ -1,5 +1,5 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.SrverInterface;
+using EoE.GovernanceSystem.ServerInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.WarSystem
 {
-    public class BattleArmyStack : ArmyStack
+    public class BattleArmyInfo : ArmyInfo
     {
         public override int Worth => 1;
         public override int MechanAttack => 0;
@@ -17,8 +17,5 @@ namespace EoE.Server.WarSystem
 
         public override int BattleAttack => 2;
 
-        public BattleArmyStack(int count) : base(GameResourceType.BattleArmy, count)
-        {
-        }
     }
 }

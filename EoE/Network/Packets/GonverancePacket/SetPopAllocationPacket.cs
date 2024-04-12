@@ -1,4 +1,4 @@
-﻿using EoE.GovernanceSystem.SrverInterface;
+﻿using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Entities;
 using System;
 using System.Collections.Generic;

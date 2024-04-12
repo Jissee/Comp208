@@ -40,9 +40,9 @@ namespace EoE.Server.WarSystem
             {
                 ServerPlayer player = kvp.Key;
                 Army army = kvp.Value;
-                player.GonveranceManager.ResourceList.AddResource(army.Battle);
-                player.GonveranceManager.ResourceList.AddResource(army.Informative);
-                player.GonveranceManager.ResourceList.AddResource(army.Mechanism);
+                player.GonveranceManager.ResourceList.AddResourceStack(army.Battle);
+                player.GonveranceManager.ResourceList.AddResourceStack(army.Informative);
+                player.GonveranceManager.ResourceList.AddResourceStack(army.Mechanism);
             }
         }
         public void UpdataTotalArmy()
@@ -130,32 +130,6 @@ namespace EoE.Server.WarSystem
                 Armies[injuredPlayer].DecreaseMechanism(1);
                 MechanismArmyOwner.RemoveAt(dieIndex);
             }
-
-            /*foreach (var kvp in Armies)
-            {
-                Army army = kvp.Value;
-                double battleRate = 0;
-                double informativeRate = 0;
-                double mechanismRate = 0;
-                if (totalArmy.Battle.Count > 0)
-                {
-                    battleRate = (double)army.Battle.Count / totalArmy.Battle.Count;
-                }
-                if(totalArmy.Mechanism.Count > 0)
-                {
-                    mechanismRate = (double)army.Mechanism.Count / totalArmy.Mechanism.Count;
-                }
-                if(totalArmy.Informative.Count > 0)
-                {
-                    informativeRate = (double)army.Informative.Count / totalArmy.Informative.Count;
-                }
-                int playerBattleDamage = (int)(battleDamage * battleRate);
-                int playerInformativeDamage = (int)(informativeDamage * informativeRate);
-                int playerMechanismDamage = (int)(mechanismDamage * mechanismRate);
-                army.DecreaseBattle(playerBattleDamage);
-                army.DecreaseInformative(playerInformativeDamage);
-                army.DecreaseMechanism(playerMechanismDamage);
-            }*/
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EoE.GovernanceSystem.Interface;
 
-namespace EoE.GovernanceSystem.SrverInterface
+namespace EoE.GovernanceSystem.ServerInterface
 {
     public interface IServerGonveranceManager : IGonveranceManager
     {

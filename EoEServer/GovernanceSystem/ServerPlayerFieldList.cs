@@ -1,6 +1,6 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.Interface;
-using EoE.GovernanceSystem.SrverInterface;
+using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets;
 using Microsoft.VisualBasic;
 using System;
