@@ -7,36 +7,46 @@ using System.Threading.Tasks;
 
 namespace EoE.GovernanceSystem
 {
-    public class FieldStack
+    public struct FieldStack
     {
-        public GameResourceType Type { get; init; }
-        public int Count { get; set; }
+        private GameResourceType type;
+
+        public GameResourceType Type 
+        { 
+            get => type;
+            init 
+            {
+                if (value == GameResourceType.BattleArmy || value == GameResourceType.InformativeArmy||value == GameResourceType.MechanismArmy)
+                {
+                    throw new Exception("No such field");
+                }
+                else
+                {
+                    type = value;
+                }
+            }
+        }
+        private int count;
+        public int Count
+        {
+            get => count;
+            set
+            {
+                if (value < 0)
+                {
+                    count = 0;
+                }
+                else
+                {
+                    count = value;
+                }
+            }
+        }
 
         public FieldStack(GameResourceType type, int count)
         {
             this.Type = type;
             this.Count = count;
-        }
-
-        /// <summary>
-        /// Subtract filed
-        /// </summary>
-        /// <param name="field"></param>
-        /// <exception cref="Exception"></exception>
-        public void Sub(FieldStack field)
-        {
-            if (this.Type != field.Type)
-            {
-                throw new Exception("Wrong resource type!");
-            }
-            else if (field.Count > Count)
-            {
-                throw new Exception("Try to subtract a larger FieldStack !");
-            }
-            else
-            {
-                this.Count -= field.Count;
-            }
         }
 
         /// <summary>

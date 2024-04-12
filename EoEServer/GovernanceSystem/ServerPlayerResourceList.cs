@@ -1,8 +1,10 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.Interface;
+using EoE.GovernanceSystem.SrverInterface;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,18 +13,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class ServerPlayerResourceList:IResourceList
+    public class ServerPlayerResourceList: IServerResourceList
     {
-        public ResourceStack CountrySilicon { get; init; }
-        public ResourceStack CountryCopper {get;init;}
-        public ResourceStack CountryIron {get;init;}
-        public ResourceStack CountryAluminum {get;init;}
-        public ResourceStack CountryElectronic {get;init;}
-        public ResourceStack CountryIndustrial {get;init;}
-
-        public ResourceStack CountryBattleArmy { get; init; }
-        public ResourceStack CountryInformativeArmy { get; init; }
-        public ResourceStack CountryMechanismArmy { get; init; }
+        private Dictionary<GameResourceType, int> resources;
         public ServerPlayerResourceList(
             int silicon,
             int copper,
@@ -34,91 +27,55 @@ namespace EoE.Server.GovernanceSystem
             int informativeArmy, 
             int mechanismArmy)
         {
-            CountrySilicon = new ResourceStack(GameResourceType.Silicon, silicon);
-            CountryCopper = new ResourceStack(GameResourceType.Copper, copper);
-            CountryIron = new ResourceStack(GameResourceType.Iron, iron);
-            CountryAluminum = new ResourceStack(GameResourceType.Aluminum, aluminum);
-            CountryElectronic = new ResourceStack(GameResourceType.Electronic, electronic);
-            CountryIndustrial = new ResourceStack(GameResourceType.Industrial, industrial);
-            CountryBattleArmy = new ResourceStack(GameResourceType.BattleArmy, battleArmy);
-            CountryInformativeArmy = new ResourceStack(GameResourceType.InformativeArmy, informativeArmy);
-            CountryMechanismArmy = new ResourceStack(GameResourceType.MechanismArmy, mechanismArmy);
+            resources.Add(GameResourceType.Silicon,silicon);
+            resources.Add(GameResourceType.Copper, copper);
+            resources.Add(GameResourceType.Iron, iron);
+            resources.Add(GameResourceType.Aluminum, aluminum);
+            resources.Add(GameResourceType.Electronic, electronic);
+            resources.Add(GameResourceType.Industrial, industrial);
+            resources.Add(GameResourceType.BattleArmy, battleArmy);
+            resources.Add(GameResourceType.InformativeArmy, informativeArmy);
+            resources.Add(GameResourceType.MechanismArmy, mechanismArmy);
         }
         public ServerPlayerResourceList() : this(0, 0, 0, 0, 0, 0, 0, 0, 0)
         {
 
         }
 
-        public void AddResource(ResourceStack adder)
+        public void AddResource(GameResourceType type, int count)
         {
-            GameResourceType type = adder.Type;
-            switch (type)
-            {
-                case GameResourceType.Silicon:
-                    CountrySilicon.Add(adder);
-                    break;
-                case GameResourceType.Copper:
-                    CountryCopper.Add(adder);
-                    break;
-                case GameResourceType.Iron:
-                    CountryIron.Add(adder);
-                    break;
-                case GameResourceType.Aluminum:
-                    CountryAluminum.Add(adder);
-                    break;
-                case GameResourceType.Electronic:
-                    CountryElectronic.Add(adder);
-                    break;
-                case GameResourceType.Industrial:
-                    CountryIndustrial.Add(adder);
-                    break;
-                case GameResourceType.BattleArmy:
-                    CountryBattleArmy.Add(adder);
-                    break;
-                case GameResourceType.InformativeArmy:
-                    CountryInformativeArmy.Add(adder);
-                    break;
-                case GameResourceType.MechanismArmy:
-                    CountryMechanismArmy.Add(adder);
-                    break;
-                default:
-                    throw new Exception("no such type");
-            }
+            resources[type] += count;
         }
-        public ResourceStack SplitResourceStack(GameResourceType type, int count)
+        public void AddResourceStack(ResourceStack adder)
         {
-            return SplitResourceStack(new ResourceStack(type, count));
+            resources[adder.Type] += adder.Count;
+        }
+        public ResourceStack SplitResource(GameResourceType type, int count)
+        {
+            int count1 = resources[type];
+            if (count1 >= count)
+            {
+                resources[type] -= count;
+                return new ResourceStack(type, count);
+            }
+            else
+            {
+                resources[type] = 0;
+                return new ResourceStack(type, count1);
+            }
         }
         public ResourceStack SplitResourceStack(ResourceStack stack)
         {
-            GameResourceType type = stack.Type;
-            switch (type)
-            {
-                case GameResourceType.Silicon:
-                    return CountrySilicon.Split(stack.Count);
-                case GameResourceType.Copper:
-                    return CountryCopper.Split(stack.Count);
-                case GameResourceType.Iron:
-                    return CountryIron.Split(stack.Count);
-                case GameResourceType.Aluminum:
-                    return CountryAluminum.Split(stack.Count);
-                case GameResourceType.Electronic:
-                    return CountryElectronic.Split(stack.Count);
-                case GameResourceType.Industrial:
-                    return CountryIndustrial.Split(stack.Count);
-                case GameResourceType.BattleArmy:
-                    return CountryBattleArmy.Split(stack.Count);
-                case GameResourceType.InformativeArmy:
-                    return CountryInformativeArmy.Split(stack.Count);
-                case GameResourceType.MechanismArmy:
-                    return CountryMechanismArmy.Split(stack.Count);
-                default:
-                    throw new Exception("no such type");
-            }
+            return SplitResource(stack.Type,stack.Count);
         }
         public int GetResourceCount(GameResourceType type)
         {
-            return ((IResourceList)this).GetResourceCount(type);
+            return resources[type];
+        }
+
+        public ResourceStack GetReourceStack(GameResourceType type)
+        {
+            return new ResourceStack(type, resources[type]);
         }
     }
 }

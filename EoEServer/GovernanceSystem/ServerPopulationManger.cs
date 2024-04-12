@@ -1,5 +1,5 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
+using EoE.GovernanceSystem.SrverInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,74 +10,71 @@ namespace EoE.Server.GovernanceSystem
 {
     public class ServerPopulationManger: IServerPopManager
     {
-        public int SiliconPop { get; private set; }
-        public int CopperPop { get; private set; }
-        public int IronPop { get; private set; }
-        public int AluminumPop { get; private set; }
-        public int ElectronicPop { get; private set; }
-        public int IndustrailPop { get; private set; }
+        private Dictionary<GameResourceType, int> popAloc;
 
+        public int ExploratoinPopulation { get; private set; }
         public int AvailablePopulation { get; private set; }
 
-        public int TotalPopulation => SiliconPop + CopperPop +
-            IronPop + AluminumPop + ElectronicPop +
-            IndustrailPop + AvailablePopulation;
-
-        public ServerPopulationManger()
+        public int TotalPopulation
         {
-            SiliconPop = 0;
-            CopperPop = 0;
-            IronPop = 0;
-            AluminumPop = 0;
-            ElectronicPop = 0;
-            IndustrailPop = 0;
-            AvailablePopulation = 100;
+            get 
+            {
+                int count = 0;
+                foreach (var kvp in popAloc)
+                {
+                    count += kvp.Value;
+                }
+
+                count += AvailablePopulation;
+                return count;
+            }
+        }
+
+        public ServerPopulationManger(int initPop)
+        {
+            popAloc.Add(GameResourceType.Silicon, 0);
+            popAloc.Add(GameResourceType.Copper, 0);
+            popAloc.Add(GameResourceType.Iron, 0);
+            popAloc.Add(GameResourceType.Aluminum, 0);
+            popAloc.Add(GameResourceType.Industrial, 0);
+            popAloc.Add(GameResourceType.Electronic, 0);
+            AvailablePopulation = initPop;
         }
 
         /// <summary>
-        /// 
+        /// Set population allocation, send serverMessage packet if invalid allocation
         /// </summary>
         /// <param name="type"></param>
         /// <param name="count"></param>
         /// <exception cref="InvalidPopAllocException"></exception>
-        public void SetAllocation(GameResourceType type, int count)
+        public void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int industrialPop,int electronic)
         {
-            switch (type)
+            if (CheckAvailability(siliconPop, copperPop, ironPop, aluminumPop, industrialPop, electronic))
             {
-                case GameResourceType.Silicon:
-                    SiliconPop = TrySet(SiliconPop, count);
-                    break;
-                case GameResourceType.Copper:
-                    CopperPop = TrySet(CopperPop, count);
-                    break;
-                case GameResourceType.Iron:
-                    IronPop = TrySet(IronPop, count);
-                    break;
-                case GameResourceType.Aluminum:
-                    AluminumPop = TrySet(AluminumPop, count);
-                    break;
-                case GameResourceType.Electronic:
-                    ElectronicPop = TrySet(ElectronicPop, count);
-                    break;
-                case GameResourceType.Industrial:
-                    IndustrailPop = TrySet(IndustrailPop, count);
-                    break;
-                default:
-                    throw new Exception("no such type");
+                popAloc[GameResourceType.Silicon] = siliconPop;
+                popAloc[GameResourceType.Copper] = copperPop;
+                popAloc[GameResourceType.Iron] = ironPop;
+                popAloc[GameResourceType.Aluminum] = aluminumPop;
+                popAloc[GameResourceType.Industrial] = industrialPop;
+                popAloc[GameResourceType.Electronic] = electronic;
+                AvailablePopulation = TotalPopulation - siliconPop - copperPop - ironPop - aluminumPop - industrialPop - electronic;
+            }
+            else
+            {
+                //TODO
             }
         }
 
-        public void ResetPopAllocation()
+        private bool CheckAvailability(int siliconPop, int copperPop, int ironPop, int aluminumPop, int industrialPop, int electronic)
         {
-            AvailablePopulation = TotalPopulation;
-            SiliconPop = 0;
-            CopperPop = 0;
-            IronPop = 0;
-            AluminumPop = 0;
-            ElectronicPop = 0;
-            IndustrailPop = 0;
+            List<int> list = [siliconPop, copperPop, ironPop, aluminumPop, industrialPop, electronic];
+            if (list.Min() < 0)
+            {
+                return false;
+            }
+            return siliconPop + copperPop + ironPop + aluminumPop + industrialPop + electronic + AvailablePopulation >= TotalPopulation;
+            
         }
-
         public void AlterPop(int count)
         {
             AvailablePopulation += count;
@@ -93,104 +90,17 @@ namespace EoE.Server.GovernanceSystem
                 for (int i = 0; i < decreasing; i++)
                 {
                     GameResourceType type = (GameResourceType)GetNextIndex();
-                    switch (type)
+                    if (popAloc[type] > 0)
                     {
-                        case GameResourceType.Silicon:
-                            if (SiliconPop > 0)
-                            {
-                                SiliconPop--;
-                            }
-                            else
-                            {
-                                i--;
-                            }
-                            break;
-                        case GameResourceType.Copper:
-                            if (CopperPop > 0)
-                            {
-                                CopperPop--;
-                            }
-                            else
-                            {
-                                i--;
-                            }
-                            break;
-                        case GameResourceType.Iron:
-                            if (IronPop > 0)
-                            {
-                                IronPop--;
-                            }
-                            else
-                            {
-                                i--;
-                            }
-                            break;
-                        case GameResourceType.Aluminum:
-                            if (AluminumPop > 0)
-                            {
-                                AluminumPop--;
-                            }
-                            else
-                            {
-                                i--;
-                            }
-                            break;
-                        case GameResourceType.Electronic:
-                            if (ElectronicPop > 0)
-                            {
-                                ElectronicPop--;
-                            }
-                            else
-                            {
-                                i--;
-                            }
-                            break;
-                        case GameResourceType.Industrial:
-                            if (IndustrailPop > 0)
-                            {
-                                IndustrailPop--;
-                            }
-                            else
-                            {
-                                i--;
-                            }
-                            break;
-                        default:
-                            throw new Exception("no such type");
+                        popAloc[type] --;
+                    }
+                    else
+                    {
+                        i--;
                     }
                 }
                 AvailablePopulation = 0;
             }
-        }
-        private int TrySet(int onPositionPop, int count)
-        {
-            if (count >= onPositionPop)
-            {
-                int newAllocate = count - onPositionPop;
-                if (newAllocate > AvailablePopulation)
-                {
-                    throw new InvalidPopAllocException();
-                }
-                else
-                {
-                    onPositionPop = count;
-                    AvailablePopulation -= (newAllocate);
-                }
-            }
-            else
-            {
-                if (count < 0)
-                {
-                    throw new InvalidPopAllocException();
-                }
-                else
-                {
-                    onPositionPop = count;
-                    AvailablePopulation += (onPositionPop - count);
-                }
-            }
-
-            return onPositionPop;
         }
 
         private int index = -1;
@@ -198,6 +108,16 @@ namespace EoE.Server.GovernanceSystem
         {
             index++;
             return (index %= 6);
+        }
+
+        public int GetPopAllocCount(GameResourceType type)
+        {
+            return popAloc[type];
+        }
+
+        public void SetExploration(int population)
+        {
+            ExploratoinPopulation = population;
         }
     }
 }

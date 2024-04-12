@@ -1,5 +1,5 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
+using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
@@ -37,7 +37,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 {
                    if( client.GonveranceHandler.FieldList is IClientFieldList fieldList)
                    {
-                        fieldList.Synchronization(playerFieldList);
+                        fieldList.Synchronize(playerFieldList);
                    }
                 }
             }

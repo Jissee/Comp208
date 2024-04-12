@@ -1,5 +1,5 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
+using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
@@ -11,55 +11,81 @@ namespace EoE.Client.GovernanceSystem
 {
     public class ClientResourceList : IClientResourceList
     {
-        public ResourceStack CountrySilicon { get; init; }
-        public ResourceStack CountryCopper { get; init; }
-        public ResourceStack CountryIron { get; init; }
-        public ResourceStack CountryAluminum { get; init; }
-        public ResourceStack CountryElectronic { get; init; }
-        public ResourceStack CountryIndustrial { get; init; }
-
-        public ResourceStack CountryBattleArmy { get; init; }
-        public ResourceStack CountryInformativeArmy { get; init; }
-        public ResourceStack CountryMechanismArmy { get; init; }
-
+        private Dictionary<GameResourceType, int> resources;
         public ClientResourceList(
-          int silicon,
-          int copper,
-          int iron,
-          int aluminum,
-          int electronic,
-          int industrial,
-          int battleArmy,
-          int informativeArmy,
-          int mechanismArmy)
+            int silicon,
+            int copper,
+            int iron,
+            int aluminum,
+            int electronic,
+            int industrial,
+            int battleArmy,
+            int informativeArmy,
+            int mechanismArmy)
         {
-            CountrySilicon = new ResourceStack(GameResourceType.Silicon, silicon);
-            CountryCopper = new ResourceStack(GameResourceType.Copper, copper);
-            CountryIron = new ResourceStack(GameResourceType.Iron, iron);
-            CountryAluminum = new ResourceStack(GameResourceType.Aluminum, aluminum);
-            CountryElectronic = new ResourceStack(GameResourceType.Electronic, electronic);
-            CountryIndustrial = new ResourceStack(GameResourceType.Industrial, industrial);
-            CountryBattleArmy = new ResourceStack(GameResourceType.BattleArmy, battleArmy);
-            CountryInformativeArmy = new ResourceStack(GameResourceType.InformativeArmy, informativeArmy);
-            CountryMechanismArmy = new ResourceStack(GameResourceType.MechanismArmy, mechanismArmy);
+            resources.Add(GameResourceType.Silicon, silicon);
+            resources.Add(GameResourceType.Copper, copper);
+            resources.Add(GameResourceType.Iron, iron);
+            resources.Add(GameResourceType.Aluminum, aluminum);
+            resources.Add(GameResourceType.Electronic, electronic);
+            resources.Add(GameResourceType.Industrial, industrial);
+            resources.Add(GameResourceType.BattleArmy, battleArmy);
+            resources.Add(GameResourceType.InformativeArmy, informativeArmy);
+            resources.Add(GameResourceType.MechanismArmy, mechanismArmy);
         }
         public ClientResourceList() : this(0, 0, 0, 0, 0, 0, 0, 0, 0)
         {
 
         }
 
-        public void Synchronization(ResourceListRecord resourceListRecord)
+        public void AddResource(GameResourceType type, int count)
         {
-            CountrySilicon.Count = resourceListRecord.siliconCount;
-            CountryCopper.Count = resourceListRecord.copperCount;
-            CountryIron.Count = resourceListRecord.ironCount;
-            CountryAluminum.Count = resourceListRecord.aluminumCount;
-            CountryElectronic.Count = resourceListRecord.electronicCount;
-            CountryIndustrial.Count = resourceListRecord.industrialCount;
+            resources[type] += count;
+        }
+        public void AddResourceStack(ResourceStack adder)
+        {
+            resources[adder.Type] += adder.Count;
+        }
+        public ResourceStack SplitResource(GameResourceType type, int count)
+        {
+            int count1 = resources[type];
+            if (count1 >= count)
+            {
+                resources[type] -= count;
+                return new ResourceStack(type, count);
+            }
+            else
+            {
+                resources[type] = 0;
+                return new ResourceStack(type, count1);
+            }
+        }
+        public ResourceStack SplitResourceStack(ResourceStack stack)
+        {
+            return SplitResource(stack.Type, stack.Count);
+        }
+        public int GetResourceCount(GameResourceType type)
+        {
+            return resources[type];
+        }
 
-            CountryBattleArmy.Count = resourceListRecord.battleArmyCount;
-            CountryInformativeArmy.Count = resourceListRecord.informativeArmyCount;
-            CountryMechanismArmy.Count = resourceListRecord.mechanismArmyCount;
+        public ResourceStack GetReourceStack(GameResourceType type)
+        {
+            return new ResourceStack(type, resources[type]);
+        }
+
+        public void Synchronize(ResourceListRecord resourceListRecord)
+        {
+            resources[GameResourceType.Silicon] = resourceListRecord.siliconCount;
+            resources[GameResourceType.Copper] = resourceListRecord.copperCount;
+            resources[GameResourceType.Iron] = resourceListRecord.ironCount;
+            resources[GameResourceType.Aluminum] = resourceListRecord.aluminumCount;
+            resources[GameResourceType.Electronic] = resourceListRecord.electronicCount;
+            resources[GameResourceType.Industrial] = resourceListRecord.industrialCount;
+
+            resources[GameResourceType.BattleArmy] = resourceListRecord.battleArmyCount;
+            resources[GameResourceType.InformativeArmy] = resourceListRecord.informativeArmyCount;
+            resources[GameResourceType.MechanismArmy] = resourceListRecord.mechanismArmyCount;
         }
     }
 }

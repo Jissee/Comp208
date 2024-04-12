@@ -9,34 +9,13 @@ namespace EoE.GovernanceSystem.Interface
 {
     public interface IFieldList
     {
-        public FieldStack CountryFieldSilicon { get;}
-        public FieldStack CountryFieldCopper { get;}
-        public FieldStack CountryFieldIron { get;}
-        public FieldStack CountryFieldAluminum { get;}
-        public FieldStack CountryFieldElectronic { get;}
-        public FieldStack CountryFieldIndustry { get;}
-        public int TotalFieldCount { get; }
-
-        public int GetFieldCount(GameResourceType type)
-        {
-            switch (type)
-            {
-                case GameResourceType.Silicon:
-                    return CountryFieldSilicon.Count;
-                case GameResourceType.Copper:
-                    return CountryFieldCopper.Count;
-                case GameResourceType.Iron:
-                    return CountryFieldIron.Count;
-                case GameResourceType.Aluminum:
-                    return CountryFieldAluminum.Count;
-                case GameResourceType.Electronic:
-                    return CountryFieldElectronic.Count;
-                case GameResourceType.Industrial:
-                    return CountryFieldIndustry.Count;
-                default:
-                    throw new Exception("no such type");
-            }
-        }
+        int TotalFieldCount { get; }
+        void AddFieldStack(FieldStack adder);
+        void AddField(GameResourceType type, int count);
+        FieldStack SplitFieldStack(FieldStack field);
+        FieldStack SplitField(GameResourceType type, int count);
+        int GetFieldCount(GameResourceType type);
+        FieldStack GetFieldStack(GameResourceType type);
     }
 
 

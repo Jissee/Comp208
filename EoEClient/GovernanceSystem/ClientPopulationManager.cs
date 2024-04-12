@@ -1,5 +1,4 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
@@ -9,42 +8,50 @@ using System.Threading.Tasks;
 using System.Windows.Interop;
 using System.Windows;
 using EoE.Network.Packets.GonverancePacket;
+using EoE.GovernanceSystem.ClientInterface;
 
 namespace EoE.Client.GovernanceSystem
 {
     public class ClientPopulationManager: IClientPopulationManager
     {
-        public int SiliconPop { get; private set; }
-        public int CopperPop { get; private set; }
-        public int IronPop { get; private set; }
-        public int AluminumPop { get; private set; }
-        public int ElectronicPop { get; private set; }
-        public int IndustrailPop { get; private set; }
+        private Dictionary<GameResourceType, int> popAloc;
 
+        public int ExploratoinPopulation { get; private set; }
         public int AvailablePopulation { get; private set; }
 
-        public int TotalPopulation => SiliconPop + CopperPop +
-            IronPop + AluminumPop + ElectronicPop +
-            IndustrailPop + AvailablePopulation;
+        public int TotalPopulation
+        {
+            get
+            {
+                int count = 0;
+                foreach (var kvp in popAloc)
+                {
+                    count += kvp.Value;
+                }
+
+                count += AvailablePopulation;
+                return count;
+            }
+        }
 
         public ClientPopulationManager()
         {
-            SiliconPop = 0;
-            CopperPop = 0;
-            IronPop = 0;
-            AluminumPop = 0;
-            ElectronicPop = 0;
-            IndustrailPop = 0;
+            popAloc.Add(GameResourceType.Silicon, 0);
+            popAloc.Add(GameResourceType.Copper, 0);
+            popAloc.Add(GameResourceType.Iron, 0);
+            popAloc.Add(GameResourceType.Aluminum, 0);
+            popAloc.Add(GameResourceType.Industrial, 0);
+            popAloc.Add(GameResourceType.Electronic, 0);
             AvailablePopulation = 0;
         }
         public void Synchronize(PopulationRecord popRecord)
         {
-            SiliconPop = popRecord.siliconPop;
-            CopperPop = popRecord.copperPop;
-            IronPop = popRecord.ironPop;
-            AluminumPop = popRecord.aluminumPop;
-            ElectronicPop = popRecord.electronicPop;
-            IndustrailPop = popRecord.industrailPop;
+            popAloc[GameResourceType.Silicon] = popRecord.siliconPop;
+            popAloc[GameResourceType.Copper] = popRecord.copperPop;
+            popAloc[GameResourceType.Iron] = popRecord.ironPop;
+            popAloc[GameResourceType.Aluminum] = popRecord.aluminumPop;
+            popAloc[GameResourceType.Electronic] = popRecord.electronicPop;
+            popAloc[GameResourceType.Industrial] = popRecord.industrailPop;
             AvailablePopulation = popRecord.availablePopulation;
         }
 
@@ -65,13 +72,12 @@ namespace EoE.Client.GovernanceSystem
             int count = siliconPop + copperPop + ironPop + aluminumPop + electronicPop + industrailPop;
             if (TotalPopulation >= count)
             {
-                ResetPopAllocation();
-                SiliconPop = siliconPop;
-                CopperPop = copperPop;
-                IronPop = ironPop;
-                AluminumPop = aluminumPop;
-                ElectronicPop = electronicPop;
-                IndustrailPop = industrailPop;
+                popAloc[GameResourceType.Silicon] = siliconPop;
+                popAloc[GameResourceType.Copper] = copperPop;
+                popAloc[GameResourceType.Iron] = ironPop;
+                popAloc[GameResourceType.Aluminum] = aluminumPop;
+                popAloc[GameResourceType.Electronic] = electronicPop;
+                popAloc[GameResourceType.Industrial] = industrailPop;
                 AvailablePopulation = TotalPopulation - count;
                 Client.INSTANCE.SendPacket(new SetPopAllocationPacket(
                     siliconPop, 
@@ -88,14 +94,9 @@ namespace EoE.Client.GovernanceSystem
             }
         }
 
-        private void ResetPopAllocation()
+        public int GetPopAllocCount(GameResourceType type)
         {
-            SiliconPop = 0;
-            CopperPop = 0;
-            IronPop = 0;
-            AluminumPop = 0;
-            ElectronicPop = 0;
-            IndustrailPop = 0;
+            return popAloc[type];
         }
     }
 }
