@@ -1,4 +1,6 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.SrverInterface;
+using EoE.Network.Entities;
 using EoE.Server.GovernanceSystem;
 using EoE.TradeSystem;
 using System;
@@ -14,8 +16,8 @@ namespace EoE.Server.TradeSystem
     public class TradeManager : ITradeManager
     {
         private List<GameTransaction> openOrders = new List<GameTransaction>();
-        Server server;
-        public TradeManager(Server server)
+        IServer server;
+        public TradeManager(IServer server)
         {
             this.server = server;
         }
@@ -26,7 +28,7 @@ namespace EoE.Server.TradeSystem
             {
                 throw new Exception("wrong call, use CreatSecretTransaction instead");
             }
-            ServerPlayer offeror = (ServerPlayer)server.GetPlayer(transaction.Offeror)!;
+            IPlayer offeror = (IPlayer)server.GetPlayer(transaction.Offeror)!;
             if (offeror.GonveranceManager.ResourceList.GetResourceCount(transaction.OfferorOffer.Type) >= transaction.OfferorOffer.Count)
             {
                _= offeror.GonveranceManager.ResourceList.SplitResourceStack(transaction.OfferorOffer);
@@ -45,7 +47,7 @@ namespace EoE.Server.TradeSystem
             {
                 throw new Exception("wrong call, use CreatOpenTransaction instead");
             }
-            ServerPlayer offeror = (ServerPlayer)server.GetPlayer(transaction.Offeror)!;
+            IPlayer offeror = (IPlayer)server.GetPlayer(transaction.Offeror)!;
             if (offeror.GonveranceManager.ResourceList.GetResourceCount(transaction.OfferorOffer.Type) >= transaction.OfferorOffer.Count)
             {
                 _ = offeror.GonveranceManager.ResourceList.SplitResourceStack(transaction.OfferorOffer);
@@ -67,7 +69,7 @@ namespace EoE.Server.TradeSystem
             {
                 if (operatorName == transaction.Offeror)
                 {
-                    ServerPlayer offeror = (ServerPlayer)server.GetPlayer(transaction.Offeror)!;
+                    IPlayer offeror = (IPlayer)server.GetPlayer(transaction.Offeror)!;
                     offeror.GonveranceManager.ResourceList.AddResourceStack(transaction.OfferorOffer);
                     openOrders.Remove(transaction);
                     SynchronousOpenTrading(transaction);
@@ -82,7 +84,7 @@ namespace EoE.Server.TradeSystem
         }
         public void AcceptOpenTransaction(Guid id, string recipientName)
         {
-            ServerPlayer recipient = (ServerPlayer)server.GetPlayer(recipientName)!;
+            IPlayer recipient = (IPlayer)server.GetPlayer(recipientName)!;
             GameTransaction? transaction;
             transaction = openOrders.FirstOrDefault(t => t.Id == id);
             if (transaction == null)
@@ -92,7 +94,7 @@ namespace EoE.Server.TradeSystem
             }
             else
             {
-                ServerPlayer offeror = (ServerPlayer)server.GetPlayer(transaction.Offeror)!;
+                IPlayer offeror = (IPlayer)server.GetPlayer(transaction.Offeror)!;
                 ExchangeResource(offeror, recipient, transaction);
                 SynchronousOpenTrading(transaction);
             }
@@ -110,8 +112,8 @@ namespace EoE.Server.TradeSystem
             }
             else
             {
-                ServerPlayer offeror = (ServerPlayer)server.GetPlayer(transaction.Offeror)!;
-                ServerPlayerResourceList resourceList = offeror.GonveranceManager.ResourceList;
+                IPlayer offeror = (IPlayer)server.GetPlayer(transaction.Offeror)!;
+                IServerResourceList resourceList = offeror.GonveranceManager.ResourceList;
 
                 if (offerorOffer.Type == transaction.OfferorOffer.Type)
                 {
@@ -163,8 +165,8 @@ namespace EoE.Server.TradeSystem
                 throw new Exception("Wrong call, not secrert Transaction");
             }
 
-            ServerPlayer recipient = (ServerPlayer)server.GetPlayer(transaction.Recipient)!;
-            ServerPlayer offeror = (ServerPlayer)server.GetPlayer(transaction.Offeror)!;
+            IPlayer recipient = (IPlayer)server.GetPlayer(transaction.Recipient)!;
+            IPlayer offeror = (IPlayer)server.GetPlayer(transaction.Offeror)!;
             ExchangeResource(offeror, recipient, transaction);
             // Todo send Packet
         }
@@ -179,7 +181,7 @@ namespace EoE.Server.TradeSystem
          
         }
 
-        private void ExchangeResource(ServerPlayer offeror, ServerPlayer recipient, GameTransaction transaction)
+        private void ExchangeResource(IPlayer offeror, IPlayer recipient, GameTransaction transaction)
         {
             if (recipient.GonveranceManager.ResourceList.GetResourceCount(transaction.RecipientOffer.Type) >= transaction.RecipientOffer.Count)
             {

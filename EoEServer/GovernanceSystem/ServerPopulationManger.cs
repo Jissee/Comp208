@@ -66,7 +66,6 @@ namespace EoE.Server.GovernanceSystem
             }
             else
             {
-                player.SendPacket(new ServerMessagePacket("Invalid population allocation"));
                 player.SendPacket(new PopulationUpdatePacket(GetPopulationRecord()));
             }
         }
@@ -76,10 +75,18 @@ namespace EoE.Server.GovernanceSystem
             List<int> list = [siliconPop, copperPop, ironPop, aluminumPop, industrialPop, electronic];
             if (list.Min() < 0)
             {
+                player.SendPacket(new ServerMessagePacket("Negative input"));
+                return false;
+            }else if (siliconPop + copperPop + ironPop + aluminumPop + industrialPop + electronic + AvailablePopulation >= TotalPopulation)
+            {
+                return true;
+            }
+            else
+            {
+                player.SendPacket(new ServerMessagePacket("Invalid population allocation"));
                 return false;
             }
-            return siliconPop + copperPop + ironPop + aluminumPop + industrialPop + electronic + AvailablePopulation >= TotalPopulation;
-            
+
         }
         public void AlterPop(int count)
         {
