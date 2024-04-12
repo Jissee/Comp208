@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EoE.GovernanceSystem.Interface;
+using EoE.Network.Packets.GonverancePacket.Record;
 
 namespace EoE.GovernanceSystem.SrverInterface
 {
@@ -13,5 +14,6 @@ namespace EoE.GovernanceSystem.SrverInterface
         void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int industrialPop, int electronic);
         void AlterPop(int count);
         void SetExploration(int population);
+        PopulationRecord GetPopulationRecord();
     }
 }

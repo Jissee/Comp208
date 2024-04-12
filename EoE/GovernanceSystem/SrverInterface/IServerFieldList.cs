@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem.Interface;
+using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace EoE.GovernanceSystem.SrverInterface
 {
     public interface IServerFieldList: IFieldList
     {
-        
+        FieldListRecord GetFieldListRecord();
     }
 }
