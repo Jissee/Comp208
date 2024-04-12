@@ -1,4 +1,5 @@
 ﻿using EoE.Treaty;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,9 @@ namespace EoE.Server.Treaty
     {
         public List<RelationTreaty> RelationTreatyList { get; init; }
         public List<TruceTreaty> TruceTreatyList { get; init; }
-        public PlayerRelation PlayerRelation { get; init; }
-        private ServerPlayerList serverPlayerList;
-        public TreatyManager(ServerPlayerList serverPlayerList) 
+        public IPlayerRelation PlayerRelation { get; init; }
+        private IServerPlayerList serverPlayerList;
+        public TreatyManager(IServerPlayerList serverPlayerList) 
         {
             RelationTreatyList = new List<RelationTreaty>();
             TruceTreatyList = new List<TruceTreaty>();

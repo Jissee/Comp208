@@ -2,6 +2,7 @@
 using EoE.GovernanceSystem.Interface;
 using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets;
+using EoE.Network.Packets.GonverancePacket.Record;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -85,6 +86,19 @@ namespace EoE.Server.GovernanceSystem
         public FieldStack GetFieldStack(GameResourceType type)
         {
             return new FieldStack(type, fields[type]);
+        }
+
+        public FieldListRecord GetFieldListRecord()
+        {
+            return new FieldListRecord(
+                fields[GameResourceType.Silicon],
+                fields[GameResourceType.Copper],
+                fields[GameResourceType.Iron],
+                fields[GameResourceType.Aluminum],
+                fields[GameResourceType.Electronic],
+                fields[GameResourceType.Industrial]
+                
+                );
         }
     }
   

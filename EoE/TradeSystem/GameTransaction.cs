@@ -15,12 +15,26 @@ namespace EoE.TradeSystem
         public Guid Id { get; init; }
         public bool IsOpen { get; init; }
         public string? Recipient { get; init; }
-        public ResourceStack OfferorOffer { get; set; }
-        public ResourceStack RecipientOffer { get; set; }
 
+        public List<ResourceStack> OfferorOffer { get; init; } = new List<ResourceStack>();
+        public List<ResourceStack> RecipientOffer { get; init; } = new List<ResourceStack>();
 
-        public GameTransaction(string offeror,Guid id, ResourceStack offerorOffer, ResourceStack recipientOffer,bool isOpen,string? recipient) 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offeror"></param>
+        /// <param name="id"></param>
+        /// <param name="offerorOffer"> should contain 6 ResourceStack, if don't offer, set ResourceStack.Count = 0 </param>
+        /// <param name="recipientOffer">should contain 6 ResourceStack, if don't offer, set ResourceStack.Count = 0</param>
+        /// <param name="isOpen"></param>
+        /// <param name="recipient"></param>
+        /// <exception cref="Exception"></exception>
+        public GameTransaction(string offeror,Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer,bool isOpen,string? recipient) 
         {
+            if (offerorOffer.Count != 6 || recipientOffer.Count != 6)
+            {
+                throw new Exception();
+            }
             this.Offeror = offeror;
             this.Id = id;
             OfferorOffer = offerorOffer;
@@ -39,8 +53,14 @@ namespace EoE.TradeSystem
             {
                 writer.Write(obj.Recipient);
             }
-            ResourceStack.encoder(obj.OfferorOffer,writer);
-            ResourceStack.encoder(obj.RecipientOffer, writer);
+            foreach (var item in obj.OfferorOffer)
+            {
+                ResourceStack.encoder(item,writer);
+            }
+            foreach (var item in obj.RecipientOffer)
+            {
+                ResourceStack.encoder(item, writer);
+            }
         };
 
         public static Decoder<GameTransaction> decoder = (BinaryReader reader) =>
@@ -54,18 +74,21 @@ namespace EoE.TradeSystem
             {
                 recipient = reader.ReadString();
             }
-            ResourceStack offerorOffer = ResourceStack.decoder(reader);
-            ResourceStack recipientOffer = ResourceStack.decoder(reader);
+             List<ResourceStack> offerorOffer = new List<ResourceStack>();
+             List<ResourceStack> recipientOffer = new List<ResourceStack>();
+
+
+            for (int i = 0; i < 6; i++)
+            {
+                offerorOffer.Add(ResourceStack.decoder(reader));
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                recipientOffer.Add(ResourceStack.decoder(reader));
+            }
 
             GameTransaction transaction;
-            if (isOpen)
-            {
-                transaction = new GameTransaction(offer, id, offerorOffer, recipientOffer, isOpen, recipient);
-            }
-            else
-            {
-                transaction = new GameTransaction(offer, id, offerorOffer, recipientOffer, isOpen, recipient);
-            }
+            transaction = new GameTransaction(offer, id, offerorOffer, recipientOffer, isOpen, recipient);
             return transaction;
         };
 

@@ -51,7 +51,7 @@ namespace EoE.Server.GovernanceSystem
 
             FieldList = new ServerPlayerFieldList();
             ResourceList = new ServerPlayerResourceList();
-            PopManager = new ServerPopulationManger(initPop);
+            PopManager = new ServerPopulationManger(initPop, player);
             this.player = player;
         }
 
@@ -155,11 +155,13 @@ namespace EoE.Server.GovernanceSystem
         {
             if (inutPopulation < 0)
             {
+                player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
                 player.SendPacket(new ServerMessagePacket("Negative input"));
             }
             if (inutPopulation > PopManager.AvailablePopulation)
             {
-                player.SendPacket(new ServerMessagePacket("No enough"));
+                player.SendPacket(new ServerMessagePacket("No enough available population"));
+                player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
             }
             else 
             {
@@ -174,13 +176,14 @@ namespace EoE.Server.GovernanceSystem
                     ResourceList.SplitResource(GameResourceType.Copper, consume);
                     ResourceList.SplitResource(GameResourceType.Iron, consume);
                     ResourceList.SplitResource(GameResourceType.Aluminum, consume);
+                    PopManager.SetExploration(inutPopulation);
                 }
                 else
                 {
-                    throw new InvalidPopAllocException();
+                    player.SendPacket(new ServerMessagePacket("No enough resources"));
+                    player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
                 }
 
-                PopManager.SetExploration(inutPopulation);
             }
         }
 
@@ -279,6 +282,9 @@ namespace EoE.Server.GovernanceSystem
             UpdatePop();
             UpdateFieldExplorationProgress();
             UpdateField();
+            player.SendPacket(new ResourceUpdatePacket(ResourceList.GetResourceListRecord()));
+            player.SendPacket(new FieldUpdatePacket(FieldList.GetFieldListRecord()));
+            player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
         }
     }
 }
