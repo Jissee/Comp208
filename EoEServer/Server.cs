@@ -2,6 +2,7 @@
 using EoE.GovernanceSystem.Interface;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
+using EoE.Server.Events;
 using EoE.Server.GovernanceSystem;
 using EoE.Server.Network;
 using EoE.Server.TradeSystem;
@@ -29,6 +30,7 @@ namespace EoE.Server
         private bool isServerRunning;
         private bool isGameRunning;
         public ServerPacketHandler PacketHandler { get; }
+        public EventList EventList { get; }
         public GameStatus Status {get; private set;}
         public ServerPlayerList PlayerList { get; private set;}
 
@@ -41,6 +43,7 @@ namespace EoE.Server
             ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             address = new IPEndPoint(IPAddress.Parse(ip), port);
             PacketHandler = new ServerPacketHandler(this);
+            EventList = new EventList();
             PlayerList = new ServerPlayerList();
             isServerRunning = false;
             isGameRunning = false;
