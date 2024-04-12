@@ -2,6 +2,7 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {}
 =======
 <<<<<<< HEAD
@@ -28,6 +29,8 @@
 =======
           "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
+=======
+>>>>>>> nothing
     "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj": {}
   },
   "projects": {
@@ -46,7 +49,10 @@
         "configFilePaths": [
           "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+<<<<<<< HEAD
 >>>>>>> nothing
+>>>>>>> nothing
+=======
 >>>>>>> nothing
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -63,6 +69,7 @@
             "targetAlias": "net8.0",
             "projectReferences": {
 <<<<<<< HEAD
+<<<<<<< HEAD
               "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
 =======
@@ -73,6 +80,10 @@
               "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
 >>>>>>> nothing
+>>>>>>> nothing
+=======
+              "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
+                "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
 >>>>>>> nothing
               }
             }
@@ -119,6 +130,7 @@
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
 =======
 <<<<<<< HEAD
@@ -142,6 +154,8 @@
 =======
           "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
+=======
+>>>>>>> nothing
     "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -157,7 +171,10 @@
         "configFilePaths": [
           "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+<<<<<<< HEAD
 >>>>>>> nothing
+>>>>>>> nothing
+=======
 >>>>>>> nothing
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

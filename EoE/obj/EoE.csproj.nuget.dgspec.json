@@ -2,6 +2,7 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {}
 =======
 <<<<<<< HEAD
@@ -28,6 +29,8 @@
 =======
           "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
+=======
+>>>>>>> nothing
     "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {}
   },
   "projects": {
@@ -46,7 +49,10 @@
         "configFilePaths": [
           "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+<<<<<<< HEAD
 >>>>>>> nothing
+>>>>>>> nothing
+=======
 >>>>>>> nothing
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
