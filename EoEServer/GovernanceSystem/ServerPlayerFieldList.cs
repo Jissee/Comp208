@@ -1,5 +1,6 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.Interface;
+using EoE.GovernanceSystem.SrverInterface;
 using EoE.Network.Packets;
 using Microsoft.VisualBasic;
 using System;
@@ -10,17 +11,22 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class ServerPlayerFieldList:IFieldList
+    public class ServerPlayerFieldList: IServerFieldList
     {
-        public FieldStack CountryFieldSilicon { get; init;}
-        public FieldStack CountryFieldCopper{get; init;}
-        public FieldStack CountryFieldIron{get; init;}
-        public FieldStack CountryFieldAluminum{get; init;}
-        public FieldStack CountryFieldElectronic{get; init;}
-        public FieldStack CountryFieldIndustry{get; init;}
-        public int TotalFieldCount => CountryFieldSilicon.Count + CountryFieldCopper.Count +
-            CountryFieldAluminum.Count + CountryFieldIron.Count +
-            CountryFieldElectronic.Count + CountryFieldIndustry.Count;
+        private Dictionary<GameResourceType, int> fields;
+        public int TotalFieldCount 
+        {
+            get 
+            {
+                int count = 0;
+                foreach (var kvp in fields)
+                {
+                    count += kvp.Value;
+                }
+                return count;
+            }
+
+        }
 
         public ServerPlayerFieldList(
             int silicon,
@@ -31,76 +37,54 @@ namespace EoE.Server.GovernanceSystem
             int industry
             )
         {
-            CountryFieldSilicon = new FieldStack(GameResourceType.Silicon, silicon);
-            CountryFieldCopper = new FieldStack(GameResourceType.Copper, copper);
-            CountryFieldIron = new FieldStack(GameResourceType.Iron, iron);
-            CountryFieldAluminum = new FieldStack(GameResourceType.Aluminum, aluminum);
-            CountryFieldElectronic = new FieldStack(GameResourceType.Electronic, electronic);
-            CountryFieldIndustry = new FieldStack(GameResourceType.Industrial, industry);
+            fields.Add(GameResourceType.Silicon, silicon);
+            fields.Add(GameResourceType.Copper, copper);
+            fields.Add(GameResourceType.Iron, iron);
+            fields.Add(GameResourceType.Aluminum, aluminum);
+            fields.Add(GameResourceType.Electronic, electronic);
+            fields.Add(GameResourceType.Industrial, industry);
         }
 
         public ServerPlayerFieldList() : this(20, 20, 20, 20, 20, 20)
         {
 
         }
-
-        public void addField(FieldStack adder)
+        public void AddField(GameResourceType type, int count)
         {
-            GameResourceType type = adder.Type;
-            switch (type)
-            {
-                case GameResourceType.Silicon:
-                    CountryFieldSilicon.Add(adder);
-                    break;
-                case GameResourceType.Copper:
-                    CountryFieldCopper.Add(adder);
-                    break;
-                case GameResourceType.Iron:
-                    CountryFieldIron.Add(adder);
-                    break;
-                case GameResourceType.Aluminum:
-                    CountryFieldAluminum.Add(adder);
-                    break;
-                case GameResourceType.Electronic:
-                    CountryFieldElectronic.Add(adder);
-                    break;
-                case GameResourceType.Industrial:
-                    CountryFieldIndustry.Add(adder);
-                    break;
-                default:
-                    throw new Exception("no such type");
-            }
+            AddFieldStack(new FieldStack(type, count));
+        }
+        public void AddFieldStack(FieldStack adder)
+        {
+            fields[adder.Type] += adder.Count;
         }
 
-        public FieldStack SplitFidle(GameResourceType type, int count)
+        public FieldStack SplitField(GameResourceType type, int count)
         {
-           return SplitFidle(new FieldStack(type, count));
-        }
-        public FieldStack SplitFidle(FieldStack field)
-        {
-            GameResourceType type = field.Type;
-            switch (type)
+            int count1 = fields[type];
+            if (count1 >= count)
             {
-                case GameResourceType.Silicon:
-                    return CountryFieldSilicon.Split(field.Count);
-                case GameResourceType.Copper:
-                    return CountryFieldCopper.Split(field.Count);
-                case GameResourceType.Iron:
-                    return CountryFieldIron.Split(field.Count);
-                case GameResourceType.Aluminum:
-                    return CountryFieldAluminum.Split(field.Count);
-                case GameResourceType.Electronic:
-                    return CountryFieldElectronic.Split(field.Count);
-                case GameResourceType.Industrial:
-                    return CountryFieldIndustry.Split(field.Count);
-                default:
-                    throw new Exception("no such type");
+                fields[type] -= count;
+                return new FieldStack(type, count);
             }
+            else
+            {
+                fields[type] = 0;
+                return new FieldStack(type,count1);
+            }
+        }
+        public FieldStack SplitFieldStack(FieldStack field)
+        {
+            return SplitField(field.Type, field.Count);
         }
 
         public int GetFieldCount(GameResourceType type)
         {
-            return ((IFieldList)this).GetFieldCount(type);
+            return fields[type];
+        }
+
+        public FieldStack GetFieldStack(GameResourceType type)
+        {
+            return new FieldStack(type, fields[type]);
         }
     }
   

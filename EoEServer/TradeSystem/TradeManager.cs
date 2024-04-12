@@ -68,7 +68,7 @@ namespace EoE.Server.TradeSystem
                 if (operatorName == transaction.Offeror)
                 {
                     ServerPlayer offeror = (ServerPlayer)server.GetPlayer(transaction.Offeror)!;
-                    offeror.GonveranceManager.ResourceList.AddResource(transaction.OfferorOffer);
+                    offeror.GonveranceManager.ResourceList.AddResourceStack(transaction.OfferorOffer);
                     openOrders.Remove(transaction);
                     SynchronousOpenTrading(transaction);
                 }
@@ -118,7 +118,7 @@ namespace EoE.Server.TradeSystem
                     if (transaction.OfferorOffer.Count > offerorOffer.Count)
                     {
                         _ = transaction.OfferorOffer.Split(offerorOffer.Count);
-                        resourceList.AddResource(transaction.OfferorOffer);
+                        resourceList.AddResourceStack(transaction.OfferorOffer);
                         transaction.OfferorOffer = offerorOffer;
                     }
                     else if (transaction.OfferorOffer.Count < offerorOffer.Count)
@@ -126,7 +126,7 @@ namespace EoE.Server.TradeSystem
                         int margin = offerorOffer.Count - transaction.OfferorOffer.Count;
                         if (resourceList.GetResourceCount(offerorOffer.Type) >= margin)
                         {
-                            _ = resourceList.SplitResourceStack(offerorOffer.Type, margin);
+                            _ = resourceList.SplitResource(offerorOffer.Type, margin);
                             transaction.OfferorOffer = offerorOffer;
                         }
                         else
@@ -140,7 +140,7 @@ namespace EoE.Server.TradeSystem
                 {
                     if (resourceList.GetResourceCount(offerorOffer.Type) >= offerorOffer.Count)
                     {
-                        resourceList.AddResource(transaction.OfferorOffer);
+                        resourceList.AddResourceStack(transaction.OfferorOffer);
                         resourceList.SplitResourceStack(offerorOffer);
                         transaction.OfferorOffer = offerorOffer;
                     }
@@ -184,8 +184,8 @@ namespace EoE.Server.TradeSystem
             if (recipient.GonveranceManager.ResourceList.GetResourceCount(transaction.RecipientOffer.Type) >= transaction.RecipientOffer.Count)
             {
                 ResourceStack resource = recipient.GonveranceManager.ResourceList.SplitResourceStack(transaction.RecipientOffer);
-                offeror.GonveranceManager.ResourceList.AddResource(resource);
-                recipient.GonveranceManager.ResourceList.AddResource(transaction.OfferorOffer);
+                offeror.GonveranceManager.ResourceList.AddResourceStack(resource);
+                recipient.GonveranceManager.ResourceList.AddResourceStack(transaction.OfferorOffer);
                 openOrders.Remove(transaction);
             }
             else
