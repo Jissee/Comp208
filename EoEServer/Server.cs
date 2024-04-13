@@ -50,7 +50,7 @@ namespace EoE.Server
         }
         public void BeginGame()
         {
-            TradeHandler = new TradeManager(this);
+            TradeHandler = new ServerTradeManager(this);
             Status = new GameStatus(500);
             isGameRunning = true;
 

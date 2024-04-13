@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.Interface;
 
 namespace EoE.Network.Packets.GonverancePacket.Record
 {
@@ -19,19 +20,34 @@ namespace EoE.Network.Packets.GonverancePacket.Record
         public int informativeArmyCount;
         public int mechanismArmyCount;
 
-        public ResourceListRecord(
+        public ResourceListRecord(IResourceList resourceList)
+        {
+            siliconCount = resourceList.GetResourceCount(GameResourceType.Silicon);
+            copperCount = resourceList.GetResourceCount(GameResourceType.Copper);
+            ironCount = resourceList.GetResourceCount(GameResourceType.Iron);
+            aluminumCount = resourceList.GetResourceCount(GameResourceType.Aluminum);
+            electronicCount = resourceList.GetResourceCount(GameResourceType.Electronic);
+            industrialCount = resourceList.GetResourceCount(GameResourceType.Industrial);
+            battleArmyCount = resourceList.GetResourceCount(GameResourceType.BattleArmy);
+            informativeArmyCount = resourceList.GetResourceCount(GameResourceType.InformativeArmy);
+            mechanismArmyCount = resourceList.GetResourceCount(GameResourceType.MechanismArmy);
+
+        }
+        public ResourceListRecord
+            (
             int silicon,
-            int copper,
+            int coppor,
             int iron,
             int aluminum,
             int electronic,
             int industrial,
             int battleArmy,
             int informativeArmy,
-            int mechanismArmy)
+            int mechanismArmy
+            )
         {
             siliconCount = silicon;
-            copperCount = copper;
+            copperCount = coppor;
             ironCount = iron;
             aluminumCount = aluminum;
             electronicCount = electronic;

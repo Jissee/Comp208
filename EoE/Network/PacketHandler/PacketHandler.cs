@@ -33,6 +33,7 @@ namespace EoE.Network
             Register<SetPopAllocationPacket>();
             Register<SetExplorationPacket>();
             Register<ServerMessagePacket>();
+            Register<OpenTransactionSynchronizePacket>();
         }
 
         public static void Register<T>() where T : IPacket<T>
