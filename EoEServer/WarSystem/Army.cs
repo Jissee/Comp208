@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.WarSystem
 {
-    public class Army
+    public class Army : IArmy
     {
-        private WarParty warParty;
+        private IWarParty warParty;
         public static readonly BattleArmyInfo battleArmyInfo = new BattleArmyInfo();
         public static readonly MechanismArmyInfo mechanismArmyInfo = new MechanismArmyInfo();
         public static readonly InformativeArmyInfo informativeArmyInfo = new InformativeArmyInfo();
@@ -17,7 +18,7 @@ namespace EoE.Server.WarSystem
         public ResourceStack Informative { get; set; }
         public ResourceStack Mechanism { get; set; }
         public int Consumption { get; private set; }
-        public Army(WarParty warParty) 
+        public Army(IWarParty warParty) 
         {
             this.warParty = warParty;
             Battle = new ResourceStack(GameResourceType.BattleArmy, 0);

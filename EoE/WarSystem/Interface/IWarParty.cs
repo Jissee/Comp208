@@ -9,6 +9,8 @@ namespace EoE.WarSystem.Interface
     public interface IWarParty
     {
         int WarWidth { get; }
+        Dictionary<IPlayer, IArmy> Armies { get; }
+        IArmy TotalArmy { get; }
         void SetWar(IWar war);
         void PlayerSurrender(IPlayer player);
         void PlayerLose(IPlayer player);

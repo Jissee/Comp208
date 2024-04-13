@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Treaty
 {
-    public interface ITreaty
+    public interface ITickableTreaty : ITreaty, ITickable
     {
-        public IPlayer FirstParty { get; init; }
-        public IPlayer SecondParty { get; init; }
     }
 }

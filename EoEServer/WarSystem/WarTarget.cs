@@ -13,18 +13,18 @@ namespace EoE.Server.WarSystem
     {
         public IWarParty FirstParty { get; init; }
         public IWarParty SecondParty { get; init; }
-        private List<ResourceStack> resourceClaim;
-        private int fieldClaim;
-        private int popClaim;
+        public List<ResourceStack> ResourceClaim { get; private set; }
+        public int FieldClaim { get; private set; }
+        public int PopClaim { get; private set; }
         public WarTarget(IWarParty firstParty, IWarParty secondParty)
         {
             this.FirstParty = firstParty;
             this.SecondParty = secondParty;
-            resourceClaim = new List<ResourceStack>();
+            ResourceClaim = new List<ResourceStack>();
         }
         public void AddResourceStack(ResourceStack newStack)
         {
-            foreach (ResourceStack claim in resourceClaim)
+            foreach (ResourceStack claim in ResourceClaim)
             {
                 if (claim.Type == newStack.Type)
                 {
@@ -32,15 +32,15 @@ namespace EoE.Server.WarSystem
                     return;
                 }
             }
-            resourceClaim.Add(newStack);
+            ResourceClaim.Add(newStack);
         }
         public void AddFieldCount(int newField)
         {
-            fieldClaim += newField;
+            FieldClaim += newField;
         }
         public void AddPopulation(int newPop)
         {
-            this.popClaim += newPop;
+            this.PopClaim += newPop;
         }
 
     }

@@ -49,5 +49,40 @@ namespace EoE.Util
             }
             return elements[i];
         }
+        public T GetAndRemove()
+        {
+            double randomDouble = random.NextDouble();
+            int i = 0;
+            for (; i < elements.Count; i++)
+            {
+                double prob = (double)weights[i] / (double)totalWeight;
+                randomDouble -= prob;
+                if (randomDouble < 0)
+                {
+                    break;
+                }
+            }
+            T element = elements[i];
+            RemoveAt(i);
+            return element;
+        }
+        public T GetAndDecreaseOne()
+        {
+            double randomDouble = random.NextDouble();
+            int i = 0;
+            for (; i < elements.Count; i++)
+            {
+                double prob = (double)weights[i] / (double)totalWeight;
+                randomDouble -= prob;
+                if (randomDouble < 0)
+                {
+                    break;
+                }
+            }
+            T element = elements[i];
+            weights[i]--;
+            totalWeight--;
+            return element;
+        }
     }
 }

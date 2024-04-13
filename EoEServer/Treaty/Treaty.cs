@@ -17,7 +17,5 @@ namespace EoE.Server.Treaty
             FirstParty = firstParty;
             SecondParty = secondParty;
         }
-
-        public virtual void Tick() { }
     }
 }

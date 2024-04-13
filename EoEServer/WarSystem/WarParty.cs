@@ -12,9 +12,9 @@ namespace EoE.Server.WarSystem
 {
     public class WarParty : IWarParty
     {
-        public Dictionary<IPlayer, Army> Armies { get; init; }
+        public Dictionary<IPlayer, IArmy> Armies { get; init; }
         private List<IPlayer> surrendered;
-        private Army totalArmy;
+        public IArmy TotalArmy { get; private set; }
         private List<IPlayer> BattleArmyOwner;
         private List<IPlayer> InformativeArmyOwner;
         private List<IPlayer> MechanismArmyOwner;
@@ -23,7 +23,7 @@ namespace EoE.Server.WarSystem
         public bool AllSurrendered => surrendered.Count == Armies.Count;
         public WarParty() 
         { 
-            Armies = new Dictionary<IPlayer,Army>();
+            Armies = new Dictionary<IPlayer,IArmy>();
             surrendered = new List<IPlayer>();
         }
         public void SetWar(IWar war)
@@ -44,7 +44,7 @@ namespace EoE.Server.WarSystem
             surrendered.Add(player);
             if(surrendered.Count == Armies.Count)
             {
-                war.End();
+                war.End(this);
             }
         }
         public void PlayerLose(IPlayer player)
@@ -66,7 +66,7 @@ namespace EoE.Server.WarSystem
             foreach(var kvp in Armies)
             {
                 IPlayer player = kvp.Key;
-                Army army = kvp.Value;
+                IArmy army = kvp.Value;
                 player.GonveranceManager.ResourceList.AddResourceStack(army.Battle);
                 player.GonveranceManager.ResourceList.AddResourceStack(army.Informative);
                 player.GonveranceManager.ResourceList.AddResourceStack(army.Mechanism);
@@ -78,14 +78,14 @@ namespace EoE.Server.WarSystem
         }
         public void UpdataTotalArmy()
         {
-            totalArmy = new Army(this);
+            TotalArmy = new Army(this);
             foreach(var kvp in Armies)
             {
                 IPlayer player = kvp.Key;
-                Army army = kvp.Value;
-                totalArmy.AddBattle(army.Battle);
-                totalArmy.AddInformative(army.Informative);
-                totalArmy.AddMechanism(army.Mechanism);
+                IArmy army = kvp.Value;
+                TotalArmy.AddBattle(army.Battle);
+                TotalArmy.AddInformative(army.Informative);
+                TotalArmy.AddMechanism(army.Mechanism);
                 for(int i = 1; i <= army.Battle.Count; i++)
                 {
                     BattleArmyOwner.Add(player);
@@ -98,18 +98,18 @@ namespace EoE.Server.WarSystem
                 {
                     MechanismArmyOwner.Add(player);
                 }
-                totalArmy.AddConsumption(army.Consumption);
+                TotalArmy.AddConsumption(army.Consumption);
             }
         }
         public (int, int) GetMechAttackBattAttack()
         {
-            return (totalArmy.CalculateMechaAttack(), totalArmy.CalculateBattleAttack());
+            return (TotalArmy.CalculateMechaAttack(), TotalArmy.CalculateBattleAttack());
         }
 
         public void AbsorbAttack(int MechAttack, int BattAttack)
         {
             UpdataTotalArmy();
-            int remainingMechAttack = MechAttack - totalArmy.CalculateMechaDefense();
+            int remainingMechAttack = MechAttack - TotalArmy.CalculateMechaDefense();
             remainingMechAttack = Math.Max(remainingMechAttack, 0);
             int totalDamage = remainingMechAttack * 10 + BattAttack;
 
@@ -117,9 +117,9 @@ namespace EoE.Server.WarSystem
             int informativeDamage = (int)(totalDamage * 0.21);
             int mechanismDamage = (int)(totalDamage * 0.11);
 
-            int battleTopDamage = totalArmy.Battle.Count * 2;
-            int informativeTopDamage = totalArmy.Informative.Count * 2;
-            int mechanismTopDamage = totalArmy.Informative.Count * 2;
+            int battleTopDamage = TotalArmy.Battle.Count * 2;
+            int informativeTopDamage = TotalArmy.Informative.Count * 2;
+            int mechanismTopDamage = TotalArmy.Informative.Count * 2;
 
             if(battleDamage > battleTopDamage)
             {
@@ -164,7 +164,7 @@ namespace EoE.Server.WarSystem
         }
         public bool HasFilled(IPlayer player)
         {
-            Army army = Armies[player];
+            IArmy army = Armies[player];
             if(army.Battle.Count + army.Informative.Count + army.Mechanism.Count > 0)
             {
                 return true;

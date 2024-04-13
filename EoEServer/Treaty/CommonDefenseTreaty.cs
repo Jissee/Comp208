@@ -11,9 +11,5 @@ namespace EoE.Server.Treaty
         public CommonDefenseTreaty(IPlayer firstParty, IPlayer secondParty) : base(firstParty, secondParty)
         {
         }
-
-        public override void Tick()
-        {
-        }
     }
 }

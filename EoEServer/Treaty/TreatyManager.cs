@@ -95,7 +95,11 @@ namespace EoE.Server.Treaty
                         continue;
                     }
                 }
-                treaty.Tick();
+
+                if(treaty is ITickableTreaty tickable)
+                {
+                    tickable.Tick();
+                }
             }
         }
         public List<IPlayer> FindNonTruce(IPlayer player)
