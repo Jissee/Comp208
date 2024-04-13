@@ -114,6 +114,8 @@ namespace EoE.Server
             {
                 player.Tick();
             }
+            TreatyManager.Tick();
+            WarManager.Tick();
         }
     }
 }

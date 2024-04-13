@@ -9,6 +9,7 @@ namespace EoE.GovernanceSystem.ServerInterface
 {
     public interface IServerGonveranceManager : IGonveranceManager
     {
+        bool IsLose {  get; }
         IServerPopManager PopManager { get; }
         IServerFieldList FieldList { get; }
         IServerResourceList ResourceList { get; }

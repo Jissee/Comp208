@@ -11,7 +11,7 @@ namespace EoE.Server.Treaty
     {
         public Dictionary<GameResourceType, int> ConditionEntries { get; init; }
 
-        public RelationTreaty(ServerPlayer firstParty, ServerPlayer secondParty) : base(firstParty, secondParty) 
+        public RelationTreaty(IPlayer firstParty, IPlayer secondParty) : base(firstParty, secondParty) 
         { 
             ConditionEntries = new Dictionary<GameResourceType, int>();
         }

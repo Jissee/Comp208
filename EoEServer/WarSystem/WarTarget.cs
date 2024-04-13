@@ -1,5 +1,6 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.Server.Treaty;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +9,18 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.WarSystem
 {
-    public class WarTarget
+    public class WarTarget : IWarTarget
     {
-        public WarParty FirstParty { get; init; }
-        public WarParty SecondParty { get; init; }
+        public IWarParty FirstParty { get; init; }
+        public IWarParty SecondParty { get; init; }
         private List<ResourceStack> resourceClaim;
-        private List<FieldStack> fieldClaim;
+        private int fieldClaim;
         private int popClaim;
-        public WarTarget(WarParty firstParty, WarParty secondParty)
+        public WarTarget(IWarParty firstParty, IWarParty secondParty)
         {
             this.FirstParty = firstParty;
             this.SecondParty = secondParty;
             resourceClaim = new List<ResourceStack>();
-            fieldClaim = new List<FieldStack>();
         }
         public void AddResourceStack(ResourceStack newStack)
         {
@@ -34,17 +34,9 @@ namespace EoE.Server.WarSystem
             }
             resourceClaim.Add(newStack);
         }
-        public void AddFieldStack(FieldStack newStack)
+        public void AddFieldCount(int newField)
         {
-            foreach (FieldStack claim in fieldClaim)
-            {
-                if (claim.Type == newStack.Type)
-                {
-                    claim.Add(newStack);
-                    return;
-                }
-            }
-            fieldClaim.Add(newStack);
+            fieldClaim += newField;
         }
         public void AddPopulation(int newPop)
         {

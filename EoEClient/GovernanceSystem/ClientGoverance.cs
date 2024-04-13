@@ -56,8 +56,9 @@ namespace EoE.Client.GovernanceSystem
             }
         }
 
-
-
-        
+        public void Tick()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

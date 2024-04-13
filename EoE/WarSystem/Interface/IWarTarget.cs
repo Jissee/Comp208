@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace EoE.WarSystem.Interface
 {
-    public interface IWarManager : ITickable
+    public interface IWarTarget
     {
-        Dictionary<string, IWar> WarDict { get; }
-        void DeclareWar(IWar war);
-        void RemoveWar(IWar war);
     }
 }

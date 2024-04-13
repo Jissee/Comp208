@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.WarSystem.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,34 +7,63 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.WarSystem
 {
-    public class War : ITickable
+    public class War : IWar
     {
         public string WarName { get; private set; }
-        public WarParty attackers { get; private set; }
-        public WarParty defenders { get; private set; }
-        public WarTarget attackersTarget { get; private set; }
-        public WarTarget defendersTarget { get; private set; }
+        public IWarParty Attackers { get; private set; }
+        public IWarParty Defenders { get; private set; }
+        public IWarTarget AttackersTarget { get; private set; }
+        public IWarTarget DefendersTarget { get; private set; }
+        public IWarManager WarManager { get; private set; }
 
-        public War(WarParty attackers, WarParty defenders, string warName)
+        public War(IWarParty attackers, IWarParty defenders, string warName)
         {
-            this.attackers = attackers;
-            this.defenders = defenders;
+            this.Attackers = attackers;
+            this.Defenders = defenders;
             WarName = warName;
+            attackers.SetWar(this);
+            defenders.SetWar(this);
         }
-        public void SetAttackersWarTarget(WarTarget warTarget)
+        public void SetWarManager(IWarManager manager)
         {
-            attackersTarget = warTarget;
+            this.WarManager = manager;
         }
-        public void SetDefendersWarTarget(WarTarget warTarget) 
+        public IWarParty GetWarPartyOfPlayer(IPlayer player)
         {
-            defendersTarget = warTarget;
+            if(Attackers.Contains(player))
+            {
+                return Attackers;
+            }
+            else if (Defenders.Contains(player))
+            {
+                return Defenders;
+            }
+            throw new Exception("No player in this war");
         }
-        public void End()
+        public void SetAttackersWarTarget(IWarTarget warTarget)
         {
-
+            AttackersTarget = warTarget;
+        }
+        public void SetDefendersWarTarget(IWarTarget warTarget) 
+        {
+            DefendersTarget = warTarget;
+        }
+        public void End(IWarParty defeated)
+        {
+            
+            if (defeated == Attackers)
+            {
+                //DefendersTarget;
+            }
+            else
+            {
+                //AttackersTarget;
+            }
+            WarManager.RemoveWar(this);
         }
         public void Tick()
         {
+            
         }
 
     }

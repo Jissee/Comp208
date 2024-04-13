@@ -8,5 +8,6 @@ namespace EoE.WarSystem.Interface
 {
     public interface IPlayerRelation
     {
+        List<IPlayer> GetProtectorsRecursively(IPlayer target);
     }
 }

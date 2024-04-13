@@ -1,4 +1,5 @@
 ﻿using EoE.Server.Treaty;
+using EoE.Treaty;
 using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,16 @@ namespace EoE.Server
 {
     public class PlayerRelation: IPlayerRelation
     {
-        public TreatyManager TreatyManager;
-        public Dictionary<ServerPlayer, List<ServerPlayer>> ProtectedBy;
-        private List<ServerPlayer> AlreadyIn;
-        public PlayerRelation(TreatyManager treatyManager)
+        public ITreatyManager TreatyManager;
+        public Dictionary<IPlayer, List<IPlayer>> ProtectedBy;
+        private List<IPlayer> AlreadyIn;
+        public PlayerRelation(ITreatyManager treatyManager)
         {
             TreatyManager = treatyManager;
-            ProtectedBy = new Dictionary<ServerPlayer, List<ServerPlayer>>();
-            AlreadyIn = new List<ServerPlayer>();
+            ProtectedBy = new Dictionary<IPlayer, List<IPlayer>>();
+            AlreadyIn = new List<IPlayer>();
         }
-        public void AddProtector(ServerPlayer target, ServerPlayer protector)
+        public void AddProtector(IPlayer target, IPlayer protector)
         {
             if (!ProtectedBy.ContainsKey(target))
             {
@@ -33,7 +34,7 @@ namespace EoE.Server
                 }
             }
         }
-        public void RemoveProtector(ServerPlayer target, ServerPlayer protector)
+        public void RemoveProtector(IPlayer target, IPlayer protector)
         {
             if (!ProtectedBy.ContainsKey(target))
             {
@@ -44,13 +45,13 @@ namespace EoE.Server
                 ProtectedBy[target].Remove(protector);
             }
         }
-        public List<ServerPlayer>? GetDirectProtectors(ServerPlayer target)
+        public List<IPlayer>? GetDirectProtectors(IPlayer target)
         {
             return ProtectedBy[target];
         }
-        private void DeepSearch(ServerPlayer target)
+        private void DeepSearch(IPlayer target)
         {
-            foreach(ServerPlayer protector in ProtectedBy[target])
+            foreach(IPlayer protector in ProtectedBy[target])
             {
                 if (AlreadyIn.Contains(protector))
                 {
@@ -63,10 +64,10 @@ namespace EoE.Server
                 }
             }
         }
-        public List<ServerPlayer> GetProtectorsRecursively(ServerPlayer target)
+        public List<IPlayer> GetProtectorsRecursively(IPlayer target)
         {
             UpdateProtectGraph();
-            AlreadyIn = new List<ServerPlayer>();
+            AlreadyIn = new List<IPlayer>();
             DeepSearch(target);
             if(AlreadyIn.Contains(target))
             {
