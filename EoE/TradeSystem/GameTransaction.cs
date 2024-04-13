@@ -69,7 +69,7 @@ namespace EoE.TradeSystem
             byte[] bytes = reader.ReadBytes(16);
             Guid id = new Guid(bytes);
             bool isOpen = reader.ReadBoolean();
-            string recipient = null;
+            string? recipient = null;
             if (!isOpen)
             {
                 recipient = reader.ReadString();
