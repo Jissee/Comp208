@@ -11,7 +11,7 @@ using EoE.Network;
 using EoE.WarSystem;
 using EoE.GovernanceSystem.Interface;
 using static EoE.GovernanceSystem.Interface.IGonveranceManager;
-using EoE.GovernanceSystem.SrverInterface;
+using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets.GonverancePacket;
 using System.Numerics;
 using EoE.Network.Packets.GonverancePacket.Record;

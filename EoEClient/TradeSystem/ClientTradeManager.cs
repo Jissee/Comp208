@@ -1,42 +1,39 @@
-﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.ServerInterface;
+﻿using EoE.GovernanceSystem.ServerInterface;
+using EoE.GovernanceSystem;
 using EoE.Network.Entities;
-using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.TradePacket;
-using EoE.Server.GovernanceSystem;
 using EoE.TradeSystem;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EoE.GovernanceSystem.ClientInterface;
 
-
-namespace EoE.Server.TradeSystem
+namespace EoE.Client.TradeSystem
 {
-    public class ServerTradeManager : ITradeManager
+    public class ClientTradeManager
     {
         private List<GameTransaction> openOrders = new List<GameTransaction>();
-        IServer server;
-        public ServerTradeManager(IServer server)
+        IClient offeror = Client.INSTANCE;
+        IClientResourceList resources = Client.INSTANCE.GonveranceManager.ResourceList;
+        public ClientTradeManager()
         {
-            this.server = server;
+           
         }
 
-        public void CreatOponTransaction(GameTransaction transaction)
+        public void ApplyOponTransaction(GameTransaction transaction)
         {
             if (!transaction.IsOpen)
             {
                 throw new Exception("wrong call, use CreatSecretTransaction instead");
             }
-            IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
-            IServerResourceList resources = offeror.GonveranceManager.ResourceList;
             bool flag = true;
             foreach (var item in transaction.OfferorOffer)
             {
-                if (resources.GetResourceCount(item.Type)< item.Count)
+                if (resources.GetResourceCount(item.Type) < item.Count)
                 {
                     flag = false;
                 }
@@ -44,38 +41,25 @@ namespace EoE.Server.TradeSystem
 
             if (flag)
             {
-                foreach (var item in transaction.OfferorOffer)
-                {
-                    resources.SplitResourceStack(item);
-                }
-                openOrders.Add(transaction);
-                server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Create, transaction), player =>true);
+                offeror.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Create,transaction));
             }
             else
             {
-                offeror.SendPacket(new ServerMessagePacket("No enough Resources"));
+                offeror.MsgBox("No enough Resources");
             }
         }
-        public void CreatSecretTransaction(GameTransaction transaction)
+        public void ApplpySecretTransaction(GameTransaction transaction)
         {
             if (transaction.IsOpen)
             {
                 throw new Exception("wrong call, use CreatOpenTransaction instead");
             }
-            if (transaction.Recipient == null)
+            if (offeror.OtherPlayer.FirstOrDefault(player => player == transaction.Recipient) == null)
             {
-                server.GetPlayer(transaction.Offeror)!.SendPacket(new ServerMessagePacket("The player does not exist"));
-                return;
-            }
-            else if(server.GetPlayer(transaction.Recipient) == null)
-            {
-                server.GetPlayer(transaction.Offeror)!.SendPacket(new ServerMessagePacket("The player does not exist"));
-                return;
+                offeror.MsgBox("No such Recipient");
             }
             else
             {
-                IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
-                IServerResourceList resources = offeror.GonveranceManager.ResourceList;
                 bool flag = true;
                 foreach (var item in transaction.OfferorOffer)
                 {
@@ -87,12 +71,7 @@ namespace EoE.Server.TradeSystem
 
                 if (flag)
                 {
-                    foreach (var item in transaction.OfferorOffer)
-                    {
-                        resources.SplitResourceStack(item);
-                    }
-                    IPlayer recipient = server.GetPlayer(transaction.Recipient)!;
-                    recipient.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Creat, transaction));
+                    offeror.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Creat,transaction));
                 }
                 else
                 {
@@ -101,35 +80,21 @@ namespace EoE.Server.TradeSystem
             }
         }
 
-        public void CancelOpenTransaction(Guid id,string operatorName)
+        public void ApplyCancelOpenTransaction(Guid id)
         {
+            string operatorName = offeror.PlayerName;
             GameTransaction? transaction;
             transaction = openOrders.FirstOrDefault(t => t.Id == id);
             if (transaction != null)
             {
                 if (operatorName == transaction.Offeror)
-                {
-                    IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
-                    IServerResourceList resources = offeror.GonveranceManager.ResourceList;
-
-                    foreach (var item in transaction.OfferorOffer)
-                    {
-                        resources.AddResourceStack(item);
-                    }
-
-                    server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction),player=> true);
-                    offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord (offeror.GonveranceManager.ResourceList)));
+                { 
+                    offeror.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Cancel,transaction));
                 }
                 else
                 {
-                    IPlayer manipulator = server.GetPlayer(operatorName)!;
-                    manipulator.SendPacket(new ServerMessagePacket("No operation authority"));
+                    offeror.MsgBox("No operation authority");
                 }
-            }
-            else
-            {
-                IPlayer player = server.GetPlayer(operatorName)!;
-                player.SendPacket(new ServerMessagePacket("The transaction has been cancelled or has been accepted by another player"));
             }
         }
         public void AcceptOpenTransaction(Guid id, string recipientName)
@@ -144,7 +109,7 @@ namespace EoE.Server.TradeSystem
             else
             {
                 IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
-                if(ExchangeResource(offeror, recipient, transaction))
+                if (ExchangeResource(offeror, recipient, transaction))
                 {
                     server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction), player => true);
                     offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
@@ -156,7 +121,7 @@ namespace EoE.Server.TradeSystem
                 }
 
             }
-            
+
         }
 
         public void AlterOpenTransaction(Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer, string operatorName)
@@ -171,7 +136,7 @@ namespace EoE.Server.TradeSystem
             else
             {
                 IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
-                IServerResourceList resourceList = offeror.GonveranceManager.ResourceList;
+                IClientResourceList resourceList = offeror.GonveranceManager.ResourceList;
                 foreach (var item in transaction.OfferorOffer)
                 {
                     resourceList.AddResourceStack(item);
@@ -180,7 +145,7 @@ namespace EoE.Server.TradeSystem
                 bool flag = true;
                 foreach (var item in offerorOffer)
                 {
-                    if (resourceList.GetResourceCount(item.Type)< item.Count)
+                    if (resourceList.GetResourceCount(item.Type) < item.Count)
                     {
                         flag = false;
                     }
@@ -198,7 +163,7 @@ namespace EoE.Server.TradeSystem
                         transaction.RecipientOffer[i] = recipientOffer[i];
                     }
                     offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
-                    server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Alter,transaction),player => true);
+                    server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Alter, transaction), player => true);
                 }
 
             }
@@ -220,17 +185,17 @@ namespace EoE.Server.TradeSystem
             }
             else
             {
-                recipient.SendPacket(new ResourceUpdatePacket(new ResourceListRecord (recipient.GonveranceManager.ResourceList)));
+                recipient.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(recipient.GonveranceManager.ResourceList)));
                 offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(recipient.GonveranceManager.ResourceList)));
             }
         }
 
-        public void RejectSecretTransaction(GameTransaction transaction,string operatorName)
+        public void RejectSecretTransaction(GameTransaction transaction, string operatorName)
         {
             if (operatorName == transaction.Recipient)
             {
                 IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
-                IServerResourceList resources = offeror.GonveranceManager.ResourceList;
+                IClientResourceList resources = offeror.GonveranceManager.ResourceList;
                 foreach (var item in transaction.OfferorOffer)
                 {
                     resources.AddResourceStack(item);
@@ -242,12 +207,12 @@ namespace EoE.Server.TradeSystem
 
         private bool ExchangeResource(IPlayer offeror, IPlayer recipient, GameTransaction transaction)
         {
-            IServerResourceList recipientResources = recipient.GonveranceManager.ResourceList;
-            IServerResourceList offerorResources = offeror.GonveranceManager.ResourceList;
+            IClientResourceList recipientResources = recipient.GonveranceManager.ResourceList;
+            IClientResourceList offerorResources = offeror.GonveranceManager.ResourceList;
             bool flag = true;
             foreach (var item in transaction.RecipientOffer)
             {
-                if (recipientResources.GetResourceCount(item.Type)< item.Count)
+                if (recipientResources.GetResourceCount(item.Type) < item.Count)
                 {
                     flag = false;
                 }
@@ -274,3 +239,4 @@ namespace EoE.Server.TradeSystem
         }
     }
 }
+

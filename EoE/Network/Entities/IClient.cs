@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem.ClientInterface;
+using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,10 @@ namespace EoE.Network.Entities
     public interface IClient : INetworkEntity
     {
         string PlayerName { get; }
-        public IClientGonveranceManager GonveranceHandler { get; }
+        public IClientGonveranceManager GonveranceManager { get; }
+        List<string> OtherPlayer{ get;}
+
+        void SendPacket<T>(T packet) where T : IPacket<T>;
         void MsgBox(string msg);
     }
 }

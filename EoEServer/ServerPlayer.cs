@@ -1,5 +1,5 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.SrverInterface;
+using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network;
 using EoE.Network.Packets;
 using EoE.Server.GovernanceSystem;

@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EoE.GovernanceSystem.SrverInterface
+namespace EoE.GovernanceSystem.ServerInterface
 {
-    public interface IServerResourceList: IResourceList
+    public interface IServerFieldList: IFieldList
     {
-        ResourceListRecord GetResourceListRecord();
+        FieldListRecord GetFieldListRecord();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using EoE.GovernanceSystem.Interface;
 using EoE.Network.Packets.GonverancePacket.Record;
 
-namespace EoE.GovernanceSystem.SrverInterface
+namespace EoE.GovernanceSystem.ServerInterface
 {
     public interface IServerPopManager : IPopManager
     {
