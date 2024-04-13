@@ -45,6 +45,9 @@ namespace EoE.Network.Packets.TradePacket
                             case SecretTransactionOperation.Accept:
                                 server.TradeHandler.AcceptSecretTransaction(transaction);
                                 break;
+                            case SecretTransactionOperation.Reject:
+                                server.TradeHandler.RejectSecretTransaction(transaction,context.PlayerSender.PlayerName);
+                                break;
                             default:
                                 throw new Exception("no such type");
                         }
@@ -68,6 +71,9 @@ namespace EoE.Network.Packets.TradePacket
                         case SecretTransactionOperation.Accept:
                             //Todo
                             break;
+                        case SecretTransactionOperation.Reject:
+                            //Todo
+                            break;
                         default:
                             throw new Exception("no such type");
                     }
@@ -78,6 +84,7 @@ namespace EoE.Network.Packets.TradePacket
     public enum SecretTransactionOperation
     {
         Creat,
-        Accept
+        Accept,
+        Reject
     }
 }

@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.GovernanceSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,16 @@ namespace EoE.Network.Packets.GonverancePacket.Record
             int aluminumFieldCount= aluminum;
             int electronicFieldCount= electronic;
             int industrialFieldCount= industrial;
+
+        }
+        public FieldListRecord(IFieldList fieldList)
+        {
+            int siliconFieldCount = fieldList.GetFieldCount(GameResourceType.Silicon);
+            int copperFieldCount = fieldList.GetFieldCount(GameResourceType.Copper);
+            int ironFieldCount = fieldList.GetFieldCount(GameResourceType.Iron);
+            int aluminumFieldCount = fieldList.GetFieldCount(GameResourceType.Aluminum);
+            int electronicFieldCount = fieldList.GetFieldCount(GameResourceType.Electronic);
+            int industrialFieldCount = fieldList.GetFieldCount(GameResourceType.Industrial);
 
         }
         public FieldListRecord() : this(0, 0, 0, 0, 0, 0)
