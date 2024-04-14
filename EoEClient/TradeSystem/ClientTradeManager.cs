@@ -17,8 +17,12 @@ namespace EoE.Client.TradeSystem
     public class ClientTradeManager
     {
         private List<GameTransaction> openOrders = new List<GameTransaction>();
+        private Dictionary<int, Guid> transverter = new Dictionary<int, Guid>();
+
         IClient offeror = Client.INSTANCE;
         IClientResourceList resources = Client.INSTANCE.GonveranceManager.ResourceList;
+
+        private int index = 1;
         public ClientTradeManager()
         {
            
@@ -42,6 +46,7 @@ namespace EoE.Client.TradeSystem
             if (flag)
             {
                 offeror.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Create,transaction));
+                offeror.MsgBox("Successfully sent transaction request");
             }
             else
             {
@@ -72,6 +77,7 @@ namespace EoE.Client.TradeSystem
                 if (flag)
                 {
                     offeror.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Creat,transaction));
+                    offeror.MsgBox("Successfully sent transaction request");
                 }
                 else
                 {
@@ -90,6 +96,7 @@ namespace EoE.Client.TradeSystem
                 if (operatorName == transaction.Offeror)
                 { 
                     offeror.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Cancel,transaction));
+                    offeror.MsgBox("Successfully sent cancellation request");
                 }
                 else
                 {
@@ -122,6 +129,7 @@ namespace EoE.Client.TradeSystem
                 if (flag)
                 {
                     offeror.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Accept,transaction));
+                    offeror.MsgBox("Successfully sent acceptance request");
                 }
                 else
                 {
@@ -167,7 +175,7 @@ namespace EoE.Client.TradeSystem
                         transaction.RecipientOffer[i] = recipientOffer[i];
                     }
                     offeror.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Alter, transaction));
-                    offeror.MsgBox("Seccussfully applied for modification");
+                    offeror.MsgBox("Successfully sent  modification request");
                 }
                 else
                 {
@@ -198,7 +206,7 @@ namespace EoE.Client.TradeSystem
             if (flag)
             {
                 offeror.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Accept, transaction));
-                offeror.MsgBox("Seccussfully applied for acceptance");
+                offeror.MsgBox("Successfully sent acceptance request");
             }
             else
             {
@@ -206,16 +214,42 @@ namespace EoE.Client.TradeSystem
             }
 
         }
-
         public void RejectSecretTransaction(GameTransaction transaction)
         {
             if (offeror.PlayerName == transaction.Recipient)
             {
-                offeror.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Reject,transaction));
+                offeror.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Reject, transaction));
             }
         }
 
+        public void SetNewRransverter(Guid id)
+        {
+            transverter.Add(index, id);
+            index++;
+        }
+        public void CreateNewOpenTransaction(GameTransaction transaction)
+        {
+            if (!transaction.IsOpen)
+            {
+                throw new Exception("wrong call"); 
+            }
 
+            openOrders.Add(transaction);
+        }
+        public void RemoveOpenTransaction(GameTransaction transaction)
+        {
+            if (!transaction.IsOpen)
+            {
+                throw new Exception("wrong call");
+            }
+
+            openOrders.Remove(transaction);
+        }
+       
+        public void Synchronize(List<GameTransaction> list)
+        {
+            openOrders = list;
+        }
        
     }
 }

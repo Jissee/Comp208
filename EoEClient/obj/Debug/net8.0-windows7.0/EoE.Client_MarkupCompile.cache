@@ -4,16 +4,20 @@
 winexe
 C#
 .cs
-D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
 EoE.Client
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\e-textbook3\comp208\EoE\EoEClient\App.xaml
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\App.xaml
 11407045341
 
 11279666531
+<<<<<<< HEAD
 199-1301582816
+=======
+199-837860142
+>>>>>>> 4e653259e3b821fa5742b828b7403f79c68360a0
 MainWindow.xaml;
 
 False

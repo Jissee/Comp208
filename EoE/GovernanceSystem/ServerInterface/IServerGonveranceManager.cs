@@ -14,5 +14,6 @@ namespace EoE.GovernanceSystem.ServerInterface
         IServerFieldList FieldList { get; }
         IServerResourceList ResourceList { get; }
         void SetExploration(int inutPopulation);
+        void ClearAll();
     }
 }

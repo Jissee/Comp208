@@ -14,7 +14,7 @@ namespace EoE.Server.GovernanceSystem
 {
     public class ServerPlayerResourceList: IServerResourceList
     {
-        private Dictionary<GameResourceType, int> resources;
+        private Dictionary<GameResourceType, int> resources = new Dictionary<GameResourceType, int>();
         public ServerPlayerResourceList(
             int silicon,
             int copper,
@@ -90,6 +90,13 @@ namespace EoE.Server.GovernanceSystem
                 resources[GameResourceType.InformativeArmy],
                 resources[GameResourceType.MechanismArmy]
                 );
+        }
+        public void ClearAll()
+        {
+            foreach (GameResourceType type in Enum.GetValues(typeof(GameResourceType)))
+            {
+                resources[type] = 0;
+            }
         }
     }
 }

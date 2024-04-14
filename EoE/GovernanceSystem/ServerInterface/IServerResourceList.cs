@@ -11,5 +11,6 @@ namespace EoE.GovernanceSystem.ServerInterface
     public interface IServerResourceList : IResourceList
     {
         ResourceListRecord GetResourceListRecord();
+        void ClearAll();
     }
 }

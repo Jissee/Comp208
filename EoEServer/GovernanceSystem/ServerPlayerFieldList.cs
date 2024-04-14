@@ -14,7 +14,7 @@ namespace EoE.Server.GovernanceSystem
 {
     public class ServerPlayerFieldList: IServerFieldList
     {
-        private Dictionary<GameResourceType, int> fields;
+        private Dictionary<GameResourceType, int> fields = new Dictionary<GameResourceType, int>();
         public int TotalFieldCount 
         {
             get 
@@ -99,6 +99,16 @@ namespace EoE.Server.GovernanceSystem
                 fields[GameResourceType.Industrial]
                 
                 );
+        }
+
+        public void ClearAll()
+        {
+            fields[GameResourceType.Silicon] = 0;
+            fields[GameResourceType.Copper] = 0;
+            fields[GameResourceType.Iron] = 0;
+            fields[GameResourceType.Aluminum] = 0;
+            fields[GameResourceType.Electronic] = 0;
+            fields[GameResourceType.Industrial] = 0;
         }
     }
   

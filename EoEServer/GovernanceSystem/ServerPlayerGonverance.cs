@@ -11,6 +11,7 @@ using EoE.Network;
 using EoE.WarSystem;
 using EoE.GovernanceSystem.Interface;
 using static EoE.GovernanceSystem.Interface.IGonveranceManager;
+using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.GovernanceSystem.ServerInterface;
 
@@ -136,7 +137,7 @@ namespace EoE.Server.GovernanceSystem
             }
         }
         // 暂时改为public！！！
-        public void ConsumePrimaryResource()
+        public void ConsumePrimaryResource(int population)
         {
             int pop = PopManager.TotalPopulation;
             
@@ -166,7 +167,6 @@ namespace EoE.Server.GovernanceSystem
             else 
             {
                 int consume = inutPopulation * EXPLORE_RESOURCE_PER_POP;
-
                 if (ResourceList.GetResourceCount(GameResourceType.Silicon) >= consume &&
                     ResourceList.GetResourceCount(GameResourceType.Copper) >= consume &&
                     ResourceList.GetResourceCount(GameResourceType.Iron) >= consume &&
@@ -272,14 +272,19 @@ namespace EoE.Server.GovernanceSystem
             }
 
         }
-
+        public void ClearAll()
+        {
+            FieldList.ClearAll();
+            ResourceList.ClearAll();
+        }
         public void Tick()
         {
             ProducePrimaryResource();
             ProduceSecondaryResource();
-            ConsumePrimaryResource();
+            int pop = PopManager.TotalPopulation;
             UpdatePopGrowthProgress();
             UpdatePop();
+            ConsumePrimaryResource(pop);
             UpdateFieldExplorationProgress();
             UpdateField();
             player.SendPacket(new ResourceUpdatePacket(ResourceList.GetResourceListRecord()));
