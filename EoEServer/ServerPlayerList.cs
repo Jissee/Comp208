@@ -1,8 +1,11 @@
 ﻿using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
+using EoE.Network.Packets.GameEventPacket;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.Server.Treaty;
 using EoE.Server.WarSystem;
+using EoE.TradeSystem;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
 using System;
@@ -18,8 +21,10 @@ namespace EoE.Server
         public ITreatyManager TreatyManager { get; }
         public IWarManager WarManager { get; }
         public List<IPlayer> Players { get; }
+        public ITradeManager TradeManager { get; }
+        private IPlayer? host;
         private IServer server;
-
+        private int playerCount = 1;
         public ServerPlayerList(IServer server) 
         { 
             TreatyManager = new TreatyManager(this);
@@ -28,15 +33,37 @@ namespace EoE.Server
             this.server = server;
         }
 
+        public void SetPlayerCount(int playerCount)
+        {
+            this.playerCount = playerCount;
+        }
         public void PlayerLogin(IPlayer player)
         {
-            Players.Add(player);
+            if (Players.Count <= playerCount)
+            {
+                if (host == null)
+                {
+                    host = player;
+                    player.SendPacket(new RoomOwnerPacket(true));
+                }
+                Players.Add(player);
+            }
+            else
+            {
+                player.SendPacket(new ServerMessagePacket("Server full, please wait for the end of the existing match or for the host to increase the number of players"));
+            }
+
         }
 
         public void PlayerLogout(IPlayer player)
         {
             Console.WriteLine($"{player.PlayerName} logged out.");
             Players.Remove(player);
+            if (player == host)
+            {
+                host = Players[0];
+                host.SendPacket(new RoomOwnerPacket(true));
+            }
         }
         public void HandlePlayerDisconnection()
         {

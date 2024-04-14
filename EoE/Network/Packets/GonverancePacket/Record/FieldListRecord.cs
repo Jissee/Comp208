@@ -25,22 +25,22 @@ namespace EoE.Network.Packets.GonverancePacket.Record
             int electronic,
             int industrial)
         {
-            int siliconFieldCount = silicon;
-            int copperFieldCount = copper;
-            int ironFieldCount = iron;
-            int aluminumFieldCount= aluminum;
-            int electronicFieldCount= electronic;
-            int industrialFieldCount= industrial;
+            this.siliconFieldCount = silicon;
+            this.copperFieldCount = copper;
+            this.ironFieldCount = iron;
+            this.aluminumFieldCount = aluminum;
+            this.electronicFieldCount = electronic;
+            this.industrialFieldCount = industrial;
 
         }
         public FieldListRecord(IFieldList fieldList)
         {
-            int siliconFieldCount = fieldList.GetFieldCount(GameResourceType.Silicon);
-            int copperFieldCount = fieldList.GetFieldCount(GameResourceType.Copper);
-            int ironFieldCount = fieldList.GetFieldCount(GameResourceType.Iron);
-            int aluminumFieldCount = fieldList.GetFieldCount(GameResourceType.Aluminum);
-            int electronicFieldCount = fieldList.GetFieldCount(GameResourceType.Electronic);
-            int industrialFieldCount = fieldList.GetFieldCount(GameResourceType.Industrial);
+            this.siliconFieldCount = fieldList.GetFieldCount(GameResourceType.Silicon);
+            this.copperFieldCount = fieldList.GetFieldCount(GameResourceType.Copper);
+            this.ironFieldCount = fieldList.GetFieldCount(GameResourceType.Iron);
+            this.aluminumFieldCount = fieldList.GetFieldCount(GameResourceType.Aluminum);
+            this.electronicFieldCount = fieldList.GetFieldCount(GameResourceType.Electronic);
+            this.industrialFieldCount = fieldList.GetFieldCount(GameResourceType.Industrial);
 
         }
         public FieldListRecord() : this(0, 0, 0, 0, 0, 0)
@@ -61,12 +61,12 @@ namespace EoE.Network.Packets.GonverancePacket.Record
         public static Decoder<FieldListRecord> decoder = (BinaryReader reader) =>
         {
             return new FieldListRecord(
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count
+            FieldStack.decoder(reader).Count,
+            FieldStack.decoder(reader).Count,
+            FieldStack.decoder(reader).Count,
+            FieldStack.decoder(reader).Count,
+            FieldStack.decoder(reader).Count,
+            FieldStack.decoder(reader).Count
                 );
         };
     }

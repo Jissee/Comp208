@@ -41,5 +41,10 @@ namespace EoE.Server
         {
             throw new NotImplementedException();
         }
+
+        public void SetTotalTick(int totalTick)
+        {
+            this.TotalTick = totalTick;
+        }
     }
 }

@@ -22,15 +22,15 @@ namespace EoE.Network.Packets.GonverancePacket.Record
 
         public ResourceListRecord(IResourceList resourceList)
         {
-            siliconCount = resourceList.GetResourceCount(GameResourceType.Silicon);
-            copperCount = resourceList.GetResourceCount(GameResourceType.Copper);
-            ironCount = resourceList.GetResourceCount(GameResourceType.Iron);
-            aluminumCount = resourceList.GetResourceCount(GameResourceType.Aluminum);
-            electronicCount = resourceList.GetResourceCount(GameResourceType.Electronic);
-            industrialCount = resourceList.GetResourceCount(GameResourceType.Industrial);
-            battleArmyCount = resourceList.GetResourceCount(GameResourceType.BattleArmy);
-            informativeArmyCount = resourceList.GetResourceCount(GameResourceType.InformativeArmy);
-            mechanismArmyCount = resourceList.GetResourceCount(GameResourceType.MechanismArmy);
+            this.siliconCount = resourceList.GetResourceCount(GameResourceType.Silicon);
+            this.copperCount = resourceList.GetResourceCount(GameResourceType.Copper);
+            this.ironCount = resourceList.GetResourceCount(GameResourceType.Iron);
+            this.aluminumCount = resourceList.GetResourceCount(GameResourceType.Aluminum);
+            this.electronicCount = resourceList.GetResourceCount(GameResourceType.Electronic);
+            this.industrialCount = resourceList.GetResourceCount(GameResourceType.Industrial);
+            this.battleArmyCount = resourceList.GetResourceCount(GameResourceType.BattleArmy);
+            this.informativeArmyCount = resourceList.GetResourceCount(GameResourceType.InformativeArmy);
+            this.mechanismArmyCount = resourceList.GetResourceCount(GameResourceType.MechanismArmy);
 
         }
         public ResourceListRecord
@@ -46,15 +46,15 @@ namespace EoE.Network.Packets.GonverancePacket.Record
             int mechanismArmy
             )
         {
-            siliconCount = silicon;
-            copperCount = coppor;
-            ironCount = iron;
-            aluminumCount = aluminum;
-            electronicCount = electronic;
-            industrialCount = industrial;
-            battleArmyCount = battleArmy;
-            informativeArmyCount = informativeArmy;
-            mechanismArmyCount = mechanismArmy;
+            this.siliconCount = silicon;
+            this.copperCount = coppor;
+            this.ironCount = iron;
+            this.aluminumCount = aluminum;
+            this.electronicCount = electronic;
+            this.industrialCount = industrial;
+            this.battleArmyCount = battleArmy;
+            this.informativeArmyCount = informativeArmy;
+            this.mechanismArmyCount = mechanismArmy;
 
         }
         public ResourceListRecord() : this(0, 0, 0, 0, 0, 0, 0, 0, 0)

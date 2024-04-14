@@ -24,7 +24,8 @@ namespace EoE.Network.Entities
         IPlayer? GetPlayer(string playerName);
         void CheckPlayerTickStatus();
 
+        void SetGame(int playerCount, int totalTick);
 
-        
+
     }
 }
