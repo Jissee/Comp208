@@ -24,7 +24,7 @@ namespace EoE.Client.TradeSystem
            
         }
 
-        public void ApplyOponTransaction(GameTransaction transaction)
+        public void RequireCreateOponTransaction(GameTransaction transaction)
         {
             if (!transaction.IsOpen)
             {
@@ -48,7 +48,7 @@ namespace EoE.Client.TradeSystem
                 offeror.MsgBox("No enough Resources");
             }
         }
-        public void ApplpySecretTransaction(GameTransaction transaction)
+        public void RequireCreateSecretTransaction(GameTransaction transaction)
         {
             if (transaction.IsOpen)
             {
@@ -80,7 +80,7 @@ namespace EoE.Client.TradeSystem
             }
         }
 
-        public void ApplyCancelOpenTransaction(Guid id)
+        public void RequireCancelOpenTransaction(Guid id)
         {
             string operatorName = offeror.PlayerName;
             GameTransaction? transaction;
@@ -96,56 +96,65 @@ namespace EoE.Client.TradeSystem
                     offeror.MsgBox("No operation authority");
                 }
             }
+            else
+            {
+                offeror.MsgBox("The transaction has been cancelled or has been accepted by another player");
+            }
         }
-        public void AcceptOpenTransaction(Guid id, string recipientName)
+        public void RequireAcceptOpenTransaction(Guid id)
         {
-            IPlayer recipient = server.GetPlayer(recipientName)!;
             GameTransaction? transaction;
             transaction = openOrders.FirstOrDefault(t => t.Id == id);
             if (transaction == null)
             {
-                recipient.SendPacket(new ServerMessagePacket("The transaction has been cancelled or has been accepted by another player"));
+                offeror.MsgBox("The transaction has been cancelled or has been accepted by another player");
             }
             else
             {
-                IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
-                if (ExchangeResource(offeror, recipient, transaction))
+                bool flag = true;
+                foreach (var item in transaction.RecipientOffer)
                 {
-                    server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction), player => true);
-                    offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
-                    recipient.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(recipient.GonveranceManager.ResourceList)));
+                    if (resources.GetResourceCount(item.Type) <item.Count)
+                    {
+                        flag = false;
+                    }
+                }
+                if (flag)
+                {
+                    offeror.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Accept,transaction));
                 }
                 else
                 {
-                    recipient.SendPacket(new ServerMessagePacket("No enough resources"));
+                    offeror.MsgBox("No enough reousrces");
                 }
-
             }
 
         }
 
-        public void AlterOpenTransaction(Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer, string operatorName)
+        public void RequireAlterOpenTransaction(Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer)
         {
             GameTransaction? transaction;
+            string operatorName = offeror.PlayerName;
             transaction = openOrders.FirstOrDefault(t => t.Id == id);
-            IPlayer manipulator = server.GetPlayer(operatorName)!;
             if (transaction == null)
             {
-                manipulator.SendPacket(new ServerMessagePacket("The transaction has been cancelled or has been accepted by another player"));
+                offeror.MsgBox("The transaction has been cancelled or has been accepted by another player");
+            }
+            else if(transaction.Offeror != operatorName)
+            {
+                offeror.MsgBox("No operation authority");
             }
             else
             {
-                IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
-                IClientResourceList resourceList = offeror.GonveranceManager.ResourceList;
                 foreach (var item in transaction.OfferorOffer)
                 {
-                    resourceList.AddResourceStack(item);
+                    resources.AddResourceStack(item);
                 }
 
                 bool flag = true;
                 foreach (var item in offerorOffer)
                 {
-                    if (resourceList.GetResourceCount(item.Type) < item.Count)
+                    if (resources.GetResourceCount(item.Type) < item.Count)
                     {
                         flag = false;
                     }
@@ -154,65 +163,33 @@ namespace EoE.Client.TradeSystem
                 {
                     for (int i = 0; i < offerorOffer.Count; i++)
                     {
-                        resourceList.SplitResourceStack(offerorOffer[i]);
                         transaction.OfferorOffer[i] = offerorOffer[i];
-                    }
-
-                    for (int i = 0; i < recipientOffer.Count; i++)
-                    {
                         transaction.RecipientOffer[i] = recipientOffer[i];
                     }
-                    offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
-                    server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Alter, transaction), player => true);
+                    offeror.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Alter, transaction));
+                    offeror.MsgBox("Seccussfully applied for modification");
                 }
-
+                else
+                {
+                    offeror.MsgBox("No enough reousrces");
+                }
+                foreach (var item in transaction.OfferorOffer)
+                {
+                    resources.AddResourceStack(item);
+                }
             }
         }
 
-        public void AcceptSecretTransaction(GameTransaction transaction)
+        public void RequireAcceptSecretTransaction(GameTransaction transaction)
         {
             if (transaction.Recipient == null)
             {
                 throw new Exception("Wrong call, not secrert Transaction");
             }
-
-            IPlayer recipient = server.GetPlayer(transaction.Recipient)!;
-            IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
-            if (!ExchangeResource(offeror, recipient, transaction))
-            {
-                recipient.SendPacket(new ServerMessagePacket("No enough resources"));
-                RejectSecretTransaction(transaction, transaction.Recipient);
-            }
-            else
-            {
-                recipient.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(recipient.GonveranceManager.ResourceList)));
-                offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(recipient.GonveranceManager.ResourceList)));
-            }
-        }
-
-        public void RejectSecretTransaction(GameTransaction transaction, string operatorName)
-        {
-            if (operatorName == transaction.Recipient)
-            {
-                IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
-                IClientResourceList resources = offeror.GonveranceManager.ResourceList;
-                foreach (var item in transaction.OfferorOffer)
-                {
-                    resources.AddResourceStack(item);
-                }
-                offeror.SendPacket(new ServerMessagePacket("Counterparty rejects transaction"));
-            }
-        }
-
-
-        private bool ExchangeResource(IPlayer offeror, IPlayer recipient, GameTransaction transaction)
-        {
-            IClientResourceList recipientResources = recipient.GonveranceManager.ResourceList;
-            IClientResourceList offerorResources = offeror.GonveranceManager.ResourceList;
             bool flag = true;
             foreach (var item in transaction.RecipientOffer)
             {
-                if (recipientResources.GetResourceCount(item.Type) < item.Count)
+                if (resources.GetResourceCount(item.Type)<item.Count)
                 {
                     flag = false;
                 }
@@ -220,23 +197,26 @@ namespace EoE.Client.TradeSystem
 
             if (flag)
             {
-                foreach (var item in transaction.RecipientOffer)
-                {
-                    recipientResources.SplitResourceStack(item);
-                    offerorResources.AddResourceStack(item);
-                }
-
-                foreach (var item in transaction.OfferorOffer)
-                {
-                    recipientResources.AddResourceStack(item);
-                }
-                return true;
+                offeror.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Accept, transaction));
+                offeror.MsgBox("Seccussfully applied for acceptance");
             }
             else
             {
-                return false;
+                offeror.MsgBox("No enough reousrces");
+            }
+
+        }
+
+        public void RejectSecretTransaction(GameTransaction transaction)
+        {
+            if (offeror.PlayerName == transaction.Recipient)
+            {
+                offeror.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Reject,transaction));
             }
         }
+
+
+       
     }
 }
 

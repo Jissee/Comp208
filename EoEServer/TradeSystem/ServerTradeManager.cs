@@ -19,7 +19,7 @@ namespace EoE.Server.TradeSystem
     public class ServerTradeManager : ITradeManager
     {
         private List<GameTransaction> openOrders = new List<GameTransaction>();
-        IServer server;
+        private IServer server;
         public ServerTradeManager(IServer server)
         {
             this.server = server;
@@ -197,8 +197,17 @@ namespace EoE.Server.TradeSystem
                     {
                         transaction.RecipientOffer[i] = recipientOffer[i];
                     }
+
                     offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
                     server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Alter,transaction),player => true);
+                }
+                else
+                {
+                    foreach (var item in transaction.OfferorOffer)
+                    {
+                        resourceList.SplitResourceStack(item);
+                    }
+
                 }
 
             }
