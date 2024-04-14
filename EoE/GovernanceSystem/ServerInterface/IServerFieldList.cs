@@ -11,5 +11,6 @@ namespace EoE.GovernanceSystem.ServerInterface
     public interface IServerFieldList : IFieldList
     {
         FieldListRecord GetFieldListRecord();
+        void ClearAll();
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EoE.TradeSystem
 {
-    public interface IServerTradeManager
+    public interface IServerTradeManager : ITradeManager
     {
         void CreatOponTransaction(GameTransaction transaction);
         void CreatSecretTransaction(GameTransaction transaction);
@@ -16,5 +16,6 @@ namespace EoE.TradeSystem
         void AlterOpenTransaction(Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer, string operatorName);
         void AcceptSecretTransaction(GameTransaction transaction);
         void RejectSecretTransaction(GameTransaction transaction, string operatorName);
+        void ClearAll(IPlayer offeror);
     }
 }

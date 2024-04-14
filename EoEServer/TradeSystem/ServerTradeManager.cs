@@ -281,5 +281,15 @@ namespace EoE.Server.TradeSystem
                 return false;
             }
         }
+
+        public void ClearAll(IPlayer offeror)
+        {
+            GameTransaction? transaction = openOrders.FirstOrDefault(t => t.Offeror == offeror.PlayerName);
+            while (transaction != null)
+            {
+                openOrders.Remove(transaction);
+                transaction = openOrders.FirstOrDefault(t => t.Offeror == offeror.PlayerName);
+            }
+        }
     }
 }

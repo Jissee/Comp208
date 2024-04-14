@@ -17,8 +17,12 @@ namespace EoE.Client.TradeSystem
     public class ClientTradeManager
     {
         private List<GameTransaction> openOrders = new List<GameTransaction>();
+        private Dictionary<int, Guid> transverter = new Dictionary<int, Guid>();
+
         IClient offeror = Client.INSTANCE;
         IClientResourceList resources = Client.INSTANCE.GonveranceManager.ResourceList;
+
+        private int index = 1;
         public ClientTradeManager()
         {
            
@@ -216,6 +220,12 @@ namespace EoE.Client.TradeSystem
             {
                 offeror.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Reject, transaction));
             }
+        }
+
+        public void SetNewRransverter(Guid id)
+        {
+            transverter.Add(index, id);
+            index++;
         }
         public void CreateNewOpenTransaction(GameTransaction transaction)
         {

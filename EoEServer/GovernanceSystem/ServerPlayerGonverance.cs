@@ -11,7 +11,7 @@ using EoE.Network;
 using EoE.WarSystem;
 using EoE.GovernanceSystem.Interface;
 using static EoE.GovernanceSystem.Interface.IGonveranceManager;
-using EoE.GovernanceSystem.SrverInterface;
+using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.GovernanceSystem.ServerInterface;
 
@@ -273,7 +273,11 @@ namespace EoE.Server.GovernanceSystem
             }
 
         }
-
+        public void ClearAll()
+        {
+            FieldList.ClearAll();
+            ResourceList.ClearAll();
+        }
         public void Tick()
         {
             ProducePrimaryResource();

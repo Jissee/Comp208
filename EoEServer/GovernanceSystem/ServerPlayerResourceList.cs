@@ -91,5 +91,12 @@ namespace EoE.Server.GovernanceSystem
                 resources[GameResourceType.MechanismArmy]
                 );
         }
+        public void ClearAll()
+        {
+            foreach (GameResourceType type in Enum.GetValues(typeof(GameResourceType)))
+            {
+                resources[type] = 0;
+            }
+        }
     }
 }
