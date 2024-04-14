@@ -8,11 +8,10 @@
         Title="MainTradePage" Height="450" Width="800"
         >
     <Grid>
-        <Button Content="Initiate private transaction " HorizontalAlignment="Left" Margin="485,245,0,0" VerticalAlignment="Top" Height="56" Width="207" FontSize="16" Background="White" Click="Button_Click"/>
-        <Button Content="Accept transaction" HorizontalAlignment="Left" Margin="485,151,0,0" VerticalAlignment="Top" Height="55" Width="207" FontSize="16" Background="White" Click="Button_Click_1"/>
-        <Button Content="Post buying information" HorizontalAlignment="Left" Margin="485,53,0,0" VerticalAlignment="Top" Height="56" Width="207" FontSize="16" Background="White" Click="Button_Click_2"/>
+        <Button Content="Initiate private transaction " HorizontalAlignment="Left" Margin="485,198,0,0" VerticalAlignment="Top" Height="56" Width="207" FontSize="16" Background="White" Click="Button_Click"/>
+        <Button Content="Post buying information" HorizontalAlignment="Left" Margin="485,114,0,0" VerticalAlignment="Top" Height="56" Width="207" FontSize="16" Background="White" Click="Button_Click_2"/>
         <Button Content="Back" HorizontalAlignment="Center" Margin="0,344,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_4" Height="39" Width="114"/>
-        <ListBox x:Name="tradeList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="83,114,597,181" SelectionChanged="tradeList_SelectionChanged" Height="140"/>
+        <ListBox x:Name="tradeList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="83,114,0,0" SelectionChanged="tradeList_SelectionChanged" Height="140" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
         <Label Content="Find: " HorizontalAlignment="Left" Margin="62,54,0,0" VerticalAlignment="Top"/>
         <Button Content="res1" HorizontalAlignment="Left" Margin="108,57,0,0" VerticalAlignment="Top"/>
         <Button Content="res2" HorizontalAlignment="Left" Margin="152,57,0,0" VerticalAlignment="Top"/>
@@ -22,8 +21,9 @@
         <Button Content="res6" HorizontalAlignment="Left" Margin="337,57,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="itemShow" HorizontalAlignment="Left" Margin="244,114,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="140"/>
         <Label Content="Transaction List:" HorizontalAlignment="Left" Margin="92,89,0,0" VerticalAlignment="Top"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="122,330,0,0" VerticalAlignment="Top"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="108,273,0,0" VerticalAlignment="Top" Click="Button_Click_5" FontSize="20"/>
         <Label Content="You can delete transactions that haven't been completed yet.Select the transaction and click the delete button." HorizontalAlignment="Center" Margin="0,403,0,0" VerticalAlignment="Top"/>
+        <Button Content="Accept" HorizontalAlignment="Left" Margin="269,273,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_6"/>
 
     </Grid>
 </Window>

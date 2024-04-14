@@ -58,9 +58,6 @@
     <Page Update="Login\SetGameWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="TradeSystem\AcceptTrade\AcceptTradeWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

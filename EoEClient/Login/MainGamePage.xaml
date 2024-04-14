@@ -29,7 +29,7 @@
         <Label x:Name="People" Content="Population: " HorizontalAlignment="Left" Margin="172,270,0,0" VerticalAlignment="Top" Height="27"/>
         <TextBlock HorizontalAlignment="Left" Margin="270,270,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="27" Width="102"/>
         <Label Content="Round Number:" HorizontalAlignment="Left" Margin="48,361,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="RoundCount" HorizontalAlignment="Left" Margin="185,362,0,43" TextWrapping="Wrap" Text="" FontSize="20" Background="White" Width="96"/>
+        <TextBlock x:Name="RoundCount" HorizontalAlignment="Left" Margin="185,362,0,0" TextWrapping="Wrap" Text="" FontSize="20" Background="White" Width="96" Height="30" VerticalAlignment="Top"/>
 
         <Canvas Width="100" Height="100" Margin="90,167,610,168"/>
 

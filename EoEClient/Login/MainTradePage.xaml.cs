@@ -82,15 +82,45 @@ namespace EoE.Client.TradeSystem
 
         private void tradeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int number = int.Parse(tradeList.SelectedItem.ToString());
+            if (tradeList.SelectedItem != null)
+            {
+                int number = int.Parse(tradeList.SelectedItem.ToString());
+                itemShow.Text = tradeList.SelectedItem.ToString();
+            }
+                
 
-            itemShow.Text = tradeList.SelectedItem.ToString();
+            
         }
 
         public void addItem(int transcationnumber)
         {
             tradeList.Items.Add(transcationnumber);
         }
-        
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            if (tradeList.SelectedItem != null)
+            {
+                tradeList.Items.Remove(tradeList.SelectedItem);
+            }
+            else
+            {
+                MessageBox.Show("Please select the transaction you want to delete.");
+            }
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            if (tradeList.SelectedItem != null)
+
+            {    MessageBox.Show("sucefully!");
+                tradeList.Items.Remove(tradeList.SelectedItem);
+            }
+            else
+            {
+                MessageBox.Show("Please select the transaction you want to acccept.");
+            }
+
+        }
     }
 }
