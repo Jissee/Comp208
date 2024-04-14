@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace EoE.Treaty
 {
-    public interface ITreatyManager
+    public interface ITreatyManager :ITickable
     {
+        List<ITreaty> RelationTreatyList { get;}
         IPlayerRelation PlayerRelation { get; }
         List<IPlayer> FindNonTruce(IPlayer player);
     }

@@ -14,6 +14,8 @@ namespace EoE
         Socket Connection { get; }
 
         IServerGonveranceManager GonveranceManager { get; }
+        bool IsLose { get; }
+        void GameLose();
         string PlayerName { get; set; }
         bool IsConnected { get; }
         void SendPacket<T>(T packet) where T : IPacket<T>;

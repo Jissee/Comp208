@@ -9,22 +9,40 @@ namespace EoE.Server.WarSystem
 {
     public class WarManager : IWarManager, ITickable
     {
-        public List<War> WarList = new List<War>();
+        public Dictionary<string, IWar> WarDict { get; private set; } = new Dictionary<string, IWar>();
         public WarManager() { }
-        public void DeclareWar(War war)
+        public void DeclareWar(IWar war)
         {
-            WarList.Add(war);
+            WarDict.Add(war.WarName, war);
+            war.SetWarManager(this);
         }
-        public void EndWar(War war)
+        public void RemoveWar(IWar war)
         {
-            if (WarList.Contains(war))
+            if (WarDict.ContainsValue(war))
             {
-                war.End();
-                WarList.Remove(war);
+                WarDict.Remove(war.WarName);
+            }
+        }
+        public void PlayerLose(IPlayer player)
+        {
+            foreach (var kvp in WarDict)
+            {
+                IWar war = kvp.Value;
+                IWarParty attackers = war.Attackers;
+                IWarParty defenders = war.Defenders;
+                if (attackers.Contains(player))
+                {
+                    attackers.PlayerLose(player);
+                }
+                if (defenders.Contains(player))
+                {
+                    attackers.PlayerLose(player);
+                }
             }
         }
         public void Tick()
         {
+
         }
     }
 }

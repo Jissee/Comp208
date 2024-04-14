@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.Treaty;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace EoE.Server.Treaty
 {
     //first is protected by second
-    public class ProtectiveTreaty : RelationTreaty
+    public class ProtectiveTreaty : RelationTreaty, ITickableTreaty
     {
         public ProtectiveTreaty(ServerPlayer firstParty, ServerPlayer secondParty) : base(firstParty, secondParty)
         {
@@ -25,13 +26,14 @@ namespace EoE.Server.Treaty
         }
         public void ConsumeRecourse()
         {
-            foreach(var entry in ConditionEntries)
+            foreach(var kvp in ConditionEntries)
             {
-                ResourceStack addStack = FirstParty.GonveranceManager.ResourceList.SplitResource(entry.Key, entry.Value);
+                ResourceStack addStack = FirstParty.GonveranceManager.ResourceList.SplitResource(kvp.Key, kvp.Value);
                 SecondParty.GonveranceManager.ResourceList.AddResourceStack(addStack);
             }
         }
-        public override void Tick()
+
+        public void Tick()
         {
             ConsumeRecourse();
         }

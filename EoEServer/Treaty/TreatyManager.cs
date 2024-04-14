@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.Treaty
 {
-    public class TreatyManager : ITreatyManager, ITickable
+    public class TreatyManager : ITreatyManager
     {
-        public List<RelationTreaty> RelationTreatyList { get; init; }
-        public List<TruceTreaty> TruceTreatyList { get; init; }
+        public List<ITreaty> RelationTreatyList { get; init; }
+        public List<ITreaty> TruceTreatyList { get; init; }
         public IPlayerRelation PlayerRelation { get; init; }
         private IServerPlayerList serverPlayerList;
         public TreatyManager(IServerPlayerList serverPlayerList) 
         {
-            RelationTreatyList = new List<RelationTreaty>();
-            TruceTreatyList = new List<TruceTreaty>();
+            RelationTreatyList = new List<ITreaty>();
+            TruceTreatyList = new List<ITreaty>();
             PlayerRelation = new PlayerRelation(this);
             this.serverPlayerList = serverPlayerList;
         }
@@ -27,10 +27,11 @@ namespace EoE.Server.Treaty
             {
                 for (int i = 0; i < RelationTreatyList.Count; i++)
                 {
-                    var findTreaty = RelationTreatyList[i];
+                    var findTreaty = (RelationTreaty)RelationTreatyList[i];
                     if ((findTreaty.FirstParty == treaty.FirstParty && findTreaty.SecondParty == treaty.SecondParty) ||
                         (findTreaty.SecondParty == treaty.FirstParty && findTreaty.FirstParty == treaty.SecondParty))
                     {
+
                         RemoveRelationTreaty(findTreaty);
                         i--;
                     }
@@ -40,7 +41,7 @@ namespace EoE.Server.Treaty
             {
                 for (int i = 0; i < RelationTreatyList.Count; i++)
                 {
-                    var findTreaty = RelationTreatyList[i];
+                    var findTreaty = (RelationTreaty)RelationTreatyList[i];
                     if (findTreaty.SecondParty == treaty.FirstParty && findTreaty.FirstParty == treaty.SecondParty && findTreaty is ProtectiveTreaty)
                     {
                         RemoveRelationTreaty(findTreaty);
@@ -71,7 +72,7 @@ namespace EoE.Server.Treaty
         {
             for(int i = 0; i < TruceTreatyList.Count; i++)
             {
-                var treaty = TruceTreatyList[i];
+                var treaty = (TruceTreaty)TruceTreatyList[i];
                 treaty.Tick();
                 if (!treaty.IsAvailable())
                 {
@@ -94,7 +95,11 @@ namespace EoE.Server.Treaty
                         continue;
                     }
                 }
-                treaty.Tick();
+
+                if(treaty is ITickableTreaty tickable)
+                {
+                    tickable.Tick();
+                }
             }
         }
         public List<IPlayer> FindNonTruce(IPlayer player)

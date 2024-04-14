@@ -80,12 +80,14 @@ namespace EoE.Client.GovernanceSystem
                 popAloc[GameResourceType.Industrial] = industrailPop;
                 AvailablePopulation = TotalPopulation - count;
                 Client.INSTANCE.SendPacket(new SetPopAllocationPacket(
-                    siliconPop, 
-                    copperPop, 
-                    ironPop, 
+                    new PopulationRecord(
+                    siliconPop,
+                    copperPop,
+                    ironPop,
                     aluminumPop,
-                    electronicPop, 
-                    industrailPop
+                    electronicPop,
+                    industrailPop,
+                    AvailablePopulation)
                     ));
             }
             else

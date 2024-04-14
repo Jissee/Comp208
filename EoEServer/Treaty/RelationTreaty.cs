@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.Treaty
 {
-    public abstract class RelationTreaty : Treaty, ITickable
+    public abstract class RelationTreaty : Treaty
     {
         public Dictionary<GameResourceType, int> ConditionEntries { get; init; }
 
-        public RelationTreaty(ServerPlayer firstParty, ServerPlayer secondParty) : base(firstParty, secondParty) 
+        public RelationTreaty(IPlayer firstParty, IPlayer secondParty) : base(firstParty, secondParty) 
         { 
             ConditionEntries = new Dictionary<GameResourceType, int>();
         }
@@ -26,6 +26,5 @@ namespace EoE.Server.Treaty
                 ConditionEntries[resourceStack.Type] += resourceStack.Count;
             }
         }
-        public abstract void Tick();
     }
 }

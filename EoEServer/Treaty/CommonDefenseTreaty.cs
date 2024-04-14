@@ -8,11 +8,7 @@ namespace EoE.Server.Treaty
 {
     public class CommonDefenseTreaty : RelationTreaty
     {
-        public CommonDefenseTreaty(ServerPlayer firstParty, ServerPlayer secondParty) : base(firstParty, secondParty)
-        {
-        }
-
-        public override void Tick()
+        public CommonDefenseTreaty(IPlayer firstParty, IPlayer secondParty) : base(firstParty, secondParty)
         {
         }
     }

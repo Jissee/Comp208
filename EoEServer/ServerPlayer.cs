@@ -20,8 +20,7 @@ namespace EoE.Server
         private string name;
         public bool IsLose => GonveranceManager.IsLose;
 
-        public ServerPlayerGonverance GonveranceManager { get; private set; }
-        IServerGonveranceManager IPlayer.GonveranceManager => GonveranceManager;
+        public IServerGonveranceManager GonveranceManager { get; private set; }
 
         public string PlayerName { 
             get 

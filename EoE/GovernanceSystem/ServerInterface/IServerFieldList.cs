@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EoE.GovernanceSystem.ServerInterface
 {
-    public interface IServerFieldList: IFieldList
+    public interface IServerFieldList : IFieldList
     {
         FieldListRecord GetFieldListRecord();
     }

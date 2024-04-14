@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EoE.GovernanceSystem.ServerInterface
 {
-    public interface IServerResourceList: IResourceList
+    public interface IServerResourceList : IResourceList
     {
         ResourceListRecord GetResourceListRecord();
     }
