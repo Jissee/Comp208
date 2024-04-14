@@ -37,6 +37,11 @@ namespace EoE.Server
         {
             Console.WriteLine($"{player.PlayerName} logged out.");
             Players.Remove(player);
+            if(Players.Count == 0)
+            {
+                server.Stop();
+                server.Restart();
+            }
         }
         public void HandlePlayerDisconnection()
         {

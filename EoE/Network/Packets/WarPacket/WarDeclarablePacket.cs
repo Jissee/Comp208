@@ -55,7 +55,7 @@ namespace EoE.Network.Packets.WarPacket
             }
             else
             {
-                //todo show declareable players' name
+                //todo show declareable players' invitorName
             }
         }
     }

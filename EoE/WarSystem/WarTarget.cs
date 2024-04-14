@@ -18,6 +18,17 @@ namespace EoE.Server.WarSystem
         public int IndustrialClaim { get; set; }
         public int FieldClaim { get; set; }
         public int PopClaim { get; set; }
+        public void Add(WarTarget target)
+        {
+            SiliconClaim += target.SiliconClaim;
+            CopperClaim += target.CopperClaim;
+            IronClaim += target.IronClaim;
+            AluminumClaim += target.AluminumClaim;
+            ElectronicClaim += target.ElectronicClaim;
+            IndustrialClaim += target.IndustrialClaim;
+            FieldClaim += target.FieldClaim;
+            PopClaim += target.PopClaim;
+        }
         public static Encoder<WarTarget> encoder = (obj, writer) =>
         {
             writer.Write(obj.SiliconClaim);

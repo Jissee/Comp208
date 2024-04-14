@@ -15,7 +15,7 @@ namespace EoE.WarSystem.Interface
         Dictionary<IPlayer, Dictionary<IPlayer, WarTarget>> WarTargets { get; }
         IServer Server { get; }
         void PrepareNewWar(string name);
-        void DeclareWar(IWar war);
+        void DeclareWar(string warName);
         void RemoveWar(IWar war);
         void PlayerLose(IPlayer player);
     }

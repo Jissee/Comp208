@@ -27,10 +27,15 @@ namespace EoE.Server.WarSystem
             IWar newWar = new War(attackers, defenders, name);
             PreparingWarDict.Add(name, newWar);
         }
-        public void DeclareWar(IWar war)
+        public void DeclareWar(string warName)
         {
-            WarDict.Add(war.WarName, war);
-            war.SetWarManager(this);
+            IWar war = PreparingWarDict[warName];
+            if (war != null)
+            {
+                WarDict.Add(war.WarName, war);
+                PreparingWarDict.Remove(warName);
+                war.SetWarManager(this);
+            }
         }
         public void RemoveWar(IWar war)
         {

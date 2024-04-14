@@ -12,12 +12,12 @@ namespace EoE.Network.Packets.WarPacket
     {
         private string warName;
         private bool accepted;
-        private string name;
-        public WarInvitedPacket(string warName, bool accepted, string name)
+        private string invitorName;
+        public WarInvitedPacket(string warName, bool accepted, string invitorName)
         {
             this.warName = warName;
             this.accepted = accepted;
-            this.name = name;
+            this.invitorName = invitorName;
         }
 
         public static WarInvitedPacket Decode(BinaryReader reader)

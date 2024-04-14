@@ -29,6 +29,7 @@ namespace EoE.Server
         private readonly IPEndPoint address;
         private bool isServerRunning;
         private bool isGameRunning;
+        private bool needRestart;
         public ServerPacketHandler PacketHandler { get; }
         public EventList EventList { get; }
         public GameStatus Status {get; private set;}
@@ -47,6 +48,7 @@ namespace EoE.Server
             PlayerList = new ServerPlayerList(this);
             isServerRunning = false;
             isGameRunning = false;
+            needRestart = false;
         }
         public void BeginGame()
         {
@@ -168,6 +170,13 @@ namespace EoE.Server
             PlayerList.InitPlayerName((ServerPlayer)player, name);
         }
 
-
+        public bool IsNeedRestart()
+        {
+            return needRestart;
+        }
+        public void Restart()
+        {
+            needRestart = true;
+        }
     }
 }
