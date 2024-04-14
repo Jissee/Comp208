@@ -11,10 +11,7 @@ using EoE.Network;
 using EoE.WarSystem;
 using EoE.GovernanceSystem.Interface;
 using static EoE.GovernanceSystem.Interface.IGonveranceManager;
-<<<<<<< HEAD
-using EoE.GovernanceSystem.ServerInterface;
-=======
->>>>>>> 5e9381576c905c3b7aaa9a3edd817cb7749e0b97
+using EoE.GovernanceSystem.SrverInterface;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.GovernanceSystem.ServerInterface;
 
