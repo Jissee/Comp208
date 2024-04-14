@@ -23,8 +23,8 @@ namespace EoE.Server
         public ServerPlayerList(IServer server) 
         { 
             TreatyManager = new TreatyManager(this);
-            WarManager = new WarManager(server);
             Players = new List<IPlayer>();
+            WarManager = new WarManager(server);
             this.server = server;
         }
 

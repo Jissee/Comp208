@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EoE.Network.Entities;
+using EoE.WarSystem.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +37,16 @@ namespace EoE.Network.Packets.WarPacket
         {
             if(context.NetworkDirection == Entities.NetworkDirection.Client2Server)
             {
-                //
+                if (accepted == true)
+                {
+                    IServer server = (IServer)context.Receiver;
+                    IPlayer player = context.PlayerSender!;
+                    IWarManager warManager = server.PlayerList.WarManager;
+                    if (warManager.PreparingWarDict.ContainsKey(warName))
+                    {
+                        warManager.PreparingWarDict[warName].Attackers.AddPlayer(player);
+                    }
+                }
             }
             else
             {

@@ -65,6 +65,10 @@ namespace EoE.Network.Packets.WarPacket
                 IServer server = (IServer)context.Receiver;
                 IPlayer targetPlayer = server.GetPlayer(targetPlayerName)!;
                 List<IPlayer> protectors = server.PlayerList.GetProtectorsRecursively(targetPlayer);
+                foreach(IPlayer player in protectors)
+                {
+                    server.PlayerList.WarManager.PreparingWarDict[warName].Defenders.AddPlayer(player);
+                }
                 var protectorsEnum = from protector in protectors
                                select protector.PlayerName;
 

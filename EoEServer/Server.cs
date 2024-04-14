@@ -102,11 +102,7 @@ namespace EoE.Server
                 lock(PlayerList)
                 {
                     PlayerList.PlayerLogin(new ServerPlayer(cl, this));
-                }/*
-                lock (Clients)
-                {
-                    Clients.Add(new ServerPlayer(cl, this));
-                }*/
+                }
                 
             }
         }
@@ -118,21 +114,6 @@ namespace EoE.Server
                 {
                     PlayerList.HandlePlayerDisconnection();
                 }
-                /*
-                lock (Clients)
-                {
-                    for(int i = 0; i < Clients.Count; i++)
-                    {
-                        ServerPlayer c = (ServerPlayer)Clients[i];
-                        bool b = c.IsConnected;
-                        if (!b)
-                        {
-                            Console.WriteLine($"{c.PlayerName} logged out.");
-                            Clients.Remove(c);
-                        }
-                        
-                    }
-                }*/
             }
         }
 
