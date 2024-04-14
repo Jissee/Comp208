@@ -24,10 +24,9 @@ namespace EoE.Client
         public string PlayerName { get; private set; }
         private bool isRunning;
         public PacketHandler Handler { get; }
+        public List<string> OtherPlayer { get; private set; }
+        public IClientGonveranceManager GonveranceManager { get; init; }
 
-        public ClientGoverance GonveranceHandler { get; init; }
-
-        IClientGonveranceManager IClient.GonveranceHandler => GonveranceHandler;
         static Client() 
         {
             INSTANCE = new Client();
@@ -37,7 +36,7 @@ namespace EoE.Client
         {
             Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Handler = new ClientPacketHandler();
-            GonveranceHandler = new ClientGoverance();
+            GonveranceManager = new ClientGoverance();
         }
         public void SetPlayerName(string name)
         {

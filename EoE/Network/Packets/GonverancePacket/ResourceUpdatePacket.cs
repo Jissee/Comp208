@@ -38,7 +38,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    if( client.GonveranceHandler.ResourceList is IClientResourceList clientResourceList)
+                    if( client.GonveranceManager.ResourceList is IClientResourceList clientResourceList)
                     {
                         clientResourceList.Synchronize(resourceList);
                     }

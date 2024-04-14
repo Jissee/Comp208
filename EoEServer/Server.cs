@@ -34,7 +34,7 @@ namespace EoE.Server
         public GameStatus Status {get; private set;}
         public IServerPlayerList PlayerList { get; private set;}
 
-        public ITradeManager TradeHandler { get; private set; }
+        public ITradeManager TradeManager { get; private set; }
 
 
 
@@ -50,7 +50,7 @@ namespace EoE.Server
         }
         public void BeginGame()
         {
-            TradeHandler = new ServerTradeManager(this);
+            TradeManager = new ServerTradeManager(this);
             Status = new GameStatus(500);
             isGameRunning = true;
 

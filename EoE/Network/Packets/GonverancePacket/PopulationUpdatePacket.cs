@@ -34,7 +34,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    if (client.GonveranceHandler.PopManager is IClientPopulationManager popManager)
+                    if (client.GonveranceManager.PopManager is IClientPopulationManager popManager)
                     {
                         popManager.Synchronize(populationRecord);
                     }
