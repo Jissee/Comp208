@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.MadeBuyRequirest.BuyItemWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.MadeBuyRequirest"
+        mc:Ignorable="d"
+        Title="BuyItemWindow" Height="450" Width="800"
+        Background="LightGray">
+    <Grid>
+        <Label x:Name="Resource1" Content="资源1" HorizontalAlignment="Left" Margin="50,43,0,0" VerticalAlignment="Top" Height="62" Width="99" FontSize="30"/>
+        <Label x:Name="Resource2" Content="资源2" HorizontalAlignment="Left" Margin="50,145,0,0" VerticalAlignment="Top" Height="62" Width="99" FontSize="30"/>
+        <Label x:Name="Resource3" Content="资源3" HorizontalAlignment="Left" Margin="50,239,0,0" VerticalAlignment="Top" Height="62" Width="99" FontSize="30"/>
+        <Label x:Name="Resource4" Content="资源4" HorizontalAlignment="Left" Margin="434,43,0,0" VerticalAlignment="Top" Height="62" Width="99" FontSize="30"/>
+        <Label x:Name="Resource5" Content="资源5" HorizontalAlignment="Left" Margin="434,145,0,0" VerticalAlignment="Top" Height="62" Width="99" FontSize="30"/>
+        <Label x:Name="Resource6" Content="资源6" HorizontalAlignment="Left" Margin="434,239,0,0" VerticalAlignment="Top" Height="62" Width="99" FontSize="30"/>
+        <Button Content="chose" HorizontalAlignment="Left" Margin="181,42,0,0" VerticalAlignment="Top" Height="51" Width="120" RenderTransformOrigin="0.02,0.587" FontSize="30" Background="White" Click="Button_Click"/>
+        <Button Content="chose" HorizontalAlignment="Left" Margin="184,144,0,0" VerticalAlignment="Top" Height="51" Width="120" FontSize="30" Background="White" Click="Button_Click_1"/>
+        <Button Content="chose" HorizontalAlignment="Left" Margin="187,246,0,0" VerticalAlignment="Top" Height="51" Width="120" FontSize="30" Background="White" Click="Button_Click_2"/>
+        <Button Content="chose" HorizontalAlignment="Left" Margin="579,45,0,0" VerticalAlignment="Top" Height="51" Width="120" FontSize="30" Background="White" Click="Button_Click_3"/>
+        <Button Content="chose" HorizontalAlignment="Left" Margin="582,151,0,0" VerticalAlignment="Top" Height="51" Width="120" FontSize="30" Background="White" Click="Button_Click_4"/>
+        <Button Content="chose" HorizontalAlignment="Left" Margin="582,257,0,0" VerticalAlignment="Top" Height="51" Width="120" FontSize="30" Background="White" Click="Button_Click_5"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="50,342,0,0" VerticalAlignment="Top" Height="65" Width="139" FontSize="25" Background="White" Click="Button_Click_6"/>
+    </Grid>
+</Window>

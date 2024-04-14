@@ -29,6 +29,7 @@ namespace EoE.Server
         private readonly IPEndPoint address;
         private bool isServerRunning;
         private bool isGameRunning;
+        private bool needRestart;
         public ServerPacketHandler PacketHandler { get; }
         public EventList EventList { get; }
         public GameStatus Status {get; private set;}
@@ -47,6 +48,7 @@ namespace EoE.Server
             PlayerList = new ServerPlayerList(this);
             isServerRunning = false;
             isGameRunning = false;
+            needRestart = false;
         }
         public void BeginGame()
         {
@@ -102,11 +104,7 @@ namespace EoE.Server
                 lock(PlayerList)
                 {
                     PlayerList.PlayerLogin(new ServerPlayer(cl, this));
-                }/*
-                lock (Clients)
-                {
-                    Clients.Add(new ServerPlayer(cl, this));
-                }*/
+                }
                 
             }
         }
@@ -118,21 +116,6 @@ namespace EoE.Server
                 {
                     PlayerList.HandlePlayerDisconnection();
                 }
-                /*
-                lock (Clients)
-                {
-                    for(int i = 0; i < Clients.Count; i++)
-                    {
-                        ServerPlayer c = (ServerPlayer)Clients[i];
-                        bool b = c.IsConnected;
-                        if (!b)
-                        {
-                            Console.WriteLine($"{c.PlayerName} logged out.");
-                            Clients.Remove(c);
-                        }
-                        
-                    }
-                }*/
             }
         }
 
@@ -187,10 +170,20 @@ namespace EoE.Server
             PlayerList.InitPlayerName((ServerPlayer)player, name);
         }
 
+<<<<<<< HEAD
         public void SetGame(int playerCount, int totalTick)
         {
             PlayerList.SetPlayerCount(playerCount);
             Status.SetTotalTick (totalTick);
+=======
+        public bool IsNeedRestart()
+        {
+            return needRestart;
+        }
+        public void Restart()
+        {
+            needRestart = true;
+>>>>>>> 7f5ea9ecc09c24920cd9da187313fdb09898b87c
         }
     }
 }

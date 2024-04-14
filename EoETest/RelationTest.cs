@@ -75,19 +75,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestRelation()
         {
-            IntRelation relation = new IntRelation();
-            relation.AddProtector(1, 2);
-            relation.AddProtector(1, 3);
-            relation.AddProtector(2, 3);
-            relation.AddProtector(3, 4);
-            relation.AddProtector(4, 1);
-            relation.AddProtector(5, 6);
-            relation.AddProtector(6, 5);
-            var x = relation.GetProtectorsRecursively(1);
-            foreach(var y in x)
-            {
-                Debug.WriteLine(y);
-            }
+            Dictionary<int, Dictionary<string, int>> dict= new Dictionary<int, Dictionary<string, int>>();
+            dict[1]["qwerty"] = 2;
+            Assert.AreEqual(2, dict[1]["qwerty"]);
             
 
 

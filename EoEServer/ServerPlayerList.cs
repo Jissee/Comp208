@@ -28,8 +28,8 @@ namespace EoE.Server
         public ServerPlayerList(IServer server) 
         { 
             TreatyManager = new TreatyManager(this);
-            WarManager = new WarManager(server);
             Players = new List<IPlayer>();
+            WarManager = new WarManager(server);
             this.server = server;
         }
 
@@ -59,10 +59,17 @@ namespace EoE.Server
         {
             Console.WriteLine($"{player.PlayerName} logged out.");
             Players.Remove(player);
+<<<<<<< HEAD
             if (player == host)
             {
                 host = Players[0];
                 host.SendPacket(new RoomOwnerPacket(true));
+=======
+            if(Players.Count == 0)
+            {
+                server.Stop();
+                server.Restart();
+>>>>>>> 7f5ea9ecc09c24920cd9da187313fdb09898b87c
             }
         }
         public void HandlePlayerDisconnection()

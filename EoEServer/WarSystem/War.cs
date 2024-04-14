@@ -18,8 +18,8 @@ namespace EoE.Server.WarSystem
         public string WarName { get; private set; }
         public IWarParty Attackers { get; private set; }
         public IWarParty Defenders { get; private set; }
-        public IWarTarget AttackersTarget { get; private set; }
-        public IWarTarget DefendersTarget { get; private set; }
+        public WarTarget AttackersTarget { get; private set; }
+        public WarTarget DefendersTarget { get; private set; }
         public IWarManager WarManager { get; private set; }
         private bool status = true;
 
@@ -47,11 +47,11 @@ namespace EoE.Server.WarSystem
             }
             throw new Exception("No playerWinner in this war");
         }
-        public void SetAttackersWarTarget(IWarTarget warTarget)
+        public void SetAttackersWarTarget(WarTarget warTarget)
         {
             AttackersTarget = warTarget;
         }
-        public void SetDefendersWarTarget(IWarTarget warTarget) 
+        public void SetDefendersWarTarget(WarTarget warTarget) 
         {
             DefendersTarget = warTarget;
         }
@@ -69,20 +69,7 @@ namespace EoE.Server.WarSystem
             status = false;
             WarManager.RemoveWar(this);
         }
-        private int GetResourceClaim(IWarTarget target, GameResourceType type)
-        {
-            int claim = 0;
-            foreach(var resource in target.ResourceClaim)
-            {
-                if(resource.Type == type)
-                {
-                    claim = resource.Count;
-                    break;
-                }
-            }
-            return claim;
-        }
-        private void DivideSpoil(IWarParty winner, IWarParty loser, IWarTarget winnerTarget)
+        private void DivideSpoil(IWarParty winner, IWarParty loser, WarTarget winnerTarget)
         {
             int winnerTotalConsume = winner.TotalArmy.Consumption;
             int loserTotalConsume = loser.TotalArmy.Consumption;
@@ -107,12 +94,12 @@ namespace EoE.Server.WarSystem
                     int playerLoserConsume = armyLoser.Consumption;
                     double loserProportion = ((double)loserTotalConsume / playerLoserConsume) / loserTotalWeight;
                     ResourceListRecord record = new ResourceListRecord();
-                    record.siliconCount = (int)(GetResourceClaim(winnerTarget, GameResourceType.Silicon) * winnerProportion * loserProportion);
-                    record.copperCount = (int)(GetResourceClaim(winnerTarget, GameResourceType.Copper) * winnerProportion * loserProportion);
-                    record.ironCount = (int)(GetResourceClaim(winnerTarget, GameResourceType.Iron) * winnerProportion * loserProportion);
-                    record.aluminumCount = (int)(GetResourceClaim(winnerTarget, GameResourceType.Aluminum) * winnerProportion * loserProportion);
-                    record.electronicCount = (int)(GetResourceClaim(winnerTarget, GameResourceType.Electronic) * winnerProportion * loserProportion);
-                    record.industrialCount = (int)(GetResourceClaim(winnerTarget, GameResourceType.Industrial) * winnerProportion * loserProportion);
+                    record.siliconCount = (int)(winnerTarget.SiliconClaim * winnerProportion * loserProportion);
+                    record.copperCount = (int)(winnerTarget.CopperClaim * winnerProportion * loserProportion);
+                    record.ironCount = (int)(winnerTarget.IronClaim * winnerProportion * loserProportion);
+                    record.aluminumCount = (int)(winnerTarget.AluminumClaim * winnerProportion * loserProportion);
+                    record.electronicCount = (int)(winnerTarget.ElectronicClaim * winnerProportion * loserProportion);
+                    record.industrialCount = (int)(winnerTarget.IndustrialClaim * winnerProportion * loserProportion);
                     int popCompensation = (int)(winnerTarget.PopClaim * winnerProportion * loserProportion);
                     int fieldCompensation = (int)(winnerTarget.FieldClaim * winnerProportion * loserProportion);
                     int actualPopCompensation = Math.Min(popCompensation, playerLoser.GonveranceManager.PopManager.TotalPopulation);

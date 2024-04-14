@@ -1,0 +1,22 @@
+﻿<Window x:Class="ChatSystem.ChatMianPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatSystem"
+        mc:Ignorable="d"
+        Title="ChatMianPage" Height="450" Width="800">
+    <Grid>
+        <Label Content="“Words are, of course, the most powerful drug used by mankind.”" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Choose the player you want to chat with:" HorizontalAlignment="Left" Margin="196,130,0,0" VerticalAlignment="Top" FontSize="18" Width="370"/>
+        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="116" Margin="196,168,0,0" VerticalAlignment="Top" Width="354">
+            <ListBoxItem Content="USER1"/>
+            <ListBoxItem Content="USER2"/>
+            <ListBoxItem Content="USER3"/>
+            <ListBoxItem Content="USER4"/>
+            <ListBoxItem Content="USER5"/>
+        </ListBox>
+        <Button Content="Start the conversation" HorizontalAlignment="Left" Margin="246,335,0,0" VerticalAlignment="Top" Height="55" Width="254" FontSize="20" Click="Button_Click"/>
+
+    </Grid>
+</Window>

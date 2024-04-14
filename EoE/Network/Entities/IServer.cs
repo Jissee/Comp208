@@ -20,6 +20,8 @@ namespace EoE.Network.Entities
         void InitPlayerName(IPlayer player, string name);
         void Start();
         void Stop();
+        bool IsNeedRestart();
+        void Restart();
         void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;
         IPlayer? GetPlayer(string playerName);
         void CheckPlayerTickStatus();

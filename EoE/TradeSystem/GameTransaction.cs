@@ -22,12 +22,12 @@ namespace EoE.TradeSystem
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="offeror"></param>
-        /// <param name="id"></param>
-        /// <param name="offerorOffer"> should contain 6 ResourceStack, if don't offer, set ResourceStack.Count = 0 </param>
-        /// <param name="recipientOffer">should contain 6 ResourceStack, if don't offer, set ResourceStack.Count = 0</param>
-        /// <param name="isOpen"></param>
-        /// <param name="recipient"></param>
+        /// <param invitorName="offeror"></param>
+        /// <param invitorName="id"></param>
+        /// <param invitorName="offerorOffer"> should contain 6 ResourceStack, if don't offer, set ResourceStack.Count = 0 </param>
+        /// <param invitorName="recipientOffer">should contain 6 ResourceStack, if don't offer, set ResourceStack.Count = 0</param>
+        /// <param invitorName="isOpen"></param>
+        /// <param invitorName="recipient"></param>
         /// <exception cref="Exception"></exception>
         public GameTransaction(string offeror,Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer,bool isOpen,string? recipient) 
         {
@@ -91,15 +91,6 @@ namespace EoE.TradeSystem
             transaction = new GameTransaction(offer, id, offerorOffer, recipientOffer, isOpen, recipient);
             return transaction;
         };
-
-        public override bool Equals(object? obj)
-        {
-            if (obj is GameTransaction transaction)
-            {
-                return transaction.Id == this.Id;
-            }
-            return false;
-        }
 
     }
 }

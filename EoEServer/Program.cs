@@ -7,16 +7,17 @@ namespace EoE.Server
     {
         static void Main(string[] args)
         {
-            Server server = new Server("0.0.0.0", 25566);
-            server.Start();
+            Server server; 
 
             while (true)
             {
-                string str = Console.ReadLine();
-                if(str == "stop") 
-                {
-                    break;
+                server= new Server("0.0.0.0", 25566);
+                server.Start();
+
+                while (!server.IsNeedRestart())
+                { 
                 }
+
             }
         }
     }

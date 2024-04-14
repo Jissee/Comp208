@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EoE.Network.Entities;
+using EoE.WarSystem.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +12,12 @@ namespace EoE.Network.Packets.WarPacket
     {
         private string warName;
         private bool accepted;
-        private string name;
-        public WarInvitedPacket(string warName, bool accepted, string name)
+        private string invitorName;
+        public WarInvitedPacket(string warName, bool accepted, string invitorName)
         {
             this.warName = warName;
             this.accepted = accepted;
-            this.name = name;
+            this.invitorName = invitorName;
         }
 
         public static WarInvitedPacket Decode(BinaryReader reader)
@@ -35,7 +37,16 @@ namespace EoE.Network.Packets.WarPacket
         {
             if(context.NetworkDirection == Entities.NetworkDirection.Client2Server)
             {
-                //
+                if (accepted == true)
+                {
+                    IServer server = (IServer)context.Receiver;
+                    IPlayer player = context.PlayerSender!;
+                    IWarManager warManager = server.PlayerList.WarManager;
+                    if (warManager.PreparingWarDict.ContainsKey(warName))
+                    {
+                        warManager.PreparingWarDict[warName].Attackers.AddPlayer(player);
+                    }
+                }
             }
             else
             {

@@ -6,16 +6,36 @@ namespace EoE.Server.WarSystem
     public class WarManager : IWarManager, ITickable
     {
         public Dictionary<string, IWar> WarDict { get; private set; } = new Dictionary<string, IWar>();
+        public Dictionary<string, IWar> PreparingWarDict { get; private set; } = new Dictionary<string, IWar>();
+        public Dictionary<IPlayer, Dictionary<IPlayer, WarTarget>> WarTargets { get; private set; }
+
         private List<string> removal = new List<string>();
         public IServer Server { get; }
         public WarManager(IServer server) 
         {
             this.Server = server;
+            this.WarTargets = new Dictionary<IPlayer, Dictionary<IPlayer, WarTarget>>();
         }
-        public void DeclareWar(IWar war)
+        public void PrepareNewWar(string name)
         {
-            WarDict.Add(war.WarName, war);
-            war.SetWarManager(this);
+            if (PreparingWarDict.ContainsKey(name))
+            {
+                PreparingWarDict.Remove(name);
+            }
+            IWarParty attackers = new WarParty();
+            IWarParty defenders = new WarParty();
+            IWar newWar = new War(attackers, defenders, name);
+            PreparingWarDict.Add(name, newWar);
+        }
+        public void DeclareWar(string warName)
+        {
+            IWar war = PreparingWarDict[warName];
+            if (war != null)
+            {
+                WarDict.Add(war.WarName, war);
+                PreparingWarDict.Remove(warName);
+                war.SetWarManager(this);
+            }
         }
         public void RemoveWar(IWar war)
         {
@@ -56,6 +76,7 @@ namespace EoE.Server.WarSystem
                 }
                 removal.Clear();
             }
+            PreparingWarDict.Clear();
         }
     }
 }

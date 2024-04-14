@@ -1,4 +1,6 @@
-﻿using EoE.Treaty;
+﻿using EoE.GovernanceSystem;
+using EoE.Network.Packets.GonverancePacket.Record;
+using EoE.Treaty;
 using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
@@ -122,6 +124,31 @@ namespace EoE.Server.Treaty
         {
             UpdateRelationTreaty();
             UpdateTruceTreaty();
+        }
+
+        public void AddTreaty(ITreaty treaty)
+        {
+            if(treaty is RelationTreaty relationTreaty)
+            {
+
+            }
+        }
+
+        public void AddProtectiveTreaty(IPlayer target, IPlayer protector, ResourceListRecord condition)
+        {
+            ProtectiveTreaty treaty = new ProtectiveTreaty(target, protector);
+            treaty.AddCondition(new ResourceStack(GameResourceType.Silicon,condition.siliconCount));
+            treaty.AddCondition(new ResourceStack(GameResourceType.Copper, condition.copperCount));
+            treaty.AddCondition(new ResourceStack(GameResourceType.Iron, condition.ironCount));
+            treaty.AddCondition(new ResourceStack(GameResourceType.Aluminum, condition.aluminumCount));
+            treaty.AddCondition(new ResourceStack(GameResourceType.Electronic, condition.electronicCount));
+            treaty.AddCondition(new ResourceStack(GameResourceType.Industrial, condition.industrialCount));
+            AddRelationTreaty(treaty);
+        }
+
+        public void AddCommonDefenseTreaty(IPlayer player1, IPlayer player2)
+        {
+            AddRelationTreaty(new CommonDefenseTreaty(player1, player2));
         }
     }
 }

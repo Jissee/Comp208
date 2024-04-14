@@ -44,15 +44,18 @@ namespace EoE.Network.Packets.WarPacket
             {
                 IServer server = (IServer)context.Receiver;
                 IServerPlayerList playerList = server.PlayerList;
+                
                 List<IPlayer> list = playerList.TreatyManager.FindNonTruce(context.PlayerSender!);
                 var namesEnum = from player in list
                                 select player.PlayerName;
                 WarDeclarablePacket packet = new WarDeclarablePacket(warName, namesEnum.ToArray());
                 context.PlayerSender!.SendPacket(packet);
+
+                server.PlayerList.WarManager.PrepareNewWar(warName);
             }
             else
             {
-                //todo show declareable players' name
+                //todo show declareable players' invitorName
             }
         }
     }

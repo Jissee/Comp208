@@ -1,0 +1,15 @@
+﻿<Window x:Class="WpfApp1.MadeBuyRequirest.InputBuyNumber"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.MadeBuyRequirest"
+        mc:Ignorable="d"
+        Title="InputBuyNumber" Height="200" Width="500"
+        Background="LightGray">
+    <Grid>
+        <Label Content="Input number" HorizontalAlignment="Left" Margin="44,40,0,0" VerticalAlignment="Top" Height="36" Width="138" FontSize="18"/>
+        <TextBox x:Name="InputNumber" HorizontalAlignment="Left" Margin="44,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="261" Height="45" TextChanged="TextBox_TextChanged"/>
+        <Button Content="Confirm" HorizontalAlignment="Left" Margin="340,83,0,0" VerticalAlignment="Top" Height="45" Width="60" Click="Button_Click"/>
+    </Grid>
+</Window>

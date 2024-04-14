@@ -133,7 +133,7 @@ namespace EoE.Server.Events
             }
             public Event Build()
             {
-                if(tmp.player != null)
+                if(tmp.server != null)
                 {
                     if(tmp.eventCallBack != null)
                     {

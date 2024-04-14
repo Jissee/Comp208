@@ -52,7 +52,7 @@ namespace EoE.GovernanceSystem
         /// <summary>
         /// Add the adder to the target
         /// </summary>
-        /// <param name="adder"></param>
+        /// <param invitorName="adder"></param>
         /// <exception cref="Exception"></exception>
         public void Add(FieldStack adder)
         {
