@@ -22,6 +22,7 @@ namespace EoE
         bool CheckPlayerTickStatus();
         void InitPlayerName(IPlayer playerRef, string name);
         void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;
+        List<IPlayer> GetProtectorsRecursively(IPlayer target);
         IPlayer? GetPlayer(string name);
     }
 }

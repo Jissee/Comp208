@@ -44,7 +44,7 @@ namespace EoE.Server
             address = new IPEndPoint(IPAddress.Parse(ip), port);
             PacketHandler = new ServerPacketHandler(this);
             EventList = new EventList();
-            PlayerList = new ServerPlayerList();
+            PlayerList = new ServerPlayerList(this);
             isServerRunning = false;
             isGameRunning = false;
         }
@@ -187,12 +187,6 @@ namespace EoE.Server
             PlayerList.InitPlayerName((ServerPlayer)player, name);
         }
 
-        public List<IPlayer> GetProtectorsRecursively(IPlayer target)
-        {
-            List<IPlayer> protectors = new List<IPlayer>();
-            var gotProtectors = PlayerList.TreatyManager.PlayerRelation.GetProtectorsRecursively((ServerPlayer)target);
-            protectors.AddRange(gotProtectors);
-            return protectors;
-        }
+
     }
 }

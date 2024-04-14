@@ -10,12 +10,14 @@ namespace EoE.Network.Packets.WarPacket
 {
     public class WarCompensationInfoPacket : IPacket<WarCompensationInfoPacket>
     {
+        private string warName;
         private ResourceListRecord record;
         private int pop;
         private int field;
         private string compensator;
-        public WarCompensationInfoPacket(ResourceListRecord record, int pop, int field, string compensator) 
+        public WarCompensationInfoPacket(string warName, ResourceListRecord record, int pop, int field, string compensator) 
         { 
+            this.warName = warName;
             this.record = record;
             this.pop = pop;
             this.field = field;
@@ -23,13 +25,14 @@ namespace EoE.Network.Packets.WarPacket
         }
         public static WarCompensationInfoPacket Decode(BinaryReader reader)
         {
-            return new WarCompensationInfoPacket(ResourceListRecord.decoder(reader),
+            return new WarCompensationInfoPacket(reader.ReadString(), ResourceListRecord.decoder(reader),
                                                 reader.ReadInt32(), reader.ReadInt32(),
                                                 reader.ReadString());
         }
 
         public static void Encode(WarCompensationInfoPacket obj, BinaryWriter writer)
         {
+            writer.Write(obj.warName);
             ResourceListRecord.encoder(obj.record, writer);
             writer.Write(obj.pop);
             writer.Write(obj.field);

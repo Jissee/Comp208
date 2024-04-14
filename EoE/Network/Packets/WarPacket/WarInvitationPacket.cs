@@ -9,24 +9,28 @@ namespace EoE.Network.Packets.WarPacket
 {
     public class WarInvitationPacket : IPacket<WarInvitationPacket>
     {
+        private string warName;
         private string[] names;
-        public WarInvitationPacket(string[] names)
+        public WarInvitationPacket(string warName, string[] names)
         {
+            this.warName = warName;
             this.names = names;
         }
         public static WarInvitationPacket Decode(BinaryReader reader)
         {
+            string warName = reader.ReadString();
             int cnt = reader.ReadInt32();
             string[] names = new string[cnt];
             for (int i = 0; i < cnt; i++)
             {
                 names[i] = reader.ReadString();
             }
-            return new WarInvitationPacket(names);
+            return new WarInvitationPacket(warName, names);
         }
 
         public static void Encode(WarInvitationPacket obj, BinaryWriter writer)
         {
+            writer.Write(obj.warName);
             writer.Write(obj.names.Length);
             for (int i = 0; i < obj.names.Length; i++)
             {
@@ -40,7 +44,7 @@ namespace EoE.Network.Packets.WarPacket
             {
                 IServer server = (IServer)context.Receiver!;
                 IPlayer player = context.PlayerSender!;
-                server.Broadcast(new WarInvitedPacket(player.PlayerName) , (invitedPlayer)=>names.Contains(invitedPlayer.PlayerName));
+                server.Broadcast(new WarInvitedPacket(warName, false, player.PlayerName) , (invitedPlayer)=>names.Contains(invitedPlayer.PlayerName));
             }
             else
             {

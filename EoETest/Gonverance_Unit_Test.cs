@@ -45,9 +45,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestPrimaryGeneration()
         {
-            Server.Server server = new Server.Server("0.0.0.0", 25566);
-            server.BeginGame();
-            var playerGonverance = new ServerPlayerGonverance(server.Status);
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            Server.BeginGame();
+            var playerGonverance = new ServerPlayerGonverance(Server.Status);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -67,9 +67,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestSecondaryGeneration()
         {
-            Server.Server server = new Server.Server("0.0.0.0", 25566);
-            server.BeginGame();
-            var playerGonverance = new ServerPlayerGonverance(server.Status);
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            Server.BeginGame();
+            var playerGonverance = new ServerPlayerGonverance(Server.Status);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -97,9 +97,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestConsume()
         {
-            Server.Server server = new Server.Server("0.0.0.0", 25566);
-            server.BeginGame();
-            var playerGonverance = new ServerPlayerGonverance(server.Status);
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            Server.BeginGame();
+            var playerGonverance = new ServerPlayerGonverance(Server.Status);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -136,9 +136,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestPopulationDecrease()
         {
-            Server.Server server = new Server.Server("0.0.0.0", 25566);
-            server.BeginGame();
-            var playerGonverance = new ServerPlayerGonverance(server.Status);
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            Server.BeginGame();
+            var playerGonverance = new ServerPlayerGonverance(Server.Status);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 10);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 10);
@@ -183,9 +183,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestPopulationIncrease()
         {
-            Server.Server server = new Server.Server("0.0.0.0", 25566);
-            server.BeginGame();
-            var playerGonverance = new ServerPlayerGonverance(server.Status);
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            Server.BeginGame();
+            var playerGonverance = new ServerPlayerGonverance(Server.Status);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Silicon, 25);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Copper, 25);
             playerGonverance.PopManager.SetAllocation(GovernanceSystem.GameResourceType.Iron, 25);
@@ -230,9 +230,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestSetExploration()
         {
-            Server.Server server = new Server.Server("0.0.0.0", 25566);
-            server.BeginGame();
-            var playerGonverance = new ServerPlayerGonverance(server.Status);
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            Server.BeginGame();
+            var playerGonverance = new ServerPlayerGonverance(Server.Status);
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Silicon, 100));
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Copper, 100));
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Iron, 100));
@@ -248,9 +248,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestExplorationProgress()
         {
-            Server.Server server = new Server.Server("0.0.0.0", 25566);
-            server.BeginGame();
-            var playerGonverance = new ServerPlayerGonverance(server.Status);
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            Server.BeginGame();
+            var playerGonverance = new ServerPlayerGonverance(Server.Status);
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Silicon, 100));
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Copper, 100));
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Iron, 100));
@@ -273,9 +273,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestExploration()
         {
-            Server.Server server = new Server.Server("0.0.0.0", 25566);
-            server.BeginGame();
-            var playerGonverance = new ServerPlayerGonverance(server.Status);
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            Server.BeginGame();
+            var playerGonverance = new ServerPlayerGonverance(Server.Status);
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Silicon, 1000));
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Copper, 1000));
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Iron, 1000));
@@ -297,9 +297,9 @@ namespace EoE.Test
         [TestMethod]
         public void TestSyntheticArmy()
         {
-            Server.Server server = new Server.Server("0.0.0.0", 25566);
-            server.BeginGame();
-            var playerGonverance = new ServerPlayerGonverance(server.Status);
+            Server.Server Server = new Server.Server("0.0.0.0", 25566);
+            Server.BeginGame();
+            var playerGonverance = new ServerPlayerGonverance(Server.Status);
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Electronic, 19));
             playerGonverance.ResourceList.AddResourceStack(new GovernanceSystem.ResourceStack(GovernanceSystem.GameResourceType.Industrial, 100));
             playerGonverance.SyntheticArmy(new BattleArmyStack(10));

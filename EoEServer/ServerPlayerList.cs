@@ -18,12 +18,14 @@ namespace EoE.Server
         public ITreatyManager TreatyManager { get; }
         public IWarManager WarManager { get; }
         public List<IPlayer> Players { get; }
+        private IServer server;
 
-        public ServerPlayerList() 
+        public ServerPlayerList(IServer server) 
         { 
             TreatyManager = new TreatyManager(this);
-            WarManager = new WarManager();
+            WarManager = new WarManager(server);
             Players = new List<IPlayer>();
+            this.server = server;
         }
 
         public void PlayerLogin(IPlayer player)
@@ -116,6 +118,14 @@ namespace EoE.Server
             }
             TreatyManager.Tick();
             WarManager.Tick();
+        }
+
+        public List<IPlayer> GetProtectorsRecursively(IPlayer target)
+        {
+            List<IPlayer> protectors = new List<IPlayer>();
+            var gotProtectors = TreatyManager.PlayerRelation.GetProtectorsRecursively((ServerPlayer)target);
+            protectors.AddRange(gotProtectors);
+            return protectors;
         }
     }
 }

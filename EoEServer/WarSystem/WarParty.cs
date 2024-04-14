@@ -76,7 +76,7 @@ namespace EoE.Server.WarSystem
                 army.Mechanism.Split(army.Mechanism.Count);
             }
         }
-        public void UpdataTotalArmy()
+        public void UpdateTotalArmy()
         {
             TotalArmy = new Army(this);
             foreach(var kvp in Armies)
@@ -103,12 +103,12 @@ namespace EoE.Server.WarSystem
         }
         public (int, int) GetMechAttackBattAttack()
         {
+            UpdateTotalArmy();
             return (TotalArmy.CalculateMechaAttack(), TotalArmy.CalculateBattleAttack());
         }
 
         public void AbsorbAttack(int MechAttack, int BattAttack)
         {
-            UpdataTotalArmy();
             int remainingMechAttack = MechAttack - TotalArmy.CalculateMechaDefense();
             remainingMechAttack = Math.Max(remainingMechAttack, 0);
             int totalDamage = remainingMechAttack * 10 + BattAttack;
@@ -161,6 +161,7 @@ namespace EoE.Server.WarSystem
                 Armies[injuredPlayer].DecreaseMechanism(1);
                 MechanismArmyOwner.RemoveAt(dieIndex);
             }
+            UpdateTotalArmy();
         }
         public bool HasFilled(IPlayer player)
         {

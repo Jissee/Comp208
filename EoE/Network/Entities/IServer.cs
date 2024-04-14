@@ -24,7 +24,7 @@ namespace EoE.Network.Entities
         IPlayer? GetPlayer(string playerName);
         void CheckPlayerTickStatus();
 
-        List<IPlayer> GetProtectorsRecursively(IPlayer target);
+
         
     }
 }
