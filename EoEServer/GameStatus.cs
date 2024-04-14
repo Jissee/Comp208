@@ -22,7 +22,7 @@ namespace EoE.Server
         public Modifier GlobalElectronicModifier { get; init; }
         public Modifier GlobalIndustryModifier { get; init; }
 
-        public GameStatus(int initialUndentifiedField, int count)
+        public GameStatus(int initialUndentifiedField, int totalTick)
         {
             GlobalResourceModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalPrimaryModifier = new Modifier("", Modifier.ModifierType.Plus);
@@ -34,12 +34,17 @@ namespace EoE.Server
             GlobalElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalIndustryModifier = new Modifier("", Modifier.ModifierType.Plus);
             TickCount = 0;
-            TotalTick = count;
+            TotalTick = totalTick;
             UnidentifiedField = initialUndentifiedField;
         }
         public void Tick()
         {
             throw new NotImplementedException();
+        }
+
+        public void SetTotalTick(int totalTick)
+        {
+            this.TotalTick = totalTick;
         }
     }
 }

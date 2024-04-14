@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server
 {
-    public class Server : IServer, ITickable
+    public class Server : IServer, ITickable 
     {
         public Socket ServerSocket { get; }
 
@@ -177,6 +177,12 @@ namespace EoE.Server
         public void Restart()
         {
             needRestart = true;
+        }
+
+        public void SetGame(int playerCount, int totalTick)
+        {
+            PlayerList.SetPlayerCount(playerCount);
+            Status.SetTotalTick(totalTick);
         }
     }
 }

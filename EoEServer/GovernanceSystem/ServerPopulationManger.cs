@@ -148,5 +148,14 @@ namespace EoE.Server.GovernanceSystem
                 AvailablePopulation
                 );
         }
+
+        public void ClearAll()
+        {
+            foreach (var key in popAloc.Keys.ToList())
+            {
+                popAloc[key] = 0;
+                AvailablePopulation = 0;
+            }
+        }
     }
 }

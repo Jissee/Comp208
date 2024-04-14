@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EoE.Network.Packets;
+using EoE.TradeSystem;
 
 namespace EoE
 {
@@ -15,8 +16,10 @@ namespace EoE
     {
         ITreatyManager TreatyManager { get; }
         IWarManager WarManager { get; }
+        IServerTradeManager TradeManager { get; }
         public List<IPlayer> Players { get; }
         void PlayerLogin(IPlayer player);
+        void Kickplayer(IPlayer player);
         void HandlePlayerDisconnection();
         void HandlePlayerMessage(PacketHandler packetHandler, IServer server);
         bool CheckPlayerTickStatus();
@@ -24,5 +27,6 @@ namespace EoE
         void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;
         List<IPlayer> GetProtectorsRecursively(IPlayer target);
         IPlayer? GetPlayer(string name);
+        void SetPlayerCount(int playerCount);
     }
 }
