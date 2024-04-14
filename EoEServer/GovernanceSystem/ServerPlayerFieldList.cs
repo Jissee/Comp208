@@ -100,6 +100,16 @@ namespace EoE.Server.GovernanceSystem
                 
                 );
         }
+
+        public void ClearAll()
+        {
+            fields[GameResourceType.Silicon] = 0;
+            fields[GameResourceType.Copper] = 0;
+            fields[GameResourceType.Iron] = 0;
+            fields[GameResourceType.Aluminum] = 0;
+            fields[GameResourceType.Electronic] = 0;
+            fields[GameResourceType.Industrial] = 0;
+        }
     }
   
 }

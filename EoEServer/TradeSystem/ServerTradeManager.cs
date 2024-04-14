@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.TradeSystem
 {
-    public class ServerTradeManager : ITradeManager
+    public class ServerTradeManager : IServerTradeManager
     {
         private List<GameTransaction> openOrders = new List<GameTransaction>();
         private IServer server;
@@ -279,6 +279,16 @@ namespace EoE.Server.TradeSystem
             else
             {
                 return false;
+            }
+        }
+
+        public void ClearAll(IPlayer offeror)
+        {
+            GameTransaction? transaction = openOrders.FirstOrDefault(t => t.Offeror == offeror.PlayerName);
+            while (transaction != null)
+            {
+                openOrders.Remove(transaction);
+                transaction = openOrders.FirstOrDefault(t => t.Offeror == offeror.PlayerName);
             }
         }
     }
