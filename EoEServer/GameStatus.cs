@@ -9,6 +9,7 @@ namespace EoE.Server
 {
     public class GameStatus : ITickable
     {
+        public int TotalTick { get; private set; }
         public int TickCount { get; private set; }
         public int UnidentifiedField { get; set; }
         public Modifier GlobalResourceModifier { get; init; }
@@ -21,7 +22,7 @@ namespace EoE.Server
         public Modifier GlobalElectronicModifier { get; init; }
         public Modifier GlobalIndustryModifier { get; init; }
 
-        public GameStatus(int initialUndentifiedField)
+        public GameStatus(int initialUndentifiedField, int count)
         {
             GlobalResourceModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalPrimaryModifier = new Modifier("", Modifier.ModifierType.Plus);
@@ -33,9 +34,9 @@ namespace EoE.Server
             GlobalElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalIndustryModifier = new Modifier("", Modifier.ModifierType.Plus);
             TickCount = 0;
+            TotalTick = count;
             UnidentifiedField = initialUndentifiedField;
         }
-
         public void Tick()
         {
             throw new NotImplementedException();

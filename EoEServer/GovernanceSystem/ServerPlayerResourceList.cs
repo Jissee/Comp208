@@ -14,7 +14,7 @@ namespace EoE.Server.GovernanceSystem
 {
     public class ServerPlayerResourceList: IServerResourceList
     {
-        private Dictionary<GameResourceType, int> resources;
+        private Dictionary<GameResourceType, int> resources = new Dictionary<GameResourceType, int>();
         public ServerPlayerResourceList(
             int silicon,
             int copper,
