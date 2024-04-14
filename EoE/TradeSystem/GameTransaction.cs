@@ -92,5 +92,14 @@ namespace EoE.TradeSystem
             return transaction;
         };
 
+        public override bool Equals(object? obj)
+        {
+            if (obj is GameTransaction transaction)
+            {
+                return transaction.Id == this.Id;
+            }
+            return false;
+        }
+
     }
 }

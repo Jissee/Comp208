@@ -45,17 +45,17 @@ namespace EoE.Network.Packets.TradePacket
                     {
                         switch (operation)
                         {
-                            case OpenTransactionOperation.Creat:
-                                server.TradeHandler.CreatOponTransaction(transaction);
+                            case OpenTransactionOperation.Create:
+                                server.TradeManager.CreatOponTransaction(transaction);
                                 break;
                             case OpenTransactionOperation.Accept:
-                                server.TradeHandler.AcceptOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);
+                                server.TradeManager.AcceptOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);
                                 break;
                             case OpenTransactionOperation.Cancel:
-                                server.TradeHandler.CancelOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);
+                                server.TradeManager.CancelOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);
                                 break;
                             case OpenTransactionOperation.Alter:
-                                server.TradeHandler.AlterOpenTransaction(transaction.Id, transaction.OfferorOffer, transaction.RecipientOffer, context.PlayerSender.PlayerName);
+                                server.TradeManager.AlterOpenTransaction(transaction.Id, transaction.OfferorOffer, transaction.RecipientOffer, context.PlayerSender.PlayerName);
                                 break;
                             default:
                                 throw new Exception("no such type");
@@ -74,7 +74,7 @@ namespace EoE.Network.Packets.TradePacket
                 {
                     switch (operation)
                     {
-                        case OpenTransactionOperation.Creat:
+                        case OpenTransactionOperation.Create:
                             //Todo
                             break;
                         case OpenTransactionOperation.Accept:
@@ -96,7 +96,7 @@ namespace EoE.Network.Packets.TradePacket
 
     public enum OpenTransactionOperation
     {
-        Creat,
+        Create,
         Accept,
         Cancel,
         Alter

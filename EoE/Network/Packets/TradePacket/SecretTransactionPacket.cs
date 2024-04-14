@@ -40,13 +40,13 @@ namespace EoE.Network.Packets.TradePacket
                         switch (operation)
                         {
                             case SecretTransactionOperation.Creat:
-                                server.TradeHandler.CreatSecretTransaction(transaction);
+                                server.TradeManager.CreatSecretTransaction(transaction);
                                 break;
                             case SecretTransactionOperation.Accept:
-                                server.TradeHandler.AcceptSecretTransaction(transaction);
+                                server.TradeManager.AcceptSecretTransaction(transaction);
                                 break;
                             case SecretTransactionOperation.Reject:
-                                server.TradeHandler.RejectSecretTransaction(transaction,context.PlayerSender.PlayerName);
+                                server.TradeManager.RejectSecretTransaction(transaction,context.PlayerSender.PlayerName);
                                 break;
                             default:
                                 throw new Exception("no such type");
