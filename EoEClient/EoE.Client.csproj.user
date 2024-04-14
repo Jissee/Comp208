@@ -7,7 +7,118 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ChatSystem\chat.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatSystem\ChatMianPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatSystem\EstablishRelation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatSystem\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatSystem\TreatyContent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernenceSystem\BlockManagement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernenceSystem\Convert.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernenceSystem\ExpolreBlock.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernenceSystem\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernenceSystem\MilitaryManagement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernenceSystem\ResourceManage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Login\EnterGamePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Login\GameAgreement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Login\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Login\MainGamePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Login\MainTradePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Login\SetGameWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\AcceptTrade\AcceptTradeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\AcceptTrade\RequirestList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\FindRequirest\SearchTransationWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\MadeBuyRequirest\BuyItemWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\MadeBuyRequirest\ConfirmRequirestWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\MadeBuyRequirest\InputBuyNumber.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\MadeBuyRequirest\InputSellNumber.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\MadeBuyRequirest\SellAndBuy2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\MadeBuyRequirest\SellItemWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\Make a trade\SelectTraderWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TradeSystem\Make a trade\SellAndBuyWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WarSystem\AcquireResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WarSystem\AllocateArmy.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WarSystem\AllocateWar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WarSystem\CheckStatus.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WarSystem\CheckWarDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WarSystem\DeclareWar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WarSystem\ReviewDiplomatic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WarSystem\WarDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WarSystem\WarMainPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp1.SearchTransationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="SearchTransationWindow" Height="450" Width="800"
+        Background="LightGray">
+    <Grid>
+        <TextBox x:Name="findBox" HorizontalAlignment="Left" Margin="94,47,0,0" TextWrapping="Wrap" Text="findBox" VerticalAlignment="Top" Width="321" Height="26"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="460,52,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <ListBox x:Name="listbox" Margin="95,96,287,119">
+            <ListBoxItem Content="ListBoxItem1"/>
+            <ListBoxItem Content="ListBoxItem2"/>
+            <ListBoxItem Content="ListBoxItem3"/>
+        </ListBox>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="32,360,0,0" VerticalAlignment="Top" Height="56" Width="163" FontSize="25" Background="White" Click="Button_Click_1"/>
+        <Path Grid.Column="0" Data="M8.5,14 C6.01,14 4,11.99 4,9.5 C4,7.01 6.01,5 8.5,5 C10.99,5 13,7.01 13,9.5 C13,11.99 10.99,14 8.5,14 Z M15,13.5 L19.5,18 L18,19.5 L13.5,15 C12.29,16.24 10.76,17 9,17 C5.41,17 2.5,14.09 2.5,10.5 C2.5,6.91 5.41,4 9,4 C12.59,4 15.5,6.91 15.5,10.5 C15.5,12.26 14.74,13.79 13.5,15 L15,13.5 Z" Fill="Gray" Margin="357,50,423,0" VerticalAlignment="Top" Width="20" Height="20" RenderTransformOrigin="-0.005,0.723"/>
+    </Grid>
+</Window>

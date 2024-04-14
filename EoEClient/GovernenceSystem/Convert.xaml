@@ -1,0 +1,28 @@
+﻿<Window x:Class="GovernenceSystem.Convert"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GovernenceSystem"
+        mc:Ignorable="d"
+        Title="Convert" Height="450" Width="800">
+    <Grid>
+        <ListBox Margin="299,122,385,201" FontSize="16">
+            <ListBoxItem Content="一产1"/>
+            <ListBoxItem Content="一产2"/>
+            <ListBoxItem Content="一产3"/>
+            <ListBoxItem Content="一产4" FontSize="16"/>
+        </ListBox>
+        <Label Content="I want to convert" HorizontalAlignment="Left" Margin="27,163,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="186,167,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="83" FontSize="16"/>
+        <Label Content="block(s) into " HorizontalAlignment="Left" Margin="425,163,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ListBox Margin="539,145,133,224" FontSize="16">
+            <ListBoxItem Content="二产1"/>
+            <ListBoxItem Content="二产2"/>
+        </ListBox>
+        <Label Content="block(s)." HorizontalAlignment="Left" Margin="683,161,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="submit" HorizontalAlignment="Left" Margin="256,328,0,0" VerticalAlignment="Top" Height="56" Width="86" FontSize="20" Click="Button_Click"/>
+        <Button Content="back" HorizontalAlignment="Left" Margin="492,323,0,0" VerticalAlignment="Top" FontSize="20" Height="61" Width="87" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>
