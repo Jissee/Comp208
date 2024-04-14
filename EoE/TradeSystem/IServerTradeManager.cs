@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EoE.TradeSystem
 {
-    public interface ITradeManager
+    public interface IServerTradeManager
     {
         void CreatOponTransaction(GameTransaction transaction);
         void CreatSecretTransaction(GameTransaction transaction);

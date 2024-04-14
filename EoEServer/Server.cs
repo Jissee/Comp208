@@ -34,7 +34,7 @@ namespace EoE.Server
         public GameStatus Status {get; private set;}
         public IServerPlayerList PlayerList { get; private set;}
 
-        public ITradeManager TradeManager { get; private set; }
+        public IServerTradeManager TradeManager { get; private set; }
 
 
 

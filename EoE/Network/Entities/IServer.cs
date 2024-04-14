@@ -15,7 +15,7 @@ namespace EoE.Network.Entities
     public interface IServer : INetworkEntity
     {
         Socket ServerSocket { get; }
-        public ITradeManager TradeManager { get; }
+        public IServerTradeManager TradeManager { get; }
         public IServerPlayerList PlayerList { get; }
         void InitPlayerName(IPlayer player, string name);
         void Start();

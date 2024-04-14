@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.TradeSystem
 {
-    public class ServerTradeManager : ITradeManager
+    public class ServerTradeManager : IServerTradeManager
     {
         private List<GameTransaction> openOrders = new List<GameTransaction>();
         private IServer server;
