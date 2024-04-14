@@ -9,6 +9,7 @@ namespace EoE.Network.Packets.WarPacket
     public class WarDeclarationPacket : IPacket<WarDeclarationPacket>
     {
 
+        private string warName;
         public WarDeclarationPacket() 
         { 
 

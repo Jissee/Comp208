@@ -8,6 +8,7 @@ namespace EoE.Network.Packets.WarPacket
 {
     public class WarInformationPacket : IPacket<WarInformationPacket>
     {
+        private string warName;
         private int totalBattle;
         private int totalInformative;
         private int totalMechanism;
@@ -23,6 +24,7 @@ namespace EoE.Network.Packets.WarPacket
         private int enemyMechanismLost;
 
         public WarInformationPacket(
+            string warName,
             int totalBattle,
             int totalInformative,
             int totalMechanism,
@@ -38,6 +40,7 @@ namespace EoE.Network.Packets.WarPacket
             int enemyMechanismLost
             )
         {
+            this.warName = warName;
             this.totalBattle = totalBattle;
             this.totalInformative = totalInformative;
             this.totalMechanism = totalMechanism;
@@ -55,6 +58,7 @@ namespace EoE.Network.Packets.WarPacket
         public static WarInformationPacket Decode(BinaryReader reader)
         {
             return new WarInformationPacket(
+                reader.ReadString(),
                 reader.ReadInt32(),
                 reader.ReadInt32(),
                 reader.ReadInt32(),
@@ -72,6 +76,7 @@ namespace EoE.Network.Packets.WarPacket
 
         public static void Encode(WarInformationPacket obj, BinaryWriter writer)
         {
+            writer.Write(obj.warName);
             writer.Write(obj.totalBattle);
             writer.Write(obj.totalInformative);
             writer.Write(obj.totalMechanism);

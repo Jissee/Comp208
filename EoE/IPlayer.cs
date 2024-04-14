@@ -19,7 +19,6 @@ namespace EoE
         string PlayerName { get; set; }
         bool IsConnected { get; }
         void SendPacket<T>(T packet) where T : IPacket<T>;
-        void FillFrontier(int battle, int informative, int mechanism); 
         bool FinishedTick { get; set; }
         void BeginGame();
     }

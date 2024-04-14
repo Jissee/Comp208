@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Network.Packets.WarPacket;
 using EoE.Util;
@@ -20,6 +21,7 @@ namespace EoE.Server.WarSystem
         public IWarTarget AttackersTarget { get; private set; }
         public IWarTarget DefendersTarget { get; private set; }
         public IWarManager WarManager { get; private set; }
+        private bool status = true;
 
         public War(IWarParty attackers, IWarParty defenders, string warName)
         {
@@ -64,6 +66,7 @@ namespace EoE.Server.WarSystem
             {
                 DivideSpoil(Attackers, Defenders, AttackersTarget);
             }
+            status = false;
             WarManager.RemoveWar(this);
         }
         private int GetResourceClaim(IWarTarget target, GameResourceType type)
@@ -116,8 +119,8 @@ namespace EoE.Server.WarSystem
                     int actualFieldCompensation = Math.Min(fieldCompensation, playerLoser.GonveranceManager.FieldList.TotalFieldCount);
                     playerWinner.GonveranceManager.PopManager.AlterPop(actualPopCompensation);
                     playerLoser.GonveranceManager.PopManager.AlterPop(-actualPopCompensation);
+
                     ProbabilityList<GameResourceType> loserFieldLost = new ProbabilityList<GameResourceType> { };
-                    
                     FieldListRecord fieldRecord = playerLoser.GonveranceManager.FieldList.GetFieldListRecord();
                     loserFieldLost.Add(GameResourceType.Silicon, fieldRecord.siliconFieldCount);
                     loserFieldLost.Add(GameResourceType.Copper, fieldRecord.copperFieldCount);
@@ -132,15 +135,78 @@ namespace EoE.Server.WarSystem
                         playerLoser.GonveranceManager.FieldList.SplitField(type, 1);
                         playerWinner.GonveranceManager.FieldList.AddField(type, 1);
                     }
-                    WarCompensationInfoPacket packet = new WarCompensationInfoPacket(record, popCompensation, fieldCompensation, playerWinner.PlayerName);
+                    WarCompensationInfoPacket packet = new WarCompensationInfoPacket(this.WarName, record, popCompensation, fieldCompensation, playerWinner.PlayerName);
                     playerWinner.SendPacket(packet);
                 }
                 
             }
         }
+        private void AutoSurrender()
+        {
+            foreach (var kvp in Attackers.Armies)
+            {
+                IPlayer player = kvp.Key;
+                if (!Attackers.HasFilled(player))
+                {
+                    Attackers.PlayerSurrender(player);
+                }
+            }
+            foreach (var kvp in Defenders.Armies)
+            {
+                IPlayer player = kvp.Key;
+                if (!Defenders.HasFilled(player))
+                {
+                    Defenders.PlayerSurrender(player);
+                }
+            }
+        }
+        private void WarTick()
+        {
+
+            (int, int) attackerAttack = Attackers.GetMechAttackBattAttack();
+            (int, int) defenderAttack = Defenders.GetMechAttackBattAttack();
+
+            int aB1 = Attackers.TotalArmy.Battle.Count;
+            int aI1 = Attackers.TotalArmy.Informative.Count;
+            int aM1 = Attackers.TotalArmy.Mechanism.Count;
+
+            int dB1 = Defenders.TotalArmy.Battle.Count;
+            int dI1 = Defenders.TotalArmy.Informative.Count;
+            int dM1 = Defenders.TotalArmy.Mechanism.Count;
+
+            Attackers.AbsorbAttack(defenderAttack.Item1, defenderAttack.Item2);
+            Defenders.AbsorbAttack(attackerAttack.Item1, attackerAttack.Item2);
+
+
+            int aB2 = Attackers.TotalArmy.Battle.Count;
+            int aI2 = Attackers.TotalArmy.Informative.Count;
+            int aM2 = Attackers.TotalArmy.Mechanism.Count;
+
+            int dB2 = Defenders.TotalArmy.Battle.Count;
+            int dI2 = Defenders.TotalArmy.Informative.Count;
+            int dM2 = Defenders.TotalArmy.Mechanism.Count;
+
+            WarInformationPacket packetA = new WarInformationPacket(
+                WarName,
+                aB1, aI1, aM1, aB1 - aB2, aI1 - aI2, aM1 - aM2,
+                dB1, dI1, dM1, dB1 - dB2, dI1 - dI2, dM1 - dM2
+                );
+            WarInformationPacket packetD = new WarInformationPacket(
+                WarName,
+                dB1, dI1, dM1, dB1 - dB2, dI1 - dI2, dM1 - dM2,
+                aB1, aI1, aM1, aB1 - aB2, aI1 - aI2, aM1 - aM2
+                );
+            WarManager.Server.Broadcast(packetA, Attackers.Contains);
+            WarManager.Server.Broadcast(packetD, Defenders.Contains);
+        }
+        
         public void Tick()
         {
-            
+            AutoSurrender();
+            if(status == true)
+            {
+                WarTick();
+            }
         }
 
     }

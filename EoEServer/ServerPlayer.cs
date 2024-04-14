@@ -68,25 +68,12 @@ namespace EoE.Server
             }
 
         }
-        public void FillFrontier(int battle, int informative, int mechanism)
-        {
-            if (GonveranceManager.ResourceList.GetResourceCount(GameResourceType.BattleArmy) < battle)
-            {
-                // TODO:check
-            }
-            if (GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InformativeArmy) < informative)
-            {
-                // TODO:
-            }
-            if (GonveranceManager.ResourceList.GetResourceCount(GameResourceType.MechanismArmy) < mechanism)
-            {
-                // TODO:
-            }
-        }
 
         public void GameLose()
         {
-            //ToDo  Cleaning
+            Server.PlayerList.WarManager.PlayerLose(this);
+            // todo: treatymanage.playerlose
+            // todo: trademenager.playerlose
         }
 
 

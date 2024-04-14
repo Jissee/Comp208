@@ -17,6 +17,7 @@ namespace EoE.WarSystem.Interface
         bool Contains(IPlayer player);
         void FillInFrontier(IPlayer player, int battle, int informative, int mechanism);
         (int, int) GetMechAttackBattAttack();
+        void AbsorbAttack(int MechAttack, int BattAttack);
         bool HasFilled(IPlayer player);
     }
 }
