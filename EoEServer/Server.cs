@@ -51,7 +51,7 @@ namespace EoE.Server
         public void BeginGame()
         {
             TradeManager = new ServerTradeManager(this);
-            Status = new GameStatus(500);
+            Status = new GameStatus(500,100);
             isGameRunning = true;
 
             lock (PlayerList)
@@ -60,9 +60,9 @@ namespace EoE.Server
                 {
                     player.BeginGame();
                 }
-                Event.Builder builder = new Event.Builder();
-                builder.ForServer(this).IfServer(server => true).IfPlayer(player => true);
-                EventList.AddEvent(builder.Build());
+               // Event.Builder builder = new Event.Builder();
+                //builder.ForServer(this).IfServer(server => true).IfPlayer(player => true);
+               // EventList.AddEvent(builder.Build());
             }
         }
 

@@ -14,7 +14,7 @@ namespace EoE.Server.GovernanceSystem
 {
     public class ServerPlayerFieldList: IServerFieldList
     {
-        private Dictionary<GameResourceType, int> fields;
+        private Dictionary<GameResourceType, int> fields = new Dictionary<GameResourceType, int>();
         public int TotalFieldCount 
         {
             get 

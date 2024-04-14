@@ -5,6 +5,7 @@ using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace EoE.Server.GovernanceSystem
 {
     public class ServerPopulationManger: IServerPopManager
     {
-        private Dictionary<GameResourceType, int> popAloc;
+        private Dictionary<GameResourceType, int> popAloc = new Dictionary<GameResourceType, int>();
         private IPlayer player;
 
         public int ExploratoinPopulation { get; private set; }
@@ -56,13 +57,13 @@ namespace EoE.Server.GovernanceSystem
         {
             if (CheckAvailability(siliconPop, copperPop, ironPop, aluminumPop, industrialPop, electronicPop))
             {
+                AvailablePopulation = TotalPopulation - siliconPop - copperPop - ironPop - aluminumPop - industrialPop - electronicPop;
                 popAloc[GameResourceType.Silicon] = siliconPop;
                 popAloc[GameResourceType.Copper] = copperPop;
                 popAloc[GameResourceType.Iron] = ironPop;
                 popAloc[GameResourceType.Aluminum] = aluminumPop;
                 popAloc[GameResourceType.Industrial] = industrialPop;
                 popAloc[GameResourceType.Electronic] = electronicPop;
-                AvailablePopulation = TotalPopulation - siliconPop - copperPop - ironPop - aluminumPop - industrialPop - electronicPop; 
             }
             else
             {
@@ -130,7 +131,9 @@ namespace EoE.Server.GovernanceSystem
 
         public void SetExploration(int population)
         {
+            AlterPop(-population);
             ExploratoinPopulation = population;
+
         }
 
         public PopulationRecord GetPopulationRecord()
