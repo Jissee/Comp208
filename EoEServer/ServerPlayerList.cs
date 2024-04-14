@@ -21,7 +21,7 @@ namespace EoE.Server
         public ITreatyManager TreatyManager { get; }
         public IWarManager WarManager { get; }
         public List<IPlayer> Players { get; }
-        public ITradeManager TradeManager { get; }
+        public IServerTradeManager TradeManager { get; }
         private IPlayer? host;
         private IServer server;
         private int playerCount = 1;
@@ -59,17 +59,15 @@ namespace EoE.Server
         {
             Console.WriteLine($"{player.PlayerName} logged out.");
             Players.Remove(player);
-<<<<<<< HEAD
-            if (player == host)
-            {
-                host = Players[0];
-                host.SendPacket(new RoomOwnerPacket(true));
-=======
             if(Players.Count == 0)
             {
                 server.Stop();
                 server.Restart();
->>>>>>> 7f5ea9ecc09c24920cd9da187313fdb09898b87c
+            }
+            else if (player == host)
+            {
+                host = Players[0];
+                host.SendPacket(new RoomOwnerPacket(true));
             }
         }
         public void HandlePlayerDisconnection()
@@ -160,6 +158,14 @@ namespace EoE.Server
             var gotProtectors = TreatyManager.PlayerRelation.GetProtectorsRecursively((ServerPlayer)target);
             protectors.AddRange(gotProtectors);
             return protectors;
+        }
+
+        public void Kickplayer(IPlayer player)
+        {
+            TradeManager.ClearAll(player);
+            player.GonveranceManager.ClearAll();
+            //TODo
+            PlayerLogout(player);
         }
     }
 }

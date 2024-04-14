@@ -18,6 +18,7 @@ namespace EoE.Network.Entities
         public IServerTradeManager TradeManager { get; }
         public IServerPlayerList PlayerList { get; }
         void InitPlayerName(IPlayer player, string name);
+        
         void Start();
         void Stop();
         bool IsNeedRestart();

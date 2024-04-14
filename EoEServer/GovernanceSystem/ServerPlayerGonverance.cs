@@ -13,7 +13,7 @@ using EoE.GovernanceSystem.Interface;
 using static EoE.GovernanceSystem.Interface.IGonveranceManager;
 using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets.GonverancePacket;
-using EoE.GovernanceSystem.ServerInterface;
+using EoE.Network.Entities;
 
 namespace EoE.Server.GovernanceSystem
 {
@@ -38,6 +38,7 @@ namespace EoE.Server.GovernanceSystem
         public IServerResourceList ResourceList { get; init; }
 
         private IPlayer player;
+        private IServer server;
 
         private GameStatus globalGameStatus;
         private PlayerStatus playerStatus;
@@ -45,7 +46,7 @@ namespace EoE.Server.GovernanceSystem
         
         public int PopGrowthProgress { get; private set;}
 
-        public ServerPlayerGonverance(GameStatus globalGameStatus, int initPop,IPlayer player)
+        public ServerPlayerGonverance(GameStatus globalGameStatus, int initPop,IPlayer player, IServer server)
         {
             this.globalGameStatus = globalGameStatus;
             this.playerStatus = new PlayerStatus(globalGameStatus);
@@ -54,6 +55,7 @@ namespace EoE.Server.GovernanceSystem
             ResourceList = new ServerPlayerResourceList();
             PopManager = new ServerPopulationManger(initPop, player);
             this.player = player;
+            this.server = server;
         }
 
         // 暂时改为public！！！
@@ -276,6 +278,8 @@ namespace EoE.Server.GovernanceSystem
         {
             FieldList.ClearAll();
             ResourceList.ClearAll();
+            PopManager.ClearAll();
+            //Todo
         }
         public void Tick()
         {

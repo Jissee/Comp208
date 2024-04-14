@@ -48,7 +48,7 @@ namespace EoE.Server
         }
         public void BeginGame()
         {
-            GonveranceManager = new ServerPlayerGonverance(Server.Status,100,this);
+            GonveranceManager = new ServerPlayerGonverance(Server.Status,100,this,Server);
         }
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
 

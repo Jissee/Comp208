@@ -21,7 +21,7 @@ namespace EoE.Client
     {
         public static Client INSTANCE { get; }
         public Socket Connection { get; private set; }
-        public string PlayerName { get; private set; }
+        public string? PlayerName { get ; private set; }
         private bool isRunning;
         public PacketHandler Handler { get; }
         public List<string> OtherPlayer { get; private set; }
@@ -32,10 +32,12 @@ namespace EoE.Client
             INSTANCE = new Client();
         }
 
-        private Client() 
+        //TODO for test,临时改成public
+        public Client() 
         {
             Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Handler = new ClientPacketHandler();
+            OtherPlayer = new List<string>();
             GonveranceManager = new ClientGoverance();
         }
         public void SetPlayerName(string name)

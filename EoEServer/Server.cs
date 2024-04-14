@@ -170,12 +170,6 @@ namespace EoE.Server
             PlayerList.InitPlayerName((ServerPlayer)player, name);
         }
 
-<<<<<<< HEAD
-        public void SetGame(int playerCount, int totalTick)
-        {
-            PlayerList.SetPlayerCount(playerCount);
-            Status.SetTotalTick (totalTick);
-=======
         public bool IsNeedRestart()
         {
             return needRestart;
@@ -183,7 +177,12 @@ namespace EoE.Server
         public void Restart()
         {
             needRestart = true;
->>>>>>> 7f5ea9ecc09c24920cd9da187313fdb09898b87c
+        }
+
+        public void SetGame(int playerCount, int totalTick)
+        {
+            PlayerList.SetPlayerCount(playerCount);
+            Status.SetTotalTick(totalTick);
         }
     }
 }
