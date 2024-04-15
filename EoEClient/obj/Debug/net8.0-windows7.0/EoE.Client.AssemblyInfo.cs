@@ -14,19 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EoE.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98e17c8106b3e9584a951e2356e99cd0a1e5999c")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b401cfd73acbda735225ad957b98ef7fe42887a2")]
->>>>>>> pr/40
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51cbcdffe6b07afd22e42285ee732ec83db9d794")]
->>>>>>> pr/45
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+78053fc51d54731cf619e790797ca2c828ba1594")]
->>>>>>> fa54385ab045b0e781e6ceeda6a6df82a817ee29
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82179f4dd6a5e4ddaa01c69a54b2edc8a682a767")]
 [assembly: System.Reflection.AssemblyProductAttribute("EoE.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EoE.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

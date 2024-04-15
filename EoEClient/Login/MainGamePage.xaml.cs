@@ -12,13 +12,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WarSystem;
+using EoE.Client.WarSystem;
 using System.Windows.Navigation;
-using GovernenceSystem;
-using ChatSystem;
+using EoE.Client.GovernanceSystem;
+using EoE.Client.ChatSystem;
 
 
-namespace EoE.Client
+namespace EoE.Client.Login
 {
     
   
@@ -63,7 +63,7 @@ namespace EoE.Client
 
         private void Goverment_Click(object sender, RoutedEventArgs e)
         {
-            GovernenceSystem.MainWindow mainWindow = new GovernenceSystem.MainWindow();
+            GovernanceSystem.MainWindow mainWindow = new GovernanceSystem.MainWindow();
             mainWindow.Show();
         }
 
