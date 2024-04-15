@@ -14,12 +14,13 @@ namespace EoE
 {
     public interface IServerPlayerList: ITickable
     {
+        public int PlayerCount{get; }
+
         ITreatyManager TreatyManager { get; }
         IWarManager WarManager { get; }
         IServerTradeManager TradeManager { get; }
         public List<IPlayer> Players { get; }
         void PlayerLogin(IPlayer player);
-        void Kickplayer(IPlayer player);
         void HandlePlayerDisconnection();
         void HandlePlayerMessage(PacketHandler packetHandler, IServer server);
         bool CheckPlayerTickStatus();

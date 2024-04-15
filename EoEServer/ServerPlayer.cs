@@ -71,6 +71,10 @@ namespace EoE.Server
 
         public void GameLose()
         {
+            if (true)
+            {
+                
+            }
             Server.PlayerList.WarManager.PlayerLose(this);
             // todo: treatymanage.playerlose
             // todo: trademenager.playerlose

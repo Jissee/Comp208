@@ -39,7 +39,7 @@ namespace EoE.Server
         }
         public void Tick()
         {
-            throw new NotImplementedException();
+            TickCount++;
         }
 
         public void SetTotalTick(int totalTick)

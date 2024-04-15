@@ -15,7 +15,7 @@ namespace EoE.Client.GovernanceSystem
 {
     public class ClientFieldList : IClientFieldList
     {
-        private Dictionary<GameResourceType, int> fields;
+        private Dictionary<GameResourceType, int> fields = new Dictionary<GameResourceType, int>();
         private IClient player = Client.INSTANCE;
         public int TotalFieldCount
         {
