@@ -46,16 +46,16 @@ namespace EoE.Network.Packets.TradePacket
                         switch (operation)
                         {
                             case OpenTransactionOperation.Create:
-                                server.TradeManager.CreatOponTransaction(transaction);
+                                server.PlayerList.TradeManager.CreatOponTransaction(transaction);
                                 break;
                             case OpenTransactionOperation.Accept:
-                                server.TradeManager.AcceptOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);
+                                server.PlayerList.TradeManager.AcceptOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);
                                 break;
                             case OpenTransactionOperation.Cancel:
-                                server.TradeManager.CancelOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);
+                                server.PlayerList.TradeManager.CancelOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);
                                 break;
                             case OpenTransactionOperation.Alter:
-                                server.TradeManager.AlterOpenTransaction(transaction.Id, transaction.OfferorOffer, transaction.RecipientOffer, context.PlayerSender.PlayerName);
+                                server.PlayerList.TradeManager.AlterOpenTransaction(transaction.Id, transaction.OfferorOffer, transaction.RecipientOffer, context.PlayerSender.PlayerName);
                                 break;
                             default:
                                 throw new Exception("no such type");

@@ -1,8 +1,9 @@
-﻿using EoE.GovernanceSystem;
+﻿using EoE.Events;
+using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.Interface;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
-using EoE.Server.Events;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.Server.GovernanceSystem;
 using EoE.Server.Network;
 using EoE.Server.TradeSystem;
@@ -58,28 +59,165 @@ namespace EoE.Server
                 }
 
             }
+            PrepareResourceBonusEvents();
+
 
             foreach (IPlayer player in PlayerList.Players)
             {
-                Random random = new Random();
-                int index = random.Next(1, PlayerList.PlayerCount);
+                
             }  
         }
 
-        private void EndowTalent(IPlayer player, int eventNumber)
+        private void PrepareResourceBonusEvents()
+        {
+            
+            Event.Builder builder1 = new Event.Builder();
+            builder1.ForServer(this)
+                .IfServer(server => true)
+                .HappenIn((int)(Status.TotalTick * 0.1f))
+                .LastFor(1)
+                .Do
+                (
+                   (server, _) =>
+                   {
+                       Random random = new Random();
+                       foreach (IPlayer player in server.PlayerList.Players)
+                       {
+                           int index = random.Next(0, 5);
+                           switch (index)
+                           {
+                               case 0:
+                                   player.GonveranceManager.PlayerStatus.CountrySiliconModifier.AddValue("",15);
+                                   player.SendPacket(new ServerMessagePacket("You gain a Silicon generation bonus"));
+                                   break;
+                               case 1:
+                                   player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("", 15);
+                                   player.SendPacket(new ServerMessagePacket("You gain a Copper generation bonus"));
+                                   break;
+                               case 2:
+                                   player.GonveranceManager.PlayerStatus.CountryIronModifier.AddValue("", 15);
+                                   player.SendPacket(new ServerMessagePacket("You gain a Iron generation bonus"));
+                                   break;
+                               case 3:
+                                   player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("", 15);
+                                   player.SendPacket(new ServerMessagePacket("You gain a luminum generation bonus"));
+                                   break;
+                               case 4:
+                                   player.GonveranceManager.PlayerStatus.CountryElectronicModifier.AddValue("", 7.5);
+                                   player.SendPacket(new ServerMessagePacket("You gain a Electronic generation bonus"));
+                                   break;
+                               case 5:
+                                   player.GonveranceManager.PlayerStatus.CountryIndustryModifier.AddValue("", 7.5);
+                                   player.SendPacket(new ServerMessagePacket("You gain a Industry generation bonus"));
+                                   break;
+                           }
+                       }
+                   }
+                );
+            EventList.AddEvent(builder1.Build());
+
+
+        }
+
+        private void PreparePlayerRandomEvents(IPlayer player, int eventNumber)
         {
             
             switch (eventNumber)
             {
                 case 1:
                     Event.Builder builder1 = new Event.Builder();
-                    builder1.ForPlayer(player).IfServer(server => true).IfPlayer(thePlayer => thePlayer==player).
+                    builder1.ForPlayer(player)
+                        .IfServer(server => true)
+                        .IfPlayer(thePlayer => true)
+                        .HappenIn((int)(Status.TotalTick * 0.25f))
+                        .LastFor(1)
+                        .Do
+                        (
+                           (server, player) =>
+                           {
+                               player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("", 2.5);
+                               player.SendPacket(new ServerMessagePacket("Under your diligent and dedicated leadership, " +
+                                   "the productivity of your country's four primary resources has been increased."));
+                           }
+                         );
                     EventList.AddEvent(builder1.Build());
                     break;
                 case 2:
                     Event.Builder builder2 = new Event.Builder();
-                    builder2.ForServer(this).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
+                    builder2.ForPlayer(player)
+                        .IfServer(server => true)
+                        .IfPlayer(thePlayer => true)
+                        .HappenIn((int)(Status.TotalTick * 0.25f))
+                        .LastFor(1)
+                        .Do
+                        (
+                           (server, player) =>
+                           {
+                               player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("", -2.5);
+                               player.SendPacket(new ServerMessagePacket("Under your diligent and dedicated leadership, " +
+                                   "the productivity of your country's four primary resources has been reduced.."));
+                           }
+                         );
                     EventList.AddEvent(builder2.Build());
+                    break;
+                case 3:
+                    Event.Builder builder3 = new Event.Builder();
+                    builder3.ForPlayer(player)
+                        .IfServer(server => true)
+                        .IfPlayer(thePlayer => true)
+                        .MeanTimeToHappen((int)(Status.TotalTick * 0.3f))
+                        .LastFor(1)
+                        .Do
+                        (
+                           (server, player) =>
+                           {
+                               player.GonveranceManager.PlayerStatus.CountrySecondaryModifier.AddValue("", 1.0);
+                               player.SendPacket(new ServerMessagePacket("Under your diligent and dedicated leadership, " +
+                                   "the productivity of your country's two secondary resources has been reduced.."));
+                           }
+                         );
+                    EventList.AddEvent(builder3.Build());
+                    break;
+                case 4:
+                    Event.Builder builder4 = new Event.Builder();
+                    builder4.ForPlayer(player)
+                        .IfServer(server => true)
+                        .IfPlayer(thePlayer => true)
+                        .HappenIn((int)(Status.TotalTick * 0.25f))
+                        .LastFor(1)
+                        .Do
+                        (
+                           (server, player) =>
+                           {
+                               player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("", -3);
+                               player.SendPacket(new ServerMessagePacket("Due to the onslaught of severe weather conditions, " +
+                                   "the productivity of Copper has been reduced.."));
+                           }
+                         );
+                    EventList.AddEvent(builder4.Build());
+                    break;
+                case 5:
+                    Event.Builder builder5 = new Event.Builder();
+                    builder5.ForPlayer(player)
+                        .IfServer(server => true)
+                        .IfPlayer(thePlayer => true)
+                        .HappenIn((int)(Status.TotalTick * 0.25f))
+                        .LastFor(1)
+                        .Do
+                        (
+                           (server, player) =>
+                           {
+                               player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("", -3);
+                               player.SendPacket(new ServerMessagePacket("Due to the onslaught of severe weather conditions, " +
+                                   "the productivity of Copper has been reduced.."));
+                           }
+                         );
+                    EventList.AddEvent(builder5.Build());
+                    break;
+                case 6:
+                    Event.Builder builder6 = new Event.Builder();
+                    builder6.ForPlayer(player).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
+                    EventList.AddEvent(builder6.Build());
                     break;
             }
         }
@@ -197,7 +335,7 @@ namespace EoE.Server
         public void SetGame(int playerCount, int totalTick)
         {
             PlayerList.SetPlayerCount(playerCount);
-            Status.SetTotalTick(totalTick);
+            Status.TotalTick = totalTick;
         }
     }
 }

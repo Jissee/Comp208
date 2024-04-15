@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EoE.Server.Events
+namespace EoE.Events
 {
     public delegate void EventCallBack(IServer server, IPlayer player);
     public class Event : ITickable
@@ -116,12 +116,12 @@ namespace EoE.Server.Events
                 tmp.mtth = ticks;
                 return this;
             }
-            public Builder IfPlayer(Predicate<ServerPlayer> playerCondition)
+            public Builder IfPlayer(Predicate<IPlayer> playerCondition)
             {
                 tmp.playerCondition = playerCondition;
                 return this;
             }
-            public Builder IfServer(Predicate<Server> serverCondition)
+            public Builder IfServer(Predicate<IServer> serverCondition)
             {
                 tmp.serverCondition = serverCondition;
                 return this;
