@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\
 EoE.Client
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\App.xaml
+D:\e-textbook3\comp208\EoE\EoEClient\App.xaml
 25-1408540948
 
 361886703606
-199-837860142
+199-1301582816
 ChatSystem\ChatMianPage.xaml;ChatSystem\ChatPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\TreatyContent.xaml;GovernanceSystem\BlockManagement.xaml;GovernanceSystem\ConvertPage.xaml;GovernanceSystem\ExpolreBlock.xaml;GovernanceSystem\MainWindow.xaml;GovernanceSystem\MilitaryManagement.xaml;GovernanceSystem\ResourceManage.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\LoginWindow.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AllocateArmy.xaml;WarSystem\AllocateWar.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
 
 True
