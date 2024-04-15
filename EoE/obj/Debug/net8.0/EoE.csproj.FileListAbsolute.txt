@@ -45,3 +45,7 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\refint\EoE.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
 >>>>>>> nothing
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\bin\Debug\net8.0\EoE.deps.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\bin\Debug\net8.0\EoE.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\bin\Debug\net8.0\EoE.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll

@@ -8,50 +8,12 @@
     "net8.0": []
   },
   "packageFolders": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "C:\\Users\\32171\\.nuget\\packages\\": {},
-    "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
-<<<<<<< HEAD
-    "C:\\Users\\sun\\.nuget\\packages\\": {}
-=======
     "C:\\Users\\ufowlc\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> nothing
->>>>>>> nothing
-=======
-    "C:\\Users\\ufowlc\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> nothing
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
-=======
-<<<<<<< HEAD
-      "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
->>>>>>> nothing
-      "projectName": "EoE",
-      "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
-      "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\obj\\",
-      "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
-      "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-        "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-=======
->>>>>>> nothing
       "projectUniqueName": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj",
       "projectName": "EoE",
       "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj",
@@ -64,11 +26,6 @@
       "configFilePaths": [
         "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-<<<<<<< HEAD
->>>>>>> nothing
->>>>>>> nothing
-=======
->>>>>>> nothing
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

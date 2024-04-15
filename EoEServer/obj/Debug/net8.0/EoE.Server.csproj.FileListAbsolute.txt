@@ -73,3 +73,15 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Serv
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
 >>>>>>> nothing
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll

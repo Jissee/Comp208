@@ -1,46 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "dgSpecHash": "VZfpnIPNF/f4osLtidpq4QawNUrkRj2Ct7eqyQ9xDgtPPPLS3V8Hmknnk7fH9pMB4pSlNvJNTYJ8P+s6ONDkUA==",
-=======
-<<<<<<< HEAD
-  "dgSpecHash": "RKCcZGDResrDrFGwUsAH6cVP7dt5B59VJCg/00jmO2ulb3tmY7cPHcFMF1MNGm4T3Xwg+EMsasXG7x9sV84UMQ==",
->>>>>>> nothing
-  "success": true,
-  "projectFilePath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj",
-  "expectedPackageFiles": [
-<<<<<<< HEAD
-    "C:\\Users\\32171\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\microsoft.net.test.sdk\\17.6.0\\microsoft.net.test.sdk.17.6.0.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.6.0\\microsoft.testplatform.objectmodel.17.6.0.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\microsoft.testplatform.testhost\\17.6.0\\microsoft.testplatform.testhost.17.6.0.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\mstest.testadapter\\3.0.4\\mstest.testadapter.3.0.4.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\mstest.testframework\\3.0.4\\mstest.testframework.3.0.4.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\nuget.frameworks\\5.11.0\\nuget.frameworks.5.11.0.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\32171\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
-=======
-    "C:\\Users\\sun\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\microsoft.net.test.sdk\\17.6.0\\microsoft.net.test.sdk.17.6.0.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.6.0\\microsoft.testplatform.objectmodel.17.6.0.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\microsoft.testplatform.testhost\\17.6.0\\microsoft.testplatform.testhost.17.6.0.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\mstest.testadapter\\3.0.4\\mstest.testadapter.3.0.4.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\mstest.testframework\\3.0.4\\mstest.testframework.3.0.4.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\nuget.frameworks\\5.11.0\\nuget.frameworks.5.11.0.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\sun\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
-=======
-=======
->>>>>>> nothing
   "dgSpecHash": "db+cNOxkoHNeOlpygGDU6ZD2lNaXLlYrxQ+UlK8A/RlRdYt/dyU8DqhQ8eFk2tjXF8lt3dsQd9rI8zpDu5wvmg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoETest\\EoE.Test.csproj",
@@ -58,11 +17,6 @@
     "C:\\Users\\ufowlc\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\ufowlc\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\ufowlc\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
-<<<<<<< HEAD
->>>>>>> nothing
->>>>>>> nothing
-=======
->>>>>>> nothing
   ],
   "logs": [
     {
