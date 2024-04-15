@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EoE.Client
-build_property.ProjectDir = D:\e-textbook3\comp208\EoE\EoEClient\
+build_property.ProjectDir = C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

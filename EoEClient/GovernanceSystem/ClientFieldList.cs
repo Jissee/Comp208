@@ -3,7 +3,7 @@ using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
-using GovernenceSystem;
+using EoE.Client.GovernanceSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;

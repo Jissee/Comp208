@@ -296,3 +296,13 @@ D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\Revie
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\WarDetail.baml
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\WarMainPage.baml
 >>>>>>> fa54385ab045b0e781e6ceeda6a6df82a817ee29
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.g.cs
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagement.g.cs
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ConvertPage.g.cs
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ExpolreBlock.g.cs
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MainWindow.g.cs
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagement.g.cs
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ResourceManage.g.cs
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\LoginWindow.g.cs
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SelectTraderWindow.g.cs
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SellAndBuy2.g.cs

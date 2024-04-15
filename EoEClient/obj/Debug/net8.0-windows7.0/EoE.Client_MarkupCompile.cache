@@ -4,26 +4,17 @@
 winexe
 C#
 .cs
-D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\
+C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
 EoE.Client
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-<<<<<<< HEAD
 C:\Users\cyy12\source\repos\Qiuu\Comp208\EoEClient\App.xaml
-371970904080
+25-1408540948
 
-47995622175
+361886703606
 199-837860142
-ChatSystem\chat.xaml;ChatSystem\ChatMianPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\MainWindow.xaml;ChatSystem\TreatyContent.xaml;GovernenceSystem\BlockManagement.xaml;GovernenceSystem\Convert.xaml;GovernenceSystem\ExpolreBlock.xaml;GovernenceSystem\MainWindow.xaml;GovernenceSystem\MilitaryManagement.xaml;GovernenceSystem\ResourceManage.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\Login.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;TradeSystem\AcceptTrade\AcceptTradeWindow.xaml;TradeSystem\AcceptTrade\RequirestList.xaml;TradeSystem\FindRequirest\SearchTransationWindow.xaml;TradeSystem\MadeBuyRequirest\BuyItemWindow.xaml;TradeSystem\MadeBuyRequirest\ConfirmRequirestWindow.xaml;TradeSystem\MadeBuyRequirest\InputBuyNumber.xaml;TradeSystem\MadeBuyRequirest\InputSellNumber.xaml;TradeSystem\MadeBuyRequirest\SellAndBuy2.xaml;TradeSystem\MadeBuyRequirest\SellItemWindow.xaml;TradeSystem\Make a trade\SelectTraderWindow.xaml;TradeSystem\Make a trade\SellAndBuyWindow.xaml;WarSystem\AcquireResource.xaml;WarSystem\AllocateArmy.xaml;WarSystem\AllocateWar.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\ReviewDiplomatic.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
-=======
-D:\e-textbook3\comp208\EoE\EoEClient\App.xaml
-38-917017875
+ChatSystem\ChatMianPage.xaml;ChatSystem\ChatPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\TreatyContent.xaml;GovernanceSystem\BlockManagement.xaml;GovernanceSystem\ConvertPage.xaml;GovernanceSystem\ExpolreBlock.xaml;GovernanceSystem\MainWindow.xaml;GovernanceSystem\MilitaryManagement.xaml;GovernanceSystem\ResourceManage.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\LoginWindow.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AllocateArmy.xaml;WarSystem\AllocateWar.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
 
-48112575966
-199-1301582816
-ChatSystem\chat.xaml;ChatSystem\ChatMianPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\MainWindow.xaml;ChatSystem\TreatyContent.xaml;GovernenceSystem\BlockManagement.xaml;GovernenceSystem\Convert.xaml;GovernenceSystem\ExpolreBlock.xaml;GovernenceSystem\MainWindow.xaml;GovernenceSystem\MilitaryManagement.xaml;GovernenceSystem\ResourceManage.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\Login.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;MainWindow.xaml;TradeSystem\AcceptTrade\AcceptTradeWindow.xaml;TradeSystem\AcceptTrade\RequirestList.xaml;TradeSystem\FindRequirest\SearchTransationWindow.xaml;TradeSystem\MadeBuyRequirest\BuyItemWindow.xaml;TradeSystem\MadeBuyRequirest\ConfirmRequirestWindow.xaml;TradeSystem\MadeBuyRequirest\InputBuyNumber.xaml;TradeSystem\MadeBuyRequirest\InputSellNumber.xaml;TradeSystem\MadeBuyRequirest\SellAndBuy2.xaml;TradeSystem\MadeBuyRequirest\SellItemWindow.xaml;TradeSystem\Make a trade\SelectTraderWindow.xaml;TradeSystem\Make a trade\SellAndBuyWindow.xaml;WarSystem\AcquireResource.xaml;WarSystem\AllocateArmy.xaml;WarSystem\AllocateWar.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\ReviewDiplomatic.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
->>>>>>> fa54385ab045b0e781e6ceeda6a6df82a817ee29
-
-False
+True
 
