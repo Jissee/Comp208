@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\App.xaml
-38-917017875
+38-1292450006
 
-501085456605
+58430084628
 1991014721367
-ChatSystem\chat.xaml;ChatSystem\ChatMianPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\MainWindow.xaml;ChatSystem\TreatyContent.xaml;GovernenceSystem\BlockManagement.xaml;GovernenceSystem\Convert.xaml;GovernenceSystem\ExpolreBlock.xaml;GovernenceSystem\MainWindow.xaml;GovernenceSystem\MilitaryManagement.xaml;GovernenceSystem\ResourceManage.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\Login.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;MainWindow.xaml;TradeSystem\AcceptTrade\AcceptTradeWindow.xaml;TradeSystem\AcceptTrade\RequirestList.xaml;TradeSystem\FindRequirest\SearchTransationWindow.xaml;TradeSystem\MadeBuyRequirest\BuyItemWindow.xaml;TradeSystem\MadeBuyRequirest\ConfirmRequirestWindow.xaml;TradeSystem\MadeBuyRequirest\InputBuyNumber.xaml;TradeSystem\MadeBuyRequirest\InputSellNumber.xaml;TradeSystem\MadeBuyRequirest\SellAndBuy2.xaml;TradeSystem\MadeBuyRequirest\SellItemWindow.xaml;TradeSystem\Make a trade\SelectTraderWindow.xaml;TradeSystem\Make a trade\SellAndBuyWindow.xaml;WarSystem\AcquireResource.xaml;WarSystem\AllocateArmy.xaml;WarSystem\AllocateWar.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\ReviewDiplomatic.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
+ChatSystem\chat.xaml;ChatSystem\ChatMianPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\MainWindow.xaml;ChatSystem\TreatyContent.xaml;GovernanceSystem\BlockManagement.xaml;GovernanceSystem\Convert.xaml;GovernanceSystem\ExpolreBlock.xaml;GovernanceSystem\MainWindow.xaml;GovernanceSystem\MilitaryManagement.xaml;GovernanceSystem\ResourceManage.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\Login.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;MainWindow.xaml;TradeSystem\AcceptTrade\AcceptTradeWindow.xaml;TradeSystem\AcceptTrade\RequirestList.xaml;TradeSystem\FindRequirest\SearchTransationWindow.xaml;TradeSystem\MadeBuyRequirest\BuyItemWindow.xaml;TradeSystem\MadeBuyRequirest\ConfirmRequirestWindow.xaml;TradeSystem\MadeBuyRequirest\InputBuyNumber.xaml;TradeSystem\MadeBuyRequirest\InputSellNumber.xaml;TradeSystem\MadeBuyRequirest\SellAndBuy2.xaml;TradeSystem\MadeBuyRequirest\SellItemWindow.xaml;TradeSystem\Make a trade\SelectTraderWindow.xaml;TradeSystem\Make a trade\SellAndBuyWindow.xaml;WarSystem\AcquireResource.xaml;WarSystem\AllocateArmy.xaml;WarSystem\AllocateWar.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\ReviewDiplomatic.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
 
-True
+False
 

@@ -59,16 +59,21 @@ namespace EoE.Server.Treaty
                 RelationTreatyList.Add(treaty);
             }
         }
-        public void RemoveRelationTreaty(RelationTreaty treaty)
+        public void RemoveRelationTreaty(ITreaty treaty)
         {
             if (RelationTreatyList.Contains(treaty))
             {
                 RelationTreatyList.Remove(treaty);
             }
         }
-        public void AddTruceTreaty(TruceTreaty truceTreaty)
+        public void AddTruceTreaty(ITreaty truceTreaty)
         {
-            TruceTreatyList.Add(truceTreaty);
+            TruceTreatyList.Add((TruceTreaty)truceTreaty);
+        }
+        public void AddTruceTreaty(IPlayer player1, IPlayer player2)
+        {
+            TruceTreaty truceTreaty = new TruceTreaty((ServerPlayer)player1, (ServerPlayer)player2, 10);
+            AddTruceTreaty((TruceTreaty)truceTreaty);
         }
         public void UpdateTruceTreaty()
         {
@@ -124,14 +129,6 @@ namespace EoE.Server.Treaty
         {
             UpdateRelationTreaty();
             UpdateTruceTreaty();
-        }
-
-        public void AddTreaty(ITreaty treaty)
-        {
-            if(treaty is RelationTreaty relationTreaty)
-            {
-
-            }
         }
 
         public void AddProtectiveTreaty(IPlayer target, IPlayer protector, ResourceListRecord condition)

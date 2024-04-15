@@ -1,4 +1,5 @@
 ﻿using EoE.Network.Entities;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
@@ -35,9 +36,23 @@ namespace EoE.Network.Packets.WarPacket
 
                 IWarManager warManager = server.PlayerList.WarManager;
                 IWar war = warManager.WarDict[warName];
-                IWarParty warParty = war.GetWarPartyOfPlayer(player);
+                IWarParty warPartyAllies = war.GetWarPartyOfPlayer(player);
 
-                warParty.PlayerSurrender(player);
+                warPartyAllies.PlayerSurrender(player);
+
+                IWarParty warPartyEnemies = war.GetWarEnemyPartyOfPlayer(player);
+
+                foreach(IPlayer playerInfo in warPartyAllies.Armies.Keys)
+                {
+                    ServerMessagePacket surrenderPacket = new ServerMessagePacket(player.PlayerName + "surrenders in war" + warName);
+                    playerInfo.SendPacket(surrenderPacket);
+                }
+
+                foreach (IPlayer playerInfo in warPartyEnemies.Armies.Keys)
+                {
+                    ServerMessagePacket surrenderPacket = new ServerMessagePacket(player.PlayerName + "surrenders in war" + warName);
+                    playerInfo.SendPacket(surrenderPacket);
+                }
             }
         }
     }

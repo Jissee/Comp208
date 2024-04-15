@@ -2,6 +2,7 @@
 using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Network.Packets.WarPacket;
+using EoE.Server.Treaty;
 using EoE.Util;
 using EoE.WarSystem.Interface;
 using System;
@@ -22,14 +23,16 @@ namespace EoE.Server.WarSystem
         public WarTarget DefendersTarget { get; private set; }
         public IWarManager WarManager { get; private set; }
         private bool status = true;
+        private IServer Server;
 
-        public War(IWarParty attackers, IWarParty defenders, string warName)
+        public War(IWarParty attackers, IWarParty defenders, string warName, IServer server)
         {
             this.Attackers = attackers;
             this.Defenders = defenders;
             WarName = warName;
             attackers.SetWar(this);
             defenders.SetWar(this);
+            this.Server = server;
         }
         public void SetWarManager(IWarManager manager)
         {
@@ -47,6 +50,19 @@ namespace EoE.Server.WarSystem
             }
             throw new Exception("No playerWinner in this war");
         }
+
+        public IWarParty GetWarEnemyPartyOfPlayer(IPlayer player)
+        {
+            if (Attackers.Contains(player))
+            {
+                return Defenders;
+            }
+            else if (Defenders.Contains(player))
+            {
+                return Attackers;
+            }
+            throw new Exception("No playerWinner in this war");
+        }
         public void SetAttackersWarTarget(WarTarget warTarget)
         {
             AttackersTarget = warTarget;
@@ -57,7 +73,15 @@ namespace EoE.Server.WarSystem
         }
         public void End(IWarParty defeated)
         {
-            
+            foreach(var kvpFirst in Attackers.Armies)
+            {
+                IPlayer playerFirst = kvpFirst.Key;
+                foreach(var kvpSecond in Defenders.Armies)
+                {
+                    IPlayer playerSecond = kvpSecond.Key;
+                    Server.PlayerList.TreatyManager.AddTruceTreaty(playerFirst, playerSecond);
+                }
+            }
             if (defeated == Attackers)
             {
                 DivideSpoil(Defenders, Attackers, DefendersTarget);
@@ -100,6 +124,19 @@ namespace EoE.Server.WarSystem
                     record.aluminumCount = (int)(winnerTarget.AluminumClaim * winnerProportion * loserProportion);
                     record.electronicCount = (int)(winnerTarget.ElectronicClaim * winnerProportion * loserProportion);
                     record.industrialCount = (int)(winnerTarget.IndustrialClaim * winnerProportion * loserProportion);
+                    playerWinner.GonveranceManager.ResourceList.AddResource(GameResourceType.Silicon, record.siliconCount);
+                    playerWinner.GonveranceManager.ResourceList.AddResource(GameResourceType.Copper, record.copperCount);
+                    playerWinner.GonveranceManager.ResourceList.AddResource(GameResourceType.Iron, record.ironCount);
+                    playerWinner.GonveranceManager.ResourceList.AddResource(GameResourceType.Aluminum, record.aluminumCount);
+                    playerWinner.GonveranceManager.ResourceList.AddResource(GameResourceType.Electronic, record.electronicCount);
+                    playerWinner.GonveranceManager.ResourceList.AddResource(GameResourceType.Industrial, record.industrialCount);
+                    playerLoser.GonveranceManager.ResourceList.SplitResource(GameResourceType.Silicon, record.siliconCount);
+                    playerLoser.GonveranceManager.ResourceList.SplitResource(GameResourceType.Copper, record.copperCount);
+                    playerLoser.GonveranceManager.ResourceList.SplitResource(GameResourceType.Iron, record.ironCount);
+                    playerLoser.GonveranceManager.ResourceList.SplitResource(GameResourceType.Aluminum, record.aluminumCount);
+                    playerLoser.GonveranceManager.ResourceList.SplitResource(GameResourceType.Electronic, record.electronicCount);
+                    playerLoser.GonveranceManager.ResourceList.SplitResource(GameResourceType.Industrial, record.industrialCount);
+
                     int popCompensation = (int)(winnerTarget.PopClaim * winnerProportion * loserProportion);
                     int fieldCompensation = (int)(winnerTarget.FieldClaim * winnerProportion * loserProportion);
                     int actualPopCompensation = Math.Min(popCompensation, playerLoser.GonveranceManager.PopManager.TotalPopulation);
@@ -195,6 +232,5 @@ namespace EoE.Server.WarSystem
                 WarTick();
             }
         }
-
     }
 }

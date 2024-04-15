@@ -286,3 +286,15 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.Up2Date
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagement.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\Convert.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ExpolreBlock.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MainWindow.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagement.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ResourceManage.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagement.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\Convert.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ExpolreBlock.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MainWindow.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagement.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ResourceManage.baml
