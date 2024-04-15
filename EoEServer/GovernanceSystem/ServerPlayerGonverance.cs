@@ -14,6 +14,7 @@ using static EoE.GovernanceSystem.Interface.IGonveranceManager;
 using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Entities;
+using EoE.Network.Packets.GonverancePacket.Record;
 
 namespace EoE.Server.GovernanceSystem
 {
@@ -51,7 +52,7 @@ namespace EoE.Server.GovernanceSystem
             this.globalGameStatus = globalGameStatus;
             this.playerStatus = new PlayerStatus(globalGameStatus);
 
-            FieldList = new ServerPlayerFieldList();
+            FieldList = new ServerPlayerFieldList(20,20,20,20,20,20,player);
             ResourceList = new ServerPlayerResourceList();
             PopManager = new ServerPopulationManger(initPop, player);
             this.player = player;
@@ -160,11 +161,13 @@ namespace EoE.Server.GovernanceSystem
             {
                 player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
                 player.SendPacket(new ServerMessagePacket("Negative input"));
+                player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
             }
             if (inutPopulation > PopManager.AvailablePopulation)
             {
                 player.SendPacket(new ServerMessagePacket("No enough available population"));
                 player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
             }
             else 
             {
@@ -184,6 +187,7 @@ namespace EoE.Server.GovernanceSystem
                 {
                     player.SendPacket(new ServerMessagePacket("No enough resources"));
                     player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                    player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                 }
 
             }
@@ -240,7 +244,9 @@ namespace EoE.Server.GovernanceSystem
                     }
                     else
                     {
-                        throw new InvalidPopAllocException();
+                        player.SendPacket(new ServerMessagePacket("No enough available population"));
+                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     break;
                 case GameResourceType.InformativeArmy:
@@ -253,7 +259,9 @@ namespace EoE.Server.GovernanceSystem
                     }
                     else
                     {
-                        throw new InvalidPopAllocException();
+                        player.SendPacket(new ServerMessagePacket("No enough available population or resources"));
+                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     break;
                 case GameResourceType.MechanismArmy:
@@ -266,7 +274,9 @@ namespace EoE.Server.GovernanceSystem
                     }
                     else
                     {
-                        throw new InvalidPopAllocException();
+                        player.SendPacket(new ServerMessagePacket("No enough available population or resources"));
+                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     break;
                 default:
@@ -281,6 +291,8 @@ namespace EoE.Server.GovernanceSystem
             PopManager.ClearAll();
             //Todo
         }
+
+       
         public void Tick()
         {
             ProducePrimaryResource();
