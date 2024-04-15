@@ -3,6 +3,7 @@ using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket;
+using EoE.Server.TradeSystem;
 using EoE.Server.Treaty;
 using EoE.Server.WarSystem;
 using EoE.TradeSystem;
@@ -31,6 +32,7 @@ namespace EoE.Server
             Players = new List<IPlayer>();
             WarManager = new WarManager(server);
             this.server = server;
+            TradeManager = new ServerTradeManager(server);
         }
 
         public void SetPlayerCount(int playerCount)

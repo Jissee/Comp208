@@ -35,10 +35,6 @@ namespace EoE.Server
         public GameStatus Status {get; private set;}
         public IServerPlayerList PlayerList { get; private set;}
 
-        public IServerTradeManager TradeManager { get; private set; }
-
-
-
         public Server(string ip, int port) 
         {
             ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -52,7 +48,6 @@ namespace EoE.Server
         }
         public void BeginGame()
         {
-            TradeManager = new ServerTradeManager(this);
             Status = new GameStatus(500,100);
             isGameRunning = true;
 
