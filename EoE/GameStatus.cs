@@ -9,7 +9,7 @@ namespace EoE
 {
     public class GameStatus : ITickable
     {
-        public int TotalTick { get; private set; }
+        public int TotalTick { get; set; }
         public int TickCount { get; private set; }
         public int UnidentifiedField { get; set; }
         public Modifier GlobalResourceModifier { get; init; }
@@ -40,11 +40,6 @@ namespace EoE
         public void Tick()
         {
             TickCount++;
-        }
-
-        internal void SetTotalTick(int totalTick)
-        {
-            throw new NotImplementedException();
         }
     }
 }

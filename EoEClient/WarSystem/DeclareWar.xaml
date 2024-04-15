@@ -1,9 +1,9 @@
-﻿<Window x:Class="WarSystem.DeclareWar"
+﻿<Window x:Class="EoE.Client.WarSystem.DeclareWar"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WarSystem"  
+        xmlns:local="clr-namespace:EoE.Client.WarSystem"  
         mc:Ignorable="d"
         Title="DeclareWar" Height="450" Width="800">
     <Grid>
@@ -35,7 +35,7 @@
             <ListBoxItem Content="USER4"/>
             <ListBoxItem Content="USER5"/>
         </ListBox>
-        <Button Grid.Column="1" Content="Check Diplomatic Relation" HorizontalAlignment="Left" Margin="130,86,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_1" Height="50"/>
+        <Button Grid.Column="1" Content="Check Diplomatic Relation" HorizontalAlignment="Left" Margin="130,86,0,0" Grid.Row="1" VerticalAlignment="Top" Height="50"/>
         <Button Grid.Column="1" Content="Send Alliance Invitation" HorizontalAlignment="Left" Margin="465,14,0,0" VerticalAlignment="Top" Grid.Row="1" Height="23" FontSize="15" Click="Button_Click_2"/>
         <Label Grid.Column="1" Content="You can select more than one ally." HorizontalAlignment="Left" Margin="448,42,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="43" Margin="662,174,0,0" VerticalAlignment="Top" Width="44"/>

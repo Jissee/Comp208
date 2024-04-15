@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApp1.ChatSystem
+namespace EoE.Client.ChatSystem
 {
     /// <summary>
     /// TreatyContent.xaml 的交互逻辑

@@ -1,4 +1,4 @@
-﻿using GovernenceSystem;
+﻿using EoE.Client.GovernanceSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApp1.ChatSystem;
+using EoE.Client.ChatSystem;
 
-namespace ChatSystem
+namespace EoE.Client.ChatSystem
 {
     /// <summary>
     /// EstablishRelation.xaml 的交互逻辑

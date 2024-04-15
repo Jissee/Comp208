@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WarSystem
+namespace EoE.Client.WarSystem
 {
     /// <summary>
     /// WarMainPage.xaml 的交互逻辑
@@ -43,11 +43,7 @@ namespace WarSystem
             allocateWar.Show();
         }
 
-        private void buttonReview_Click(object sender, RoutedEventArgs e)
-        {
-            ReviewDiplomatic reviewDiplomatic = new ReviewDiplomatic(); 
-            reviewDiplomatic.Show();
-        }
+       
 
         private void slider1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
