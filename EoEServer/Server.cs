@@ -225,7 +225,7 @@ namespace EoE.Server
         public void SetGame(int playerCount, int totalTick)
         {
             PlayerList.SetPlayerCount(playerCount);
-            Status.SetTotalTick(totalTick);
+            Status.TotalTick = totalTick;
         }
     }
 }
