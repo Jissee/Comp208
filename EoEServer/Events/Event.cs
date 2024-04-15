@@ -116,12 +116,12 @@ namespace EoE.Server.Events
                 tmp.mtth = ticks;
                 return this;
             }
-            public Builder IfPlayer(Predicate<ServerPlayer> playerCondition)
+            public Builder IfPlayer(Predicate<IPlayer> playerCondition)
             {
                 tmp.playerCondition = playerCondition;
                 return this;
             }
-            public Builder IfServer(Predicate<Server> serverCondition)
+            public Builder IfServer(Predicate<IServer> serverCondition)
             {
                 tmp.serverCondition = serverCondition;
                 return this;
