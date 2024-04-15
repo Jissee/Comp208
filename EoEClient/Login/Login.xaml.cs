@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WarSystem;
 
 namespace EoE.Client
 {
@@ -21,14 +22,14 @@ namespace EoE.Client
     public partial class Login : Window
     {
          public event EventHandler NavigateToSelectPage;
-        //[STAThread]
-        //public static void Main()
-       // {
+        [STAThread]
+        public static void Main()
+        {
             //从这个地方开始运行程序
-       //     Application app = new Application();
-       //     app.Run(new Login());
-        //    app.Run(new WarSystem.WarMainPage());
-       // }
+            Application app = new Application();
+            app.Run(new Login());
+            //app.Run(new WarMainPage());
+        }
 
         public Login()
         {
