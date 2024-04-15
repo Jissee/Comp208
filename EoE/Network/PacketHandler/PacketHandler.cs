@@ -35,6 +35,7 @@ namespace EoE.Network
             Register<ServerMessagePacket>();
             Register<OpenTransactionSynchronizePacket>();
             Register<GameSettingPacket>();
+            Register<FieldBoardCastPacket>();
         }
 
         public static void Register<T>() where T : IPacket<T>
