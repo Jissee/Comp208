@@ -59,10 +59,18 @@ namespace EoE.Server
 
             }
 
+
+
             foreach (IPlayer player in PlayerList.Players)
             {
-                Random random = new Random();
-                int index = random.Next(1, PlayerList.PlayerCount);
+                Event.Builder builder1 = new Event.Builder();
+                builder1.ForPlayer(player)
+                    .IfServer(server => true)
+                    .IfPlayer(thePlayer => true)
+                    .HappenIn( (int) (Status.TotalTick*0.1f))
+                    .LastFor(1)
+                    .Do();
+                EventList.AddEvent(builder1.Build());
             }  
         }
 
@@ -78,7 +86,27 @@ namespace EoE.Server
                     break;
                 case 2:
                     Event.Builder builder2 = new Event.Builder();
-                    builder2.ForServer(this).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
+                    builder2.ForPlayer(player).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
+                    EventList.AddEvent(builder2.Build());
+                    break;
+                case 3:
+                    Event.Builder builder3 = new Event.Builder();
+                    builder2.ForPlayer(player).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
+                    EventList.AddEvent(builder2.Build());
+                    break;
+                case 4:
+                    Event.Builder builder4 = new Event.Builder();
+                    builder2.ForPlayer(player).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
+                    EventList.AddEvent(builder2.Build());
+                    break;
+                case 5:
+                    Event.Builder builder5 = new Event.Builder();
+                    builder2.ForPlayer(player).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
+                    EventList.AddEvent(builder2.Build());
+                    break;
+                case 6:
+                    Event.Builder builder6 = new Event.Builder();
+                    builder2.ForPlayer(player).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
                     EventList.AddEvent(builder2.Build());
                     break;
             }

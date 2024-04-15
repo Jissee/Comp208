@@ -17,7 +17,6 @@ namespace EoE.Network.Entities
         Socket ServerSocket { get; }
         public IServerPlayerList PlayerList { get; }
         void InitPlayerName(IPlayer player, string name);
-        
         void Start();
         void Stop();
         bool IsNeedRestart();
