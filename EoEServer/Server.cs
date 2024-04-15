@@ -1,6 +1,7 @@
 ﻿using EoE.Events;
 using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.Interface;
+using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket;
@@ -31,7 +32,7 @@ namespace EoE.Server
         private bool isServerRunning;
         private bool isGameRunning;
         private bool needRestart;
-        public ServerPacketHandler PacketHandler { get; }
+        public PacketHandler PacketHandler { get; }
         public EventList EventList { get; }
         public GameStatus Status {get; private set;}
         public IServerPlayerList PlayerList { get; private set;}

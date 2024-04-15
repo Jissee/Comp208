@@ -16,6 +16,7 @@ namespace EoE.Network.Entities
     public interface IServer : INetworkEntity
     {
         Socket ServerSocket { get; }
+        PacketHandler PacketHandler { get; }
         EventList EventList { get; }
         GameStatus Status { get; }
         public IServerPlayerList PlayerList { get; }
