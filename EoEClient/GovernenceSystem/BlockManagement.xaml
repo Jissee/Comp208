@@ -28,8 +28,8 @@
         <Label Content="Resouce6: " Margin="88,282,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock x:Name="Resouce5text复制__C_" Height="19" Margin="218,253,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock x:Name="Resouce6text复制__C_" Height="19" Margin="218,290,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="254,373,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_1" Width="81"/>
-        <Button Content="Convert" HorizontalAlignment="Left" Margin="453,373,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_2" Width="81"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="464,373,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_1" Width="81"/>
+        <Button Content="Convert" HorizontalAlignment="Left" Margin="254,373,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_2" Width="81" RenderTransformOrigin="1.788,0.753"/>
         <Label Content="Total/Available population: " HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" FontSize="18"/>
         <TextBlock x:Name="Resouce1text复制__C_复制__C_" Height="18" Margin="362,105,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock x:Name="Resouce2text复制__C_复制__C_" Height="20" Margin="0,139,0,0" TextWrapping="Wrap" Text="TextBlock" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top">

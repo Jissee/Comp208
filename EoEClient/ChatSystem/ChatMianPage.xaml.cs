@@ -37,7 +37,7 @@ namespace ChatSystem
             {
                 MessageBox.Show("Please select a player.");
             }
-            string chatUser = listBox1.SelectedItem.ToString();
+            
             
         }
     }

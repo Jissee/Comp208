@@ -82,7 +82,7 @@ namespace WpfApp1.Login.TradeSystem.MadeBuyRequirest
             bool buyFilled = Array.Exists(buyValues, v => v != 0);
             if (sellFilled || buyFilled)
             {
-
+                MessageBox.Show("Sucefully!");
                 this.Hide();
             }
             else

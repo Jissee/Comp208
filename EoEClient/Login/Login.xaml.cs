@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WarSystem;
 
 namespace EoE.Client
 {
@@ -21,14 +22,18 @@ namespace EoE.Client
     public partial class Login : Window
     {
          public event EventHandler NavigateToSelectPage;
-        //[STAThread]
-        //public static void Main()
-       // {
+        [STAThread]
+        public static void Main()
+        {
             //从这个地方开始运行程序
-       //     Application app = new Application();
-       //     app.Run(new Login());
-        //    app.Run(new WarSystem.WarMainPage());
-       // }
+            Application app = new Application();
+            app.Run(new Login());
+<<<<<<< HEAD
+            
+=======
+            //app.Run(new WarMainPage());
+>>>>>>> fa54385ab045b0e781e6ceeda6a6df82a817ee29
+        }
 
         public Login()
         {
@@ -48,6 +53,10 @@ namespace EoE.Client
             {
                 MessageBox.Show("Please enter the server address!");
                 return;
+            }
+            if (string.IsNullOrEmpty(portNumber.Text))
+            {
+                portNumber.Text = "25566";
             }
 
             if (string.IsNullOrWhiteSpace(Username.Text))

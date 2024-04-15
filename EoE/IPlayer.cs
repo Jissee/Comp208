@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem.ServerInterface;
+using EoE.Network.Entities;
 using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace EoE
     public interface IPlayer: ITickable
     {
         Socket Connection { get; }
-
+        IServer Server { get; }
         IServerGonveranceManager GonveranceManager { get; }
         bool IsLose { get; }
         void GameLose();

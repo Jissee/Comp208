@@ -34,8 +34,8 @@ namespace ChatSystem
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MainTradePage mainTradePage = new MainTradePage();
-            mainTradePage.Show();
+            SelectTraderWindow selectTraderWindow = new SelectTraderWindow();
+            selectTraderWindow.Show();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
