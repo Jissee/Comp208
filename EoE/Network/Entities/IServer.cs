@@ -9,12 +9,14 @@ using EoE.TradeSystem;
 using EoE.GovernanceSystem.Interface;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
+using EoE.Events;
 
 namespace EoE.Network.Entities
 {
     public interface IServer : INetworkEntity
     {
         Socket ServerSocket { get; }
+        EventList EventList { get; }
         GameStatus Status { get; }
         public IServerPlayerList PlayerList { get; }
         void InitPlayerName(IPlayer player, string name);
