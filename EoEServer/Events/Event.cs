@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace EoE.Server.Events
 {
-    public delegate void EventCallBack(Server server, ServerPlayer player);
+    public delegate void EventCallBack(IServer server, IPlayer player);
     public class Event : ITickable
     {
         private bool started = false;
-        private Server server;
-        private ServerPlayer player;
+        private IServer server;
+        private IPlayer player;
         private EventCallBack eventCallBack;
-        private Predicate<ServerPlayer> playerCondition;
-        private Predicate<Server> serverCondition;
+        private Predicate<IPlayer> playerCondition;
+        private Predicate<IServer> serverCondition;
         private int happenIn;
         private int remainingTicks;
         private int mtth = -1;
@@ -80,12 +81,12 @@ namespace EoE.Server.Events
                 tmp = new Event();
             }
 
-            public Builder ForServer(Server server)
+            public Builder ForServer(IServer server)
             {
                 tmp.server = server;
                 return this;
             }
-            public Builder ForPlayer(ServerPlayer player)
+            public Builder ForPlayer(IPlayer player)
             {
                 tmp.player = player;
                 tmp.server = player.Server;
@@ -133,7 +134,7 @@ namespace EoE.Server.Events
             }
             public Event Build()
             {
-                if(tmp.player != null)
+                if(tmp.server != null)
                 {
                     if(tmp.eventCallBack != null)
                     {

@@ -290,6 +290,7 @@ namespace EoE.Server.TradeSystem
                 openOrders.Remove(transaction);
                 transaction = openOrders.FirstOrDefault(t => t.Offeror == offeror.PlayerName);
             }
+            server.Broadcast(new OpenTransactionSynchronizePacket(openOrders.Count, openOrders), play => true);
         }
     }
 }

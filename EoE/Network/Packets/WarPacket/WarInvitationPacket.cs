@@ -10,32 +10,23 @@ namespace EoE.Network.Packets.WarPacket
     public class WarInvitationPacket : IPacket<WarInvitationPacket>
     {
         private string warName;
-        private string[] names;
-        public WarInvitationPacket(string warName, string[] names)
+        private string name;
+        public WarInvitationPacket(string warName, string name)
         {
             this.warName = warName;
-            this.names = names;
+            this.name = name;
         }
         public static WarInvitationPacket Decode(BinaryReader reader)
         {
             string warName = reader.ReadString();
-            int cnt = reader.ReadInt32();
-            string[] names = new string[cnt];
-            for (int i = 0; i < cnt; i++)
-            {
-                names[i] = reader.ReadString();
-            }
-            return new WarInvitationPacket(warName, names);
+            string name = reader.ReadString();
+            return new WarInvitationPacket(warName, name);
         }
 
         public static void Encode(WarInvitationPacket obj, BinaryWriter writer)
         {
             writer.Write(obj.warName);
-            writer.Write(obj.names.Length);
-            for (int i = 0; i < obj.names.Length; i++)
-            {
-                writer.Write(obj.names[i]);
-            }
+            writer.Write(obj.name);
         }
 
         public void Handle(PacketContext context)
@@ -44,7 +35,8 @@ namespace EoE.Network.Packets.WarPacket
             {
                 IServer server = (IServer)context.Receiver!;
                 IPlayer player = context.PlayerSender!;
-                server.Broadcast(new WarInvitedPacket(warName, false, player.PlayerName) , (invitedPlayer)=>names.Contains(invitedPlayer.PlayerName));
+                IPlayer target = server.GetPlayer(name)!;
+                target.SendPacket(new WarInvitedPacket(warName, false, player.PlayerName));
             }
             else
             {

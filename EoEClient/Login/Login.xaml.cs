@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WarSystem;
 
 namespace EoE.Client
 {
@@ -27,7 +28,11 @@ namespace EoE.Client
             //从这个地方开始运行程序
             Application app = new Application();
             app.Run(new Login());
+<<<<<<< HEAD
             
+=======
+            //app.Run(new WarMainPage());
+>>>>>>> fa54385ab045b0e781e6ceeda6a6df82a817ee29
         }
 
         public Login()

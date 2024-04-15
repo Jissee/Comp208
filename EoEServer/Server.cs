@@ -22,21 +22,18 @@ using System.Threading.Tasks;
 
 namespace EoE.Server
 {
-    public class Server : IServer, ITickable
+    public class Server : IServer, ITickable 
     {
         public Socket ServerSocket { get; }
 
         private readonly IPEndPoint address;
         private bool isServerRunning;
         private bool isGameRunning;
+        private bool needRestart;
         public ServerPacketHandler PacketHandler { get; }
         public EventList EventList { get; }
         public GameStatus Status {get; private set;}
         public IServerPlayerList PlayerList { get; private set;}
-
-        public IServerTradeManager TradeManager { get; private set; }
-
-
 
         public Server(string ip, int port) 
         {
@@ -47,25 +44,45 @@ namespace EoE.Server
             PlayerList = new ServerPlayerList(this);
             isServerRunning = false;
             isGameRunning = false;
+            needRestart = false;
         }
         public void BeginGame()
         {
-            TradeManager = new ServerTradeManager(this);
             Status = new GameStatus(500,100);
             isGameRunning = true;
-
             lock (PlayerList)
             {
                 foreach (var player in PlayerList.Players)
                 {
                     player.BeginGame();
                 }
-               // Event.Builder builder = new Event.Builder();
-                //builder.ForServer(this).IfServer(server => true).IfPlayer(player => true);
-               // EventList.AddEvent(builder.Build());
+
             }
+
+            foreach (IPlayer player in PlayerList.Players)
+            {
+                Random random = new Random();
+                int index = random.Next(1, PlayerList.PlayerCount);
+            }  
         }
 
+        private void EndowTalent(IPlayer player, int eventNumber)
+        {
+            
+            switch (eventNumber)
+            {
+                case 1:
+                    Event.Builder builder1 = new Event.Builder();
+                    builder1.ForPlayer(player).IfServer(server => true).IfPlayer(thePlayer => thePlayer==player).
+                    EventList.AddEvent(builder1.Build());
+                    break;
+                case 2:
+                    Event.Builder builder2 = new Event.Builder();
+                    builder2.ForServer(this).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
+                    EventList.AddEvent(builder2.Build());
+                    break;
+            }
+        }
         public void Start()
         {
             lock(this)
@@ -102,11 +119,7 @@ namespace EoE.Server
                 lock(PlayerList)
                 {
                     PlayerList.PlayerLogin(new ServerPlayer(cl, this));
-                }/*
-                lock (Clients)
-                {
-                    Clients.Add(new ServerPlayer(cl, this));
-                }*/
+                }
                 
             }
         }
@@ -118,21 +131,6 @@ namespace EoE.Server
                 {
                     PlayerList.HandlePlayerDisconnection();
                 }
-                /*
-                lock (Clients)
-                {
-                    for(int i = 0; i < Clients.Count; i++)
-                    {
-                        ServerPlayer c = (ServerPlayer)Clients[i];
-                        bool b = c.IsConnected;
-                        if (!b)
-                        {
-                            Console.WriteLine($"{c.PlayerName} logged out.");
-                            Clients.Remove(c);
-                        }
-                        
-                    }
-                }*/
             }
         }
 
@@ -187,6 +185,19 @@ namespace EoE.Server
             PlayerList.InitPlayerName((ServerPlayer)player, name);
         }
 
+        public bool IsNeedRestart()
+        {
+            return needRestart;
+        }
+        public void Restart()
+        {
+            needRestart = true;
+        }
 
+        public void SetGame(int playerCount, int totalTick)
+        {
+            PlayerList.SetPlayerCount(playerCount);
+            Status.SetTotalTick(totalTick);
+        }
     }
 }

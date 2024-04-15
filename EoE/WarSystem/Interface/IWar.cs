@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Server.WarSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,11 @@ namespace EoE.WarSystem.Interface
         public string WarName { get; }
         public IWarParty Attackers { get; }
         public IWarParty Defenders { get; }
-        public IWarTarget AttackersTarget { get; }
-        public IWarTarget DefendersTarget { get; }
+        public WarTarget AttackersTarget { get; }
+        public WarTarget DefendersTarget { get; }
         void SetWarManager(IWarManager manager);
+        public void SetAttackersWarTarget(WarTarget warTarget);
+        public void SetDefendersWarTarget(WarTarget warTarget);
         IWarParty GetWarPartyOfPlayer(IPlayer player);
         void End(IWarParty defeated);
     }

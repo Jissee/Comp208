@@ -11,7 +11,7 @@ namespace EoE.Client.GovernanceSystem
 {
     public class ClientResourceList : IClientResourceList
     {
-        private Dictionary<GameResourceType, int> resources;
+        private Dictionary<GameResourceType, int> resources = new Dictionary<GameResourceType, int>();
         public ClientResourceList(
             int silicon,
             int copper,

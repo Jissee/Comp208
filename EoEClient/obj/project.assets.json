@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cyy12\\.nuget\\packages\\": {}
+    "C:\\Users\\sun\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cyy12\\source\\repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj",
+      "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj",
       "projectName": "EoE.Client",
-      "projectPath": "C:\\Users\\cyy12\\source\\repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj",
-      "packagesPath": "C:\\Users\\cyy12\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cyy12\\source\\repos\\Qiuu\\Comp208\\EoEClient\\obj\\",
+      "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj",
+      "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
+      "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cyy12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -53,8 +53,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows7.0",
           "projectReferences": {
-            "C:\\Users\\cyy12\\source\\repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
-              "projectPath": "C:\\Users\\cyy12\\source\\repos\\Qiuu\\Comp208\\EoE\\EoE.csproj"
+            "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
+              "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj"
             }
           }
         }
@@ -92,7 +92,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

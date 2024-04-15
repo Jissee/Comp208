@@ -34,6 +34,8 @@ namespace EoE.Network
             Register<SetExplorationPacket>();
             Register<ServerMessagePacket>();
             Register<OpenTransactionSynchronizePacket>();
+            Register<GameSettingPacket>();
+            Register<FieldBoardCastPacket>();
         }
 
         public static void Register<T>() where T : IPacket<T>
@@ -53,14 +55,14 @@ namespace EoE.Network
         /// <summary>
         /// 把从网络接收的二进制数据恢复成数据包，然后处理数据包
         /// </summary>
-        /// <param name="data"></param>
+        /// <param invitorName="data"></param>
         public abstract void ReceivePacket(byte[] data, PacketContext context);
 
 
         /// <summary>
         /// 把数据包对象编码成二进制数据，然后从网络发送数据
         /// </summary>
-        /// <param name="packet"></param>
+        /// <param invitorName="packet"></param>
         public abstract void SendPacket<T>(T packet, Socket connection, IPlayer redirectTarget) where T : IPacket<T>;
 
 

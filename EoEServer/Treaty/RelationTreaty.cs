@@ -17,6 +17,10 @@ namespace EoE.Server.Treaty
         }
         public void AddCondition(ResourceStack resourceStack)
         {
+            if(resourceStack.Count == 0) 
+            { 
+                return; 
+            }
             if (!ConditionEntries.ContainsKey(resourceStack.Type))
             {
                 ConditionEntries[resourceStack.Type] = resourceStack.Count;

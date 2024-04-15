@@ -1,6 +1,7 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network;
+using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Server.GovernanceSystem;
 using EoE.Server.WarSystem;
@@ -16,7 +17,7 @@ namespace EoE.Server
     public class ServerPlayer : IPlayer, ITickable
     {
         public Socket Connection { get; }
-        public Server Server { get; }
+        public IServer Server { get; }
         private string name;
         public bool IsLose => GonveranceManager.IsLose;
 
@@ -40,7 +41,7 @@ namespace EoE.Server
             } 
         }
         public bool IsAvailable => PlayerName != null;
-        public ServerPlayer(Socket connection, Server server)
+        public ServerPlayer(Socket connection, IServer server)
         {
             this.Connection = connection;
             Server = server;
@@ -48,7 +49,7 @@ namespace EoE.Server
         }
         public void BeginGame()
         {
-            GonveranceManager = new ServerPlayerGonverance(Server.Status,100,this);
+            GonveranceManager = new ServerPlayerGonverance(Server.Status,100,this,Server);
         }
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
 
@@ -71,6 +72,10 @@ namespace EoE.Server
 
         public void GameLose()
         {
+            if (true)
+            {
+                
+            }
             Server.PlayerList.WarManager.PlayerLose(this);
             // todo: treatymanage.playerlose
             // todo: trademenager.playerlose

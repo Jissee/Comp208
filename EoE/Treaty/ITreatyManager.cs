@@ -1,4 +1,5 @@
-﻿using EoE.WarSystem.Interface;
+﻿using EoE.Network.Packets.GonverancePacket.Record;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,8 @@ namespace EoE.Treaty
         List<ITreaty> RelationTreatyList { get;}
         IPlayerRelation PlayerRelation { get; }
         List<IPlayer> FindNonTruce(IPlayer player);
+        void AddProtectiveTreaty(IPlayer target, IPlayer protector, ResourceListRecord condition);
+        void AddCommonDefenseTreaty(IPlayer player1, IPlayer player2);
+
     }
 }

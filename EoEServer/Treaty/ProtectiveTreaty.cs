@@ -11,7 +11,7 @@ namespace EoE.Server.Treaty
     //first is protected by second
     public class ProtectiveTreaty : RelationTreaty, ITickableTreaty
     {
-        public ProtectiveTreaty(ServerPlayer firstParty, ServerPlayer secondParty) : base(firstParty, secondParty)
+        public ProtectiveTreaty(IPlayer firstParty, IPlayer secondParty) : base(firstParty, secondParty)
         {
 
         }

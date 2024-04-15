@@ -2,11 +2,13 @@
 using EoE.GovernanceSystem.Interface;
 using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +17,7 @@ namespace EoE.Server.GovernanceSystem
     public class ServerPlayerFieldList: IServerFieldList
     {
         private Dictionary<GameResourceType, int> fields = new Dictionary<GameResourceType, int>();
+        private IPlayer player;
         public int TotalFieldCount 
         {
             get 
@@ -35,7 +38,8 @@ namespace EoE.Server.GovernanceSystem
             int iron,
             int aluminum,
             int electronic,
-            int industry
+            int industry,
+            IPlayer player
             )
         {
             fields.Add(GameResourceType.Silicon, silicon);
@@ -44,11 +48,7 @@ namespace EoE.Server.GovernanceSystem
             fields.Add(GameResourceType.Aluminum, aluminum);
             fields.Add(GameResourceType.Electronic, electronic);
             fields.Add(GameResourceType.Industrial, industry);
-        }
-
-        public ServerPlayerFieldList() : this(20, 20, 20, 20, 20, 20)
-        {
-
+            this.player = player;
         }
         public void AddField(GameResourceType type, int count)
         {
@@ -101,6 +101,32 @@ namespace EoE.Server.GovernanceSystem
                 );
         }
 
+        public void Filedconversion(FieldStack origin, FieldStack converted)
+        {
+            Filedconversion(origin.Type, origin.Count, converted.Type, converted.Count);
+        }
+        public void Filedconversion(GameResourceType originalType, int originalcount, GameResourceType convertedType, int convertedCount)
+        {
+            if ((int)originalType >= (int)(GameResourceType.Aluminum))
+            {
+                player.SendPacket(new ServerMessagePacket("Can't convert secondary filed to primary field"));
+                player.SendPacket(new FieldUpdatePacket(new FieldListRecord(this)));
+            }
+            else if ((int)convertedType <= (int)(GameResourceType.Aluminum))
+            {
+                player.SendPacket(new ServerMessagePacket("Can't convert one primary filed to another primary field"));
+                player.SendPacket(new FieldUpdatePacket(new FieldListRecord(this)));
+            }else if (originalcount != convertedCount)
+            {
+                player.SendPacket(new ServerMessagePacket("No enought field"));
+                player.SendPacket(new FieldUpdatePacket(new FieldListRecord(this)));
+            }
+            else
+            {
+                SplitField(originalType, originalcount);
+                AddField(convertedType, convertedCount);
+            }
+        }
         public void ClearAll()
         {
             fields[GameResourceType.Silicon] = 0;

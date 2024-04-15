@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EoE.Server
+namespace EoE
 {
     public class GameStatus : ITickable
     {
@@ -38,6 +38,11 @@ namespace EoE.Server
             UnidentifiedField = initialUndentifiedField;
         }
         public void Tick()
+        {
+            TickCount++;
+        }
+
+        internal void SetTotalTick(int totalTick)
         {
             throw new NotImplementedException();
         }

@@ -15,5 +15,6 @@ namespace EoE.GovernanceSystem.ServerInterface
         void AlterPop(int count);
         void SetExploration(int population);
         PopulationRecord GetPopulationRecord();
+        void ClearAll();
     }
 }
