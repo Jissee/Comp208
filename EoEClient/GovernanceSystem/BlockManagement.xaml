@@ -1,0 +1,60 @@
+﻿<Window x:Class="EoE.Client.GovernanceSystem.BlockManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EoE.Client.GovernanceSystem"
+        mc:Ignorable="d"
+        Title="BlockManagement" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+        <TextBlock x:Name="Resouce1text复制__C_" Height="18" Margin="218,105,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Resouce1: " Margin="88,97,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Resouce2: " Margin="88,130,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Resouce3: " Margin="88,169,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Resouce4: " Margin="88,206,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce2text复制__C_" Height="20" Margin="219,139,0,0" TextWrapping="Wrap" Text="TextBlock" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.468"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock x:Name="Resouce3text复制__C_" Height="22" Margin="218,176,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce4text复制__C_" Height="19" Margin="218,214,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Resouce5: " Margin="88,244,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Resouce6: " Margin="88,282,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce5text复制__C_" Height="19" Margin="218,253,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce6text复制__C_" Height="19" Margin="218,290,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="464,373,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_1" Width="81"/>
+        <Button Content="Convert" HorizontalAlignment="Left" Margin="254,373,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_2" Width="81" RenderTransformOrigin="1.788,0.753"/>
+        <Label Content="Total/Available population: " HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="Resouce1text复制__C_复制__C_" Height="18" Margin="362,105,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce2text复制__C_复制__C_" Height="20" Margin="0,139,0,0" TextWrapping="Wrap" Text="TextBlock" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.468"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock x:Name="Resouce3text复制__C_复制__C_" Height="22" Margin="362,176,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce4text复制__C_复制__C_" Height="19" Margin="362,214,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce5text复制__C_复制__C_" Height="19" Margin="362,253,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce6text复制__C_复制__C_" Height="19" Margin="362,290,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Allocate total population" HorizontalAlignment="Left" Margin="487,54,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <Label Content="Working population" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <Button Content="submit" HorizontalAlignment="Left" Margin="688,188,0,0" VerticalAlignment="Top" Width="81" Height="29" FontSize="20"/>
+        <TextBox x:Name="res1" HorizontalAlignment="Left" Margin="520,103,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <TextBox x:Name="res2" HorizontalAlignment="Left" Margin="520,144,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <TextBox x:Name="res3" HorizontalAlignment="Left" Margin="520,181,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <TextBox x:Name="res4" HorizontalAlignment="Left" Margin="520,217,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <TextBox x:Name="res5" HorizontalAlignment="Left" Margin="520,251,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <TextBox HorizontalAlignment="Left" Margin="521,288,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontSize="15"/>
+
+    </Grid>
+</Window>
