@@ -11,9 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApp1;
 
-namespace EoE.Client
+
+namespace EoE.Client.Login
 {
     
     public partial class EnterGamePage : Window
