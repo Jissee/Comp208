@@ -35,10 +35,6 @@ namespace EoE.Server
         public GameStatus Status {get; private set;}
         public IServerPlayerList PlayerList { get; private set;}
 
-        public IServerTradeManager TradeManager { get; private set; }
-
-
-
         public Server(string ip, int port) 
         {
             ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -52,22 +48,41 @@ namespace EoE.Server
         }
         public void BeginGame()
         {
-            TradeManager = new ServerTradeManager(this);
             Status = new GameStatus(500,100);
             isGameRunning = true;
-
             lock (PlayerList)
             {
                 foreach (var player in PlayerList.Players)
                 {
                     player.BeginGame();
                 }
-               // Event.Builder builder = new Event.Builder();
-                //builder.ForServer(this).IfServer(server => true).IfPlayer(player => true);
-               // EventList.AddEvent(builder.Build());
+
             }
+
+            foreach (IPlayer player in PlayerList.Players)
+            {
+                Random random = new Random();
+                int index = random.Next(1, PlayerList.PlayerCount);
+            }  
         }
 
+        private void EndowTalent(IPlayer player, int eventNumber)
+        {
+            
+            switch (eventNumber)
+            {
+                case 1:
+                    Event.Builder builder1 = new Event.Builder();
+                    builder1.ForPlayer(player).IfServer(server => true).IfPlayer(thePlayer => thePlayer==player).
+                    EventList.AddEvent(builder1.Build());
+                    break;
+                case 2:
+                    Event.Builder builder2 = new Event.Builder();
+                    builder2.ForServer(this).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
+                    EventList.AddEvent(builder2.Build());
+                    break;
+            }
+        }
         public void Start()
         {
             lock(this)

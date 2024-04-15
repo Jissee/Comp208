@@ -39,7 +39,7 @@ namespace EoE
         }
         public void Tick()
         {
-            throw new NotImplementedException();
+            TickCount++;
         }
 
         internal void SetTotalTick(int totalTick)

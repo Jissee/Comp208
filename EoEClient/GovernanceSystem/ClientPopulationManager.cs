@@ -14,7 +14,7 @@ namespace EoE.Client.GovernanceSystem
 {
     public class ClientPopulationManager: IClientPopulationManager
     {
-        private Dictionary<GameResourceType, int> popAloc;
+        private Dictionary<GameResourceType, int> popAloc = new Dictionary<GameResourceType, int>();
 
         public int ExploratoinPopulation { get; private set; }
         public int AvailablePopulation { get; private set; }

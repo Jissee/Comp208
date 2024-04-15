@@ -1,9 +1,13 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.ClientInterface;
+using EoE.Network.Entities;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
+using GovernenceSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +15,8 @@ namespace EoE.Client.GovernanceSystem
 {
     public class ClientFieldList : IClientFieldList
     {
-        private Dictionary<GameResourceType, int> fields;
+        private Dictionary<GameResourceType, int> fields = new Dictionary<GameResourceType, int>();
+        private IClient player = Client.INSTANCE;
         public int TotalFieldCount
         {
             get
@@ -93,6 +98,30 @@ namespace EoE.Client.GovernanceSystem
             fields[GameResourceType.Electronic] = fieldListRecord.electronicFieldCount;
             fields[GameResourceType.Industrial] = fieldListRecord.industrialFieldCount;
         }
-
+        public void Filedconversion(FieldStack origin, FieldStack converted)
+        {
+            Filedconversion(origin.Type, origin.Count, converted.Type, converted.Count);
+        }
+        public void Filedconversion(GameResourceType originalType, int originalcount, GameResourceType convertedType, int convertedCount)
+        {
+            if ((int)originalType >= (int)(GameResourceType.Aluminum))
+            {
+                player.MsgBox("Can't convert secondary filed to primary field");
+            }
+            else if ((int)convertedType <= (int)(GameResourceType.Aluminum))
+            {
+                player.MsgBox("Can't convert one primary filed to another primary field");
+            }
+            else if (originalcount != convertedCount)
+            {
+                player.MsgBox("No enought field");
+            }
+            else
+            {
+                SplitField(originalType, originalcount);
+                AddField(convertedType, convertedCount);
+                player.SendPacket(new FieldConvertPacket(new FieldStack(originalType, originalcount), new FieldStack(convertedType, convertedCount)));
+            }
+        }
     }
 }

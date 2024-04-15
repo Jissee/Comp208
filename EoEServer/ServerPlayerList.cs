@@ -3,6 +3,7 @@ using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket;
+using EoE.Server.TradeSystem;
 using EoE.Server.Treaty;
 using EoE.Server.WarSystem;
 using EoE.TradeSystem;
@@ -24,22 +25,23 @@ namespace EoE.Server
         public IServerTradeManager TradeManager { get; }
         private IPlayer? host;
         private IServer server;
-        private int playerCount = 1;
+        public int PlayerCount { get; private set; } = 1;
         public ServerPlayerList(IServer server) 
         { 
             TreatyManager = new TreatyManager(this);
             Players = new List<IPlayer>();
             WarManager = new WarManager(server);
             this.server = server;
+            TradeManager = new ServerTradeManager(server);
         }
 
         public void SetPlayerCount(int playerCount)
         {
-            this.playerCount = playerCount;
+            this.PlayerCount = playerCount;
         }
         public void PlayerLogin(IPlayer player)
         {
-            if (Players.Count <= playerCount)
+            if (Players.Count < PlayerCount)
             {
                 if (host == null)
                 {
@@ -57,6 +59,7 @@ namespace EoE.Server
 
         public void PlayerLogout(IPlayer player)
         {
+            player.GameLose();
             Console.WriteLine($"{player.PlayerName} logged out.");
             Players.Remove(player);
             if(Players.Count == 0)
@@ -67,7 +70,6 @@ namespace EoE.Server
             else if (player == host)
             {
                 host = Players[0];
-                host.SendPacket(new RoomOwnerPacket(true));
             }
         }
         public void HandlePlayerDisconnection()
@@ -160,12 +162,6 @@ namespace EoE.Server
             return protectors;
         }
 
-        public void Kickplayer(IPlayer player)
-        {
-            TradeManager.ClearAll(player);
-            player.GonveranceManager.ClearAll();
-            //TODo
-            PlayerLogout(player);
-        }
+
     }
 }
