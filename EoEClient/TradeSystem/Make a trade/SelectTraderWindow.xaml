@@ -6,12 +6,39 @@
         xmlns:local="clr-namespace:EoE.Client.TradeSystem"
         mc:Ignorable="d"
         Title="SelectTraderWindow" Height="450" Width="800"
-        Background="LightGray">
+        >
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ListBox x:Name="PlayerListBox" Width="355" Height="356" RenderTransformOrigin="0.501,0.587" SelectionChanged="PlayerListBox_SelectionChanged"/>
-        </StackPanel>
-        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" Margin="61,312,0,0" VerticalAlignment="Top" Height="70" Width="137" FontSize="25" Background="White" Click="Button_Click"/>
-       
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" Margin="266,365,0,0" VerticalAlignment="Top" Height="45" Width="106" FontSize="25" Background="White" Click="Button_Click"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="40,134,609,147" FontSize="20"/>
+        <Label Content="Select Sell Item and Number" HorizontalAlignment="Left" Margin="203,2,0,0" VerticalAlignment="Top" FontSize="20" Width="289"/>
+        <Label Content="Select Buy Item and Number" HorizontalAlignment="Left" Margin="497,0,0,0" VerticalAlignment="Top" FontSize="20" Width="293"/>
+        <Button x:Name="submit" Content="Submit" HorizontalAlignment="Left" Margin="441,365,0,0" VerticalAlignment="Top" Height="45" Width="106" FontSize="25" Background="White" Click="submit_click"/>
+        <Label Content="Select a player:" HorizontalAlignment="Left" Margin="40,99,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="258,62,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="334,66,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="258,107,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="334,111,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="258,150,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="334,154,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="258,195,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="334,199,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="258,239,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="334,243,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="258,286,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="334,290,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="550,62,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="626,66,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="550,107,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="626,111,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="550,150,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="626,154,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="550,195,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="626,199,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="550,239,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="626,243,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+        <Label Content="Res1:" HorizontalAlignment="Left" Margin="550,286,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="626,290,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="96" FontSize="20"/>
+
     </Grid>
 </Window>

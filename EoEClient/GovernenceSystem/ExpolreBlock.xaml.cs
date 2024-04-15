@@ -31,7 +31,20 @@ namespace GovernenceSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("You have sucessfully sent people to expore.");
+            if (int.TryParse(number.Text, out int value) && value >= 1)
+            {
+                MessageBox.Show("You have successfully sent people to explore.");
+            }
+            else
+            {
+                MessageBox.Show("Please enter a number greater than or equal to 1.");
+            }
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

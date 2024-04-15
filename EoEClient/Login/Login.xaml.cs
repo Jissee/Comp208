@@ -27,7 +27,7 @@ namespace EoE.Client
             //从这个地方开始运行程序
             Application app = new Application();
             app.Run(new Login());
-            app.Run(new WarSystem.WarMainPage());
+            
         }
 
         public Login()
@@ -48,6 +48,10 @@ namespace EoE.Client
             {
                 MessageBox.Show("Please enter the server address!");
                 return;
+            }
+            if (string.IsNullOrEmpty(portNumber.Text))
+            {
+                portNumber.Text = "25566";
             }
 
             if (string.IsNullOrWhiteSpace(Username.Text))
