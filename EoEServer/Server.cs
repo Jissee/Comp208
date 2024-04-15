@@ -64,7 +64,9 @@ namespace EoE.Server
 
             foreach (IPlayer player in PlayerList.Players)
             {
-                
+                Random random = new Random();
+                int index = random.Next(1, 6);
+                PreparePlayerRandomEvents(player,index);
             }  
         }
 
@@ -155,7 +157,7 @@ namespace EoE.Server
                            {
                                player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("", -2.5);
                                player.SendPacket(new ServerMessagePacket("Under your diligent and dedicated leadership, " +
-                                   "the productivity of your country's four primary resources has been reduced.."));
+                                   "the productivity of your country's four primary resources has been reduced."));
                            }
                          );
                     EventList.AddEvent(builder2.Build());
@@ -173,7 +175,7 @@ namespace EoE.Server
                            {
                                player.GonveranceManager.PlayerStatus.CountrySecondaryModifier.AddValue("", 1.0);
                                player.SendPacket(new ServerMessagePacket("Under your diligent and dedicated leadership, " +
-                                   "the productivity of your country's two secondary resources has been reduced.."));
+                                   "the productivity of your country's two secondary resources has been reduced."));
                            }
                          );
                     EventList.AddEvent(builder3.Build());
@@ -191,7 +193,7 @@ namespace EoE.Server
                            {
                                player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("", -3);
                                player.SendPacket(new ServerMessagePacket("Due to the onslaught of severe weather conditions, " +
-                                   "the productivity of Copper has been reduced.."));
+                                   "the productivity of Copper has been reduced."));
                            }
                          );
                     EventList.AddEvent(builder4.Build());
@@ -207,16 +209,29 @@ namespace EoE.Server
                         (
                            (server, player) =>
                            {
-                               player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("", -3);
-                               player.SendPacket(new ServerMessagePacket("Due to the onslaught of severe weather conditions, " +
-                                   "the productivity of Copper has been reduced.."));
+                               player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("", 3);
+                               player.SendPacket(new ServerMessagePacket("Due to a new technological breakthrough, " +
+                                   "the productivity of Aluminum has been increased."));
                            }
                          );
                     EventList.AddEvent(builder5.Build());
                     break;
                 case 6:
                     Event.Builder builder6 = new Event.Builder();
-                    builder6.ForPlayer(player).IfServer(server => true).IfPlayer(thePlayer => thePlayer == player);
+                    builder6.ForPlayer(player)
+                       .IfServer(server => true)
+                       .IfPlayer(thePlayer => true)
+                       .HappenIn((int)(Status.TotalTick * 0.25f))
+                       .LastFor(1)
+                       .Do
+                       (
+                          (server, player) =>
+                          {
+                              player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("", -3);
+                              player.SendPacket(new ServerMessagePacket("Due to the onslaught of severe weather conditions, " +
+                                  "the productivity of Aluminum has been reduced.."));
+                          }
+                        );
                     EventList.AddEvent(builder6.Build());
                     break;
             }
