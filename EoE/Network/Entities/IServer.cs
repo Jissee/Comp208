@@ -16,7 +16,6 @@ namespace EoE.Network.Entities
     {
         Socket ServerSocket { get; }
         GameStatus Status { get; }
-        public IServerTradeManager TradeManager { get; }
         public IServerPlayerList PlayerList { get; }
         void InitPlayerName(IPlayer player, string name);
         
