@@ -97,7 +97,7 @@ namespace EoE.Client.Login
             }
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        private void CheckBox_Clicked(object sender, RoutedEventArgs e)
         {
             if (NextRound.IsChecked == true)
             {

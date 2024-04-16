@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Media;
 
 
@@ -97,7 +98,7 @@ namespace EoE.Client
                 window.SynchronizePopulation(populationRecord);
             });
         }
-        public void SynchronizeRoundNumber(int round)
+        public void SynchronizeTickCount(int round)
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
@@ -105,6 +106,7 @@ namespace EoE.Client
                 window.SynchronizeRoundNumber(round);
             });
         }
+      
 
         public void ShowGameMainPage()
         {

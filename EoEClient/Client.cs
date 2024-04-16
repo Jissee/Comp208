@@ -27,7 +27,7 @@ namespace EoE.Client
         public Socket Connection { get; private set; }
         public string? PlayerName { get; private set; }
         private bool isRunning;
-
+        public int TickCount { get; private set; }
         public PacketHandler Handler { get; }
         public List<string> OtherPlayer { get; private set; } 
         public IClientGonveranceManager GonveranceManager { get; init; }
@@ -64,6 +64,11 @@ namespace EoE.Client
             ClientWarTargetList = new ClientWarTargetList();
             ClientTreatyList = new ClientTreatyList();
             WindowManager = EoE.Client.WindowManager.INSTANCE;
+        }
+
+        public void SynchronizeTickCount(int tickCount)
+        {
+            WindowManager.SynchronizeTickCount(tickCount);
         }
         public void SetPlayerName(string name)
         {

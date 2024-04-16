@@ -53,6 +53,7 @@ namespace EoE.Client.GovernanceSystem
             popAloc[GameResourceType.Electronic] = popRecord.electronicPop;
             popAloc[GameResourceType.Industrial] = popRecord.industrailPop;
             AvailablePopulation = popRecord.availablePopulation;
+            WindowManager.INSTANCE.SynchronizePopulation(popRecord);
         }
 
         public void SetAllocation(

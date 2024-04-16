@@ -366,6 +366,7 @@ namespace EoE.Server
             {
                 PlayerList.Tick();
             }
+            Boardcast(new FinishTickPacket(true),player=>true);
         }
 
         public void CheckPlayerTickStatus()
