@@ -35,7 +35,6 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-wind
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\TreatyContent.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagement.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ConvertPage.g.cs
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ExpolreBlock.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MainWindow.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagement.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ResourceManage.g.cs
@@ -73,7 +72,6 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-wind
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\TreatyContent.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagement.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ConvertPage.baml
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ExpolreBlock.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MainWindow.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagement.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ResourceManage.baml
@@ -174,3 +172,5 @@ C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\r
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\SetExploreWindow.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\SetExploreWindow.baml

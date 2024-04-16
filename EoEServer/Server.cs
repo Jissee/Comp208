@@ -32,7 +32,6 @@ namespace EoE.Server
         private bool isServerRunning;
         private bool isGameRunning;
         private bool needRestart;
-        private readonly object lockObject = new object();
         public PacketHandler PacketHandler { get; }
         public EventList EventList { get; }
         public GameStatus Status {get; private set;}
@@ -294,7 +293,7 @@ namespace EoE.Server
         }
         public void Stop()
         {
-            lock(lockObject)
+            lock(ServerSocket)
             {
                 ServerSocket?.Close();
                 isServerRunning = false;
@@ -306,7 +305,7 @@ namespace EoE.Server
             while (isServerRunning)
             {   // Accept one connection
                 Socket cl ;
-                lock (lockObject)
+                lock (ServerSocket)
                 {
                     if (needRestart)
                     {
