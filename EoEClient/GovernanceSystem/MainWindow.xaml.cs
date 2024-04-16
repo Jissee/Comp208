@@ -51,7 +51,7 @@ namespace EoE.Client.GovernanceSystem
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            ExpolreBlock.INSTANCE.Show();
+            WindowManager.INSTANCE.ShowWindows<SetExploreWindow>();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

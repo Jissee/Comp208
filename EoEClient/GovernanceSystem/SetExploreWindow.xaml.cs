@@ -17,21 +17,10 @@ namespace EoE.Client.GovernanceSystem
     /// <summary>
     /// ExpolreBlock.xaml 的交互逻辑
     /// </summary>
-    public partial class ExpolreBlock : Window
+    public partial class SetExploreWindow : Window
     {
-        private static ExpolreBlock instance;
-        public static ExpolreBlock INSTANCE 
-        { 
-            get 
-            { 
-                if(instance == null || !instance.IsLoaded)
-                {
-                    instance = new ExpolreBlock();
-                }
-                return instance;
-            } 
-        }
-        public ExpolreBlock()
+        
+        public SetExploreWindow()
         {
             InitializeComponent();
             Population.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
@@ -62,7 +51,8 @@ namespace EoE.Client.GovernanceSystem
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            instance = null;
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }
