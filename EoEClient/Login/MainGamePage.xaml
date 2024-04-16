@@ -14,18 +14,18 @@
         <Button x:Name="Chat" Content="Chat" HorizontalAlignment="Left" Margin="596,278,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Chat_Click" FontSize="16"/>
         <Rectangle HorizontalAlignment="Left" Height="302" Margin="43,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="439" Fill="White"/>
         <Button x:Name="Next" Content="Next Round" HorizontalAlignment="Left" Margin="350,353,0,0" VerticalAlignment="Top" Height="46" Width="132" Background="White" Click="Next_Click" FontSize="16"/>
-        <Label x:Name="Resource1" Content="Silicon: " HorizontalAlignment="Left" Margin="68,51,0,0" VerticalAlignment="Top" Height="36" Width="80" FontSize="20"/>
+        <Label Content="Silicon: " HorizontalAlignment="Left" Margin="68,51,0,0" VerticalAlignment="Top" Height="36" Width="80" FontSize="20"/>
         <Label x:Name="Resource2" Content="Copper:" HorizontalAlignment="Left" Margin="62,113,0,0" VerticalAlignment="Top" Height="36" Width="92" FontSize="20"/>
         <Label x:Name="Resource3" Content="Iron:" HorizontalAlignment="Left" Margin="295,113,0,0" VerticalAlignment="Top" Height="36" Width="52" FontSize="20"/>
         <Label x:Name="Resource4" Content="Aluminum:" HorizontalAlignment="Left" Margin="267,51,0,0" VerticalAlignment="Top" Height="36" Width="115" FontSize="20"/>
         <Label x:Name="Resource5" Content="Electronic:" HorizontalAlignment="Left" Margin="54,173,0,0" VerticalAlignment="Top" Height="36" Width="108" FontSize="20"/>
         <Label x:Name="Resource6" Content="Industrial:" HorizontalAlignment="Left" Margin="270,172,0,0" VerticalAlignment="Top" Height="36" Width="108" FontSize="20"/>
-        <TextBlock x:Name="Source1" HorizontalAlignment="Left" Margin="172,56,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
-        <TextBlock x:Name="Source2" HorizontalAlignment="Left" Margin="172,117,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
-        <TextBlock x:Name="Source3" HorizontalAlignment="Left" Margin="172,179,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
-        <TextBlock x:Name="Source4" HorizontalAlignment="Left" Margin="382,56,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20" />
-        <TextBlock x:Name="Source5" HorizontalAlignment="Left" Margin="382,121,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
-        <TextBlock x:Name="Source6" HorizontalAlignment="Left" Margin="383,176,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
+        <TextBlock x:Name="Silicon" HorizontalAlignment="Left" Margin="172,56,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
+        <TextBlock x:Name="Copper" HorizontalAlignment="Left" Margin="172,117,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
+        <TextBlock x:Name="Electronic" HorizontalAlignment="Left" Margin="172,179,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
+        <TextBlock x:Name="Aluminum" HorizontalAlignment="Left" Margin="382,56,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20" />
+        <TextBlock x:Name="Iron" HorizontalAlignment="Left" Margin="382,121,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
+        <TextBlock x:Name="Industrial" HorizontalAlignment="Left" Margin="383,176,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
         <Label x:Name="People" Content="Population: " HorizontalAlignment="Left" Margin="138,267,0,0" VerticalAlignment="Top" Height="34" FontSize="20"/>
         <TextBlock x:Name="Population" HorizontalAlignment="Left" Margin="270,274,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="27" Width="102" FontSize="20"/>
         <Label Content="Round Number:" HorizontalAlignment="Left" Margin="48,361,0,0" VerticalAlignment="Top" FontSize="16"/>
