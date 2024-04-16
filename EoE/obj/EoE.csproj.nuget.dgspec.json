@@ -1,6 +1,75 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {}
+=======
+=======
+>>>>>>> temp
+    "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {}
+=======
+<<<<<<< HEAD
+    "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {}
+>>>>>>> merge
+>>>>>>> merge
+  },
+  "projects": {
+    "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
+        "projectName": "EoE",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
+        "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
+        "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\obj\\",
+=======
+>>>>>>> merge
+        "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
+        "packagesPath": "C:\\Users\\86151\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\obj\\",
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> merge
+=======
+<<<<<<< HEAD
+>>>>>>> temp
+    "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
+        "projectName": "EoE",
+        "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
+        "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+<<<<<<< HEAD
+=======
+>>>>>>> 50be499b5f979f04d6315fe3a8c99667e036076c
+=======
+=======
+=======
+>>>>>>> temp
+>>>>>>> temp
+>>>>>>> temp
     "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {}
   },
   "projects": {
@@ -12,13 +81,47 @@
         "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj",
         "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\obj\\",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> merge
+>>>>>>> merge
+=======
+>>>>>>> temp
+>>>>>>> temp
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+          "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+<<<<<<< HEAD
+          "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> merge
+>>>>>>> merge
+<<<<<<< HEAD
+>>>>>>> merge
+<<<<<<< HEAD
+>>>>>>> merge
+=======
+=======
+=======
+          "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> temp
+>>>>>>> temp
+>>>>>>> temp
+>>>>>>> temp
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

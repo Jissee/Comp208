@@ -1,8 +1,57 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "qlw0SRpsiiD7pPIDuBBDBr4qp7lbLaYKq/UqAfLdjW+41TYOXWI8V2K5yPwf5fI1dIpV9zYV/LrmJjjixn5p0A==",
   "success": true,
   "projectFilePath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEClient\\EoE.Client.csproj",
+=======
+<<<<<<< HEAD
+  "dgSpecHash": "tJM3arCFv47lUwRu8eVQTaY9Kv4c38uGwAaf4CtJEbJvG+zHqtFhQyduKXTGqaiUE74sHO0kR1QKkxLENHdjMA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+  "dgSpecHash": "WEI7fBZ3jNT6/umpk+GrZsHQfN3vk2KQ0t778yE5t/u6F3iz//k07Gv0ZMXQaOpbJRkT8HMKpS9No7Z8VDjhkA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj",
+=======
+  "dgSpecHash": "tJM3arCFv47lUwRu8eVQTaY9Kv4c38uGwAaf4CtJEbJvG+zHqtFhQyduKXTGqaiUE74sHO0kR1QKkxLENHdjMA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
+>>>>>>> 50be499b5f979f04d6315fe3a8c99667e036076c
+=======
+=======
+>>>>>>> temp
+  "dgSpecHash": "OG8QJeInlwANDmahXhi63d0qXRY1S/GhmJn9Lh0fUyOBJknyf1le+xZ2Etd5SptbgBVDhj5kB9OSwnOe8E7EYQ==",
+  "success": true,
+  "projectFilePath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj",
+=======
+<<<<<<< HEAD
+  "dgSpecHash": "WEI7fBZ3jNT6/umpk+GrZsHQfN3vk2KQ0t778yE5t/u6F3iz//k07Gv0ZMXQaOpbJRkT8HMKpS9No7Z8VDjhkA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj",
+=======
+  "dgSpecHash": "qlw0SRpsiiD7pPIDuBBDBr4qp7lbLaYKq/UqAfLdjW+41TYOXWI8V2K5yPwf5fI1dIpV9zYV/LrmJjjixn5p0A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEClient\\EoE.Client.csproj",
+>>>>>>> merge
+>>>>>>> merge
+<<<<<<< HEAD
+>>>>>>> merge
+<<<<<<< HEAD
+>>>>>>> merge
+=======
+=======
+=======
+  "dgSpecHash": "qlw0SRpsiiD7pPIDuBBDBr4qp7lbLaYKq/UqAfLdjW+41TYOXWI8V2K5yPwf5fI1dIpV9zYV/LrmJjjixn5p0A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEClient\\EoE.Client.csproj",
+>>>>>>> temp
+>>>>>>> temp
+>>>>>>> temp
+>>>>>>> temp
   "expectedPackageFiles": [],
   "logs": [
     {

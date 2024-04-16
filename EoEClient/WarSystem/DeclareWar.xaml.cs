@@ -22,8 +22,6 @@ namespace EoE.Client.WarSystem
         public DeclareWar()
         {
             InitializeComponent();
-            dockPanel.Visibility = Visibility.Hidden;
-
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -33,7 +31,6 @@ namespace EoE.Client.WarSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
             if (listBox1.SelectedItem != null )
             {
                 // 执行提交操作
@@ -41,7 +38,7 @@ namespace EoE.Client.WarSystem
                 MessageBox.Show("You can manage your army in next page or find the page in Check status of War!");
                 AllocateArmy allocateArmy = new AllocateArmy();
                 allocateArmy .Show();
-                
+                MessageBox.Show(listBox1.SelectedItem.ToString());
             }
             else
             {
@@ -53,7 +50,6 @@ namespace EoE.Client.WarSystem
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            dockPanel.Visibility = Visibility.Visible;
         }
     }
 }

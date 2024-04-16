@@ -12,11 +12,14 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-wind
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
 =======
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
 >>>>>>> 50be499b5f979f04d6315fe3a8c99667e036076c
 =======
+=======
+>>>>>>> temp
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\
 =======
 <<<<<<< HEAD
@@ -25,9 +28,21 @@ C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
 >>>>>>> merge
 >>>>>>> merge
+<<<<<<< HEAD
 >>>>>>> merge
+<<<<<<< HEAD
 >>>>>>> merge
+<<<<<<< HEAD
 >>>>>>> merge
+=======
+=======
+=======
+=======
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
+>>>>>>> temp
+>>>>>>> temp
+>>>>>>> temp
+>>>>>>> temp
 EoE.Client
 none
 false
@@ -39,8 +54,11 @@ C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\App.xaml
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\App.xaml
 =======
+=======
+>>>>>>> temp
 D:\e-textbook3\comp208\EoE\EoEClient\App.xaml
 =======
 <<<<<<< HEAD
@@ -65,9 +83,14 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\App.xaml
 251400222464
 
 45957145203
+=======
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\App.xaml
+251230979298
+
+451060356519
+>>>>>>> temp
 1991014721367
-ChatSystem\ChatMianPage.xaml;ChatSystem\ChatPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\TreatyContent.xaml;GovernanceSystem\BlockManagement.xaml;GovernanceSystem\ConvertPage.xaml;GovernanceSystem\ExpolreBlock.xaml;GovernanceSystem\MainWindow.xaml;GovernanceSystem\MilitaryManagement.xaml;GovernanceSystem\ResourceManage.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\LoginWindow.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
->>>>>>> merge
+ChatSystem\ChatMianPage.xaml;ChatSystem\ChatPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\TreatyContent.xaml;GovernanceSystem\BlockManagement.xaml;GovernanceSystem\ConvertPage.xaml;GovernanceSystem\MainWindow.xaml;GovernanceSystem\MilitaryManagement.xaml;GovernanceSystem\ResourceManage.xaml;GovernanceSystem\SetExploreWindow.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\LoginWindow.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
 
 False
 
