@@ -13,14 +13,12 @@
         <Label Content="Technology Army: " Margin="14,212,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Mechanization Army: " Margin="14,285,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Next round resources: " HorizontalAlignment="Left" Margin="591,87,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Allocate army for next round:" Margin="405,121,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Resouce1change" Margin="415,155,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" Height="19"/>
-        <Button x:Name="Submit1" Content="Submit" Margin="509,155,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Resouce2change" Margin="415,226,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Submit2" Content="Submit" Margin="509,225,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Resouce3change" Margin="415,293,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="Submit3" Content="Submit" Margin="509,291,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="Back" HorizontalAlignment="Center" Margin="0,360,0,0" VerticalAlignment="Top" Height="39" Width="212" FontSize="18" Click="Button_Click"/>
+        <Label Content="Allocate army for next round:" Margin="395,116,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="Resouce1change" Margin="452,153,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" Height="19" FontSize="15"/>
+        <TextBox x:Name="Resouce2change" Margin="452,224,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"/>
+        <TextBox x:Name="Resouce3change" Margin="452,291,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"/>
+        <Button x:Name="Submit3" Content="Submit All" Margin="452,367,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="40" FontSize="20"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="150,367,0,0" VerticalAlignment="Top" Height="40" Width="200" FontSize="20" Click="Button_Click"/>
         <TextBlock x:Name="battleafter" HorizontalAlignment="Left" Margin="652,146,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
         <TextBlock x:Name="techafter" HorizontalAlignment="Left" Margin="652,211,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
         <TextBlock x:Name="mechafter" HorizontalAlignment="Left" Margin="652,283,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
