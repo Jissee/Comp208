@@ -1,0 +1,24 @@
+﻿<Window x:Class="EoE.Client.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EoE.Client"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800"
+        >
+    <Grid>
+
+        <TextBox x:Name="ServerAddress" HorizontalAlignment="Left" VerticalAlignment="Top" Width="399" Height="34" Margin="261,132,0,0" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Enter server address: " HorizontalAlignment="Left" Margin="30,131,0,0" VerticalAlignment="Top" Width="226" FontSize="20"/>
+        <CheckBox x:Name="agreeCheckBox" Content="I agree to the agreement " Margin="266,275,0,0" Checked="CheckBox_Checked_1" Height="32" Width="294" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Check" Content="Query" HorizontalAlignment="Left" Margin="560,275,0,0" VerticalAlignment="Top" Height="32" Width="95" Click="Quary_Click" FontSize="20"/>
+        <Button x:Name="Connect" Content="Connect" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Height="36" Width="124" Click="Connect_Click" FontSize="20"/>
+        <Label x:Name="username" Content="Enter username:" HorizontalAlignment="Left" Margin="30,211,0,0" VerticalAlignment="Top" Height="35" Width="226" RenderTransformOrigin="0.822,0.563" FontSize="20"/>
+        <TextBox x:Name="Username" HorizontalAlignment="Left" Margin="263,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397" Height="33" TextChanged="TextBox_TextChanged_1"/>
+        <Label Content="Epoch of Empires" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold"/>
+        <TextBox x:Name="portNumber" HorizontalAlignment="Left" VerticalAlignment="Top" Width="399" Height="34" Margin="261,172,0,0" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Enter port number: " HorizontalAlignment="Left" Margin="30,171,0,0" VerticalAlignment="Top" Width="226" FontSize="20"/>
+
+    </Grid>
+</Window>
