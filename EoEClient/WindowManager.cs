@@ -28,7 +28,7 @@ namespace EoE.Client
         public static void Main()
         {
             Application app = new Application();
-            app.Run(new LoginWindow());
+            app.Run(INSTANCE.GetWindows<LoginWindow>());
         }
         public void ShowWindows<T>() where T : Window, new()
         {
@@ -47,7 +47,7 @@ namespace EoE.Client
             
         }
 
-        public Window GetWindows<T>() where T : Window, new()
+        public T GetWindows<T>() where T : Window, new()
         {
             Type t = typeof(T);
             string typeName = t.FullName;
@@ -56,7 +56,7 @@ namespace EoE.Client
             {
                 WindowsDict.Add(typeName, new T());
             }
-            return WindowsDict[typeName];
+            return (T)WindowsDict[typeName];
         }
 
         public void ShowGameSettingWindow()
@@ -64,8 +64,22 @@ namespace EoE.Client
             Application.Current.Dispatcher.Invoke(()=>
             {
                 ShowWindows<SetGameWindow>();
+                LoginWindow window = GetWindows<LoginWindow>();
+                window.ignoreClosing = true;
+                window.Close();
             });
             
+        }
+
+        public void ShowGameEntterWindow()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                ShowWindows<EnterGamePage>();
+                LoginWindow window = GetWindows<LoginWindow>();
+                window.ignoreClosing = true;
+                window.Close();
+            });
         }
 
         public void UpdateOtherPlayerField(string playerName, FieldListRecord record)
@@ -76,9 +90,9 @@ namespace EoE.Client
         {
             Type t = typeof(EnterGamePage);
             string typeName = t.FullName;
-            EnterGamePage window = (EnterGamePage)WindowsDict[typeName];
             Application.Current.Dispatcher.Invoke(() =>
             {
+                EnterGamePage window = (EnterGamePage)GetWindows<EnterGamePage>();
                 window.SynchronizeGameSetting(playerNumber, gameRound);
             });
 
