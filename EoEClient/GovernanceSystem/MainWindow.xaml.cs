@@ -36,17 +36,17 @@ namespace EoE.Client.GovernanceSystem
 
         private void Manage_Resource_Click(object sender, RoutedEventArgs e)
         {
-            WindowsManager.INSTANCE.ShowWindows<ResourceManage>();
+            WindowManager.INSTANCE.ShowWindows<ResourceManage>();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WindowsManager.INSTANCE.ShowWindows<MilitaryManagement>();
+            WindowManager.INSTANCE.ShowWindows<MilitaryManagement>();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            WindowsManager.INSTANCE.ShowWindows<BlockManagement>();
+            WindowManager.INSTANCE.ShowWindows<BlockManagement>();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

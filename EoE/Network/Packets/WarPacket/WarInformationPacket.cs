@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -96,7 +97,23 @@ namespace EoE.Network.Packets.WarPacket
         {
             if(context.NetworkDirection == Entities.NetworkDirection.Server2Client)
             {
-                // todo show details to player
+                IClient client = (IClient) context.Receiver;
+                client.ClientWarInformationList.ChangeWarInformationList(
+                    warName,
+                    totalBattle,
+                    totalInformative,
+                    totalMechanism,
+                    battleLost,
+                    informativeLost,
+                    mechanismLost,
+                
+                    enemyTotalBattle,
+                    enemyTotalInformative,
+                    enemyTotalMechanism,
+                    enemyBattleLost,
+                    enemyInformativeLost,
+                    enemyMechanismLost
+                    );
             }
         }
     }

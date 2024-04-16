@@ -35,6 +35,15 @@ namespace EoE.Network.Packets.GameEventPacket
                 if (ne is IServer server)
                 {
                     server.InitPlayerName(context.PlayerSender!, playerName);
+
+                }
+            }
+            if (context.NetworkDirection == NetworkDirection.Server2Client)
+            {
+                INetworkEntity ne = context.Receiver!;
+                if (ne is IClient client)
+                {
+                    client.SynchronizePlayerName(playerName);
                 }
             }
         }

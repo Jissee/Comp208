@@ -45,12 +45,12 @@ namespace EoE.Client.WarSystem
 
         private void buttonCheck_Click(object sender, RoutedEventArgs e)
         {
-            WindowsManager.INSTANCE.ShowWindows<CheckStatus>();
+            WindowManager.INSTANCE.ShowWindows<CheckStatus>();
         }
 
         private void buttonGoingWar_Click(object sender, RoutedEventArgs e)
         {
-            WindowsManager.INSTANCE.ShowWindows<AllocateArmy>();
+            WindowManager.INSTANCE.ShowWindows<AllocateArmy>();
         }
 
        
@@ -62,7 +62,7 @@ namespace EoE.Client.WarSystem
 
         private void warGoals_Click(object sender, RoutedEventArgs e)
         {
-            WindowsManager.INSTANCE.ShowWindows<WarDetail>();
+            WindowManager.INSTANCE.ShowWindows<WarDetail>();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

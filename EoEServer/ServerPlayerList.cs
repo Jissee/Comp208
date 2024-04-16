@@ -18,21 +18,21 @@ using System.Threading.Tasks;
 namespace EoE.Server
 {
     public class ServerPlayerList : IServerPlayerList, ITickable
-    {
+    { 
+        public List<IPlayer> Players { get; }
         public ITreatyManager TreatyManager { get; }
         public IWarManager WarManager { get; }
-        public List<IPlayer> Players { get; }
         public IServerTradeManager TradeManager { get; }
-        private IPlayer? host;
+        public IPlayer? Host { get; private set; }
         private IServer server;
         public int PlayerCount { get; private set; } = 1;
         public ServerPlayerList(IServer server) 
-        { 
-            TreatyManager = new TreatyManager(this);
+        {
             Players = new List<IPlayer>();
+            TreatyManager = new TreatyManager(this);
             WarManager = new WarManager(server);
-            this.server = server;
             TradeManager = new ServerTradeManager(server);
+            this.server = server;
         }
 
         public void SetPlayerCount(int playerCount)
@@ -43,12 +43,11 @@ namespace EoE.Server
         {
             if (Players.Count < PlayerCount)
             {
-                if (host == null)
-                {
-                    host = player;
-                    player.SendPacket(new RoomOwnerPacket(true));
-                }
                 Players.Add(player);
+                if (Host == null)
+                {
+                    Host = player;
+                }
             }
             else
             {
@@ -57,9 +56,9 @@ namespace EoE.Server
 
         }
 
+        
         public void PlayerLogout(IPlayer player)
         {
-            player.GameLose();
             Console.WriteLine($"{player.PlayerName} logged out.");
             Players.Remove(player);
             if(Players.Count == 0)
@@ -67,9 +66,9 @@ namespace EoE.Server
                 server.Stop();
                 server.Restart();
             }
-            else if (player == host)
+            else if (player == Host)
             {
-                host = Players[0];
+                Host = Players[0];
             }
         }
         public void HandlePlayerDisconnection()
@@ -80,7 +79,7 @@ namespace EoE.Server
                 bool b = c.IsConnected;
                 if (!b)
                 {
-                    PlayerLogout(c);
+                    c.GameLose();
                 }
             }
         }
@@ -127,9 +126,45 @@ namespace EoE.Server
         }
         public void InitPlayerName(IPlayer playerRef, string name)
         {
+            bool nameCheck = true;
+            while(CheckName(playerRef, name) == false)
+            {
+                name += "1";
+                nameCheck = false;
+            }
+
+            if (nameCheck == false)
+            {
+                playerRef.SendPacket(new PlayerLoginPacket(name));
+                playerRef.SendPacket(new ServerMessagePacket("Due to name conflict, your player name has been reset to " + name));
+            }
             playerRef.PlayerName = name;
+            if (name == Host.PlayerName)
+            {
+                Console.WriteLine($"{name} Sent Packet");
+                playerRef.SendPacket(new RoomOwnerPacket(true));
+            }
+            else
+            {
+                playerRef.SendPacket(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)));
+            }
+
             Console.WriteLine($"{name} logged in");
         }
+
+        private bool CheckName(IPlayer playerRef, string name)
+        {
+            foreach (IPlayer player in Players)
+            {
+                if (player.PlayerName == name)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public bool CheckPlayerTickStatus()
         {
             bool allFinished = true;

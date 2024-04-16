@@ -33,7 +33,10 @@ namespace EoE.Network.Packets.GameEventPacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    //Todo
+                    if (isFirst)
+                    {
+                        client.WindowManager.ShowGameSettingWindow();
+                    }
                 }
             }
         }

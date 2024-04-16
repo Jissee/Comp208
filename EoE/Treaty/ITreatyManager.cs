@@ -15,6 +15,8 @@ namespace EoE.Treaty
         List<IPlayer> FindNonTruce(IPlayer player);
         void AddProtectiveTreaty(IPlayer target, IPlayer protector, ResourceListRecord condition);
         void AddCommonDefenseTreaty(IPlayer player1, IPlayer player2);
+        void AddTruceTreaty(IPlayer player1, IPlayer player2);
+        void RemoveRelationTreaty(ITreaty treaty);
 
     }
 }

@@ -47,10 +47,10 @@ namespace EoE.Server
             isServerRunning = false;
             isGameRunning = false;
             needRestart = false;
+            Status = new GameStatus(500, 100);
         }
         public void BeginGame()
         {
-            Status = new GameStatus(500,100);
             isGameRunning = true;
             lock (PlayerList)
             {
@@ -63,14 +63,55 @@ namespace EoE.Server
             PrepareResourceBonusEvents();
 
 
-            foreach (IPlayer player in PlayerList.Players)
+            for (int i = 0; i < 2; i++)
             {
-                Random random = new Random();
-                int index = random.Next(1, 6);
-                PreparePlayerRandomEvents(player,index);
-            }  
-        }
+                foreach (IPlayer player in PlayerList.Players)
+                {
+                    Random random = new Random();
+                    int index = random.Next(1, 6);
+                    PreparePlayerRandomEvents(player, index);
+                }
+            }
+            PrepareGlobalBonusEvents();
 
+
+        }
+        private void PrepareGlobalBonusEvents()
+        {
+            Event.Builder builder1 = new Event.Builder();
+            builder1.ForServer(this)
+                .IfServer(server => true)
+                .IfPlayer(thePlayer => true)
+                .HappenIn((int)(Status.TotalTick * 0.25f))
+                .LastFor(1)
+                .Do
+                (
+                   (server, player) =>
+                   {
+                       player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("", 2.5);
+                       player.SendPacket(new ServerMessagePacket("Due to a new technological breakthrough, " +
+                           "the productivity of all country's four primary resources has been increased."));
+                   }
+                 );
+            EventList.AddEvent(builder1.Build());
+
+            Event.Builder builder2 = new Event.Builder();
+            builder2.ForServer(this)
+                .IfServer(server => true)
+                .IfPlayer(thePlayer => true)
+                .HappenIn((int)(Status.TotalTick * 0.25f))
+                .LastFor(1)
+                .Do
+                (
+                   (server, player) =>
+                   {
+                       player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("", -2.5);
+                       player.SendPacket(new ServerMessagePacket("Due to the pandemic, " +
+                           "the productivity of all country's four primary resources has been decreased."));
+                   }
+                 );
+            EventList.AddEvent(builder2.Build());
+        }
         private void PrepareResourceBonusEvents()
         {
             
@@ -299,7 +340,7 @@ namespace EoE.Server
             }
         }
 
-        public void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>
+        public void Boardcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>
         {
             lock (PlayerList)
             {

@@ -21,6 +21,21 @@
     <Page Update="ChatSystem\TreatyContent.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="GovernanceSystem\BlockManagement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernanceSystem\ExpolreBlock.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernanceSystem\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernanceSystem\MilitaryManagement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernanceSystem\ResourceManage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Login\EnterGamePage.xaml">
       <SubType>Designer</SubType>
     </Page>

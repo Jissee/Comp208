@@ -31,7 +31,7 @@ namespace EoE.Client.Login
 
         private void Transaction_Click(object sender, RoutedEventArgs e)
         {
-            WindowsManager.INSTANCE.ShowWindows<MainTradePage>();
+            WindowManager.INSTANCE.ShowWindows<MainTradePage>();
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
@@ -58,7 +58,7 @@ namespace EoE.Client.Login
 
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
-           WindowsManager.INSTANCE.ShowWindows<ChatMianPage>();
+           WindowManager.INSTANCE.ShowWindows<ChatMianPage>();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

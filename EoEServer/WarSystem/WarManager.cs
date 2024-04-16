@@ -24,7 +24,7 @@ namespace EoE.Server.WarSystem
             }
             IWarParty attackers = new WarParty();
             IWarParty defenders = new WarParty();
-            IWar newWar = new War(attackers, defenders, name);
+            IWar newWar = new War(attackers, defenders, name, Server);
             PreparingWarDict.Add(name, newWar);
         }
         public void DeclareWar(string warName)
