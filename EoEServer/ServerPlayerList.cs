@@ -28,6 +28,18 @@ namespace EoE.Server
         public IPlayer? Host { get; private set; }
         private IServer server;
         public int PlayerCount { get; private set; } = 1;
+        public bool AllBegins 
+        { 
+            get
+            {
+                bool begin = true;
+                foreach(var player in Players)
+                {
+                    begin &= player.IsBegin;
+                }
+                return begin;
+            } 
+        }
         public ServerPlayerList(IServer server) 
         {
             Players = new List<IPlayer>();
