@@ -16,6 +16,8 @@ using EoE.Client.WarSystem;
 using System.Windows.Navigation;
 using EoE.Client.GovernanceSystem;
 using EoE.Client.ChatSystem;
+using EoE.GovernanceSystem;
+using EoE.Network.Packets.GameEventPacket;
 
 
 namespace EoE.Client.Login
@@ -26,6 +28,13 @@ namespace EoE.Client.Login
         public MainGamePage()
         {
             InitializeComponent();
+            Population.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
+            Silicon.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Silicon).ToString();
+            Copper.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Copper).ToString();
+            Aluminum.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Aluminum).ToString();
+            Iron.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Iron).ToString();
+            Electronic.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Electronic).ToString();
+            Industrial.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Industrial).ToString();
 
         }
 
@@ -36,14 +45,7 @@ namespace EoE.Client.Login
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            roundCount++; 
-            UpdateRoundCountText(); 
-        }
-
-        //记录游戏回合数
-        private void UpdateRoundCountText()
-        {
-            RoundCount.Text = roundCount.ToString(); 
+            Client.INSTANCE.SendPacket(new FinishTickPacket(true));
         }
 
         private void War_Click(object sender, RoutedEventArgs e)

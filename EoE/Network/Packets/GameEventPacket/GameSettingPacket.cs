@@ -35,6 +35,7 @@ namespace EoE.Network.Packets.GameEventPacket
                 if (ne is IServer server)
                 {
                     server.SetGame(record.playerCount, record.TotalTick);
+                    server.Boardcast(new GameSettingPacket(new GameSettingRecord(record.playerCount, record.TotalTick)),player => true);
                 }
             }
             if (context.NetworkDirection == NetworkDirection.Server2Client)

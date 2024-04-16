@@ -53,7 +53,6 @@ namespace EoE.Server.Network
             MemoryStream ms = new MemoryStream();
             BinaryWriter bw = new BinaryWriter(ms);
             bw.Write(0L);
-            bw.Write(false);
             Type packetType = packet.GetType();
             string packetTypeString = packetType.FullName;
             if (packetTypeString == null)

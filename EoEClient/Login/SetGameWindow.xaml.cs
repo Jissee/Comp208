@@ -21,7 +21,7 @@ namespace EoE.Client.Login
     {
         bool amount = false;
         bool round = false;
-       
+        bool ignoreClosing = false;
         public SetGameWindow()
         {
             InitializeComponent();
@@ -32,9 +32,9 @@ namespace EoE.Client.Login
         {
             if (amount && round)
             {
-                WindowManager.INSTANCE.ShowWindows<MainGamePage>();
-                //Client.INSTANCE.SendPacket(new GameSettingPacket(new GameSettingRecord(int.Parse(SetResource.Text), int.Parse(selectedValueTextBox.Text))));
-                this.Hide();
+                Client.INSTANCE.SendPacket(new GameSettingPacket(new GameSettingRecord(int.Parse(SetResource.Text), int.Parse(selectedValueTextBox.Text))));
+                ignoreClosing = true;
+                this.Close();
             }
             else {
                 MessageBox.Show("You haven't changed any values. If you confirm, please submit again.");
@@ -60,17 +60,21 @@ namespace EoE.Client.Login
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            if (!ignoreClosing)
+            {
+                MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
 
-            if (result == MessageBoxResult.Cancel)
-            {
-                e.Cancel = true;
+                if (result == MessageBoxResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Client.INSTANCE.Disconnect();
+                    App.Current.Shutdown();
+                }
             }
-            else
-            {
-                Client.INSTANCE.Disconnect();
-                App.Current.Shutdown();
-            }
+            
         }
     }
 }

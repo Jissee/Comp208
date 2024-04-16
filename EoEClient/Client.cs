@@ -1,6 +1,8 @@
 ﻿using EoE.Client.GovernanceSystem;
+using EoE.Client.Login;
 using EoE.Client.Network;
 using EoE.Client.WarSystem;
+using EoE.ClientInterface;
 using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network;
 using EoE.Network.Entities;
@@ -39,7 +41,9 @@ namespace EoE.Client
         public IClientWarParticipatibleList ClientWarParticipatibleList {  get; set; }
         public IClientWarTargetList ClientWarTargetList { get; set; }
         public IClientTreatyList ClientTreatyList {  get; set; }
-        public IWindowManager WindowManager { get; init; }
+        IWindowManager IClient.WindowManager => WindowManager;
+
+        public WindowManager WindowManager { get; init; }
 
         static Client() 
         {
@@ -65,6 +69,20 @@ namespace EoE.Client
         {
             PlayerName = name;
         }
+        public void SynchronizePlayerName(string name,List<string> otherPlayers)
+        {
+            PlayerName = name;
+            OtherPlayer = otherPlayers;
+            EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
+            entetPage.SynchronizePlayerList();
+        }
+        public void SynchronizePlayerName(string name)
+        {
+            PlayerName = name;
+            EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
+            entetPage.SynchronizePlayerList();
+        }
+
         public void Connect(string host, int port)
         {
             lock (this)
@@ -88,6 +106,8 @@ namespace EoE.Client
         {
             lock (this)
             {
+                Connection.Shutdown(SocketShutdown.Both);
+                Thread.Sleep(500);
                 Connection.Close();
                 isRunning = false;
                 Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
