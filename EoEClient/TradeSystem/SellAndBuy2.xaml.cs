@@ -1,4 +1,5 @@
-﻿using EoE.Client.Login;
+﻿using EoE.Client.GovernanceSystem;
+using EoE.Client.Login;
 using EoE.Client.TradeSystem;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,18 @@ namespace EoE.Client.TradeSystem
     /// </summary>
     public partial class SellAndBuy2 : Window
     {
+        private static SellAndBuy2 instance;
+        public static SellAndBuy2 INSTANCE
+        {
+            get
+            {
+                if (instance == null || !instance.IsLoaded)
+                {
+                    instance = new SellAndBuy2();
+                }
+                return instance;
+            }
+        }
         int[] sellValues = new int[6];
         int[] buyValues = new int[6];
         public SellAndBuy2()
@@ -99,8 +112,7 @@ namespace EoE.Client.TradeSystem
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
-            EoE.Client.Login.MainTradePage mainTradePage = new EoE.Client.Login.MainTradePage();
-            mainTradePage.Show();
+            WindowsManager.INSTANCE.ShowWindows<MainTradePage>();
             this.Hide();
 
         }
@@ -163,6 +175,11 @@ namespace EoE.Client.TradeSystem
         private void Buy6_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            instance = null;
         }
     }
 }

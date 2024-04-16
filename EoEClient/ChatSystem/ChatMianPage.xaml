@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.ChatSystem"
         mc:Ignorable="d"
-        Title="ChatMianPage" Height="450" Width="800">
+        Title="ChatMianPage" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Label Content="“Words are, of course, the most powerful drug used by mankind.”" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Choose the player you want to chat with:" HorizontalAlignment="Left" Margin="196,130,0,0" VerticalAlignment="Top" FontSize="18" Width="370"/>
