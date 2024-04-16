@@ -7,7 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
-    <StartupObject>EoE.Client.WindowsManager</StartupObject>
+    <StartupObject>EoE.Client.WindowManager</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

@@ -7,18 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 
 namespace EoE.Client
 {
-    public class WindowsManager
+    public class WindowManager: IWindowManager
     {
-        public static WindowsManager INSTANCE { get; private set; }
+        public static WindowManager INSTANCE { get; private set; }
 
         private Dictionary<string,Window> WindowsDict = new Dictionary<string,Window>();
-        static WindowsManager()
+        static WindowManager()
         {
-            INSTANCE = new WindowsManager();
+            INSTANCE = new WindowManager();
         }
 
         [STAThread]
@@ -42,6 +43,23 @@ namespace EoE.Client
                 window.Show();
             }
             
+        }
+
+        public void ShowGameSettingWindow()
+        {
+            ShowWindows<SetGameWindow>();
+        }
+
+        public void UpdateGameSetting(int playerNumber,int gameRound)
+        {
+            Type t = typeof(EnterGamePage);
+            string typeName = t.FullName;
+            Window window = WindowsDict[typeName];
+            if (window is EnterGamePage enterGamePage)
+            {
+                enterGamePage.player_number.Text = playerNumber.ToString();
+                enterGamePage.player_number.Text = gameRound.ToString();
+            }
         }
     }
 }

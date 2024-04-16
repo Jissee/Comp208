@@ -1,4 +1,5 @@
-﻿using EoE.GovernanceSystem.ClientInterface;
+﻿using EoE.Client;
+using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Entities;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,10 @@ namespace EoE.Network.Packets.GameEventPacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    //Todo
+                    if (isFirst)
+                    {
+                        client.WindowManager.ShowGameSettingWindow();
+                    }
                 }
             }
         }

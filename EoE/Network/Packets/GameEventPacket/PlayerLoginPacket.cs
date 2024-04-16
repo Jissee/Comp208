@@ -35,6 +35,7 @@ namespace EoE.Network.Packets.GameEventPacket
                 if (ne is IServer server)
                 {
                     server.InitPlayerName(context.PlayerSender!, playerName);
+                    server.PlayerList.Host!.SendPacket(new RoomOwnerPacket(true));
                 }
             }
         }

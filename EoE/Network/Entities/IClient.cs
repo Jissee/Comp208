@@ -1,4 +1,5 @@
-﻿using EoE.GovernanceSystem.ClientInterface;
+﻿using EoE.Client;
+using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
@@ -16,5 +17,6 @@ namespace EoE.Network.Entities
 
         void SendPacket<T>(T packet) where T : IPacket<T>;
         void MsgBox(string msg);
+        IWindowManager WindowManager { get; }
     }
 }

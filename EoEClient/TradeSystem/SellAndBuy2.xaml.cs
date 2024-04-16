@@ -112,7 +112,7 @@ namespace EoE.Client.TradeSystem
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
-            WindowsManager.INSTANCE.ShowWindows<MainTradePage>();
+            WindowManager.INSTANCE.ShowWindows<MainTradePage>();
             this.Hide();
 
         }
