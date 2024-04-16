@@ -23,6 +23,7 @@ namespace EoE.Client.ChatSystem
         public ChatMianPage()
         {
             InitializeComponent();
+            addPlayer();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,7 +41,7 @@ namespace EoE.Client.ChatSystem
             
             
         }
-        private void addPlayer(string player)
+        private void addPlayer()
         {
             foreach (string playerName in Client.INSTANCE.OtherPlayer)
             {

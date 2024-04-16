@@ -40,6 +40,8 @@ namespace EoE.Client.GovernanceSystem
             ElectronPeople.Text = Client.INSTANCE.GonveranceManager.PopManager.GetPopAllocCount(GameResourceType.Electronic).ToString();
             IndustrialPeople.Text = Client.INSTANCE.GonveranceManager.PopManager.GetPopAllocCount(GameResourceType.Industrial).ToString();
 
+            population.Text = Client.INSTANCE .GonveranceManager.PopManager.TotalPopulation.ToString()+"/"+ Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
+
         }
 
 
@@ -67,10 +69,11 @@ namespace EoE.Client.GovernanceSystem
         {
 
         }
-        public void limitnumber(object sender, TextCompositionEventArgs e)
+       public void limitnumber(object sender, TextCompositionEventArgs e)
         {
             Regex re = new Regex("[^0-9]+");
             e.Handled = re.IsMatch(e.Text);
         }
     }
 }
+ 

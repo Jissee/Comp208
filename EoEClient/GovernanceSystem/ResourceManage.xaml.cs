@@ -39,5 +39,3 @@ namespace EoE.Client.GovernanceSystem
         }
     }
 }
-//maybe using pattern like"100+5" to show exist and new resources
-//or using pattern like"100+0.5%" to show speed(same as new in each round) and total resources

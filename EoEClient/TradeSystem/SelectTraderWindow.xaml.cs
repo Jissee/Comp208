@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -57,6 +58,11 @@ namespace EoE.Client.TradeSystem
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             instance = null;
+        }
+        public void limitnumber(object sender, TextCompositionEventArgs e)
+        {
+            Regex re = new Regex("[^0-9]+");
+            e.Handled = re.IsMatch(e.Text);
         }
     }
 }
