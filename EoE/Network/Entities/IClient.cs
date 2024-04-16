@@ -1,4 +1,4 @@
-﻿using EoE.Client;
+﻿using EoE.ClientInterface;
 using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Packets;
 using System;
@@ -17,6 +17,8 @@ namespace EoE.Network.Entities
 
         void SendPacket<T>(T packet) where T : IPacket<T>;
         void MsgBox(string msg);
+        void SynchronizePlayerName(string name, List<string> otherPlayers);
+        void SynchronizePlayerName(string name);
         IWindowManager WindowManager { get; }
     }
 }

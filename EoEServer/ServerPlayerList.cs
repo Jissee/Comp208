@@ -23,7 +23,7 @@ namespace EoE.Server
         public ITreatyManager TreatyManager { get; }
         public IWarManager WarManager { get; }
         public IServerTradeManager TradeManager { get; }
-        public IPlayer? Host { get; init; }
+        public IPlayer? Host { get; private set; }
         private IServer server;
         public int PlayerCount { get; private set; } = 1;
         public ServerPlayerList(IServer server) 
@@ -44,9 +44,9 @@ namespace EoE.Server
             if (Players.Count < PlayerCount)
             {
                 Players.Add(player);
-                if (host == null)
+                if (Host == null)
                 {
-                    host = player;
+                    Host = player;
                 }
             }
             else
@@ -66,9 +66,9 @@ namespace EoE.Server
                 server.Stop();
                 server.Restart();
             }
-            else if (player == host)
+            else if (player == Host)
             {
-                host = Players[0];
+                Host = Players[0];
             }
         }
         public void HandlePlayerDisconnection()
@@ -126,9 +126,45 @@ namespace EoE.Server
         }
         public void InitPlayerName(IPlayer playerRef, string name)
         {
+            bool nameCheck = true;
+            while(CheckName(playerRef, name) == false)
+            {
+                name += "1";
+                nameCheck = false;
+            }
+
+            if (nameCheck == false)
+            {
+                playerRef.SendPacket(new PlayerLoginPacket(name));
+                playerRef.SendPacket(new ServerMessagePacket("Due to name conflict, your player name has been reset to " + name));
+            }
             playerRef.PlayerName = name;
+            if (name == Host.PlayerName)
+            {
+                Console.WriteLine($"{name} Sent Packet");
+                playerRef.SendPacket(new RoomOwnerPacket(true));
+            }
+            else
+            {
+                playerRef.SendPacket(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)));
+            }
+
             Console.WriteLine($"{name} logged in");
         }
+
+        private bool CheckName(IPlayer playerRef, string name)
+        {
+            foreach (IPlayer player in Players)
+            {
+                if (player.PlayerName == name)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public bool CheckPlayerTickStatus()
         {
             bool allFinished = true;

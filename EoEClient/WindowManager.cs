@@ -1,5 +1,6 @@
 ﻿
 using EoE.Client.Login;
+using EoE.ClientInterface;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -45,9 +46,25 @@ namespace EoE.Client
             
         }
 
+        public Window GetWindows<T>() where T : Window, new()
+        {
+            Type t = typeof(T);
+            string typeName = t.FullName;
+
+            if (!WindowsDict.ContainsKey(typeName))
+            {
+                WindowsDict.Add(typeName, new T());
+            }
+            return WindowsDict[typeName];
+        }
+
         public void ShowGameSettingWindow()
         {
-            ShowWindows<SetGameWindow>();
+            Application.Current.Dispatcher.Invoke(()=>
+            {
+                ShowWindows<SetGameWindow>();
+            });
+            
         }
 
         public void UpdateGameSetting(int playerNumber,int gameRound)

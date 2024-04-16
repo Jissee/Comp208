@@ -1,5 +1,7 @@
 ﻿using EoE.Client.GovernanceSystem;
+using EoE.Client.Login;
 using EoE.Client.Network;
+using EoE.ClientInterface;
 using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network;
 using EoE.Network.Entities;
@@ -28,7 +30,9 @@ namespace EoE.Client
         public List<string> OtherPlayer { get; private set; } 
         public IClientGonveranceManager GonveranceManager { get; init; }
 
-        public IWindowManager WindowManager { get; init; }
+        IWindowManager IClient.WindowManager => WindowManager;
+
+        public WindowManager WindowManager { get; init; }
 
         static Client() 
         {
@@ -48,6 +52,20 @@ namespace EoE.Client
         {
             PlayerName = name;
         }
+        public void SynchronizePlayerName(string name,List<string> otherPlayers)
+        {
+            PlayerName = name;
+            OtherPlayer = otherPlayers;
+            EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
+            entetPage.SynchronizePlayerList();
+        }
+        public void SynchronizePlayerName(string name)
+        {
+            PlayerName = name;
+            EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
+            entetPage.SynchronizePlayerList();
+        }
+
         public void Connect(string host, int port)
         {
             lock (this)

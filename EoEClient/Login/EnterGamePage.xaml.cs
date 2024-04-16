@@ -41,7 +41,7 @@ namespace EoE.Client.Login
             }
         }
 
-        //todo
+        //todo 不能之间进入游戏
         private void EnterGame_Click(object sender, RoutedEventArgs e)
         {
            SetGameWindow setGameWindow = new SetGameWindow();
