@@ -14,7 +14,7 @@
         <Label Content="The more population you send out, the more resources will be consumed, but the greater the harvest! " HorizontalAlignment="Center" Margin="0,48,0,0" VerticalAlignment="Top" FontSize="15"/>
         <Label Content="Sending out too few population may not explore new block. " HorizontalAlignment="Left" Margin="28,82,0,0" VerticalAlignment="Top" FontSize="15" RenderTransformOrigin="0.49,-1.344"/>
         <Label Content="But the progress of exploration will be retained, so try again more times!" HorizontalAlignment="Left" Margin="28,116,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <TextBox x:Name="number" HorizontalAlignment="Left" Margin="580,231,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="20" TextChanged="TextBox_TextChanged" Height="35"/>
+        <TextBox x:Name="number" HorizontalAlignment="Left" Margin="580,231,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" FontSize="20" TextChanged="TextBox_TextChanged" Height="35" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <Label Content="Available population: " HorizontalAlignment="Left" Margin="33,177,0,0" VerticalAlignment="Top" FontSize="20"/>
         <TextBlock x:Name="Population" HorizontalAlignment="Left" Margin="268,182,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
 
