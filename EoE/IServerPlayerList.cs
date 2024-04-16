@@ -15,7 +15,7 @@ namespace EoE
     public interface IServerPlayerList: ITickable
     {
         public int PlayerCount{get; }
-
+        IPlayer? Host { get; }
         ITreatyManager TreatyManager { get; }
         IWarManager WarManager { get; }
         IServerTradeManager TradeManager { get; }

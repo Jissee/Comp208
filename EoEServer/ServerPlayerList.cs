@@ -23,7 +23,7 @@ namespace EoE.Server
         public ITreatyManager TreatyManager { get; }
         public IWarManager WarManager { get; }
         public IServerTradeManager TradeManager { get; }
-        private IPlayer? host;
+        public IPlayer? Host { get; init; }
         private IServer server;
         public int PlayerCount { get; private set; } = 1;
         public ServerPlayerList(IServer server) 
@@ -43,12 +43,11 @@ namespace EoE.Server
         {
             if (Players.Count < PlayerCount)
             {
+                Players.Add(player);
                 if (host == null)
                 {
                     host = player;
-                    player.SendPacket(new RoomOwnerPacket(true));
                 }
-                Players.Add(player);
             }
             else
             {

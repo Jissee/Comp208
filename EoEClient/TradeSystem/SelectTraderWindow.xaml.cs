@@ -44,7 +44,7 @@ namespace EoE.Client.TradeSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WindowsManager.INSTANCE.ShowWindows<MainTradePage>();
+            WindowManager.INSTANCE.ShowWindows<MainTradePage>();
             this.Close();
 
         }

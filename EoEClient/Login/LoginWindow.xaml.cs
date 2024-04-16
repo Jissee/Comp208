@@ -23,7 +23,7 @@ namespace EoE.Client.Login
         public LoginWindow()
         {
             InitializeComponent();
-            ServerAddress.Text = "0,0,0,0";
+            ServerAddress.Text = "127.0.0.1";
             portNumber.Text = "25566";
         }
 
@@ -41,7 +41,7 @@ namespace EoE.Client.Login
             if (string.IsNullOrWhiteSpace(ServerAddress.Text))
             {
                 MessageBox.Show("Please enter the server address!");
-                ServerAddress.Text = "0,0,0,0";
+                ServerAddress.Text = "127.0.0.1";
                 return;
             }
             if (string.IsNullOrEmpty(portNumber.Text))
@@ -64,8 +64,9 @@ namespace EoE.Client.Login
             }
 
             Client.INSTANCE.SetPlayerName(Username.Text);
+            Client.INSTANCE.Connect(ServerAddress.Text,int.Parse(portNumber.Text));
 
-            WindowsManager.INSTANCE.ShowWindows<EnterGamePage>();
+            WindowManager.INSTANCE.ShowWindows<EnterGamePage>();
 
             this.Hide();
         }
