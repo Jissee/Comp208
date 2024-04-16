@@ -31,7 +31,7 @@ namespace EoE.Client.ChatSystem
             {
                 this.Hide();
                 ChatPage chat = new ChatPage();
-                 chat.Show();
+                chat.Show();
             }
             else
             {
@@ -39,6 +39,13 @@ namespace EoE.Client.ChatSystem
             }
             
             
+        }
+        private void addPlayer(string player)
+        {
+            foreach (string playerName in Client.INSTANCE.OtherPlayer)
+            {
+                listBox1.Items.Add(playerName);
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
