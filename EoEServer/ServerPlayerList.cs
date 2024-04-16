@@ -139,6 +139,7 @@ namespace EoE.Server
         }
         public void InitPlayerName(IPlayer playerRef, string name)
         {
+            playerRef.PlayerName = name;
             if (Host == null)
             {
                 Host = playerRef;
@@ -157,13 +158,11 @@ namespace EoE.Server
                     playerRef.SendPacket(new PlayerLoginPacket(name));
                     playerRef.SendPacket(new ServerMessagePacket("Due to name conflict, your player name has been reset to " + name));
                 }
-                playerRef.PlayerName = name;
+                
                 playerRef.SendPacket(new EnterRoomPacket(false));
             }
             IServer.Log("Connection", $"{name} logged in");
             server.Boardcast(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)),playerRef=>true);
-
-            Console.WriteLine($"{name} logged in");
         }
 
         private bool CheckName(IPlayer playerRef, string name)

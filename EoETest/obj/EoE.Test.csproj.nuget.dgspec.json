@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj": {}
   },
   "projects": {
@@ -13,30 +12,13 @@
         "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
         "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\obj\\",
-=======
-    "D:\\e-textbook3\\comp208\\EoE\\EoETest\\EoE.Test.csproj": {}
-  },
-  "projects": {
-    "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj",
-        "projectName": "EoE.Client",
-        "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj",
-        "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
-        "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\obj\\",
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,13 +32,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows7.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
-=======
-              "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
-                "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj"
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
               }
             }
           }
@@ -98,7 +75,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -107,27 +83,13 @@
         "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj",
         "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\obj\\",
-=======
-    "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj",
-        "projectName": "EoE.Server",
-        "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj",
-        "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
-        "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\obj\\",
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -141,13 +103,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
-=======
-              "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
-                "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj"
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
               }
             }
           }
@@ -192,7 +149,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -201,27 +157,13 @@
         "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj",
         "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\obj\\",
-=======
-    "D:\\e-textbook3\\comp208\\EoE\\EoETest\\EoE.Test.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoETest\\EoE.Test.csproj",
-        "projectName": "EoE.Test",
-        "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoETest\\EoE.Test.csproj",
-        "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
-        "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoETest\\obj\\",
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -235,7 +177,6 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj": {
                 "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj"
               },
@@ -244,16 +185,6 @@
               },
               "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
-=======
-              "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj": {
-                "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj"
-              },
-              "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj": {
-                "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj"
-              },
-              "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
-                "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj"
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
               }
             }
           }
@@ -310,7 +241,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -319,27 +249,13 @@
         "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
         "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\obj\\",
-=======
-    "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
-        "projectName": "EoE",
-        "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
-        "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
-        "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\obj\\",
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

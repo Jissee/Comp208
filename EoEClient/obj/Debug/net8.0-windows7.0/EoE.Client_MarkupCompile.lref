@@ -1,6 +1,5 @@
 ﻿
 
-<<<<<<< HEAD
 FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\ChatSystem\ChatMianPage.xaml;;
 FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\ChatSystem\ChatPage.xaml;;
 FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\ChatSystem\EstablishRelation.xaml;;
@@ -26,31 +25,4 @@ FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\CheckWarDe
 FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\DeclareWar.xaml;;
 FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\WarDetail.xaml;;
 FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\WarMainPage.xaml;;
-=======
-FD:\e-textbook3\comp208\EoE\EoEClient\ChatSystem\ChatMianPage.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\ChatSystem\ChatPage.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\ChatSystem\EstablishRelation.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\ChatSystem\TreatyContent.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\GovernanceSystem\BlockManagement.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\GovernanceSystem\ConvertPage.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\GovernanceSystem\MainWindow.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\GovernanceSystem\MilitaryManagement.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\GovernanceSystem\ResourceManage.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\GovernanceSystem\SetExploreWindow.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\Login\EnterGamePage.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\Login\GameAgreement.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\Login\LoginWindow.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\Login\MainGamePage.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\Login\MainTradePage.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\Login\SetGameWindow.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\TradeSystem\SelectTraderWindow.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\TradeSystem\SellAndBuy2.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\AbrogateTreaty.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\AllocateArmy.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\CheckStatus.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\CheckWarDetail.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\DeclareWar.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\WarDetail.xaml;;
-FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\WarMainPage.xaml;;
->>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
 

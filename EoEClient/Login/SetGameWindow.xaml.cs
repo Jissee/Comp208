@@ -72,7 +72,6 @@ namespace EoE.Client.Login
                 else
                 {
                     Client.INSTANCE.Disconnect();
-                    App.Current.Shutdown();
                 }
             }
             
