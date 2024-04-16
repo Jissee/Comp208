@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.WarSystem"
         mc:Ignorable="d"
-        Title="CheckStatus" Height="450" Width="800">
+        Title="CheckStatus" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Label Content="&quot;War... always brings casualties, doesn't it?&quot;" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button Content="OK" HorizontalAlignment="Left" Margin="457,329,0,0" VerticalAlignment="Top" Height="46" Width="124" FontSize="20" Click="Button_Click"/>

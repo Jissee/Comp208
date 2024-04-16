@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,6 +28,16 @@ namespace EoE.Client.WarSystem
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
+        }
+        public void limitnumber(object sender, TextCompositionEventArgs e)
+        {
+            Regex re = new Regex("[^0-9]+");
+            e.Handled = re.IsMatch(e.Text);
+        }
+
+        private void Resouce1change_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
