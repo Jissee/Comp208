@@ -40,5 +40,11 @@ namespace EoE.Client.ChatSystem
             
             
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
     }
 }

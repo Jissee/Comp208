@@ -19,9 +19,22 @@ namespace EoE.Client.GovernanceSystem
     /// </summary>
     public partial class ExpolreBlock : Window
     {
+        private static ExpolreBlock instance;
+        public static ExpolreBlock INSTANCE 
+        { 
+            get 
+            { 
+                if(instance == null || !instance.IsLoaded)
+                {
+                    instance = new ExpolreBlock();
+                }
+                return instance;
+            } 
+        }
         public ExpolreBlock()
         {
             InitializeComponent();
+            Population.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -49,8 +62,7 @@ namespace EoE.Client.GovernanceSystem
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            e.Cancel = true;
-            this.Hide();
+            instance = null;
         }
     }
 }

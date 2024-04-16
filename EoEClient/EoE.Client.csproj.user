@@ -7,6 +7,11 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="WarSystem\AbrogateTreaty.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="ChatSystem\ChatMianPage.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -31,10 +36,10 @@
     <Page Update="Login\SetGameWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WarSystem\AllocateArmy.xaml">
+    <Page Update="WarSystem\AbrogateTreaty.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WarSystem\AllocateWar.xaml">
+    <Page Update="WarSystem\AllocateArmy.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WarSystem\CheckStatus.xaml">

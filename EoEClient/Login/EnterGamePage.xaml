@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.Login"
         mc:Ignorable="d"
-        Title="EnterGamePage" Height="450" Width="800"
+        Title="EnterGamePage" Height="450" Width="800" Closing="Window_Closing"
         >
     <Grid>
         <Button x:Name="Logout" Content="Log out" HorizontalAlignment="Left" Margin="140,320,0,0" VerticalAlignment="Top" Height="60" Width="200" FontSize="20" Background="White" Click="Logout_Click"/>

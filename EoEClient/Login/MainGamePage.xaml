@@ -5,34 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.Login"
         mc:Ignorable="d"
-        Title="MainGamePage" Height="450" Width="800"
-        Background="LightGray">
+        Title="MainGamePage" Height="450" Width="800" Closing="Window_Closing"
+        >
     <Grid>
-        <Button x:Name="Transaction" Content="Trading System" HorizontalAlignment="Left" Margin="578,24,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Transaction_Click" FontSize="16"/>
-        <Button x:Name="War" Content="War System" HorizontalAlignment="Left" Margin="578,108,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="War_Click" FontSize="16"/>
-        <Button x:Name="Goverment" Content="Goverment System" HorizontalAlignment="Left" Margin="578,193,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Goverment_Click" FontSize="16"/>
-        <Button x:Name="Chat" Content="Chat" HorizontalAlignment="Left" Margin="578,278,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Chat_Click" FontSize="16"/>
+        <Button x:Name="Transaction" Content="Trading System" HorizontalAlignment="Left" Margin="596,24,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Transaction_Click" FontSize="16"/>
+        <Button x:Name="War" Content="War System" HorizontalAlignment="Left" Margin="596,108,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="War_Click" FontSize="16"/>
+        <Button x:Name="Goverment" Content="Governance System" HorizontalAlignment="Left" Margin="596,193,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Goverment_Click" FontSize="16"/>
+        <Button x:Name="Chat" Content="Chat" HorizontalAlignment="Left" Margin="596,278,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Chat_Click" FontSize="16"/>
         <Rectangle HorizontalAlignment="Left" Height="302" Margin="43,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="439" Fill="White"/>
         <Button x:Name="Next" Content="Next Round" HorizontalAlignment="Left" Margin="350,353,0,0" VerticalAlignment="Top" Height="46" Width="132" Background="White" Click="Next_Click" FontSize="16"/>
-        <Label x:Name="Resource1" Content="资源1" HorizontalAlignment="Left" Margin="93,46,0,0" VerticalAlignment="Top" Height="36" Width="51"/>
-        <Label x:Name="Resource2" Content="资源2" HorizontalAlignment="Left" Margin="93,112,0,0" VerticalAlignment="Top" Height="36" Width="51"/>
-        <Label x:Name="Resource3" Content="资源3" HorizontalAlignment="Left" Margin="93,181,0,0" VerticalAlignment="Top" Height="36" Width="51"/>
-        <Label x:Name="Resource4" Content="资源4" HorizontalAlignment="Left" Margin="308,45,0,0" VerticalAlignment="Top" Height="36" Width="51"/>
-        <Label x:Name="Resource5" Content="资源5" HorizontalAlignment="Left" Margin="308,111,0,0" VerticalAlignment="Top" Height="36" Width="51"/>
-        <Label x:Name="Resource6" Content="资源6" HorizontalAlignment="Left" Margin="308,180,0,0" VerticalAlignment="Top" Height="36" Width="51"/>
-        <TextBlock x:Name="Source1" HorizontalAlignment="Left" Margin="172,51,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="28" Width="69"/>
-        <TextBlock x:Name="Source2" HorizontalAlignment="Left" Margin="172,117,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="28" Width="69"/>
-        <TextBlock x:Name="Source3" HorizontalAlignment="Left" Margin="172,186,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="28" Width="69"/>
-        <TextBlock x:Name="Source4" HorizontalAlignment="Left" Margin="382,50,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="28" Width="69" />
-        <TextBlock x:Name="Source5" HorizontalAlignment="Left" Margin="382,116,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="28" Width="69"/>
-        <TextBlock x:Name="Source6" HorizontalAlignment="Left" Margin="382,185,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="28" Width="69"/>
-        <Label x:Name="People" Content="Population: " HorizontalAlignment="Left" Margin="172,270,0,0" VerticalAlignment="Top" Height="27"/>
-        <TextBlock HorizontalAlignment="Left" Margin="270,270,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="27" Width="102"/>
+        <Label x:Name="Resource1" Content="Silicon: " HorizontalAlignment="Left" Margin="68,51,0,0" VerticalAlignment="Top" Height="36" Width="80" FontSize="20"/>
+        <Label x:Name="Resource2" Content="Copper:" HorizontalAlignment="Left" Margin="62,113,0,0" VerticalAlignment="Top" Height="36" Width="92" FontSize="20"/>
+        <Label x:Name="Resource3" Content="Iron:" HorizontalAlignment="Left" Margin="295,113,0,0" VerticalAlignment="Top" Height="36" Width="52" FontSize="20"/>
+        <Label x:Name="Resource4" Content="Aluminum:" HorizontalAlignment="Left" Margin="267,51,0,0" VerticalAlignment="Top" Height="36" Width="115" FontSize="20"/>
+        <Label x:Name="Resource5" Content="Electronic:" HorizontalAlignment="Left" Margin="54,173,0,0" VerticalAlignment="Top" Height="36" Width="108" FontSize="20"/>
+        <Label x:Name="Resource6" Content="Industrial:" HorizontalAlignment="Left" Margin="270,172,0,0" VerticalAlignment="Top" Height="36" Width="108" FontSize="20"/>
+        <TextBlock x:Name="Source1" HorizontalAlignment="Left" Margin="172,56,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
+        <TextBlock x:Name="Source2" HorizontalAlignment="Left" Margin="172,117,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
+        <TextBlock x:Name="Source3" HorizontalAlignment="Left" Margin="172,179,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
+        <TextBlock x:Name="Source4" HorizontalAlignment="Left" Margin="382,56,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20" />
+        <TextBlock x:Name="Source5" HorizontalAlignment="Left" Margin="382,121,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
+        <TextBlock x:Name="Source6" HorizontalAlignment="Left" Margin="383,176,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
+        <Label x:Name="People" Content="Population: " HorizontalAlignment="Left" Margin="138,267,0,0" VerticalAlignment="Top" Height="34" FontSize="20"/>
+        <TextBlock x:Name="Population" HorizontalAlignment="Left" Margin="270,274,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="27" Width="102" FontSize="20"/>
         <Label Content="Round Number:" HorizontalAlignment="Left" Margin="48,361,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="RoundCount" HorizontalAlignment="Left" Margin="185,362,0,0" TextWrapping="Wrap" Text="" FontSize="20" Background="White" Width="96" Height="30" VerticalAlignment="Top"/>
+        <TextBlock x:Name="RoundCount" HorizontalAlignment="Left" Margin="200,362,0,0" TextWrapping="Wrap" Text="0" FontSize="20" Background="White" Width="96" Height="30" VerticalAlignment="Top"/>
 
         <Canvas Width="100" Height="100" Margin="90,167,610,168"/>
-
-
     </Grid>
 </Window>
