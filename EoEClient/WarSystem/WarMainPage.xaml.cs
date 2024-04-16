@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Packets.WarPacket;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,8 @@ namespace EoE.Client.WarSystem
         private void buttonCheck_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<CheckStatus>();
+            WarNameQueryPacket Packet = new WarNameQueryPacket([]);
+            Client.INSTANCE.SendPacket(Packet);
         }
 
         private void buttonGoingWar_Click(object sender, RoutedEventArgs e)

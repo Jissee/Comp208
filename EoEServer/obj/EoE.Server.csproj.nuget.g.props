@@ -14,6 +14,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\86151\.nuget\packages\</NuGetPackageFolders>
 =======
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\32171\.nuget\packages\;C:\软件\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
@@ -39,8 +40,17 @@
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\ufowlc\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
 >>>>>>> temp
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+=======
+=======
+=======
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\ufowlc\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.9.2</NuGetToolVersion>
   </PropertyGroup>
@@ -53,6 +63,7 @@
     <SourceRoot Include="C:\Users\32171\.nuget\packages\" />
     <SourceRoot Include="C:\软件\Microsoft Visual Studio\Shared\NuGetPackages\" />
 =======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -84,7 +95,17 @@
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
 >>>>>>> temp
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+=======
+=======
+=======
+    <SourceRoot Include="C:\Users\ufowlc\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
   </ItemGroup>
 </Project>

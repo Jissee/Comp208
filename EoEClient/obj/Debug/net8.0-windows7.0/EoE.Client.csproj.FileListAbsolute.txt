@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
 D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
 D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
@@ -10,6 +11,8 @@ D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.pdb
 =======
 =======
 >>>>>>> temp
+=======
+>>>>>>> update some packets and interfaces
 <<<<<<< HEAD
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
@@ -302,6 +305,8 @@ D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.
 =======
 =======
 >>>>>>> temp
+=======
+>>>>>>> update some packets and interfaces
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
@@ -376,6 +381,7 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> merge
 >>>>>>> merge
 <<<<<<< HEAD
@@ -388,3 +394,5 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7
 >>>>>>> temp
 >>>>>>> temp
 >>>>>>> temp
+=======
+>>>>>>> update some packets and interfaces

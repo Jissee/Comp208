@@ -1,28 +1,43 @@
-﻿using System;
+﻿using EoE.WarSystem.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace EoE.Client.WarSystem
 {
-    public class ClientWarNameList
+    public class ClientWarNameList : IClientWarNameList
     {
-        public Dictionary<string, string> WarNameList {  get; set; }
+        public List<string> WarNameList {  get; set; }
         public ClientWarNameList() 
         {
-            WarNameList = new Dictionary<string, string>();
+            WarNameList = new List<string>();
         }
-        public void ChangeWarName(string target, string warName)
+        public void ChangeWarName(string warName)
         {
-            if (WarNameList.ContainsKey(target))
+            if (!WarNameList.Contains(warName))
             {
-                WarNameList[target] = warName;
+                WarNameList.Add(warName);
             }
-            else 
+        }
+        public void ChangeWarNames(string[] warNames)
+        {
+            for(int i = 0; i < warNames.Length; i++)
             {
-                WarNameList.Add(target, warName);
+                ChangeWarName(warNames[i]);
             }
+            Application.Current.Dispatcher.Invoke(()=>{
+                CheckStatus window = WindowManager.INSTANCE.GetWindows<CheckStatus>();
+                ListBox box = window.checkStatusListBoxWarName;
+                box.Items.Clear();
+                foreach(string names in WarNameList)
+                {
+                    box.Items.Add(names);
+                }
+            });
         }
     }
 }

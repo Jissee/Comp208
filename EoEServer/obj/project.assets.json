@@ -127,6 +127,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\86151\\.nuget\\packages\\": {}
 =======
     "C:\\Users\\32171\\.nuget\\packages\\": {},
@@ -155,8 +156,18 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
 >>>>>>> temp
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+=======
+=======
+=======
+    "C:\\Users\\ufowlc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
   },
   "project": {
     "version": "1.0.0",
@@ -165,6 +176,7 @@
 =======
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -213,13 +225,19 @@
 =======
 >>>>>>> temp
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+=======
+=======
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
       "projectUniqueName": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
       "projectName": "EoE.Server",
       "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
       "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\obj\\",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> merge
@@ -227,11 +245,14 @@
 =======
 >>>>>>> temp
 >>>>>>> temp
+=======
+>>>>>>> update some packets and interfaces
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
 <<<<<<< HEAD
         "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
@@ -243,8 +264,11 @@
 <<<<<<< HEAD
         "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
+=======
+>>>>>>> update some packets and interfaces
         "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+<<<<<<< HEAD
 >>>>>>> merge
 >>>>>>> merge
 <<<<<<< HEAD
@@ -258,8 +282,16 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
 >>>>>>> temp
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+=======
+=======
+=======
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -282,6 +314,7 @@
             "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
               "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
 =======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -316,8 +349,18 @@
               "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
 >>>>>>> temp
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+=======
+=======
+=======
+            "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
+              "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces
             }
           }
         }

@@ -34,10 +34,16 @@ namespace EoE.Client.WarSystem
             WindowManager.INSTANCE.ShowWindows<CheckWarDetail>();
         }
 
+<<<<<<< HEAD
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
+=======
+        private void ListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+>>>>>>> update some packets and interfaces
         }
     }
 }

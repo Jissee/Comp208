@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
@@ -10,6 +11,8 @@ D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\SQLitePCLRaw.core.dll
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.dll
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.pdb
 =======
+=======
+>>>>>>> update some packets and interfaces
 <<<<<<< HEAD
 =======
 >>>>>>> merge
@@ -101,6 +104,8 @@ D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
 =======
 =======
 =======
+=======
+>>>>>>> update some packets and interfaces
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
@@ -110,7 +115,6 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\Microsof
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\SQLitePCLRaw.core.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.pdb
->>>>>>> temp
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.AssemblyReference.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfoInputs.cache
@@ -118,6 +122,7 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Serv
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.CoreCompileInputs.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.sourcelink.json
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> merge
 >>>>>>> merge
 <<<<<<< HEAD
@@ -127,12 +132,20 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Serv
 =======
 =======
 =======
+=======
+>>>>>>> update some packets and interfaces
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+<<<<<<< HEAD
 >>>>>>> temp
 >>>>>>> temp
+<<<<<<< HEAD
 >>>>>>> temp
+=======
+=======
+>>>>>>> update some packets and interfaces
+>>>>>>> update some packets and interfaces

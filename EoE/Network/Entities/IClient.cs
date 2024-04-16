@@ -30,5 +30,7 @@ namespace EoE.Network.Entities
         void SynchronizePlayerName(List<string> otherPlayers);
         void SynchronizePlayerName(string name);
         IWindowManager WindowManager { get; }
+        IClientWarWidthList ClientWarWidthList { get; }
+        IClientWarNameList ClientWarNameList { get; }
     }
 }
