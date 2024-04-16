@@ -23,5 +23,6 @@ namespace EoE.Network.Entities
         IClientWarProtectorsList ClientWarProtectorsList { get; }
         IClientWarParticipatibleList ClientWarParticipatibleList { get; }
         IClientWarTargetList ClientWarTargetList { get; }
+        IClientTreatyList ClientTreatyList { get; }
     }
 }

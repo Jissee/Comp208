@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
@@ -31,11 +32,19 @@ namespace EoE.Server.Treaty
                 {
                     var findTreaty = (RelationTreaty)RelationTreatyList[i];
                     if ((findTreaty.FirstParty == treaty.FirstParty && findTreaty.SecondParty == treaty.SecondParty) ||
-                        (findTreaty.SecondParty == treaty.FirstParty && findTreaty.FirstParty == treaty.SecondParty))
+                        (findTreaty.SecondParty == treaty.FirstParty && findTreaty.FirstParty == treaty.SecondParty) &&
+                        findTreaty is ProtectiveTreaty)
                     {
 
                         RemoveRelationTreaty(findTreaty);
                         i--;
+                    }
+                    if (((findTreaty.FirstParty == treaty.FirstParty && findTreaty.SecondParty == treaty.SecondParty) ||
+                        (findTreaty.SecondParty == treaty.FirstParty && findTreaty.FirstParty == treaty.SecondParty)) &&
+                        findTreaty is CommonDefenseTreaty)
+                    {
+                        ServerMessagePacket packet = new ServerMessagePacket("You have already signed a common defense treaty!");
+                        return;
                     }
                 }
             }
@@ -50,6 +59,18 @@ namespace EoE.Server.Treaty
                         i--;
                         CommonDefenseTreaty newDefenseTreaty = new CommonDefenseTreaty(findTreaty.FirstParty, findTreaty.SecondParty);
                         AddRelationTreaty(newDefenseTreaty);
+                        return;
+                    }
+                    if(((findTreaty.FirstParty == treaty.FirstParty && findTreaty.SecondParty == treaty.SecondParty) ||
+                        (findTreaty.SecondParty == treaty.FirstParty && findTreaty.FirstParty == treaty.SecondParty)) &&
+                        findTreaty is CommonDefenseTreaty)
+                    {
+                        ServerMessagePacket packet = new ServerMessagePacket("You have already signed a common defense treaty!");
+                        return;
+                    }
+                    if ((findTreaty.FirstParty == treaty.FirstParty && findTreaty.SecondParty == treaty.SecondParty) && findTreaty is ProtectiveTreaty)
+                    {
+                        ServerMessagePacket packet = new ServerMessagePacket("You have already signed a protective defense treaty!");
                         return;
                     }
                 }
@@ -99,6 +120,10 @@ namespace EoE.Server.Treaty
                     {
                         RelationTreatyList.Remove(protective);
                         i--;
+                        ServerMessagePacket packetF = new ServerMessagePacket($"You do not have enough resources to get protection from {treaty.SecondParty}");
+                        ServerMessagePacket packetS = new ServerMessagePacket($"{treaty.FirstParty} cannot afford resources to get your protection");
+                        treaty.FirstParty.SendPacket(packetF);
+                        treaty.SecondParty.SendPacket(packetS);
                         continue;
                     }
                 }

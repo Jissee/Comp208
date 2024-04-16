@@ -1,5 +1,6 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.Network.Entities;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Network.Packets.WarPacket;
 using EoE.Server.Treaty;
@@ -165,6 +166,18 @@ namespace EoE.Server.WarSystem
                 
             }
         }
+        private void SurrenderAnouncement(string surrenderName, IWarParty attackerParty, IWarParty defenderParty)
+        {
+            ServerMessagePacket packet = new ServerMessagePacket($"{surrenderName} surrenders in war {WarName}!");
+            foreach(IPlayer player in attackerParty.Armies.Keys)
+            {
+                player.SendPacket(packet);
+            }
+            foreach (IPlayer player in defenderParty.Armies.Keys)
+            {
+                player.SendPacket(packet);
+            }
+        }
         private void AutoSurrender()
         {
             foreach (var kvp in Attackers.Armies)
@@ -172,6 +185,7 @@ namespace EoE.Server.WarSystem
                 IPlayer player = kvp.Key;
                 if (!Attackers.HasFilled(player))
                 {
+                    SurrenderAnouncement(player.PlayerName, Attackers, Defenders);
                     Attackers.PlayerSurrender(player);
                 }
             }
@@ -180,6 +194,7 @@ namespace EoE.Server.WarSystem
                 IPlayer player = kvp.Key;
                 if (!Defenders.HasFilled(player))
                 {
+                    SurrenderAnouncement(player.PlayerName, Attackers, Defenders);
                     Defenders.PlayerSurrender(player);
                 }
             }

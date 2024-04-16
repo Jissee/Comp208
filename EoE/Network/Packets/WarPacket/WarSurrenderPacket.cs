@@ -44,13 +44,13 @@ namespace EoE.Network.Packets.WarPacket
 
                 foreach(IPlayer playerInfo in warPartyAllies.Armies.Keys)
                 {
-                    ServerMessagePacket surrenderPacket = new ServerMessagePacket(player.PlayerName + "surrenders in war" + warName);
+                    ServerMessagePacket surrenderPacket = new ServerMessagePacket(player.PlayerName + "surrenders in war" + warName + "!");
                     playerInfo.SendPacket(surrenderPacket);
                 }
 
                 foreach (IPlayer playerInfo in warPartyEnemies.Armies.Keys)
                 {
-                    ServerMessagePacket surrenderPacket = new ServerMessagePacket(player.PlayerName + "surrenders in war" + warName);
+                    ServerMessagePacket surrenderPacket = new ServerMessagePacket(player.PlayerName + "surrenders in war" + warName + "!");
                     playerInfo.SendPacket(surrenderPacket);
                 }
             }

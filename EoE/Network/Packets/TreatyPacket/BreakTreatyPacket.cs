@@ -50,10 +50,6 @@ namespace EoE.Network.Packets.TreatyPacket
                 targetPlayer.SendPacket(frontPacket);
                 player.SendPacket(backPacket);
             }
-            else
-            {
-
-            }
         }
     }
 }

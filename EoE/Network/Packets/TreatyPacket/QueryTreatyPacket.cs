@@ -60,7 +60,8 @@ namespace EoE.Network.Packets.TreatyPacket
             }
             else
             {
-                //todo: show the player the list of player names who had signed any treaty with the player
+                IClient client = (IClient) context.Receiver;
+                client.ClientTreatyList.ChangeTreatyList(names);
             }
         }
     }

@@ -37,6 +37,7 @@ namespace EoE.Client
 
         public IClientWarParticipatibleList ClientWarParticipatibleList {  get; set; }
         public IClientWarTargetList ClientWarTargetList { get; set; }
+        public IClientTreatyList ClientTreatyList {  get; set; }
 
         static Client() 
         {
@@ -55,6 +56,7 @@ namespace EoE.Client
             ClientWarProtectorsList = new ClientWarProtectorsList();
             ClientWarParticipatibleList = new ClientWarParticipatibleList();
             ClientWarTargetList = new ClientWarTargetList();
+            ClientTreatyList = new ClientTreatyList();
         }
         public void SetPlayerName(string name)
         {
