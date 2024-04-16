@@ -69,10 +69,16 @@ namespace EoE.Client
         {
             PlayerName = name;
         }
-        public void SynchronizePlayerName(string name,List<string> otherPlayers)
+        public void SynchronizePlayerName(List<string> otherPlayers)
         {
-            PlayerName = name;
-            OtherPlayer = otherPlayers;
+            OtherPlayer.Clear();
+            foreach (string name in otherPlayers)
+            {
+                if (name != PlayerName)
+                {
+                    OtherPlayer.Add(name);
+                }
+            }
             EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
             entetPage.SynchronizePlayerList();
         }

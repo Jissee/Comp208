@@ -163,6 +163,10 @@ namespace EoE.Server
             }
             IServer.Log("Connection", $"{name} logged in");
             server.Boardcast(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)),playerRef=>true);
+            var nameEnum = from player in Players
+                           select player.PlayerName;
+            List<string> list = [.. nameEnum];
+            server.Boardcast(new PlayerListPacket(list,list.Count),player=>true);
         }
 
         private bool CheckName(IPlayer playerRef, string name)

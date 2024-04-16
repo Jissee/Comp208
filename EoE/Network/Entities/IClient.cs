@@ -25,7 +25,7 @@ namespace EoE.Network.Entities
         IClientWarParticipatibleList ClientWarParticipatibleList { get; }
         IClientWarTargetList ClientWarTargetList { get; }
         IClientTreatyList ClientTreatyList { get; }
-        void SynchronizePlayerName(string name, List<string> otherPlayers);
+        void SynchronizePlayerName(List<string> otherPlayers)
         void SynchronizePlayerName(string name);
         IWindowManager WindowManager { get; }
     }

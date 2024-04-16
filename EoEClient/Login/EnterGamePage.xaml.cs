@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Packets.GameEventPacket;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,9 +50,9 @@ namespace EoE.Client.Login
         //todo 不能之间进入游戏
         private void EnterGame_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<MainGamePage>();
-            ignoreClosing = true;
-            this.Close();
+            EnterGame.IsEnabled = false;
+            EnterGame.Content = "Waiting...";
+            Client.INSTANCE.SendPacket(new EnterGamePacket());
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
