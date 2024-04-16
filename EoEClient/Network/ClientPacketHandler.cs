@@ -2,6 +2,7 @@
 using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
@@ -26,6 +27,7 @@ namespace EoE.Client.Network
             BinaryReader br = new BinaryReader(stream);
             string tp = br.ReadString();
 
+            Debug.WriteLine(tp);
             Type type = packetTypes[tp];
 
             Delegate decoder;
