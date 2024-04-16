@@ -25,7 +25,7 @@ namespace EoE.Network.Entities
         void Stop();
         bool IsNeedRestart();
         void Restart();
-        void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;
+        void Boardcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;
         IPlayer? GetPlayer(string playerName);
         void CheckPlayerTickStatus();
 
