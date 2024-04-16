@@ -1,6 +1,7 @@
 ﻿
 using EoE.Client.Login;
 using EoE.ClientInterface;
+using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -67,6 +68,10 @@ namespace EoE.Client
             
         }
 
+        public void UpdateOtherPlayerField(string playerName, FieldListRecord record)
+        {
+
+        }
         public void UpdateGameSetting(int playerNumber,int gameRound)
         {
             Type t = typeof(EnterGamePage);
@@ -76,7 +81,21 @@ namespace EoE.Client
             {
                 window.SynchronizeGameSetting(playerNumber, gameRound);
             });
-            
+
+        }
+
+        public static void shutDown(System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                App.Current.Shutdown();
+            }
         }
     }
 }

@@ -16,7 +16,6 @@ namespace EoE.Client.GovernanceSystem
         public IClientFieldList FieldList { get; init; }
         public IClientResourceList ResourceList { get; init; }
         public IClientPopulationManager PopManager { get; init; }
-
         public ClientGoverance()
         {
             FieldList = new ClientFieldList();
