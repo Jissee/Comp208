@@ -183,8 +183,8 @@ namespace EoE.Server.WarSystem
                 dB1, dI1, dM1, dB1 - dB2, dI1 - dI2, dM1 - dM2,
                 aB1, aI1, aM1, aB1 - aB2, aI1 - aI2, aM1 - aM2
                 );
-            WarManager.Server.Broadcast(packetA, Attackers.Contains);
-            WarManager.Server.Broadcast(packetD, Defenders.Contains);
+            WarManager.Server.Boardcast(packetA, Attackers.Contains);
+            WarManager.Server.Boardcast(packetD, Defenders.Contains);
         }
         
         public void Tick()

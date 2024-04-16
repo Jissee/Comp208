@@ -1,4 +1,5 @@
-﻿using EoE.Network.Entities;
+﻿using EoE.GovernanceSystem.ClientInterface;
+using EoE.Network.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace EoE.Network.Packets.GameEventPacket
 
         public static void Encode(GameSettingPacket obj, BinaryWriter writer)
         {
-            GameSettingRecord.encoder(obj.record,writer);
+            GameSettingRecord.encoder(obj.record, writer);
         }
 
         public void Handle(PacketContext context)
@@ -33,9 +34,17 @@ namespace EoE.Network.Packets.GameEventPacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IServer server)
                 {
-                    server.SetGame(record.playerCount,record.TotalTick);
+                    server.SetGame(record.playerCount, record.TotalTick);
+                }
+            }
+            if (context.NetworkDirection == NetworkDirection.Server2Client)
+            {
+                INetworkEntity ne = context.Receiver!;
+                if (ne is IClient client)
+                {
+                    client.WindowManager.UpdateGameSetting(record.playerCount, record.TotalTick);
                 }
             }
         }
     }
-}
+} 

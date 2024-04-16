@@ -31,8 +31,7 @@ namespace EoE.Client.WarSystem
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            CheckWarDetail checkWarDetail = new CheckWarDetail();
-            checkWarDetail.Show();
+            WindowManager.INSTANCE.ShowWindows<CheckWarDetail>();
         }
     }
 }

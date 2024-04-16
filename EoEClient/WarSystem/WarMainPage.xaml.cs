@@ -19,7 +19,19 @@ namespace EoE.Client.WarSystem
     /// </summary>
     public partial class WarMainPage : Window
     {
-       
+        private static WarMainPage instance;
+        public static WarMainPage INSTANCE
+        {
+            get
+            {
+                if (instance == null || !instance.IsLoaded)
+                {
+                    instance = new WarMainPage();
+                }
+                return instance;
+            }
+        }
+
         public WarMainPage()
         {
             InitializeComponent();
@@ -33,14 +45,12 @@ namespace EoE.Client.WarSystem
 
         private void buttonCheck_Click(object sender, RoutedEventArgs e)
         {
-            CheckStatus checkStatus = new CheckStatus();
-            checkStatus.Show();
+            WindowManager.INSTANCE.ShowWindows<CheckStatus>();
         }
 
         private void buttonGoingWar_Click(object sender, RoutedEventArgs e)
         {
-            AllocateWar allocateWar = new AllocateWar();
-            allocateWar.Show();
+            WindowManager.INSTANCE.ShowWindows<AllocateArmy>();
         }
 
        
@@ -52,8 +62,17 @@ namespace EoE.Client.WarSystem
 
         private void warGoals_Click(object sender, RoutedEventArgs e)
         {
-            WarDetail warDetail = new WarDetail();
-            warDetail.Show();
+            WindowManager.INSTANCE.ShowWindows<WarDetail>();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            instance = null;
+        }
+
+        private void AbrogateTreaty_Click(object sender, RoutedEventArgs e)
+        {
+            AbrogateTreaty.INSTANCE.Show();
         }
     }
 }

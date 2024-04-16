@@ -28,8 +28,7 @@ namespace EoE.Client.ChatSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EstablishRelation establishRelation = new EstablishRelation();
-            establishRelation.Show();
+            EstablishRelation.INSTANCE.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

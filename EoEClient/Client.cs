@@ -21,11 +21,14 @@ namespace EoE.Client
     {
         public static Client INSTANCE { get; }
         public Socket Connection { get; private set; }
-        public string? PlayerName { get ; private set; }
+        public string? PlayerName { get; private set; }
         private bool isRunning;
+
         public PacketHandler Handler { get; }
-        public List<string> OtherPlayer { get; private set; }
+        public List<string> OtherPlayer { get; private set; } 
         public IClientGonveranceManager GonveranceManager { get; init; }
+
+        public IWindowManager WindowManager { get; init; }
 
         static Client() 
         {
@@ -39,6 +42,7 @@ namespace EoE.Client
             Handler = new ClientPacketHandler();
             OtherPlayer = new List<string>();
             GonveranceManager = new ClientGoverance();
+            WindowManager = EoE.Client.WindowManager.INSTANCE;
         }
         public void SetPlayerName(string name)
         {

@@ -30,10 +30,7 @@ namespace EoE.Client.Login
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SelectTraderWindow selectTraderWindow = new SelectTraderWindow();
-            selectTraderWindow.Show();
-            this.Hide();
-
+            SelectTraderWindow.INSTANCE.Show();
         }
 
 
@@ -43,10 +40,7 @@ namespace EoE.Client.Login
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            //List<TradeItem> selectedItems = GetSelectedItems();
-           SellAndBuy2 sellAndBuy2 = new SellAndBuy2();
-            sellAndBuy2.Show();
-            this.Hide();
+           SellAndBuy2.INSTANCE.Show();
 
         }
 
@@ -54,8 +48,7 @@ namespace EoE.Client.Login
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            MainGamePage mainGamePage = new MainGamePage();
-            mainGamePage.Show();
+            this.Hide();
         }
 
         private void tradeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -99,6 +92,12 @@ namespace EoE.Client.Login
                 MessageBox.Show("Please select the transaction you want to acccept.");
             }
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

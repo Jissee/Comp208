@@ -20,14 +20,11 @@ namespace EoE.Client.Login
     
     public partial class LoginWindow : Window
     {
-        public event EventHandler NavigateToSelectPage;
-        
-      
-
         public LoginWindow()
         {
             InitializeComponent();
-            
+            ServerAddress.Text = "127.0.0.1";
+            portNumber.Text = "25566";
         }
 
         
@@ -44,11 +41,14 @@ namespace EoE.Client.Login
             if (string.IsNullOrWhiteSpace(ServerAddress.Text))
             {
                 MessageBox.Show("Please enter the server address!");
+                ServerAddress.Text = "127.0.0.1";
                 return;
             }
             if (string.IsNullOrEmpty(portNumber.Text))
             {
+                MessageBox.Show("Please enter the server port number!");
                 portNumber.Text = "25566";
+                return;
             }
 
             if (string.IsNullOrWhiteSpace(Username.Text))
@@ -63,11 +63,11 @@ namespace EoE.Client.Login
                 return;
             }
 
-            List<string> players = new List<string>();
-            players.Add(Username.Text);
+            Client.INSTANCE.SetPlayerName(Username.Text);
+            Client.INSTANCE.Connect(ServerAddress.Text,int.Parse(portNumber.Text));
 
-            EnterGamePage enterGamePage = new EnterGamePage(players, Username.Text);
-            enterGamePage.Show();
+            WindowManager.INSTANCE.ShowWindows<EnterGamePage>();
+
             this.Hide();
         }
 
@@ -96,17 +96,11 @@ namespace EoE.Client.Login
             }
         }
 
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-            
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-           
-        }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            shutDown(e);
+        }
+        public static void shutDown(System.ComponentModel.CancelEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
 
@@ -118,7 +112,6 @@ namespace EoE.Client.Login
             {
                 App.Current.Shutdown();
             }
-           
         }
     }
 }

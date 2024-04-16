@@ -39,7 +39,6 @@ namespace EoE.Server.GovernanceSystem
         public IServerResourceList ResourceList { get; init; }
 
         private IPlayer player;
-        private IServer server;
 
         private GameStatus globalGameStatus;
         public PlayerStatus PlayerStatus { get; init; }
@@ -47,16 +46,15 @@ namespace EoE.Server.GovernanceSystem
         
         public int PopGrowthProgress { get; private set;}
 
-        public ServerPlayerGonverance(GameStatus globalGameStatus, int initPop,IPlayer player, IServer server)
+        public ServerPlayerGonverance(GameStatus globalGameStatus, int initPop,IPlayer player)
         {
             this.globalGameStatus = globalGameStatus;
             this.PlayerStatus = new PlayerStatus(globalGameStatus);
 
             FieldList = new ServerPlayerFieldList(20,20,20,20,20,20,player);
-            ResourceList = new ServerPlayerResourceList();
+            ResourceList = new ServerPlayerResourceList(100, 100,100, 100, 100, 100, 100, 50, 50);
             PopManager = new ServerPopulationManger(initPop, player);
             this.player = player;
-            this.server = server;
         }
 
         // 暂时改为public！！！
