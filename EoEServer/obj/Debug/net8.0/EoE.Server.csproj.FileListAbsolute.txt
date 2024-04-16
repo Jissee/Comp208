@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
@@ -7,12 +8,17 @@ D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\SQLitePCLRaw.core.dll
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.dll
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.pdb
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> merge
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.AssemblyReference.cache
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.GeneratedMSBuildEditorConfig.editorconfig
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfoInputs.cache
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfo.cs
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.CoreCompileInputs.cache
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.sourcelink.json
+<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.dll
 D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
@@ -28,6 +34,10 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.dll
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
+=======
+<<<<<<< HEAD
+>>>>>>> merge
+>>>>>>> merge
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
@@ -40,6 +50,7 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\bin\Debug\net8.0\EoE.
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+<<<<<<< HEAD
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
@@ -61,3 +72,34 @@ C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\obj\Debug\net8.0\refint\EoE.S
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.exe
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.pdb
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.pdb
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.dll
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+=======
+=======
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.AssemblyReference.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfoInputs.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfo.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.CoreCompileInputs.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.sourcelink.json
+>>>>>>> merge
+>>>>>>> merge
+>>>>>>> merge
+>>>>>>> merge

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
 D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
 D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
@@ -5,6 +6,17 @@ D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.dll
 D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.pdb
 D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.dll
 D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.pdb
+=======
+<<<<<<< HEAD
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.dll
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.pdb
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.dll
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.pdb
+=======
+>>>>>>> merge
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.AssemblyReference.cache
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMianPage.g.cs
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.g.cs
@@ -15,7 +27,10 @@ D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSyste
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MainWindow.g.cs
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagement.g.cs
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ResourceManage.g.cs
+<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\SetExploreWindow.g.cs
+=======
+>>>>>>> merge
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\Login\EnterGamePage.g.cs
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\Login\GameAgreement.g.cs
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\Login\LoginWindow.g.cs
@@ -34,6 +49,7 @@ D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\WarMa
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\App.g.cs
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client_MarkupCompile.cache
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client_MarkupCompile.lref
+<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMianPage.baml
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.baml
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\EstablishRelation.baml
@@ -71,6 +87,10 @@ D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\refint\EoE.Clie
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
+=======
+<<<<<<< HEAD
+>>>>>>> merge
+>>>>>>> merge
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.AssemblyReference.cache
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMianPage.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.g.cs
@@ -144,6 +164,11 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-wind
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.Up2Date
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> merge
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
@@ -217,3 +242,130 @@ C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\r
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
+D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
+D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
+D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.dll
+D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.pdb
+D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.dll
+D:\e-textbook3\comp208\EoE\EoEClient\bin\Debug\net8.0-windows7.0\EoE.pdb
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\SetExploreWindow.g.cs
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMianPage.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\EstablishRelation.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\TreatyContent.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagement.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ConvertPage.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MainWindow.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagement.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ResourceManage.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\SetExploreWindow.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\Login\EnterGamePage.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\Login\GameAgreement.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\Login\LoginWindow.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\Login\MainGamePage.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\Login\MainTradePage.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\Login\SetGameWindow.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SelectTraderWindow.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SellAndBuy2.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\AbrogateTreaty.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\AllocateArmy.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\CheckStatus.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\CheckWarDetail.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\DeclareWar.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\WarDetail.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\WarMainPage.baml
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.g.resources
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.GeneratedMSBuildEditorConfig.editorconfig
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.AssemblyInfoInputs.cache
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.AssemblyInfo.cs
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.CoreCompileInputs.cache
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.sourcelink.json
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.Up2Date
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.dll
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\refint\EoE.Client.dll
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
+=======
+=======
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.AssemblyReference.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMianPage.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\EstablishRelation.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\TreatyContent.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagement.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ConvertPage.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ExpolreBlock.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MainWindow.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagement.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ResourceManage.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\EnterGamePage.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\GameAgreement.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\LoginWindow.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\MainGamePage.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\MainTradePage.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\SetGameWindow.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SelectTraderWindow.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SellAndBuy2.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\AbrogateTreaty.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\AllocateArmy.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\CheckStatus.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\CheckWarDetail.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\DeclareWar.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\WarDetail.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\WarMainPage.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\App.g.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client_MarkupCompile.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client_MarkupCompile.lref
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMianPage.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\EstablishRelation.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\TreatyContent.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagement.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ConvertPage.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ExpolreBlock.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MainWindow.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagement.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ResourceManage.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\EnterGamePage.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\GameAgreement.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\LoginWindow.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\MainGamePage.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\MainTradePage.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\SetGameWindow.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SelectTraderWindow.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SellAndBuy2.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\AbrogateTreaty.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\AllocateArmy.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\CheckStatus.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\CheckWarDetail.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\DeclareWar.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\WarDetail.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\WarSystem\WarMainPage.baml
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.g.resources
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.AssemblyInfoInputs.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.AssemblyInfo.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.CoreCompileInputs.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.sourcelink.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.Up2Date
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\refint\EoE.Client.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
+>>>>>>> merge
+>>>>>>> merge
+>>>>>>> merge
+>>>>>>> merge
