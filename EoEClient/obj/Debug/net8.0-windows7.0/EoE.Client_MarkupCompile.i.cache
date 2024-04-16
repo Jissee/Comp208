@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
+D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\
 EoE.Client
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\App.xaml
+D:\e-textbook3\comp208\EoE\EoEClient\App.xaml
 251400222464
 
-38-718570926
-199-1838406558
+471930025842
+199-1301582816
 ChatSystem\ChatMianPage.xaml;ChatSystem\ChatPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\TreatyContent.xaml;GovernanceSystem\BlockManagement.xaml;GovernanceSystem\ConvertPage.xaml;GovernanceSystem\ExpolreBlock.xaml;GovernanceSystem\MainWindow.xaml;GovernanceSystem\MilitaryManagement.xaml;GovernanceSystem\ResourceManage.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\LoginWindow.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
 
-False
+True
 

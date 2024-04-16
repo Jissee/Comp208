@@ -18,6 +18,7 @@ namespace EoE.WarSystem.Interface
         public void SetAttackersWarTarget(WarTarget warTarget);
         public void SetDefendersWarTarget(WarTarget warTarget);
         IWarParty GetWarPartyOfPlayer(IPlayer player);
+        IWarParty GetWarEnemyPartyOfPlayer(IPlayer player);
         void End(IWarParty defeated);
     }
 }
