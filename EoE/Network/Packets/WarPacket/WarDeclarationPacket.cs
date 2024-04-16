@@ -53,9 +53,6 @@ namespace EoE.Network.Packets.WarPacket
                         defendersTarget.Add(target2);
                     }
                 }
-
-                
-
             }
         }
     }

@@ -43,7 +43,10 @@ namespace EoE.Network.Packets.TreatyPacket
             }
             else
             {
-
+                IClient client = (IClient) context.Receiver;
+                bool accepted = client.MsgBoxYesNo($"{sender} wants to create a common defense treaty with you");
+                ConfirmCommonDefenseTreatyPacket packet = new ConfirmCommonDefenseTreatyPacket(sender, receiver, accepted);
+                client.SendPacket(packet);
             }
         }
     }

@@ -55,7 +55,8 @@ namespace EoE.Network.Packets.WarPacket
             }
             else
             {
-                //todo show declareable players' invitorName
+                IClient client = (IClient)context.Receiver;
+                client.ClientWarDeclarableList.ChangeWarDeclarable(names);
             }
         }
     }

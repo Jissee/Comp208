@@ -1,6 +1,7 @@
 ﻿using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Treaty;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +59,35 @@ namespace EoE.Network.Packets.TreatyPacket
             }
             else
             {
-
+                IClient client = (IClient)context.Receiver;
+                if(requestForProtection)
+                {
+                    bool accepted = client.MsgBoxYesNo($"""
+                        {sender} is willing to use these resources in exchange for your protection
+                        Silion: {resourceListRecord.siliconCount}
+                        Copper: {resourceListRecord.copperCount}
+                        Iron: {resourceListRecord.ironCount}
+                        Aluminum: {resourceListRecord.aluminumCount}
+                        Electronic: {resourceListRecord.electronicCount}
+                        Industrial: {resourceListRecord.industrialCount}
+                        """);
+                    ConfirmProtectiveTreatyPacket packet = new ConfirmProtectiveTreatyPacket(resourceListRecord, requestForProtection, sender, receiver, accepted);
+                    client.SendPacket( packet );
+                }
+                else
+                {
+                    bool accepted = client.MsgBoxYesNo($"""
+                        {sender} wants to protect you in exchange for these resources
+                        Silion: {resourceListRecord.siliconCount}
+                        Copper: {resourceListRecord.copperCount}
+                        Iron: {resourceListRecord.ironCount}
+                        Aluminum: {resourceListRecord.aluminumCount}
+                        Electronic: {resourceListRecord.electronicCount}
+                        Industrial: {resourceListRecord.industrialCount}
+                        """);
+                    ConfirmProtectiveTreatyPacket packet = new ConfirmProtectiveTreatyPacket(resourceListRecord, requestForProtection, sender, receiver, accepted);
+                    client.SendPacket(packet);
+                }
             }
         }
     }
