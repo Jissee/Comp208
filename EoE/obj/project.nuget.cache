@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "2ddZcKRmz13v5rpE9W3yQTb1K/plIqdRKFEcq5Qh7huZyVNHRko5kefdqpgN411xPi2F8UrDoIAtIt4mRvWbfg==",
   "success": true,
   "projectFilePath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
+=======
+  "dgSpecHash": "PE7hQoXYK4OYyhDrKFnvULREtlx2D1TCRPt9+g62ven9zEk6lDhIoxDtFmsT+h5PJVYz5X0C/TIAWE1ugDCkIQ==",
+  "success": true,
+  "projectFilePath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
+>>>>>>> 2d10cd0153d863d2799c22f727e6a8910c729896
   "expectedPackageFiles": [],
   "logs": []
 }

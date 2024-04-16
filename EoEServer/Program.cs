@@ -1,4 +1,5 @@
 ﻿using EoE.Network;
+using EoE.Network.Entities;
 using EoE.Server.Network;
 
 namespace EoE.Server
@@ -18,6 +19,7 @@ namespace EoE.Server
                 { 
                 }
                 server.Stop();
+                IServer.Log("Server", "Server restarting");
             }
         }
     }

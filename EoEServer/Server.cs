@@ -288,7 +288,7 @@ namespace EoE.Server
                 Task.Run(ConnectionLoop);
                 Task.Run(DisconnectionLoop);
                 Task.Run(MessageLoop);
-                Console.WriteLine("Server started.");
+                IServer.Log("Server", "Server started.");
             }
         }
         public void Stop()
@@ -315,10 +315,9 @@ namespace EoE.Server
                 }
                 // Extract the IP adress and Port num of client
                 EndPoint endp = cl.RemoteEndPoint;
-                if(endp is IPEndPoint iPEndPoint)
-                {
-                    Console.WriteLine($"{iPEndPoint.Address.ToString()}:{iPEndPoint.Port} connecting.");
-                }
+
+                IServer.Log("Connection", $"{endp} connecting.");
+
                 lock(PlayerList)
                 {
                     PlayerList.PlayerLogin(new ServerPlayer(cl, this));

@@ -1,4 +1,5 @@
 ﻿using EoE.Network;
+using EoE.Network.Entities;
 using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace EoE.Server.Network
             this.server = server;
         }
 
-        public override void ReceivePacket(byte[] data, PacketContext context)
+        public override void ReceivePacket(byte[] data, PacketContext context, string fromName)
         {
             MemoryStream stream = new MemoryStream(data);
             BinaryReader br = new BinaryReader(stream);
@@ -25,6 +26,7 @@ namespace EoE.Server.Network
             string tp = br.ReadString();
 
             Type type = packetTypes[tp];
+            IServer.Log("Packet Info", $"Receiving packet {tp} from {fromName}");
 
             Delegate decoder;
             try
@@ -33,7 +35,7 @@ namespace EoE.Server.Network
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Cannot find encoder for {tp}, it is not registered.");
+                IServer.Log("Packet Error", $"Cannot find encoder for {tp}, it is not registered.");
                 return;
             }
 
@@ -44,17 +46,19 @@ namespace EoE.Server.Network
             }
             else
             {
-                throw new Exception($"Cannot decode packet.");
+                IServer.Log("Packet Error", $"Cannot handle packet {tp}");
             }
         }
 
-        public override void SendPacket<T>(T packet, Socket connection, IPlayer redirectTarget)
+        public override void SendPacket<T>(T packet, Socket connection, string playerName)
         {
+            
             MemoryStream ms = new MemoryStream();
             BinaryWriter bw = new BinaryWriter(ms);
             bw.Write(0L);
             Type packetType = packet.GetType();
             string packetTypeString = packetType.FullName;
+            IServer.Log("Packet Info", $"Sending packet {packetTypeString} to {playerName}.");
             if (packetTypeString == null)
             {
                 throw new Exception("Invalid packet type");
@@ -70,7 +74,7 @@ namespace EoE.Server.Network
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Cannot find encoder for {packetTypeString}, it is not registered.");
+                IServer.Log("Packet Error", $"Cannot find encoder for {packetTypeString}, it is not registered.");
                 return;
             }
             encoder.DynamicInvoke(packet, bw);

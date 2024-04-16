@@ -57,14 +57,14 @@ namespace EoE.Network
         /// 把从网络接收的二进制数据恢复成数据包，然后处理数据包
         /// </summary>
         /// <param invitorName="data"></param>
-        public abstract void ReceivePacket(byte[] data, PacketContext context);
+        public abstract void ReceivePacket(byte[] data, PacketContext context, string fromName);
 
 
         /// <summary>
         /// 把数据包对象编码成二进制数据，然后从网络发送数据
         /// </summary>
         /// <param invitorName="packet"></param>
-        public abstract void SendPacket<T>(T packet, Socket connection, IPlayer redirectTarget) where T : IPacket<T>;
+        public abstract void SendPacket<T>(T packet, Socket connection, string targetName) where T : IPacket<T>;
 
 
 

@@ -145,7 +145,7 @@ namespace EoE.Client
                             int i = Connection.Receive(buf);
                             Console.WriteLine(i);
                             PacketContext context = new PacketContext(NetworkDirection.Server2Client, null, this);
-                            Handler.ReceivePacket(buf, context);
+                            Handler.ReceivePacket(buf, context, "server");
 
                         }
                     }
@@ -157,7 +157,7 @@ namespace EoE.Client
         {
             lock(this)
             {
-                Handler.SendPacket(packet, this.Connection, null);
+                Handler.SendPacket(packet, this.Connection, "server");
             }
         }
 
