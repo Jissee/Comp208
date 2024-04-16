@@ -41,7 +41,7 @@ namespace EoE.Network.Packets
             {
                 IPlayer player = context.PlayerSender!;
                 IServer server = (IServer)context.Receiver;
-                server.Broadcast(this, (player) => true);
+                server.Boardcast(this, (player) => true);
 
             }
             

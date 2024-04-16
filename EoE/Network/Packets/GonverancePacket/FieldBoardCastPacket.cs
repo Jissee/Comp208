@@ -26,7 +26,7 @@ namespace EoE.Network.Packets.GonverancePacket
 
         public void Handle(PacketContext context)
         {
-            throw new NotImplementedException();
+            //todo
         }
     }
 }

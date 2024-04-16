@@ -21,6 +21,7 @@ namespace EoE
         IServerTradeManager TradeManager { get; }
         public List<IPlayer> Players { get; }
         void PlayerLogin(IPlayer player);
+        void PlayerLogout(IPlayer player);
         void HandlePlayerDisconnection();
         void HandlePlayerMessage(PacketHandler packetHandler, IServer server);
         bool CheckPlayerTickStatus();

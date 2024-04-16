@@ -316,3 +316,13 @@ D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSyste
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\Login\LoginWindow.g.cs
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SelectTraderWindow.g.cs
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SellAndBuy2.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagement.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ConvertPage.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ExpolreBlock.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MainWindow.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagement.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\ResourceManage.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\Login\LoginWindow.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SelectTraderWindow.g.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\TradeSystem\SellAndBuy2.g.cs
