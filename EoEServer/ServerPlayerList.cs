@@ -12,6 +12,7 @@ using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -59,7 +60,7 @@ namespace EoE.Server
         
         public void PlayerLogout(IPlayer player)
         {
-            Console.WriteLine($"{player.PlayerName} logged out.");
+            IServer.Log("Connection", $"{player.PlayerName} logged out.");
             Players.Remove(player);
             if(Players.Count == 0)
             {
@@ -100,7 +101,20 @@ namespace EoE.Server
                     int i = player.Connection.Receive(buf);
                     //Console.WriteLine(i);
                     PacketContext context = new PacketContext(NetworkDirection.Client2Server, player, server);
-                    packetHandler.ReceivePacket(buf, context);
+                    string fromName = player.PlayerName;
+                    if(fromName == null)
+                    {
+                        EndPoint? endpoint = player.Connection.RemoteEndPoint;
+                        if(endpoint != null)
+                        {
+                            fromName = endpoint.ToString();
+                        }
+                        else
+                        {
+                            fromName = "null";
+                        }
+                    }
+                    packetHandler.ReceivePacket(buf, context, fromName);
                 }
             }
         }
@@ -141,15 +155,14 @@ namespace EoE.Server
             playerRef.PlayerName = name;
             if (name == Host.PlayerName)
             {
-                Console.WriteLine($"{name} Sent Packet");
+                //Console.WriteLine($"{name} Sent Packet");
                 playerRef.SendPacket(new RoomOwnerPacket(true));
             }
             else
             {
                 playerRef.SendPacket(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)));
             }
-
-            Console.WriteLine($"{name} logged in");
+            IServer.Log("Connection", $"{name} logged in");
         }
 
         private bool CheckName(IPlayer playerRef, string name)

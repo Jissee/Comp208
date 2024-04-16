@@ -1215,19 +1215,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\86151\\.nuget\\packages\\": {}
+    "C:\\Users\\sun\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoETest\\EoE.Test.csproj",
+      "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoETest\\EoE.Test.csproj",
       "projectName": "EoE.Test",
-      "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoETest\\EoE.Test.csproj",
-      "packagesPath": "C:\\Users\\86151\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoETest\\obj\\",
+      "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoETest\\EoE.Test.csproj",
+      "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
+      "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoETest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1241,14 +1241,14 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj": {
-              "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj"
+            "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj": {
+              "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj"
             },
-            "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\EoE.Server.csproj": {
-              "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\EoE.Server.csproj"
+            "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj": {
+              "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj"
             },
-            "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
-              "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj"
+            "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
+              "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj"
             }
           }
         }
@@ -1301,7 +1301,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

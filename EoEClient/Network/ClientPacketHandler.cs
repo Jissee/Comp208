@@ -1,4 +1,5 @@
 ﻿using EoE.Network;
+using EoE.Network.Entities;
 using EoE.Network.Packets;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace EoE.Client.Network
             
         }
 
-        public override void ReceivePacket(byte[] data, PacketContext context)
+        public override void ReceivePacket(byte[] data, PacketContext context, string fromName)
         {
             MemoryStream stream = new MemoryStream(data);
             BinaryReader br = new BinaryReader(stream);
@@ -52,7 +53,7 @@ namespace EoE.Client.Network
             }
         }
 
-        public override void SendPacket<T>(T packet, Socket connection, IPlayer? redirectTarget)
+        public override void SendPacket<T>(T packet, Socket connection, string targetName)
         {
             
             MemoryStream ms = new MemoryStream();

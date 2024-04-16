@@ -67,7 +67,7 @@ namespace EoE.Server
                 PacketHandler handler = Server.PacketHandler;
                 if (handler != null)
                 {
-                    handler.SendPacket(packet, Connection, null);
+                    handler.SendPacket(packet, Connection, PlayerName);
                 }
             }
 
