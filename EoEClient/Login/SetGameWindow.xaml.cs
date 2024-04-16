@@ -32,8 +32,7 @@ namespace EoE.Client.Login
         {
             if (amount && round)
             {
-                WindowManager.INSTANCE.ShowWindows<MainGamePage>();
-                //Client.INSTANCE.SendPacket(new GameSettingPacket(new GameSettingRecord(int.Parse(SetResource.Text), int.Parse(selectedValueTextBox.Text))));
+                Client.INSTANCE.SendPacket(new GameSettingPacket(new GameSettingRecord(int.Parse(SetResource.Text), int.Parse(selectedValueTextBox.Text))));
                 this.Hide();
             }
             else {

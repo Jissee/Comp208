@@ -17,7 +17,7 @@ namespace EoE.Server
                 while (!server.IsNeedRestart())
                 { 
                 }
-
+                server.Stop();
             }
         }
     }

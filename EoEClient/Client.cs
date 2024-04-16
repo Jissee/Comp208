@@ -106,6 +106,8 @@ namespace EoE.Client
         {
             lock (this)
             {
+                Connection.Shutdown(SocketShutdown.Both);
+                Thread.Sleep(500);
                 Connection.Close();
                 isRunning = false;
                 Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
