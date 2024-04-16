@@ -27,7 +27,7 @@ namespace EoE.Client
         public Socket Connection { get; private set; }
         public string? PlayerName { get; private set; }
         private bool isRunning;
-
+        public int TickCount { get; private set; }
         public PacketHandler Handler { get; }
         public List<string> OtherPlayer { get; private set; } 
         public IClientGonveranceManager GonveranceManager { get; init; }
@@ -65,22 +65,40 @@ namespace EoE.Client
             ClientTreatyList = new ClientTreatyList();
             WindowManager = EoE.Client.WindowManager.INSTANCE;
         }
+
+        public void SynchronizeTickCount(int tickCount)
+        {
+            WindowManager.SynchronizeTickCount(tickCount);
+        }
         public void SetPlayerName(string name)
         {
             PlayerName = name;
         }
-        public void SynchronizePlayerName(string name,List<string> otherPlayers)
+        public void SynchronizePlayerName(List<string> otherPlayers)
         {
-            PlayerName = name;
-            OtherPlayer = otherPlayers;
-            EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
-            entetPage.SynchronizePlayerList();
+            OtherPlayer.Clear();
+            foreach (string name in otherPlayers)
+            {
+                if (name != PlayerName)
+                {
+                    OtherPlayer.Add(name);
+                }
+            }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
+                entetPage.SynchronizePlayerList();
+            });
+            
         }
         public void SynchronizePlayerName(string name)
         {
             PlayerName = name;
-            EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
-            entetPage.SynchronizePlayerList();
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
+                entetPage.SynchronizePlayerList();
+            });
         }
 
         public void Connect(string host, int port)

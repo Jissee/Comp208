@@ -32,7 +32,7 @@ namespace EoE.Network.Entities
         void Boardcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>;
         IPlayer? GetPlayer(string playerName);
         void CheckPlayerTickStatus();
-
+        void BeginGame();
         void SetGame(int playerCount, int totalTick);
 
 

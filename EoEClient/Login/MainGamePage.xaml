@@ -25,12 +25,12 @@
         <TextBlock x:Name="Aluminum" HorizontalAlignment="Left" Margin="382,56,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20" />
         <TextBlock x:Name="Iron" HorizontalAlignment="Left" Margin="382,121,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
         <TextBlock x:Name="Industrial" HorizontalAlignment="Left" Margin="383,176,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="69" FontSize="20"/>
-        <Label x:Name="People" Content="Population: " HorizontalAlignment="Left" Margin="138,267,0,0" VerticalAlignment="Top" Height="34" FontSize="20"/>
-        <TextBlock x:Name="Population" HorizontalAlignment="Left" Margin="270,274,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="27" Width="102" FontSize="20"/>
+        <Label x:Name="People" Content="Available Population:" HorizontalAlignment="Left" Margin="68,269,0,0" VerticalAlignment="Top" Height="34" FontSize="20"/>
+        <TextBlock x:Name="Population" HorizontalAlignment="Left" Margin="316,274,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="32" Width="102" FontSize="20" RenderTransformOrigin="0.586,-0.785"/>
         <Label Content="Round Number:" HorizontalAlignment="Left" Margin="48,361,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="RoundCount" HorizontalAlignment="Left" Margin="200,362,0,0" TextWrapping="Wrap" Text="0" FontSize="20" Background="White" Width="96" Height="30" VerticalAlignment="Top"/>
 
         <Canvas Width="100" Height="100" Margin="90,167,610,168"/>
-        <CheckBox x:Name="NextRound" Content="NextRound" HorizontalAlignment="Left" Margin="349,363,0,0" VerticalAlignment="Top" Height="38" Width="137" Checked="CheckBox_Checked" FontSize="20" RenderTransformOrigin="-1.018,0.767"/>
+        <CheckBox x:Name="NextRound" Content="NextRound" HorizontalAlignment="Left" Margin="349,363,0,0" VerticalAlignment="Top" Height="38" Width="137" FontSize="20" RenderTransformOrigin="-1.018,0.767" Click="CheckBox_Clicked"/>
     </Grid>
 </Window>

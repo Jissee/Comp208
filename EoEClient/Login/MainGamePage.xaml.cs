@@ -18,6 +18,7 @@ using EoE.Client.GovernanceSystem;
 using EoE.Client.ChatSystem;
 using EoE.GovernanceSystem;
 using EoE.Network.Packets.GameEventPacket;
+using EoE.Network.Packets.GonverancePacket.Record;
 
 
 namespace EoE.Client.Login
@@ -63,6 +64,24 @@ namespace EoE.Client.Login
            WindowManager.INSTANCE.ShowWindows<ChatMianPage>();
         }
 
+        public void SynchronizeResources(ResourceListRecord resourceListRecord)
+        {
+            Silicon.Text = resourceListRecord.siliconCount.ToString();
+            Copper.Text = resourceListRecord.copperCount.ToString();
+            Aluminum.Text = resourceListRecord.aluminumCount.ToString();
+            Iron.Text = resourceListRecord.ironCount.ToString();
+            Electronic.Text = resourceListRecord.electronicCount.ToString();
+            Industrial.Text = resourceListRecord.industrialCount.ToString();
+        }
+        public void SynchronizePopulation(PopulationRecord populationRecord)
+        {
+            Population.Text = populationRecord.availablePopulation.ToString();
+        }
+        public void SynchronizeRoundNumber(int round)
+        {
+            RoundCount.Text = round.ToString();
+        }
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
@@ -78,9 +97,16 @@ namespace EoE.Client.Login
             }
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        private void CheckBox_Clicked(object sender, RoutedEventArgs e)
         {
-
+            if (NextRound.IsChecked == true)
+            {
+                Client.INSTANCE.SendPacket(new FinishTickPacket(true));
+            }
+            else
+            {
+                Client.INSTANCE.SendPacket(new FinishTickPacket(false));
+            }
         }
     }
 }

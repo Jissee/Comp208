@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Media;
 
 
@@ -81,10 +82,43 @@ namespace EoE.Client
                 window.Close();
             });
         }
-
-        public void UpdateOtherPlayerField(string playerName, FieldListRecord record)
+        public void UpdateResources(ResourceListRecord resourceListRecord)
         {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                MainGamePage window = GetWindows<MainGamePage>();
+                window.SynchronizeResources(resourceListRecord);
+            });
+        }
+        public void SynchronizePopulation(PopulationRecord populationRecord)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                MainGamePage window = GetWindows<MainGamePage>();
+                window.SynchronizePopulation(populationRecord);
+            });
+        }
+        public void SynchronizeTickCount(int round)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                MainGamePage window = GetWindows<MainGamePage>();
+                window.SynchronizeRoundNumber(round);
+            });
+        }
+      
 
+        public void ShowGameMainPage()
+        {
+            Type t = typeof(MainGamePage);
+            string typeName = t.FullName;
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                ShowWindows<MainGamePage>();
+                EnterGamePage window = GetWindows<EnterGamePage>();
+                window.ignoreClosing = true;
+                window.Close();
+            });
         }
         public void UpdateGameSetting(int playerNumber,int gameRound)
         {

@@ -151,20 +151,22 @@ namespace EoE.Server
         }
         public void InitPlayerName(IPlayer playerRef, string name)
         {
-            playerRef.PlayerName = name;
+            
             if (Host == null)
             {
+                playerRef.PlayerName = name;
                 Host = playerRef;
                 playerRef.SendPacket(new EnterRoomPacket(true));
             }
             else
             {
                 bool nameCheck = true;
-                while (CheckName(playerRef, name) == false)
+                while (CheckName(name) == false)
                 {
-                    name += "1";
+                    name += "(1)";
                     nameCheck = false;
                 }
+                playerRef.PlayerName = name;
                 if (nameCheck == false)
                 {
                     playerRef.SendPacket(new PlayerLoginPacket(name));
@@ -175,9 +177,13 @@ namespace EoE.Server
             }
             IServer.Log("Connection", $"{name} logged in");
             server.Boardcast(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)),playerRef=>true);
+            var nameEnum = from player in Players
+                           select player.PlayerName;
+            List<string> list = [.. nameEnum];
+            server.Boardcast(new PlayerListPacket(list,list.Count),player=>true);
         }
 
-        private bool CheckName(IPlayer playerRef, string name)
+        private bool CheckName(string name)
         {
             foreach (IPlayer player in Players)
             {
