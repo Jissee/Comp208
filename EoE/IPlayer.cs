@@ -16,11 +16,14 @@ namespace EoE
         IServer Server { get; }
         IServerGonveranceManager GonveranceManager { get; }
         bool IsLose { get; }
+        bool IsBegin { get; }
         void GameLose();
         string PlayerName { get; set; }
         bool IsConnected { get; }
         void SendPacket<T>(T packet) where T : IPacket<T>;
         bool FinishedTick { get; set; }
         void BeginGame();
+        void CloseSocket();
+        void Disconnect();
     }
 }

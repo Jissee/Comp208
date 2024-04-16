@@ -22,6 +22,7 @@ namespace EoE.Server
         public IServer Server { get; }
         private string? name;
         public bool IsLose => GonveranceManager.IsLose;
+        public bool IsBegin { get; private set; } = false;
 
         public IServerGonveranceManager GonveranceManager { get; private set; }
 
@@ -52,7 +53,7 @@ namespace EoE.Server
         }
         public void BeginGame()
         {
-            
+            IsBegin = true;
         }
         public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
 
@@ -101,6 +102,16 @@ namespace EoE.Server
             {
                 Server.Boardcast(new FieldBoardCastPacket(new FieldListRecord(player.GonveranceManager.FieldList)), player => true);
             }
+        }
+
+        public void CloseSocket()
+        {
+            Connection.Shutdown(SocketShutdown.Both);
+            Connection.Close();
+        }
+        public void Disconnect()
+        {
+            Server.PlayerList.PlayerLogout(this);
         }
     }
 }

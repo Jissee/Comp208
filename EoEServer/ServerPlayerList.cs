@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,6 +28,18 @@ namespace EoE.Server
         public IPlayer? Host { get; private set; }
         private IServer server;
         public int PlayerCount { get; private set; } = 1;
+        public bool AllBegins 
+        { 
+            get
+            {
+                bool begin = true;
+                foreach(var player in Players)
+                {
+                    begin &= player.IsBegin;
+                }
+                return begin;
+            } 
+        }
         public ServerPlayerList(IServer server) 
         {
             Players = new List<IPlayer>();
@@ -45,14 +58,11 @@ namespace EoE.Server
             if (Players.Count < PlayerCount)
             {
                 Players.Add(player);
-                if (Host == null)
-                {
-                    Host = player;
-                }
             }
             else
             {
                 player.SendPacket(new ServerMessagePacket("Server full, please wait for the end of the existing match or for the host to increase the number of players"));
+                player.Disconnect();
             }
 
         }
@@ -71,6 +81,7 @@ namespace EoE.Server
             {
                 Host = Players[0];
             }
+            player.CloseSocket();
         }
         public void HandlePlayerDisconnection()
         {
@@ -140,29 +151,30 @@ namespace EoE.Server
         }
         public void InitPlayerName(IPlayer playerRef, string name)
         {
-            bool nameCheck = true;
-            while(CheckName(playerRef, name) == false)
-            {
-                name += "1";
-                nameCheck = false;
-            }
-
-            if (nameCheck == false)
-            {
-                playerRef.SendPacket(new PlayerLoginPacket(name));
-                playerRef.SendPacket(new ServerMessagePacket("Due to name conflict, your player name has been reset to " + name));
-            }
             playerRef.PlayerName = name;
-            if (name == Host.PlayerName)
+            if (Host == null)
             {
-                //Console.WriteLine($"{name} Sent Packet");
-                playerRef.SendPacket(new RoomOwnerPacket(true));
+                Host = playerRef;
+                playerRef.SendPacket(new EnterRoomPacket(true));
             }
             else
             {
-                playerRef.SendPacket(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)));
+                bool nameCheck = true;
+                while (CheckName(playerRef, name) == false)
+                {
+                    name += "1";
+                    nameCheck = false;
+                }
+                if (nameCheck == false)
+                {
+                    playerRef.SendPacket(new PlayerLoginPacket(name));
+                    playerRef.SendPacket(new ServerMessagePacket("Due to name conflict, your player name has been reset to " + name));
+                }
+                
+                playerRef.SendPacket(new EnterRoomPacket(false));
             }
             IServer.Log("Connection", $"{name} logged in");
+            server.Boardcast(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)),playerRef=>true);
         }
 
         private bool CheckName(IPlayer playerRef, string name)
