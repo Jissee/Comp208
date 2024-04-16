@@ -71,12 +71,12 @@ namespace EoE.Client
         {
             Type t = typeof(EnterGamePage);
             string typeName = t.FullName;
-            Window window = WindowsDict[typeName];
-            if (window is EnterGamePage enterGamePage)
+            EnterGamePage window = (EnterGamePage)WindowsDict[typeName];
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                enterGamePage.player_number.Text = playerNumber.ToString();
-                enterGamePage.player_number.Text = gameRound.ToString();
-            }
+                window.SynchronizeGameSetting(playerNumber, gameRound);
+            });
+            
         }
     }
 }
