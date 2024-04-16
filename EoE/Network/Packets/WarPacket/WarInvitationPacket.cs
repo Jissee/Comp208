@@ -36,11 +36,14 @@ namespace EoE.Network.Packets.WarPacket
                 IServer server = (IServer)context.Receiver!;
                 IPlayer player = context.PlayerSender!;
                 IPlayer target = server.GetPlayer(name)!;
-                target.SendPacket(new WarInvitedPacket(warName, false, player.PlayerName));
+                target.SendPacket(new WarInvitationPacket(warName, player.PlayerName));
             }
             else
             {
-                // todo: response whether join the war
+                IClient client = (IClient) context.Receiver!;
+                bool accepted = client.MsgBoxYesNo(name + " invites you to join his war!");
+                WarInvitedPacket packet = new WarInvitedPacket(warName, accepted, name, client.PlayerName);
+                client.SendPacket(packet);
             }
         }
     }

@@ -43,7 +43,18 @@ namespace EoE.Network.Packets.WarPacket
         {
             if(context.NetworkDirection == NetworkDirection.Server2Client)
             {
-                //todo:show players their compensator and corresponding compensation
+                IClient client = (IClient)context.Receiver;
+                client.MsgBox($"""
+                    You will get these from {compensator} in the war \"{warName}\"!
+                    Population: {pop}
+                    Fields: {field}
+                    Silion: {record.siliconCount}
+                    Copper: {record.copperCount}
+                    Iron: {record.ironCount}
+                    Aluminum: {record.aluminumCount}
+                    Electronic: {record.electronicCount}
+                    Industrial: {record.industrialCount}
+                    """);
             }
         }
     }

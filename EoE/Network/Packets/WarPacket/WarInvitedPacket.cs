@@ -1,4 +1,5 @@
 ﻿using EoE.Network.Entities;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
@@ -13,29 +14,35 @@ namespace EoE.Network.Packets.WarPacket
         private string warName;
         private bool accepted;
         private string invitorName;
-        public WarInvitedPacket(string warName, bool accepted, string invitorName)
+        private string accepterName;
+        public WarInvitedPacket(string warName, bool accepted, string invitorName, string accepterName)
         {
             this.warName = warName;
             this.accepted = accepted;
             this.invitorName = invitorName;
+            this.accepterName = accepterName;
         }
 
         public static WarInvitedPacket Decode(BinaryReader reader)
         {
             string warName = reader.ReadString();
             bool accepted = reader.ReadBoolean();
-            string name = reader.ReadString();
-            
-            return new WarInvitedPacket(warName, accepted, name);
+            string iname = reader.ReadString();
+            string aname = reader.ReadString();
+            return new WarInvitedPacket(warName, accepted, iname, aname);
         }
 
         public static void Encode(WarInvitedPacket obj, BinaryWriter writer)
         {
+            writer.Write(obj.warName);
+            writer.Write(obj.accepted);
+            writer.Write(obj.invitorName);
+            writer.Write(obj.accepterName);
         }
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == Entities.NetworkDirection.Client2Server)
+            if(context.NetworkDirection == NetworkDirection.Client2Server)
             {
                 if (accepted == true)
                 {
@@ -46,11 +53,17 @@ namespace EoE.Network.Packets.WarPacket
                     {
                         warManager.PreparingWarDict[warName].Attackers.AddPlayer(player);
                     }
+                    ServerMessagePacket packet = new ServerMessagePacket(accepterName + " accepted your invitation!");
+                    IPlayer invitor = server.GetPlayer(invitorName)!;
+                    invitor.SendPacket(packet);
                 }
-            }
-            else
-            {
-                //todo player choose to accept or not;
+                else
+                {
+                    IServer server = (IServer)context.Receiver;
+                    ServerMessagePacket packet = new ServerMessagePacket(accepterName + " rejected your invitation!");
+                    IPlayer invitor = server.GetPlayer(invitorName)!;
+                    invitor.SendPacket(packet);
+                }
             }
         }
     }

@@ -1,10 +1,12 @@
 ﻿using EoE.Client.GovernanceSystem;
 using EoE.Client.Network;
+using EoE.Client.WarSystem;
 using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GameEventPacket;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,18 +29,34 @@ namespace EoE.Client
         public List<string> OtherPlayer { get; private set; }
         public IClientGonveranceManager GonveranceManager { get; init; }
 
+        public IClientWarDeclarableList ClientWarDeclarableList {  get; set; }
+
+        public IClientWarInformationList ClientWarInformationList {  get; set; }
+
+        public IClientWarProtectorsList ClientWarProtectorsList {  get; set; }
+
+        public IClientWarParticipatibleList ClientWarParticipatibleList {  get; set; }
+        public IClientWarTargetList ClientWarTargetList { get; set; }
+        public IClientTreatyList ClientTreatyList {  get; set; }
+
         static Client() 
         {
             INSTANCE = new Client();
         }
 
-        //TODO for test,临时改成public
+        //TODO for test,change to public temporarily
         public Client() 
         {
             Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Handler = new ClientPacketHandler();
             OtherPlayer = new List<string>();
             GonveranceManager = new ClientGoverance();
+            ClientWarDeclarableList = new ClientWarDeclarableList();
+            ClientWarInformationList = new ClientWarInformationList();
+            ClientWarProtectorsList = new ClientWarProtectorsList();
+            ClientWarParticipatibleList = new ClientWarParticipatibleList();
+            ClientWarTargetList = new ClientWarTargetList();
+            ClientTreatyList = new ClientTreatyList();
         }
         public void SetPlayerName(string name)
         {
@@ -126,8 +144,18 @@ namespace EoE.Client
             {
                 MessageBox.Show(msg);
             });
-            
         }
 
+        public bool MsgBoxYesNo(string msg)
+        {
+            if(MessageBox.Show(msg,"",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

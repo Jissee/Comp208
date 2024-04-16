@@ -17,6 +17,7 @@ using System.Reflection;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98e17c8106b3e9584a951e2356e99cd0a1e5999c")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b401cfd73acbda735225ad957b98ef7fe42887a2")]
@@ -27,6 +28,9 @@ using System.Reflection;
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12ff0d590f1bbb1d73354c56d6c3c6eff3527f3b")]
 >>>>>>> fa54385ab045b0e781e6ceeda6a6df82a817ee29
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43dbaa18f3f4774c4252f5cd5f47241dceb499ee")]
+>>>>>>> pr/50
 [assembly: System.Reflection.AssemblyProductAttribute("EoE.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EoE.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -22,22 +22,22 @@
     <Page Update="ChatSystem\TreatyContent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GovernenceSystem\BlockManagement.xaml">
+    <Page Update="GovernanceSystem\BlockManagement.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GovernenceSystem\Convert.xaml">
+    <Page Update="GovernanceSystem\Convert.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GovernenceSystem\ExpolreBlock.xaml">
+    <Page Update="GovernanceSystem\ExpolreBlock.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GovernenceSystem\MainWindow.xaml">
+    <Page Update="GovernanceSystem\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GovernenceSystem\MilitaryManagement.xaml">
+    <Page Update="GovernanceSystem\MilitaryManagement.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GovernenceSystem\ResourceManage.xaml">
+    <Page Update="GovernanceSystem\ResourceManage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login\EnterGamePage.xaml">
