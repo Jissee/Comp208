@@ -20,6 +20,7 @@ namespace EoE.Client.Login
     
     public partial class LoginWindow : Window
     {
+        bool ignoreClosing = false;
         public LoginWindow()
         {
             InitializeComponent();
@@ -67,8 +68,8 @@ namespace EoE.Client.Login
             Client.INSTANCE.Connect(ServerAddress.Text,int.Parse(portNumber.Text));
 
             WindowManager.INSTANCE.ShowWindows<EnterGamePage>();
-
-            this.Hide();
+            ignoreClosing = true;
+            this.Close();
         }
 
 
@@ -78,7 +79,7 @@ namespace EoE.Client.Login
             Connect.IsEnabled = isChecked;
         }
 
-        //实时更新人数
+        
         private void UpdateConnectButtonState()
         {
             bool isChecked = agreeCheckBox.IsChecked ?? false;
@@ -98,20 +99,21 @@ namespace EoE.Client.Login
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            shutDown(e);
-        }
-        public static void shutDown(System.ComponentModel.CancelEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            if (!ignoreClosing)
+            {
+                MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
 
-            if (result == MessageBoxResult.Cancel)
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                App.Current.Shutdown();
+                if (result == MessageBoxResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Client.INSTANCE.Disconnect();
+                    App.Current.Shutdown();
+                }
             }
         }
+        
     }
 }

@@ -18,6 +18,7 @@ namespace EoE.Client.Login
     
     public partial class EnterGamePage : Window
     {
+        bool ignoreClosing = false;
         public EnterGamePage()
         {
             InitializeComponent();
@@ -49,12 +50,26 @@ namespace EoE.Client.Login
         private void EnterGame_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<MainGamePage>();
-            this.Hide();
+            ignoreClosing = true;
+            this.Close();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            LoginWindow.shutDown(e);
+            if (!ignoreClosing)
+            {
+                MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Client.INSTANCE.Disconnect();
+                    App.Current.Shutdown();
+                }
+            }
         }
     }
 }
