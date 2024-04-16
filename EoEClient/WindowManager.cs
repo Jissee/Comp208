@@ -104,6 +104,7 @@ namespace EoE.Client
             {
                 MainGamePage window = GetWindows<MainGamePage>();
                 window.SynchronizeRoundNumber(round);
+                window.NextRound.IsChecked = false;
             });
         }
       
