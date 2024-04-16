@@ -76,12 +76,12 @@ namespace EoE.Server
 
         public void GameLose()
         {
+            Server.Boardcast(new ServerMessagePacket($"{this.PlayerName} lost the game."), player => true);
+            
             GonveranceManager.ClearAll();
             Server.PlayerList.WarManager.PlayerLose(this);
             Server.PlayerList.TradeManager.ClearAll(this);
-             //TodO TreatyManager losse
-            Server.Boardcast(new FieldBoardCastPacket(new FieldListRecord(GonveranceManager.FieldList)), player => true);
-
+            //TodO TreatyManager losse
             Server.PlayerList.PlayerLogout(this);
         }
 
@@ -92,15 +92,6 @@ namespace EoE.Server
             if (IsLose)
             {
                 GameLose();
-            }
-            BoardcastField();
-        }
-
-        private void BoardcastField()
-        {
-            foreach (IPlayer player in Server.PlayerList.Players)
-            {
-                Server.Boardcast(new FieldBoardCastPacket(new FieldListRecord(player.GonveranceManager.FieldList)), player => true);
             }
         }
 

@@ -78,15 +78,15 @@ namespace EoE.Network.Packets.GonverancePacket.Record
         public static Decoder<ResourceListRecord> decoder = (BinaryReader reader) =>
         {
             return new ResourceListRecord(
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count,
-            ResourceStack.decoder(reader).Count
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32()
                 );
         };
     }

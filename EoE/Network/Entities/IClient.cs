@@ -12,6 +12,7 @@ namespace EoE.Network.Entities
 {
     public interface IClient : INetworkEntity
     {
+        int TickCount { get; }
         string PlayerName { get; }
         IClientGonveranceManager GonveranceManager { get; }
         List<string> OtherPlayer{ get;}
@@ -25,7 +26,8 @@ namespace EoE.Network.Entities
         IClientWarParticipatibleList ClientWarParticipatibleList { get; }
         IClientWarTargetList ClientWarTargetList { get; }
         IClientTreatyList ClientTreatyList { get; }
-        void SynchronizePlayerName(string name, List<string> otherPlayers);
+        void SynchronizeTickCount(int tickCount);
+        void SynchronizePlayerName(List<string> otherPlayers);
         void SynchronizePlayerName(string name);
         IWindowManager WindowManager { get; }
     }

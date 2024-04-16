@@ -61,12 +61,12 @@ namespace EoE.Network.Packets.GonverancePacket.Record
         public static Decoder<FieldListRecord> decoder = (BinaryReader reader) =>
         {
             return new FieldListRecord(
-            FieldStack.decoder(reader).Count,
-            FieldStack.decoder(reader).Count,
-            FieldStack.decoder(reader).Count,
-            FieldStack.decoder(reader).Count,
-            FieldStack.decoder(reader).Count,
-            FieldStack.decoder(reader).Count
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32(),
+            reader.ReadInt32()
                 );
         };
     }

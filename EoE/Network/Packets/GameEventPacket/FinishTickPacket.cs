@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Entities;
 
 namespace EoE.Network.Packets.GameEventPacket
@@ -10,18 +11,21 @@ namespace EoE.Network.Packets.GameEventPacket
     public class FinishTickPacket : IPacket<FinishTickPacket>
     {
         private bool isFinished;
-        public FinishTickPacket(bool isFinished)
+        private int tickCount;
+        public FinishTickPacket(bool isFinished, int tickCount)
         {
             this.isFinished = isFinished;
+            this.tickCount = tickCount;
         }
         public static FinishTickPacket Decode(BinaryReader reader)
         {
-            return new FinishTickPacket(reader.ReadBoolean());
+            return new FinishTickPacket(reader.ReadBoolean(),reader.ReadInt32());
         }
 
         public static void Encode(FinishTickPacket obj, BinaryWriter writer)
         {
             writer.Write(obj.isFinished);
+            writer.Write(obj.tickCount);
         }
 
         public void Handle(PacketContext context)
@@ -38,9 +42,18 @@ namespace EoE.Network.Packets.GameEventPacket
                 {
                     context.PlayerSender.FinishedTick = false;
                 }
-
             }
-
+            if (context.NetworkDirection == NetworkDirection.Server2Client)
+            {
+                INetworkEntity ne = context.Receiver!;
+                if (ne is IClient client)
+                {
+                    if (isFinished)
+                    {
+                        client.SynchronizeTickCount(tickCount);
+                    }
+                }
+            }
 
         }
     }
