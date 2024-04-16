@@ -1,6 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "RKCcZGDResrDrFGwUsAH6cVP7dt5B59VJCg/00jmO2ulb3tmY7cPHcFMF1MNGm4T3Xwg+EMsasXG7x9sV84UMQ==",
   "success": true,
   "projectFilePath": "D:\\e-textbook3\\comp208\\EoE\\EoETest\\EoE.Test.csproj",
@@ -18,32 +17,6 @@
     "C:\\Users\\sun\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\sun\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\sun\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
-=======
-  "dgSpecHash": "db+cNOxkoHNeOlpygGDU6ZD2lNaXLlYrxQ+UlK8A/RlRdYt/dyU8DqhQ8eFk2tjXF8lt3dsQd9rI8zpDu5wvmg==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoETest\\EoE.Test.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\ufowlc\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\microsoft.net.test.sdk\\17.6.0\\microsoft.net.test.sdk.17.6.0.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.6.0\\microsoft.testplatform.objectmodel.17.6.0.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\microsoft.testplatform.testhost\\17.6.0\\microsoft.testplatform.testhost.17.6.0.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\mstest.testadapter\\3.0.4\\mstest.testadapter.3.0.4.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\mstest.testframework\\3.0.4\\mstest.testframework.3.0.4.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\nuget.frameworks\\5.11.0\\nuget.frameworks.5.11.0.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
->>>>>>> pr/50
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "读取缓存文件 C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoETest\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

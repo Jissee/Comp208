@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EoE.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+067ce9a879225ac2336c28c1f2ec6d228a90ce69")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3972bf7a2b931e24253d3996851464c27744cd1")]
 [assembly: System.Reflection.AssemblyProductAttribute("EoE.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EoE.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

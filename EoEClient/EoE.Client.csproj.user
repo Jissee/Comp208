@@ -21,11 +21,7 @@
     <Page Update="ChatSystem\TreatyContent.xaml">
       <SubType>Designer</SubType>
     </Page>
-<<<<<<< HEAD
     <Page Update="GovernanceSystem\BlockManagement.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="GovernanceSystem\Convert.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GovernanceSystem\ExpolreBlock.xaml">
@@ -40,8 +36,6 @@
     <Page Update="GovernanceSystem\ResourceManage.xaml">
       <SubType>Designer</SubType>
     </Page>
-=======
->>>>>>> b91fb68f5d64a5f6b6f8315288c26c0ffb0e3e33
     <Page Update="Login\EnterGamePage.xaml">
       <SubType>Designer</SubType>
     </Page>
