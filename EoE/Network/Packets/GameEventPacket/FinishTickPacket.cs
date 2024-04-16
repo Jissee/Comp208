@@ -25,6 +25,7 @@ namespace EoE.Network.Packets.GameEventPacket
         public static void Encode(FinishTickPacket obj, BinaryWriter writer)
         {
             writer.Write(obj.isFinished);
+            writer.Write(obj.tickCount);
         }
 
         public void Handle(PacketContext context)

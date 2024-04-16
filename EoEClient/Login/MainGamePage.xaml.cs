@@ -25,7 +25,6 @@ namespace EoE.Client.Login
 {
     public partial class MainGamePage : Window
     {
-        private int roundCount = 0;
         public MainGamePage()
         {
             InitializeComponent();
@@ -42,11 +41,6 @@ namespace EoE.Client.Login
         private void Transaction_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<MainTradePage>();
-        }
-
-        private void Next_Click(object sender, RoutedEventArgs e)
-        {
-            Client.INSTANCE.SendPacket(new FinishTickPacket(true));
         }
 
         private void War_Click(object sender, RoutedEventArgs e)
@@ -101,11 +95,11 @@ namespace EoE.Client.Login
         {
             if (NextRound.IsChecked == true)
             {
-                Client.INSTANCE.SendPacket(new FinishTickPacket(true));
+                Client.INSTANCE.SendPacket(new FinishTickPacket(true, int.Parse(RoundCount.Text)));
             }
             else
             {
-                Client.INSTANCE.SendPacket(new FinishTickPacket(false));
+                Client.INSTANCE.SendPacket(new FinishTickPacket(true, int.Parse(RoundCount.Text)));
             }
         }
     }

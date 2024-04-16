@@ -34,13 +34,13 @@ namespace EoE.Server.GovernanceSystem
    );
     public static class Recipes
     {
-        private static float PrimaryProdcutivity = 5.0f;
-        private static float SecondaryProdcutivity =0.5f;
+        private static double PrimaryProdcutivity = 5.0f;
+        private static double SecondaryProdcutivity =0.5f;
 
-        public static int SiliconSynthetic = 1;
-        public static int CopperSynthetic = 1.1;
-        public static int IronSynthetic = 1.2;
-        public static int AluminumSynthetic = 1.1;
+        public static double SiliconSynthetic = 1;
+        public static double CopperSynthetic = 1.1;
+        public static double IronSynthetic = 1.2;
+        public static double AluminumSynthetic = 1.1;
 
         public static readonly int POP_GROWTH_THRESHOLD = 10000;
 
@@ -69,11 +69,11 @@ namespace EoE.Server.GovernanceSystem
                 int acutalProduce = 0;
                 if (silicon>= copper)
                 {
-                    acutalProduce = silicon/ SiliconSynthetic;
+                    acutalProduce = (int)(silicon/ SiliconSynthetic);
                 }
                 else
                 {
-                    acutalProduce = copper/ CopperSynthetic;
+                    acutalProduce = (int)(copper/ CopperSynthetic);
                 }
                 return new ResourceStack(fields.Type, acutalProduce);
             }
@@ -93,11 +93,11 @@ namespace EoE.Server.GovernanceSystem
                 int acutalProduce = 0;
                 if (iron>= aluminum)
                 {
-                    acutalProduce = iron/ IronSynthetic;
+                    acutalProduce = (int)(iron/ IronSynthetic);
                 }
                 else
                 {
-                    acutalProduce = aluminum/ AluminumSynthetic;
+                    acutalProduce = (int)(aluminum/ AluminumSynthetic);
                 }
                 return new ResourceStack(fields.Type, acutalProduce);
             }
@@ -105,15 +105,15 @@ namespace EoE.Server.GovernanceSystem
 
         public static ProductionConsume calcElectronicPC = (electronic) =>
         {
-            ResourceStack silicon = new ResourceStack(GameResourceType.Silicon, SiliconSynthetic * electronic.Count);
-            ResourceStack coppor = new ResourceStack(GameResourceType.Copper, CopperSynthetic * electronic.Count);
+            ResourceStack silicon = new ResourceStack(GameResourceType.Silicon, (int)(SiliconSynthetic * electronic.Count));
+            ResourceStack coppor = new ResourceStack(GameResourceType.Copper, (int)(CopperSynthetic * electronic.Count));
             return (silicon, coppor);
         };
 
         public static ProductionConsume calcIndustrailPC = (industrail) =>
         {
-            ResourceStack iron = new ResourceStack(GameResourceType.Iron, IronSynthetic * industrail.Count);
-            ResourceStack aluminum = new ResourceStack(GameResourceType.Aluminum, AluminumSynthetic * industrail.Count);
+            ResourceStack iron = new ResourceStack(GameResourceType.Iron, (int)(IronSynthetic * industrail.Count));
+            ResourceStack aluminum = new ResourceStack(GameResourceType.Aluminum, (int)(AluminumSynthetic * industrail.Count));
             return (iron, aluminum);
         };
 
