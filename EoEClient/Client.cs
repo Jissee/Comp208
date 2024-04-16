@@ -41,7 +41,6 @@ namespace EoE.Client
         public IClientWarParticipatibleList ClientWarParticipatibleList {  get; set; }
         public IClientWarTargetList ClientWarTargetList { get; set; }
         public IClientTreatyList ClientTreatyList {  get; set; }
-        public IWindowManager WindowManager { get; init; }
         IWindowManager IClient.WindowManager => WindowManager;
 
         public WindowManager WindowManager { get; init; }
