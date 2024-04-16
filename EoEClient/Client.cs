@@ -112,6 +112,7 @@ namespace EoE.Client
                 isRunning = false;
                 Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             }
+            App.Current.Shutdown();
         }
 
         public void Stop()

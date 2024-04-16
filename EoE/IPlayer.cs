@@ -22,5 +22,7 @@ namespace EoE
         void SendPacket<T>(T packet) where T : IPacket<T>;
         bool FinishedTick { get; set; }
         void BeginGame();
+        void CloseSocket();
+        void Disconnect();
     }
 }

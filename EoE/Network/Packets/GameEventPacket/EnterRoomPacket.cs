@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.GameEventPacket
 {
-    public class RoomOwnerPacket : IPacket<RoomOwnerPacket>
+    public class EnterRoomPacket : IPacket<EnterRoomPacket>
     {
         private bool isFirst;
 
-        public RoomOwnerPacket(bool isFirst)
+        public EnterRoomPacket(bool isFirst)
         {
             this.isFirst = isFirst;
         }
-        public static RoomOwnerPacket Decode(BinaryReader reader)
+        public static EnterRoomPacket Decode(BinaryReader reader)
         {
-            return new RoomOwnerPacket(reader.ReadBoolean());
+            return new EnterRoomPacket(reader.ReadBoolean());
         }
 
-        public static void Encode(RoomOwnerPacket obj, BinaryWriter writer)
+        public static void Encode(EnterRoomPacket obj, BinaryWriter writer)
         {
             writer.Write(obj.isFirst);
         }
@@ -36,6 +36,10 @@ namespace EoE.Network.Packets.GameEventPacket
                     if (isFirst)
                     {
                         client.WindowManager.ShowGameSettingWindow();
+                    }
+                    else
+                    {
+                        client.WindowManager.ShowGameEntterWindow();
                     }
                 }
             }
