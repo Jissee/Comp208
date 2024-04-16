@@ -12,31 +12,26 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WarSystem;
+using EoE.Client.WarSystem;
 using System.Windows.Navigation;
-using GovernenceSystem;
-using ChatSystem;
+using EoE.Client.GovernanceSystem;
+using EoE.Client.ChatSystem;
 
 
-namespace EoE.Client
+namespace EoE.Client.Login
 {
-    
-  
     public partial class MainGamePage : Window
     {
         private int roundCount = 0;
         public MainGamePage()
         {
             InitializeComponent();
-            //contentFrame.Navigated += contentFrame_Navigated;
 
         }
 
         private void Transaction_Click(object sender, RoutedEventArgs e)
         {
-            MainTradePage tradePage = new MainTradePage();
-            tradePage.Show();
-            this.Hide();
+            WindowManager.INSTANCE.ShowWindows<MainTradePage>();
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
@@ -53,24 +48,32 @@ namespace EoE.Client
 
         private void War_Click(object sender, RoutedEventArgs e)
         {
-            WarMainPage mainPage = new WarMainPage();
-            mainPage.Show();
+            WarMainPage.INSTANCE.Show();
         }
-        private void contentFrame_Navigated(object sender, NavigationEventArgs e)
-        {
-            // 页面导航完成后执行的操作
-        }
-
+        
         private void Goverment_Click(object sender, RoutedEventArgs e)
         {
-            GovernenceSystem.MainWindow mainWindow = new GovernenceSystem.MainWindow();
-            mainWindow.Show();
+            MainWindow.INSTANCE.Show();
         }
 
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
-           ChatMianPage chatMianPage = new ChatMianPage();
-            chatMianPage.Show();
+           WindowManager.INSTANCE.ShowWindows<ChatMianPage>();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                Client.INSTANCE.Disconnect();
+                App.Current.Shutdown();
+            }
         }
     }
 }

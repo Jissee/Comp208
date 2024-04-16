@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WarSystem
+namespace EoE.Client.WarSystem
 {
     /// <summary>
     /// DeclareWar.xaml 的交互逻辑
@@ -49,11 +49,7 @@ namespace WarSystem
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            ReviewDiplomatic reviewDiplomatic = new ReviewDiplomatic();
-            reviewDiplomatic.Show();
-        }
+       
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {

@@ -13,32 +13,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WarSystem;
+using EoE.Client.WarSystem;
 
-namespace EoE.Client
+namespace EoE.Client.Login
 {
- 
     
-    public partial class Login : Window
+    public partial class LoginWindow : Window
     {
-         public event EventHandler NavigateToSelectPage;
-        [STAThread]
-        public static void Main()
-        {
-            //从这个地方开始运行程序
-            Application app = new Application();
-            app.Run(new Login());
-<<<<<<< HEAD
-            
-=======
-            //app.Run(new WarMainPage());
->>>>>>> fa54385ab045b0e781e6ceeda6a6df82a817ee29
-        }
-
-        public Login()
+        public LoginWindow()
         {
             InitializeComponent();
+            ServerAddress.Text = "127.0.0.1";
+            portNumber.Text = "25566";
         }
+
+        
 
         private void Quary_Click(object sender, RoutedEventArgs e)
         {
@@ -52,11 +41,14 @@ namespace EoE.Client
             if (string.IsNullOrWhiteSpace(ServerAddress.Text))
             {
                 MessageBox.Show("Please enter the server address!");
+                ServerAddress.Text = "127.0.0.1";
                 return;
             }
             if (string.IsNullOrEmpty(portNumber.Text))
             {
+                MessageBox.Show("Please enter the server port number!");
                 portNumber.Text = "25566";
+                return;
             }
 
             if (string.IsNullOrWhiteSpace(Username.Text))
@@ -71,12 +63,12 @@ namespace EoE.Client
                 return;
             }
 
-            List<string> players = new List<string>();
-            players.Add(Username.Text);
+            Client.INSTANCE.SetPlayerName(Username.Text);
+            Client.INSTANCE.Connect(ServerAddress.Text,int.Parse(portNumber.Text));
 
-            EnterGamePage enterGamePage = new EnterGamePage(players, Username.Text);
-            enterGamePage.Show();
-            this.Close();
+            WindowManager.INSTANCE.ShowWindows<EnterGamePage>();
+
+            this.Hide();
         }
 
 
@@ -104,14 +96,22 @@ namespace EoE.Client
             }
         }
 
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            
+            shutDown(e);
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        public static void shutDown(System.ComponentModel.CancelEventArgs e)
         {
-           
+            MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                App.Current.Shutdown();
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EoE.Client.GovernanceSystem;
+using EoE.Client.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApp1.Login.TradeSystem.Make_a_trade;
+
 
 namespace EoE.Client.TradeSystem
 {
@@ -20,6 +22,18 @@ namespace EoE.Client.TradeSystem
     /// </summary>
     public partial class SelectTraderWindow : Window
     {
+        private static SelectTraderWindow instance;
+        public static SelectTraderWindow INSTANCE
+        {
+            get
+            {
+                if (instance == null || !instance.IsLoaded)
+                {
+                    instance = new SelectTraderWindow();
+                }
+                return instance;
+            }
+        }
        
         public SelectTraderWindow()
         {
@@ -30,8 +44,7 @@ namespace EoE.Client.TradeSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           MainTradePage mainTradePage = new MainTradePage();
-           mainTradePage.Show();
+            WindowManager.INSTANCE.ShowWindows<MainTradePage>();
             this.Close();
 
         }
@@ -39,6 +52,11 @@ namespace EoE.Client.TradeSystem
         private void submit_click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("sucefully");
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            instance = null;
         }
     }
 }

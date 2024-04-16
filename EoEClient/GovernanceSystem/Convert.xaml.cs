@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace GovernenceSystem
+namespace EoE.Client.GovernanceSystem
 {
     /// <summary>
     /// Convert.xaml 的交互逻辑
     /// </summary>
-    public partial class Convert : Window
+    public partial class ConvertPage : Window
     {
-        public Convert()
+        
+        public ConvertPage()
         {
             InitializeComponent();
         }

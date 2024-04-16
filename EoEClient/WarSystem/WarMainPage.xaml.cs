@@ -12,14 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WarSystem
+namespace EoE.Client.WarSystem
 {
     /// <summary>
     /// WarMainPage.xaml 的交互逻辑
     /// </summary>
     public partial class WarMainPage : Window
     {
-       
+        private static WarMainPage instance;
+        public static WarMainPage INSTANCE
+        {
+            get
+            {
+                if (instance == null || !instance.IsLoaded)
+                {
+                    instance = new WarMainPage();
+                }
+                return instance;
+            }
+        }
+
         public WarMainPage()
         {
             InitializeComponent();
@@ -33,21 +45,15 @@ namespace WarSystem
 
         private void buttonCheck_Click(object sender, RoutedEventArgs e)
         {
-            CheckStatus checkStatus = new CheckStatus();
-            checkStatus.Show();
+            WindowManager.INSTANCE.ShowWindows<CheckStatus>();
         }
 
         private void buttonGoingWar_Click(object sender, RoutedEventArgs e)
         {
-            AllocateWar allocateWar = new AllocateWar();
-            allocateWar.Show();
+            WindowManager.INSTANCE.ShowWindows<AllocateArmy>();
         }
 
-        private void buttonReview_Click(object sender, RoutedEventArgs e)
-        {
-            ReviewDiplomatic reviewDiplomatic = new ReviewDiplomatic(); 
-            reviewDiplomatic.Show();
-        }
+       
 
         private void slider1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -56,8 +62,17 @@ namespace WarSystem
 
         private void warGoals_Click(object sender, RoutedEventArgs e)
         {
-            WarDetail warDetail = new WarDetail();
-            warDetail.Show();
+            WindowManager.INSTANCE.ShowWindows<WarDetail>();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            instance = null;
+        }
+
+        private void AbrogateTreaty_Click(object sender, RoutedEventArgs e)
+        {
+            AbrogateTreaty.INSTANCE.Show();
         }
     }
 }

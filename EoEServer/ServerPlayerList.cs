@@ -18,21 +18,21 @@ using System.Threading.Tasks;
 namespace EoE.Server
 {
     public class ServerPlayerList : IServerPlayerList, ITickable
-    {
+    { 
+        public List<IPlayer> Players { get; }
         public ITreatyManager TreatyManager { get; }
         public IWarManager WarManager { get; }
-        public List<IPlayer> Players { get; }
         public IServerTradeManager TradeManager { get; }
-        private IPlayer? host;
+        public IPlayer? Host { get; init; }
         private IServer server;
         public int PlayerCount { get; private set; } = 1;
         public ServerPlayerList(IServer server) 
-        { 
-            TreatyManager = new TreatyManager(this);
+        {
             Players = new List<IPlayer>();
+            TreatyManager = new TreatyManager(this);
             WarManager = new WarManager(server);
-            this.server = server;
             TradeManager = new ServerTradeManager(server);
+            this.server = server;
         }
 
         public void SetPlayerCount(int playerCount)
@@ -43,12 +43,11 @@ namespace EoE.Server
         {
             if (Players.Count < PlayerCount)
             {
+                Players.Add(player);
                 if (host == null)
                 {
                     host = player;
-                    player.SendPacket(new RoomOwnerPacket(true));
                 }
-                Players.Add(player);
             }
             else
             {
@@ -57,9 +56,9 @@ namespace EoE.Server
 
         }
 
+        
         public void PlayerLogout(IPlayer player)
         {
-            player.GameLose();
             Console.WriteLine($"{player.PlayerName} logged out.");
             Players.Remove(player);
             if(Players.Count == 0)
@@ -80,7 +79,7 @@ namespace EoE.Server
                 bool b = c.IsConnected;
                 if (!b)
                 {
-                    PlayerLogout(c);
+                    c.GameLose();
                 }
             }
         }

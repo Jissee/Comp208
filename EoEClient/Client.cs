@@ -23,10 +23,11 @@ namespace EoE.Client
     {
         public static Client INSTANCE { get; }
         public Socket Connection { get; private set; }
-        public string? PlayerName { get ; private set; }
+        public string? PlayerName { get; private set; }
         private bool isRunning;
+
         public PacketHandler Handler { get; }
-        public List<string> OtherPlayer { get; private set; }
+        public List<string> OtherPlayer { get; private set; } 
         public IClientGonveranceManager GonveranceManager { get; init; }
 
         public IClientWarDeclarableList ClientWarDeclarableList {  get; set; }
@@ -38,6 +39,7 @@ namespace EoE.Client
         public IClientWarParticipatibleList ClientWarParticipatibleList {  get; set; }
         public IClientWarTargetList ClientWarTargetList { get; set; }
         public IClientTreatyList ClientTreatyList {  get; set; }
+        public IWindowManager WindowManager { get; init; }
 
         static Client() 
         {
@@ -57,6 +59,7 @@ namespace EoE.Client
             ClientWarParticipatibleList = new ClientWarParticipatibleList();
             ClientWarTargetList = new ClientWarTargetList();
             ClientTreatyList = new ClientTreatyList();
+            WindowManager = EoE.Client.WindowManager.INSTANCE;
         }
         public void SetPlayerName(string name)
         {

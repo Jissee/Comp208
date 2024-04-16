@@ -49,7 +49,7 @@ namespace EoE.Server.TradeSystem
                     resources.SplitResourceStack(item);
                 }
                 openOrders.Add(transaction);
-                server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Create, transaction), player =>true);
+                server.Boardcast(new OpenTransactionPacket(OpenTransactionOperation.Create, transaction), player =>true);
             }
             else
             {
@@ -117,7 +117,7 @@ namespace EoE.Server.TradeSystem
                         resources.AddResourceStack(item);
                     }
 
-                    server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction),player=> true);
+                    server.Boardcast(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction),player=> true);
                     offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord (offeror.GonveranceManager.ResourceList)));
                 }
                 else
@@ -146,7 +146,7 @@ namespace EoE.Server.TradeSystem
                 IPlayer offeror = server.GetPlayer(transaction.Offeror)!;
                 if(ExchangeResource(offeror, recipient, transaction))
                 {
-                    server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction), player => true);
+                    server.Boardcast(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction), player => true);
                     offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
                     recipient.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(recipient.GonveranceManager.ResourceList)));
                 }
@@ -199,7 +199,7 @@ namespace EoE.Server.TradeSystem
                     }
 
                     offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
-                    server.Broadcast(new OpenTransactionPacket(OpenTransactionOperation.Alter,transaction),player => true);
+                    server.Boardcast(new OpenTransactionPacket(OpenTransactionOperation.Alter,transaction),player => true);
                 }
                 else
                 {
@@ -290,7 +290,7 @@ namespace EoE.Server.TradeSystem
                 openOrders.Remove(transaction);
                 transaction = openOrders.FirstOrDefault(t => t.Offeror == offeror.PlayerName);
             }
-            server.Broadcast(new OpenTransactionSynchronizePacket(openOrders.Count, openOrders), play => true);
+            server.Boardcast(new OpenTransactionSynchronizePacket(openOrders.Count, openOrders), play => true);
         }
     }
 }

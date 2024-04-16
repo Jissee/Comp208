@@ -1,4 +1,6 @@
-﻿using EoE.Client.TradeSystem;
+﻿using EoE.Client.GovernanceSystem;
+using EoE.Client.Login;
+using EoE.Client.TradeSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,41 +15,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApp1.Login.TradeSystem.Make_a_trade
+namespace EoE.Client.TradeSystem
 {
     /// <summary>
-    /// SellAndBuyWindow.xaml 的交互逻辑
+    /// SellAndBuy2.xaml 的交互逻辑
     /// </summary>
-    public class TradeItem
+    public partial class SellAndBuy2 : Window
     {
-        public string Name { get; set; }
-        public int Quantity { get; set; }
-        
-    }
-    public partial class SellAndBuyWindow : Window
-    {
+        private static SellAndBuy2 instance;
+        public static SellAndBuy2 INSTANCE
+        {
+            get
+            {
+                if (instance == null || !instance.IsLoaded)
+                {
+                    instance = new SellAndBuy2();
+                }
+                return instance;
+            }
+        }
         int[] sellValues = new int[6];
         int[] buyValues = new int[6];
-        //List<TradeItem> tradeItemsFromTrade = new List<TradeItem>();
-        //List<TradeItem> tradeItemsFromMarket = new List<TradeItem>();
-
-
-        public SellAndBuyWindow()
+        public SellAndBuy2()
         {
             InitializeComponent();
             InitializeTextBoxes();
         }
-
-        //public void SaveDataFromTrade(List<TradeItem> items)
-        //{
-            //tradeItemsFromTrade = items;
-        //}
-
-        // 保存来自交易所界面的数据
-        //public void SaveDataFromMarket(List<TradeItem> items)
-        //{
-            //tradeItemsFromMarket = items;
-        //}
 
         private void InitializeTextBoxes()
         {
@@ -99,24 +92,11 @@ namespace WpfApp1.Login.TradeSystem.Make_a_trade
 
         private void Confirm_Button_Click(object sender, RoutedEventArgs e)
         {
-            //sellValues[0] = int.Parse(Sell1.Text);
-            //sellValues[1] = int.Parse(Sell2.Text);
-            //sellValues[2] = int.Parse(Sell3.Text);
-            //sellValues[3] = int.Parse(Sell4.Text);
-            //sellValues[4] = int.Parse(Sell5.Text);
-            //sellValues[5] = int.Parse(Sell6.Text);
-
-            //buyValues[0] = int.Parse(Buy1.Text);
-            //buyValues[1] = int.Parse(Buy7.Text);
-            //buyValues[2] = int.Parse(Buy3.Text);
-            //buyValues[3] = int.Parse(Buy4.Text);
-            //buyValues[4] = int.Parse(Buy5.Text);
-            //buyValues[5] = int.Parse(Buy6.Text);
             bool sellFilled = Array.Exists(sellValues, v => v != 0);
             bool buyFilled = Array.Exists(buyValues, v => v != 0);
             if (sellFilled || buyFilled)
             {
-                
+                MessageBox.Show("Sucefully!");
                 this.Hide();
             }
             else
@@ -124,20 +104,17 @@ namespace WpfApp1.Login.TradeSystem.Make_a_trade
                 MessageBox.Show("There must be at least one integer between sell and buy！");
                 return;
             }
-            MainTradePage mainTradePage = new MainTradePage();
+            EoE.Client.Login.MainTradePage mainTradePage = new EoE.Client.Login.MainTradePage();
             mainTradePage.Show();
             this.Hide();
 
-           
         }
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
-           
-                SelectTraderWindow selectTraderWindow = new SelectTraderWindow();
-                selectTraderWindow.Show();
-                this.Close();
-            
+            WindowManager.INSTANCE.ShowWindows<MainTradePage>();
+            this.Hide();
+
         }
 
         private void Sell1_TextChanged(object sender, TextChangedEventArgs e)
@@ -198,6 +175,11 @@ namespace WpfApp1.Login.TradeSystem.Make_a_trade
         private void Buy6_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            instance = null;
         }
     }
 }

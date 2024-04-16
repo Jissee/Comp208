@@ -12,16 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace GovernenceSystem
+namespace EoE.Client.GovernanceSystem
 {
     /// <summary>
     /// ExpolreBlock.xaml 的交互逻辑
     /// </summary>
     public partial class ExpolreBlock : Window
     {
+        private static ExpolreBlock instance;
+        public static ExpolreBlock INSTANCE 
+        { 
+            get 
+            { 
+                if(instance == null || !instance.IsLoaded)
+                {
+                    instance = new ExpolreBlock();
+                }
+                return instance;
+            } 
+        }
         public ExpolreBlock()
         {
             InitializeComponent();
+            Population.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -45,6 +58,11 @@ namespace GovernenceSystem
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            instance = null;
         }
     }
 }

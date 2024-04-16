@@ -172,5 +172,6 @@ namespace EoE.Server.Treaty
         {
             AddRelationTreaty(new CommonDefenseTreaty(player1, player2));
         }
+
     }
 }

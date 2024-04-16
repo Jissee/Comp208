@@ -1,4 +1,5 @@
-﻿using EoE.GovernanceSystem.ClientInterface;
+﻿using EoE.Client;
+using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Packets;
 using EoE.WarSystem.Interface;
 using System;
@@ -24,5 +25,6 @@ namespace EoE.Network.Entities
         IClientWarParticipatibleList ClientWarParticipatibleList { get; }
         IClientWarTargetList ClientWarTargetList { get; }
         IClientTreatyList ClientTreatyList { get; }
+        IWindowManager WindowManager { get; }
     }
 }

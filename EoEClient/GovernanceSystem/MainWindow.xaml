@@ -1,11 +1,11 @@
-﻿<Window x:Class="GovernenceSystem.MainWindow"
+﻿<Window x:Class="EoE.Client.GovernanceSystem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GovernenceSystem"
+        xmlns:local="clr-namespace:EoE.Client.GovernanceSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid x:Name="Manage_Resource1">
         <Label x:Name="Content" Content="&quot;Management is the greatest social responsibility, representing the utmost respect for societal resources&quot;" HorizontalAlignment="Center" Margin="0,46,0,0" VerticalAlignment="Top" FontSize="15"/>
         <Button x:Name="Manage_Resource" Content="Resource Management" HorizontalAlignment="Left" Margin="89,131,0,0" VerticalAlignment="Top" Height="73" Width="256" FontSize="20" Click="Manage_Resource_Click"/>

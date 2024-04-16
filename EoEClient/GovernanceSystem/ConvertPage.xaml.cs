@@ -1,4 +1,4 @@
-﻿using EoE.Client.TradeSystem;
+﻿using EoE.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,30 +13,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace EoE.Client.GovernanceSystem
 {
     /// <summary>
-    /// SearchTransationWindow.xaml 的交互逻辑
+    /// Convert.xaml 的交互逻辑
     /// </summary>
-    public partial class SearchTransationWindow : Window
+    public partial class ConvertPage : Window
     {
-        public SearchTransationWindow()
+        
+        public ConvertPage()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string str = findBox.Text;
-            string str2 = (String)((ListBoxItem)listbox.SelectedItem).Content;
-            MessageBox.Show(str2);
+            MessageBox.Show("Sucessful");
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MainTradePage mainTradePage = new MainTradePage();
-            mainTradePage.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

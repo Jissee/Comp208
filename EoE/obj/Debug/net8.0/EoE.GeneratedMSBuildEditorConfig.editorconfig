@@ -9,9 +9,13 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EoE
 <<<<<<< HEAD
+<<<<<<< HEAD
 build_property.ProjectDir = D:\e-textbook3\comp208\EoE\EoE\
 =======
 build_property.ProjectDir = C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\
 >>>>>>> pr/50
+=======
+build_property.ProjectDir = C:\Users\32171\source\repos\HateUsername\Comp208\EoE\
+>>>>>>> b91fb68f5d64a5f6b6f8315288c26c0ffb0e3e33
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

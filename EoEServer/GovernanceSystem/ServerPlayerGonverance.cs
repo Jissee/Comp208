@@ -39,24 +39,22 @@ namespace EoE.Server.GovernanceSystem
         public IServerResourceList ResourceList { get; init; }
 
         private IPlayer player;
-        private IServer server;
 
         private GameStatus globalGameStatus;
-        private PlayerStatus playerStatus;
+        public PlayerStatus PlayerStatus { get; init; }
         public IServerPopManager PopManager { get; init; }
         
         public int PopGrowthProgress { get; private set;}
 
-        public ServerPlayerGonverance(GameStatus globalGameStatus, int initPop,IPlayer player, IServer server)
+        public ServerPlayerGonverance(GameStatus globalGameStatus, int initPop,IPlayer player)
         {
             this.globalGameStatus = globalGameStatus;
-            this.playerStatus = new PlayerStatus(globalGameStatus);
+            this.PlayerStatus = new PlayerStatus(globalGameStatus);
 
             FieldList = new ServerPlayerFieldList(20,20,20,20,20,20,player);
-            ResourceList = new ServerPlayerResourceList();
+            ResourceList = new ServerPlayerResourceList(100, 100,100, 100, 100, 100, 100, 50, 50);
             PopManager = new ServerPopulationManger(initPop, player);
             this.player = player;
-            this.server = server;
         }
 
         // 暂时改为public！！！
@@ -66,28 +64,28 @@ namespace EoE.Server.GovernanceSystem
                 PopManager.GetPopAllocCount(GameResourceType.Silicon),
                 FieldList.GetFieldStack(GameResourceType.Silicon), 
                 0, 0);
-            resource.Count = (int)playerStatus.CountrySiliconModifier.Apply(resource.Count);
+            resource.Count = (int)PlayerStatus.CountrySiliconModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
 
             resource = Recipes.calcPrimaryP(
                 PopManager.GetPopAllocCount(GameResourceType.Copper),
                 FieldList.GetFieldStack(GameResourceType.Copper), 
                 0, 0);
-            resource.Count = (int)playerStatus.CountryCopperModifier.Apply(resource.Count);
+            resource.Count = (int)PlayerStatus.CountryCopperModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
 
             resource = Recipes.calcPrimaryP(
                 PopManager.GetPopAllocCount(GameResourceType.Iron),
                 FieldList.GetFieldStack(GameResourceType.Iron),
                 0, 0);
-            resource.Count = (int)playerStatus.CountryIronModifier.Apply(resource.Count);
+            resource.Count = (int)PlayerStatus.CountryIronModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
 
             resource = Recipes.calcPrimaryP(
                 PopManager.GetPopAllocCount(GameResourceType.Aluminum),
                 FieldList.GetFieldStack(GameResourceType.Aluminum), 
                 0, 0);
-            resource.Count = (int)playerStatus.CountryAluminumModifier.Apply(resource.Count);
+            resource.Count = (int)PlayerStatus.CountryAluminumModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
 
         }
@@ -100,7 +98,7 @@ namespace EoE.Server.GovernanceSystem
                 FieldList.GetFieldStack(GameResourceType.Electronic), 
                 ResourceList.GetResourceCount(GameResourceType.Silicon), 
                 ResourceList.GetResourceCount(GameResourceType.Copper));
-            resource.Count = (int)playerStatus.CountryElectronicModifier.Apply(resource.Count);
+            resource.Count = (int)PlayerStatus.CountryElectronicModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
             (ResourceStack consume1, ResourceStack consume2) = Recipes.calcElectronicPC(resource);
             ResourceList.SplitResourceStack(consume1);
@@ -112,7 +110,7 @@ namespace EoE.Server.GovernanceSystem
                 FieldList.GetFieldStack(GameResourceType.Industrial),
                 ResourceList.GetResourceCount(GameResourceType.Iron),
                 ResourceList.GetResourceCount(GameResourceType.Aluminum));
-            resource.Count = (int)playerStatus.CountryIndustryModifier.Apply(resource.Count);
+            resource.Count = (int)PlayerStatus.CountryIndustryModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
             (consume1, consume2) = Recipes.calcIndustrailPC(resource);
             ResourceList.SplitResourceStack(consume1);

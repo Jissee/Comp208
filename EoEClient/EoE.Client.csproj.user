@@ -7,21 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="ChatSystem\chat.xaml">
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Update="WarSystem\AbrogateTreaty.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="ChatSystem\ChatMianPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ChatSystem\EstablishRelation.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatSystem\MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="ChatSystem\TreatyContent.xaml">
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
     <Page Update="GovernanceSystem\BlockManagement.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -40,13 +40,12 @@
     <Page Update="GovernanceSystem\ResourceManage.xaml">
       <SubType>Designer</SubType>
     </Page>
+=======
+>>>>>>> b91fb68f5d64a5f6b6f8315288c26c0ffb0e3e33
     <Page Update="Login\EnterGamePage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login\GameAgreement.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Login\Login.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login\MainGamePage.xaml">
@@ -58,46 +57,10 @@
     <Page Update="Login\SetGameWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="TradeSystem\AcceptTrade\AcceptTradeWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TradeSystem\AcceptTrade\RequirestList.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TradeSystem\FindRequirest\SearchTransationWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TradeSystem\MadeBuyRequirest\BuyItemWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TradeSystem\MadeBuyRequirest\ConfirmRequirestWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TradeSystem\MadeBuyRequirest\InputBuyNumber.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TradeSystem\MadeBuyRequirest\InputSellNumber.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TradeSystem\MadeBuyRequirest\SellAndBuy2.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TradeSystem\MadeBuyRequirest\SellItemWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TradeSystem\Make a trade\SelectTraderWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TradeSystem\Make a trade\SellAndBuyWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="WarSystem\AcquireResource.xaml">
+    <Page Update="WarSystem\AbrogateTreaty.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WarSystem\AllocateArmy.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="WarSystem\AllocateWar.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WarSystem\CheckStatus.xaml">
@@ -107,9 +70,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WarSystem\DeclareWar.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="WarSystem\ReviewDiplomatic.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WarSystem\WarDetail.xaml">

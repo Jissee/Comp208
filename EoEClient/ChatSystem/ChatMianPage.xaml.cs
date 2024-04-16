@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ChatSystem
+namespace EoE.Client.ChatSystem
 {
     /// <summary>
     /// ChatMianPage.xaml 的交互逻辑
@@ -30,7 +30,7 @@ namespace ChatSystem
             if (listBox1.SelectedItem != null)
             {
                 this.Hide();
-                chat chat = new chat();
+                ChatPage chat = new ChatPage();
                  chat.Show();
             }
             else
@@ -39,6 +39,12 @@ namespace ChatSystem
             }
             
             
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }
