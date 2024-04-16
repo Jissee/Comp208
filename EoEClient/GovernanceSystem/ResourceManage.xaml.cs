@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.GovernanceSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,14 @@ namespace EoE.Client.GovernanceSystem
         public ResourceManage()
         {
             InitializeComponent();
+            Population.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
+            Silicon.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Silicon).ToString();
+            Copper.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Copper).ToString();
+            Aluminum.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Aluminum).ToString();
+            Iron.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Iron).ToString();
+            Electronic.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Electronic).ToString();
+            Industrial.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Industrial).ToString();
+            Blocks.Text = Client.INSTANCE.GonveranceManager.FieldList.TotalFieldCount.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

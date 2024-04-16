@@ -22,11 +22,29 @@ namespace EoE.Client.GovernanceSystem
         public MilitaryManagement()
         {
             InitializeComponent();
+            battleafter.Text = battlebefore.Text + battlechange.Text;
+            techafter.Text = techbefore .Text + techchange.Text;
+            mechafter.Text = mechbefore .Text + mechchange.Text;
         }
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
+        }
+
+        private void battlechange_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            battleafter.Text = battlebefore.Text + battlechange.Text;
+        }
+
+        private void techchange_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            techafter.Text = techbefore.Text + techchange.Text;
+        }
+
+        private void mechchange_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            mechafter.Text = mechbefore.Text + mechchange.Text;
         }
     }
 }

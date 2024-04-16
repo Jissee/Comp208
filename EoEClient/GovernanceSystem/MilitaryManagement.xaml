@@ -13,15 +13,15 @@
         <Label Content="Mechanization Army: " Margin="8,269,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="New Existing Army  " HorizontalAlignment="Left" Margin="600,71,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Bulid new Army" Margin="400,97,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Resouce1change" Margin="383,139,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" Height="19"/>
+        <TextBox x:Name="battlechange" Margin="383,139,0,0" TextWrapping="Wrap" Text="0" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" Height="19" TextChanged="battlechange_TextChanged"/>
         <Button x:Name="Submit1" Content="Submit" Margin="471,139,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Resouce2change" Margin="383,210,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="techchange" Margin="383,210,0,0" TextWrapping="Wrap" Text="0" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="techchange_TextChanged"/>
         <Button x:Name="Submit2" Content="Submit" Margin="471,209,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Resouce3change" Margin="383,277,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="mechchange" Margin="383,277,0,0" TextWrapping="Wrap" Text="0" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="mechchange_TextChanged"/>
         <Button x:Name="Submit3" Content="Submit" Margin="471,275,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="battleafter" HorizontalAlignment="Left" Margin="645,129,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="techafter" HorizontalAlignment="Left" Margin="645,194,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="mechafter" HorizontalAlignment="Left" Margin="645,266,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="battleafter" HorizontalAlignment="Left" Margin="645,129,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="techafter" HorizontalAlignment="Left" Margin="645,0,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="18"/>
+        <TextBlock x:Name="mechafter" HorizontalAlignment="Left" Margin="645,266,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="18"/>
         <Button Content="Back" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top" FontSize="20" Height="51" Width="112" Click="Button_Click"/>
         <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="218,128,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
         <TextBlock x:Name="techbefore" HorizontalAlignment="Left" Margin="218,200,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
