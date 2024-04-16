@@ -79,14 +79,21 @@ namespace EoE.Client
                     OtherPlayer.Add(name);
                 }
             }
-            EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
-            entetPage.SynchronizePlayerList();
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
+                entetPage.SynchronizePlayerList();
+            });
+            
         }
         public void SynchronizePlayerName(string name)
         {
             PlayerName = name;
-            EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
-            entetPage.SynchronizePlayerList();
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
+                entetPage.SynchronizePlayerList();
+            });
         }
 
         public void Connect(string host, int port)

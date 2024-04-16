@@ -33,6 +33,7 @@ namespace EoE.Network.Packets.GameEventPacket
 
         public static void Encode(PlayerListPacket obj, BinaryWriter writer)
         {
+            writer.Write(obj.length);
             for (int i = 0; i < obj.length; i++)
             {
                 writer.Write(obj.playerList[i]);

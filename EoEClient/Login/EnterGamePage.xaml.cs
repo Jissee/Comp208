@@ -19,7 +19,7 @@ namespace EoE.Client.Login
     
     public partial class EnterGamePage : Window
     {
-        bool ignoreClosing = false;
+        public bool ignoreClosing = false;
         public EnterGamePage()
         {
             InitializeComponent();
@@ -28,8 +28,7 @@ namespace EoE.Client.Login
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            Client.INSTANCE.Disconnect();
-            Application.Current.Shutdown();
+            this.Close();
         }
 
         public void SynchronizePlayerList()

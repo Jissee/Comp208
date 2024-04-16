@@ -81,10 +81,42 @@ namespace EoE.Client
                 window.Close();
             });
         }
-
-        public void UpdateOtherPlayerField(string playerName, FieldListRecord record)
+        public void UpdateResources(ResourceListRecord resourceListRecord)
         {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                MainGamePage window = GetWindows<MainGamePage>();
+                window.SynchronizeResources(resourceListRecord);
+            });
+        }
+        public void SynchronizePopulation(PopulationRecord populationRecord)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                MainGamePage window = GetWindows<MainGamePage>();
+                window.SynchronizePopulation(populationRecord);
+            });
+        }
+        public void SynchronizeRoundNumber(int round)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                MainGamePage window = GetWindows<MainGamePage>();
+                window.SynchronizeRoundNumber(round);
+            });
+        }
 
+        public void ShowGameMainPage()
+        {
+            Type t = typeof(MainGamePage);
+            string typeName = t.FullName;
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                ShowWindows<MainGamePage>();
+                EnterGamePage window = GetWindows<EnterGamePage>();
+                window.ignoreClosing = true;
+                window.Close();
+            });
         }
         public void UpdateGameSetting(int playerNumber,int gameRound)
         {

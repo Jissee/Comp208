@@ -1,9 +1,11 @@
-﻿using EoE.Network.Entities;
+﻿using EoE.ClientInterface;
+using EoE.Network.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EoE.Network.Packets.GameEventPacket
 {
@@ -27,7 +29,27 @@ namespace EoE.Network.Packets.GameEventPacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IServer server)
                 {
-                    
+                    context.PlayerSender.BeginGame();
+                    bool start = true;
+                    if (server.PlayerList.Players.Count == server.PlayerList.PlayerCount)
+                    {
+                        foreach (IPlayer player in server.PlayerList.Players)
+                        {
+                            if (!player.IsBegin)
+                            {
+                                start = false;
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        start = false;
+                    }
+                    if (start)
+                    {
+                        server.BeginGame();
+                    }
 
                 }
             }
@@ -36,7 +58,7 @@ namespace EoE.Network.Packets.GameEventPacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    
+                    client.WindowManager.ShowGameMainPage();
                 }
             }
         }
