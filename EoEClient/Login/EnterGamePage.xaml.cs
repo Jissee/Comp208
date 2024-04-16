@@ -18,66 +18,40 @@ namespace EoE.Client.Login
     
     public partial class EnterGamePage : Window
     {
-        private List<string> playerNames;
-        private string currentPlayer;
-        public EnterGamePage(List<string> players, string username)
+        public EnterGamePage()
         {
             InitializeComponent();
-            playerNames = players;
-            currentPlayer = username;
-            InitializePlayerList();
+            SynchronizePlayerList();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            //playerNames.Remove(currentPlayer);
-            //PlayerListBox.Items.Clear(); //初始化
-            //InitializePlayerList();
-
-            //如果点击logout，关闭应用
-            //if (currentPlayer == GetCurrentPlayerName())
-            //{
-                Application.Current.Shutdown();
-           // }
+            Client.INSTANCE.Disconnect();
+            Application.Current.Shutdown();
         }
 
-        private string GetCurrentPlayerName()
-        {  
-            return currentPlayer;
-       }
-
-        //实时显示玩家姓名，listbox
-        private void InitializePlayerList()
+        public void SynchronizePlayerList()
         {
-            PlayerListBox.Items.Add(CreatePlayerListItem(currentPlayer));
+            PlayerListBox.Items.Clear();
+            PlayerListBox.Items.Add(Client.INSTANCE.PlayerName);
 
-            foreach (string playerName in playerNames)
+            foreach (string playerName in Client.INSTANCE.OtherPlayer)
             {
-                if (playerName != currentPlayer)
-                {
-                    PlayerListBox.Items.Add(CreatePlayerListItem(playerName));
-                }
+                PlayerListBox.Items.Add(playerName);
             }
         }
 
-
-        private StackPanel CreatePlayerListItem(string playerName)
-        {
-            StackPanel playerItem = new StackPanel();
-            playerItem.Orientation = Orientation.Horizontal;
-
-            TextBlock playerNameTextBlock = new TextBlock();
-            playerNameTextBlock.Text = playerName;
- 
-            playerItem.Children.Add(playerNameTextBlock);
-            return playerItem;
-        }
-
+        //todo
         private void EnterGame_Click(object sender, RoutedEventArgs e)
         {
            SetGameWindow setGameWindow = new SetGameWindow();
             setGameWindow.Show();
             this.Hide();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            LoginWindow.shutDown(e);
         }
     }
 }

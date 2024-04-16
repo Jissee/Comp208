@@ -24,7 +24,7 @@ namespace EoE.Client
         public string? PlayerName { get ; private set; }
         private bool isRunning;
         public PacketHandler Handler { get; }
-        public List<string> OtherPlayer { get; private set; }
+        public List<string> OtherPlayer { get; private set; } 
         public IClientGonveranceManager GonveranceManager { get; init; }
 
         static Client() 

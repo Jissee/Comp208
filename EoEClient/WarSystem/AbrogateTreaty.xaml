@@ -1,0 +1,15 @@
+﻿<Window x:Class="EoE.Client.WarSystem.AbrogateTreaty"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EoE.Client.WarSystem"
+        mc:Ignorable="d"
+        Title="AbrogateTreaty" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+        <ListBox x:Name="PlayerList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="304,128,304,167"/>
+        <Label Content="Select a country to abrogate the treaty" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button Content="Confirm abrogation" HorizontalAlignment="Center" Margin="0,317,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="55" Width="228"/>
+
+    </Grid>
+</Window>

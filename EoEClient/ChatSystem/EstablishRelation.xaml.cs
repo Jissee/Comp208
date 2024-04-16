@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using EoE.Client.ChatSystem;
+using EoE.Client.WarSystem;
 
 namespace EoE.Client.ChatSystem
 {
@@ -21,6 +22,18 @@ namespace EoE.Client.ChatSystem
     /// </summary>
     public partial class EstablishRelation : Window
     {
+        private static EstablishRelation instance;
+        public static EstablishRelation INSTANCE
+        {
+            get
+            {
+                if (instance == null || !instance.IsLoaded)
+                {
+                    instance = new EstablishRelation();
+                }
+                return instance;
+            }
+        }
         public EstablishRelation()
         {
             InitializeComponent();
@@ -43,11 +56,13 @@ namespace EoE.Client.ChatSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string treaty;
-            MessageBox.Show("You have already sent the request.");
-            if ((bool)_protected.IsChecked)
+            if ((bool)_protected.IsChecked || (bool)common.IsChecked||(bool)protecting.IsChecked)
             {
-                
+                 MessageBox.Show("You have already sent the request.");
+            }
+            else
+            {
+                MessageBox.Show("Please select a treaty!");
             }
         }
 
@@ -102,6 +117,11 @@ namespace EoE.Client.ChatSystem
         {
             ResourceManage resourceManage = new ResourceManage();
             resourceManage.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            instance = null;
         }
     }
 }

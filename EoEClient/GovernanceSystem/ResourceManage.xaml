@@ -8,12 +8,12 @@
         Title="ResourceManage" Height="450" Width="800">
     <Grid>
         <Label Content="Existing resources " HorizontalAlignment="Left" Margin="315,25,0,0" VerticalAlignment="Top" FontSize="18" Width="165"/>
-        <TextBlock x:Name="Resouce1text" Height="18" Margin="269,102,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Resouce1: " Margin="146,94,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Resouce2: " Margin="146,127,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Resouce3: " Margin="146,165,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Resouce4: " Margin="429,89,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Resouce2text" Height="20" Margin="270,136,0,0" TextWrapping="Wrap" Text="TextBlock" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="Resouce1text" Height="18" Margin="283,133,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Silicon" Margin="160,125,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Copper" Margin="160,158,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Electronic" Margin="160,196,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Iron " Margin="443,120,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce2text" Height="20" Margin="284,167,0,0" TextWrapping="Wrap" Text="TextBlock" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -23,17 +23,17 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="Resouce3text" Height="22" Margin="269,173,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Resouce4text" Height="19" Margin="552,97,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Resouce5: " Margin="429,127,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Resouce6: " Margin="429,165,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Resouce5text" Height="19" Margin="552,136,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Resouce6text" Height="19" Margin="552,173,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Population:" HorizontalAlignment="Left" Margin="146,209,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="Resouce6text复制__C_1" Height="19" Margin="269,217,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce3text" Height="22" Margin="283,204,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce4text" Height="19" Margin="566,128,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Aluminum" Margin="443,158,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Industrial" Margin="443,196,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce5text" Height="19" Margin="566,167,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Resouce6text" Height="19" Margin="566,204,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Population" HorizontalAlignment="Left" Margin="160,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="Resouce6text复制__C_1" Height="19" Margin="283,248,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button Content="Back" HorizontalAlignment="Center" Margin="0,365,0,0" VerticalAlignment="Top" FontSize="20" Height="42" Width="106" Click="Button_Click"/>
-        <Label Content="Population:" HorizontalAlignment="Left" Margin="429,209,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="Resouce6text复制__C_1复制__C_" Height="19" Margin="552,217,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Population" HorizontalAlignment="Left" Margin="443,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="Resouce6text复制__C_1复制__C_" Height="19" Margin="566,248,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

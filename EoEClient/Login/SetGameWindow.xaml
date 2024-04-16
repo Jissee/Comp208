@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.Login"
         mc:Ignorable="d"
-        Title="SetGameWindow" Height="450" Width="800"
+        Title="SetGameWindow" Height="450" Width="800" Closing="Window_Closing"
         >
     <Grid>
         <ComboBox x:Name="SetResource" SelectedIndex="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="352" Margin="226,111,0,0" Height="52" FontSize="20" Background="White"  RenderTransformOrigin="0.418,0.52" SelectionChanged="SetResource_SelectionChanged">
