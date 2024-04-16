@@ -37,10 +37,10 @@ namespace EoE.Server.GovernanceSystem
         private static float PrimaryProdcutivity = 5.0f;
         private static float SecondaryProdcutivity =0.5f;
 
-        public static int SiliconSynthetic = 2;
-        public static int CopperSynthetic = 2;
-        public static int IronSynthetic = 2;
-        public static int AluminumSynthetic = 2;
+        public static int SiliconSynthetic = 1;
+        public static int CopperSynthetic = 1.1;
+        public static int IronSynthetic = 1.2;
+        public static int AluminumSynthetic = 1.1;
 
         public static readonly int POP_GROWTH_THRESHOLD = 10000;
 
@@ -119,24 +119,24 @@ namespace EoE.Server.GovernanceSystem
 
         public static int calcPopGrowthProgress(int popCount, int silicon, int copper, int iron, int aluminum)
         {
-            double rate = 1.05f;
+            double rate = 0.3f;
             double K;
 
-
-            Dictionary<string, double> resourceSynthetic = new Dictionary<string, double>()
+            
+            Dictionary<GameResourceType, double> resourceSynthetic = new Dictionary<GameResourceType, double>()
             {
-                { "silicon", ServerPlayerGonverance.SILICON_PER_POP_TICK },
-                { "copper", ServerPlayerGonverance.COPPER_PER_POP_TICK },
-                { "iron", ServerPlayerGonverance.IRON_PER_POP_TICK },
-                { "aluminum", ServerPlayerGonverance.ALUMINUM_PER_POP_TICK }
+                { GameResourceType.Silicon, ServerPlayerGonverance.SILICON_PER_POP_TICK },
+                { GameResourceType.Copper, ServerPlayerGonverance.COPPER_PER_POP_TICK },
+                { GameResourceType.Iron, ServerPlayerGonverance.IRON_PER_POP_TICK },
+                { GameResourceType.Aluminum, ServerPlayerGonverance.ALUMINUM_PER_POP_TICK }
             };
 
 
             double minK = double.MaxValue;
-            minK = Math.Min(minK, silicon / resourceSynthetic["silicon"]);
-            minK = Math.Min(minK, copper / resourceSynthetic["copper"]);
-            minK = Math.Min(minK, iron / resourceSynthetic["iron"]);
-            minK = Math.Min(minK, aluminum / resourceSynthetic["aluminum"]);
+            minK = Math.Min(minK, silicon / resourceSynthetic[GameResourceType.Silicon]);
+            minK = Math.Min(minK, copper / resourceSynthetic[GameResourceType.Copper]);
+            minK = Math.Min(minK, iron / resourceSynthetic[GameResourceType.Iron]);
+            minK = Math.Min(minK, aluminum / resourceSynthetic[GameResourceType.Aluminum]);
 
             K = minK;
             double popGrowth = popCount * rate * (1 - (double)popCount / K);
