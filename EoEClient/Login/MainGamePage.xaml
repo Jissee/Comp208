@@ -13,7 +13,6 @@
         <Button x:Name="Goverment" Content="Governance System" HorizontalAlignment="Left" Margin="596,193,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Goverment_Click" FontSize="16"/>
         <Button x:Name="Chat" Content="Chat" HorizontalAlignment="Left" Margin="596,278,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Chat_Click" FontSize="16"/>
         <Rectangle HorizontalAlignment="Left" Height="302" Margin="43,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="439" Fill="White"/>
-        <Button x:Name="Next" Content="Next Round" HorizontalAlignment="Left" Margin="350,353,0,0" VerticalAlignment="Top" Height="46" Width="132" Background="White" Click="Next_Click" FontSize="16"/>
         <Label Content="Silicon: " HorizontalAlignment="Left" Margin="68,51,0,0" VerticalAlignment="Top" Height="36" Width="80" FontSize="20"/>
         <Label x:Name="Resource2" Content="Copper:" HorizontalAlignment="Left" Margin="62,113,0,0" VerticalAlignment="Top" Height="36" Width="92" FontSize="20"/>
         <Label x:Name="Resource3" Content="Iron:" HorizontalAlignment="Left" Margin="295,113,0,0" VerticalAlignment="Top" Height="36" Width="52" FontSize="20"/>
@@ -32,5 +31,6 @@
         <TextBlock x:Name="RoundCount" HorizontalAlignment="Left" Margin="200,362,0,0" TextWrapping="Wrap" Text="0" FontSize="20" Background="White" Width="96" Height="30" VerticalAlignment="Top"/>
 
         <Canvas Width="100" Height="100" Margin="90,167,610,168"/>
+        <CheckBox x:Name="NextRound" Content="NextRound" HorizontalAlignment="Left" Margin="349,363,0,0" VerticalAlignment="Top" Height="38" Width="137" Checked="CheckBox_Checked" FontSize="20" RenderTransformOrigin="-1.018,0.767"/>
     </Grid>
 </Window>

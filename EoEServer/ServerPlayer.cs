@@ -102,5 +102,15 @@ namespace EoE.Server
                 Server.Boardcast(new FieldBoardCastPacket(new FieldListRecord(player.GonveranceManager.FieldList)), player => true);
             }
         }
+
+        public void CloseSocket()
+        {
+            Connection.Shutdown(SocketShutdown.Both);
+            Connection.Close();
+        }
+        public void Disconnect()
+        {
+            Server.PlayerList.PlayerLogout(this);
+        }
     }
 }

@@ -35,6 +35,7 @@ namespace EoE.Client.Login
                 Client.INSTANCE.SendPacket(new GameSettingPacket(new GameSettingRecord(int.Parse(SetResource.Text), int.Parse(selectedValueTextBox.Text))));
                 ignoreClosing = true;
                 this.Close();
+                WindowManager.INSTANCE.ShowWindows<EnterGamePage>();
             }
             else {
                 MessageBox.Show("You haven't changed any values. If you confirm, please submit again.");

@@ -14,13 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EoE.Client.WarSystem;
+using EoE.Network.Packets.GameEventPacket;
 
 namespace EoE.Client.Login
 {
     
     public partial class LoginWindow : Window
     {
-        bool ignoreClosing = false;
+        public bool ignoreClosing = false;
         public LoginWindow()
         {
             InitializeComponent();
@@ -66,18 +67,13 @@ namespace EoE.Client.Login
 
             Client.INSTANCE.SetPlayerName(Username.Text);
             Client.INSTANCE.Connect(ServerAddress.Text,int.Parse(portNumber.Text));
-
-            WindowManager.INSTANCE.ShowWindows<EnterGamePage>();
-            ignoreClosing = true;
-            this.Close();
         }
 
 
             private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
-        {
-            bool isChecked = agreeCheckBox.IsChecked ?? false;
-            Connect.IsEnabled = isChecked;
-        }
+            {
+            
+            }
 
         
         private void UpdateConnectButtonState()
@@ -113,6 +109,7 @@ namespace EoE.Client.Login
                     App.Current.Shutdown();
                 }
             }
+
         }
         
     }

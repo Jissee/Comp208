@@ -12,6 +12,7 @@ using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,14 +45,11 @@ namespace EoE.Server
             if (Players.Count < PlayerCount)
             {
                 Players.Add(player);
-                if (Host == null)
-                {
-                    Host = player;
-                }
             }
             else
             {
                 player.SendPacket(new ServerMessagePacket("Server full, please wait for the end of the existing match or for the host to increase the number of players"));
+                player.Disconnect();
             }
 
         }
@@ -70,6 +68,7 @@ namespace EoE.Server
             {
                 Host = Players[0];
             }
+            player.CloseSocket();
         }
         public void HandlePlayerDisconnection()
         {
@@ -126,28 +125,28 @@ namespace EoE.Server
         }
         public void InitPlayerName(IPlayer playerRef, string name)
         {
-            bool nameCheck = true;
-            while(CheckName(playerRef, name) == false)
+            if (Host == null)
             {
-                name += "1";
-                nameCheck = false;
-            }
-
-            if (nameCheck == false)
-            {
-                playerRef.SendPacket(new PlayerLoginPacket(name));
-                playerRef.SendPacket(new ServerMessagePacket("Due to name conflict, your player name has been reset to " + name));
-            }
-            playerRef.PlayerName = name;
-            if (name == Host.PlayerName)
-            {
-                Console.WriteLine($"{name} Sent Packet");
-                playerRef.SendPacket(new RoomOwnerPacket(true));
+                Host = playerRef;
+                playerRef.SendPacket(new EnterRoomPacket(true));
             }
             else
             {
-                playerRef.SendPacket(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)));
+                bool nameCheck = true;
+                while (CheckName(playerRef, name) == false)
+                {
+                    name += "1";
+                    nameCheck = false;
+                }
+                if (nameCheck == false)
+                {
+                    playerRef.SendPacket(new PlayerLoginPacket(name));
+                    playerRef.SendPacket(new ServerMessagePacket("Due to name conflict, your player name has been reset to " + name));
+                }
+                playerRef.PlayerName = name;
+                playerRef.SendPacket(new EnterRoomPacket(false));
             }
+            server.Boardcast(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)),playerRef=>true);
 
             Console.WriteLine($"{name} logged in");
         }
