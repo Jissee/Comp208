@@ -15,6 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c94175f2c527b8814faacd0df679e3bbb58603e4")]
 =======
 <<<<<<< HEAD
@@ -23,6 +24,9 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55f22bf46b065e571a449f04603c5ca00a943fe5")]
 >>>>>>> merge
 >>>>>>> merge
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0babafb91e3a09618bd30d8736c04a7c3beb307")]
+>>>>>>> status
 [assembly: System.Reflection.AssemblyProductAttribute("EoE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EoE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
