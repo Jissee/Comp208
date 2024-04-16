@@ -40,12 +40,15 @@ namespace EoE.Client.Login
                 PlayerListBox.Items.Add(playerName);
             }
         }
-
+        public void SynchronizeGameSetting(int playerNumber, int gameRound)
+        {
+            player_number.Text = playerNumber.ToString();
+            round_number.Text = gameRound.ToString();
+        }
         //todo 不能之间进入游戏
         private void EnterGame_Click(object sender, RoutedEventArgs e)
         {
-           SetGameWindow setGameWindow = new SetGameWindow();
-            setGameWindow.Show();
+            WindowManager.INSTANCE.ShowWindows<MainGamePage>();
             this.Hide();
         }
 

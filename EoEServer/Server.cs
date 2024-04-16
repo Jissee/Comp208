@@ -32,6 +32,7 @@ namespace EoE.Server
         private bool isServerRunning;
         private bool isGameRunning;
         private bool needRestart;
+        private readonly object lockObject = new object();
         public PacketHandler PacketHandler { get; }
         public EventList EventList { get; }
         public GameStatus Status {get; private set;}
@@ -293,7 +294,7 @@ namespace EoE.Server
         }
         public void Stop()
         {
-            lock(this)
+            lock(lockObject)
             {
                 ServerSocket?.Close();
                 isServerRunning = false;
@@ -304,7 +305,15 @@ namespace EoE.Server
         {
             while (isServerRunning)
             {   // Accept one connection
-                Socket cl = ServerSocket.Accept();
+                Socket cl ;
+                lock (lockObject)
+                {
+                    if (needRestart)
+                    {
+                        break;
+                    }
+                    cl = ServerSocket.Accept();
+                }
                 // Extract the IP adress and Port num of client
                 EndPoint endp = cl.RemoteEndPoint;
                 if(endp is IPEndPoint iPEndPoint)
