@@ -52,14 +52,6 @@ namespace EoE.Server
         public void BeginGame()
         {
             isGameRunning = true;
-            lock (PlayerList)
-            {
-                foreach (var player in PlayerList.Players)
-                {
-                    player.BeginGame();
-                }
-
-            }
             PrepareResourceBonusEvents();
 
 
