@@ -54,15 +54,13 @@ namespace EoE.Server.GovernanceSystem
         public static double Aluminum2Indus = 4.38;
 
 
-        public static readonly int POP_GROWTH_THRESHOLD = 10000;
-
         private static int maxAllocation = 50;
 
-        public static int InformativePopSynthetic =  2;
+        public static double InformativePopSynthetic =  5.0;
         public static int InformativeResourceSynthetic = 2;
-        public static int MechanismPopSynthetic = 2;
+        public static double MechanismPopSynthetic = 8.5;
         public static int MechanismResourceSynthetic = 2;
-        public static int BattlePopSynthetic = 2;
+        public static double BattlePopSynthetic = 1.47;
 
         public static Produce calcSiliconP = (population,fields, _, _) =>
         {
@@ -181,18 +179,18 @@ namespace EoE.Server.GovernanceSystem
 
         public static ArmyPrduce BattleArmyproduce = (requiredArmy) =>
         {
-            return (requiredArmy.Count * BattlePopSynthetic, ResourceStack.EMPTY);
+            return ((int)(requiredArmy.Count * BattlePopSynthetic), ResourceStack.EMPTY);
         };
 
         public static ArmyPrduce produceInfomativeArmy = (requiredArmy) =>
         {
-            return (requiredArmy.Count * InformativePopSynthetic,
+            return ((int)(requiredArmy.Count * InformativePopSynthetic),
             new ResourceStack(GameResourceType.Electronic, requiredArmy.Count * InformativeResourceSynthetic));
         };
 
         public static ArmyPrduce produceMechanismArmy = (requiredArmy) =>
         {
-            return (requiredArmy.Count * MechanismPopSynthetic,
+            return ((int)(requiredArmy.Count * MechanismPopSynthetic),
             new ResourceStack(GameResourceType.Industrial, requiredArmy.Count * MechanismResourceSynthetic));
         };
 

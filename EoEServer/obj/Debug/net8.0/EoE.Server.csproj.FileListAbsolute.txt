@@ -19,6 +19,7 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\refint\E
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+<<<<<<< HEAD
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
@@ -40,3 +41,26 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\refi
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+=======
+D:\comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
+D:\comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
+D:\comp208\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
+D:\comp208\EoEServer\bin\Debug\net8.0\EoE.Server.dll
+D:\comp208\EoEServer\bin\Debug\net8.0\EoE.Server.pdb
+D:\comp208\EoEServer\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+D:\comp208\EoEServer\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+D:\comp208\EoEServer\bin\Debug\net8.0\EoE.dll
+D:\comp208\EoEServer\bin\Debug\net8.0\EoE.pdb
+D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.AssemblyReference.cache
+D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.GeneratedMSBuildEditorConfig.editorconfig
+D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfoInputs.cache
+D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfo.cs
+D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.CoreCompileInputs.cache
+D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.sourcelink.json
+D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
+D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.dll
+D:\comp208\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
+D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
+D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
+D:\comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+>>>>>>> commit

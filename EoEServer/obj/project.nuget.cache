@@ -1,6 +1,7 @@
 {
   "version": 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "Zk5g+hRd/KIvVijJGZtULfu1YUyLDruG8SWmDhV7C2fOsHS2L2S1Llnx+O2lcjIZJ+HVYImjxSkhbuiWdBpUfg==",
 =======
 <<<<<<< HEAD
@@ -27,13 +28,26 @@
     "C:\\Users\\ufowlc\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
 >>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
 >>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
+=======
+  "dgSpecHash": "Rx6OCuBOtU6GVEoh98STii1nLov6pbiolIU33a9ZynX7ypWD6Nf/dkBhaL9Mh5GbT15jc4yt5fKn1P/C4x7j6Q==",
+  "success": true,
+  "projectFilePath": "D:\\comp208\\EoEServer\\EoE.Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\杜萱\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",
+    "C:\\Users\\杜萱\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
+    "C:\\Users\\杜萱\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+>>>>>>> commit
   ],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "读取缓存文件 C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "读取缓存文件 D:\\comp208\\EoEServer\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> commit
     }
   ]
 }
