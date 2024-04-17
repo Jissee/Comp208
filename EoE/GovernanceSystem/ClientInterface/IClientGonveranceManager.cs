@@ -12,5 +12,7 @@ namespace EoE.GovernanceSystem.ClientInterface
         IClientPopulationManager PopManager { get; }
         IClientFieldList FieldList { get; }
         IClientResourceList ResourceList { get; }
+        void SyntheticArmy(GameResourceType type, int count);
+        void SetExploration(int inutPopulation);
     }
 }
