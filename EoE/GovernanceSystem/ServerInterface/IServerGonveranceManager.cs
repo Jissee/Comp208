@@ -7,7 +7,7 @@ using EoE.GovernanceSystem.Interface;
 
 namespace EoE.GovernanceSystem.ServerInterface
 {
-    public interface IServerGonveranceManager : IGonveranceManager
+    public interface IServerGonveranceManager : IGonveranceManager, ITickable
     {
         bool IsLose {  get; }
         PlayerStatus PlayerStatus{get;}

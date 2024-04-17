@@ -17,7 +17,7 @@ namespace EoE.Client.GovernanceSystem
         private Dictionary<GameResourceType, int> popAloc = new Dictionary<GameResourceType, int>();
 
         public int ExploratoinPopulation { get; private set; }
-        public int AvailablePopulation { get; private set; }
+        public int AvailablePopulation { get; set; }
 
         public int TotalPopulation
         {
@@ -97,6 +97,10 @@ namespace EoE.Client.GovernanceSystem
             }
         }
 
+        public void AlterAvailablePop(int count)
+        {
+            AvailablePopulation += count;
+        }
         public int GetPopAllocCount(GameResourceType type)
         {
             return popAloc[type];

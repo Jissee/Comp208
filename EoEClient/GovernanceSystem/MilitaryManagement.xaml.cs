@@ -55,7 +55,7 @@ namespace EoE.Client.GovernanceSystem
         {
             if ((int.TryParse(battlechange.Text, out int value1) && value1 >= 0) && (int.TryParse(techchange.Text, out int value2) && value2 >= 0) && (int.TryParse(mechchange.Text, out int value3) && value3 >= 0))
             {
-                MessageBox.Show("Successfully!");
+                Client.INSTANCE.GonveranceManager
             }
             else
             {
