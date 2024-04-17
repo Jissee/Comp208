@@ -29,7 +29,7 @@
         <Button x:Name="declareTheWar" Grid.Column="1" Content="Start the War!" HorizontalAlignment="Left" Margin="302,79,0,0" Grid.Row="1" VerticalAlignment="Top" Height="50" Width="140" FontSize="18" Click="Button_Click"/>
         <Label Grid.Column="1" Content="Your enemy's alliance(s):" HorizontalAlignment="Left" Margin="41,14,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15"/>
         <Label Grid.Column="1" Content="Invite your alliance(s)" HorizontalAlignment="Left" Margin="459,105,0,0" VerticalAlignment="Top" Width="215" Height="33" FontSize="18"/>
-        <ListBox x:Name="listBox2" SelectionChanged="ListBox_SelectionChanged" Margin="459,156,129,11" Grid.Column="1" Height="109" SelectionMode="Multiple">
+        <ListBox x:Name="listBox2" Margin="459,156,129,11" Grid.Column="1" Height="109" SelectionMode="Multiple">
             <!--
             <ListBoxItem Content="USER1"/>
             <ListBoxItem Content="USER2"/>
