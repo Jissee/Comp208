@@ -35,12 +35,10 @@ namespace EoE.Client.WarSystem
             e.Handled = re.IsMatch(e.Text);
         }
 
-        private void Resouce1change_TextChanged(object sender, TextChangedEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }
-//只允许输入数字
-//right hand side textbox should show the value of middle plus left hand
-//

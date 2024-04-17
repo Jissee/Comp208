@@ -30,7 +30,7 @@ namespace EoE.Client.Login
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SelectTraderWindow.INSTANCE.Show();
+            WindowManager.INSTANCE.ShowWindows<SelectTraderWindow>();
         }
 
 
@@ -40,7 +40,7 @@ namespace EoE.Client.Login
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-           SellAndBuy2.INSTANCE.Show();
+            WindowManager.INSTANCE.ShowWindows<SellAndBuy2>();
 
         }
 

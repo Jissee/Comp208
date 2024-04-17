@@ -80,5 +80,11 @@ namespace EoE.Client.GovernanceSystem
             Population.Text = (record.siliconPop+record.copperPop+record.ironPop+record.aluminumPop+record.electronicPop+record.industrailPop+record.availablePopulation).ToString();
             AvailablePopulation.Text = record.availablePopulation.ToString();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
     }
 }

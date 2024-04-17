@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.GovernanceSystem"
         mc:Ignorable="d"
-        Title="Convert" Height="450" Width="800">
+        Title="Convert" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <ListBox x:Name="PrimaryField" Margin="299,122,400,201" FontSize="16">
             <ListBoxItem Content="Silicon"/>

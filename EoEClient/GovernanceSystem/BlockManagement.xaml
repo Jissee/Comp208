@@ -48,6 +48,8 @@
         <TextBlock x:Name="IndustrialPeople" Height="19" Margin="362,290,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Allocate total population" HorizontalAlignment="Left" Margin="487,54,0,0" VerticalAlignment="Top" FontSize="15"/>
         <Label Content="Working population" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <TextBox x:Name="SiliconAllocate" HorizontalAlignment="Left" Margin="520,103,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="SiliconAllocate" HorizontalAlignment="Left" Margin="520,103,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" TextChanged="res1_TextChanged" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="SiliconAllocate" HorizontalAlignment="Left" Margin="520,103,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" TextChanged="res1_TextChanged" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="CopperAllocate" HorizontalAlignment="Left" Margin="520,144,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="IronAllocate" HorizontalAlignment="Left" Margin="520,181,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>

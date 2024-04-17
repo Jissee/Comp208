@@ -17,18 +17,7 @@ namespace EoE.Client.GovernanceSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static MainWindow instance;
-        public static MainWindow INSTANCE
-        {
-            get
-            {
-                if (instance == null || !instance.IsLoaded)
-                {
-                    instance = new MainWindow();
-                }
-                return instance;
-            }
-        }
+       
         public MainWindow()
         {
             InitializeComponent();

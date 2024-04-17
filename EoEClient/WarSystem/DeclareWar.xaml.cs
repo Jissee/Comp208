@@ -57,6 +57,11 @@ namespace EoE.Client.WarSystem
             WarInvitationPacket packet = new WarInvitationPacket(WarMainPage.theWarName, listBox2.SelectedItem.ToString()!);
             Client.INSTANCE.SendPacket(packet);
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
     }
 }
-//no alliance with player is allowed, but a message box for notice is need?

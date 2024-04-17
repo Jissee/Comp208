@@ -23,18 +23,7 @@ namespace EoE.Client.TradeSystem
     /// </summary>
     public partial class SellAndBuy2 : Window
     {
-        private static SellAndBuy2 instance;
-        public static SellAndBuy2 INSTANCE
-        {
-            get
-            {
-                if (instance == null || !instance.IsLoaded)
-                {
-                    instance = new SellAndBuy2();
-                }
-                return instance;
-            }
-        }
+       
         int[] sellValues = new int[6];
         int[] buyValues = new int[6];
         public SellAndBuy2()
@@ -45,7 +34,7 @@ namespace EoE.Client.TradeSystem
 
         private void InitializeTextBoxes()
         {
-            // 设置每个 TextBox 的 TextChanged 事件处理程序
+            
             for (int i = 1; i <= 6; i++)
             {
                 TextBox sellTextBox = FindName($"Sell{i}") as TextBox;
@@ -120,7 +109,8 @@ namespace EoE.Client.TradeSystem
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            instance = null;
+            e.Cancel = true;
+            this.Hide();
         }
         public void limitnumber(object sender, TextCompositionEventArgs e)
         {

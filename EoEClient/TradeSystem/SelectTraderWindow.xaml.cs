@@ -23,19 +23,6 @@ namespace EoE.Client.TradeSystem
     /// </summary>
     public partial class SelectTraderWindow : Window
     {
-        private static SelectTraderWindow instance;
-        public static SelectTraderWindow INSTANCE
-        {
-            get
-            {
-                if (instance == null || !instance.IsLoaded)
-                {
-                    instance = new SelectTraderWindow();
-                }
-                return instance;
-            }
-        }
-       
         public SelectTraderWindow()
         {
             InitializeComponent();
@@ -46,7 +33,7 @@ namespace EoE.Client.TradeSystem
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<MainTradePage>();
-            this.Close();
+            this.Hide();
 
         }
 
@@ -57,7 +44,8 @@ namespace EoE.Client.TradeSystem
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            instance = null;
+            e.Cancel = true;
+            this.Hide();
         }
         public void limitnumber(object sender, TextCompositionEventArgs e)
         {
