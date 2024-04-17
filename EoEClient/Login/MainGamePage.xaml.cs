@@ -100,8 +100,9 @@ namespace EoE.Client.Login
             }
             else
             {
-                Client.INSTANCE.SendPacket(new FinishTickPacket(true, int.Parse(RoundCount.Text)));
+                Client.INSTANCE.SendPacket(new FinishTickPacket(false, int.Parse(RoundCount.Text)));
             }
         }
+
     }
 }

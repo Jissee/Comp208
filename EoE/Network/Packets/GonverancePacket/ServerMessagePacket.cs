@@ -2,6 +2,7 @@
 using EoE.Network.Entities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace EoE.Network.Packets.GonverancePacket
 {
     public class ServerMessagePacket : IPacket<ServerMessagePacket>
     {
+        public static string SERVER_FULL = "Server is full! The program will exit and you have to wait until the end of the current game.";
         private string message;
 
         public ServerMessagePacket(string message)
@@ -33,7 +35,16 @@ namespace EoE.Network.Packets.GonverancePacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    client.MsgBox(message);
+                    if(message == SERVER_FULL)
+                    {
+                        client.MsgBoxYesNo(message);
+                        Process.GetCurrentProcess().Kill();
+                    }
+                    else
+                    {
+                        client.MsgBox(message);
+                    }
+                    
                 }
             }
         }
