@@ -12,27 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EoE.Client.ChatSystem
+namespace EoE.Client.Login
 {
     /// <summary>
-    /// TreatyContent.xaml 的交互逻辑
+    /// GameAgreement.xaml 的交互逻辑
     /// </summary>
-    public partial class TreatyContent : Window
+    public partial class GameAgreementWindow : Window
     {
-        public TreatyContent()
+        public GameAgreementWindow()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            e.Cancel = true;
-            this.Hide();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using EoE.Client.TradeSystem;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,34 +15,37 @@ using System.Windows.Shapes;
 namespace EoE.Client.ChatSystem
 {
     /// <summary>
-    /// chat.xaml 的交互逻辑
+    /// ChatMianPage.xaml 的交互逻辑
     /// </summary>
-    public partial class ChatPage : Window
+    public partial class ChatMainWindow : Window
     {
-
-        public ChatPage()
+       
+        public ChatMainWindow()
         {
             InitializeComponent();
+            addPlayer();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<EstablishRelation>();
+            if (listBox1.SelectedItem != null)
+            {
+                this.Hide();
+                WindowManager.INSTANCE.ShowWindows<ChatWindow>();
+            }
+            else
+            {
+                MessageBox.Show("Please select a player.");
+            }
+            
+            
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void addPlayer()
         {
-            WindowManager.INSTANCE.ShowWindows<SelectTraderWindow>();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
+            foreach (string playerName in Client.INSTANCE.OtherPlayer)
+            {
+                listBox1.Items.Add(playerName);
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

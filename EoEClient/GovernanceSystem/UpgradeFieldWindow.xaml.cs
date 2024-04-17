@@ -20,13 +20,12 @@ namespace EoE.Client.GovernanceSystem
     /// <summary>
     /// Convert.xaml 的交互逻辑
     /// </summary>
-    public partial class ConvertPage : Window
+    public partial class UpgradeFieldWindow : Window
     {
         
-        public ConvertPage()
+        public UpgradeFieldWindow()
         {
             InitializeComponent();
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

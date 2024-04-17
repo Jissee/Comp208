@@ -17,10 +17,10 @@ namespace EoE.Client.Login
 {
 
 
-    public partial class MainTradePage : Window
+    public partial class MainTradeWindow : Window
     {
 
-        public MainTradePage()
+        public MainTradeWindow()
         {
             InitializeComponent();
             addItem(1);

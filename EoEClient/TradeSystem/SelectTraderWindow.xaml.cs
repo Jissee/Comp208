@@ -32,7 +32,7 @@ namespace EoE.Client.TradeSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<MainTradePage>();
+            WindowManager.INSTANCE.ShowWindows<MainTradeWindow>();
             this.Hide();
 
         }

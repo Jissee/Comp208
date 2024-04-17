@@ -21,9 +21,9 @@ namespace EoE.Client.ChatSystem
     /// <summary>
     /// EstablishRelation.xaml 的交互逻辑
     /// </summary>
-    public partial class EstablishRelation : Window
+    public partial class EstablishRelationWindow : Window
     {
-        public EstablishRelation()
+        public EstablishRelationWindow()
         {
             InitializeComponent();
         }
@@ -87,7 +87,7 @@ namespace EoE.Client.ChatSystem
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<TreatyContent>();
+            WindowManager.INSTANCE.ShowWindows<TreatyContentWindow>();
 
         }
 
@@ -109,7 +109,7 @@ namespace EoE.Client.ChatSystem
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            WindowManager.INSTANCE.ShowWindows<ResourceInformationWindow>();
         }
     }
 }

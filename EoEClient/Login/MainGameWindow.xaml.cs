@@ -23,9 +23,9 @@ using EoE.Network.Packets.GonverancePacket.Record;
 
 namespace EoE.Client.Login
 {
-    public partial class MainGamePage : Window
+    public partial class MainGameWindow : Window
     {
-        public MainGamePage()
+        public MainGameWindow()
         {
             InitializeComponent();
 
@@ -41,7 +41,7 @@ namespace EoE.Client.Login
 
         private void Transaction_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<MainTradePage>();
+            WindowManager.INSTANCE.ShowWindows<MainTradeWindow>();
         }
 
         private void War_Click(object sender, RoutedEventArgs e)
@@ -51,12 +51,12 @@ namespace EoE.Client.Login
         
         private void Goverment_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<MainWindow>();
+            WindowManager.INSTANCE.ShowWindows<GovernenceMainWindow>();
         }
 
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
-           WindowManager.INSTANCE.ShowWindows<ChatMianPage>();
+           WindowManager.INSTANCE.ShowWindows<ChatMainWindow>();
         }
 
         public void SynchronizeResources(ResourceListRecord resourceListRecord)

@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\EoEClient",
+    "\\EoEClient\\TradeSystem"
   ],
+  "SelectedNode": "\\EoEClient\\TradeSystem\\SelectTraderWindow.xaml",
   "PreviewInSolutionExplorer": false
 }

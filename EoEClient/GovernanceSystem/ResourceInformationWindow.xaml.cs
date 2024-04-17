@@ -19,9 +19,9 @@ namespace EoE.Client.GovernanceSystem
     /// <summary>
     /// ResourceManage.xaml 的交互逻辑
     /// </summary>
-    public partial class ResourceManage : Window
+    public partial class ResourceInformationWindow : Window
     {
-        public ResourceManage()
+        public ResourceInformationWindow()
         {
             InitializeComponent();
             Population.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();

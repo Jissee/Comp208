@@ -15,40 +15,40 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="ChatSystem\ChatMianPage.xaml">
+    <Page Update="ChatSystem\ChatMainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatSystem\EstablishRelation.xaml">
+    <Page Update="ChatSystem\EstablishRelationWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatSystem\TreatyContent.xaml">
+    <Page Update="ChatSystem\TreatyContentWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GovernanceSystem\BlockManagement.xaml">
+    <Page Update="GovernanceSystem\BlockManagementWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GovernanceSystem\CheckOtherFieldsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GovernanceSystem\MainWindow.xaml">
+    <Page Update="GovernanceSystem\GovernenceMainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GovernanceSystem\MilitaryManagement.xaml">
+    <Page Update="GovernanceSystem\MilitaryManagementWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GovernanceSystem\ResourceManage.xaml">
+    <Page Update="GovernanceSystem\ResourceInformationWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Login\EnterGamePage.xaml">
+    <Page Update="Login\EnterGameWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Login\GameAgreement.xaml">
+    <Page Update="Login\GameAgreementWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Login\MainGamePage.xaml">
+    <Page Update="Login\MainGameWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Login\MainTradePage.xaml">
+    <Page Update="Login\MainTradeWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login\SetGameWindow.xaml">

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {}
+    "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {}
   },
   "projects": {
-    "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
+    "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
+        "projectUniqueName": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
         "projectName": "EoE",
-        "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
-        "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
-        "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\obj\\",
+        "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
+        "packagesPath": "C:\\Users\\86151\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

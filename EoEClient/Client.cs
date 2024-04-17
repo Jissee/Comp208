@@ -99,7 +99,7 @@ namespace EoE.Client
             }
             Application.Current.Dispatcher.Invoke(() =>
             {
-                EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
+                EnterGameWindow entetPage = (EnterGameWindow)WindowManager.GetWindows<EnterGameWindow>();
                 entetPage.SynchronizePlayerList();
             });
             
@@ -109,7 +109,7 @@ namespace EoE.Client
             PlayerName = name;
             Application.Current.Dispatcher.Invoke(() =>
             {
-                EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
+                EnterGameWindow entetPage = (EnterGameWindow)WindowManager.GetWindows<EnterGameWindow>();
                 entetPage.SynchronizePlayerList();
             });
         }

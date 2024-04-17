@@ -21,9 +21,9 @@ namespace EoE.Client.GovernanceSystem
     /// <summary>
     /// MilitaryManagement.xaml 的交互逻辑
     /// </summary>
-    public partial class MilitaryManagement : Window
+    public partial class MilitaryManagementWindow : Window
     {
-        public MilitaryManagement()
+        public MilitaryManagementWindow()
         {
             InitializeComponent();
             battlebefore.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.BattleArmy).ToString();

@@ -17,10 +17,10 @@ using System.Windows.Shapes;
 namespace EoE.Client.Login
 {
     
-    public partial class EnterGamePage : Window
+    public partial class EnterGameWindow : Window
     {
         public bool ignoreClosing = false;
-        public EnterGamePage()
+        public EnterGameWindow()
         {
             InitializeComponent();
             SynchronizePlayerList();

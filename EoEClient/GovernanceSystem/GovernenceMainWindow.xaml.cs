@@ -15,27 +15,27 @@ namespace EoE.Client.GovernanceSystem
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GovernenceMainWindow : Window
     {
        
-        public MainWindow()
+        public GovernenceMainWindow()
         {
             InitializeComponent();
         }
 
         private void Manage_Resource_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<ResourceManage>();
+            WindowManager.INSTANCE.ShowWindows<ResourceInformationWindow>();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<MilitaryManagement>();
+            WindowManager.INSTANCE.ShowWindows<MilitaryManagementWindow>();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<BlockManagement>();
+            WindowManager.INSTANCE.ShowWindows<BlockManagementWindow>();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -56,7 +56,7 @@ namespace EoE.Client.GovernanceSystem
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<ConvertPage>();
+            WindowManager.INSTANCE.ShowWindows<UpgradeFieldWindow>();
         }
 
     }

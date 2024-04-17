@@ -21,10 +21,10 @@ namespace EoE.Client.GovernanceSystem
     /// <summary>
     /// BlockManagement.xaml 的交互逻辑
     /// </summary>
-    public partial class BlockManagement : Window
+    public partial class BlockManagementWindow : Window
     {
         
-        public BlockManagement()
+        public BlockManagementWindow()
         {
             InitializeComponent();
             Silicon.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Silicon).ToString();
