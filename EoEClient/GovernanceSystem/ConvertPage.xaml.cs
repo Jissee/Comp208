@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +25,7 @@ namespace EoE.Client.GovernanceSystem
         public ConvertPage()
         {
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,6 +36,11 @@ namespace EoE.Client.GovernanceSystem
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Hide();
+        }
+        public void limitnumber(object sender, TextCompositionEventArgs e)
+        {
+            Regex re = new Regex("[^0-9]+");
+            e.Handled = re.IsMatch(e.Text);
         }
     }
 }

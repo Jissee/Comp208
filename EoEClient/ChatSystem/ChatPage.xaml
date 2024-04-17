@@ -10,8 +10,8 @@
         <DockPanel HorizontalAlignment="Left" Height="237" LastChildFill="False" Margin="42,66,0,0" VerticalAlignment="Top" Width="483" Background="Gray"/>
         <TextBox HorizontalAlignment="Left" Height="28" Margin="42,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="423" TextChanged="TextBox_TextChanged" MouseDown="TextBox_MouseDown"/>
         <Button Content="Send" HorizontalAlignment="Left" Height="28" Margin="470,358,0,0" VerticalAlignment="Top" Width="55"/>
-        <Button Content="Initiate private transaction" HorizontalAlignment="Left" Margin="554,225,0,154" Click="Button_Click_1" FontSize="17"/>
-        <Button Content="Establish relation" HorizontalAlignment="Left" Margin="554,99,0,0" VerticalAlignment="Top" Click="Button_Click" Height="51" Width="217" FontSize="17"/>
+        <Button Content="Initiate private transaction" HorizontalAlignment="Left" Margin="554,217,0,168" Click="Button_Click_1" FontSize="17" Width="220" Height="50"/>
+        <Button Content="Establish relation" HorizontalAlignment="Left" Margin="554,99,0,0" VerticalAlignment="Top" Click="Button_Click" Height="50" Width="220" FontSize="17"/>
         <Label Content="Please enter message……" HorizontalAlignment="Left" Margin="42,333,0,0" VerticalAlignment="Top"/>
         <Label Content="One must know what to say, one must know when to say, one must know who to say, one must know how to say." HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="13"/>
 

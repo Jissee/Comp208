@@ -24,6 +24,10 @@ namespace EoE.Client
     public class Client : IClient
     {
         public static Client INSTANCE { get; }
+        public static void ShowException(string type,string message, Exception e)
+        {
+            MessageBox.Show($"[{type}] {message}:\n{e.ToString()}");
+        }
         public Socket Connection { get; private set; }
         public string? PlayerName { get; private set; }
         private bool isRunning;
@@ -110,8 +114,7 @@ namespace EoE.Client
                     Connection.Connect(host, port);
                 }catch (SocketException ex)
                 {
-                    MsgBox(ex.ToString());
-                    Console.WriteLine(ex);
+                    ShowException("Connection", "Client connection failed", ex);
                     return;
                 }
                 
@@ -152,6 +155,7 @@ namespace EoE.Client
                     {
                         if (Connection.Available > 0)
                         {
+
                             byte[] lengthBuf = new byte[8];
 
                             Connection.Receive(lengthBuf);
@@ -165,6 +169,8 @@ namespace EoE.Client
                             Console.WriteLine(i);
                             PacketContext context = new PacketContext(NetworkDirection.Server2Client, null, this);
                             Handler.ReceivePacket(buf, context, "server");
+
+
 
                         }
                     }

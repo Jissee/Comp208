@@ -361,12 +361,20 @@ namespace EoE.Server
 
         public void Tick()
         {
-            Status.Tick();
-            lock(PlayerList)
+            try
             {
-                PlayerList.Tick();
+                Status.Tick();
+                lock(PlayerList)
+                {
+                    PlayerList.Tick();
+                }
+                Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
+            }catch (Exception ex)
+            {
+                IServer.Log("Tick Error", "Tick encountered an exception:", ex);
+                
             }
-            Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
+
         }
 
         public void CheckPlayerTickStatus()
