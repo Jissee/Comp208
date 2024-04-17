@@ -121,6 +121,7 @@ namespace EoE.Client.GovernanceSystem
             {
                 SplitField(originalType, originalcount);
                 AddField(convertedType, convertedCount);
+                WindowManager.INSTANCE.UpdateFields();
                 player.SendPacket(new FieldConvertPacket(new FieldStack(originalType, originalcount), new FieldStack(convertedType, convertedCount)));
             }
         }
