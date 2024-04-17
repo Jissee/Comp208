@@ -1,6 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "GEBhw4uZPHH3v7F0CEa3ba3KRNZVBceohPjAMGQTyjfYlXj99ye42mPYVpX9HVLvx1rQOU30q6MhWzI9s6dAVg==",
   "success": true,
   "projectFilePath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj",
@@ -8,32 +7,13 @@
     "C:\\Users\\sun\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",
     "C:\\Users\\sun\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\sun\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
-=======
-<<<<<<< HEAD
-  "dgSpecHash": "fF+UcPPE+yN1CdcBoum729lMVSypW8U51mwGKfjkAJfpDOsy5UcVD+xV1otTBQfcHfJQqSeaaq4+NDlGh+HqYA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\EoE.Server.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\86151\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",
-    "C:\\Users\\86151\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
-    "C:\\Users\\86151\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
-=======
-  "dgSpecHash": "25fVKN675pZ3uqPS4yvmQ2m3Lv/BgORtWRl1etIySHyRiNBtqCmjsi3T7wOVhOWcuF/KtyKTVNzxelhTmiYWqg==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\ufowlc\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
-    "C:\\Users\\ufowlc\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
->>>>>>> 52c0c069c42aeebfcf96819b3299cbacdd058914
->>>>>>> 84ae41038fa1f6416dee358bc111b254f686e1c2
   ],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "读取缓存文件 C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "读取缓存文件 D:\\e-textbook3\\comp208\\EoE\\EoEServer\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }
