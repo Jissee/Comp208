@@ -42,6 +42,8 @@ namespace EoE.Network
             Register<PlayerListPacket>();
             Register<FinishTickPacket>();
             Register<SyntheticArmyPacket>();
+            Register<OtherPlayerFieldUpdate>();
+            Register<FieldConvertPacket>();
 
             Register<FillInFrontierPacket>();
             Register<WarCompensationInfoPacket>();

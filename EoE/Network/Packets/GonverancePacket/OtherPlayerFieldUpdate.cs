@@ -13,19 +13,22 @@ namespace EoE.Network.Packets.GonverancePacket
     public class OtherPlayerFieldUpdate : IPacket<OtherPlayerFieldUpdate>
     {
         private FieldListRecord playerFieldList;
+        private string playerNmae;
 
-        public OtherPlayerFieldUpdate(FieldListRecord playerFieldList)
+        public OtherPlayerFieldUpdate(FieldListRecord playerFieldList,string playerName)
         {
             this.playerFieldList = playerFieldList;
+            this.playerNmae = playerName;
         }
         public static OtherPlayerFieldUpdate Decode(BinaryReader reader)
         {
-            return new OtherPlayerFieldUpdate(FieldListRecord.decoder(reader));
+            return new OtherPlayerFieldUpdate(FieldListRecord.decoder(reader),reader.ReadString());
         }
 
         public static void Encode(OtherPlayerFieldUpdate obj, BinaryWriter writer)
         {
             FieldListRecord.encoder(obj.playerFieldList, writer);
+            writer.Write(obj.playerNmae);
         }
 
         public void Handle(PacketContext context)
@@ -35,7 +38,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    client.SynchronizeOtherPlayerFieldLitst(context.PlayerSender.PlayerName, playerFieldList);
+                    client.SynchronizeOtherPlayerFieldLitst(playerNmae, playerFieldList);
                 }
             }
         }
