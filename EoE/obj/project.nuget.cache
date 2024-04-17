@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "PE7hQoXYK4OYyhDrKFnvULREtlx2D1TCRPt9+g62ven9zEk6lDhIoxDtFmsT+h5PJVYz5X0C/TIAWE1ugDCkIQ==",
   "success": true,
   "projectFilePath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
@@ -12,4 +13,11 @@
       "message": "读取缓存文件 D:\\e-textbook3\\comp208\\EoE\\EoE\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
+=======
+  "dgSpecHash": "2ddZcKRmz13v5rpE9W3yQTb1K/plIqdRKFEcq5Qh7huZyVNHRko5kefdqpgN411xPi2F8UrDoIAtIt4mRvWbfg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
+>>>>>>> e62efac78574d4df95f127e67c09d4d62466d1d2
 }
