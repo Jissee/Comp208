@@ -2,6 +2,7 @@
 using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket.Record;
+using EoE.TradeSystem;
 using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,8 @@ namespace EoE.Network.Entities
         int TickCount { get; }
         string PlayerName { get; }
         IClientGonveranceManager GonveranceManager { get; }
-        List<string> OtherPlayer{ get;}
+        IClientTradeManager TradeManager { get; }
+            List<string> OtherPlayer{ get;}
         public Dictionary<string, FieldListRecord> OtherPlayerFields { get; init; }
         void SendPacket<T>(T packet) where T : IPacket<T>;
         void MsgBox(string msg);

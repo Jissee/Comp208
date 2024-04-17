@@ -11,7 +11,7 @@
         <Button Content="Initiate private transaction " HorizontalAlignment="Left" Margin="485,198,0,0" VerticalAlignment="Top" Height="56" Width="207" FontSize="16" Background="White" Click="Button_Click"/>
         <Button Content="Post buying information" HorizontalAlignment="Left" Margin="485,114,0,0" VerticalAlignment="Top" Height="56" Width="207" FontSize="16" Background="White" Click="Button_Click_2"/>
         <Button Content="Back" HorizontalAlignment="Center" Margin="0,344,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_4" Height="39" Width="114"/>
-        <ListBox x:Name="tradeList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="83,114,0,0" SelectionChanged="tradeList_SelectionChanged" Height="140" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
+        <ListBox x:Name="tradeList" Margin="83,114,0,0" SelectionChanged="tradeList_SelectionChanged" Height="140" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
         <Label Content="Find: " HorizontalAlignment="Left" Margin="81,24,0,0" VerticalAlignment="Top"/>
         <Button Content="Silicon" HorizontalAlignment="Left" Margin="127,27,0,0" VerticalAlignment="Top" Width="63" Height="20"/>
         <Button Content="Copper" HorizontalAlignment="Left" Margin="215,27,0,0" VerticalAlignment="Top" Width="60" Height="20"/>
