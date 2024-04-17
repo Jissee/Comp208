@@ -1,6 +1,5 @@
 ﻿
 
-<<<<<<< HEAD
 FD:\e-textbook3\comp208\EoE\EoEClient\ChatSystem\ChatMianPage.xaml;;
 FD:\e-textbook3\comp208\EoE\EoEClient\ChatSystem\ChatPage.xaml;;
 FD:\e-textbook3\comp208\EoE\EoEClient\ChatSystem\EstablishRelation.xaml;;
@@ -26,59 +25,4 @@ FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\CheckWarDetail.xaml;;
 FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\DeclareWar.xaml;;
 FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\WarDetail.xaml;;
 FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\WarMainPage.xaml;;
-=======
-<<<<<<< HEAD
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\ChatSystem\ChatMianPage.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\ChatSystem\ChatPage.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\ChatSystem\EstablishRelation.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\ChatSystem\TreatyContent.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\GovernanceSystem\BlockManagement.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\GovernanceSystem\ConvertPage.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\GovernanceSystem\MainWindow.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\GovernanceSystem\MilitaryManagement.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\GovernanceSystem\ResourceManage.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\GovernanceSystem\SetExploreWindow.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\Login\EnterGamePage.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\Login\GameAgreement.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\Login\LoginWindow.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\Login\MainGamePage.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\Login\MainTradePage.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\Login\SetGameWindow.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\TradeSystem\SelectTraderWindow.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\TradeSystem\SellAndBuy2.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\WarSystem\AbrogateTreaty.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\WarSystem\AllocateArmy.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\WarSystem\CheckStatus.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\WarSystem\CheckWarDetail.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\WarSystem\DeclareWar.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\WarSystem\WarDetail.xaml;;
-FC:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\WarSystem\WarMainPage.xaml;;
-=======
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\ChatSystem\ChatMianPage.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\ChatSystem\ChatPage.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\ChatSystem\EstablishRelation.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\ChatSystem\TreatyContent.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\GovernanceSystem\BlockManagement.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\GovernanceSystem\ConvertPage.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\GovernanceSystem\MainWindow.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\GovernanceSystem\MilitaryManagement.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\GovernanceSystem\ResourceManage.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\GovernanceSystem\SetExploreWindow.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\Login\EnterGamePage.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\Login\GameAgreement.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\Login\LoginWindow.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\Login\MainGamePage.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\Login\MainTradePage.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\Login\SetGameWindow.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\TradeSystem\SelectTraderWindow.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\TradeSystem\SellAndBuy2.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\AbrogateTreaty.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\AllocateArmy.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\CheckStatus.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\CheckWarDetail.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\DeclareWar.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\WarDetail.xaml;;
-FC:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\WarSystem\WarMainPage.xaml;;
->>>>>>> 4bf2a6e026242ed7ec4c4e55a7ef57f731894d43
->>>>>>> e143cc234bd35b7c00536e0dda0cdd81486d6656
 

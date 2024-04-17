@@ -23,6 +23,10 @@ namespace EoE.Network.Entities
         {
             Console.WriteLine($"[{DateTime.Now}] [{type}] {message}");
         }
+        static void Log(string type, string message, Exception e)
+        {
+            Console.WriteLine($"[{DateTime.Now}] [{type}] {message}\n {e}");
+        }
         public IServerPlayerList PlayerList { get; }
         void InitPlayerName(IPlayer player, string name);
         void Start();
