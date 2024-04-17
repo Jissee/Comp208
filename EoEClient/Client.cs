@@ -106,7 +106,7 @@ namespace EoE.Client
             }
             Application.Current.Dispatcher.Invoke(() =>
             {
-                EnterGamePage entetPage = WindowManager.GetWindows<EnterGamePage>();
+                EnterGameWindow entetPage = WindowManager.GetWindows<EnterGameWindow>();
                 entetPage.SynchronizeOtherPlayerList();
                 SelectTraderWindow selectTrader = WindowManager.GetWindows<SelectTraderWindow>();
                 selectTrader.SynchronizeOtherPlayerList();
@@ -118,7 +118,7 @@ namespace EoE.Client
             PlayerName = name;
             Application.Current.Dispatcher.Invoke(() =>
             {
-                EnterGamePage entetPage = WindowManager.GetWindows<EnterGamePage>();
+                EnterGameWindow entetPage = WindowManager.GetWindows<EnterGameWindow>();
                 entetPage.SynchronizeOtherPlayerList();
             });
         }
