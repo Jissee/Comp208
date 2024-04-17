@@ -25,8 +25,8 @@
         </TextBlock>
         <Label Content="Aluminum：" Margin="37,220,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18" Width="108"/>
         <Label Content="Industrial：" Margin="43,258,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18" Width="96"/>
-        <Button Content="Back" HorizontalAlignment="Center" Margin="0,365,0,0" VerticalAlignment="Top" FontSize="20" Height="42" Width="106" Click="Button_Click"/>
-        <Label Content="Population：" HorizontalAlignment="Left" Margin="509,260,0,0" VerticalAlignment="Top" FontSize="18" TextBlock.FontSize="18"/>
+        <Button Content="Back" HorizontalAlignment="Center" Margin="0,360,0,0" VerticalAlignment="Top" FontSize="20" Height="42" Width="106" Click="Button_Click"/>
+        <Label Content="Total Population：" HorizontalAlignment="Left" Margin="484,261,0,0" VerticalAlignment="Top" FontSize="18" TextBlock.FontSize="18"/>
         <TextBlock x:Name="Electronic" Height="30" Margin="163,302,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
@@ -137,6 +137,18 @@
         <TextBlock x:Name="BattleArmy" Height="30" Margin="664,114,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock x:Name="InfoArmy" Height="30" Margin="664,151,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock x:Name="MechArmy" Height="30" Margin="664,187,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Available Population：" HorizontalAlignment="Left" Margin="467,299,0,0" VerticalAlignment="Top" FontSize="18" TextBlock.FontSize="18"/>
+        <TextBlock x:Name="AvailablePopulation" Height="29" Margin="664,303,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.468"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Label Content="The number of armies is not included in the population." HorizontalAlignment="Center" Margin="0,407,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
