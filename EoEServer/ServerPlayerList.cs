@@ -37,9 +37,11 @@ namespace EoE.Server
                 {
                     begin &= player.IsBegin;
                 }
-                return begin;
+                return begin && Players.Count == PlayerCount;
             } 
         }
+
+
         public ServerPlayerList(IServer server) 
         {
             Players = new List<IPlayer>();
@@ -64,7 +66,6 @@ namespace EoE.Server
                 player.SendPacket(new ServerMessagePacket("Server full, please wait for the end of the existing match or for the host to increase the number of players"));
                 player.Disconnect();
             }
-
         }
 
         
@@ -75,7 +76,8 @@ namespace EoE.Server
             if(Players.Count == 0)
             {
                 server.Stop();
-                server.Restart();
+                //server.Restart();
+
             }
             else if (player == Host)
             {
