@@ -12,7 +12,6 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\refint\EoE.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
-<<<<<<< HEAD
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\bin\Debug\net8.0\EoE.deps.json
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\bin\Debug\net8.0\EoE.dll
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\bin\Debug\net8.0\EoE.pdb
@@ -25,8 +24,6 @@ C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.dll
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\refint\EoE.dll
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
-=======
-<<<<<<< HEAD
 >>>>>>> b55fcaf006948c4db8af69185971b1953b9d0ac5
 C:\Users\32171\source\repos\HateUsername\Comp208\EoE\bin\Debug\net8.0\EoE.deps.json
 C:\Users\32171\source\repos\HateUsername\Comp208\EoE\bin\Debug\net8.0\EoE.dll
@@ -40,7 +37,6 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.dll
 C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\refint\EoE.dll
 C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
 C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
-=======
 D:\comp208\EoE\bin\Debug\net8.0\EoE.deps.json
 D:\comp208\EoE\bin\Debug\net8.0\EoE.dll
 D:\comp208\EoE\bin\Debug\net8.0\EoE.pdb

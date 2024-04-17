@@ -75,11 +75,6 @@ C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\r
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
-<<<<<<< HEAD
-=======
-C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\CheckOtherFieldsWindow.g.cs
-C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\CheckOtherFieldsWindow.baml
-=======
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.AssemblyReference.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMianPage.g.cs
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.g.cs
@@ -153,7 +148,6 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
-<<<<<<< HEAD
 >>>>>>> b55fcaf006948c4db8af69185971b1953b9d0ac5
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
@@ -232,13 +226,8 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-wind
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
-<<<<<<< HEAD
-=======
-=======
 >>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
-<<<<<<< HEAD
 >>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
-=======
 D:\comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
 D:\comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
 D:\comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
@@ -316,4 +305,3 @@ D:\comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cac
 D:\comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
 >>>>>>> commit
 >>>>>>> 0287c75394425d0d452470f043cfdf6810c27368
->>>>>>> b55fcaf006948c4db8af69185971b1953b9d0ac5
