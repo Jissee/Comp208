@@ -1216,15 +1216,23 @@
   },
   "packageFolders": {
 <<<<<<< HEAD
+    "C:\\Users\\32171\\.nuget\\packages\\": {},
+    "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+<<<<<<< HEAD
     "C:\\Users\\86151\\.nuget\\packages\\": {}
 =======
     "C:\\Users\\ufowlc\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
 >>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
+>>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj",
+=======
 <<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoETest\\EoE.Test.csproj",
       "projectName": "EoE.Test",
@@ -1236,16 +1244,17 @@
         "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
       "projectUniqueName": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoETest\\EoE.Test.csproj",
+>>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
       "projectName": "EoE.Test",
-      "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoETest\\EoE.Test.csproj",
-      "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoETest\\obj\\",
+      "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj",
+      "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
 >>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -1262,16 +1271,25 @@
           "targetAlias": "net8.0-windows",
           "projectReferences": {
 <<<<<<< HEAD
+            "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj": {
+              "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj"
+=======
+<<<<<<< HEAD
             "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj": {
               "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj"
 =======
             "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEClient\\EoE.Client.csproj": {
               "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEClient\\EoE.Client.csproj"
 >>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
+>>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
             },
-            "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj": {
-              "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj"
+            "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {
+              "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj"
             },
+<<<<<<< HEAD
+            "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
+              "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
+=======
 <<<<<<< HEAD
             "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
               "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj"
@@ -1279,6 +1297,7 @@
             "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
               "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
 >>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
+>>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
             }
           }
         }
@@ -1331,8 +1350,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "读取缓存文件 C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

@@ -16,7 +16,7 @@
         <Label Content="But the progress of exploration will be retained, so try again more times!" HorizontalAlignment="Left" Margin="28,116,0,0" VerticalAlignment="Top" FontSize="15"/>
         <TextBox x:Name="number" HorizontalAlignment="Left" Margin="580,231,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" FontSize="20" TextChanged="TextBox_TextChanged" Height="35" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <Label Content="Available population: " HorizontalAlignment="Left" Margin="33,177,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock x:Name="Population" HorizontalAlignment="Left" Margin="268,182,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="availablePopulation" HorizontalAlignment="Left" Margin="268,182,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
 
     </Grid>
 </Window>

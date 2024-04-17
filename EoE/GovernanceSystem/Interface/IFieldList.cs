@@ -16,6 +16,8 @@ namespace EoE.GovernanceSystem.Interface
         FieldStack SplitField(GameResourceType type, int count);
         int GetFieldCount(GameResourceType type);
         FieldStack GetFieldStack(GameResourceType type);
+        void Filedconversion(FieldStack origin, FieldStack converted);
+        void Filedconversion(GameResourceType originalType, int originalcount, GameResourceType convertedType, int convertedCount);
     }
 
 

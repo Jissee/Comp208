@@ -1,6 +1,7 @@
 ﻿using EoE.ClientInterface;
 using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Packets;
+using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace EoE.Network.Entities
         string PlayerName { get; }
         IClientGonveranceManager GonveranceManager { get; }
         List<string> OtherPlayer{ get;}
-
+        public Dictionary<string, FieldListRecord> OtherPlayerFields { get; init; }
         void SendPacket<T>(T packet) where T : IPacket<T>;
         void MsgBox(string msg);
         bool MsgBoxYesNo(string msg);
@@ -27,9 +28,11 @@ namespace EoE.Network.Entities
         IClientWarTargetList ClientWarTargetList { get; }
         IClientTreatyList ClientTreatyList { get; }
         void SynchronizeTickCount(int tickCount);
-        void SynchronizePlayerName(List<string> otherPlayers);
-        void SynchronizePlayerName(string name);
         IWindowManager WindowManager { get; }
+        void SynchronizeOtherPlayersName(List<string> otherPlayers);
+        void SynchronizePlayerName(string name);
+        void SynchronizeOtherPlayerFieldLitst(string name, FieldListRecord record);
+      
         IClientWarWidthList ClientWarWidthList { get; }
         IClientWarNameList ClientWarNameList { get; }
     }
