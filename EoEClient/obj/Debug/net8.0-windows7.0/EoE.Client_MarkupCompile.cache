@@ -4,30 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
-=======
-D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\
->>>>>>> 159886617f492c046285364b8eda9ca8f83e62a1
 EoE.Client
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-<<<<<<< HEAD
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\App.xaml
 27-1854569465
 
 49-851705459
 199-1838406558
 ChatSystem\ChatMianPage.xaml;ChatSystem\ChatPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\TreatyContent.xaml;GovernanceSystem\BlockManagement.xaml;GovernanceSystem\CheckOtherFieldsWindow.xaml;GovernanceSystem\CheckOtherPlayer.xaml;GovernanceSystem\ConvertPage.xaml;GovernanceSystem\MainWindow.xaml;GovernanceSystem\MilitaryManagement.xaml;GovernanceSystem\ResourceManage.xaml;GovernanceSystem\SetExploreWindow.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\LoginWindow.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
-=======
-D:\e-textbook3\comp208\EoE\EoEClient\App.xaml
-26-1030797128
-
-481216564564
-199-1301582816
-ChatSystem\ChatMianPage.xaml;ChatSystem\ChatPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\TreatyContent.xaml;GovernanceSystem\BlockManagement.xaml;GovernanceSystem\CheckOtherFieldsWindow.xaml;GovernanceSystem\ConvertPage.xaml;GovernanceSystem\MainWindow.xaml;GovernanceSystem\MilitaryManagement.xaml;GovernanceSystem\ResourceManage.xaml;GovernanceSystem\SetExploreWindow.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\LoginWindow.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
->>>>>>> 159886617f492c046285364b8eda9ca8f83e62a1
 
 True
 

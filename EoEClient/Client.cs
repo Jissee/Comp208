@@ -126,12 +126,13 @@ namespace EoE.Client
                 {
                     OtherPlayerFields.Add(name,record);
                 }
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    CheckOtherPlayer window = WindowManager.INSTANCE.GetWindows<CheckOtherPlayer>();
+                    window.SynchronizeOtherPlayersFields();
+                });
             }
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                CheckOtherPlayer window = WindowManager.INSTANCE.GetWindows<CheckOtherPlayer>();
-                window.SynchronizeOtherPlayersFields();
-            });
+            
         }
 
         public void Connect(string host, int port)

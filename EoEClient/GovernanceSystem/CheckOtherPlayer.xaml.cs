@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Packets.GonverancePacket.Record;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -156,6 +157,7 @@ namespace EoE.Client.GovernanceSystem
             int row = 1;
             foreach (string name in Client.INSTANCE.OtherPlayerFields.Keys)
             {
+                List<FieldListRecord> otherFields = Client.INSTANCE.OtherPlayerFields[name];
                 if (name != Client.INSTANCE.PlayerName)
                 {
                     row++;
@@ -177,7 +179,7 @@ namespace EoE.Client.GovernanceSystem
                     {
                         TextBlock temp2 = new TextBlock
                         {
-                            Text = fields[i].ToString(),
+                            Text = otherFields[i].ToString(),
                             Padding = new Thickness(5),
                             Margin = new Thickness(5),
                             HorizontalAlignment = HorizontalAlignment.Stretch,
