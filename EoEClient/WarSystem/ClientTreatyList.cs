@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace EoE.Client.WarSystem
 {
@@ -31,7 +33,16 @@ namespace EoE.Client.WarSystem
                     names.Add(signName[i]);
                 }
             }
-            //todo show things to windows
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                AbrogateTreaty window = WindowManager.INSTANCE.GetWindows<AbrogateTreaty>();
+                ListBox listBox = window.PlayerList;
+                listBox.Items.Clear();
+                foreach (string name in signName)
+                {
+                    listBox.Items.Add(name);
+                }
+            });
         }
 
         public void RemoveTreatyList(string signName)

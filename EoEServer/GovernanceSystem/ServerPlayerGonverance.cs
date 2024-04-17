@@ -60,28 +60,28 @@ namespace EoE.Server.GovernanceSystem
         // 暂时改为public！！！
         public void ProducePrimaryResource()
         {
-            ResourceStack resource = Recipes.calcPrimaryP(
+            ResourceStack resource = Recipes.calcSiliconP(
                 PopManager.GetPopAllocCount(GameResourceType.Silicon),
                 FieldList.GetFieldStack(GameResourceType.Silicon), 
                 0, 0);
             resource.Count = (int)PlayerStatus.CountrySiliconModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
 
-            resource = Recipes.calcPrimaryP(
+            resource = Recipes.calcCopperP(
                 PopManager.GetPopAllocCount(GameResourceType.Copper),
                 FieldList.GetFieldStack(GameResourceType.Copper), 
                 0, 0);
             resource.Count = (int)PlayerStatus.CountryCopperModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
 
-            resource = Recipes.calcPrimaryP(
+            resource = Recipes.calcIronP(
                 PopManager.GetPopAllocCount(GameResourceType.Iron),
                 FieldList.GetFieldStack(GameResourceType.Iron),
                 0, 0);
             resource.Count = (int)PlayerStatus.CountryIronModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
 
-            resource = Recipes.calcPrimaryP(
+            resource = Recipes.calcAluminumP(
                 PopManager.GetPopAllocCount(GameResourceType.Aluminum),
                 FieldList.GetFieldStack(GameResourceType.Aluminum), 
                 0, 0);

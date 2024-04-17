@@ -22,6 +22,19 @@ namespace EoE.Client.WarSystem
         public CheckWarDetail()
         {
             InitializeComponent();
+            BattleWe.IsReadOnly = true;
+            InfoWe.IsReadOnly = true;
+            MechWe.IsReadOnly = true;
+            BattleLostWe.IsReadOnly = true;
+            InfoLostWe.IsReadOnly = true;
+            MechLostWe.IsReadOnly = true;
+
+            BattleEnemy.IsReadOnly = true;
+            InfoEnemy.IsReadOnly = true;
+            MechEnemy.IsReadOnly = true;
+            BattleLostEnemy.IsReadOnly = true;
+            InfoLostEnemy.IsReadOnly = true;
+            MechLostEnemy.IsReadOnly = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

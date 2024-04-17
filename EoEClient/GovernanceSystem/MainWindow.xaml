@@ -7,11 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid x:Name="Manage_Resource1">
-        <Label x:Name="Content" Content="&quot;Management is the greatest social responsibility, representing the utmost respect for societal resources&quot;" HorizontalAlignment="Center" Margin="0,46,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <Button x:Name="Manage_Resource" Content="Resource Management" HorizontalAlignment="Left" Margin="89,131,0,0" VerticalAlignment="Top" Height="73" Width="256" FontSize="20" Click="Manage_Resource_Click"/>
-        <Button Content="Explore Block" HorizontalAlignment="Left" Margin="459,274,0,0" VerticalAlignment="Top" FontSize="20" Height="73" Width="256" Click="Button_Click_2"/>
-        <Button Content="Block Management" HorizontalAlignment="Left" Margin="89,274,0,0" VerticalAlignment="Top" Height="73" Width="256" FontSize="20" Click="Button_Click_1"/>
-        <Button Content="Military Management" HorizontalAlignment="Left" Margin="459,126,0,0" VerticalAlignment="Top" Height="73" Width="256" FontSize="20" Click="Button_Click"/>
+        <Label x:Name="Content" Content="&quot;Management is the greatest social responsibility, representing the utmost respect for societal resources&quot;" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <Button x:Name="Manage_Resource" Content="All resources information" HorizontalAlignment="Left" Margin="53,118,0,0" VerticalAlignment="Top" Height="55" Width="230" FontSize="18" Click="Manage_Resource_Click"/>
+        <Button Content="Explore Block" HorizontalAlignment="Left" Margin="53,233,0,0" VerticalAlignment="Top" FontSize="20" Height="55" Width="230" Click="Button_Click_2"/>
+        <Button Content="Block Management" HorizontalAlignment="Left" Margin="558,118,0,0" VerticalAlignment="Top" Height="55" Width="230" FontSize="20" Click="Button_Click_1"/>
+        <Button Content="Military Management" HorizontalAlignment="Left" Margin="303,118,0,0" VerticalAlignment="Top" Height="55" Width="230" FontSize="20" Click="Button_Click"/>
+        <Button Content="Check Other Players' Fields" HorizontalAlignment="Left" Margin="303,234,0,0" VerticalAlignment="Top" Width="240" Height="55" FontSize="18"/>
+        <Button Content="Upgrade Fields" HorizontalAlignment="Left" Margin="558,233,0,0" VerticalAlignment="Top" Width="230" Height="55" FontSize="18"/>
 
     </Grid>
 </Window>

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace EoE.Client.WarSystem
 {
@@ -54,8 +56,34 @@ namespace EoE.Client.WarSystem
             {
                 WarInformationList.Add(warName, warInformation);
             }
-            //todo show things to windows
+            Application.Current.Dispatcher.Invoke(() => {
+                CheckWarDetail window = WindowManager.INSTANCE.GetWindows<CheckWarDetail>();
+                TextBox battleWe = window.BattleWe;
+                TextBox infoWe = window.InfoWe;
+                TextBox mechWe = window.MechWe;
+                TextBox battleLostWe = window.BattleLostWe;
+                TextBox infoLostWe = window.InfoLostWe;
+                TextBox mechLostWe = window.MechLostWe;
+                battleWe.Text = totalBattle.ToString();
+                infoWe.Text = totalInformative.ToString();
+                mechWe.Text = totalMechanism.ToString();
+                battleLostWe.Text = battleLost.ToString();
+                infoLostWe.Text = informativeLost.ToString();
+                mechLostWe.Text = mechanismLost.ToString();
 
+                TextBox battleEnemy = window.BattleEnemy;
+                TextBox infoEnemy = window.InfoEnemy;
+                TextBox mechEnemy = window.MechEnemy;
+                TextBox battleLostEnemy = window.BattleLostEnemy;
+                TextBox infoLostEnemy = window.InfoLostEnemy;
+                TextBox mechLostEnemy = window.MechLostEnemy;
+                battleEnemy.Text = enemyTotalBattle.ToString();
+                infoEnemy.Text = enemyTotalInformative.ToString();
+                mechEnemy.Text = enemyTotalMechanism.ToString();
+                battleLostEnemy.Text = enemyBattleLost.ToString();
+                infoLostEnemy.Text = enemyInformativeLost.ToString();
+                mechLostEnemy.Text = enemyMechanismLost.ToString();
+            });
         }
     }
 }

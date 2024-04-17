@@ -89,6 +89,7 @@ namespace EoE.Network.Packets.WarPacket
                 IClient client = (IClient)context.Receiver;
                 client.ClientWarProtectorsList.ChangeWarProtectorsList(targetPlayerName, protectors.ToArray());
                 client.ClientWarParticipatibleList.ChangeWarPaticipatorsList(targetPlayerName, participatible.ToArray());
+                client.ClientWarNameList.ChangeWarName(warName);
             }
         }
     }

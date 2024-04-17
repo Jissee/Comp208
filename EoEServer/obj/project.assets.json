@@ -116,11 +116,17 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\sun\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\ufowlc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> 59de87415fce14c9b6df9d0b6e0943ad23a2648d
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj",
       "projectName": "EoE.Server",
       "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj",
@@ -129,6 +135,20 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
+      "projectName": "EoE.Server",
+      "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
+      "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> 59de87415fce14c9b6df9d0b6e0943ad23a2648d
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -136,14 +156,20 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
             "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
               "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj"
+=======
+            "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
+              "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
+>>>>>>> 59de87415fce14c9b6df9d0b6e0943ad23a2648d
             }
           }
         }
@@ -184,7 +210,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
