@@ -72,7 +72,7 @@ namespace EoE.Server
                 player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(player.GonveranceManager.ResourceList)));
                 player.SendPacket(new FieldUpdatePacket(new FieldListRecord(player.GonveranceManager.FieldList)));
                 player.SendPacket(new PopulationUpdatePacket(player.GonveranceManager.PopManager.GetPopulationRecord()));
-                Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList)), thisPlayer => thisPlayer != player);
+                Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList),player.PlayerName), thisPlayer => thisPlayer != player);
             }
         }
         private void PrepareGlobalBonusEvents()
@@ -391,7 +391,7 @@ namespace EoE.Server
                 Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
                 foreach (IPlayer player in PlayerList.Players)
                 {
-                    Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList)), thisPlayer => thisPlayer != player);
+                    Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList),player.PlayerName), thisPlayer => thisPlayer != player);
                 }
             }
             catch (Exception ex)

@@ -129,7 +129,8 @@ namespace EoE.Client
             }
             Application.Current.Dispatcher.Invoke(() =>
             {
-                
+                CheckOtherPlayer window = WindowManager.INSTANCE.GetWindows<CheckOtherPlayer>();
+                window.SynchronizeOtherPlayersFields();
             });
         }
 

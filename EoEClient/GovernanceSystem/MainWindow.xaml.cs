@@ -56,12 +56,21 @@ namespace EoE.Client.GovernanceSystem
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            instance = null;
+            e.Cancel = true;
+            this.Hide();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Button_Click_4(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            WindowManager.INSTANCE.ShowWindows<CheckOtherPlayer>();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
             WindowManager.INSTANCE.ShowWindows<ConvertPage>();
+
         }
     }
 }
