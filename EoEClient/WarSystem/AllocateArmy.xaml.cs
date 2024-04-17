@@ -47,5 +47,3 @@ namespace EoE.Client.WarSystem
         }
     }
 }
-    }
-}
