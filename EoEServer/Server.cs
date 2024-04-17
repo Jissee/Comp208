@@ -4,7 +4,9 @@ using EoE.GovernanceSystem.Interface;
 using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
+using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket;
+using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Server.GovernanceSystem;
 using EoE.Server.Network;
 using EoE.Server.TradeSystem;
@@ -53,9 +55,7 @@ namespace EoE.Server
         {
             isGameRunning = true;
             PrepareResourceBonusEvents();
-
-
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < Math.Max(1,Status.TotalTick); i++)
             {
                 foreach (IPlayer player in PlayerList.Players)
                 {
@@ -66,7 +66,13 @@ namespace EoE.Server
             }
             PrepareGlobalBonusEvents();
 
-
+            foreach (IPlayer player in PlayerList.Players)
+            {
+                player.SendPacket(new EnterGamePacket());
+                player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(player.GonveranceManager.ResourceList)));
+                player.SendPacket(new FieldUpdatePacket(new FieldListRecord(player.GonveranceManager.FieldList)));
+                player.SendPacket(new PopulationUpdatePacket(player.GonveranceManager.PopManager.GetPopulationRecord()));
+            }
         }
         private void PrepareGlobalBonusEvents()
         {
@@ -110,6 +116,7 @@ namespace EoE.Server
             Event.Builder builder1 = new Event.Builder();
             builder1.ForServer(this)
                 .IfServer(server => true)
+                .IfPlayer(player => true)
                 .HappenIn((int)(Status.TotalTick * 0.1f))
                 .LastFor(1)
                 .Do
@@ -359,6 +366,7 @@ namespace EoE.Server
             {
                 PlayerList.Tick();
             }
+            Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
         }
 
         public void CheckPlayerTickStatus()

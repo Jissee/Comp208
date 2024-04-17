@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,7 +34,7 @@ namespace EoE.Client.GovernanceSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(number.Text, out int value) && value >= 1)
+            if (int.Parse(number.Text) >= 1 && number != null)
             {
                 MessageBox.Show("You have successfully sent people to explore.");
             }
@@ -53,6 +54,11 @@ namespace EoE.Client.GovernanceSystem
         {
             e.Cancel = true;
             this.Hide();
+        }
+        public void limitnumber(object sender, TextCompositionEventArgs e)
+        {
+            Regex re = new Regex("[^0-9]+");
+            e.Handled = re.IsMatch(e.Text);
         }
     }
 }

@@ -34,13 +34,13 @@ namespace EoE.Server.GovernanceSystem
    );
     public static class Recipes
     {
-        private static float PrimaryProdcutivity = 5.0f;
-        private static float SecondaryProdcutivity =0.5f;
+        private static double PrimaryProdcutivity = 5.0f;
+        private static double SecondaryProdcutivity =0.5f;
 
-        public static int SiliconSynthetic = 2;
-        public static int CopperSynthetic = 2;
-        public static int IronSynthetic = 2;
-        public static int AluminumSynthetic = 2;
+        public static double SiliconSynthetic = 1;
+        public static double CopperSynthetic = 1.1;
+        public static double IronSynthetic = 1.2;
+        public static double AluminumSynthetic = 1.1;
 
         public static readonly int POP_GROWTH_THRESHOLD = 10000;
 
@@ -69,11 +69,11 @@ namespace EoE.Server.GovernanceSystem
                 int acutalProduce = 0;
                 if (silicon>= copper)
                 {
-                    acutalProduce = silicon/ SiliconSynthetic;
+                    acutalProduce = (int)(silicon/ SiliconSynthetic);
                 }
                 else
                 {
-                    acutalProduce = copper/ CopperSynthetic;
+                    acutalProduce = (int)(copper/ CopperSynthetic);
                 }
                 return new ResourceStack(fields.Type, acutalProduce);
             }
@@ -93,11 +93,11 @@ namespace EoE.Server.GovernanceSystem
                 int acutalProduce = 0;
                 if (iron>= aluminum)
                 {
-                    acutalProduce = iron/ IronSynthetic;
+                    acutalProduce = (int)(iron/ IronSynthetic);
                 }
                 else
                 {
-                    acutalProduce = aluminum/ AluminumSynthetic;
+                    acutalProduce = (int)(aluminum/ AluminumSynthetic);
                 }
                 return new ResourceStack(fields.Type, acutalProduce);
             }
@@ -105,38 +105,38 @@ namespace EoE.Server.GovernanceSystem
 
         public static ProductionConsume calcElectronicPC = (electronic) =>
         {
-            ResourceStack silicon = new ResourceStack(GameResourceType.Silicon, SiliconSynthetic * electronic.Count);
-            ResourceStack coppor = new ResourceStack(GameResourceType.Copper, CopperSynthetic * electronic.Count);
+            ResourceStack silicon = new ResourceStack(GameResourceType.Silicon, (int)(SiliconSynthetic * electronic.Count));
+            ResourceStack coppor = new ResourceStack(GameResourceType.Copper, (int)(CopperSynthetic * electronic.Count));
             return (silicon, coppor);
         };
 
         public static ProductionConsume calcIndustrailPC = (industrail) =>
         {
-            ResourceStack iron = new ResourceStack(GameResourceType.Iron, IronSynthetic * industrail.Count);
-            ResourceStack aluminum = new ResourceStack(GameResourceType.Aluminum, AluminumSynthetic * industrail.Count);
+            ResourceStack iron = new ResourceStack(GameResourceType.Iron, (int)(IronSynthetic * industrail.Count));
+            ResourceStack aluminum = new ResourceStack(GameResourceType.Aluminum, (int)(AluminumSynthetic * industrail.Count));
             return (iron, aluminum);
         };
 
         public static int calcPopGrowthProgress(int popCount, int silicon, int copper, int iron, int aluminum)
         {
-            double rate = 1.05f;
+            double rate = 0.3f;
             double K;
 
-
-            Dictionary<string, double> resourceSynthetic = new Dictionary<string, double>()
+            
+            Dictionary<GameResourceType, double> resourceSynthetic = new Dictionary<GameResourceType, double>()
             {
-                { "silicon", ServerPlayerGonverance.SILICON_PER_POP_TICK },
-                { "copper", ServerPlayerGonverance.COPPER_PER_POP_TICK },
-                { "iron", ServerPlayerGonverance.IRON_PER_POP_TICK },
-                { "aluminum", ServerPlayerGonverance.ALUMINUM_PER_POP_TICK }
+                { GameResourceType.Silicon, ServerPlayerGonverance.SILICON_PER_POP_TICK },
+                { GameResourceType.Copper, ServerPlayerGonverance.COPPER_PER_POP_TICK },
+                { GameResourceType.Iron, ServerPlayerGonverance.IRON_PER_POP_TICK },
+                { GameResourceType.Aluminum, ServerPlayerGonverance.ALUMINUM_PER_POP_TICK }
             };
 
 
             double minK = double.MaxValue;
-            minK = Math.Min(minK, silicon / resourceSynthetic["silicon"]);
-            minK = Math.Min(minK, copper / resourceSynthetic["copper"]);
-            minK = Math.Min(minK, iron / resourceSynthetic["iron"]);
-            minK = Math.Min(minK, aluminum / resourceSynthetic["aluminum"]);
+            minK = Math.Min(minK, silicon / resourceSynthetic[GameResourceType.Silicon]);
+            minK = Math.Min(minK, copper / resourceSynthetic[GameResourceType.Copper]);
+            minK = Math.Min(minK, iron / resourceSynthetic[GameResourceType.Iron]);
+            minK = Math.Min(minK, aluminum / resourceSynthetic[GameResourceType.Aluminum]);
 
             K = minK;
             double popGrowth = popCount * rate * (1 - (double)popCount / K);

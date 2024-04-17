@@ -23,6 +23,7 @@ namespace EoE.Client.ChatSystem
         public ChatMianPage()
         {
             InitializeComponent();
+            addPlayer();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -31,7 +32,7 @@ namespace EoE.Client.ChatSystem
             {
                 this.Hide();
                 ChatPage chat = new ChatPage();
-                 chat.Show();
+                chat.Show();
             }
             else
             {
@@ -39,6 +40,13 @@ namespace EoE.Client.ChatSystem
             }
             
             
+        }
+        private void addPlayer()
+        {
+            foreach (string playerName in Client.INSTANCE.OtherPlayer)
+            {
+                listBox1.Items.Add(playerName);
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

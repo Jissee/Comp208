@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +32,12 @@ namespace EoE.Client.WarSystem
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<CheckWarDetail>();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

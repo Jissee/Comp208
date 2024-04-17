@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using EoE.Client.ChatSystem;
 using EoE.Client.WarSystem;
+using System.Text.RegularExpressions;
 
 namespace EoE.Client.ChatSystem
 {
@@ -46,12 +47,12 @@ namespace EoE.Client.ChatSystem
                 _protected.IsChecked = false;
                 common.IsChecked = false;
             }
-            Res1.IsReadOnly = true;
-            Res2.IsReadOnly = true;
-            Res3.IsReadOnly = true;
-            Res4.IsReadOnly = true;
-            Res5.IsReadOnly = true;
-            Res6.IsReadOnly = true;
+            Res1.IsReadOnly = false;
+            Res2.IsReadOnly = false;
+            Res3.IsReadOnly = false;
+            Res4.IsReadOnly = false;
+            Res5.IsReadOnly = false;
+            Res6.IsReadOnly = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -122,6 +123,11 @@ namespace EoE.Client.ChatSystem
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             instance = null;
+        }
+        public void limitnumber(object sender, TextCompositionEventArgs e)
+        {
+            Regex re = new Regex("[^0-9]+");
+            e.Handled = re.IsMatch(e.Text);
         }
     }
 }

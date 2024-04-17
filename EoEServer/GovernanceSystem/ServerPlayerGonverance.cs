@@ -287,7 +287,6 @@ namespace EoE.Server.GovernanceSystem
             FieldList.ClearAll();
             ResourceList.ClearAll();
             PopManager.ClearAll();
-            //Todo
         }
 
        

@@ -1,8 +1,27 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "PE7hQoXYK4OYyhDrKFnvULREtlx2D1TCRPt9+g62ven9zEk6lDhIoxDtFmsT+h5PJVYz5X0C/TIAWE1ugDCkIQ==",
   "success": true,
   "projectFilePath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
+=======
+<<<<<<< HEAD
+  "dgSpecHash": "i8ENByU+OyE+eKMvkKGI5m3LX/evSmOH2jxqXZ2knr40g5YJi0xIG+1i5b7/GjX1LtAw+Amk7f4UwRrZUxsDeA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
+=======
+  "dgSpecHash": "2ddZcKRmz13v5rpE9W3yQTb1K/plIqdRKFEcq5Qh7huZyVNHRko5kefdqpgN411xPi2F8UrDoIAtIt4mRvWbfg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
+>>>>>>> 4bf2a6e026242ed7ec4c4e55a7ef57f731894d43
+>>>>>>> e143cc234bd35b7c00536e0dda0cdd81486d6656
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "读取缓存文件 C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

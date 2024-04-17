@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="CheckWarDetail" Height="450" Width="800">
     <Grid>
-        <Label Content="War Name: :" HorizontalAlignment="Left" Margin="210,5,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="440,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="War Name: :" HorizontalAlignment="Left" Margin="56,5,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="189,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Our Side:" HorizontalAlignment="Left" Margin="174,65,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Enemy Side:" HorizontalAlignment="Left" Margin="539,57,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="542,371,0,0" VerticalAlignment="Top" FontSize="20" Height="46" Width="120" Click="Button_Click_1"/>

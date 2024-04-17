@@ -8,23 +8,23 @@
         Title="AllocateArmy" Height="450" Width="800">
     <Grid>
         <Label Content="“There never was a good war or a bad peace.”" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Existing resources: " HorizontalAlignment="Left" Margin="183,87,0,0" VerticalAlignment="Top" FontSize="18" Width="179"/>
-        <Label Content="Battle Army: " Margin="14,139,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Technology Army: " Margin="14,212,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Mechanization Army: " Margin="14,285,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Next round resources: " HorizontalAlignment="Left" Margin="591,87,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Allocate army for next round:" Margin="395,116,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="Resouce1change" Margin="452,153,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" Height="19" FontSize="15"/>
-        <TextBox x:Name="Resouce2change" Margin="452,224,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"/>
-        <TextBox x:Name="Resouce3change" Margin="452,291,0,0" TextWrapping="Wrap" Text="TextBox" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"/>
+        <Label Content="Existing Army " HorizontalAlignment="Left" Margin="176,88,0,0" VerticalAlignment="Top" FontSize="18" Width="136"/>
+        <Label Content="Battle Army: " Margin="0,137,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Technology Army: " Margin="0,210,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Mechanization Army: " Margin="0,283,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Amry need to be filled" HorizontalAlignment="Left" Margin="326,88,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Allocate army for next round" Margin="542,88,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox x:Name="Resouce1change" Margin="624,141,0,0" TextWrapping="Wrap" Text="0" Width="93" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber" TextChanged="Resouce1change_TextChanged"/>
+        <TextBox x:Name="Resouce2change" Margin="622,216,0,0" TextWrapping="Wrap" Text="0" Width="95" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="Resouce3change" Margin="624,287,0,0" TextWrapping="Wrap" Text="0" Width="93" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <Button x:Name="Submit3" Content="Submit All" Margin="452,367,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="40" FontSize="20"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="150,367,0,0" VerticalAlignment="Top" Height="40" Width="200" FontSize="20" Click="Button_Click"/>
-        <TextBlock x:Name="battleafter" HorizontalAlignment="Left" Margin="652,146,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="techafter" HorizontalAlignment="Left" Margin="652,211,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="mechafter" HorizontalAlignment="Left" Margin="652,283,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="224,146,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="techbefore" HorizontalAlignment="Left" Margin="224,217,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="224,291,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" Height="27"/>
+        <TextBlock x:Name="battleafter" HorizontalAlignment="Left" Margin="386,144,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="techafter" HorizontalAlignment="Left" Margin="386,215,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="mechafter" HorizontalAlignment="Left" Margin="386,288,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="202,143,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="techbefore" HorizontalAlignment="Left" Margin="202,214,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="202,288,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" Height="27"/>
 
     </Grid>
 </Window>

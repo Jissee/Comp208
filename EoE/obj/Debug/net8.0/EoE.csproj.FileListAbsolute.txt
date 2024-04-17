@@ -10,6 +10,7 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.dll
 C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\refint\EoE.dll
 C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
 C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
+<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoE\bin\Debug\net8.0\EoE.deps.json
 D:\e-textbook3\comp208\EoE\EoE\bin\Debug\net8.0\EoE.dll
 D:\e-textbook3\comp208\EoE\EoE\bin\Debug\net8.0\EoE.pdb
@@ -22,3 +23,17 @@ D:\e-textbook3\comp208\EoE\EoE\obj\Debug\net8.0\EoE.dll
 D:\e-textbook3\comp208\EoE\EoE\obj\Debug\net8.0\refint\EoE.dll
 D:\e-textbook3\comp208\EoE\EoE\obj\Debug\net8.0\EoE.pdb
 D:\e-textbook3\comp208\EoE\EoE\obj\Debug\net8.0\ref\EoE.dll
+=======
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\bin\Debug\net8.0\EoE.deps.json
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\bin\Debug\net8.0\EoE.dll
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\bin\Debug\net8.0\EoE.pdb
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.AssemblyInfoInputs.cache
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.AssemblyInfo.cs
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.csproj.CoreCompileInputs.cache
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.sourcelink.json
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.dll
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\refint\EoE.dll
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
+C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
+>>>>>>> e143cc234bd35b7c00536e0dda0cdd81486d6656

@@ -18,13 +18,13 @@ using EoE.Client.GovernanceSystem;
 using EoE.Client.ChatSystem;
 using EoE.GovernanceSystem;
 using EoE.Network.Packets.GameEventPacket;
+using EoE.Network.Packets.GonverancePacket.Record;
 
 
 namespace EoE.Client.Login
 {
     public partial class MainGamePage : Window
     {
-        private int roundCount = 0;
         public MainGamePage()
         {
             InitializeComponent();
@@ -43,11 +43,6 @@ namespace EoE.Client.Login
             WindowManager.INSTANCE.ShowWindows<MainTradePage>();
         }
 
-        private void Next_Click(object sender, RoutedEventArgs e)
-        {
-            Client.INSTANCE.SendPacket(new FinishTickPacket(true));
-        }
-
         private void War_Click(object sender, RoutedEventArgs e)
         {
             WarMainPage.INSTANCE.Show();
@@ -61,6 +56,24 @@ namespace EoE.Client.Login
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
            WindowManager.INSTANCE.ShowWindows<ChatMianPage>();
+        }
+
+        public void SynchronizeResources(ResourceListRecord resourceListRecord)
+        {
+            Silicon.Text = resourceListRecord.siliconCount.ToString();
+            Copper.Text = resourceListRecord.copperCount.ToString();
+            Aluminum.Text = resourceListRecord.aluminumCount.ToString();
+            Iron.Text = resourceListRecord.ironCount.ToString();
+            Electronic.Text = resourceListRecord.electronicCount.ToString();
+            Industrial.Text = resourceListRecord.industrialCount.ToString();
+        }
+        public void SynchronizePopulation(PopulationRecord populationRecord)
+        {
+            Population.Text = populationRecord.availablePopulation.ToString();
+        }
+        public void SynchronizeRoundNumber(int round)
+        {
+            RoundCount.Text = round.ToString();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -78,9 +91,16 @@ namespace EoE.Client.Login
             }
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        private void CheckBox_Clicked(object sender, RoutedEventArgs e)
         {
-
+            if (NextRound.IsChecked == true)
+            {
+                Client.INSTANCE.SendPacket(new FinishTickPacket(true, int.Parse(RoundCount.Text)));
+            }
+            else
+            {
+                Client.INSTANCE.SendPacket(new FinishTickPacket(true, int.Parse(RoundCount.Text)));
+            }
         }
     }
 }

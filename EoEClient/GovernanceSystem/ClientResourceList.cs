@@ -86,6 +86,7 @@ namespace EoE.Client.GovernanceSystem
             resources[GameResourceType.BattleArmy] = resourceListRecord.battleArmyCount;
             resources[GameResourceType.InformativeArmy] = resourceListRecord.informativeArmyCount;
             resources[GameResourceType.MechanismArmy] = resourceListRecord.mechanismArmyCount;
+            WindowManager.INSTANCE.UpdateResources(resourceListRecord);
         }
     }
 }
