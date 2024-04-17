@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "i8ENByU+OyE+eKMvkKGI5m3LX/evSmOH2jxqXZ2knr40g5YJi0xIG+1i5b7/GjX1LtAw+Amk7f4UwRrZUxsDeA==",
+  "dgSpecHash": "C6mu4aZLO3od4pvLbrGzQwH7FUlffXfTcXYoxqdZHS+JReIYZV/2+0NuwnmFQCXiXAJX/+JgSZ6QKRPPikqDPw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
-=======
-  "dgSpecHash": "bjbn2KZBOAWt4oKzYLLUI+4g3VGUcZyRR1ejjDwlRcr1n2pHBdFQOMIa0FZJdU1BIlqJqxNu6+AuXPvPZ4EeJw==",
-  "success": true,
-  "projectFilePath": "D:\\comp208\\EoE\\EoE.csproj",
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
+  "projectFilePath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

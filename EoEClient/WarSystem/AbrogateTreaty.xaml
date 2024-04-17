@@ -9,7 +9,7 @@
     <Grid>
         <ListBox x:Name="PlayerList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="304,128,304,167"/>
         <Label Content="Select a country to abrogate the treaty" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Button Content="Confirm abrogation" HorizontalAlignment="Center" Margin="0,317,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="55" Width="228"/>
+        <Button x:Name="ConfirmAbrogation" Content="Confirm abrogation" HorizontalAlignment="Center" Margin="0,317,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="55" Width="228" Click="Button_Click"/>
 
     </Grid>
 </Window>

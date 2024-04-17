@@ -116,39 +116,24 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\86151\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\杜萱\\.nuget\\packages\\": {},
+    "C:\\Users\\ufowlc\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\EoE.Server.csproj",
+      "projectUniqueName": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
       "projectName": "EoE.Server",
-      "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\EoE.Server.csproj",
-      "packagesPath": "C:\\Users\\86151\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "D:\\comp208\\EoEServer\\EoE.Server.csproj",
-      "projectName": "EoE.Server",
-      "projectPath": "D:\\comp208\\EoEServer\\EoE.Server.csproj",
-      "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
-      "outputPath": "D:\\comp208\\EoEServer\\obj\\",
+      "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
+      "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -163,13 +148,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-<<<<<<< HEAD
-            "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
-              "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj"
-=======
-            "D:\\comp208\\EoE\\EoE.csproj": {
-              "projectPath": "D:\\comp208\\EoE\\EoE.csproj"
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
+            "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
+              "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
             }
           }
         }
