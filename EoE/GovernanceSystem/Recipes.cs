@@ -34,6 +34,11 @@ namespace EoE.Server.GovernanceSystem
    );
     public static class Recipes
     {
+        public static readonly double SILICON_PER_POP_TICK = 1.0f;
+        public static readonly double COPPER_PER_POP_TICK = 1.0f;
+        public static readonly double IRON_PER_POP_TICK = 1.0f;
+        public static readonly double ALUMINUM_PER_POP_TICK = 1.0f;
+
         private static double PrimaryProdcutivity = 5.0f;
         private static double SecondaryProdcutivity =0.5f;
 
@@ -125,10 +130,10 @@ namespace EoE.Server.GovernanceSystem
             
             Dictionary<GameResourceType, double> resourceSynthetic = new Dictionary<GameResourceType, double>()
             {
-                { GameResourceType.Silicon, ServerPlayerGonverance.SILICON_PER_POP_TICK },
-                { GameResourceType.Copper, ServerPlayerGonverance.COPPER_PER_POP_TICK },
-                { GameResourceType.Iron, ServerPlayerGonverance.IRON_PER_POP_TICK },
-                { GameResourceType.Aluminum, ServerPlayerGonverance.ALUMINUM_PER_POP_TICK }
+                { GameResourceType.Silicon, SILICON_PER_POP_TICK },
+                { GameResourceType.Copper, COPPER_PER_POP_TICK },
+                { GameResourceType.Iron, IRON_PER_POP_TICK },
+                { GameResourceType.Aluminum, ALUMINUM_PER_POP_TICK }
             };
 
 

@@ -50,6 +50,7 @@ namespace EoE.Client.GovernanceSystem
                     ResourceList.SplitResource(GameResourceType.Copper, consume);
                     ResourceList.SplitResource(GameResourceType.Iron, consume);
                     ResourceList.SplitResource(GameResourceType.Aluminum, consume);
+                    PopManager.AlterAvailablePop(-inutPopulation);
                     Client.INSTANCE.SendPacket(new SetExplorationPacket(inutPopulation));
                 }
                 else
@@ -63,7 +64,7 @@ namespace EoE.Client.GovernanceSystem
         {
             if ((int)type < (int)GameResourceType.BattleArmy)
             {
-                MessageBox.Show("Please input an army type");
+                MessageBox.Show("Please input an valid army type");
             }
 
             ResourceStack army = new ResourceStack(type, count);
@@ -79,6 +80,8 @@ namespace EoE.Client.GovernanceSystem
                         PopManager.AlterAvailablePop(-popCount);
                         ResourceList.AddResourceStack(army);
                         Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type, count));
+                        WindowManager.INSTANCE.UpdateResources();
+                        WindowManager.INSTANCE.UpdatePopulation();
                     }
                     else
                     {
@@ -94,6 +97,8 @@ namespace EoE.Client.GovernanceSystem
                         ResourceList.SplitResourceStack(resource);
                         ResourceList.AddResourceStack(army);
                         Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type, count));
+                        WindowManager.INSTANCE.UpdateResources();
+                        WindowManager.INSTANCE.UpdatePopulation();
                     }
                     else
                     {
@@ -108,6 +113,8 @@ namespace EoE.Client.GovernanceSystem
                         ResourceList.SplitResourceStack(resource);
                         ResourceList.AddResourceStack(army);
                         Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type,count));
+                        WindowManager.INSTANCE.UpdateResources();
+                        WindowManager.INSTANCE.UpdatePopulation();
                     }
                     else
                     {

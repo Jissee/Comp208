@@ -53,7 +53,7 @@ namespace EoE.Client.GovernanceSystem
             popAloc[GameResourceType.Electronic] = popRecord.electronicPop;
             popAloc[GameResourceType.Industrial] = popRecord.industrailPop;
             AvailablePopulation = popRecord.availablePopulation;
-            WindowManager.INSTANCE.SynchronizePopulation(popRecord);
+            WindowManager.INSTANCE.UpdatePopulation();
         }
 
         public void SetAllocation(
@@ -73,13 +73,13 @@ namespace EoE.Client.GovernanceSystem
             int count = siliconPop + copperPop + ironPop + aluminumPop + electronicPop + industrailPop;
             if (TotalPopulation >= count)
             {
+                int total = TotalPopulation;
                 popAloc[GameResourceType.Silicon] = siliconPop;
                 popAloc[GameResourceType.Copper] = copperPop;
                 popAloc[GameResourceType.Iron] = ironPop;
                 popAloc[GameResourceType.Aluminum] = aluminumPop;
                 popAloc[GameResourceType.Electronic] = electronicPop;
                 popAloc[GameResourceType.Industrial] = industrailPop;
-                AvailablePopulation = TotalPopulation - count;
                 Client.INSTANCE.SendPacket(new SetPopAllocationPacket(
                     new PopulationRecord(
                     siliconPop,
@@ -90,6 +90,9 @@ namespace EoE.Client.GovernanceSystem
                     industrailPop,
                     AvailablePopulation)
                     ));
+                
+                AvailablePopulation = total - count;
+                WindowManager.INSTANCE.UpdatePopulation();
             }
             else
             {
@@ -105,5 +108,19 @@ namespace EoE.Client.GovernanceSystem
         {
             return popAloc[type];
         }
+
+        public PopulationRecord GetPopulationRecord()
+        {
+            return new PopulationRecord(
+                popAloc[GameResourceType.Silicon],
+                popAloc[GameResourceType.Copper],
+                popAloc[GameResourceType.Iron],
+                popAloc[GameResourceType.Aluminum],
+                popAloc[GameResourceType.Electronic],
+                popAloc[GameResourceType.Industrial],
+                AvailablePopulation
+                );
+        }
+
     }
 }

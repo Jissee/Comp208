@@ -9,16 +9,16 @@
     <Grid>
         <Label Content="Existing Army" HorizontalAlignment="Left" Margin="303,58,0,0" VerticalAlignment="Top" FontSize="20" Width="149"/>
         <Label Content="Battle Army: " Margin="51,118,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Technology Army: " Margin="23,192,0,0" FontSize="20" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="InformativeArmy: " Margin="23,192,0,0" FontSize="20" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Mechanization Army: " Margin="8,269,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Bulid new Army" Margin="546,58,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
         <TextBox x:Name="battlechange" Margin="608,121,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" TextChanged="battlechange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
-        <TextBox x:Name="techchange" Margin="608,194,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="techchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="informativeChange" Margin="608,194,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="techchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="mechchange" Margin="608,274,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="mechchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <Button x:Name="Submit3" Content="Submit" Margin="465,361,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Width="100" Height="50" Click="Submit3_Click"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="243,361,0,0" VerticalAlignment="Top" FontSize="20" Height="50" Width="100" Click="Button_Click"/>
         <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="336,123,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock x:Name="techbefore" HorizontalAlignment="Left" Margin="336,195,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="infobefore" HorizontalAlignment="Left" Margin="336,195,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
         <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="336,274,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
 
     </Grid>

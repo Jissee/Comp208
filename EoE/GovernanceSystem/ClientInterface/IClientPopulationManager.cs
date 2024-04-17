@@ -12,5 +12,13 @@ namespace EoE.GovernanceSystem.ClientInterface
     {
         void Synchronize(PopulationRecord popRecord);
         void AlterAvailablePop(int count);
+        public void SetAllocation(
+           int siliconPop,
+           int copperPop,
+           int ironPop,
+           int aluminumPop,
+           int electronicPop,
+           int industrailPop
+           );
     }
 }
