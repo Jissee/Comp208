@@ -90,6 +90,7 @@ namespace EoE.Server
 
         public void Tick()
         {
+            FinishedTick = false;
             GonveranceManager.Tick();
             if (IsLose)
             {

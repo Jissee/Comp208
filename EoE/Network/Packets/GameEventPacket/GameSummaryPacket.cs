@@ -54,11 +54,11 @@ namespace EoE.Network.Packets.GameEventPacket
                 IClient client = (IClient)context.Receiver;
                 StringBuilder sb = new StringBuilder();
                 int i = 0;
-                sb.AppendLine("Rank\t\t\tName\t\t\tResource\t\t\tPopulation\t\t\tArmy\t\t\tTotal");
+                sb.AppendLine("Rank\tName\tResource\tField\tPop\tArmy\tTotal");
                 foreach (var (name, resourceScore, fieldScore, popScore, armyScore, totalScore) in ranks)
                 {
                     i++;
-                    sb.AppendLine($"{i}\t\t\t{name}\t\t\t{resourceScore}\t\t\t{fieldScore}\t\t\t{popScore}\t\t\t{armyScore}\t\t\t{totalScore}");
+                    sb.AppendLine($"{i}\t{name}\t{resourceScore}\t{fieldScore}\t{popScore}\t{armyScore}\t{totalScore}");
                 }
                 
                 client.MsgBox($"""

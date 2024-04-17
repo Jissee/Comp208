@@ -57,12 +57,16 @@ namespace EoE.Server
         {
             isGameRunning = true;
             PrepareResourceBonusEvents();
-            for (int i = 0; i < Math.Max(1,Status.TotalTick); i++)
+            Random random = new Random();
+            foreach (IPlayer player in PlayerList.Players)
             {
-                foreach (IPlayer player in PlayerList.Players)
+                Dictionary<int, int> map = new Dictionary<int, int>();
+                for (int i = 0; i < Math.Max(1,Status.TotalTick * 0.05); i++)
                 {
-                    Random random = new Random();
-                    int index = random.Next(1, 6);
+                    map.Add(random.Next(1, 6), 0);
+                }
+                foreach (int index in map.Keys)
+                {
                     PreparePlayerRandomEvents(player, index);
                 }
             }

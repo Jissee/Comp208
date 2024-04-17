@@ -63,6 +63,7 @@ namespace EoE.Network
             Register<NewCommonDefenseTreatyPacket>();
             Register<NewProtectiveTreatyPacket>();
             Register<QueryTreatyPacket>();
+            Register<GameSummaryPacket>();
         }
 
         public static void Register<T>() where T : IPacket<T>

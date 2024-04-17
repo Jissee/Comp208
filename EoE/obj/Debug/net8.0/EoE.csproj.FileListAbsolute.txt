@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\bin\Debug\net8.0\EoE.deps.json
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\bin\Debug\net8.0\EoE.dll
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\bin\Debug\net8.0\EoE.pdb
@@ -10,3 +11,17 @@ C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.dll
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\refint\EoE.dll
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
+=======
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\bin\Debug\net8.0\EoE.deps.json
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\bin\Debug\net8.0\EoE.dll
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\bin\Debug\net8.0\EoE.pdb
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.AssemblyInfoInputs.cache
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.AssemblyInfo.cs
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.csproj.CoreCompileInputs.cache
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.sourcelink.json
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.dll
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\refint\EoE.dll
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
+C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
+>>>>>>> 7be7a1ff4acc965030071f4516de1aff1f596fcd
