@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {}
   },
   "projects": {
@@ -13,30 +12,9 @@
         "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
         "packagesPath": "C:\\Users\\86151\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\obj\\",
-=======
-    "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
-        "projectName": "EoE",
-        "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
-        "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\obj\\",
->>>>>>> 955b5da4b675fd01ea02be3d15f4382b255b51fc
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 955b5da4b675fd01ea02be3d15f4382b255b51fc
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
