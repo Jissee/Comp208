@@ -13,7 +13,7 @@
         <Button Content="Block Management" HorizontalAlignment="Left" Margin="558,118,0,0" VerticalAlignment="Top" Height="55" Width="230" FontSize="20" Click="Button_Click_1"/>
         <Button Content="Military Management" HorizontalAlignment="Left" Margin="303,118,0,0" VerticalAlignment="Top" Height="55" Width="230" FontSize="20" Click="Button_Click"/>
         <Button Content="Check Other Players' Fields" HorizontalAlignment="Left" Margin="303,234,0,0" VerticalAlignment="Top" Width="240" Height="55" FontSize="18"/>
-        <Button Content="Upgrade Fields" HorizontalAlignment="Left" Margin="558,233,0,0" VerticalAlignment="Top" Width="230" Height="55" FontSize="18"/>
+        <Button Content="Upgrade Fields" HorizontalAlignment="Left" Margin="558,233,0,0" VerticalAlignment="Top" Width="230" Height="55" FontSize="18" Click="Button_Click_3"/>
 
     </Grid>
 </Window>

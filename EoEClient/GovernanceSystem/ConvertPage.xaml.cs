@@ -34,38 +34,56 @@ namespace EoE.Client.GovernanceSystem
             if (int.TryParse(inputNumber.Text,out int count)&& count>=0)
             {
                 GameResourceType? origin =null;
-                if (PrimaryField.SelectedItem.ToString() == "Silicon")
-                {
-                    origin = GameResourceType.Silicon;
-                }else if (PrimaryField.SelectedItem.ToString() == "Copper")
-                {
-                    origin = GameResourceType.Copper;
-                }else if (PrimaryField.SelectedItem.ToString() == "Iron")
-                {
-                    origin = GameResourceType.Iron;
-                }else if (PrimaryField.SelectedItem.ToString() == "Aluminum")
-                {
-                    origin = GameResourceType.Aluminum;
-                }
-                else
+                if (PrimaryField.SelectedItem == null)
                 {
                     MessageBox.Show("Please select a primary field");
                 }
+                else
+                {
+                    ListBoxItem item = PrimaryField.SelectedItem as ListBoxItem;
+
+                    if (item.Content.ToString() == "Silicon")
+                    {
+                        origin = GameResourceType.Silicon;
+                    }
+                    else if (item.Content.ToString() == "Copper")
+                    {
+                        origin = GameResourceType.Copper;
+                    }
+                    else if (item.Content.ToString() == "Iron")
+                    {
+                        origin = GameResourceType.Iron;
+                    }
+                    else if (item.Content.ToString() == "Aluminum")
+                    {
+                        origin = GameResourceType.Aluminum;
+                    }
+                }
+                
+
 
                 GameResourceType? convert = null;
-                if (SecondaryField.SelectedItem.ToString() == "Electronic")
+                if (PrimaryField.SelectedItem== null)
                 {
-                    convert = GameResourceType.Electronic;
-                }
-                if (SecondaryField.SelectedItem.ToString() == "Industrial")
-                {
-                    convert = GameResourceType.Industrial;
+                    MessageBox.Show("Please select a secondary field");
                 }
                 else
                 {
-                    MessageBox.Show("Please select a secondary field");
-                    
+                    ListBoxItem item = SecondaryField.SelectedItem as ListBoxItem;
+                    if (item.Content.ToString() == "Electronic")
+                    {
+                        convert = GameResourceType.Electronic;
+                    }
+                    else if (item.Content.ToString() == "Industrial")
+                    {
+                        convert = GameResourceType.Industrial;
+                    }
                 }
+
+
+
+                
+
                 if (origin != null && convert != null)
                 {
                     Client.INSTANCE.GonveranceManager.FieldList.Filedconversion((GameResourceType)origin, count, (GameResourceType)convert, count);

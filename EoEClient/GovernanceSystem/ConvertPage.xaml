@@ -21,8 +21,8 @@
             <ListBoxItem Content="Industrial"/>
         </ListBox>
         <Label Content="block(s)." HorizontalAlignment="Left" Margin="683,161,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button Content="submit" HorizontalAlignment="Left" Margin="256,328,0,0" VerticalAlignment="Top" Height="56" Width="86" FontSize="20" Click="Button_Click"/>
-        <Button Content="back" HorizontalAlignment="Left" Margin="492,323,0,0" VerticalAlignment="Top" FontSize="20" Height="61" Width="87" Click="Button_Click_1"/>
+        <Button Content="submit" HorizontalAlignment="Left" Margin="492,328,0,0" VerticalAlignment="Top" Height="56" Width="86" FontSize="20" Click="Button_Click"/>
+        <Button Content="back" HorizontalAlignment="Left" Margin="256,323,0,0" VerticalAlignment="Top" FontSize="20" Height="61" Width="87" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

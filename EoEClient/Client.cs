@@ -8,6 +8,7 @@ using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GameEventPacket;
+using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,8 @@ namespace EoE.Client
         private bool isRunning;
         public int TickCount { get; private set; }
         public PacketHandler Handler { get; }
-        public List<string> OtherPlayer { get; private set; } 
+        public List<string> OtherPlayer { get; private set; }
+        public Dictionary<string, FieldListRecord> OtherPlayerFields { get; init; }
         public IClientGonveranceManager GonveranceManager { get; init; }
 
         public IClientWarDeclarableList ClientWarDeclarableList {  get; set; }
@@ -68,6 +70,7 @@ namespace EoE.Client
             ClientWarTargetList = new ClientWarTargetList();
             ClientTreatyList = new ClientTreatyList();
             WindowManager = EoE.Client.WindowManager.INSTANCE;
+            OtherPlayerFields = new Dictionary<string, FieldListRecord>();
         }
 
         public void SynchronizeTickCount(int tickCount)
@@ -78,7 +81,7 @@ namespace EoE.Client
         {
             PlayerName = name;
         }
-        public void SynchronizePlayerName(List<string> otherPlayers)
+        public void SynchronizeOtherPlayersName(List<string> otherPlayers)
         {
             OtherPlayer.Clear();
             foreach (string name in otherPlayers)
@@ -102,6 +105,25 @@ namespace EoE.Client
             {
                 EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
                 entetPage.SynchronizePlayerList();
+            });
+        }
+
+        public void SynchronizeOtherPlayerFieldLitst(string name,FieldListRecord record)
+        {
+            if (name != PlayerName)
+            {
+                if (OtherPlayerFields.ContainsKey(name))
+                {
+                    OtherPlayerFields[name] = record;
+                }
+                else
+                {
+                    OtherPlayerFields.Add(name,record);
+                }
+            }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                
             });
         }
 

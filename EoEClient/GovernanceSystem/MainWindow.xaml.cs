@@ -58,5 +58,10 @@ namespace EoE.Client.GovernanceSystem
         {
             instance = null;
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            WindowManager.INSTANCE.ShowWindows<ConvertPage>();
+        }
     }
 }
