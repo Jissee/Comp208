@@ -35,18 +35,29 @@ namespace EoE.Server.Network
             }
             catch (Exception ex)
             {
-                IServer.Log("Packet Error", $"Cannot find encoder for {tp}, it is not registered.");
+                IServer.Log("Packet Error", $"Cannot find encoder for {tp}, it is not registered.", ex);
                 return;
             }
 
-            IBasePacket packet = (IBasePacket)decoder.DynamicInvoke(br);
-            if (packet != null)
+            IBasePacket packet;
+
+            try
+            {
+                packet = (IBasePacket)decoder.DynamicInvoke(br);
+            }
+            catch (Exception ex)
+            {
+                IServer.Log("Packet Error", $"Cannot decode packet {tp}.", ex);
+                return;
+            }
+
+            try
             {
                 packet.Handle(context);
             }
-            else
+            catch (Exception ex)
             {
-                IServer.Log("Packet Error", $"Cannot handle packet {tp}");
+                IServer.Log("Packet Error", $"Cannot handle packet {tp}.", ex);
             }
         }
 
@@ -57,14 +68,14 @@ namespace EoE.Server.Network
             BinaryWriter bw = new BinaryWriter(ms);
             bw.Write(0L);
             Type packetType = packet.GetType();
-            string packetTypeString = packetType.FullName;
-            IServer.Log("Packet Info", $"Sending packet {packetTypeString} to {playerName}.");
-            if (packetTypeString == null)
+            string tp = packetType.FullName;
+            IServer.Log("Packet Info", $"Sending packet {tp} to {playerName}.");
+            if (tp == null)
             {
                 throw new Exception("Invalid packet type");
             }
 
-            bw.Write(packetTypeString);
+            bw.Write(tp);
 
             Delegate encoder;
             try
@@ -74,10 +85,20 @@ namespace EoE.Server.Network
             }
             catch (Exception ex)
             {
-                IServer.Log("Packet Error", $"Cannot find encoder for {packetTypeString}, it is not registered.");
+                IServer.Log("Packet Error", $"Cannot find encoder for {tp}, it is not registered.", ex);
                 return;
             }
-            encoder.DynamicInvoke(packet, bw);
+
+            try
+            {
+                encoder.DynamicInvoke(packet, bw);
+            }
+            catch(Exception ex)
+            {
+                IServer.Log("Packet Error", $"Cannot decode packet {tp}.", ex);
+                return;
+            }
+
 
             long length = ms.Position - 8;
             bw.Seek(0, SeekOrigin.Begin);
@@ -85,8 +106,15 @@ namespace EoE.Server.Network
 
             byte[] data = ms.ToArray();
 
+            try
+            {
+                connection.Send(data);
+            }
+            catch(Exception ex)
+            {
+                IServer.Log("Packet Error", $"Cannot send packet {tp}.", ex);
+            }
 
-            connection.Send(data);
 
             //return data;
         }
