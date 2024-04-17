@@ -39,13 +39,18 @@ namespace EoE.Client.WarSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AllocateArmy allocateArmy = new AllocateArmy();
-            allocateArmy.Show();
+            WindowManager.INSTANCE.ShowWindows<AllocateArmy>();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Hide();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

@@ -16,7 +16,6 @@ namespace EoE.Client.GovernanceSystem
     public class ClientFieldList : IClientFieldList
     {
         private Dictionary<GameResourceType, int> fields = new Dictionary<GameResourceType, int>();
-        private IClient player = Client.INSTANCE;
         public int TotalFieldCount
         {
             get
@@ -107,21 +106,22 @@ namespace EoE.Client.GovernanceSystem
         {
             if ((int)originalType >= (int)(GameResourceType.Aluminum))
             {
-                player.MsgBox("Can't convert secondary filed to primary field");
+                Client.INSTANCE.MsgBox("Can't convert secondary filed to primary field");
             }
             else if ((int)convertedType <= (int)(GameResourceType.Aluminum))
             {
-                player.MsgBox("Can't convert one primary filed to another primary field");
+                Client.INSTANCE.MsgBox("Can't convert one primary filed to another primary field");
             }
             else if (originalcount != convertedCount)
             {
-                player.MsgBox("No enought field");
+                Client.INSTANCE.MsgBox("No enought field");
             }
             else
             {
                 SplitField(originalType, originalcount);
                 AddField(convertedType, convertedCount);
-                player.SendPacket(new FieldConvertPacket(new FieldStack(originalType, originalcount), new FieldStack(convertedType, convertedCount)));
+                WindowManager.INSTANCE.UpdateFields();
+                Client.INSTANCE.SendPacket(new FieldConvertPacket(new FieldStack(originalType, originalcount), new FieldStack(convertedType, convertedCount)));
             }
         }
     }

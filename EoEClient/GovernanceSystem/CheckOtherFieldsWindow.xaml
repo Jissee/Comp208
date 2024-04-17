@@ -1,0 +1,27 @@
+﻿<Window x:Class="EoE.Client.GovernanceSystem.CheckOtherFieldsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EoE.Client.GovernanceSystem"
+        mc:Ignorable="d"
+        Title="CheckOtherFieldsWindow" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+        <Label Content="Silicon:" Margin="466,83,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
+        <Label Content="Copper:" Margin="462,121,0,0" FontSize="20" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
+        <Label Content="Electronic:" Margin="452,276,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
+        <Label Content="Iron:" Margin="476,159,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
+        <Label Content="Aluminum：" Margin="447,197,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18" Width="108"/>
+        <Label Content="Industrial：" Margin="453,235,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18" Width="107"/>
+        <ListBox x:Name="playList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="154,141,475,125"/>
+        <Label Content="Select a player to check" HorizontalAlignment="Left" Margin="138,83,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="siliconField" HorizontalAlignment="Left" Margin="591,88,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="CopperField" HorizontalAlignment="Left" Margin="591,126,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="IronField" HorizontalAlignment="Left" Margin="591,164,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="AluminumField" HorizontalAlignment="Left" Margin="591,202,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="IndustrialField" HorizontalAlignment="Left" Margin="591,240,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="ElectronicField" HorizontalAlignment="Left" Margin="591,281,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <Button Content="Check" HorizontalAlignment="Center" Margin="0,349,0,0" VerticalAlignment="Top" FontSize="20" Height="41" Width="100"/>
+
+    </Grid>
+</Window>

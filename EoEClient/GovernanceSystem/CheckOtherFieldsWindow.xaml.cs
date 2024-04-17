@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,26 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EoE.Client.WarSystem
+namespace EoE.Client.GovernanceSystem
 {
     /// <summary>
-    /// AllocateArmy.xaml 的交互逻辑
+    /// CheckOtherFieldsWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class AllocateArmy : Window
+    public partial class CheckOtherFieldsWindow : Window
     {
-        public AllocateArmy()
+        public CheckOtherFieldsWindow()
         {
             InitializeComponent();
+            addPlayer();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void addPlayer()
         {
-            this.Hide();
-        }
-        public void limitnumber(object sender, TextCompositionEventArgs e)
-        {
-            Regex re = new Regex("[^0-9]+");
-            e.Handled = re.IsMatch(e.Text);
+            foreach (string playerName in Client.INSTANCE.OtherPlayer)
+            {
+                playList.Items.Add(playerName);
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

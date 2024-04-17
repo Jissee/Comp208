@@ -31,8 +31,7 @@ namespace EoE.Client.ChatSystem
             if (listBox1.SelectedItem != null)
             {
                 this.Hide();
-                ChatPage chat = new ChatPage();
-                chat.Show();
+                WindowManager.INSTANCE.ShowWindows<ChatPage>();
             }
             else
             {

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.ChatSystem"
         mc:Ignorable="d"
-        Title="TreatyContent" Height="450" Width="800">
+        Title="TreatyContent" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="56,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="702"><Run Language="zh-cn" Text=" "/><Run Text="1. "/><Run Text="In a "/><Run Text="common"/><Run Text=" defense treaty, regardless of which party is declared war upon, the other party unconditionally becomes an ally and joins the war. "/></TextBlock>
         <Label Content="Protective Treaty" HorizontalAlignment="Left" Margin="56,32,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>

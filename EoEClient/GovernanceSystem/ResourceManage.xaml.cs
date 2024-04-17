@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,42 @@ namespace EoE.Client.GovernanceSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+        }
+
+        public void SynchronizeResources(ResourceListRecord record)
+        {
+            Silicon.Text = record.siliconCount.ToString();
+            Copper.Text = record.copperCount.ToString();
+            Aluminum.Text = record.aluminumCount.ToString();
+            Iron.Text = record.ironCount.ToString();
+            Electronic.Text = record.electronicCount.ToString();
+            Industrial.Text = record.industrialCount.ToString();
+
+            BattleArmy.Text = record.battleArmyCount.ToString();
+            InfoArmy.Text = record.industrialCount.ToString();
+            MechArmy.Text = record.mechanismArmyCount.ToString();
+        }
+
+        public void SynchronizeFields(FieldListRecord record)
+        {
+            SiliconBlock.Text = record.siliconFieldCount.ToString();
+            CopperBlock.Text = record.copperFieldCount.ToString();
+            AluminumBlock.Text = record.aluminumFieldCount.ToString();
+            IronBlock.Text = record.ironFieldCount.ToString();
+            ElectronicBlock.Text = record.electronicFieldCount.ToString();
+            IndustrialBlock.Text = record.industrialFieldCount.ToString();
+        }
+
+        public void SynchronizePopulation(PopulationRecord record)
+        {
+            Population.Text = (record.siliconPop+record.copperPop+record.ironPop+record.aluminumPop+record.electronicPop+record.industrailPop+record.availablePopulation).ToString();
+            AvailablePopulation.Text = record.availablePopulation.ToString();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
             this.Hide();
         }
     }

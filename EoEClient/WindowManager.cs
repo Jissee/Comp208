@@ -92,6 +92,8 @@ namespace EoE.Client
                 window.SynchronizeResources(record);
                 MilitaryManagement military = GetWindows<MilitaryManagement>();
                 military.SynchronizeResources(record);
+                ResourceManage resourceManage = GetWindows<ResourceManage>();
+                resourceManage.SynchronizeResources(record);
             });
         }
 
@@ -102,7 +104,8 @@ namespace EoE.Client
                 FieldListRecord record = new FieldListRecord(Client.INSTANCE.GonveranceManager.FieldList);
                 BlockManagement blockManagement = GetWindows<BlockManagement>();
                 blockManagement.SynchronizeFields(record);
-
+                ResourceManage resourceManage = GetWindows<ResourceManage>();
+                resourceManage.SynchronizeFields(record);
             });
 
         }
@@ -115,6 +118,10 @@ namespace EoE.Client
                 window.SynchronizePopulation(record);
                 BlockManagement blockManagement = GetWindows<BlockManagement>();
                 blockManagement.SynchronizePopulation(record);
+                ResourceManage resourceManage = GetWindows<ResourceManage>();
+                resourceManage.SynchronizePopulation(record);
+                SetExploreWindow setExploreWindow = GetWindows<SetExploreWindow>();
+                setExploreWindow.SynchronizePopulation(record);
             });
         }
         public void SynchronizeTickCount(int round)

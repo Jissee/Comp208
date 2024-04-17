@@ -21,7 +21,7 @@
         <Label Content="Please select the number of war rounds for this game" HorizontalAlignment="Center" Margin="0,192,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button x:Name="Confirm" Content="Confirm Set" HorizontalAlignment="Center" Margin="0,327,0,0" VerticalAlignment="Top" Height="58" Width="198" FontSize="20" Background="White" Click="Confirm_Click_1"/>
 
-        <TextBox x:Name="selectedValueTextBox" Text="20" HorizontalAlignment="Left" Margin="594,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="52" Background="White" FontSize="18"/>
+        <TextBox x:Name="selectedValueTextBox" Text="20" HorizontalAlignment="Left" Margin="594,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="52" Background="White" FontSize="18" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
 
     </Grid>
 </Window>

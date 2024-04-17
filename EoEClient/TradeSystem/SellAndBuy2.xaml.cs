@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,18 +23,7 @@ namespace EoE.Client.TradeSystem
     /// </summary>
     public partial class SellAndBuy2 : Window
     {
-        private static SellAndBuy2 instance;
-        public static SellAndBuy2 INSTANCE
-        {
-            get
-            {
-                if (instance == null || !instance.IsLoaded)
-                {
-                    instance = new SellAndBuy2();
-                }
-                return instance;
-            }
-        }
+       
         int[] sellValues = new int[6];
         int[] buyValues = new int[6];
         public SellAndBuy2()
@@ -44,7 +34,7 @@ namespace EoE.Client.TradeSystem
 
         private void InitializeTextBoxes()
         {
-            // 设置每个 TextBox 的 TextChanged 事件处理程序
+            
             for (int i = 1; i <= 6; i++)
             {
                 TextBox sellTextBox = FindName($"Sell{i}") as TextBox;
@@ -117,69 +107,15 @@ namespace EoE.Client.TradeSystem
 
         }
 
-        private void Sell1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Sell2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Sell3_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Sell4_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Sell5_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Sell6_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy7_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy3_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy4_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy5_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy6_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            instance = null;
+            e.Cancel = true;
+            this.Hide();
+        }
+        public void limitnumber(object sender, TextCompositionEventArgs e)
+        {
+            Regex re = new Regex("[^0-9]+");
+            e.Handled = re.IsMatch(e.Text);
         }
     }
 }

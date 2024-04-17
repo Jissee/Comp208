@@ -23,18 +23,6 @@ namespace EoE.Client.ChatSystem
     /// </summary>
     public partial class EstablishRelation : Window
     {
-        private static EstablishRelation instance;
-        public static EstablishRelation INSTANCE
-        {
-            get
-            {
-                if (instance == null || !instance.IsLoaded)
-                {
-                    instance = new EstablishRelation();
-                }
-                return instance;
-            }
-        }
         public EstablishRelation()
         {
             InitializeComponent();
@@ -99,30 +87,19 @@ namespace EoE.Client.ChatSystem
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            TreatyContent treatyContent = new TreatyContent();
-            treatyContent.Show();
+            WindowManager.INSTANCE.ShowWindows<TreatyContent>();
 
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            this.Close();
-        }
-
-        private void Res1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            ResourceManage resourceManage = new ResourceManage();
-            resourceManage.Show();
+            this.Hide();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            instance = null;
+            e.Cancel = true;
+            this.Hide();
         }
         public void limitnumber(object sender, TextCompositionEventArgs e)
         {
