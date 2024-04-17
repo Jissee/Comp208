@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {}
   },
   "projects": {
@@ -20,22 +19,6 @@
         "configFilePaths": [
           "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-    "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj": {}
-  },
-  "projects": {
-    "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj",
-        "projectName": "EoE.Server",
-        "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj",
-        "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
-        "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 2c56930ca489948b8bcd7e28d35d0850fcdeaf3a
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,13 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
-=======
-              "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
-                "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj"
->>>>>>> 2c56930ca489948b8bcd7e28d35d0850fcdeaf3a
               }
             }
           }
@@ -100,7 +78,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -116,19 +93,6 @@
         "configFilePaths": [
           "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-    "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
-        "projectName": "EoE",
-        "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
-        "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
-        "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 2c56930ca489948b8bcd7e28d35d0850fcdeaf3a
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

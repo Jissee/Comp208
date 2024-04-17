@@ -8,17 +8,12 @@
     "net8.0": []
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\32171\\.nuget\\packages\\": {},
     "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
-    "C:\\Users\\sun\\.nuget\\packages\\": {}
->>>>>>> 2c56930ca489948b8bcd7e28d35d0850fcdeaf3a
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
       "projectName": "EoE",
       "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
@@ -31,16 +26,6 @@
       "configFilePaths": [
         "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-      "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
-      "projectName": "EoE",
-      "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
-      "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
-      "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 2c56930ca489948b8bcd7e28d35d0850fcdeaf3a
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -89,17 +74,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
-<<<<<<< HEAD
   }
-=======
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "读取缓存文件 D:\\e-textbook3\\comp208\\EoE\\EoE\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
->>>>>>> 2c56930ca489948b8bcd7e28d35d0850fcdeaf3a
 }
