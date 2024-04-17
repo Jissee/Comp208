@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,22 +40,27 @@ namespace EoE.Server.GovernanceSystem
         public static readonly double IRON_PER_POP_TICK = 1.2f;
         public static readonly double ALUMINUM_PER_POP_TICK = 1.1f;
 
-        private static double SecondaryProdcutivity =0.5f;
+        private static double ElectronicSynthetic = 5;
+        private static double IndustrailSynthetic = 5;
 
         public static double SiliconSynthetic = 5;
         public static double CopperSynthetic = 5.5;
         public static double IronSynthetic = 6;
         public static double AluminumSynthetic = 5.5;
 
-        public static readonly int POP_GROWTH_THRESHOLD = 10000;
+        public static double Silicon2Elec = 5.44;
+        public static double Copper2Elec = 3.63;
+        public static double Iron2Indus = 6.37;
+        public static double Aluminum2Indus = 4.38;
+
 
         private static int maxAllocation = 50;
 
-        public static int InformativePopSynthetic =  2;
+        public static double InformativePopSynthetic =  5.0;
         public static int InformativeResourceSynthetic = 2;
-        public static int MechanismPopSynthetic = 2;
+        public static double MechanismPopSynthetic = 8.5;
         public static int MechanismResourceSynthetic = 2;
-        public static int BattlePopSynthetic = 2;
+        public static double BattlePopSynthetic = 1.47;
 
         public static Produce calcSiliconP = (population,fields, _, _) =>
         {
@@ -79,8 +85,8 @@ namespace EoE.Server.GovernanceSystem
 
         public static Produce calcElectronicP = (population, fields, silicon, copper) =>
         {
-            int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
-            if (silicon >= expectProduce * SiliconSynthetic && copper>= expectProduce * CopperSynthetic)
+            int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * ElectronicSynthetic);
+            if (silicon >= expectProduce * Silicon2Elec && copper>= expectProduce * Copper2Elec)
             {
                 return new ResourceStack(fields.Type, expectProduce);
             }
@@ -89,11 +95,11 @@ namespace EoE.Server.GovernanceSystem
                 int acutalProduce = 0;
                 if (silicon>= copper)
                 {
-                    acutalProduce = (int)(silicon/ SiliconSynthetic);
+                    acutalProduce = (int)(silicon/ Silicon2Elec);
                 }
                 else
                 {
-                    acutalProduce = (int)(copper/ CopperSynthetic);
+                    acutalProduce = (int)(copper/ Copper2Elec);
                 }
                 return new ResourceStack(fields.Type, acutalProduce);
             }
@@ -102,9 +108,9 @@ namespace EoE.Server.GovernanceSystem
 
         public static Produce calcIndustrailP = (population, fields, iron, aluminum) =>
         {
-            int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
+            int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * IndustrailSynthetic);
 
-            if (iron>= expectProduce * IronSynthetic && aluminum>= expectProduce * AluminumSynthetic)
+            if (iron>= expectProduce * Iron2Indus && aluminum>= expectProduce * Aluminum2Indus)
             {
                 return new ResourceStack(fields.Type, expectProduce);
             }
@@ -113,11 +119,11 @@ namespace EoE.Server.GovernanceSystem
                 int acutalProduce = 0;
                 if (iron>= aluminum)
                 {
-                    acutalProduce = (int)(iron/ IronSynthetic);
+                    acutalProduce = (int)(iron/ Iron2Indus);
                 }
                 else
                 {
-                    acutalProduce = (int)(aluminum/ AluminumSynthetic);
+                    acutalProduce = (int)(aluminum/ Aluminum2Indus);
                 }
                 return new ResourceStack(fields.Type, acutalProduce);
             }
@@ -125,15 +131,15 @@ namespace EoE.Server.GovernanceSystem
 
         public static ProductionConsume calcElectronicPC = (electronic) =>
         {
-            ResourceStack silicon = new ResourceStack(GameResourceType.Silicon, (int)(SiliconSynthetic * electronic.Count));
-            ResourceStack coppor = new ResourceStack(GameResourceType.Copper, (int)(CopperSynthetic * electronic.Count));
+            ResourceStack silicon = new ResourceStack(GameResourceType.Silicon, (int)(Silicon2Elec * electronic.Count));
+            ResourceStack coppor = new ResourceStack(GameResourceType.Copper, (int)(Copper2Elec * electronic.Count));
             return (silicon, coppor);
         };
 
         public static ProductionConsume calcIndustrailPC = (industrail) =>
         {
-            ResourceStack iron = new ResourceStack(GameResourceType.Iron, (int)(IronSynthetic * industrail.Count));
-            ResourceStack aluminum = new ResourceStack(GameResourceType.Aluminum, (int)(AluminumSynthetic * industrail.Count));
+            ResourceStack iron = new ResourceStack(GameResourceType.Iron, (int)(Iron2Indus * industrail.Count));
+            ResourceStack aluminum = new ResourceStack(GameResourceType.Aluminum, (int)(Aluminum2Indus * industrail.Count));
             return (iron, aluminum);
         };
 
@@ -173,18 +179,18 @@ namespace EoE.Server.GovernanceSystem
 
         public static ArmyPrduce BattleArmyproduce = (requiredArmy) =>
         {
-            return (requiredArmy.Count * BattlePopSynthetic, ResourceStack.EMPTY);
+            return ((int)(requiredArmy.Count * BattlePopSynthetic), ResourceStack.EMPTY);
         };
 
         public static ArmyPrduce produceInfomativeArmy = (requiredArmy) =>
         {
-            return (requiredArmy.Count * InformativePopSynthetic,
+            return ((int)(requiredArmy.Count * InformativePopSynthetic),
             new ResourceStack(GameResourceType.Electronic, requiredArmy.Count * InformativeResourceSynthetic));
         };
 
         public static ArmyPrduce produceMechanismArmy = (requiredArmy) =>
         {
-            return (requiredArmy.Count * MechanismPopSynthetic,
+            return ((int)(requiredArmy.Count * MechanismPopSynthetic),
             new ResourceStack(GameResourceType.Industrial, requiredArmy.Count * MechanismResourceSynthetic));
         };
 

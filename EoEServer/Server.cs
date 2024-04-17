@@ -72,6 +72,7 @@ namespace EoE.Server
                 player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(player.GonveranceManager.ResourceList)));
                 player.SendPacket(new FieldUpdatePacket(new FieldListRecord(player.GonveranceManager.FieldList)));
                 player.SendPacket(new PopulationUpdatePacket(player.GonveranceManager.PopManager.GetPopulationRecord()));
+                Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList)), thisPlayer => thisPlayer != player);
             }
         }
         private void PrepareGlobalBonusEvents()
@@ -388,7 +389,12 @@ namespace EoE.Server
                     PlayerList.Tick();
                 }
                 Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
-            }catch (Exception ex)
+                foreach (IPlayer player in PlayerList.Players)
+                {
+                    Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList)), thisPlayer => thisPlayer != player);
+                }
+            }
+            catch (Exception ex)
             {
                 IServer.Log("Tick Error", "Tick encountered an exception:", ex);
                 

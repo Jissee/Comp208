@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Packets.GonverancePacket.Record;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace EoE.Client.GovernanceSystem
         public SetExploreWindow()
         {
             InitializeComponent();
-            Population.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
+            availablePopulation.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -34,15 +35,22 @@ namespace EoE.Client.GovernanceSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (int.Parse(number.Text) >= 1 && number != null)
+            if (int.TryParse(number.Text,out int count) && count>=0)
             {
-                MessageBox.Show("You have successfully sent people to explore.");
+                Client.INSTANCE.GonveranceManager.SetExploration(count);
+                WindowManager.INSTANCE.UpdatePopulation();
+                WindowManager.INSTANCE.UpdateResources();
             }
             else
             {
                 MessageBox.Show("Please enter a number greater than or equal to 1.");
             }
 
+        }
+
+        public void SynchronizePopulation(PopulationRecord populationRecord)
+        {
+            availablePopulation.Text = populationRecord.availablePopulation.ToString();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

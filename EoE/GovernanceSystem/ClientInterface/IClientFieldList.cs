@@ -11,5 +11,6 @@ namespace EoE.GovernanceSystem.ClientInterface
     public interface IClientFieldList : IFieldList
     {
         void Synchronize(FieldListRecord fieldListRecord);
+
     }
 }

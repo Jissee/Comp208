@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -81,6 +82,7 @@ namespace EoE.Server
             GonveranceManager.ClearAll();
             Server.PlayerList.WarManager.PlayerLose(this);
             Server.PlayerList.TradeManager.ClearAll(this);
+            Server.Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(GonveranceManager.FieldList)), thisPlayer => thisPlayer.PlayerName != this.PlayerName);
             //TodO TreatyManager losse
             Server.PlayerList.PlayerLogout(this);
         }

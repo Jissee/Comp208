@@ -47,7 +47,7 @@ namespace EoE.Network.Packets.GameEventPacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    client.SynchronizePlayerName(playerList);
+                    client.SynchronizeOtherPlayersName(playerList);
                 }
             }
         }
