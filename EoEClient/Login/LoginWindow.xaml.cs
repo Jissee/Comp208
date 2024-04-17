@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EoE.Client.WarSystem;
 using EoE.Network.Packets.GameEventPacket;
+using System.Text.RegularExpressions;
 
 namespace EoE.Client.Login
 {
@@ -110,6 +111,10 @@ namespace EoE.Client.Login
             }
 
         }
-        
+        public void limitnumber(object sender, TextCompositionEventArgs e)
+        {
+            Regex re = new Regex("[^0-9]+");
+            e.Handled = re.IsMatch(e.Text);
+        }
     }
 }

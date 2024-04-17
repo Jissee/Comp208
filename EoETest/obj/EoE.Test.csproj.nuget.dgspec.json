@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoETest\\EoE.Test.csproj": {}
   },
   "projects": {
@@ -16,26 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "D:\\comp208\\EoETest\\EoE.Test.csproj": {}
-  },
-  "projects": {
-    "D:\\comp208\\EoEClient\\EoE.Client.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\comp208\\EoEClient\\EoE.Client.csproj",
-        "projectName": "EoE.Client",
-        "projectPath": "D:\\comp208\\EoEClient\\EoE.Client.csproj",
-        "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
-        "outputPath": "D:\\comp208\\EoEClient\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,20 +22,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows7.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj"
-=======
-              "D:\\comp208\\EoE\\EoE.csproj": {
-                "projectPath": "D:\\comp208\\EoE\\EoE.csproj"
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
               }
             }
           }
@@ -98,7 +71,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\EoE.Server.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -110,23 +82,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "D:\\comp208\\EoEServer\\EoE.Server.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\comp208\\EoEServer\\EoE.Server.csproj",
-        "projectName": "EoE.Server",
-        "projectPath": "D:\\comp208\\EoEServer\\EoE.Server.csproj",
-        "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
-        "outputPath": "D:\\comp208\\EoEServer\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -134,20 +89,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj"
-=======
-              "D:\\comp208\\EoE\\EoE.csproj": {
-                "projectPath": "D:\\comp208\\EoE\\EoE.csproj"
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
               }
             }
           }
@@ -192,7 +141,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoETest\\EoE.Test.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -204,23 +152,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "D:\\comp208\\EoETest\\EoE.Test.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\comp208\\EoETest\\EoE.Test.csproj",
-        "projectName": "EoE.Test",
-        "projectPath": "D:\\comp208\\EoETest\\EoE.Test.csproj",
-        "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
-        "outputPath": "D:\\comp208\\EoETest\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -228,14 +159,12 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj": {
                 "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj"
               },
@@ -244,16 +173,6 @@
               },
               "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj"
-=======
-              "D:\\comp208\\EoEClient\\EoE.Client.csproj": {
-                "projectPath": "D:\\comp208\\EoEClient\\EoE.Client.csproj"
-              },
-              "D:\\comp208\\EoEServer\\EoE.Server.csproj": {
-                "projectPath": "D:\\comp208\\EoEServer\\EoE.Server.csproj"
-              },
-              "D:\\comp208\\EoE\\EoE.csproj": {
-                "projectPath": "D:\\comp208\\EoE\\EoE.csproj"
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
               }
             }
           }
@@ -310,7 +229,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -322,23 +240,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "D:\\comp208\\EoE\\EoE.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\comp208\\EoE\\EoE.csproj",
-        "projectName": "EoE",
-        "projectPath": "D:\\comp208\\EoE\\EoE.csproj",
-        "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
-        "outputPath": "D:\\comp208\\EoE\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 8b8883d461f145d22308905eaa844d0b5834397b
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -346,7 +247,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

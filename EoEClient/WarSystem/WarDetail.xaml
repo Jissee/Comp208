@@ -11,13 +11,13 @@
         <Button Content="Submit war goal of this country" HorizontalAlignment="Center" Margin="0,334,0,0" VerticalAlignment="Top" FontSize="20" Height="41" Width="318" Click="Button_Click"/>
         <Label Content="Blocks" HorizontalAlignment="Left" Margin="301,255,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Population" HorizontalAlignment="Left" Margin="548,254,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Margin="416,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27"/>
-        <TextBox HorizontalAlignment="Left" Margin="672,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27"/>
-        <TextBox x:Name="res1" HorizontalAlignment="Left" Margin="416,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
-        <TextBox x:Name="res2" HorizontalAlignment="Left" Margin="416,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
-        <TextBox x:Name="res3" HorizontalAlignment="Left" Margin="416,206,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
-        <TextBox x:Name="res4" HorizontalAlignment="Left" Margin="672,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
-        <TextBox x:Name="res5" HorizontalAlignment="Left" Margin="672,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="416,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox HorizontalAlignment="Left" Margin="672,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="res1" HorizontalAlignment="Left" Margin="416,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="res2" HorizontalAlignment="Left" Margin="416,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="res3" HorizontalAlignment="Left" Margin="416,206,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="res4" HorizontalAlignment="Left" Margin="672,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="res5" HorizontalAlignment="Left" Margin="672,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox HorizontalAlignment="Left" Margin="672,211,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
         <Label Content="Silicon" HorizontalAlignment="Left" Margin="302,123,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Electronic" HorizontalAlignment="Left" Margin="302,204,0,0" VerticalAlignment="Top" FontSize="20"/>

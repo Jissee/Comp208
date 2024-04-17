@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -117,69 +118,14 @@ namespace EoE.Client.TradeSystem
 
         }
 
-        private void Sell1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Sell2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Sell3_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Sell4_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Sell5_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Sell6_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy7_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy3_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy4_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy5_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Buy6_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             instance = null;
+        }
+        public void limitnumber(object sender, TextCompositionEventArgs e)
+        {
+            Regex re = new Regex("[^0-9]+");
+            e.Handled = re.IsMatch(e.Text);
         }
     }
 }
