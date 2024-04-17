@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace EoE.Client.WarSystem
 {
@@ -25,7 +27,16 @@ namespace EoE.Client.WarSystem
             {
                 WarProtectorsList.Add(name, warProtectors);
             }
-            //todo show things to windows
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                DeclareWar window = WindowManager.INSTANCE.GetWindows<DeclareWar>();
+                StringBuilder stringBuilder = new StringBuilder();
+                foreach(string protector in protectors)
+                {
+                    stringBuilder.Append(protector);
+                }
+                window.aliance.Text = stringBuilder.ToString();
+            });
         }
     }
 }

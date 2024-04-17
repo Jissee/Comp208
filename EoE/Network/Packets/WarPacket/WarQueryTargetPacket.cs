@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.WarPacket
 {
-    public class WarQueryTarget : IPacket<WarQueryTarget>
+    public class WarQueryTargetPacket : IPacket<WarQueryTargetPacket>
     {
-        string targetName;
+        private string targetName;
         private WarTarget target;
-        public WarQueryTarget(string targetName, WarTarget target) 
+        public WarQueryTargetPacket(string targetName, WarTarget target) 
         {
             this.targetName = targetName;
             this.target = target;
         }
-        public static WarQueryTarget Decode(BinaryReader reader)
+        public static WarQueryTargetPacket Decode(BinaryReader reader)
         {
-            return new WarQueryTarget(reader.ReadString(), WarTarget.decoder(reader));
+            return new WarQueryTargetPacket(reader.ReadString(), WarTarget.decoder(reader));
         }
 
-        public static void Encode(WarQueryTarget obj, BinaryWriter writer)
+        public static void Encode(WarQueryTargetPacket obj, BinaryWriter writer)
         {
             writer.Write(obj.targetName);
             WarTarget.encoder(obj.target, writer);
@@ -39,13 +39,13 @@ namespace EoE.Network.Packets.WarPacket
                 {
                     if (server.PlayerList.WarManager.WarTargets[player].ContainsKey(targetPlayer))
                     {
-                        WarQueryTarget packet = new WarQueryTarget(targetName, server.PlayerList.WarManager.WarTargets[player][targetPlayer]);
+                        WarQueryTargetPacket packet = new WarQueryTargetPacket(targetName, server.PlayerList.WarManager.WarTargets[player][targetPlayer]);
                         player.SendPacket(packet);
                     }
                     else
                     {
                         WarTarget tempTarget = new WarTarget();
-                        WarQueryTarget packet = new WarQueryTarget(targetName, tempTarget);
+                        WarQueryTargetPacket packet = new WarQueryTargetPacket(targetName, tempTarget);
                         player.SendPacket(packet);
                     }
                 }
@@ -53,7 +53,7 @@ namespace EoE.Network.Packets.WarPacket
                 {
 
                     WarTarget tempTarget = new WarTarget();
-                    WarQueryTarget packet = new WarQueryTarget(targetName, tempTarget);
+                    WarQueryTargetPacket packet = new WarQueryTargetPacket(targetName, tempTarget);
                     player.SendPacket(packet);
                 }
             }

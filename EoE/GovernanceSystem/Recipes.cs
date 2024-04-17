@@ -50,7 +50,7 @@ namespace EoE.Server.GovernanceSystem
 
         private static int maxAllocation = 50;
 
-        public static int InformativePopSynthetic = 2;
+        public static int InformativePopSynthetic =  2;
         public static int InformativeResourceSynthetic = 2;
         public static int MechanismPopSynthetic = 2;
         public static int MechanismResourceSynthetic = 2;
