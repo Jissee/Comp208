@@ -10,9 +10,10 @@ namespace EoE.TradeSystem
     public interface IClientTradeManager: ITradeManager
     {
         void RequireCreateOponTransaction(GameTransaction transaction);
+        GameTransaction GetGameTransaction(int transactionNumber);
         void RequireCreateSecretTransaction(GameTransaction transaction);
-        void RequireCancelOpenTransaction(Guid id);
-        void RequireAcceptOpenTransaction(Guid id);
+        void RequireCancelOpenTransaction(GameTransaction transaction);
+        void RequireAcceptOpenTransaction(GameTransaction transaction);
         void RequireAlterOpenTransaction(Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer);
         void RequireAcceptSecretTransaction(GameTransaction transaction);
         void RejectSecretTransaction(GameTransaction transaction);
