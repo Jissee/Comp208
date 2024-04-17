@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Packets.WarPacket;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,14 +27,17 @@ namespace EoE.Client.WarSystem
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            WarMainPage window = WindowManager.INSTANCE.GetWindows<WarMainPage>();
+            WarIntensionPacket packet = new WarIntensionPacket(listBox1.SelectedItem.ToString()!, WarMainPage.theWarName, [], []);
+            Client.INSTANCE.SendPacket(packet);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (listBox1.SelectedItem != null )
             {
-                // 执行提交操作
+                WarDeclarationPacket packet = new WarDeclarationPacket(WarMainPage.theWarName);
+                Client.INSTANCE.SendPacket(packet);
                 this.Hide();
                 MessageBox.Show("You can manage your army in next page or find the page in Check status of War!");
                 AllocateArmy allocateArmy = new AllocateArmy();
@@ -50,6 +54,8 @@ namespace EoE.Client.WarSystem
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            WarInvitationPacket packet = new WarInvitationPacket(WarMainPage.theWarName, listBox2.SelectedItem.ToString()!);
+            Client.INSTANCE.SendPacket(packet);
         }
     }
 }

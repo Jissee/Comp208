@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -58,6 +59,8 @@ C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
 =======
 =======
 >>>>>>> temp
+=======
+>>>>>>> war-front
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\bin\Debug\net8.0\EoE.deps.json
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\bin\Debug\net8.0\EoE.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\bin\Debug\net8.0\EoE.pdb
@@ -71,6 +74,7 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\refint\EoE.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> merge
 >>>>>>> merge
 <<<<<<< HEAD
@@ -79,3 +83,5 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
 =======
 >>>>>>> temp
 >>>>>>> temp
+=======
+>>>>>>> war-front

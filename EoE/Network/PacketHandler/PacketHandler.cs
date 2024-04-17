@@ -10,6 +10,8 @@ using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using EoE.Network.Packets.WarPacket;
+using EoE.Network.Packets.TreatyPacket;
 
 namespace EoE.Network
 {
@@ -39,7 +41,28 @@ namespace EoE.Network
             Register<EnterGamePacket>();
             Register<PlayerListPacket>();
             Register<FinishTickPacket>();
+<<<<<<< HEAD
             Register<SyntheticArmyPacket>();
+=======
+
+            Register<FillInFrontierPacket>();
+            Register<WarCompensationInfoPacket>();
+            Register<WarDeclarablePacket>();
+            Register<WarDeclarationPacket>();
+            Register<WarInformationPacket>();
+            Register<WarIntensionPacket>();
+            Register<WarInvitationPacket>();
+            Register<WarInvitedPacket>();
+            Register<WarNameQueryPacket>();
+            Register<WarQueryTargetPacket>();
+            Register<WarSurrenderPacket>();
+            Register<BreakTreatyPacket>();
+            Register<ConfirmCommonDefenseTreatyPacket>();
+            Register<ConfirmProtectiveTreatyPacket>();
+            Register<NewCommonDefenseTreatyPacket>();
+            Register<NewProtectiveTreatyPacket>();
+            Register<QueryTreatyPacket>();
+>>>>>>> war-front
         }
 
         public static void Register<T>() where T : IPacket<T>

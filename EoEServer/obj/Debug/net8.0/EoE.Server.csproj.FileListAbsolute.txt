@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
 D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
@@ -106,6 +107,8 @@ D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
 =======
 =======
 >>>>>>> update some packets and interfaces
+=======
+>>>>>>> war-front
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
@@ -123,6 +126,7 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Serv
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.sourcelink.json
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> merge
 >>>>>>> merge
 <<<<<<< HEAD
@@ -134,6 +138,8 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Serv
 =======
 =======
 >>>>>>> update some packets and interfaces
+=======
+>>>>>>> war-front
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
@@ -141,6 +147,7 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Serv
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> temp
 >>>>>>> temp
 <<<<<<< HEAD
@@ -149,3 +156,5 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.
 =======
 >>>>>>> update some packets and interfaces
 >>>>>>> update some packets and interfaces
+=======
+>>>>>>> war-front

@@ -31,19 +31,21 @@ namespace EoE.Client.WarSystem
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<CheckWarDetail>();
+            CheckStatus window = WindowManager.INSTANCE.GetWindows<CheckStatus>();
+            if(window.checkStatusListBoxWarName.SelectedItem != null)
+            {
+                WindowManager.INSTANCE.ShowWindows<CheckWarDetail>();
+            }
+            else
+            {
+                MessageBox.Show("You do not have any war or you have not selected any war!");
+            }
         }
 
-<<<<<<< HEAD
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
-=======
-        private void ListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
->>>>>>> update some packets and interfaces
         }
     }
 }

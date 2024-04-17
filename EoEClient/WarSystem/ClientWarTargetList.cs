@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace EoE.Client.WarSystem
 {
@@ -25,7 +27,18 @@ namespace EoE.Client.WarSystem
             {
                 WarTargetList.Add(name, warTarget);
             }
-            //todo show things to windows
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                WarDetail window = WindowManager.INSTANCE.GetWindows<WarDetail>();
+                window.Silicon.Text = warTarget.SiliconClaim.ToString();
+                window.Copper.Text = warTarget.CopperClaim.ToString();
+                window.Iron.Text = warTarget.IronClaim.ToString();
+                window.Aluminum.Text = warTarget.AluminumClaim.ToString();
+                window.Electronic.Text = warTarget.ElectronicClaim.ToString();
+                window.Industrial.Text = warTarget.IndustrialClaim.ToString();
+                window.Blocks.Text = warTarget.FieldClaim.ToString();
+                window.Population.Text = warTarget.PopClaim.ToString();
+            });
         }
     }
 }

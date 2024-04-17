@@ -47,6 +47,7 @@ namespace EoE.Network.Packets.WarPacket
                 
                 List<IPlayer> list = playerList.TreatyManager.FindNonTruce(context.PlayerSender!);
                 var namesEnum = from player in list
+                                //where player != context.PlayerSender
                                 select player.PlayerName;
                 WarDeclarablePacket packet = new WarDeclarablePacket(warName, namesEnum.ToArray());
                 context.PlayerSender!.SendPacket(packet);

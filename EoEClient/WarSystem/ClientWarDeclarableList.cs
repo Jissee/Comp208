@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace EoE.Client.WarSystem
 {
@@ -18,7 +20,17 @@ namespace EoE.Client.WarSystem
         {
             DeclarableNames.Clear();
             DeclarableNames.AddRange(name);
-            //todo show things to windows
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                DeclareWar window = WindowManager.INSTANCE.GetWindows<DeclareWar>();
+                ListBox listBox = window.listBox1;
+                listBox.Items.Clear();
+                foreach (string theName in name)
+                {
+                    listBox.Items.Add(theName);
+                }
+            });
         }
     }
 }
