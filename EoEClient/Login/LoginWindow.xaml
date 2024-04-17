@@ -21,7 +21,7 @@
         <Label x:Name="username" Content="Enter username:" HorizontalAlignment="Left" Margin="30,211,0,0" VerticalAlignment="Top" Height="35" Width="226" RenderTransformOrigin="0.822,0.563" FontSize="20"/>
         <TextBox x:Name="Username" HorizontalAlignment="Left" Margin="263,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397" Height="33" Grid.ColumnSpan="2"/>
         <Label Content="Epoch of Empires" HorizontalAlignment="Left" Margin="286,40,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold"/>
-        <TextBox x:Name="portNumber" HorizontalAlignment="Left" VerticalAlignment="Top" Width="399" Height="34" Margin="261,172,0,0" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="portNumber" HorizontalAlignment="Left" VerticalAlignment="Top" Width="399" Height="34" Margin="261,172,0,0" Grid.ColumnSpan="2" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <Label Content="Enter port number: " HorizontalAlignment="Left" Margin="30,171,0,0" VerticalAlignment="Top" Width="226" FontSize="20"/>
 
     </Grid>

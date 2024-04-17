@@ -5,12 +5,29 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+<<<<<<< HEAD
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\32171\.nuget\packages\;C:\软件\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+=======
+<<<<<<< HEAD
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\86151\.nuget\packages\</NuGetPackageFolders>
+=======
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\ufowlc\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+>>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
+>>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.9.1</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+<<<<<<< HEAD
     <SourceRoot Include="C:\Users\32171\.nuget\packages\" />
     <SourceRoot Include="C:\软件\Microsoft Visual Studio\Shared\NuGetPackages\" />
+=======
+<<<<<<< HEAD
+    <SourceRoot Include="C:\Users\86151\.nuget\packages\" />
+=======
+    <SourceRoot Include="C:\Users\ufowlc\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
+>>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
+>>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
   </ItemGroup>
 </Project>
