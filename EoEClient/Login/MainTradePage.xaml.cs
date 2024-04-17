@@ -70,7 +70,9 @@ namespace EoE.Client.Login
         {
             if (tradeList.SelectedItem != null)
             {
-                tradeList.Items.Remove(tradeList.SelectedItem);
+                int transactionNumber = int.Parse(tradeList.SelectedItem.ToString());
+                GameTransaction transaction = Client.INSTANCE.TradeManager.GetGameTransaction(transactionNumber);
+                Client.INSTANCE.TradeManager.RequireCancelOpenTransaction(transaction);
             }
             else
             {
@@ -78,12 +80,14 @@ namespace EoE.Client.Login
             }
         }
 
+        //Accept
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
             if (tradeList.SelectedItem != null)
-
-            {    MessageBox.Show("sucefully!");
-                tradeList.Items.Remove(tradeList.SelectedItem);
+            {
+                int transactionNumber = int.Parse(tradeList.SelectedItem.ToString());
+                GameTransaction transaction = Client.INSTANCE.TradeManager.GetGameTransaction(transactionNumber);
+                Client.INSTANCE.TradeManager.RequireAcceptOpenTransaction(transaction);
             }
             else
             {

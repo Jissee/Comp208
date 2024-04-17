@@ -18,6 +18,7 @@ namespace EoE.Client.TradeSystem
 {
     public class ClientTradeManager: IClientTradeManager
     {
+        private static readonly int MAX_TRANSACTION_NUMBER;
         private List<GameTransaction> openOrders;
         private Dictionary<int, GameTransaction> transverter;
         public ClientTradeManager()
@@ -26,29 +27,47 @@ namespace EoE.Client.TradeSystem
             openOrders =  new List<GameTransaction>();
         }
 
+        public GameTransaction GetGameTransaction(int transactionNumber)
+        {
+            if (transverter.ContainsKey(transactionNumber))
+            {
+                return transverter[transactionNumber];
+            }
+            else
+            {
+                throw new Exception("transactionNumber");
+            }
+        }
         public void RequireCreateOponTransaction(GameTransaction transaction)
         {
             if (!transaction.IsOpen)
             {
                 throw new Exception("wrong call, use CreatSecretTransaction instead");
             }
-            bool flag = true;
-            foreach (var item in transaction.OfferorOffer)
+            if (openOrders.Count >= MAX_TRANSACTION_NUMBER)
             {
-                if (Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(item.Type) < item.Count)
-                {
-                    flag = false;
-                }
-            }
-
-            if (flag)
-            {
-                Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Create,transaction));
-                MessageBox.Show("Successfully sent transaction request");
+                MessageBox.Show("Too many trades, the exchange is crowded Please wait for existing trades to close");
             }
             else
             {
-                MessageBox.Show("No enough Resources");
+                bool flag = true;
+                foreach (var item in transaction.OfferorOffer)
+                {
+                    if (Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(item.Type) < item.Count)
+                    {
+                        flag = false;
+                    }
+                }
+
+                if (flag)
+                {
+                    Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Create, transaction));
+                    MessageBox.Show("Successfully sent transaction request");
+                }
+                else
+                {
+                    MessageBox.Show("No enough Resources");
+                }
             }
         }
         public void RequireCreateSecretTransaction(GameTransaction transaction)
@@ -84,57 +103,39 @@ namespace EoE.Client.TradeSystem
             }
         }
 
-        public void RequireCancelOpenTransaction(Guid id)
+        public void RequireCancelOpenTransaction(GameTransaction transaction)
         {
-            string operatorName = Client.INSTANCE.PlayerName;
-            GameTransaction? transaction;
-            transaction = openOrders.FirstOrDefault(t => t.Id == id);
-            if (transaction != null)
+            if (Client.INSTANCE.PlayerName == transaction.Offeror)
             {
-                if (operatorName == transaction.Offeror)
-                {
-                    Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Cancel,transaction));
-                    MessageBox.Show("Successfully sent cancellation request");
-                }
-                else
-                {
-                    MessageBox.Show("No operation authority");
-                }
+                RemoveOpenTransaction(transaction);
+                Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction));
+                MessageBox.Show("Successfully sent cancellation request, please wait");
             }
             else
             {
-                MessageBox.Show("The transaction has been cancelled or has been accepted by another player");
-            }
-        }
-        public void RequireAcceptOpenTransaction(Guid id)
-        {
-            GameTransaction? transaction;
-            transaction = openOrders.FirstOrDefault(t => t.Id == id);
-            if (transaction == null)
-            {
-                MessageBox.Show("The transaction has been cancelled or has been accepted by another player");
-            }
-            else
-            {
-                bool flag = true;
-                foreach (var item in transaction.RecipientOffer)
-                {
-                    if (Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(item.Type) <item.Count)
-                    {
-                        flag = false;
-                    }
-                }
-                if (flag)
-                {
-                    Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Accept,transaction));
-                    MessageBox.Show("Successfully sent acceptance request");
-                }
-                else
-                {
-                    MessageBox.Show("No enough reousrces");
-                }
+                MessageBox.Show("No operation authority");
             }
 
+        }
+        public void RequireAcceptOpenTransaction(GameTransaction transaction)
+        {
+            bool flag = true;
+            foreach (var item in transaction.RecipientOffer)
+            {
+                if (Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(item.Type) < item.Count)
+                {
+                    flag = false;
+                }
+            }
+            if (flag)
+            {
+                Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Accept, transaction));
+                MessageBox.Show("Successfully sent acceptance request, please wait.");
+            }
+            else
+            {
+                MessageBox.Show("No enough reousrces");
+            }
         }
 
         public void RequireAlterOpenTransaction(Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer)
@@ -235,8 +236,8 @@ namespace EoE.Client.TradeSystem
             {
                 throw new Exception("wrong call");
             }
-
             openOrders.Remove(transaction);
+            Synchronize(openOrders);
         }
        
         public void Synchronize(List<GameTransaction> list)
