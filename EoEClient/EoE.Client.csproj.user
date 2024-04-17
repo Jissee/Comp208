@@ -10,6 +10,9 @@
     <Compile Update="GovernanceSystem\CheckOtherFieldsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GovernanceSystem\CheckOtherPlayer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="WarSystem\AbrogateTreaty.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -30,7 +33,14 @@
     <Page Update="GovernanceSystem\CheckOtherFieldsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
     <Page Update="GovernanceSystem\GovernenceMainWindow.xaml">
+=======
+    <Page Update="GovernanceSystem\CheckOtherPlayer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GovernanceSystem\MainWindow.xaml">
+>>>>>>> c4db4a6e6c7055f4625d515e10eb75423c65a56b
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GovernanceSystem\MilitaryManagementWindow.xaml">

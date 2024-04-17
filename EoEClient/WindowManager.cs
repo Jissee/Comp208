@@ -106,6 +106,9 @@ namespace EoE.Client
                 blockManagement.SynchronizeFields(record);
                 ResourceInformationWindow resourceManage = GetWindows<ResourceInformationWindow>();
                 resourceManage.SynchronizeFields(record);
+
+                CheckOtherPlayer checkOther = GetWindows<CheckOtherPlayer>();
+                checkOther.SynchronizeOtherPlayersFields();
             });
 
         }

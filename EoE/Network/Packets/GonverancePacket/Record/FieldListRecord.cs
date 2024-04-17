@@ -47,6 +47,18 @@ namespace EoE.Network.Packets.GonverancePacket.Record
         {
 
         }
+        public List<int> ToList()
+        {
+            List<int> list =
+                [this.siliconFieldCount,
+                this.copperFieldCount,
+                this.ironFieldCount,
+                this.aluminumFieldCount,
+                this.electronicFieldCount,
+                this.industrialFieldCount,
+            ];
+            return list;
+        }
 
         public static Encoder<FieldListRecord> encoder = (FieldListRecord obj, BinaryWriter writer) =>
         {
