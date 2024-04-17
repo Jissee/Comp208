@@ -8,15 +8,21 @@ namespace EoE.Server
     {
         static void Main(string[] args)
         {
+            if (args.Length < 2)
+            {
+                IServer.Log("Server", "Insufficient argument.");
+            }
             Server server; 
 
             while (true)
             {
-                server= new Server("0.0.0.0", 25566);
+
+                server= new Server(args[0], int.Parse(args[1]));
                 server.Start();
 
                 while (!server.IsNeedRestart())
-                { 
+                {
+                    int pausehere = 0;
                 }
                 server.Stop();
                 IServer.Log("Server", "Server restarting");

@@ -292,35 +292,50 @@ namespace EoE.Server
         }
         public void Stop()
         {
-            lock(ServerSocket)
+            try
             {
                 ServerSocket?.Close();
                 isServerRunning = false;
+                needRestart = true;
             }
+            catch (Exception ex)
+            {
+
+            }
+
         }
 
         public void ConnectionLoop()
         {
             while (isServerRunning)
             {   // Accept one connection
+                if (needRestart)
+                {
+                    break;
+                }
                 Socket cl ;
                 lock (ServerSocket)
                 {
-                    if (needRestart)
+                    try
                     {
-                        break;
+                        cl = ServerSocket.Accept();
+                        EndPoint endp = cl.RemoteEndPoint;
+
+                        IServer.Log("Connection", $"{endp} connecting.");
+
+                        lock(PlayerList)
+                        {
+                            PlayerList.PlayerLogin(new ServerPlayer(cl, this));
+                        }
                     }
-                    cl = ServerSocket.Accept();
+                    catch (Exception ex)
+                    {
+                        
+                    }
+
                 }
                 // Extract the IP adress and Port num of client
-                EndPoint endp = cl.RemoteEndPoint;
 
-                IServer.Log("Connection", $"{endp} connecting.");
-
-                lock(PlayerList)
-                {
-                    PlayerList.PlayerLogin(new ServerPlayer(cl, this));
-                }
                 
             }
         }
