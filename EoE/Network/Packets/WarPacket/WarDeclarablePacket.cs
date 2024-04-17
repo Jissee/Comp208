@@ -1,4 +1,5 @@
 ﻿using EoE.Network.Entities;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,8 +47,25 @@ namespace EoE.Network.Packets.WarPacket
                 IServerPlayerList playerList = server.PlayerList;
                 
                 List<IPlayer> list = playerList.TreatyManager.FindNonTruce(context.PlayerSender!);
+                foreach(IWar theWar in server.PlayerList.WarManager.WarDict.Values)
+                {
+                    foreach(IPlayer player in theWar.Attackers.Armies.Keys)
+                    {
+                        if (list.Contains(player))
+                        {
+                            list.Remove(player);
+                        }
+                    }
+                    foreach(IPlayer player in theWar.Defenders.Armies.Keys)
+                    {
+                        if (list.Contains(player))
+                        {
+                            list.Remove(player);
+                        }
+                    }
+                }
                 var namesEnum = from player in list
-                                //where player != context.PlayerSender
+                                where player != context.PlayerSender
                                 select player.PlayerName;
                 WarDeclarablePacket packet = new WarDeclarablePacket(warName, namesEnum.ToArray());
                 context.PlayerSender!.SendPacket(packet);

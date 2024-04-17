@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EoE.WarSystem.Interface
 {
-    public interface IPlayerRelation
+    public interface IClientWarNameRelatedList
     {
-        Dictionary<IPlayer, List<IPlayer>> ProtectedBy { get; set; }
-        List<IPlayer> GetProtectorsRecursively(IPlayer target);
+        void ChangeWarName(string warName);
+        void ChangeWarNames(string[] warNames);
     }
 }

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoE\bin\Debug\net8.0\EoE.deps.json
 D:\e-textbook3\comp208\EoE\EoE\bin\Debug\net8.0\EoE.dll
 D:\e-textbook3\comp208\EoE\EoE\bin\Debug\net8.0\EoE.pdb
@@ -37,3 +38,17 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\refint\EoE
 C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
 C:\Users\32171\source\repos\HateUsername\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
 >>>>>>> c4db4a6e6c7055f4625d515e10eb75423c65a56b
+=======
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\bin\Debug\net8.0\EoE.deps.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\bin\Debug\net8.0\EoE.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\bin\Debug\net8.0\EoE.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.AssemblyInfoInputs.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.AssemblyInfo.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.csproj.CoreCompileInputs.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.sourcelink.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\refint\EoE.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\EoE.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoE\obj\Debug\net8.0\ref\EoE.dll
+>>>>>>> 52c0c069c42aeebfcf96819b3299cbacdd058914

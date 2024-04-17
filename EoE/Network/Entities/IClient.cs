@@ -37,5 +37,7 @@ namespace EoE.Network.Entities
       
         IClientWarWidthList ClientWarWidthList { get; }
         IClientWarNameList ClientWarNameList { get; }
+
+        IClientWarNameRelatedList ClientWarNameRelatedList { get; }
     }
 }
