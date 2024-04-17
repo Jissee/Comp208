@@ -45,11 +45,6 @@ namespace EoE.Client.GovernanceSystem
 
         }
 
-
-        public void getValue()
-        {
-
-        }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             if ((int.TryParse(SiliconAllocate.Text, out int silicon) && silicon >= 0)
@@ -96,11 +91,7 @@ namespace EoE.Client.GovernanceSystem
             e.Cancel = true;
             this.Hide();
         }
-
-        private void res1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        
        public void limitnumber(object sender, TextCompositionEventArgs e)
         {
             Regex re = new Regex("[^0-9]+");

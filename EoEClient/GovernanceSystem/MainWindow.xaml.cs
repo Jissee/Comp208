@@ -17,18 +17,7 @@ namespace EoE.Client.GovernanceSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static MainWindow instance;
-        public static MainWindow INSTANCE
-        {
-            get
-            {
-                if (instance == null || !instance.IsLoaded)
-                {
-                    instance = new MainWindow();
-                }
-                return instance;
-            }
-        }
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -56,7 +45,18 @@ namespace EoE.Client.GovernanceSystem
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            instance = null;
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            WindowManager.INSTANCE.ShowWindows<CheckOtherFieldsWindow>();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            WindowManager.INSTANCE.ShowWindows<ConvertPage>();
         }
     }
 }

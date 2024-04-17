@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.GovernanceSystem"
         mc:Ignorable="d"
-        Title="CheckOtherFieldsWindow" Height="450" Width="800">
+        Title="CheckOtherFieldsWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Label Content="Silicon:" Margin="466,83,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
         <Label Content="Copper:" Margin="462,121,0,0" FontSize="20" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>

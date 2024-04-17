@@ -42,5 +42,11 @@ namespace EoE.Client.GovernanceSystem
             Regex re = new Regex("[^0-9]+");
             e.Handled = re.IsMatch(e.Text);
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
     }
 }

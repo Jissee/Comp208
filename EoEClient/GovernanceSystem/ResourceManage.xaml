@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.GovernanceSystem"
         mc:Ignorable="d"
-        Title="ResourceManage" Height="450" Width="800">
+        Title="ResourceManage" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Label Content="Existing resources " HorizontalAlignment="Left" Margin="315,25,0,0" VerticalAlignment="Top" FontSize="18" Width="165"/>
         <TextBlock x:Name="Silicon" Height="30" Margin="164,112,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>

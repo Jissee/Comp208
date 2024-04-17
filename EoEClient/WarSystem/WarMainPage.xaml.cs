@@ -21,19 +21,8 @@ namespace EoE.Client.WarSystem
     /// </summary>
     public partial class WarMainPage : Window
     {
-        private static WarMainPage instance;
         public static string theWarName;
-        public static WarMainPage INSTANCE
-        {
-            get
-            {
-                if (instance == null || !instance.IsLoaded)
-                {
-                    instance = new WarMainPage();
-                }
-                return instance;
-            }
-        }
+        
 
         public WarMainPage()
         {
@@ -45,8 +34,7 @@ namespace EoE.Client.WarSystem
             theWarName = warName.Text;
             WarDeclarablePacket packet = new WarDeclarablePacket(warName.Text, []);
             Client.INSTANCE.SendPacket(packet);
-            DeclareWar declareWar = new DeclareWar();
-            declareWar.Show();
+            WindowManager.INSTANCE.ShowWindows<DeclareWar>();
         }
 
         private void buttonCheck_Click(object sender, RoutedEventArgs e)
@@ -82,12 +70,13 @@ namespace EoE.Client.WarSystem
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            instance = null;
+            e.Cancel = true;
+            this.Hide();
         }
 
         private void AbrogateTreaty_Click(object sender, RoutedEventArgs e)
         {
-            AbrogateTreaty.INSTANCE.Show();
+            WindowManager.INSTANCE.ShowWindows<AbrogateTreaty>();
             QueryTreatyPacket packet = new QueryTreatyPacket([]);
             Client.INSTANCE.SendPacket(packet);
         }

@@ -28,6 +28,8 @@ namespace EoE.Client.Login
         public MainGamePage()
         {
             InitializeComponent();
+
+            PlayerName.Text = Client.INSTANCE.PlayerName;
             Population.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
             Silicon.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Silicon).ToString();
             Copper.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Copper).ToString();
@@ -35,7 +37,6 @@ namespace EoE.Client.Login
             Iron.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Iron).ToString();
             Electronic.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Electronic).ToString();
             Industrial.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Industrial).ToString();
-
         }
 
         private void Transaction_Click(object sender, RoutedEventArgs e)
@@ -45,12 +46,12 @@ namespace EoE.Client.Login
 
         private void War_Click(object sender, RoutedEventArgs e)
         {
-            WarMainPage.INSTANCE.Show();
+            WindowManager.INSTANCE.ShowWindows<WarMainPage>();
         }
         
         private void Goverment_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.INSTANCE.Show();
+            WindowManager.INSTANCE.ShowWindows<MainWindow>();
         }
 
         private void Chat_Click(object sender, RoutedEventArgs e)
