@@ -1,14 +1,15 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "WEI7fBZ3jNT6/umpk+GrZsHQfN3vk2KQ0t778yE5t/u6F3iz//k07Gv0ZMXQaOpbJRkT8HMKpS9No7Z8VDjhkA==",
+  "dgSpecHash": "flBBfChBFpdB6ZTbWnURyG7CMdW5Jq/pPxLid8VanRiKqalz6x/hdpeAaIuziHCU0WqwNOR5NHt6YkJJt0x/Xg==",
   "success": true,
   "projectFilePath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj",
-=======
-  "dgSpecHash": "tJM3arCFv47lUwRu8eVQTaY9Kv4c38uGwAaf4CtJEbJvG+zHqtFhQyduKXTGqaiUE74sHO0kR1QKkxLENHdjMA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
->>>>>>> c4db4a6e6c7055f4625d515e10eb75423c65a56b
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "读取缓存文件 C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
