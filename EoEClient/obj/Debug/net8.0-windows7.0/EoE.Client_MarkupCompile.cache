@@ -29,5 +29,5 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\App.xaml
 ChatSystem\ChatMianPage.xaml;ChatSystem\ChatPage.xaml;ChatSystem\EstablishRelation.xaml;ChatSystem\TreatyContent.xaml;GovernanceSystem\BlockManagement.xaml;GovernanceSystem\CheckOtherFieldsWindow.xaml;GovernanceSystem\CheckOtherPlayer.xaml;GovernanceSystem\ConvertPage.xaml;GovernanceSystem\MainWindow.xaml;GovernanceSystem\MilitaryManagement.xaml;GovernanceSystem\ResourceManage.xaml;GovernanceSystem\SetExploreWindow.xaml;Login\EnterGamePage.xaml;Login\GameAgreement.xaml;Login\LoginWindow.xaml;Login\MainGamePage.xaml;Login\MainTradePage.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
 >>>>>>> c4db4a6e6c7055f4625d515e10eb75423c65a56b
 
-True
+False
 

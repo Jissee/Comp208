@@ -1,4 +1,5 @@
 ﻿using EoE.Client.TradeSystem;
+using EoE.TradeSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,6 @@ namespace EoE.Client.Login
         public MainTradeWindow()
         {
             InitializeComponent();
-            addItem(1);
-            addItem(2);
-            addItem(3);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -33,10 +31,6 @@ namespace EoE.Client.Login
             WindowManager.INSTANCE.ShowWindows<SelectTraderWindow>();
         }
 
-
-
-    
-        
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -62,11 +56,15 @@ namespace EoE.Client.Login
 
             
         }
-
-        public void addItem(int transcationnumber)
+        public void SynchronizeTransaction(Dictionary<int, GameTransaction> transverter)
         {
-            tradeList.Items.Add(transcationnumber);
+            tradeList.Items.Clear();
+            foreach (int key in transverter.Keys)
+            {
+                tradeList.Items.Add(key);
+            }
         }
+
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
