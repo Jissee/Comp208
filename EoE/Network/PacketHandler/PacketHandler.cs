@@ -41,9 +41,7 @@ namespace EoE.Network
             Register<EnterGamePacket>();
             Register<PlayerListPacket>();
             Register<FinishTickPacket>();
-<<<<<<< HEAD
             Register<SyntheticArmyPacket>();
-=======
 
             Register<FillInFrontierPacket>();
             Register<WarCompensationInfoPacket>();
@@ -62,7 +60,6 @@ namespace EoE.Network
             Register<NewCommonDefenseTreatyPacket>();
             Register<NewProtectiveTreatyPacket>();
             Register<QueryTreatyPacket>();
->>>>>>> war-front
         }
 
         public static void Register<T>() where T : IPacket<T>
