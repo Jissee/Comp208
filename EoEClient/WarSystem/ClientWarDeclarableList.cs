@@ -24,12 +24,7 @@ namespace EoE.Client.WarSystem
             Application.Current.Dispatcher.Invoke(() =>
             {
                 DeclareWar window = WindowManager.INSTANCE.GetWindows<DeclareWar>();
-                ListBox listBox = window.listBox1;
-                listBox.Items.Clear();
-                foreach (string theName in name)
-                {
-                    listBox.Items.Add(theName);
-                }
+                window.ChangeWarDeclarableList(name);
             });
         }
     }

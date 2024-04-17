@@ -80,6 +80,7 @@ namespace EoE.Server
                 player.SendPacket(new PopulationUpdatePacket(player.GonveranceManager.PopManager.GetPopulationRecord()));
                 Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList),player.PlayerName), thisPlayer => thisPlayer != player);
             }
+            PlayerList.GameBegin();
         }
         private void PrepareGlobalBonusEvents()
         {

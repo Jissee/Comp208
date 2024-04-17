@@ -1,0 +1,25 @@
+﻿<Window x:Class="EoE.Client.GovernanceSystem.MilitaryManagementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EoE.Client.GovernanceSystem"
+        mc:Ignorable="d"
+        Title="MilitaryManagement" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+        <Label Content="Existing Army" HorizontalAlignment="Left" Margin="303,58,0,0" VerticalAlignment="Top" FontSize="20" Width="149"/>
+        <Label Content="Battle Army: " Margin="106,119,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="InformativeArmy: " Margin="78,193,0,0" FontSize="20" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Mechanization Army: " Margin="63,270,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Bulid new Army" Margin="502,58,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="battlechange" Margin="564,121,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" TextChanged="battlechange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="informativeChange" Margin="564,194,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="techchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="mechchange" Margin="564,274,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="mechchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <Button x:Name="Submit3" Content="Submit" Margin="465,361,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Width="100" Height="50" Click="Submit3_Click"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="243,361,0,0" VerticalAlignment="Top" FontSize="20" Height="50" Width="100" Click="Button_Click"/>
+        <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="336,123,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="infobefore" HorizontalAlignment="Left" Margin="336,195,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="336,274,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+
+    </Grid>
+</Window>

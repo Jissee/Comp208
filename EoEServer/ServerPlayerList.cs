@@ -50,7 +50,19 @@ namespace EoE.Server
             TradeManager = new ServerTradeManager(server);
             this.server = server;
         }
-
+        public void GameBegin()
+        {
+            TreatyManager.BuildPlayerProtected();
+            foreach (IPlayer player1 in Players)
+            {
+                Dictionary<IPlayer, WarTarget> temp = new Dictionary<IPlayer, WarTarget>();
+                WarManager.WarTargets.Add(player1, temp);
+                foreach (IPlayer player2 in Players)
+                {
+                    WarManager.WarTargets[player1].Add(player2, new WarTarget());
+                }
+            }
+        }
         public void SetPlayerCount(int playerCount)
         {
             this.PlayerCount = playerCount;
@@ -225,7 +237,7 @@ namespace EoE.Server
         public List<IPlayer> GetProtectorsRecursively(IPlayer target)
         {
             List<IPlayer> protectors = new List<IPlayer>();
-            var gotProtectors = TreatyManager.PlayerRelation.GetProtectorsRecursively((ServerPlayer)target);
+            var gotProtectors = TreatyManager.PlayerRelation.GetProtectorsRecursively(target);
             protectors.AddRange(gotProtectors);
             return protectors;
         }

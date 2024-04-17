@@ -24,6 +24,14 @@ namespace EoE.Server.Treaty
             PlayerRelation = new PlayerRelation(this);
             this.serverPlayerList = serverPlayerList;
         }
+        public void BuildPlayerProtected()
+        {
+            foreach (IPlayer player in serverPlayerList.Players)
+            {
+                List<IPlayer> temp = new List<IPlayer>();
+                PlayerRelation.ProtectedBy.Add(player, temp);
+            }
+        }
         public void AddRelationTreaty(RelationTreaty treaty)
         {
             if (treaty is CommonDefenseTreaty)

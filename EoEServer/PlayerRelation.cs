@@ -12,7 +12,7 @@ namespace EoE.Server
     public class PlayerRelation: IPlayerRelation
     {
         public ITreatyManager TreatyManager;
-        public Dictionary<IPlayer, List<IPlayer>> ProtectedBy;
+        public Dictionary<IPlayer, List<IPlayer>> ProtectedBy {  get; set; }
         private List<IPlayer> AlreadyIn;
         public PlayerRelation(ITreatyManager treatyManager)
         {
@@ -78,6 +78,7 @@ namespace EoE.Server
         private void UpdateProtectGraph()
         {
             ProtectedBy.Clear();
+            TreatyManager.BuildPlayerProtected();
             foreach(var treaty in TreatyManager.RelationTreatyList)
             {
                 if(treaty is ProtectiveTreaty)
