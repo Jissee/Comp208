@@ -277,6 +277,10 @@ namespace EoE.Server
                     break;
             }
         }
+        public void PrepareGlobalEvent()
+        {
+            Status.GlobalSecondaryModifier.AddValue("name", 1);
+        }
         public void Start()
         {
             lock(this)
