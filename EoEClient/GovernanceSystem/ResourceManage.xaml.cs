@@ -24,6 +24,7 @@ namespace EoE.Client.GovernanceSystem
         {
             InitializeComponent();
             Population.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
+            AvailablePopulation.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
 
             Silicon.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Silicon).ToString();
             Copper.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Copper).ToString();
