@@ -251,11 +251,11 @@ namespace EoE.Client.TradeSystem
                 index++;
             }
 
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current.Dispatcher.Invoke((Delegate)(() =>
             {
-                MainTradePage mainTrade = WindowManager.INSTANCE.GetWindows<MainTradePage>();
+                MainTradeWindow mainTrade = WindowManager.INSTANCE.GetWindows<MainTradeWindow>();
                 mainTrade.SynchronizeTransaction(transverter);
-            });
+            }));
         }
        
     }
