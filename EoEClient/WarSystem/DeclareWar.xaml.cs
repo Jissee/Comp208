@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace EoE.Client.WarSystem
 {
@@ -28,8 +29,13 @@ namespace EoE.Client.WarSystem
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             WarMainPage window = WindowManager.INSTANCE.GetWindows<WarMainPage>();
-            WarIntensionPacket packet = new WarIntensionPacket(listBox1.SelectedItem.ToString()!, WarMainPage.theWarName, [], []);
-            Client.INSTANCE.SendPacket(packet);
+            var selectedName = listBox1.SelectedItem;
+            if(selectedName != null)
+            {
+                WarIntensionPacket packet = new WarIntensionPacket(WarMainPage.theWarName, selectedName.ToString()!, [], []);
+                Client.INSTANCE.SendPacket(packet);
+            }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,7 +48,7 @@ namespace EoE.Client.WarSystem
                 MessageBox.Show("You can manage your army in next page or find the page in Check status of War!");
                 AllocateArmy allocateArmy = new AllocateArmy();
                 allocateArmy .Show();
-                MessageBox.Show(listBox1.SelectedItem.ToString());
+                MessageBox.Show($"You begin the war with {listBox1.SelectedItem.ToString()}!");
             }
             else
             {
@@ -50,12 +56,33 @@ namespace EoE.Client.WarSystem
             }
         }
 
-       
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            WarInvitationPacket packet = new WarInvitationPacket(WarMainPage.theWarName, listBox2.SelectedItem.ToString()!);
-            Client.INSTANCE.SendPacket(packet);
+            if(listBox2.SelectedItem != null)
+            {
+                WarInvitationPacket packet = new WarInvitationPacket(WarMainPage.theWarName, listBox2.SelectedItem.ToString()!);
+                Client.INSTANCE.SendPacket(packet);
+            }
+        }
+
+        public void ChangeWarDeclarableList(string[] names)
+        {
+            listBox1.Items.Clear();
+            foreach (string theName in names)
+            {
+                listBox1.Items.Add(theName);
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            listBox2.Items.Clear();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

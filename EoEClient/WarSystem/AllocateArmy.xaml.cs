@@ -40,5 +40,12 @@ namespace EoE.Client.WarSystem
             e.Cancel = true;
             this.Hide();
         }
+
+        private void Submit3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+}
     }
 }

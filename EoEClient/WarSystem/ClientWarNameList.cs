@@ -29,13 +29,19 @@ namespace EoE.Client.WarSystem
             {
                 ChangeWarName(warNames[i]);
             }
-            Application.Current.Dispatcher.Invoke(()=>{
-                CheckStatus window = WindowManager.INSTANCE.GetWindows<CheckStatus>();
-                ListBox box = window.checkStatusListBoxWarName;
-                box.Items.Clear();
-                foreach(string names in WarNameList)
+
+
+            Application.Current.Dispatcher.Invoke(() => {
+                if (WarNameList.Contains(WarMainPage.theWarName))
                 {
-                    box.Items.Add(names);
+                    MessageBox.Show("War name exists!");
+                }
+                else
+                {
+                    DeclareWar declareWar = new DeclareWar();
+                    WindowManager.INSTANCE.ShowWindows<DeclareWar>();
+                    DeclareWar window = WindowManager.INSTANCE.GetWindows<DeclareWar>();
+                    window.listBox2.Items.Clear();
                 }
             });
         }

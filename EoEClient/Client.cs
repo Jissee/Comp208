@@ -58,6 +58,8 @@ namespace EoE.Client
 
         public IClientWarWidthList ClientWarWidthList {  get; set; }
 
+        public IClientWarNameRelatedList ClientWarNameRelatedList {  get; set; }
+
         static Client() 
         {
             INSTANCE = new Client();
@@ -79,6 +81,7 @@ namespace EoE.Client
             ClientTreatyList = new ClientTreatyList();
             ClientWarNameList = new ClientWarNameList();
             ClientWarWidthList = new ClientWarWidthList();
+            ClientWarNameRelatedList = new ClientWarNameRelatedList();
             WindowManager = EoE.Client.WindowManager.INSTANCE;
             OtherPlayerFields = new Dictionary<string, FieldListRecord>();
         }

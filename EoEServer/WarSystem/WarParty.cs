@@ -26,6 +26,11 @@ namespace EoE.Server.WarSystem
             Armies = new Dictionary<IPlayer,IArmy>();
             surrendered = new List<IPlayer>();
         }
+        public void Clear()
+        {
+            Armies.Clear();
+            surrendered.Clear();
+        }
         public void SetWar(IWar war)
         {
             this.war = war;

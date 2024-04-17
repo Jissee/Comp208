@@ -11,6 +11,7 @@ namespace EoE.WarSystem.Interface
         int WarWidth { get; }
         Dictionary<IPlayer, IArmy> Armies { get; }
         IArmy TotalArmy { get; }
+        void Clear();
         void SetWar(IWar war);
         void AddPlayer(IPlayer player);
         void PlayerSurrender(IPlayer player);

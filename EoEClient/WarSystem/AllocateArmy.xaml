@@ -19,12 +19,10 @@
         <TextBox x:Name="Resouce3change" Margin="624,287,0,0" TextWrapping="Wrap" Text="0" Width="93" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <Button x:Name="Submit3" Content="Submit All" Margin="452,367,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="40" FontSize="20"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="150,367,0,0" VerticalAlignment="Top" Height="40" Width="200" FontSize="20" Click="Button_Click"/>
-        <TextBlock x:Name="battleafter" HorizontalAlignment="Left" Margin="386,144,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="techafter" HorizontalAlignment="Left" Margin="386,215,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="mechafter" HorizontalAlignment="Left" Margin="386,288,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="202,143,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="techbefore" HorizontalAlignment="Left" Margin="202,214,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="202,288,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" Height="27"/>
+        <TextBlock x:Name="battleafter" HorizontalAlignment="Left" Margin="452,302,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="304,135,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="techbefore" HorizontalAlignment="Left" Margin="304,194,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="304,256,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" Height="27"/>
 
     </Grid>
 </Window>
