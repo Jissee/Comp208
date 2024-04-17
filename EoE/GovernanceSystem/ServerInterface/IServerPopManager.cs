@@ -14,7 +14,6 @@ namespace EoE.GovernanceSystem.ServerInterface
         void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int industrialPop, int electronic);
         void AlterPop(int count);
         void SetExploration(int population);
-        PopulationRecord GetPopulationRecord();
         void ClearAll();
     }
 }

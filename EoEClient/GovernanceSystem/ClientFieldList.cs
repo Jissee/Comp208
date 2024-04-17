@@ -97,6 +97,7 @@ namespace EoE.Client.GovernanceSystem
             fields[GameResourceType.Aluminum] = fieldListRecord.aluminumFieldCount;
             fields[GameResourceType.Electronic] = fieldListRecord.electronicFieldCount;
             fields[GameResourceType.Industrial] = fieldListRecord.industrialFieldCount;
+            WindowManager.INSTANCE.UpdateFields();
         }
         public void Filedconversion(FieldStack origin, FieldStack converted)
         {

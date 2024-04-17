@@ -39,6 +39,7 @@ namespace EoE.Network
             Register<EnterGamePacket>();
             Register<PlayerListPacket>();
             Register<FinishTickPacket>();
+            Register<SyntheticArmyPacket>();
         }
 
         public static void Register<T>() where T : IPacket<T>

@@ -1,4 +1,5 @@
 ﻿
+using EoE.Client.GovernanceSystem;
 using EoE.Client.Login;
 using EoE.ClientInterface;
 using EoE.Network.Packets.GonverancePacket.Record;
@@ -82,20 +83,38 @@ namespace EoE.Client
                 window.Close();
             });
         }
-        public void UpdateResources(ResourceListRecord resourceListRecord)
+        public void UpdateResources()
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
+                ResourceListRecord record = new ResourceListRecord(Client.INSTANCE.GonveranceManager.ResourceList);
                 MainGamePage window = GetWindows<MainGamePage>();
-                window.SynchronizeResources(resourceListRecord);
+                window.SynchronizeResources(record);
+                MilitaryManagement military = GetWindows<MilitaryManagement>();
+                military.SynchronizeResources(record);
             });
         }
-        public void SynchronizePopulation(PopulationRecord populationRecord)
+
+        public void UpdateFields()
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
+                FieldListRecord record = new FieldListRecord(Client.INSTANCE.GonveranceManager.FieldList);
+                BlockManagement blockManagement = GetWindows<BlockManagement>();
+                blockManagement.SynchronizeFields(record);
+
+            });
+
+        }
+        public void UpdatePopulation()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                PopulationRecord record = Client.INSTANCE.GonveranceManager.PopManager.GetPopulationRecord();
                 MainGamePage window = GetWindows<MainGamePage>();
-                window.SynchronizePopulation(populationRecord);
+                window.SynchronizePopulation(record);
+                BlockManagement blockManagement = GetWindows<BlockManagement>();
+                blockManagement.SynchronizePopulation(record);
             });
         }
         public void SynchronizeTickCount(int round)

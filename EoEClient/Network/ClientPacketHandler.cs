@@ -38,18 +38,27 @@ namespace EoE.Client.Network
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Cannot find encoder for {tp}, it is not registered.");
+                Client.ShowException("Packet",$"Cannot find encoder for {tp}, it is not registered.", ex);
+                return;
+            }
+            IBasePacket packet;
+            try
+            {
+                packet = (IBasePacket)decoder.DynamicInvoke(br);
+            }
+            catch(Exception ex)
+            {
+                Client.ShowException("Packet", $"Cannot decode packet {tp}.", ex);
                 return;
             }
 
-            IBasePacket packet = (IBasePacket)decoder.DynamicInvoke(br);
-            if (packet != null)
+            try
             {
                 packet.Handle(context);
             }
-            else
+            catch(Exception ex)
             {
-                throw new Exception($"Cannot decode packet.");
+                Client.ShowException("Packet", $"Cannot handle packet {tp}.", ex);
             }
         }
 
@@ -61,26 +70,33 @@ namespace EoE.Client.Network
             bw.Write(0L);
 
             Type packetType = packet.GetType();
-            string packetTypeString = packetType.FullName;
-            if (packetTypeString == null)
+            string tp = packetType.FullName;
+            if (tp == null)
             {
                 throw new Exception("Invalid packet type");
             }
 
-            bw.Write(packetTypeString);
+            bw.Write(tp);
 
             Delegate encoder;
             try
             {
                 encoder = encoders[packetType];
-
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Cannot find encoder for {packetTypeString}, it is not registered.");
+                Client.ShowException("Packet", $"Cannot find encoder for {tp}, it is not registered.", ex);
                 return;
             }
-            encoder.DynamicInvoke(packet, bw);
+            try
+            {
+                encoder.DynamicInvoke(packet, bw);
+            }
+            catch (Exception ex)
+            {
+                Client.ShowException("Packet", $"Cannot encode packet {tp}.", ex);
+                return;
+            }
 
             long length = ms.Position - 8;
             bw.Seek(0, SeekOrigin.Begin);
@@ -88,7 +104,14 @@ namespace EoE.Client.Network
 
             byte[] data = ms.ToArray();
 
-            connection.Send(data);
+            try
+            {
+                connection.Send(data);
+            }
+            catch (Exception ex)
+            {
+                Client.ShowException("Packet", $"Cannot send packet {tp}.", ex);
+            }
         }
     }
 }

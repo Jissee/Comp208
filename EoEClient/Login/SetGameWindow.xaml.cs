@@ -21,7 +21,7 @@ namespace EoE.Client.Login
     {
         bool amount = false;
         bool round = false;
-        bool ignoreClosing = false;
+        public bool ignoreClosing = false;
         public SetGameWindow()
         {
             InitializeComponent();
@@ -71,6 +71,7 @@ namespace EoE.Client.Login
                 }
                 else
                 {
+                    WindowManager.INSTANCE.GetWindows<EnterGamePage>().ignoreClosing = true;
                     Client.INSTANCE.Disconnect();
                 }
             }

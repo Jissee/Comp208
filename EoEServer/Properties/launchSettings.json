@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EoE.Server": {
+      "commandName": "Project",
+      "commandLineArgs": "0.0.0.0 25566"
+    }
+  }
+}

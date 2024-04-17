@@ -27,19 +27,40 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\86151\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\32171\\.nuget\\packages\\": {},
+    "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> 955b5da4b675fd01ea02be3d15f4382b255b51fc
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj",
       "projectName": "EoE.Client",
       "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj",
       "packagesPath": "C:\\Users\\86151\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
+      "projectName": "EoE.Client",
+      "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
+      "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\obj\\",
+>>>>>>> 955b5da4b675fd01ea02be3d15f4382b255b51fc
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> 955b5da4b675fd01ea02be3d15f4382b255b51fc
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -53,8 +74,13 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows7.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
               "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj"
+=======
+            "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
+              "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
+>>>>>>> 955b5da4b675fd01ea02be3d15f4382b255b51fc
             }
           }
         }

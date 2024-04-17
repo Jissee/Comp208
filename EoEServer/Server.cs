@@ -292,35 +292,50 @@ namespace EoE.Server
         }
         public void Stop()
         {
-            lock(ServerSocket)
+            try
             {
                 ServerSocket?.Close();
                 isServerRunning = false;
+                needRestart = true;
             }
+            catch (Exception ex)
+            {
+
+            }
+
         }
 
         public void ConnectionLoop()
         {
             while (isServerRunning)
             {   // Accept one connection
+                if (needRestart)
+                {
+                    break;
+                }
                 Socket cl ;
                 lock (ServerSocket)
                 {
-                    if (needRestart)
+                    try
                     {
-                        break;
+                        cl = ServerSocket.Accept();
+                        EndPoint endp = cl.RemoteEndPoint;
+
+                        IServer.Log("Connection", $"{endp} connecting.");
+
+                        lock(PlayerList)
+                        {
+                            PlayerList.PlayerLogin(new ServerPlayer(cl, this));
+                        }
                     }
-                    cl = ServerSocket.Accept();
+                    catch (Exception ex)
+                    {
+                        
+                    }
+
                 }
                 // Extract the IP adress and Port num of client
-                EndPoint endp = cl.RemoteEndPoint;
 
-                IServer.Log("Connection", $"{endp} connecting.");
-
-                lock(PlayerList)
-                {
-                    PlayerList.PlayerLogin(new ServerPlayer(cl, this));
-                }
                 
             }
         }
@@ -361,12 +376,20 @@ namespace EoE.Server
 
         public void Tick()
         {
-            Status.Tick();
-            lock(PlayerList)
+            try
             {
-                PlayerList.Tick();
+                Status.Tick();
+                lock(PlayerList)
+                {
+                    PlayerList.Tick();
+                }
+                Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
+            }catch (Exception ex)
+            {
+                IServer.Log("Tick Error", "Tick encountered an exception:", ex);
+                
             }
-            Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
+
         }
 
         public void CheckPlayerTickStatus()
