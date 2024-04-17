@@ -2,6 +2,7 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj": {}
 =======
 <<<<<<< HEAD
@@ -34,14 +35,30 @@
         "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEClient\\obj\\",
 >>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
+=======
+    "D:\\comp208\\EoETest\\EoE.Test.csproj": {}
+  },
+  "projects": {
+    "D:\\comp208\\EoEClient\\EoE.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\comp208\\EoEClient\\EoE.Client.csproj",
+        "projectName": "EoE.Client",
+        "projectPath": "D:\\comp208\\EoEClient\\EoE.Client.csproj",
+        "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
+        "outputPath": "D:\\comp208\\EoEClient\\obj\\",
+>>>>>>> commit
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> commit
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,12 +66,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows7.0",
             "projectReferences": {
+<<<<<<< HEAD
 <<<<<<< HEAD
               "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
@@ -67,6 +86,10 @@
                 "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
 >>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
 >>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
+=======
+              "D:\\comp208\\EoE\\EoE.csproj": {
+                "projectPath": "D:\\comp208\\EoE\\EoE.csproj"
+>>>>>>> commit
               }
             }
           }
@@ -109,6 +132,7 @@
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {
 =======
 <<<<<<< HEAD
@@ -138,14 +162,27 @@
         "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\obj\\",
 >>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
+=======
+    "D:\\comp208\\EoEServer\\EoE.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\comp208\\EoEServer\\EoE.Server.csproj",
+        "projectName": "EoE.Server",
+        "projectPath": "D:\\comp208\\EoEServer\\EoE.Server.csproj",
+        "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
+        "outputPath": "D:\\comp208\\EoEServer\\obj\\",
+>>>>>>> commit
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> commit
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -153,12 +190,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD
 <<<<<<< HEAD
               "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
@@ -171,6 +210,10 @@
                 "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
 >>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
 >>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
+=======
+              "D:\\comp208\\EoE\\EoE.csproj": {
+                "projectPath": "D:\\comp208\\EoE\\EoE.csproj"
+>>>>>>> commit
               }
             }
           }
@@ -216,6 +259,7 @@
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj": {
 =======
 <<<<<<< HEAD
@@ -245,14 +289,27 @@
         "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoETest\\obj\\",
 >>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
+=======
+    "D:\\comp208\\EoETest\\EoE.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\comp208\\EoETest\\EoE.Test.csproj",
+        "projectName": "EoE.Test",
+        "projectPath": "D:\\comp208\\EoETest\\EoE.Test.csproj",
+        "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
+        "outputPath": "D:\\comp208\\EoETest\\obj\\",
+>>>>>>> commit
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> commit
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -260,12 +317,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
+<<<<<<< HEAD
 <<<<<<< HEAD
               "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj": {
                 "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj"
@@ -294,6 +353,16 @@
                 "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
 >>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
 >>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
+=======
+              "D:\\comp208\\EoEClient\\EoE.Client.csproj": {
+                "projectPath": "D:\\comp208\\EoEClient\\EoE.Client.csproj"
+              },
+              "D:\\comp208\\EoEServer\\EoE.Server.csproj": {
+                "projectPath": "D:\\comp208\\EoEServer\\EoE.Server.csproj"
+              },
+              "D:\\comp208\\EoE\\EoE.csproj": {
+                "projectPath": "D:\\comp208\\EoE\\EoE.csproj"
+>>>>>>> commit
               }
             }
           }
@@ -351,6 +420,7 @@
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
 =======
 <<<<<<< HEAD
@@ -380,14 +450,27 @@
         "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\obj\\",
 >>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
+=======
+    "D:\\comp208\\EoE\\EoE.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\comp208\\EoE\\EoE.csproj",
+        "projectName": "EoE",
+        "projectPath": "D:\\comp208\\EoE\\EoE.csproj",
+        "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
+        "outputPath": "D:\\comp208\\EoE\\obj\\",
+>>>>>>> commit
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> commit
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -395,6 +478,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
