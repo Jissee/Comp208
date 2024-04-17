@@ -35,17 +35,16 @@ namespace EoE.Server.GovernanceSystem
     public static class Recipes
     {
         public static readonly double SILICON_PER_POP_TICK = 1.0f;
-        public static readonly double COPPER_PER_POP_TICK = 1.0f;
-        public static readonly double IRON_PER_POP_TICK = 1.0f;
-        public static readonly double ALUMINUM_PER_POP_TICK = 1.0f;
+        public static readonly double COPPER_PER_POP_TICK = 1.1f;
+        public static readonly double IRON_PER_POP_TICK = 1.2f;
+        public static readonly double ALUMINUM_PER_POP_TICK = 1.1f;
 
-        private static double PrimaryProdcutivity = 5.0f;
         private static double SecondaryProdcutivity =0.5f;
 
-        public static double SiliconSynthetic = 1;
-        public static double CopperSynthetic = 1.1;
-        public static double IronSynthetic = 1.2;
-        public static double AluminumSynthetic = 1.1;
+        public static double SiliconSynthetic = 5;
+        public static double CopperSynthetic = 5.5;
+        public static double IronSynthetic = 6;
+        public static double AluminumSynthetic = 5.5;
 
         public static readonly int POP_GROWTH_THRESHOLD = 10000;
 
@@ -57,11 +56,27 @@ namespace EoE.Server.GovernanceSystem
         public static int MechanismResourceSynthetic = 2;
         public static int BattlePopSynthetic = 2;
 
-        public static Produce calcPrimaryP = (population,fields,_,_) =>
+        public static Produce calcSiliconP = (population,fields, _, _) =>
         {
-            int count = (int)(Math.Min(population, maxAllocation * fields.Count) * PrimaryProdcutivity);
+            int count = (int)(Math.Min(population, maxAllocation * fields.Count) * SiliconSynthetic);
             return new ResourceStack(fields.Type, count);
         };
+        public static Produce calcCopperP = (population, fields, _, _) =>
+        {
+            int count = (int)(Math.Min(population, maxAllocation * fields.Count) * CopperSynthetic);
+            return new ResourceStack(fields.Type, count);
+        };
+        public static Produce calcIronP = (population, fields, _, _) =>
+        {
+            int count = (int)(Math.Min(population, maxAllocation * fields.Count) * IronSynthetic);
+            return new ResourceStack(fields.Type, count);
+        };
+        public static Produce calcAluminumP = (population, fields, _, _) =>
+        {
+            int count = (int)(Math.Min(population, maxAllocation * fields.Count) * AluminumSynthetic);
+            return new ResourceStack(fields.Type, count);
+        };
+
         public static Produce calcElectronicP = (population, fields, silicon, copper) =>
         {
             int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * SecondaryProdcutivity);
@@ -124,7 +139,7 @@ namespace EoE.Server.GovernanceSystem
 
         public static int calcPopGrowthProgress(int popCount, int silicon, int copper, int iron, int aluminum)
         {
-            double rate = 0.3f;
+            double rate = 0.18f;
             double K;
 
             
@@ -144,6 +159,13 @@ namespace EoE.Server.GovernanceSystem
             minK = Math.Min(minK, aluminum / resourceSynthetic[GameResourceType.Aluminum]);
 
             K = minK;
+            if (K > 5e8) { 
+                K = 5e8;
+            }
+            else if (K < 1) {
+                K = 1;
+            }
+
             double popGrowth = popCount * rate * (1 - (double)popCount / K);
 
             return (int)popGrowth;
