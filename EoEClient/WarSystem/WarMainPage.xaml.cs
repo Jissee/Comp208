@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EoE.Network.Packets.TreatyPacket;
+using EoE.Network.Packets.WarPacket;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,7 @@ namespace EoE.Client.WarSystem
     public partial class WarMainPage : Window
     {
         private static WarMainPage instance;
+        public static string theWarName;
         public static WarMainPage INSTANCE
         {
             get
@@ -39,6 +42,9 @@ namespace EoE.Client.WarSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            theWarName = warName.Text;
+            WarDeclarablePacket packet = new WarDeclarablePacket(warName.Text, []);
+            Client.INSTANCE.SendPacket(packet);
             DeclareWar declareWar = new DeclareWar();
             declareWar.Show();
         }
@@ -46,6 +52,8 @@ namespace EoE.Client.WarSystem
         private void buttonCheck_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<CheckStatus>();
+            WarNameQueryPacket Packet = new WarNameQueryPacket([]);
+            Client.INSTANCE.SendPacket(Packet);
         }
 
         private void buttonGoingWar_Click(object sender, RoutedEventArgs e)
@@ -63,6 +71,13 @@ namespace EoE.Client.WarSystem
         private void warGoals_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<WarDetail>();
+            WarDetail window = WindowManager.INSTANCE.GetWindows<WarDetail>();
+            ListBox listBox = window.OtherPlayerName;
+            listBox.Items.Clear();
+            foreach(string names in Client.INSTANCE.OtherPlayer)
+            {
+                listBox.Items.Add(names);
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -73,6 +88,8 @@ namespace EoE.Client.WarSystem
         private void AbrogateTreaty_Click(object sender, RoutedEventArgs e)
         {
             AbrogateTreaty.INSTANCE.Show();
+            QueryTreatyPacket packet = new QueryTreatyPacket([]);
+            Client.INSTANCE.SendPacket(packet);
         }
     }
 }

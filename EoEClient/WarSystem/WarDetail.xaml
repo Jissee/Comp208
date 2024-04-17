@@ -11,14 +11,14 @@
         <Button Content="Submit war goal of this country" HorizontalAlignment="Center" Margin="0,334,0,0" VerticalAlignment="Top" FontSize="20" Height="41" Width="318" Click="Button_Click"/>
         <Label Content="Blocks" HorizontalAlignment="Left" Margin="301,255,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Population" HorizontalAlignment="Left" Margin="548,254,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Margin="416,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27"/>
-        <TextBox HorizontalAlignment="Left" Margin="672,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27"/>
-        <TextBox x:Name="res1" HorizontalAlignment="Left" Margin="416,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
-        <TextBox x:Name="res2" HorizontalAlignment="Left" Margin="416,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
-        <TextBox x:Name="res3" HorizontalAlignment="Left" Margin="416,206,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
-        <TextBox x:Name="res4" HorizontalAlignment="Left" Margin="672,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
-        <TextBox x:Name="res5" HorizontalAlignment="Left" Margin="672,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Margin="672,211,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
+        <TextBox x:Name="Blocks" HorizontalAlignment="Left" Margin="416,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27"/>
+        <TextBox x:Name="Population" HorizontalAlignment="Left" Margin="672,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27"/>
+        <TextBox x:Name="Silicon" HorizontalAlignment="Left" Margin="416,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
+        <TextBox x:Name="Copper" HorizontalAlignment="Left" Margin="416,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
+        <TextBox x:Name="Electronic" HorizontalAlignment="Left" Margin="416,206,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
+        <TextBox x:Name="Iron" HorizontalAlignment="Left" Margin="672,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
+        <TextBox x:Name="Aluminum" HorizontalAlignment="Left" Margin="672,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
+        <TextBox x:Name="Industrial" HorizontalAlignment="Left" Margin="672,211,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
         <Label Content="Silicon" HorizontalAlignment="Left" Margin="302,123,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Electronic" HorizontalAlignment="Left" Margin="302,204,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Copper" HorizontalAlignment="Left" Margin="302,165,0,0" VerticalAlignment="Top" FontSize="20"/>
@@ -27,7 +27,7 @@
         <Label Content="Aluminum" HorizontalAlignment="Left" Margin="548,167,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="People/blocks will be exchanged immediately after the end of the war." HorizontalAlignment="Center" Margin="0,405,0,0" VerticalAlignment="Top"/>
         <Label Content="Resources will be delivered over several rounds." HorizontalAlignment="Left" Margin="252,380,0,0" VerticalAlignment="Top"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="76,123,557,152"/>
+        <ListBox x:Name="OtherPlayerName" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="76,123,557,152" SelectionChanged="ListBox_SelectionChanged"/>
 
     </Grid>
 </Window>

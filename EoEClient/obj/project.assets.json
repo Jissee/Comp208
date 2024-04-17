@@ -27,23 +27,40 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\32171\\.nuget\\packages\\": {},
     "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "C:\\Users\\ufowlc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
       "projectName": "EoE.Client",
       "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
       "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEClient\\EoE.Client.csproj",
+      "projectName": "EoE.Client",
+      "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEClient\\EoE.Client.csproj",
+      "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEClient\\obj\\",
+>>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\ufowlc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -58,8 +75,13 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows7.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
               "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
+=======
+            "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
+              "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
+>>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
             }
           }
         }

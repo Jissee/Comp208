@@ -1,4 +1,5 @@
 ﻿using EoE.Client.ChatSystem;
+using EoE.Network.Packets.TreatyPacket;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,16 @@ namespace EoE.Client.WarSystem
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             instance = null;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(PlayerList.SelectedItem != null)
+            {
+                string name = PlayerList.SelectedItem.ToString()!;
+                BreakTreatyPacket packet = new BreakTreatyPacket(name);
+                Client.INSTANCE.SendPacket(packet);
+            }
         }
     }
 }

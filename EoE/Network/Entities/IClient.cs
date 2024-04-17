@@ -32,6 +32,8 @@ namespace EoE.Network.Entities
         void SynchronizeOtherPlayersName(List<string> otherPlayers);
         void SynchronizePlayerName(string name);
         void SynchronizeOtherPlayerFieldLitst(string name, FieldListRecord record);
-        
+      
+        IClientWarWidthList ClientWarWidthList { get; }
+        IClientWarNameList ClientWarNameList { get; }
     }
 }
