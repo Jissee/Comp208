@@ -1,25 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "PE7hQoXYK4OYyhDrKFnvULREtlx2D1TCRPt9+g62ven9zEk6lDhIoxDtFmsT+h5PJVYz5X0C/TIAWE1ugDCkIQ==",
   "success": true,
   "projectFilePath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj",
-=======
-  "dgSpecHash": "i8ENByU+OyE+eKMvkKGI5m3LX/evSmOH2jxqXZ2knr40g5YJi0xIG+1i5b7/GjX1LtAw+Amk7f4UwRrZUxsDeA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
->>>>>>> b55fcaf006948c4db8af69185971b1953b9d0ac5
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-<<<<<<< HEAD
-      "message": "读取缓存文件 D:\\e-textbook3\\comp208\\EoE\\EoE\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
-=======
-      "message": "读取缓存文件 C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
->>>>>>> b55fcaf006948c4db8af69185971b1953b9d0ac5
-    }
-  ]
+  "logs": []
 }

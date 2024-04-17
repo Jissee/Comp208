@@ -10,6 +10,7 @@ using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Server.GovernanceSystem;
 using EoE.Server.Network;
 using EoE.Server.TradeSystem;
+using EoE.Server.WarSystem;
 using EoE.TradeSystem;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
@@ -23,6 +24,7 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 
 namespace EoE.Server
 {
@@ -442,6 +444,8 @@ namespace EoE.Server
 
         public void GameSummary()
         {
+            // name, resource score, field score, pop score, army score, total score
+            List<(string, int, int, int, int, int)> ranks = new List<(string, int, int, int, int, int)>();
             foreach(var player in PlayerList.Players)
             {
                 IResourceList resourceList = player.GonveranceManager.ResourceList;
@@ -452,10 +456,22 @@ namespace EoE.Server
                 int electronic = resourceList.GetResourceCount(GameResourceType.Electronic);
                 int industrial = resourceList.GetResourceCount(GameResourceType.Industrial);
 
+                int resourceScore = 
+                    silicon + 
+                    copper + 
+                    iron + 
+                    aluminum + 
+                    electronic * 2 + 
+                    industrial * 2;
+
                 int battle = resourceList.GetResourceCount(GameResourceType.BattleArmy);
                 int informative = resourceList.GetResourceCount(GameResourceType.InformativeArmy);
                 int mechanism = resourceList.GetResourceCount(GameResourceType.MechanismArmy);
 
+                int armyScore = 
+                    battle * new BattleArmyInfo().Worth + 
+                    informative * new InformativeArmyInfo().Worth +
+                    mechanism * new MechanismArmyInfo().Worth;
 
                 IFieldList fieldList = player.GonveranceManager.FieldList;
                 int siliconf = fieldList.GetFieldCount(GameResourceType.Silicon);
@@ -465,11 +481,26 @@ namespace EoE.Server
                 int electronicf = fieldList.GetFieldCount(GameResourceType.Electronic);
                 int industrialf = fieldList.GetFieldCount(GameResourceType.Industrial);
 
+                int fieldScore = 
+                    siliconf + 
+                    copperf + 
+                    ironf + 
+                    aluminumf + 
+                    electronicf + 
+                    industrialf;
+
+
 
                 IPopManager popManager = player.GonveranceManager.PopManager;
                 int pop = popManager.TotalPopulation;
-                
+                int popScore = pop * 2;
+
+                int totalScore = resourceScore + armyScore + fieldScore + popScore;
+
+                ranks.Add((player.PlayerName, resourceScore, fieldScore, popScore, armyScore, totalScore));
             }
+            ranks.Sort((tuple1, tuple2) => tuple1.Item5.CompareTo(tuple2.Item5));
+            Boardcast(new GameSummaryPacket(ranks), player => true);
         }
     }
 }
