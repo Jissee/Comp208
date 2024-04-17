@@ -38,6 +38,7 @@ namespace EoE.Network.Entities
         void CheckPlayerTickStatus();
         void BeginGame();
         void SetGame(int playerCount, int totalTick);
+        void GameSummary();
 
 
     }

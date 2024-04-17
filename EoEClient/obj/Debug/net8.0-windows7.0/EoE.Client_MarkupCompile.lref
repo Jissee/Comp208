@@ -1,6 +1,5 @@
 ﻿
 
-<<<<<<< HEAD
 FD:\e-textbook3\comp208\EoE\EoEClient\ChatSystem\ChatMianPage.xaml;;
 FD:\e-textbook3\comp208\EoE\EoEClient\ChatSystem\ChatPage.xaml;;
 FD:\e-textbook3\comp208\EoE\EoEClient\ChatSystem\EstablishRelation.xaml;;
@@ -26,31 +25,4 @@ FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\CheckWarDetail.xaml;;
 FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\DeclareWar.xaml;;
 FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\WarDetail.xaml;;
 FD:\e-textbook3\comp208\EoE\EoEClient\WarSystem\WarMainPage.xaml;;
-=======
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\ChatSystem\ChatMianPage.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\ChatSystem\ChatPage.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\ChatSystem\EstablishRelation.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\ChatSystem\TreatyContent.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\GovernanceSystem\BlockManagement.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\GovernanceSystem\ConvertPage.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\GovernanceSystem\MainWindow.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\GovernanceSystem\MilitaryManagement.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\GovernanceSystem\ResourceManage.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\GovernanceSystem\SetExploreWindow.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\Login\EnterGamePage.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\Login\GameAgreement.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\Login\LoginWindow.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\Login\MainGamePage.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\Login\MainTradePage.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\Login\SetGameWindow.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\TradeSystem\SelectTraderWindow.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\TradeSystem\SellAndBuy2.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\WarSystem\AbrogateTreaty.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\WarSystem\AllocateArmy.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\WarSystem\CheckStatus.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\WarSystem\CheckWarDetail.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\WarSystem\DeclareWar.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\WarSystem\WarDetail.xaml;;
-FC:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\WarSystem\WarMainPage.xaml;;
->>>>>>> 59de87415fce14c9b6df9d0b6e0943ad23a2648d
 

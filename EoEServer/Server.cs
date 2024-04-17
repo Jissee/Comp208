@@ -379,6 +379,10 @@ namespace EoE.Server
             try
             {
                 Status.Tick();
+                if(Status.TickCount == Status.TotalTick)
+                {
+                    GameSummary();
+                }
                 lock(PlayerList)
                 {
                     PlayerList.Tick();
@@ -424,6 +428,38 @@ namespace EoE.Server
         {
             PlayerList.SetPlayerCount(playerCount);
             Status.TotalTick = totalTick;
+        }
+
+        public void GameSummary()
+        {
+            foreach(var player in PlayerList.Players)
+            {
+                IResourceList resourceList = player.GonveranceManager.ResourceList;
+                int silicon = resourceList.GetResourceCount(GameResourceType.Silicon);
+                int copper = resourceList.GetResourceCount(GameResourceType.Copper);
+                int iron = resourceList.GetResourceCount(GameResourceType.Iron);
+                int aluminum = resourceList.GetResourceCount(GameResourceType.Aluminum);
+                int electronic = resourceList.GetResourceCount(GameResourceType.Electronic);
+                int industrial = resourceList.GetResourceCount(GameResourceType.Industrial);
+
+                int battle = resourceList.GetResourceCount(GameResourceType.BattleArmy);
+                int informative = resourceList.GetResourceCount(GameResourceType.InformativeArmy);
+                int mechanism = resourceList.GetResourceCount(GameResourceType.MechanismArmy);
+
+
+                IFieldList fieldList = player.GonveranceManager.FieldList;
+                int siliconf = fieldList.GetFieldCount(GameResourceType.Silicon);
+                int copperf = fieldList.GetFieldCount(GameResourceType.Copper);
+                int ironf = fieldList.GetFieldCount(GameResourceType.Iron);
+                int aluminumf = fieldList.GetFieldCount(GameResourceType.Aluminum);
+                int electronicf = fieldList.GetFieldCount(GameResourceType.Electronic);
+                int industrialf = fieldList.GetFieldCount(GameResourceType.Industrial);
+
+
+                IPopManager popManager = player.GonveranceManager.PopManager;
+                int pop = popManager.TotalPopulation;
+                
+            }
         }
     }
 }
