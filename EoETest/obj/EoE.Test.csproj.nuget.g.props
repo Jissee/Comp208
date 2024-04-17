@@ -5,12 +5,21 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+<<<<<<< HEAD
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\32171\.nuget\packages\;C:\软件\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+=======
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\sun\.nuget\packages\</NuGetPackageFolders>
+>>>>>>> 2c56930ca489948b8bcd7e28d35d0850fcdeaf3a
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.9.1</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+<<<<<<< HEAD
+    <SourceRoot Include="C:\Users\32171\.nuget\packages\" />
+    <SourceRoot Include="C:\软件\Microsoft Visual Studio\Shared\NuGetPackages\" />
+=======
     <SourceRoot Include="C:\Users\sun\.nuget\packages\" />
+>>>>>>> 2c56930ca489948b8bcd7e28d35d0850fcdeaf3a
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)mstest.testadapter\3.0.4\build\net6.0\MSTest.TestAdapter.props" Condition="Exists('$(NuGetPackageRoot)mstest.testadapter\3.0.4\build\net6.0\MSTest.TestAdapter.props')" />
