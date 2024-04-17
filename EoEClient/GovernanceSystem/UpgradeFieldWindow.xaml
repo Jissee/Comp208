@@ -1,0 +1,28 @@
+﻿<Window x:Class="EoE.Client.GovernanceSystem.UpgradeFieldWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EoE.Client.GovernanceSystem"
+        mc:Ignorable="d"
+        Title="Convert" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+        <ListBox x:Name="PrimaryField" Margin="299,122,400,201" FontSize="16">
+            <ListBoxItem Content="Silicon"/>
+            <ListBoxItem Content="Copper"/>
+            <ListBoxItem Content="Iron"/>
+            <ListBoxItem Content="Aluminum" FontSize="16"/>
+            </ListBox>
+        <Label Content="I want to convert" HorizontalAlignment="Left" Margin="27,163,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="inputNumber" HorizontalAlignment="Left" Margin="186,167,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="83" FontSize="16" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <Label Content="block(s) into " HorizontalAlignment="Left" Margin="425,163,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ListBox x:Name="SecondaryField" Margin="539,145,133,224" FontSize="16">
+            <ListBoxItem Content="Electronic"/>
+            <ListBoxItem Content="Industrial"/>
+            </ListBox>
+        <Label Content="block(s)." HorizontalAlignment="Left" Margin="683,161,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="submit" HorizontalAlignment="Left" Margin="492,328,0,0" VerticalAlignment="Top" Height="56" Width="86" FontSize="20" Click="Button_Click"/>
+        <Button Content="back" HorizontalAlignment="Left" Margin="256,323,0,0" VerticalAlignment="Top" FontSize="20" Height="61" Width="87" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>

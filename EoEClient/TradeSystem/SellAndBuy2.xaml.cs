@@ -94,7 +94,7 @@ namespace EoE.Client.TradeSystem
                 MessageBox.Show("There must be at least one integer between sell and buy！");
                 return;
             }
-            EoE.Client.Login.MainTradePage mainTradePage = new EoE.Client.Login.MainTradePage();
+            EoE.Client.Login.MainTradeWindow mainTradePage = new EoE.Client.Login.MainTradeWindow();
             mainTradePage.Show();
             this.Hide();
 
@@ -102,7 +102,7 @@ namespace EoE.Client.TradeSystem
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<MainTradePage>();
+            WindowManager.INSTANCE.ShowWindows<MainTradeWindow>();
             this.Hide();
 
         }

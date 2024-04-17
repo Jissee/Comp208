@@ -34,13 +34,14 @@ namespace EoE.Client.WarSystem
             theWarName = warName.Text;
             WarDeclarablePacket packet = new WarDeclarablePacket(warName.Text, []);
             Client.INSTANCE.SendPacket(packet);
-            WindowManager.INSTANCE.ShowWindows<DeclareWar>();
+            WarNameQueryPacket warNamePacket = new WarNameQueryPacket([]);
+            Client.INSTANCE.SendPacket(warNamePacket);
         }
 
         private void buttonCheck_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<CheckStatus>();
-            WarNameQueryPacket Packet = new WarNameQueryPacket([]);
+            WarNameQueryRelatedPacket Packet = new WarNameQueryRelatedPacket([]);
             Client.INSTANCE.SendPacket(Packet);
         }
 

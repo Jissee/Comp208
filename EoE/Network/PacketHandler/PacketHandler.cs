@@ -54,6 +54,7 @@ namespace EoE.Network
             Register<WarInvitationPacket>();
             Register<WarInvitedPacket>();
             Register<WarNameQueryPacket>();
+            Register<WarNameQueryRelatedPacket>();
             Register<WarQueryTargetPacket>();
             Register<WarSurrenderPacket>();
             Register<BreakTreatyPacket>();

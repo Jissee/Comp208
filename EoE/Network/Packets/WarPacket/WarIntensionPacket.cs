@@ -1,4 +1,5 @@
 ﻿using EoE.Network.Entities;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +66,8 @@ namespace EoE.Network.Packets.WarPacket
                 IServer server = (IServer)context.Receiver;
                 IPlayer targetPlayer = server.GetPlayer(targetPlayerName)!;
                 List<IPlayer> protectors = server.PlayerList.GetProtectorsRecursively(targetPlayer);
-
+                server.PlayerList.WarManager.PreparingWarDict[warName].Attackers.Clear();
+                server.PlayerList.WarManager.PreparingWarDict[warName].Defenders.Clear();
                 server.PlayerList.WarManager.PreparingWarDict[warName].Defenders.AddPlayer(targetPlayer);
                 foreach (IPlayer player in protectors)
                 {
@@ -77,6 +79,7 @@ namespace EoE.Network.Packets.WarPacket
                 List<IPlayer> allPlayers = [.. server.PlayerList.Players];
                 allPlayers.RemoveAll(protectors.Contains);
                 allPlayers.Remove(context.PlayerSender!);
+                allPlayers.Remove(server.GetPlayer(targetPlayerName)!);
 
                 var participatibleEnum = from participatable in allPlayers
                                          select participatable.PlayerName;

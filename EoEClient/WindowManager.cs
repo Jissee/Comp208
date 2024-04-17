@@ -77,7 +77,7 @@ namespace EoE.Client
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                ShowWindows<EnterGamePage>();
+                ShowWindows<EnterGameWindow>();
                 LoginWindow window = GetWindows<LoginWindow>();
                 window.ignoreClosing = true;
                 window.Close();
@@ -88,11 +88,11 @@ namespace EoE.Client
             Application.Current.Dispatcher.Invoke(() =>
             {
                 ResourceListRecord record = new ResourceListRecord(Client.INSTANCE.GonveranceManager.ResourceList);
-                MainGamePage window = GetWindows<MainGamePage>();
+                MainGameWindow window = GetWindows<MainGameWindow>();
                 window.SynchronizeResources(record);
-                MilitaryManagement military = GetWindows<MilitaryManagement>();
+                MilitaryManagementWindow military = GetWindows<MilitaryManagementWindow>();
                 military.SynchronizeResources(record);
-                ResourceManage resourceManage = GetWindows<ResourceManage>();
+                ResourceInformationWindow resourceManage = GetWindows<ResourceInformationWindow>();
                 resourceManage.SynchronizeResources(record);
             });
         }
@@ -102,9 +102,9 @@ namespace EoE.Client
             Application.Current.Dispatcher.Invoke(() =>
             {
                 FieldListRecord record = new FieldListRecord(Client.INSTANCE.GonveranceManager.FieldList);
-                BlockManagement blockManagement = GetWindows<BlockManagement>();
+                BlockManagementWindow blockManagement = GetWindows<BlockManagementWindow>();
                 blockManagement.SynchronizeFields(record);
-                ResourceManage resourceManage = GetWindows<ResourceManage>();
+                ResourceInformationWindow resourceManage = GetWindows<ResourceInformationWindow>();
                 resourceManage.SynchronizeFields(record);
 
                 CheckOtherPlayer checkOther = GetWindows<CheckOtherPlayer>();
@@ -117,11 +117,11 @@ namespace EoE.Client
             Application.Current.Dispatcher.Invoke(() =>
             {
                 PopulationRecord record = Client.INSTANCE.GonveranceManager.PopManager.GetPopulationRecord();
-                MainGamePage window = GetWindows<MainGamePage>();
+                MainGameWindow window = GetWindows<MainGameWindow>();
                 window.SynchronizePopulation(record);
-                BlockManagement blockManagement = GetWindows<BlockManagement>();
+                BlockManagementWindow blockManagement = GetWindows<BlockManagementWindow>();
                 blockManagement.SynchronizePopulation(record);
-                ResourceManage resourceManage = GetWindows<ResourceManage>();
+                ResourceInformationWindow resourceManage = GetWindows<ResourceInformationWindow>();
                 resourceManage.SynchronizePopulation(record);
                 SetExploreWindow setExploreWindow = GetWindows<SetExploreWindow>();
                 setExploreWindow.SynchronizePopulation(record);
@@ -131,7 +131,7 @@ namespace EoE.Client
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                MainGamePage window = GetWindows<MainGamePage>();
+                MainGameWindow window = GetWindows<MainGameWindow>();
                 window.SynchronizeRoundNumber(round);
                 window.NextRound.IsChecked = false;
             });
@@ -140,23 +140,23 @@ namespace EoE.Client
 
         public void ShowGameMainPage()
         {
-            Type t = typeof(MainGamePage);
+            Type t = typeof(MainGameWindow);
             string typeName = t.FullName;
             Application.Current.Dispatcher.Invoke(() =>
             {
-                ShowWindows<MainGamePage>();
-                EnterGamePage window = GetWindows<EnterGamePage>();
+                ShowWindows<MainGameWindow>();
+                EnterGameWindow window = GetWindows<EnterGameWindow>();
                 window.ignoreClosing = true;
                 window.Close();
             });
         }
         public void UpdateGameSetting(int playerNumber,int gameRound)
         {
-            Type t = typeof(EnterGamePage);
+            Type t = typeof(EnterGameWindow);
             string typeName = t.FullName;
             Application.Current.Dispatcher.Invoke(() =>
             {
-                EnterGamePage window = (EnterGamePage)GetWindows<EnterGamePage>();
+                EnterGameWindow window = (EnterGameWindow)GetWindows<EnterGameWindow>();
                 window.SynchronizeGameSetting(playerNumber, gameRound);
             });
 

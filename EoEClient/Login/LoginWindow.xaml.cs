@@ -34,7 +34,7 @@ namespace EoE.Client.Login
 
         private void Quary_Click(object sender, RoutedEventArgs e)
         {
-            GameAgreement gameAgreementWindow = new GameAgreement();
+            GameAgreementWindow gameAgreementWindow = new GameAgreementWindow();
             gameAgreementWindow.Owner = this; 
             gameAgreementWindow.ShowDialog();
         }

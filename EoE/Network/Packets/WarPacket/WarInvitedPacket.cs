@@ -51,7 +51,10 @@ namespace EoE.Network.Packets.WarPacket
                     IWarManager warManager = server.PlayerList.WarManager;
                     if (warManager.PreparingWarDict.ContainsKey(warName))
                     {
-                        warManager.PreparingWarDict[warName].Attackers.AddPlayer(player);
+                        if (!warManager.PreparingWarDict[warName].Attackers.Contains(player))
+                        {
+                            warManager.PreparingWarDict[warName].Attackers.AddPlayer(player);
+                        }
                     }
                     ServerMessagePacket packet = new ServerMessagePacket(accepterName + " accepted your invitation!");
                     IPlayer invitor = server.GetPlayer(invitorName)!;
