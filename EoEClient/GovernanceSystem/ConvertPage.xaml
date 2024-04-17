@@ -12,7 +12,7 @@
             <ListBoxItem Content="Copper"/>
             <ListBoxItem Content="Iron"/>
             <ListBoxItem Content="Aluminum" FontSize="16"/>
-        </ListBox>
+            </ListBox>
         <Label Content="I want to convert" HorizontalAlignment="Left" Margin="27,163,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox x:Name="inputNumber" HorizontalAlignment="Left" Margin="186,167,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="83" FontSize="16" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <Label Content="block(s) into " HorizontalAlignment="Left" Margin="425,163,0,0" VerticalAlignment="Top" FontSize="16"/>

@@ -106,5 +106,10 @@ namespace EoE.Client.ChatSystem
             Regex re = new Regex("[^0-9]+");
             e.Handled = re.IsMatch(e.Text);
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

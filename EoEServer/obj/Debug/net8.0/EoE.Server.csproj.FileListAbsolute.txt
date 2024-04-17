@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
@@ -87,3 +88,26 @@ D:\comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 D:\comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
 >>>>>>> commit
 >>>>>>> 0287c75394425d0d452470f043cfdf6810c27368
+=======
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.exe
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.Server.pdb
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.dll
+D:\e-textbook3\comp208\EoE\EoEServer\bin\Debug\net8.0\EoE.pdb
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.AssemblyReference.cache
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.GeneratedMSBuildEditorConfig.editorconfig
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfoInputs.cache
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfo.cs
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.CoreCompileInputs.cache
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.sourcelink.json
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.dll
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
+D:\e-textbook3\comp208\EoE\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+>>>>>>> 159886617f492c046285364b8eda9ca8f83e62a1

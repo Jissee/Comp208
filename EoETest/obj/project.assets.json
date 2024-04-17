@@ -1215,24 +1215,40 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\32171\\.nuget\\packages\\": {},
     "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "C:\\Users\\sun\\.nuget\\packages\\": {}
+>>>>>>> 159886617f492c046285364b8eda9ca8f83e62a1
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj",
       "projectName": "EoE.Test",
       "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\EoE.Test.csproj",
       "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\obj\\",
+=======
+      "projectUniqueName": "D:\\e-textbook3\\comp208\\EoE\\EoETest\\EoE.Test.csproj",
+      "projectName": "EoE.Test",
+      "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoETest\\EoE.Test.csproj",
+      "packagesPath": "C:\\Users\\sun\\.nuget\\packages\\",
+      "outputPath": "D:\\e-textbook3\\comp208\\EoE\\EoETest\\obj\\",
+>>>>>>> 159886617f492c046285364b8eda9ca8f83e62a1
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+        "C:\\Users\\sun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 159886617f492c046285364b8eda9ca8f83e62a1
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1246,6 +1262,7 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj": {
               "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj"
             },
@@ -1254,6 +1271,16 @@
             },
             "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
               "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
+=======
+            "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj": {
+              "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj"
+            },
+            "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj": {
+              "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoEServer\\EoE.Server.csproj"
+            },
+            "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj": {
+              "projectPath": "D:\\e-textbook3\\comp208\\EoE\\EoE\\EoE.csproj"
+>>>>>>> 159886617f492c046285364b8eda9ca8f83e62a1
             }
           }
         }
@@ -1309,6 +1336,7 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
+<<<<<<< HEAD
   },
   "logs": [
     {
@@ -1318,4 +1346,7 @@
       "message": "读取缓存文件 C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoETest\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
+=======
+  }
+>>>>>>> 159886617f492c046285364b8eda9ca8f83e62a1
 }

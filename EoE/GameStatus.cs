@@ -20,7 +20,7 @@ namespace EoE
         public Modifier GlobalIronModifier { get; init; }
         public Modifier GlobalAluminumModifier { get; init; }
         public Modifier GlobalElectronicModifier { get; init; }
-        public Modifier GlobalIndustryModifier { get; init; }
+        public Modifier GlobalIndustralModifier { get; init; }
 
         public GameStatus(int initialUndentifiedField, int count)
         {
@@ -32,7 +32,7 @@ namespace EoE
             GlobalIronModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
-            GlobalIndustryModifier = new Modifier("", Modifier.ModifierType.Plus);
+            GlobalIndustralModifier = new Modifier("", Modifier.ModifierType.Plus);
             TickCount = 0;
             TotalTick = count;
             UnidentifiedField = initialUndentifiedField;

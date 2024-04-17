@@ -107,7 +107,7 @@ namespace EoE.Server.GovernanceSystem
                 FieldList.GetFieldStack(GameResourceType.Industrial),
                 ResourceList.GetResourceCount(GameResourceType.Iron),
                 ResourceList.GetResourceCount(GameResourceType.Aluminum));
-            resource.Count = (int)PlayerStatus.CountryIndustryModifier.Apply(resource.Count);
+            resource.Count = (int)PlayerStatus.CountryIndustralModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
             (consume1, consume2) = Recipes.calcIndustrailPC(resource);
             ResourceList.SplitResourceStack(consume1);
