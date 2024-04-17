@@ -75,7 +75,7 @@ namespace EoE.Server
             }
             else
             {
-                player.SendPacket(new ServerMessagePacket("Server full, please wait for the end of the existing match or for the host to increase the number of players"));
+                player.SendPacket(new ServerMessagePacket(ServerMessagePacket.SERVER_FULL));
                 player.Disconnect();
             }
         }
