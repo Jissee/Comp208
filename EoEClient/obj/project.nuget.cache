@@ -1,21 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "WEI7fBZ3jNT6/umpk+GrZsHQfN3vk2KQ0t778yE5t/u6F3iz//k07Gv0ZMXQaOpbJRkT8HMKpS9No7Z8VDjhkA==",
   "success": true,
   "projectFilePath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEClient\\EoE.Client.csproj",
-=======
-  "dgSpecHash": "tJM3arCFv47lUwRu8eVQTaY9Kv4c38uGwAaf4CtJEbJvG+zHqtFhQyduKXTGqaiUE74sHO0kR1QKkxLENHdjMA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\EoE.Client.csproj",
->>>>>>> 4bf2a6e026242ed7ec4c4e55a7ef57f731894d43
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "读取缓存文件 C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEClient\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
