@@ -82,7 +82,7 @@ namespace EoE.Server
             GonveranceManager.ClearAll();
             Server.PlayerList.WarManager.PlayerLose(this);
             Server.PlayerList.TradeManager.ClearAll(this);
-            Server.Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(GonveranceManager.FieldList)), thisPlayer => thisPlayer.PlayerName != this.PlayerName);
+            Server.Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(GonveranceManager.FieldList), this.PlayerName), thisPlayer => thisPlayer.PlayerName != this.PlayerName);
             //TodO TreatyManager losse
             Server.PlayerList.PlayerLogout(this);
         }

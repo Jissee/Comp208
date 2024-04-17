@@ -50,6 +50,18 @@ namespace EoE.Client.GovernanceSystem
         {
 
         }
+
+        public List<int> ToList()
+        {
+            List<int> list =
+                [this.GetFieldCount(GameResourceType.Silicon),
+                this.GetFieldCount(GameResourceType.Copper),
+                this.GetFieldCount(GameResourceType.Iron),
+                this.GetFieldCount(GameResourceType.Aluminum),
+                this.GetFieldCount(GameResourceType.Electronic),
+                this.GetFieldCount(GameResourceType.Industrial)];
+            return list;
+        }
         public void AddField(GameResourceType type, int count)
         {
             AddFieldStack(new FieldStack(type, count));

@@ -23,7 +23,7 @@ namespace EoE.Client.Login
         public EnterGamePage()
         {
             InitializeComponent();
-            SynchronizePlayerList();
+            SynchronizeOtherPlayerList();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -31,7 +31,7 @@ namespace EoE.Client.Login
             this.Close();
         }
 
-        public void SynchronizePlayerList()
+        public void SynchronizeOtherPlayerList()
         {
             PlayerListBox.Items.Clear();
             PlayerListBox.Items.Add(Client.INSTANCE.PlayerName);

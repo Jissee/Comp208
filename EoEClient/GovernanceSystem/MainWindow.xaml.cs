@@ -49,15 +49,17 @@ namespace EoE.Client.GovernanceSystem
             this.Hide();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            WindowManager.INSTANCE.ShowWindows<CheckOtherFieldsWindow>();
-        }
-
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<ConvertPage>();
+            this.Hide();
+            WindowManager.INSTANCE.ShowWindows<CheckOtherPlayer>();
         }
 
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            WindowManager.INSTANCE.ShowWindows<ConvertPage>();
+
+        }
     }
 }

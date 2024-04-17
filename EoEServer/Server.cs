@@ -78,7 +78,7 @@ namespace EoE.Server
                 player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(player.GonveranceManager.ResourceList)));
                 player.SendPacket(new FieldUpdatePacket(new FieldListRecord(player.GonveranceManager.FieldList)));
                 player.SendPacket(new PopulationUpdatePacket(player.GonveranceManager.PopManager.GetPopulationRecord()));
-                Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList)), thisPlayer => thisPlayer != player);
+                Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList),player.PlayerName), thisPlayer => thisPlayer != player);
             }
         }
         private void PrepareGlobalBonusEvents()
@@ -93,9 +93,9 @@ namespace EoE.Server
                 (
                    (server, player) =>
                    {
-                       player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("Primary Breakthrough", 2.5);
-                       player.SendPacket(new ServerMessagePacket("Due to a new technological breakthrough, " +
-                           "the productivity of all country's four primary resources has been increased."));
+                       server.Status.GlobalAluminumModifier.AddValue("Primary Breakthrough", 2.5);
+                       server.Boardcast(new ServerMessagePacket("Due to a new technological breakthrough, " +
+                           "the productivity of all country's four primary resources has been increased."),player=>true);
                    }
                  );
             EventList.AddEvent(builder1.Build());
@@ -110,9 +110,9 @@ namespace EoE.Server
                 (
                    (server, player) =>
                    {
-                       player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("Pandamic", -2.5);
-                       player.SendPacket(new ServerMessagePacket("Due to the pandemic, " +
-                           "the productivity of all country's four primary resources has been decreased."));
+                       server.Status.GlobalAluminumModifier.AddValue("Pandamic", -2.5);
+                       server.Boardcast(new ServerMessagePacket("Due to the pandemic, " +
+                           "the productivity of all country's four primary resources has been decreased."),player=>true);
                    }
                  );
             EventList.AddEvent(builder2.Build());
@@ -402,7 +402,7 @@ namespace EoE.Server
                 Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
                 foreach (IPlayer player in PlayerList.Players)
                 {
-                    Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList)), thisPlayer => thisPlayer != player);
+                    Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList),player.PlayerName), thisPlayer => thisPlayer != player);
                 }
             }
             catch (Exception ex)
