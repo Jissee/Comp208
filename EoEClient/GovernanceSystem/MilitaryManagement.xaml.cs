@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace EoE.Client.GovernanceSystem
         {
             InitializeComponent();
             battlebefore.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.BattleArmy).ToString();
-            techbefore.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InformativeArmy).ToString();
+            infobefore.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InformativeArmy).ToString();
             mechbefore.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.MechanismArmy).ToString();
            
         }
@@ -52,11 +53,19 @@ namespace EoE.Client.GovernanceSystem
             
         }
 
+        public void SynchronizeResources(ResourceListRecord record)
+        {
+            battlebefore.Text = record.battleArmyCount.ToString();
+            infobefore.Text = record.informativeArmyCount.ToString();
+            mechbefore.Text = record.mechanismArmyCount.ToString();
+        }
         private void Submit3_Click(object sender, RoutedEventArgs e)
         {
-            if ((int.TryParse(battlechange.Text, out int value1) && value1 >= 0) && (int.TryParse(techchange.Text, out int value2) && value2 >= 0) && (int.TryParse(mechchange.Text, out int value3) && value3 >= 0))
+            if ((int.TryParse(battlechange.Text, out int value1) && value1 >= 0) && (int.TryParse(informativeChange.Text, out int value2) && value2 >= 0) && (int.TryParse(mechchange.Text, out int value3) && value3 >= 0))
             {
-                MessageBox.Show("Successfully!");
+                Client.INSTANCE.GonveranceManager.SyntheticArmy(GameResourceType.BattleArmy,int.Parse(battlechange.Text));
+                Client.INSTANCE.GonveranceManager.SyntheticArmy(GameResourceType.InformativeArmy, int.Parse(informativeChange.Text));
+                Client.INSTANCE.GonveranceManager.SyntheticArmy(GameResourceType.MechanismArmy, int.Parse(mechchange.Text));
             }
             else
             {

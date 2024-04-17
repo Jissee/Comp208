@@ -57,7 +57,8 @@ namespace EoE.Server.GovernanceSystem
         {
             if (CheckAvailability(siliconPop, copperPop, ironPop, aluminumPop, industrialPop, electronicPop))
             {
-                AvailablePopulation = TotalPopulation - siliconPop - copperPop - ironPop - aluminumPop - industrialPop - electronicPop;
+                int total = TotalPopulation;
+                AvailablePopulation = total - siliconPop - copperPop - ironPop - aluminumPop - industrialPop - electronicPop;
                 popAloc[GameResourceType.Silicon] = siliconPop;
                 popAloc[GameResourceType.Copper] = copperPop;
                 popAloc[GameResourceType.Iron] = ironPop;
@@ -78,7 +79,7 @@ namespace EoE.Server.GovernanceSystem
             {
                 player.SendPacket(new ServerMessagePacket("Negative input"));
                 return false;
-            }else if (siliconPop + copperPop + ironPop + aluminumPop + industrialPop + electronic + AvailablePopulation >= TotalPopulation)
+            }else if (TotalPopulation >= siliconPop + copperPop + ironPop + aluminumPop + industrialPop + electronic)
             {
                 return true;
             }

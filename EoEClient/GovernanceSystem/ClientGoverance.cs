@@ -2,11 +2,15 @@
 using EoE.GovernanceSystem.ClientInterface;
 using EoE.GovernanceSystem.Interface;
 using EoE.Network.Packets.GonverancePacket;
+using EoE.Network.Packets.GonverancePacket.Record;
+using EoE.Server.GovernanceSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using static EoE.GovernanceSystem.Interface.IGonveranceManager;
 
 namespace EoE.Client.GovernanceSystem
@@ -46,6 +50,7 @@ namespace EoE.Client.GovernanceSystem
                     ResourceList.SplitResource(GameResourceType.Copper, consume);
                     ResourceList.SplitResource(GameResourceType.Iron, consume);
                     ResourceList.SplitResource(GameResourceType.Aluminum, consume);
+                    PopManager.AlterAvailablePop(-inutPopulation);
                     Client.INSTANCE.SendPacket(new SetExplorationPacket(inutPopulation));
                 }
                 else
@@ -55,9 +60,71 @@ namespace EoE.Client.GovernanceSystem
             }
         }
 
-        public void Tick()
+        public void SyntheticArmy(GameResourceType type, int count)
         {
-            throw new NotImplementedException();
+            if ((int)type < (int)GameResourceType.BattleArmy)
+            {
+                MessageBox.Show("Please input an valid army type");
+            }
+
+            ResourceStack army = new ResourceStack(type, count);
+            int popCount;
+            ResourceStack resource;
+            switch (type)
+            {
+                case GameResourceType.BattleArmy:
+                    (popCount, resource) = Recipes.BattleArmyproduce(army);
+
+                    if (popCount <= PopManager.AvailablePopulation)
+                    {
+                        PopManager.AlterAvailablePop(-popCount);
+                        ResourceList.AddResourceStack(army);
+                        Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type, count));
+                        WindowManager.INSTANCE.UpdateResources();
+                        WindowManager.INSTANCE.UpdatePopulation();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No enough available population");
+
+                    }
+                    break;
+                case GameResourceType.InformativeArmy:
+                    (popCount, resource) = Recipes.produceInfomativeArmy(army);
+                    if (popCount <= PopManager.AvailablePopulation && resource.Count <= ResourceList.GetResourceCount(GameResourceType.Electronic))
+                    {
+                        PopManager.AlterAvailablePop(-popCount);
+                        ResourceList.SplitResourceStack(resource);
+                        ResourceList.AddResourceStack(army);
+                        Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type, count));
+                        WindowManager.INSTANCE.UpdateResources();
+                        WindowManager.INSTANCE.UpdatePopulation();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No enough available population or resources");
+                    }
+                    break;
+                case GameResourceType.MechanismArmy:
+                    (popCount, resource) = Recipes.produceMechanismArmy(army);
+                    if (popCount <= PopManager.AvailablePopulation && resource.Count <= ResourceList.GetResourceCount(GameResourceType.Industrial))
+                    {
+                        PopManager.AlterAvailablePop(-popCount);
+                        ResourceList.SplitResourceStack(resource);
+                        ResourceList.AddResourceStack(army);
+                        Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type,count));
+                        WindowManager.INSTANCE.UpdateResources();
+                        WindowManager.INSTANCE.UpdatePopulation();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No enough available population or resources");
+                    }
+                    break;
+                default:
+                    throw new Exception("no such type");
+            }
+
         }
     }
 }
