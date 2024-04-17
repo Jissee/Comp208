@@ -86,7 +86,7 @@ namespace EoE.Server
                 (
                    (server, player) =>
                    {
-                       player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("", 2.5);
+                       player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("Primary Breakthrough", 2.5);
                        player.SendPacket(new ServerMessagePacket("Due to a new technological breakthrough, " +
                            "the productivity of all country's four primary resources has been increased."));
                    }
@@ -103,7 +103,7 @@ namespace EoE.Server
                 (
                    (server, player) =>
                    {
-                       player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("", -2.5);
+                       player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("Pandamic", -2.5);
                        player.SendPacket(new ServerMessagePacket("Due to the pandemic, " +
                            "the productivity of all country's four primary resources has been decreased."));
                    }
@@ -130,28 +130,28 @@ namespace EoE.Server
                            switch (index)
                            {
                                case 0:
-                                   player.GonveranceManager.PlayerStatus.CountrySiliconModifier.AddValue("",15);
+                                   player.GonveranceManager.PlayerStatus.CountrySiliconModifier.AddValue("Silicon Bonus",15);
                                    player.SendPacket(new ServerMessagePacket("You gain a Silicon generation bonus"));
                                    break;
                                case 1:
-                                   player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("", 15);
+                                   player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("Copper Bonus", 15);
                                    player.SendPacket(new ServerMessagePacket("You gain a Copper generation bonus"));
                                    break;
                                case 2:
-                                   player.GonveranceManager.PlayerStatus.CountryIronModifier.AddValue("", 15);
+                                   player.GonveranceManager.PlayerStatus.CountryIronModifier.AddValue("Iron Bonus", 15);
                                    player.SendPacket(new ServerMessagePacket("You gain a Iron generation bonus"));
                                    break;
                                case 3:
-                                   player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("", 15);
-                                   player.SendPacket(new ServerMessagePacket("You gain a luminum generation bonus"));
+                                   player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("Aluminum Bonus", 15);
+                                   player.SendPacket(new ServerMessagePacket("You gain a aluminum generation bonus"));
                                    break;
                                case 4:
-                                   player.GonveranceManager.PlayerStatus.CountryElectronicModifier.AddValue("", 7.5);
+                                   player.GonveranceManager.PlayerStatus.CountryElectronicModifier.AddValue("Electronic Bonus", 7.5);
                                    player.SendPacket(new ServerMessagePacket("You gain a Electronic generation bonus"));
                                    break;
                                case 5:
-                                   player.GonveranceManager.PlayerStatus.CountryIndustryModifier.AddValue("", 7.5);
-                                   player.SendPacket(new ServerMessagePacket("You gain a Industry generation bonus"));
+                                   player.GonveranceManager.PlayerStatus.CountryIndustralModifier.AddValue("Industral Bonus", 7.5);
+                                   player.SendPacket(new ServerMessagePacket("You gain a Industrial generation bonus"));
                                    break;
                            }
                        }
@@ -178,7 +178,7 @@ namespace EoE.Server
                         (
                            (server, player) =>
                            {
-                               player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("", 2.5);
+                               player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("Primary Increase", 2.5);
                                player.SendPacket(new ServerMessagePacket("Under your diligent and dedicated leadership, " +
                                    "the productivity of your country's four primary resources has been increased."));
                            }
@@ -196,7 +196,7 @@ namespace EoE.Server
                         (
                            (server, player) =>
                            {
-                               player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("", -2.5);
+                               player.GonveranceManager.PlayerStatus.CountryPrimaryModifier.AddValue("Primary Reduce", -2.5);
                                player.SendPacket(new ServerMessagePacket("Under your diligent and dedicated leadership, " +
                                    "the productivity of your country's four primary resources has been reduced."));
                            }
@@ -214,7 +214,7 @@ namespace EoE.Server
                         (
                            (server, player) =>
                            {
-                               player.GonveranceManager.PlayerStatus.CountrySecondaryModifier.AddValue("", 1.0);
+                               player.GonveranceManager.PlayerStatus.CountrySecondaryModifier.AddValue("Secondary Reduce", 1.0);
                                player.SendPacket(new ServerMessagePacket("Under your diligent and dedicated leadership, " +
                                    "the productivity of your country's two secondary resources has been reduced."));
                            }
@@ -232,7 +232,7 @@ namespace EoE.Server
                         (
                            (server, player) =>
                            {
-                               player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("", -3);
+                               player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("Bad Copper Weather", -3);
                                player.SendPacket(new ServerMessagePacket("Due to the onslaught of severe weather conditions, " +
                                    "the productivity of Copper has been reduced."));
                            }
@@ -250,7 +250,7 @@ namespace EoE.Server
                         (
                            (server, player) =>
                            {
-                               player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("", 3);
+                               player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("Aluminium Breakthrough", 3);
                                player.SendPacket(new ServerMessagePacket("Due to a new technological breakthrough, " +
                                    "the productivity of Aluminum has been increased."));
                            }
@@ -268,7 +268,7 @@ namespace EoE.Server
                        (
                           (server, player) =>
                           {
-                              player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("", -3);
+                              player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("Bad Aluminum Weather", -3);
                               player.SendPacket(new ServerMessagePacket("Due to the onslaught of severe weather conditions, " +
                                   "the productivity of Aluminum has been reduced.."));
                           }
@@ -383,6 +383,7 @@ namespace EoE.Server
                 {
                     PlayerList.Tick();
                 }
+                EventList.Tick();
                 Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
             }catch (Exception ex)
             {

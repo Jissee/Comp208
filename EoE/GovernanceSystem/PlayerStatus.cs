@@ -17,7 +17,7 @@ namespace EoE.GovernanceSystem
         public Modifier CountryIronModifier { get; init; }
         public Modifier CountryAluminumModifier { get; init; }
         public Modifier CountryElectronicModifier { get; init; }
-        public Modifier CountryIndustryModifier { get; init; }
+        public Modifier CountryIndustralModifier { get; init; }
 
         public PlayerStatus(GameStatus globalGameStatus)
         {
@@ -29,7 +29,7 @@ namespace EoE.GovernanceSystem
             CountryIronModifier = new Modifier("", Modifier.ModifierType.Plus);
             CountryAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
             CountryElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
-            CountryIndustryModifier = new Modifier("", Modifier.ModifierType.Plus);
+            CountryIndustralModifier = new Modifier("", Modifier.ModifierType.Plus);
 
             CountrySiliconModifier
                 .AddNode(CountryPrimaryModifier)
@@ -66,10 +66,10 @@ namespace EoE.GovernanceSystem
                 .AddNode(globalGameStatus.GlobalSecondaryModifier)
                 .AddNode(globalGameStatus.GlobalResourceModifier);
 
-            CountryIndustryModifier
+            CountryIndustralModifier
               .AddNode(CountrySecondaryModifier)
                .AddNode(CountryResourceModifier)
-               .AddNode(globalGameStatus.GlobalIndustryModifier)
+               .AddNode(globalGameStatus.GlobalIndustralModifier)
                .AddNode(globalGameStatus.GlobalSecondaryModifier)
                .AddNode(globalGameStatus.GlobalResourceModifier);
         }

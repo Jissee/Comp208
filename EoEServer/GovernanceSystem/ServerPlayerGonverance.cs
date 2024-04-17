@@ -21,7 +21,10 @@ namespace EoE.Server.GovernanceSystem
     public class ServerPlayerGonverance : ITickable, IServerGonveranceManager
     {
         //consume rate
-       
+        public static readonly double SILICON_PER_POP_TICK = 1.0f;
+        public static readonly double COPPER_PER_POP_TICK = 1.0f;
+        public static readonly double IRON_PER_POP_TICK = 1.0f;
+        public static readonly double ALUMINUM_PER_POP_TICK = 1.0f;
 
         public static readonly double EXPLORE_FIELD_PER_POP = 1.1f;
         public static readonly int FIELD_EXPLORE_THRESHOLD = 100;
@@ -49,7 +52,7 @@ namespace EoE.Server.GovernanceSystem
             this.PlayerStatus = new PlayerStatus(globalGameStatus);
 
             FieldList = new ServerPlayerFieldList(20,20,20,20,20,20,player);
-            ResourceList = new ServerPlayerResourceList(100, 100,100, 100, 50, 50, 20, 20, 20);
+            ResourceList = new ServerPlayerResourceList(100, 100,100, 100, 100, 100, 100, 50, 50);
             PopManager = new ServerPopulationManger(initPop, player);
             this.player = player;
         }
@@ -107,7 +110,7 @@ namespace EoE.Server.GovernanceSystem
                 FieldList.GetFieldStack(GameResourceType.Industrial),
                 ResourceList.GetResourceCount(GameResourceType.Iron),
                 ResourceList.GetResourceCount(GameResourceType.Aluminum));
-            resource.Count = (int)PlayerStatus.CountryIndustryModifier.Apply(resource.Count);
+            resource.Count = (int)PlayerStatus.CountryIndustralModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
             (consume1, consume2) = Recipes.calcIndustrailPC(resource);
             ResourceList.SplitResourceStack(consume1);
@@ -139,10 +142,10 @@ namespace EoE.Server.GovernanceSystem
         {
             int pop = PopManager.TotalPopulation;
             
-            int silionConsume = (int)(pop * Recipes.SILICON_PER_POP_TICK);
-            int copperConsume = (int)(pop * Recipes.COPPER_PER_POP_TICK);
-            int ironConsume = (int)(pop * Recipes.IRON_PER_POP_TICK);
-            int aluminumConsume = (int)(pop * Recipes.ALUMINUM_PER_POP_TICK);
+            int silionConsume = (int)(pop * SILICON_PER_POP_TICK);
+            int copperConsume = (int)(pop * COPPER_PER_POP_TICK);
+            int ironConsume = (int)(pop * IRON_PER_POP_TICK);
+            int aluminumConsume = (int)(pop * ALUMINUM_PER_POP_TICK);
 
             ResourceList.SplitResource(GameResourceType.Silicon, silionConsume);
             ResourceList.SplitResource(GameResourceType.Copper, copperConsume);
@@ -284,6 +287,7 @@ namespace EoE.Server.GovernanceSystem
             FieldList.ClearAll();
             ResourceList.ClearAll();
             PopManager.ClearAll();
+            //Todo
         }
 
        
