@@ -1,10 +1,3 @@
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.dll
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.pdb
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.dll
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.pdb
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.AssemblyReference.cache
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMianPage.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.g.cs
@@ -36,6 +29,13 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-wind
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\App.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client_MarkupCompile.cache
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client_MarkupCompile.lref
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.dll
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.pdb
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.dll
+C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.pdb
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMianPage.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatPage.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\EstablishRelation.baml

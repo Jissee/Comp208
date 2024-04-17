@@ -1,6 +1,7 @@
 ﻿using EoE.Client.GovernanceSystem;
 using EoE.Client.Login;
 using EoE.Client.Network;
+using EoE.Client.TradeSystem;
 using EoE.Client.WarSystem;
 using EoE.ClientInterface;
 using EoE.GovernanceSystem.ClientInterface;
@@ -9,6 +10,7 @@ using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket.Record;
+using EoE.TradeSystem;
 using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
@@ -35,8 +37,9 @@ namespace EoE.Client
         public int TickCount { get; private set; }
         public PacketHandler Handler { get; }
         public List<string> OtherPlayer { get; private set; }
-        public Dictionary<string, FieldListRecord> OtherPlayerFields { get; init; }
+        public Dictionary<string,FieldListRecord> OtherPlayerFields { get; init; }
         public IClientGonveranceManager GonveranceManager { get; init; }
+        public IClientTradeManager TradeManager { get; init; }
 
         public IClientWarDeclarableList ClientWarDeclarableList {  get; set; }
 
@@ -67,6 +70,7 @@ namespace EoE.Client
             Handler = new ClientPacketHandler();
             OtherPlayer = new List<string>();
             GonveranceManager = new ClientGoverance();
+            TradeManager = new ClientTradeManager();
             ClientWarDeclarableList = new ClientWarDeclarableList();
             ClientWarInformationList = new ClientWarInformationList();
             ClientWarProtectorsList = new ClientWarProtectorsList();
@@ -99,8 +103,10 @@ namespace EoE.Client
             }
             Application.Current.Dispatcher.Invoke(() =>
             {
-                EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
-                entetPage.SynchronizePlayerList();
+                EnterGamePage entetPage = WindowManager.GetWindows<EnterGamePage>();
+                entetPage.SynchronizeOtherPlayerList();
+                SelectTraderWindow selectTrader = WindowManager.GetWindows<SelectTraderWindow>();
+                selectTrader.SynchronizeOtherPlayerList();
             });
             
         }
@@ -109,8 +115,8 @@ namespace EoE.Client
             PlayerName = name;
             Application.Current.Dispatcher.Invoke(() =>
             {
-                EnterGamePage entetPage = (EnterGamePage)WindowManager.GetWindows<EnterGamePage>();
-                entetPage.SynchronizePlayerList();
+                EnterGamePage entetPage = WindowManager.GetWindows<EnterGamePage>();
+                entetPage.SynchronizeOtherPlayerList();
             });
         }
 

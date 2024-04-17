@@ -157,7 +157,8 @@ namespace EoE.Client.GovernanceSystem
             int row = 1;
             foreach (string name in Client.INSTANCE.OtherPlayerFields.Keys)
             {
-                List<FieldListRecord> otherFields = Client.INSTANCE.OtherPlayerFields[name];
+                FieldListRecord record = Client.INSTANCE.OtherPlayerFields[name];
+                List<int> otherFields = record.ToList();
                 if (name != Client.INSTANCE.PlayerName)
                 {
                     row++;
