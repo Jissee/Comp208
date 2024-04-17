@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.WarSystem"
         mc:Ignorable="d"
-        Title="AllocateArmy" Height="450" Width="800">
+        Title="AllocateArmy" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Label Content="“There never was a good war or a bad peace.”" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Existing Army " HorizontalAlignment="Left" Margin="176,88,0,0" VerticalAlignment="Top" FontSize="18" Width="136"/>
@@ -14,7 +14,7 @@
         <Label Content="Mechanization Army: " Margin="0,283,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Amry need to be filled" HorizontalAlignment="Left" Margin="326,88,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Allocate army for next round" Margin="542,88,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="Resouce1change" Margin="624,141,0,0" TextWrapping="Wrap" Text="0" Width="93" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber" TextChanged="Resouce1change_TextChanged"/>
+        <TextBox x:Name="Resouce1change" Margin="624,141,0,0" TextWrapping="Wrap" Text="0" Width="93" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="Resouce2change" Margin="622,216,0,0" TextWrapping="Wrap" Text="0" Width="95" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="Resouce3change" Margin="624,287,0,0" TextWrapping="Wrap" Text="0" Width="93" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <Button x:Name="Submit3" Content="Submit All" Margin="452,367,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="40" FontSize="20"/>

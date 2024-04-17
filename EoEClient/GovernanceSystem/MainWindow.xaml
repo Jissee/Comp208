@@ -20,9 +20,8 @@
         <Button Content="Explore Fields" HorizontalAlignment="Left" Margin="539,209,0,0" VerticalAlignment="Top" FontSize="20" Height="54" Width="230" Click="Button_Click_2"/>
         <Button Content="Population Management" HorizontalAlignment="Left" Margin="38,184,0,0" VerticalAlignment="Top" Height="56" Width="230" FontSize="20" Click="Button_Click_1"/>
         <Button Content="Military Management" HorizontalAlignment="Left" Margin="38,69,0,0" VerticalAlignment="Top" Height="56" Width="230" FontSize="20" Click="Button_Click"/>
-        <Button Content="Check Other Players' Fields" HorizontalAlignment="Center" Margin="0,256,0,0" VerticalAlignment="Top" Width="240" Height="56" FontSize="18"/>
-        <Button Content="Upgrade Fields" HorizontalAlignment="Left" Margin="539,325,0,0" VerticalAlignment="Top" Width="230" Height="54" FontSize="20"/>
->>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
+        <Button Content="Check Other Players' Fields" HorizontalAlignment="Center" Margin="0,256,0,0" VerticalAlignment="Top" Width="240" Height="56" FontSize="18" Click="Button_Click_3"/>
+        <Button Content="Upgrade Fields" HorizontalAlignment="Left" Margin="539,325,0,0" VerticalAlignment="Top" Width="230" Height="54" FontSize="20" Click="Button_Click_4"/>
 
     </Grid>
 </Window>

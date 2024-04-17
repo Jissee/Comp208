@@ -8,31 +8,11 @@
     "net8.0": []
   },
   "packageFolders": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "C:\\Users\\32171\\.nuget\\packages\\": {},
-    "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
-<<<<<<< HEAD
     "C:\\Users\\86151\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\ufowlc\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
->>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
-=======
-    "C:\\Users\\杜萱\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> commit
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
-=======
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
       "projectName": "EoE",
       "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
@@ -41,31 +21,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj",
->>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
-      "projectName": "EoE",
-      "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
-      "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\obj\\",
-=======
-      "projectUniqueName": "D:\\comp208\\EoE\\EoE.csproj",
-      "projectName": "EoE",
-      "projectPath": "D:\\comp208\\EoE\\EoE.csproj",
-      "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
-      "outputPath": "D:\\comp208\\EoE\\obj\\",
->>>>>>> commit
-      "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
-      "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> commit
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -73,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -112,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -121,11 +75,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
-      "message": "读取缓存文件 C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
-=======
-      "message": "读取缓存文件 D:\\comp208\\EoE\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
->>>>>>> commit
+      "message": "读取缓存文件 C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }

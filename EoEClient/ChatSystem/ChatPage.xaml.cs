@@ -28,13 +28,12 @@ namespace EoE.Client.ChatSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EstablishRelation.INSTANCE.Show();
+            WindowManager.INSTANCE.ShowWindows<EstablishRelation>();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            SelectTraderWindow selectTraderWindow = new SelectTraderWindow();
-            selectTraderWindow.Show();
+            WindowManager.INSTANCE.ShowWindows<SelectTraderWindow>();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -45,6 +44,12 @@ namespace EoE.Client.ChatSystem
         private void TextBox_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

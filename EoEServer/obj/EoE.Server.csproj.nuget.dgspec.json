@@ -1,64 +1,20 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {}
-=======
-<<<<<<< HEAD
     "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\EoE.Server.csproj": {}
-=======
-    "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj": {}
->>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
->>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
   },
   "projects": {
-    "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj": {
+    "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\EoE.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj",
+        "projectUniqueName": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\EoE.Server.csproj",
         "projectName": "EoE.Server",
-<<<<<<< HEAD
-        "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\EoE.Server.csproj",
-        "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoEServer\\obj\\",
-=======
-<<<<<<< HEAD
         "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\EoE.Server.csproj",
         "packagesPath": "C:\\Users\\86151\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoEServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\EoE.Server.csproj",
-        "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEServer\\obj\\",
->>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
-=======
-    "D:\\comp208\\EoEServer\\EoE.Server.csproj": {}
-  },
-  "projects": {
-    "D:\\comp208\\EoEServer\\EoE.Server.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\comp208\\EoEServer\\EoE.Server.csproj",
-        "projectName": "EoE.Server",
-        "projectPath": "D:\\comp208\\EoEServer\\EoE.Server.csproj",
-        "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
-        "outputPath": "D:\\comp208\\EoEServer\\obj\\",
->>>>>>> commit
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> commit
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -66,30 +22,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-              "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
-                "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj"
-=======
-<<<<<<< HEAD
               "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
                 "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj"
-=======
-              "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
-                "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj"
->>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
->>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
-=======
-              "D:\\comp208\\EoE\\EoE.csproj": {
-                "projectPath": "D:\\comp208\\EoE\\EoE.csproj"
->>>>>>> commit
               }
             }
           }
@@ -130,62 +70,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj": {
-=======
-<<<<<<< HEAD
     "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj": {
-=======
-    "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj": {
->>>>>>> 01c88c761089da855d7741c1db751f58cade05ad
->>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
+        "projectUniqueName": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
         "projectName": "EoE",
-<<<<<<< HEAD
-        "projectPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\EoE.csproj",
-        "packagesPath": "C:\\Users\\32171\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\32171\\source\\repos\\HateUsername\\Comp208\\EoE\\obj\\",
-=======
-<<<<<<< HEAD
         "projectPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\EoE.csproj",
         "packagesPath": "C:\\Users\\86151\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\86151\\Source\\Repos\\Qiuu\\Comp208\\EoE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\86151\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "projectPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\EoE.csproj",
-        "packagesPath": "C:\\Users\\ufowlc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoE\\obj\\",
->>>>>>> 0694bb4f1244da3334af1b6d2c52c2b033b8120c
-=======
-    "D:\\comp208\\EoE\\EoE.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\comp208\\EoE\\EoE.csproj",
-        "projectName": "EoE",
-        "projectPath": "D:\\comp208\\EoE\\EoE.csproj",
-        "packagesPath": "C:\\Users\\杜萱\\.nuget\\packages\\",
-        "outputPath": "D:\\comp208\\EoE\\obj\\",
->>>>>>> commit
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\软件\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\32171\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\杜萱\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> commit
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -193,7 +92,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -232,7 +130,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

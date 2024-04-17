@@ -109,9 +109,10 @@ namespace EoE.Client.GovernanceSystem
             e.Handled = re.IsMatch(e.Text);
         }
 
-        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

@@ -21,18 +21,6 @@ namespace EoE.Client.WarSystem
     /// </summary>
     public partial class AbrogateTreaty : Window
     {
-        private static AbrogateTreaty instance;
-        public static AbrogateTreaty INSTANCE
-        {
-            get
-            {
-                if (instance == null || !instance.IsLoaded)
-                {
-                    instance = new AbrogateTreaty();
-                }
-                return instance;
-            }
-        }
         public AbrogateTreaty()
         {
             InitializeComponent();
@@ -40,7 +28,8 @@ namespace EoE.Client.WarSystem
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            instance = null;
+            e.Cancel = true;
+            this.Hide();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
