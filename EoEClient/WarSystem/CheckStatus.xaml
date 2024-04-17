@@ -14,15 +14,7 @@
         <Label Content="&quot;War... always brings casualties, doesn't it?&quot;" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button Content="OK" HorizontalAlignment="Left" Margin="457,329,0,0" VerticalAlignment="Top" Height="46" Width="124" FontSize="20" Click="Button_Click"/>
         <Button Content="Check" HorizontalAlignment="Left" Margin="193,329,0,0" VerticalAlignment="Top" FontSize="20" Height="46" Width="124" Click="Button_Click_1"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="307,142,307,160"/>
-=======
-        <ListBox x:Name="checkStatusListBoxWarName" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="307,142,307,173" SelectionChanged="ListBox_SelectionChanged_1"/>
->>>>>>> update some packets and interfaces
-=======
-        <ListBox x:Name="checkStatusListBoxWarName" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="307,142,307,173"/>
->>>>>>> war-front
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="307,142,307,173"/>
         <Label Content="Choose a war:" HorizontalAlignment="Center" Margin="0,77,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
 
     </Grid>
