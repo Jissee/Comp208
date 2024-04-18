@@ -1,4 +1,5 @@
-﻿using EoE.Client.GovernanceSystem;
+﻿using EoE.Client.ChatSystem;
+using EoE.Client.GovernanceSystem;
 using EoE.Client.Login;
 using EoE.Client.Network;
 using EoE.Client.TradeSystem;
@@ -51,7 +52,7 @@ namespace EoE.Client
         public IClientWarTargetList ClientWarTargetList { get; set; }
         public IClientTreatyList ClientTreatyList {  get; set; }
         IWindowManager IClient.WindowManager => WindowManager;
-
+        private Dictionary<string, List<string>> chat;
         public WindowManager WindowManager { get; init; }
 
         public IClientWarNameList ClientWarNameList {  get; set; }
@@ -65,8 +66,7 @@ namespace EoE.Client
             INSTANCE = new Client();
         }
 
-        //TODO for test,change to public temporarily
-        public Client() 
+        private Client() 
         {
             Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Handler = new ClientPacketHandler();
@@ -84,8 +84,53 @@ namespace EoE.Client
             ClientWarNameRelatedList = new ClientWarNameRelatedList();
             WindowManager = EoE.Client.WindowManager.INSTANCE;
             OtherPlayerFields = new Dictionary<string, FieldListRecord>();
+            chat = new Dictionary<string, List<string>>();
         }
 
+        public void AddOthersChatMessage(string senderName, string message)
+        {
+            string regularizationMessage = DateTime.Now.ToString()+"  "+senderName +": " + message;
+            if (chat.ContainsKey(senderName))
+            {
+                chat[senderName].Add(regularizationMessage);
+            }
+            else
+            {
+                List<string> messageList = [regularizationMessage];
+                chat.Add(senderName, messageList);
+            }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                ChatWindow chat = WindowManager.INSTANCE.GetWindows<ChatWindow>();
+                chat.SynchronizeChat(senderName);
+            });
+        }
+
+        public void AddSelfChatMessage(string receiver, string message)
+        {
+            string regularizationMessage = DateTime.Now.ToString() + "  " + "You: " + message;
+            if (chat.ContainsKey(receiver))
+            {
+                chat[receiver].Add(regularizationMessage);
+            }
+            else
+            {
+                List<string> messageList = [regularizationMessage];
+                chat.Add(receiver, messageList);
+            }
+        }
+
+        public List<string>? GetChatMessage(string name)
+        {
+            if (chat.ContainsKey(name))
+            {
+               return chat[name];
+            }
+            else
+            {
+                return null;
+            }
+        }
         public void SynchronizeTickCount(int tickCount)
         {
             WindowManager.SynchronizeTickCount(tickCount);
@@ -104,23 +149,14 @@ namespace EoE.Client
                     OtherPlayer.Add(name);
                 }
             }
-            Application.Current.Dispatcher.Invoke((Delegate)(() =>
-            {
-                EnterGameWindow entetPage = WindowManager.GetWindows<EnterGameWindow>();
-                entetPage.SynchronizeOtherPlayerList();
-                SelectTraderWindow selectTrader = WindowManager.GetWindows<SelectTraderWindow>();
-                selectTrader.SynchronizeOtherPlayerList();
-            }));
-            
+            WindowManager.INSTANCE.SynchronizeOtherPlayersName();
+
+
         }
         public void SynchronizePlayerName(string name)
         {
             PlayerName = name;
-            Application.Current.Dispatcher.Invoke((Delegate)(() =>
-            {
-                EnterGameWindow entetPage = WindowManager.GetWindows<EnterGameWindow>();
-                entetPage.SynchronizeOtherPlayerList();
-            }));
+            WindowManager.INSTANCE.SynchronizeOtherPlayersName();
         }
 
         public void SynchronizeOtherPlayerFieldLitst(string name,FieldListRecord record)

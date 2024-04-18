@@ -13,20 +13,37 @@ using System.Threading.Tasks;
 using EoE.GovernanceSystem.ClientInterface;
 using System.Windows;
 using EoE.Client.Login;
+using System.Reflection;
+using System.Windows.Documents;
 
 namespace EoE.Client.TradeSystem
 {
     public class ClientTradeManager: IClientTradeManager
     {
-        private static readonly int MAX_TRANSACTION_NUMBER;
-        private List<GameTransaction> openOrders;
+        private static readonly int MAX_TRANSACTION_NUMBER = 50;
+        public List<GameTransaction> OpenOrders { get; private set; }
         private Dictionary<int, GameTransaction> transverter;
         public ClientTradeManager()
         {
             transverter = new Dictionary<int, GameTransaction>();
-            openOrders =  new List<GameTransaction>();
+            OpenOrders =  new List<GameTransaction>();
         }
 
+        public void ShowAndSelectTransaction(GameResourceType type)
+        {
+            List<GameTransaction> list = new List<GameTransaction>();
+            foreach (GameTransaction transaction in OpenOrders)
+            {
+                foreach (ResourceStack stack in transaction.OfferorOffer)
+                {
+                    if (stack.Type == type && stack.Count != 0)
+                    {
+                        list.Add(transaction);
+                    }
+                }
+            }
+           ShowTranscations(list);
+        }
         public GameTransaction GetGameTransaction(int transactionNumber)
         {
             if (transverter.ContainsKey(transactionNumber))
@@ -44,7 +61,7 @@ namespace EoE.Client.TradeSystem
             {
                 throw new Exception("wrong call, use CreatSecretTransaction instead");
             }
-            if (openOrders.Count >= MAX_TRANSACTION_NUMBER)
+            if (OpenOrders.Count >= MAX_TRANSACTION_NUMBER)
             {
                 MessageBox.Show("Too many trades, the exchange is crowded Please wait for existing trades to close");
             }
@@ -62,7 +79,6 @@ namespace EoE.Client.TradeSystem
                 if (flag)
                 {
                     Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Create, transaction));
-                    MessageBox.Show("Successfully sent transaction request");
                 }
                 else
                 {
@@ -94,7 +110,6 @@ namespace EoE.Client.TradeSystem
                 if (flag)
                 {
                     Client.INSTANCE.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Creat,transaction));
-                    MessageBox.Show("Successfully sent transaction request");
                 }
                 else
                 {
@@ -107,9 +122,7 @@ namespace EoE.Client.TradeSystem
         {
             if (Client.INSTANCE.PlayerName == transaction.Offeror)
             {
-                RemoveOpenTransaction(transaction);
                 Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction));
-                MessageBox.Show("Successfully sent cancellation request, please wait");
             }
             else
             {
@@ -130,7 +143,6 @@ namespace EoE.Client.TradeSystem
             if (flag)
             {
                 Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Accept, transaction));
-                MessageBox.Show("Successfully sent acceptance request, please wait.");
             }
             else
             {
@@ -142,7 +154,7 @@ namespace EoE.Client.TradeSystem
         {
             GameTransaction? transaction;
             string operatorName = Client.INSTANCE.PlayerName;
-            transaction = openOrders.FirstOrDefault(t => t.Id == id);
+            transaction = OpenOrders.FirstOrDefault(t => t.Id == id);
             if (transaction == null)
             {
                 MessageBox.Show("The transaction has been cancelled or has been accepted by another player");
@@ -174,7 +186,6 @@ namespace EoE.Client.TradeSystem
                         transaction.RecipientOffer[i] = recipientOffer[i];
                     }
                     Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Alter, transaction));
-                    MessageBox.Show("Successfully sent  modification request");
                 }
                 else
                 {
@@ -221,14 +232,15 @@ namespace EoE.Client.TradeSystem
             }
         }
 
-        public void CreateNewOpenTransaction(GameTransaction transaction)
+        public void AdddOpenTransaction(GameTransaction transaction)
         {
             if (!transaction.IsOpen)
             {
                 throw new Exception("wrong call"); 
             }
 
-            openOrders.Add(transaction);
+            OpenOrders.Add(transaction);
+            Synchronize(OpenOrders);
         }
         public void RemoveOpenTransaction(GameTransaction transaction)
         {
@@ -236,14 +248,20 @@ namespace EoE.Client.TradeSystem
             {
                 throw new Exception("wrong call");
             }
-            openOrders.Remove(transaction);
-            Synchronize(openOrders);
+            OpenOrders.Remove(transaction);
+            Synchronize(OpenOrders);
         }
-       
+
         public void Synchronize(List<GameTransaction> list)
         {
+            OpenOrders = list;
+            ShowTranscations(list);
+           
+        }
+
+        public void ShowTranscations(List<GameTransaction> list)
+        {
             int index = 1;
-            openOrders = list;
             transverter.Clear();
             foreach (GameTransaction transaction in list)
             {

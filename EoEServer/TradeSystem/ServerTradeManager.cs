@@ -18,11 +18,12 @@ namespace EoE.Server.TradeSystem
 {
     public class ServerTradeManager : IServerTradeManager
     {
-        private List<GameTransaction> openOrders = new List<GameTransaction>();
+        public List<GameTransaction> openOrders { get; private set;}
         private IServer server;
         public ServerTradeManager(IServer server)
         {
             this.server = server;
+            openOrders = new List<GameTransaction>();
         }
 
         public void CreatOponTransaction(GameTransaction transaction)
@@ -49,6 +50,8 @@ namespace EoE.Server.TradeSystem
                     resources.SplitResourceStack(item);
                 }
                 openOrders.Add(transaction);
+                offeror.SendPacket(new ServerMessagePacket("Transaction successfully created"));
+                offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
                 server.Boardcast(new OpenTransactionPacket(OpenTransactionOperation.Create, transaction), player =>true);
             }
             else
@@ -92,6 +95,8 @@ namespace EoE.Server.TradeSystem
                         resources.SplitResourceStack(item);
                     }
                     IPlayer recipient = server.GetPlayer(transaction.Recipient)!;
+                    offeror.SendPacket(new ServerMessagePacket("Transaction successfully created"));
+                    offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
                     recipient.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Creat, transaction));
                 }
                 else
@@ -118,6 +123,7 @@ namespace EoE.Server.TradeSystem
                     }
 
                     server.Boardcast(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction),player=> true);
+                    offeror.SendPacket(new ServerMessagePacket("Transaction successfully cancelled"));
                     offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord (offeror.GonveranceManager.ResourceList)));
                 }
                 else
@@ -147,6 +153,8 @@ namespace EoE.Server.TradeSystem
                 if(ExchangeResource(offeror, recipient, transaction))
                 {
                     server.Boardcast(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction), player => true);
+                    offeror.SendPacket(new ServerMessagePacket("Your transaction has been accepted"));
+                    recipient.SendPacket(new ServerMessagePacket("Trade successfully"));
                     offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
                     recipient.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(recipient.GonveranceManager.ResourceList)));
                 }
@@ -198,6 +206,7 @@ namespace EoE.Server.TradeSystem
                         transaction.RecipientOffer[i] = recipientOffer[i];
                     }
 
+                    offeror.SendPacket(new ServerMessagePacket("Your transaction has been successfully altered"));
                     offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
                     server.Boardcast(new OpenTransactionPacket(OpenTransactionOperation.Alter,transaction),player => true);
                 }
@@ -229,8 +238,9 @@ namespace EoE.Server.TradeSystem
             }
             else
             {
+                offeror.SendPacket(new ServerMessagePacket("Your private trade has been accepted"));
                 recipient.SendPacket(new ResourceUpdatePacket(new ResourceListRecord (recipient.GonveranceManager.ResourceList)));
-                offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(recipient.GonveranceManager.ResourceList)));
+                offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
             }
         }
 
@@ -244,7 +254,7 @@ namespace EoE.Server.TradeSystem
                 {
                     resources.AddResourceStack(item);
                 }
-                offeror.SendPacket(new ServerMessagePacket("Counterparty rejects transaction"));
+                offeror.SendPacket(new ServerMessagePacket("Your private trade has been rejected"));
             }
         }
 
@@ -254,7 +264,7 @@ namespace EoE.Server.TradeSystem
             IServerResourceList recipientResources = recipient.GonveranceManager.ResourceList;
             IServerResourceList offerorResources = offeror.GonveranceManager.ResourceList;
             bool flag = true;
-            foreach (var item in transaction.RecipientOffer)
+            foreach (ResourceStack item in transaction.RecipientOffer)
             {
                 if (recipientResources.GetResourceCount(item.Type)< item.Count)
                 {
@@ -264,7 +274,7 @@ namespace EoE.Server.TradeSystem
 
             if (flag)
             {
-                foreach (var item in transaction.RecipientOffer)
+                foreach (ResourceStack item in transaction.RecipientOffer)
                 {
                     recipientResources.SplitResourceStack(item);
                     offerorResources.AddResourceStack(item);

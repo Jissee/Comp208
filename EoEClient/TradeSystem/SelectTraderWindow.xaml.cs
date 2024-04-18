@@ -59,35 +59,46 @@ namespace EoE.Client.TradeSystem
                 {
                     if (players.SelectedItem != null)
                     {
-                        Guid id = new Guid();
-                        List<ResourceStack> offerorOffer = new List<ResourceStack>();
-                        offerorOffer.Add(new ResourceStack(GameResourceType.Silicon, seSilicon));
-                        offerorOffer.Add(new ResourceStack(GameResourceType.Copper, seCopper));
-                        offerorOffer.Add(new ResourceStack(GameResourceType.Iron, seIron));
-                        offerorOffer.Add(new ResourceStack(GameResourceType.Aluminum, seAluminum));
-                        offerorOffer.Add(new ResourceStack(GameResourceType.Electronic, seElectronic));
-                        offerorOffer.Add(new ResourceStack(GameResourceType.Industrial, seIndustrial));
+                        Guid id = Guid.NewGuid();
+                        List<ResourceStack> offerorOffer =
+                        [
+                            new ResourceStack(GameResourceType.Silicon, seSilicon),
+                            new ResourceStack(GameResourceType.Copper, seCopper),
+                            new ResourceStack(GameResourceType.Iron, seIron),
+                            new ResourceStack(GameResourceType.Aluminum, seAluminum),
+                            new ResourceStack(GameResourceType.Electronic, seElectronic),
+                            new ResourceStack(GameResourceType.Industrial, seIndustrial),
+                        ];
 
-                        List<ResourceStack> recrientOffer = new List<ResourceStack>();
-                        recrientOffer.Add(new ResourceStack(GameResourceType.Silicon, bySilicon));
-                        recrientOffer.Add(new ResourceStack(GameResourceType.Copper, byCopper));
-                        recrientOffer.Add(new ResourceStack(GameResourceType.Iron, byIron));
-                        recrientOffer.Add(new ResourceStack(GameResourceType.Aluminum, byAluminum));
-                        recrientOffer.Add(new ResourceStack(GameResourceType.Electronic, byElectronic));
-                        recrientOffer.Add(new ResourceStack(GameResourceType.Industrial, byIndustrial));
+                        List<ResourceStack> recrientOffer =
+                        [
+                            new ResourceStack(GameResourceType.Silicon, bySilicon),
+                            new ResourceStack(GameResourceType.Copper, byCopper),
+                            new ResourceStack(GameResourceType.Iron, byIron),
+                            new ResourceStack(GameResourceType.Aluminum, byAluminum),
+                            new ResourceStack(GameResourceType.Electronic, byElectronic),
+                            new ResourceStack(GameResourceType.Industrial, byIndustrial),
+                        ];
 
                         string recrientName = players.SelectedItem.ToString();
+                        bool exist = false;
                         foreach (string playerName in Client.INSTANCE.OtherPlayer)
                         {
                             if (recrientName == playerName)
                             {
-                                GameTransaction transaction = new GameTransaction(Client.INSTANCE.PlayerName, id, offerorOffer, recrientOffer, false, recrientName);
-                                Client.INSTANCE.TradeManager.RequireCreateSecretTransaction(transaction);
+                                exist = true;
+                                break;
                             }
-                            else
-                            {
-                                throw new Exception("No such name");
-                            }
+                        }
+
+                        if (exist)
+                        {
+                            GameTransaction transaction = new GameTransaction(Client.INSTANCE.PlayerName, id, offerorOffer, recrientOffer, false, recrientName);
+                            Client.INSTANCE.TradeManager.RequireCreateSecretTransaction(transaction);
+                        }
+                        else
+                        {
+                            throw new Exception("No such name");
                         }
 
                     }

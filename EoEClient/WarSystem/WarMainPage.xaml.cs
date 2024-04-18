@@ -61,12 +61,6 @@ namespace EoE.Client.WarSystem
         {
             WindowManager.INSTANCE.ShowWindows<WarDetail>();
             WarDetail window = WindowManager.INSTANCE.GetWindows<WarDetail>();
-            ListBox listBox = window.OtherPlayerName;
-            listBox.Items.Clear();
-            foreach(string names in Client.INSTANCE.OtherPlayer)
-            {
-                listBox.Items.Add(names);
-            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "OG8QJeInlwANDmahXhi63d0qXRY1S/GhmJn9Lh0fUyOBJknyf1le+xZ2Etd5SptbgBVDhj5kB9OSwnOe8E7EYQ==",
   "success": true,
   "projectFilePath": "D:\\e-textbook3\\comp208\\EoE\\EoEClient\\EoE.Client.csproj",
+=======
+  "dgSpecHash": "qlw0SRpsiiD7pPIDuBBDBr4qp7lbLaYKq/UqAfLdjW+41TYOXWI8V2K5yPwf5fI1dIpV9zYV/LrmJjjixn5p0A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ufowlc\\source\\repos\\ufowang\\Comp208\\EoEClient\\EoE.Client.csproj",
+>>>>>>> eb02aa60e3db34b75fa01dce2608c89161844d48
   "expectedPackageFiles": [],
   "logs": [
     {

@@ -46,11 +46,6 @@ namespace EoE.Client.GovernanceSystem
                     ResourceList.GetResourceCount(GameResourceType.Iron) >= consume &&
                     ResourceList.GetResourceCount(GameResourceType.Aluminum) >= consume)
                 {
-                    ResourceList.SplitResource(GameResourceType.Silicon, consume);
-                    ResourceList.SplitResource(GameResourceType.Copper, consume);
-                    ResourceList.SplitResource(GameResourceType.Iron, consume);
-                    ResourceList.SplitResource(GameResourceType.Aluminum, consume);
-                    PopManager.AlterAvailablePop(-inutPopulation);
                     Client.INSTANCE.SendPacket(new SetExplorationPacket(inutPopulation));
                 }
                 else
@@ -77,11 +72,7 @@ namespace EoE.Client.GovernanceSystem
 
                     if (popCount <= PopManager.AvailablePopulation)
                     {
-                        PopManager.AlterAvailablePop(-popCount);
-                        ResourceList.AddResourceStack(army);
                         Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type, count));
-                        WindowManager.INSTANCE.UpdateResources();
-                        WindowManager.INSTANCE.UpdatePopulation();
                     }
                     else
                     {
@@ -93,12 +84,7 @@ namespace EoE.Client.GovernanceSystem
                     (popCount, resource) = Recipes.produceInfomativeArmy(army);
                     if (popCount <= PopManager.AvailablePopulation && resource.Count <= ResourceList.GetResourceCount(GameResourceType.Electronic))
                     {
-                        PopManager.AlterAvailablePop(-popCount);
-                        ResourceList.SplitResourceStack(resource);
-                        ResourceList.AddResourceStack(army);
                         Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type, count));
-                        WindowManager.INSTANCE.UpdateResources();
-                        WindowManager.INSTANCE.UpdatePopulation();
                     }
                     else
                     {
@@ -109,12 +95,7 @@ namespace EoE.Client.GovernanceSystem
                     (popCount, resource) = Recipes.produceMechanismArmy(army);
                     if (popCount <= PopManager.AvailablePopulation && resource.Count <= ResourceList.GetResourceCount(GameResourceType.Industrial))
                     {
-                        PopManager.AlterAvailablePop(-popCount);
-                        ResourceList.SplitResourceStack(resource);
-                        ResourceList.AddResourceStack(army);
                         Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type,count));
-                        WindowManager.INSTANCE.UpdateResources();
-                        WindowManager.INSTANCE.UpdatePopulation();
                     }
                     else
                     {

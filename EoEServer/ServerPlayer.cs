@@ -49,7 +49,7 @@ namespace EoE.Server
         {
             this.Connection = connection;
             Server = server;
-            GonveranceManager = new ServerPlayerGonverance(Server.Status, 100, this);
+            GonveranceManager = new ServerPlayerGonverance(Server.Status, 10000, this);
 
         }
         public void BeginGame()
@@ -64,10 +64,10 @@ namespace EoE.Server
 
         public void SendPacket<T>(T packet) where T : IPacket<T>
         {
-            if (IsConnected)
+            if (!IsLose && IsConnected)
             {
                 PacketHandler handler = Server.PacketHandler;
-                if (handler != null)
+                if (handler != null && !IsLose)
                 {
                     handler.SendPacket(packet, Connection, PlayerName);
                 }
@@ -77,13 +77,20 @@ namespace EoE.Server
 
         public void GameLose()
         {
-            Server.Boardcast(new ServerMessagePacket($"{this.PlayerName} lost the game."), player => true);
-            
+            if (Server.isGameRunning)
+            {
+                Server.Boardcast(new ServerMessagePacket($"{this.PlayerName} lost the game."), player => true);
+            }
+            else
+            {
+                Server.Boardcast(new ServerMessagePacket($"{this.PlayerName} leave the game."), player => true);
+            }
+             
             GonveranceManager.ClearAll();
             Server.PlayerList.WarManager.PlayerLose(this);
             Server.PlayerList.TradeManager.ClearAll(this);
             Server.Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(GonveranceManager.FieldList), this.PlayerName), thisPlayer => thisPlayer.PlayerName != this.PlayerName);
-            //TodO TreatyManager losse
+            Server.PlayerList.TreatyManager.ClearAll(this);
             Server.PlayerList.PlayerLogout(this);
         }
 
@@ -92,10 +99,6 @@ namespace EoE.Server
         {
             FinishedTick = false;
             GonveranceManager.Tick();
-            if (IsLose)
-            {
-                GameLose();
-            }
         }
 
         public void CloseSocket()

@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using EoE.Client.ChatSystem;
 using EoE.Client.WarSystem;
 using System.Text.RegularExpressions;
+using EoE.Network.Packets.GonverancePacket.Record;
+using EoE.Network.Packets.TreatyPacket;
 
 namespace EoE.Client.ChatSystem
 {
@@ -45,13 +47,71 @@ namespace EoE.Client.ChatSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if ((bool)_protected.IsChecked || (bool)common.IsChecked||(bool)protecting.IsChecked)
+            if (!((bool)_protected.IsChecked || (bool)common.IsChecked|| (bool)protecting.IsChecked))
             {
-                 MessageBox.Show("You have already sent the request.");
+                MessageBox.Show("Please select a treaty!");
+            }
+            ChatWindow window = WindowManager.INSTANCE.GetWindows<ChatWindow>();
+            if (window.selectedName.SelectedItem != null)
+            {
+                ResourceListRecord record = new ResourceListRecord();
+                int result;
+                if (int.TryParse(Res1.Text, out result))
+                {
+                    record.siliconCount = result;
+                }
+                if (int.TryParse(Res2.Text, out result))
+                {
+                    record.copperCount = result;
+                }
+                if (int.TryParse(Res3.Text, out result))
+                {
+                    record.ironCount = result;
+                }
+                if (int.TryParse(Res4.Text, out result))
+                {
+                    record.aluminumCount = result;
+                }
+                if (int.TryParse(Res5.Text, out result))
+                {
+                    record.electronicCount = result;
+                }
+                if (int.TryParse(Res6.Text, out result))
+                {
+                    record.industrialCount = result;
+                }
+                if ((bool)protecting.IsChecked)
+                {
+                    NewProtectiveTreatyPacket packet = new NewProtectiveTreatyPacket(
+                        record,
+                        false,
+                        Client.INSTANCE.PlayerName!,
+                        window.selectedName.SelectedItem.ToString()!
+                        );
+                    Client.INSTANCE.SendPacket( packet );
+                }
+                if ((bool)_protected.IsChecked)
+                {
+                    NewProtectiveTreatyPacket packet = new NewProtectiveTreatyPacket(
+                        record,
+                        true,
+                        Client.INSTANCE.PlayerName!,
+                        window.selectedName.SelectedItem.ToString()!
+                        );
+                    Client.INSTANCE.SendPacket(packet);
+                }
+                if ((bool)common.IsChecked)
+                {
+                    NewCommonDefenseTreatyPacket packet = new NewCommonDefenseTreatyPacket(
+                        Client.INSTANCE.PlayerName!,
+                        window.selectedName.SelectedItem.ToString()!
+                        );
+                    Client.INSTANCE.SendPacket(packet);
+                }
             }
             else
             {
-                MessageBox.Show("Please select a treaty!");
+                MessageBox.Show("You have not chosen who to sign the treaty!");
             }
         }
 

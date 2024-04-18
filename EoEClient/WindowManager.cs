@@ -1,6 +1,9 @@
 ﻿
+using EoE.Client.ChatSystem;
 using EoE.Client.GovernanceSystem;
 using EoE.Client.Login;
+using EoE.Client.TradeSystem;
+using EoE.Client.WarSystem;
 using EoE.ClientInterface;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
@@ -34,19 +37,8 @@ namespace EoE.Client
         }
         public void ShowWindows<T>() where T : Window, new()
         {
-            Type t = typeof(T);
-            string typeName = t.FullName;
-
-            if (!WindowsDict.ContainsKey(typeName)) 
-            {
-                WindowsDict.Add(typeName, new T());
-            }
-            Window window = WindowsDict[typeName];
-            if (!window.IsVisible)
-            {
-                window.Show();
-            }
-            
+            Window window = GetWindows<T>();
+            window.Show();
         }
 
         public T GetWindows<T>() where T : Window, new()
@@ -60,7 +52,6 @@ namespace EoE.Client
             }
             return (T)WindowsDict[typeName];
         }
-
         public void ShowGameSettingWindow()
         {
             Application.Current.Dispatcher.Invoke(()=>
@@ -72,7 +63,6 @@ namespace EoE.Client
             });
             
         }
-
         public void ShowGameEntterWindow()
         {
             Application.Current.Dispatcher.Invoke(() =>
@@ -82,6 +72,22 @@ namespace EoE.Client
                 window.ignoreClosing = true;
                 window.Close();
             });
+        }
+        public void SynchronizeOtherPlayersName()
+        {
+            Application.Current.Dispatcher.Invoke((() =>
+            {
+                EnterGameWindow entetPage = GetWindows<EnterGameWindow>();
+                entetPage.SynchronizeOtherPlayerList();
+                SelectTraderWindow selectTrader = GetWindows<SelectTraderWindow>();
+                selectTrader.SynchronizeOtherPlayerList();
+                MainGameWindow mainGameWindow = GetWindows<MainGameWindow>();
+                mainGameWindow.SynchronizeOtherPlayerList();
+                ChatWindow chatWindow = GetWindows<ChatWindow>();
+                chatWindow.SynchronizeOtherPlayerList();
+                WarDetail warDetail = GetWindows<WarDetail>();
+                warDetail.SynchronizeOtherPlayerList();
+            }));
         }
         public void UpdateResources()
         {
@@ -94,6 +100,8 @@ namespace EoE.Client
                 military.SynchronizeResources(record);
                 ResourceInformationWindow resourceManage = GetWindows<ResourceInformationWindow>();
                 resourceManage.SynchronizeResources(record);
+                AllocateArmy allocateArmy = GetWindows<AllocateArmy>();
+                allocateArmy.SynchronizeResources(record);
             });
         }
 
@@ -137,7 +145,6 @@ namespace EoE.Client
             });
         }
       
-
         public void ShowGameMainPage()
         {
             Type t = typeof(MainGameWindow);
@@ -162,18 +169,6 @@ namespace EoE.Client
 
         }
 
-        public static void shutDown(System.ComponentModel.CancelEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
-
-            if (result == MessageBoxResult.Cancel)
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                App.Current.Shutdown();
-            }
-        }
+        
     }
 }

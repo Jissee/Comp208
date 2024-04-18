@@ -53,9 +53,9 @@ namespace EoE.Server.GovernanceSystem
         /// <param name="type"></param>
         /// <param name="count"></param>
         /// <exception cref="InvalidPopAllocException"></exception>
-        public void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int industrialPop,int electronicPop)
+        public void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int electronicPop,int industrialPop)
         {
-            if (CheckAvailability(siliconPop, copperPop, ironPop, aluminumPop, industrialPop, electronicPop))
+            if (CheckAvailability(siliconPop, copperPop, ironPop, aluminumPop, electronicPop, industrialPop ))
             {
                 int total = TotalPopulation;
                 AvailablePopulation = total - siliconPop - copperPop - ironPop - aluminumPop - industrialPop - electronicPop;
@@ -65,14 +65,15 @@ namespace EoE.Server.GovernanceSystem
                 popAloc[GameResourceType.Aluminum] = aluminumPop;
                 popAloc[GameResourceType.Industrial] = industrialPop;
                 popAloc[GameResourceType.Electronic] = electronicPop;
+                player.SendPacket(new PopulationUpdatePacket(GetPopulationRecord()));
             }
             else
             {
-                player.SendPacket(new PopulationUpdatePacket(GetPopulationRecord()));
+                player.SendPacket(new ServerMessagePacket("Invalid population allocation"));
             }
         }
 
-        private bool CheckAvailability(int siliconPop, int copperPop, int ironPop, int aluminumPop, int industrialPop, int electronic)
+        private bool CheckAvailability(int siliconPop, int copperPop, int ironPop, int aluminumPop, int electronic, int industrialPop)
         {
             List<int> list = [siliconPop, copperPop, ironPop, aluminumPop, industrialPop, electronic];
             if (list.Min() < 0)

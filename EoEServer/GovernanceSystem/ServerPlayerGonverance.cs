@@ -20,12 +20,8 @@ namespace EoE.Server.GovernanceSystem
 {
     public class ServerPlayerGonverance : ITickable, IServerGonveranceManager
     {
-        //consume rate
-       
-
         public static readonly double EXPLORE_FIELD_PER_POP = 1.1f;
         public static readonly int FIELD_EXPLORE_THRESHOLD = 100;
-
         public static readonly int POP_GROWTH_THRESHOLD = 100;
 
         
@@ -54,8 +50,7 @@ namespace EoE.Server.GovernanceSystem
             this.player = player;
         }
 
-        // 暂时改为public！！！
-        public void ProducePrimaryResource()
+        private void ProducePrimaryResource()
         {
             ResourceStack resource = Recipes.calcSiliconP(
                 PopManager.GetPopAllocCount(GameResourceType.Silicon),
@@ -86,9 +81,7 @@ namespace EoE.Server.GovernanceSystem
             ResourceList.AddResourceStack(resource);
 
         }
-
-        // 暂时改为public！！！
-        public void ProduceSecondaryResource()
+        private void ProduceSecondaryResource()
         {
             ResourceStack resource = Recipes.calcElectronicP(
                 PopManager.GetPopAllocCount(GameResourceType.Electronic), 
@@ -113,9 +106,7 @@ namespace EoE.Server.GovernanceSystem
             ResourceList.SplitResourceStack(consume1);
             ResourceList.SplitResourceStack(consume2);
         }
-
-        // 暂时改为public！！！
-        public void UpdatePopGrowthProgress()
+        private void UpdatePopGrowthProgress()
         {
             
             PopGrowthProgress += Recipes.calcPopGrowthProgress(
@@ -125,8 +116,7 @@ namespace EoE.Server.GovernanceSystem
                 ResourceList.GetResourceCount(GameResourceType.Iron),
                 ResourceList.GetResourceCount(GameResourceType.Aluminum));
         }
-        // 暂时改为public！！！
-        public void UpdatePop()
+        private void UpdatePop()
         {
             if (Math.Abs(PopGrowthProgress)>= POP_GROWTH_THRESHOLD)
             {
@@ -134,8 +124,7 @@ namespace EoE.Server.GovernanceSystem
                 PopGrowthProgress %= POP_GROWTH_THRESHOLD;
             }
         }
-        // 暂时改为public！！！
-        public void ConsumePrimaryResource(int population)
+        private void ConsumePrimaryResource(int population)
         {
             int pop = PopManager.TotalPopulation;
             
@@ -177,19 +166,18 @@ namespace EoE.Server.GovernanceSystem
                     ResourceList.SplitResource(GameResourceType.Iron, consume);
                     ResourceList.SplitResource(GameResourceType.Aluminum, consume);
                     PopManager.SetExploration(inutPopulation);
+                    player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                    player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                 }
                 else
                 {
                     player.SendPacket(new ServerMessagePacket("No enough resources"));
-                    player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                    player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                 }
 
             }
         }
 
-        // 暂时改为public！！！
-        public void UpdateFieldExplorationProgress()
+        private void UpdateFieldExplorationProgress()
         {
             if (PopManager.ExploratoinPopulation > 0)
             {
@@ -198,9 +186,7 @@ namespace EoE.Server.GovernanceSystem
                 PopManager.SetExploration(0);
             }
         }
-
-        // 暂时改为public！！！
-        public void UpdateField()
+        private void UpdateField()
         {
             int exploredFieldCount = FieldExplorationProgress / FIELD_EXPLORE_THRESHOLD;
             int acutalExplored = Math.Min(exploredFieldCount, globalGameStatus.UnidentifiedField);
@@ -236,12 +222,12 @@ namespace EoE.Server.GovernanceSystem
                     {
                         PopManager.AlterPop(-popCount);
                         ResourceList.AddResourceStack(army);
+                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     else
                     {
                         player.SendPacket(new ServerMessagePacket("No enough available population"));
-                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     break;
                 case GameResourceType.InformativeArmy:
@@ -251,12 +237,12 @@ namespace EoE.Server.GovernanceSystem
                         PopManager.AlterPop(-popCount);
                         ResourceList.SplitResourceStack(resource);
                         ResourceList.AddResourceStack(army);
+                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     else
                     {
                         player.SendPacket(new ServerMessagePacket("No enough available population or resources"));
-                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     break;
                 case GameResourceType.MechanismArmy:
@@ -266,12 +252,12 @@ namespace EoE.Server.GovernanceSystem
                         PopManager.AlterPop(-popCount);
                         ResourceList.SplitResourceStack(resource);
                         ResourceList.AddResourceStack(army);
+                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     else
                     {
                         player.SendPacket(new ServerMessagePacket("No enough available population or resources"));
-                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     break;
                 default:

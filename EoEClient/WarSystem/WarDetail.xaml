@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.WarSystem"
         mc:Ignorable="d"
-        Title="WarDetail" Height="450" Width="800">
+        Title="WarDetail" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Label Content="Select a country and view or modify the war goals." HorizontalAlignment="Left" Margin="135,35,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Button Content="Submit war goal of this country" HorizontalAlignment="Center" Margin="0,334,0,0" VerticalAlignment="Top" FontSize="20" Height="41" Width="318" Click="Button_Click"/>

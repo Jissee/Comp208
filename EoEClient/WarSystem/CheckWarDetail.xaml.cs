@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Packets.WarPacket;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,13 +36,16 @@ namespace EoE.Client.WarSystem
             BattleLostEnemy.IsReadOnly = true;
             InfoLostEnemy.IsReadOnly = true;
             MechLostEnemy.IsReadOnly = true;
+            WarName.Text = CheckStatus.selectedWarName;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<AllocateArmy>();
+            CheckStatus window = WindowManager.INSTANCE.GetWindows<CheckStatus>();
+            WarWidthQueryPacket packet = new WarWidthQueryPacket(CheckStatus.selectedWarName, 0);
+            Client.INSTANCE.SendPacket(packet);
         }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Hide();

@@ -7,6 +7,7 @@ using EoE.Network.Packets;
 using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
+using EoE.Network.Packets.TradePacket;
 using EoE.Server.GovernanceSystem;
 using EoE.Server.Network;
 using EoE.Server.TradeSystem;
@@ -34,7 +35,7 @@ namespace EoE.Server
 
         private readonly IPEndPoint address;
         private bool isServerRunning;
-        private bool isGameRunning;
+        public bool isGameRunning{ get; private set; }
         private bool needRestart;
         public PacketHandler PacketHandler { get; }
         public EventList EventList { get; }
@@ -60,14 +61,15 @@ namespace EoE.Server
             Random random = new Random();
             foreach (IPlayer player in PlayerList.Players)
             {
-                Dictionary<int, int> map = new Dictionary<int, int>();
+                List<int> numberToSelected = new List<int>() { 1, 2, 3, 4, 5, 6 };
                 for (int i = 0; i < Math.Max(1,Status.TotalTick * 0.05); i++)
                 {
-                    map.Add(random.Next(1, 6), 0);
-                }
-                foreach (int index in map.Keys)
-                {
-                    PreparePlayerRandomEvents(player, index);
+                    int index = random.Next(1, 6);
+                    if (numberToSelected.Contains(index))
+                    {
+                        numberToSelected.Remove(index);
+                        PreparePlayerRandomEvents(player, index);
+                    }
                 }
             }
             PrepareGlobalBonusEvents();
@@ -105,7 +107,7 @@ namespace EoE.Server
             builder2.ForServer(this)
                 .IfServer(server => true)
                 .IfPlayer(thePlayer => true)
-                .HappenIn((int)(Status.TotalTick * 0.25f))
+                .HappenIn((int)(Status.TotalTick * 0.75f))
                 .LastFor(1)
                 .Do
                 (
@@ -405,6 +407,7 @@ namespace EoE.Server
                 {
                     Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList),player.PlayerName), thisPlayer => thisPlayer != player);
                 }
+                Boardcast(new OpenTransactionSynchronizePacket(PlayerList.TradeManager.openOrders.Count, PlayerList.TradeManager.openOrders), player => true);
             }
             catch (Exception ex)
             {
@@ -504,7 +507,7 @@ namespace EoE.Server
 
                 ranks.Add((player.PlayerName, resourceScore, fieldScore, popScore, armyScore, totalScore));
             }
-            ranks.Sort((tuple1, tuple2) => tuple1.Item5.CompareTo(tuple2.Item5));
+            ranks.Sort((tuple1, tuple2) => tuple2.Item5.CompareTo(tuple1.Item5));
             Boardcast(new GameSummaryPacket(ranks), player => true);
         }
     }

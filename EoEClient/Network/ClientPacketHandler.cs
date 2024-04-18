@@ -110,7 +110,7 @@ namespace EoE.Client.Network
             }
             catch (Exception ex)
             {
-                Client.ShowException("Packet", $"Cannot send packet {tp}.", ex);
+                Client.ShowException("Packet", $"Cannot send packet {tp}. It seems that you lost the game.", ex);
             }
         }
     }
