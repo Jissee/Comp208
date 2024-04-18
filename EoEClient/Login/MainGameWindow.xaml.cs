@@ -56,7 +56,7 @@ namespace EoE.Client.Login
 
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
-           WindowManager.INSTANCE.ShowWindows<ChatMainWindow>();
+           WindowManager.INSTANCE.ShowWindows<ChatWindow>();
         }
 
         public void SynchronizeResources(ResourceListRecord resourceListRecord)

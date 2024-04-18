@@ -1,4 +1,5 @@
 ﻿
+using EoE.Client.ChatSystem;
 using EoE.Client.GovernanceSystem;
 using EoE.Client.Login;
 using EoE.Client.TradeSystem;
@@ -95,6 +96,8 @@ namespace EoE.Client
                 selectTrader.SynchronizeOtherPlayerList();
                 MainGameWindow mainGameWindow = GetWindows<MainGameWindow>();
                 mainGameWindow.SynchronizeOtherPlayerList();
+                ChatWindow chatWindow = GetWindows<ChatWindow>();
+                chatWindow.SynchronizeOtherPlayerList();
             }));
         }
         public void UpdateResources()
