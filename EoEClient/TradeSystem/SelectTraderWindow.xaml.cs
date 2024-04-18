@@ -77,17 +77,23 @@ namespace EoE.Client.TradeSystem
                         recrientOffer.Add(new ResourceStack(GameResourceType.Industrial, byIndustrial));
 
                         string recrientName = players.SelectedItem.ToString();
+                        bool exist = false;
                         foreach (string playerName in Client.INSTANCE.OtherPlayer)
                         {
                             if (recrientName == playerName)
                             {
-                                GameTransaction transaction = new GameTransaction(Client.INSTANCE.PlayerName, id, offerorOffer, recrientOffer, false, recrientName);
-                                Client.INSTANCE.TradeManager.RequireCreateSecretTransaction(transaction);
+                                exist = true;
                             }
-                            else
-                            {
-                                throw new Exception("No such name");
-                            }
+                        }
+
+                        if (exist)
+                        {
+                            GameTransaction transaction = new GameTransaction(Client.INSTANCE.PlayerName, id, offerorOffer, recrientOffer, false, recrientName);
+                            Client.INSTANCE.TradeManager.RequireCreateSecretTransaction(transaction);
+                        }
+                        else
+                        {
+                            throw new Exception("No such name");
                         }
 
                     }

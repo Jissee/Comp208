@@ -18,7 +18,7 @@ namespace EoE.Client.TradeSystem
 {
     public class ClientTradeManager: IClientTradeManager
     {
-        private static readonly int MAX_TRANSACTION_NUMBER;
+        private static readonly int MAX_TRANSACTION_NUMBER = 50;
         private List<GameTransaction> openOrders;
         private Dictionary<int, GameTransaction> transverter;
         public ClientTradeManager()
@@ -62,7 +62,6 @@ namespace EoE.Client.TradeSystem
                 if (flag)
                 {
                     Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Create, transaction));
-                    MessageBox.Show("Successfully sent transaction request");
                 }
                 else
                 {
@@ -94,7 +93,6 @@ namespace EoE.Client.TradeSystem
                 if (flag)
                 {
                     Client.INSTANCE.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Creat,transaction));
-                    MessageBox.Show("Successfully sent transaction request");
                 }
                 else
                 {
@@ -107,9 +105,7 @@ namespace EoE.Client.TradeSystem
         {
             if (Client.INSTANCE.PlayerName == transaction.Offeror)
             {
-                RemoveOpenTransaction(transaction);
                 Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Cancel, transaction));
-                MessageBox.Show("Successfully sent cancellation request, please wait");
             }
             else
             {
@@ -130,7 +126,6 @@ namespace EoE.Client.TradeSystem
             if (flag)
             {
                 Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Accept, transaction));
-                MessageBox.Show("Successfully sent acceptance request, please wait.");
             }
             else
             {
@@ -174,7 +169,6 @@ namespace EoE.Client.TradeSystem
                         transaction.RecipientOffer[i] = recipientOffer[i];
                     }
                     Client.INSTANCE.SendPacket(new OpenTransactionPacket(OpenTransactionOperation.Alter, transaction));
-                    MessageBox.Show("Successfully sent  modification request");
                 }
                 else
                 {
@@ -221,7 +215,7 @@ namespace EoE.Client.TradeSystem
             }
         }
 
-        public void CreateNewOpenTransaction(GameTransaction transaction)
+        public void AdddOpenTransaction(GameTransaction transaction)
         {
             if (!transaction.IsOpen)
             {
@@ -229,6 +223,7 @@ namespace EoE.Client.TradeSystem
             }
 
             openOrders.Add(transaction);
+            Synchronize(openOrders);
         }
         public void RemoveOpenTransaction(GameTransaction transaction)
         {
@@ -239,7 +234,7 @@ namespace EoE.Client.TradeSystem
             openOrders.Remove(transaction);
             Synchronize(openOrders);
         }
-       
+
         public void Synchronize(List<GameTransaction> list)
         {
             int index = 1;

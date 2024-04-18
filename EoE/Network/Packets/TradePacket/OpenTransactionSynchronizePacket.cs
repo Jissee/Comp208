@@ -47,10 +47,7 @@ namespace EoE.Network.Packets.TradePacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    if (client.GonveranceManager.FieldList is IClientFieldList fieldList)
-                    {
-                        //TODO
-                    }
+                    client.TradeManager.Synchronize(openOrders);
                 }
             }
         }
