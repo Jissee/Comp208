@@ -85,7 +85,6 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-wind
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\EstablishRelationWindow.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\TreatyContentWindow.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagementWindow.g.cs
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\CheckOtherFieldsWindow.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\CheckOtherPlayer.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\GovernenceMainWindow.g.cs
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagementWindow.g.cs
@@ -114,7 +113,6 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-wind
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\EstablishRelationWindow.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\TreatyContentWindow.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\BlockManagementWindow.baml
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\CheckOtherFieldsWindow.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\CheckOtherPlayer.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\GovernenceMainWindow.baml
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\GovernanceSystem\MilitaryManagementWindow.baml
