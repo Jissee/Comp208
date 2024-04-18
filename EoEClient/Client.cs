@@ -89,14 +89,14 @@ namespace EoE.Client
 
         public void AddChatMessage(string senderName, string message)
         {
+            string regularizationMessage = DateTime.Now.ToString()+"  "+senderName +": " + message;
             if (chat.ContainsKey(senderName))
             {
-                chat[senderName].Add(message);
+                chat[senderName].Add(regularizationMessage);
             }
             else
             {
-                List<string> messageList = new List<string>();
-                messageList.Add(message);
+                List<string> messageList = [regularizationMessage];
                 chat.Add(senderName, messageList);
             }
         }
