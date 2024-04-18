@@ -51,7 +51,7 @@ namespace EoE.Client.ChatSystem
             {
                 MessageBox.Show("Please select a treaty!");
             }
-            ChatPage window = WindowManager.INSTANCE.GetWindows<ChatPage>();
+            ChatWindow window = WindowManager.INSTANCE.GetWindows<ChatWindow>();
             if (window.selectedName.SelectedItem != null)
             {
                 ResourceListRecord record = new ResourceListRecord();
