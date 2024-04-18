@@ -72,6 +72,11 @@ namespace EoE.Client.Login
         {
             Population.Text = populationRecord.availablePopulation.ToString();
         }
+
+        public void SynchronizeOtherPlayerList()
+        {
+            PlayerName.Text = Client.INSTANCE.PlayerName;
+        }
         public void SynchronizeRoundNumber(int round)
         {
             RoundCount.Text = round.ToString();

@@ -19,6 +19,7 @@ namespace EoE.Network.Entities
         PacketHandler PacketHandler { get; }
         EventList EventList { get; }
         GameStatus Status { get; }
+        bool isGameRunning { get; }
         static void Log(string type, string message) 
         {
             Console.WriteLine($"[{DateTime.Now}] [{type}] {message}");

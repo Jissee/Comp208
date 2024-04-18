@@ -104,23 +104,14 @@ namespace EoE.Client
                     OtherPlayer.Add(name);
                 }
             }
-            Application.Current.Dispatcher.Invoke((Delegate)(() =>
-            {
-                EnterGameWindow entetPage = WindowManager.GetWindows<EnterGameWindow>();
-                entetPage.SynchronizeOtherPlayerList();
-                SelectTraderWindow selectTrader = WindowManager.GetWindows<SelectTraderWindow>();
-                selectTrader.SynchronizeOtherPlayerList();
-            }));
-            
+            WindowManager.INSTANCE.SynchronizeOtherPlayersName();
+
+
         }
         public void SynchronizePlayerName(string name)
         {
             PlayerName = name;
-            Application.Current.Dispatcher.Invoke((Delegate)(() =>
-            {
-                EnterGameWindow entetPage = WindowManager.GetWindows<EnterGameWindow>();
-                entetPage.SynchronizeOtherPlayerList();
-            }));
+            WindowManager.INSTANCE.SynchronizeOtherPlayersName();
         }
 
         public void SynchronizeOtherPlayerFieldLitst(string name,FieldListRecord record)
