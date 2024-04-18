@@ -12,6 +12,7 @@ namespace EoE.WarSystem.Interface
         Dictionary<IPlayer, IArmy> Armies { get; }
         IArmy TotalArmy { get; }
         void Clear();
+        bool AllSurrendered { get; }
         void SetWar(IWar war);
         void AddPlayer(IPlayer player);
         void PlayerSurrender(IPlayer player);

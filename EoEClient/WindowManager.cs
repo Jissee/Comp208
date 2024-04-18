@@ -3,6 +3,7 @@ using EoE.Client.ChatSystem;
 using EoE.Client.GovernanceSystem;
 using EoE.Client.Login;
 using EoE.Client.TradeSystem;
+using EoE.Client.WarSystem;
 using EoE.ClientInterface;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
@@ -87,6 +88,8 @@ namespace EoE.Client
                 mainGameWindow.SynchronizeOtherPlayerList();
                 ChatWindow chatWindow = GetWindows<ChatWindow>();
                 chatWindow.SynchronizeOtherPlayerList();
+                WarDetail warDetail = GetWindows<WarDetail>();
+                warDetail.SynchronizeOtherPlayerList();
             }));
         }
         public void UpdateResources()
@@ -100,6 +103,8 @@ namespace EoE.Client
                 military.SynchronizeResources(record);
                 ResourceInformationWindow resourceManage = GetWindows<ResourceInformationWindow>();
                 resourceManage.SynchronizeResources(record);
+                AllocateArmy allocateArmy = GetWindows<AllocateArmy>();
+                allocateArmy.SynchronizeResources(record);
             });
         }
 

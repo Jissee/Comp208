@@ -38,7 +38,7 @@ namespace EoE.Network.Packets.TreatyPacket
             {
                 IServer server = (IServer)context.Receiver;
                 IPlayer senderPlayer = context.PlayerSender!;
-                IPlayer receiverPlayer = server.GetPlayer(this.receiver)!;
+                IPlayer receiverPlayer = server.GetPlayer(receiver)!;
                 receiverPlayer.SendPacket(new NewCommonDefenseTreatyPacket(sender, receiver));
             }
             else

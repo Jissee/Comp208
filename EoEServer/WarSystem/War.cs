@@ -72,7 +72,7 @@ namespace EoE.Server.WarSystem
         {
             DefendersTarget = warTarget;
         }
-        public void End(IWarParty defeated)
+        public void End(IWarParty? defeated)
         {
             foreach(var kvpFirst in Attackers.Armies)
             {
@@ -83,13 +83,16 @@ namespace EoE.Server.WarSystem
                     Server.PlayerList.TreatyManager.AddTruceTreaty(playerFirst, playerSecond);
                 }
             }
-            if (defeated == Attackers)
+            if(defeated != null)
             {
-                DivideSpoil(Defenders, Attackers, DefendersTarget);
-            }
-            else
-            {
-                DivideSpoil(Attackers, Defenders, AttackersTarget);
+                if (defeated == Attackers)
+                {
+                    DivideSpoil(Defenders, Attackers, DefendersTarget);
+                }
+                else
+                {
+                    DivideSpoil(Attackers, Defenders, AttackersTarget);
+                }
             }
             status = false;
             WarManager.RemoveWar(this);
@@ -205,25 +208,25 @@ namespace EoE.Server.WarSystem
             (int, int) attackerAttack = Attackers.GetMechAttackBattAttack();
             (int, int) defenderAttack = Defenders.GetMechAttackBattAttack();
 
-            int aB1 = Attackers.TotalArmy.Battle.Count;
-            int aI1 = Attackers.TotalArmy.Informative.Count;
-            int aM1 = Attackers.TotalArmy.Mechanism.Count;
+            int aB1 = Attackers.TotalArmy.GetBattleCount();
+            int aI1 = Attackers.TotalArmy.GetInformativeCount();
+            int aM1 = Attackers.TotalArmy.GetMechanismCount();
 
-            int dB1 = Defenders.TotalArmy.Battle.Count;
-            int dI1 = Defenders.TotalArmy.Informative.Count;
-            int dM1 = Defenders.TotalArmy.Mechanism.Count;
+            int dB1 = Defenders.TotalArmy.GetBattleCount();
+            int dI1 = Defenders.TotalArmy.GetInformativeCount();
+            int dM1 = Defenders.TotalArmy.GetMechanismCount();
 
             Attackers.AbsorbAttack(defenderAttack.Item1, defenderAttack.Item2);
             Defenders.AbsorbAttack(attackerAttack.Item1, attackerAttack.Item2);
 
 
-            int aB2 = Attackers.TotalArmy.Battle.Count;
-            int aI2 = Attackers.TotalArmy.Informative.Count;
-            int aM2 = Attackers.TotalArmy.Mechanism.Count;
-
-            int dB2 = Defenders.TotalArmy.Battle.Count;
-            int dI2 = Defenders.TotalArmy.Informative.Count;
-            int dM2 = Defenders.TotalArmy.Mechanism.Count;
+            int aB2 = Attackers.TotalArmy.GetBattleCount();
+            int aI2 = Attackers.TotalArmy.GetInformativeCount();
+            int aM2 = Attackers.TotalArmy.GetMechanismCount();
+                  
+            int dB2 = Defenders.TotalArmy.GetBattleCount();
+            int dI2 = Defenders.TotalArmy.GetInformativeCount();
+            int dM2 = Defenders.TotalArmy.GetMechanismCount();
 
             WarInformationPacket packetA = new WarInformationPacket(
                 WarName,

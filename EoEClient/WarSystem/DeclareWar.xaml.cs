@@ -45,7 +45,6 @@ namespace EoE.Client.WarSystem
                 WarDeclarationPacket packet = new WarDeclarationPacket(WarMainPage.theWarName);
                 Client.INSTANCE.SendPacket(packet);
                 this.Hide();
-                MessageBox.Show("You can manage your army in next page or find the page in Check status of War!");
                 MessageBox.Show($"""
                                 You begin the war with {listBox1.SelectedItem.ToString()}!
                                 Remember to fill in the frontier!

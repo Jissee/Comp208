@@ -21,7 +21,7 @@
         <Button Content="Back" HorizontalAlignment="Left" Margin="150,367,0,0" VerticalAlignment="Top" Height="40" Width="200" FontSize="20" Click="Button_Click"/>
         <TextBlock x:Name="battleafter" HorizontalAlignment="Left" Margin="452,317,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" Height="29"/>
         <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="328,112,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="techbefore" HorizontalAlignment="Left" Margin="328,185,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" Height="32"/>
+        <TextBlock x:Name="infobefore" HorizontalAlignment="Left" Margin="328,185,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" Height="32"/>
         <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="328,258,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" Height="31"/>
 
     </Grid>

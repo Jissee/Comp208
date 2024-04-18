@@ -57,8 +57,16 @@ namespace EoE.Network.Packets.WarPacket
                     player.SendPacket(new ResourceUpdatePacket(resourceList.GetResourceListRecord()));
                     return;
                 }
-                
-                if(resourceList.GetResourceCount(GameResourceType.BattleArmy) < fillBattle)
+
+                if (fillBattle + fillInformative + fillMechanism > warParty.WarWidth)
+                {
+                    ServerMessagePacket packet = new ServerMessagePacket("Your soldiers are overassigned. You need to reposition them; otherwise, you will automatically surrender.");
+                    player.SendPacket(packet);
+                    player.SendPacket(new ResourceUpdatePacket(resourceList.GetResourceListRecord()));
+                    return;
+                }
+
+                if (resourceList.GetResourceCount(GameResourceType.BattleArmy) < fillBattle)
                 {
                     ServerMessagePacket packet = new ServerMessagePacket("You don't have enough battle army!");
                     player.SendPacket(packet);
@@ -89,7 +97,7 @@ namespace EoE.Network.Packets.WarPacket
                 resourceList.SplitResource(GameResourceType.BattleArmy, fillBattle);
                 resourceList.SplitResource(GameResourceType.InformativeArmy, fillInformative);
                 resourceList.SplitResource(GameResourceType.MechanismArmy, fillMechanism);
-
+                player.SendPacket(new ResourceUpdatePacket(resourceList.GetResourceListRecord()));
                 warParty.FillInFrontier(player, fillBattle, fillInformative, fillMechanism);
             }
         }

@@ -1,4 +1,5 @@
 ﻿using EoE.GovernanceSystem;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.WarPacket;
 using EoE.Server.GovernanceSystem;
 using EoE.WarSystem.Interface;
@@ -25,6 +26,9 @@ namespace EoE.Server.WarSystem
         { 
             Armies = new Dictionary<IPlayer,IArmy>();
             surrendered = new List<IPlayer>();
+            BattleArmyOwner = new List<IPlayer>();
+            InformativeArmyOwner = new List<IPlayer>();
+            MechanismArmyOwner = new List<IPlayer>();
         }
         public void Clear()
         {
@@ -47,10 +51,6 @@ namespace EoE.Server.WarSystem
         public void PlayerSurrender(IPlayer player)
         {
             surrendered.Add(player);
-            if(surrendered.Count == Armies.Count)
-            {
-                war.End(this);
-            }
         }
         public void PlayerLose(IPlayer player)
         {
@@ -72,34 +72,36 @@ namespace EoE.Server.WarSystem
             {
                 IPlayer player = kvp.Key;
                 IArmy army = kvp.Value;
-                player.GonveranceManager.ResourceList.AddResourceStack(army.Battle);
-                player.GonveranceManager.ResourceList.AddResourceStack(army.Informative);
-                player.GonveranceManager.ResourceList.AddResourceStack(army.Mechanism);
+                player.GonveranceManager.ResourceList.AddResource(GameResourceType.BattleArmy,army.GetBattleCount());
+                player.GonveranceManager.ResourceList.AddResource(GameResourceType.InformativeArmy,army.GetInformativeCount());
+                player.GonveranceManager.ResourceList.AddResource(GameResourceType.MechanismArmy,army.GetMechanismCount());
 
-                army.Battle.Split(army.Battle.Count);
-                army.Informative.Split(army.Informative.Count);
-                army.Mechanism.Split(army.Mechanism.Count);
+                army.Clear();
+                player.SendPacket(new ResourceUpdatePacket(player.GonveranceManager.ResourceList.GetResourceListRecord()));
             }
         }
         public void UpdateTotalArmy()
         {
+            BattleArmyOwner = new List<IPlayer>();
+            InformativeArmyOwner = new List<IPlayer>();
+            MechanismArmyOwner = new List<IPlayer>();
             TotalArmy = new Army(this);
             foreach(var kvp in Armies)
             {
                 IPlayer player = kvp.Key;
                 IArmy army = kvp.Value;
-                TotalArmy.AddBattle(army.Battle);
-                TotalArmy.AddInformative(army.Informative);
-                TotalArmy.AddMechanism(army.Mechanism);
-                for(int i = 1; i <= army.Battle.Count; i++)
+                TotalArmy.AddBattle(new ResourceStack(GameResourceType.BattleArmy, army.GetBattleCount()));
+                TotalArmy.AddInformative(new ResourceStack(GameResourceType.InformativeArmy, army.GetInformativeCount()));
+                TotalArmy.AddMechanism(new ResourceStack(GameResourceType.MechanismArmy, army.GetMechanismCount()));
+                for(int i = 1; i <= army.GetBattleCount(); i++)
                 {
                     BattleArmyOwner.Add(player);
                 }
-                for (int i = 1; i <= army.Informative.Count; i++)
+                for (int i = 1; i <= army.GetInformativeCount(); i++)
                 {
                     InformativeArmyOwner.Add(player);
                 }
-                for (int i = 1; i <= army.Mechanism.Count; i++)
+                for (int i = 1; i <= army.GetMechanismCount(); i++)
                 {
                     MechanismArmyOwner.Add(player);
                 }
@@ -122,18 +124,18 @@ namespace EoE.Server.WarSystem
             int informativeDamage = (int)(totalDamage * 0.21);
             int mechanismDamage = (int)(totalDamage * 0.11);
 
-            int battleTopDamage = TotalArmy.Battle.Count * 2;
-            int informativeTopDamage = TotalArmy.Informative.Count * 2;
-            int mechanismTopDamage = TotalArmy.Informative.Count * 2;
+            int battleTopDamage = TotalArmy.GetBattleCount() * 2;
+            int informativeTopDamage = TotalArmy.GetInformativeCount() * 2;
+            int mechanismTopDamage = TotalArmy.GetMechanismCount() * 2;
 
             if(battleDamage > battleTopDamage)
             {
-                informativeDamage += battleTopDamage - battleDamage;
+                informativeDamage += battleDamage - battleTopDamage;
                 battleDamage = battleTopDamage;
             }
             if (informativeDamage > informativeTopDamage)
             {
-                mechanismDamage += informativeTopDamage - informativeDamage;
+                mechanismDamage += informativeDamage - informativeTopDamage;
                 informativeDamage = informativeTopDamage;
             }
             if(mechanismDamage > mechanismTopDamage)
@@ -167,11 +169,12 @@ namespace EoE.Server.WarSystem
                 MechanismArmyOwner.RemoveAt(dieIndex);
             }
             UpdateTotalArmy();
+            Dismiss();
         }
         public bool HasFilled(IPlayer player)
         {
             IArmy army = Armies[player];
-            if(army.Battle.Count + army.Informative.Count + army.Mechanism.Count > 0)
+            if(army.GetBattleCount() + army.GetInformativeCount() + army.GetMechanismCount() > 0)
             {
                 return true;
             }
@@ -183,9 +186,9 @@ namespace EoE.Server.WarSystem
 
         public void FillInFrontier(IPlayer player, int battle, int informative, int mechanism)
         {
-            Armies[player].Battle = new ResourceStack(GameResourceType.BattleArmy, battle);
-            Armies[player].Informative = new ResourceStack(GameResourceType.InformativeArmy, informative);
-            Armies[player].Mechanism = new ResourceStack(GameResourceType.MechanismArmy, mechanism);
+            Armies[player].AddBattle(new ResourceStack(GameResourceType.BattleArmy, battle));
+            Armies[player].AddInformative(new ResourceStack(GameResourceType.InformativeArmy, informative));
+            Armies[player].AddMechanism(new ResourceStack(GameResourceType.MechanismArmy, mechanism));
         }
     }
 }
