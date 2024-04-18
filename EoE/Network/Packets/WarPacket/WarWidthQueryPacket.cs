@@ -1,4 +1,5 @@
 ﻿using EoE.Network.Entities;
+using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,22 @@ namespace EoE.Network.Packets.WarPacket
             {
                 IServer server = (IServer)context.Receiver;
                 IPlayer player = context.PlayerSender!;
-                WarWidthQueryPacket packet = new WarWidthQueryPacket(warName, width);
-                player.SendPacket(packet);
+                if (server.PlayerList.WarManager.WarDict.ContainsKey(warName))
+                {
+                    int warWidth;
+                    IWarParty Attacker = server.PlayerList.WarManager.WarDict[warName].Attackers;
+                    IWarParty Defender = server.PlayerList.WarManager.WarDict[warName].Defenders;
+                    if (Attacker.Armies.Keys.Contains(player))
+                    {
+                        warWidth = Attacker.WarWidth;
+                    }
+                    else 
+                    {
+                        warWidth = Defender.WarWidth;
+                    }
+                    WarWidthQueryPacket packet = new WarWidthQueryPacket(warName, warWidth);
+                    player.SendPacket(packet);
+                }
             }
             else
             {

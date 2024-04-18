@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EoE.Network.Packets.WarPacket;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,7 +44,13 @@ namespace EoE.Client.WarSystem
 
         private void Submit3_Click(object sender, RoutedEventArgs e)
         {
-
+            FillInFrontierPacket packet = new FillInFrontierPacket(
+                CheckStatus.selectedWarName,
+                int.Parse(battleAllocation.Text),
+                int.Parse(informativeAllocation.Text),
+                int.Parse(mechanismAllocation.Text)
+                );
+            Client.INSTANCE.SendPacket( packet );
         }
     }
 }

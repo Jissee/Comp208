@@ -1,4 +1,5 @@
 ﻿using EoE.Network.Entities;
+using EoE.Network.Packets.GonverancePacket;
 using EoE.Server.WarSystem;
 using EoE.WarSystem.Interface;
 using System;
@@ -52,7 +53,36 @@ namespace EoE.Network.Packets.WarPacket
 
                 WarTarget attackersTarget = new WarTarget();
                 WarTarget defendersTarget = new WarTarget();
-
+                StringBuilder stringBuilderAttacker = new StringBuilder();
+                StringBuilder stringBuilderDefender = new StringBuilder();
+                foreach(IPlayer attacker in attackers.Armies.Keys)
+                {
+                    stringBuilderAttacker.Append($" \"{attacker.PlayerName}\" ");
+                }
+                foreach(IPlayer defender in defenders.Armies.Keys)
+                {
+                    stringBuilderDefender.Append($" \"{defender.PlayerName}\" ");
+                }
+                ServerMessagePacket attackerPacket = new ServerMessagePacket(
+                    $"""
+                    You will have a war with the following players:
+                    {stringBuilderDefender.ToString()}
+                    You will have these alliances:
+                    {stringBuilderAttacker.ToString()}
+                    Please Remember to fill in the frontier!
+                    Otherwise, you will automatically surrender!
+                    """);
+                ServerMessagePacket defenderPacket = new ServerMessagePacket(
+                    $"""
+                    You will have a war with the following players:
+                    {stringBuilderAttacker.ToString()}
+                    You will have these alliances:
+                    {stringBuilderDefender.ToString()}
+                    Please Remember to fill in the frontier!
+                    Otherwise, you will automatically surrender!
+                    """);
+                server.PlayerList.Broadcast(attackerPacket, player => attackers.Armies.ContainsKey(player));
+                server.PlayerList.Broadcast(defenderPacket, player => defenders.Armies.ContainsKey(player));
                 foreach (IPlayer attacker in attackers.Armies.Keys)
                 {
                     foreach (IPlayer defender in defenders.Armies.Keys)
