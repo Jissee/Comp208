@@ -14,7 +14,7 @@
         <TextBox x:Name="warName" HorizontalAlignment="Left" Margin="637,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="20"/>
         <Button x:Name="warGoals" Content="All war goals" HorizontalAlignment="Left" Margin="69,74,0,0" VerticalAlignment="Top" Width="280" Height="70" FontSize="20" Click="warGoals_Click"/>
         <Label Content="Enter War Name: " HorizontalAlignment="Left" Margin="441,144,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="You can allocate troops here." HorizontalAlignment="Left" Margin="120,250,0,0" VerticalAlignment="Top"/>
+        <Label Content="You can allocate troops here." HorizontalAlignment="Left" Margin="100,217,0,0" VerticalAlignment="Top" FontSize="15"/>
         <Button x:Name="AbrogateATreaty" Content="Abrogate a Treaty" HorizontalAlignment="Left" Margin="69,280,0,0" VerticalAlignment="Top" Width="280" Height="70" FontSize="20" Click="AbrogateTreaty_Click"/>
 
     </Grid>

@@ -107,12 +107,31 @@ namespace EoE.Server.WarSystem
                 IArmy armyWinner = kvpWinner.Value;
                 int playerWinnerConsume = armyWinner.Consumption;
                 double winnerProportion = (double) playerWinnerConsume / winnerTotalConsume;
+                if(winnerTotalConsume == 0)
+                {
+                    winnerProportion = 1 / winner.Armies.Count;
+                }
                 double loserTotalWeight = 0;
+
                 foreach(var kvpLoser in loser.Armies)
                 {
                     IPlayer playerLoser = kvpLoser.Key;
                     IArmy armyLoser = kvpLoser.Value;
                     int playerLoserConsume = armyLoser.Consumption;
+                    if (playerLoserConsume == 0)
+                    {
+                        loserTotalConsume++;
+                    }
+                }
+                foreach (var kvpLoser in loser.Armies)
+                {
+                    IPlayer playerLoser = kvpLoser.Key;
+                    IArmy armyLoser = kvpLoser.Value;
+                    int playerLoserConsume = armyLoser.Consumption;
+                    if (playerLoserConsume == 0)
+                    {
+                        playerLoserConsume = 1;
+                    }
                     loserTotalWeight += (double)loserTotalConsume / playerLoserConsume;
                 }
                 foreach(var kvpLoser in loser.Armies)
@@ -120,7 +139,16 @@ namespace EoE.Server.WarSystem
                     IPlayer playerLoser = kvpLoser.Key;
                     IArmy armyLoser = kvpLoser.Value;
                     int playerLoserConsume = armyLoser.Consumption;
+                    if(playerLoserConsume == 0)
+                    {
+                        playerLoserConsume = 1;
+                    }
                     double loserProportion = ((double)loserTotalConsume / playerLoserConsume) / loserTotalWeight;
+                    if (loserTotalConsume == 0)
+                    {
+                        loserProportion = 1 / loser.Armies.Count;
+                    }
+
                     ResourceListRecord record = new ResourceListRecord();
                     record.siliconCount = (int)(winnerTarget.SiliconClaim * winnerProportion * loserProportion);
                     record.copperCount = (int)(winnerTarget.CopperClaim * winnerProportion * loserProportion);
