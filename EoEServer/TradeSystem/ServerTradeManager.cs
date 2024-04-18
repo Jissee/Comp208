@@ -240,7 +240,7 @@ namespace EoE.Server.TradeSystem
             {
                 offeror.SendPacket(new ServerMessagePacket("Your private trade has been accepted"));
                 recipient.SendPacket(new ResourceUpdatePacket(new ResourceListRecord (recipient.GonveranceManager.ResourceList)));
-                offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(recipient.GonveranceManager.ResourceList)));
+                offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
             }
         }
 

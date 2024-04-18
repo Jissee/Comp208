@@ -22,7 +22,7 @@
         <Button Content="Delete" HorizontalAlignment="Left" Margin="108,284,0,0" VerticalAlignment="Top" Click="Button_Click_5" FontSize="20"/>
         <Label Content="You can delete transactions that haven't been completed yet.Select the transaction and click the delete button." HorizontalAlignment="Left" Margin="77,403,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Button Content="Accept" HorizontalAlignment="Left" Margin="269,284,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_6"/>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="358,39,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <Button Content="Check" HorizontalAlignment="Left" Margin="358,39,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
         <RadioButton x:Name="silicon1" Content="silicon" HorizontalAlignment="Left" Margin="101,32,0,0" VerticalAlignment="Top" GroupName="OptionsGroup"/>
         <RadioButton x:Name="Copper1" Content="Copper" HorizontalAlignment="Left" Margin="188,32,0,0" VerticalAlignment="Top" GroupName="OptionsGroup"/>
         <RadioButton x:Name="Iron1" Content="Iron" HorizontalAlignment="Left" Margin="276,32,0,0" VerticalAlignment="Top" GroupName="OptionsGroup"/>

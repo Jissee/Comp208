@@ -51,7 +51,7 @@ namespace EoE.Client
         public IClientWarTargetList ClientWarTargetList { get; set; }
         public IClientTreatyList ClientTreatyList {  get; set; }
         IWindowManager IClient.WindowManager => WindowManager;
-
+        private Dictionary<string, List<string>> chat;
         public WindowManager WindowManager { get; init; }
 
         public IClientWarNameList ClientWarNameList {  get; set; }
@@ -84,8 +84,34 @@ namespace EoE.Client
             ClientWarNameRelatedList = new ClientWarNameRelatedList();
             WindowManager = EoE.Client.WindowManager.INSTANCE;
             OtherPlayerFields = new Dictionary<string, FieldListRecord>();
+            chat = new Dictionary<string, List<string>>();
         }
 
+        public void AddChatMessage(string senderName, string message)
+        {
+            if (chat.ContainsKey(senderName))
+            {
+                chat[senderName].Add(message);
+            }
+            else
+            {
+                List<string> messageList = new List<string>();
+                messageList.Add(message);
+                chat.Add(senderName, messageList);
+            }
+        }
+
+        public List<string>? GetChatMessage(string name)
+        {
+            if (chat.ContainsKey(name))
+            {
+               return chat[name];
+            }
+            else
+            {
+                return null;
+            }
+        }
         public void SynchronizeTickCount(int tickCount)
         {
             WindowManager.SynchronizeTickCount(tickCount);
