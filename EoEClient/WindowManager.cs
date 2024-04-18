@@ -3,6 +3,7 @@ using EoE.Client.ChatSystem;
 using EoE.Client.GovernanceSystem;
 using EoE.Client.Login;
 using EoE.Client.TradeSystem;
+using EoE.Client.WarSystem;
 using EoE.ClientInterface;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
@@ -96,8 +97,14 @@ namespace EoE.Client
                 selectTrader.SynchronizeOtherPlayerList();
                 MainGameWindow mainGameWindow = GetWindows<MainGameWindow>();
                 mainGameWindow.SynchronizeOtherPlayerList();
+<<<<<<< HEAD
                 ChatWindow chatWindow = GetWindows<ChatWindow>();
                 chatWindow.SynchronizeOtherPlayerList();
+=======
+
+                WarDetail warDetail = GetWindows<WarDetail>();
+                warDetail.SynchronizeOtherPlayerList();
+>>>>>>> merge
             }));
         }
         public void UpdateResources()

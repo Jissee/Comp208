@@ -57,12 +57,12 @@ namespace EoE.Client.WarSystem
             }
         }
 
-        public void SynchronizeOtherPalyerName()
+        public void SynchronizeOtherPlayerList()
         {
-            OtherPlayerName.items.Clear();
+            OtherPlayerName.Items.Clear();
             foreach (string name in Client.INSTANCE.OtherPlayer)
             {
-                OtherPlayerName.item.Add(name);
+                OtherPlayerName.Items.Add(name);
             }
         }
         public void limitnumber(object sender, TextCompositionEventArgs e)
