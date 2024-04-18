@@ -49,7 +49,7 @@ namespace EoE.Server
         {
             this.Connection = connection;
             Server = server;
-            GonveranceManager = new ServerPlayerGonverance(Server.Status, 100, this);
+            GonveranceManager = new ServerPlayerGonverance(Server.Status, 10000, this);
 
         }
         public void BeginGame()
