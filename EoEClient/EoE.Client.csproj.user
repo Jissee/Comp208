@@ -21,7 +21,6 @@
     <Page Update="GovernanceSystem\CheckOtherFieldsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-<<<<<<< HEAD
     <Page Update="GovernanceSystem\GovernenceMainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -41,9 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login\MainTradeWindow.xaml">
-=======
+      <SubType>Designer</SubType>
+    </Page>    
     <Page Update="GovernanceSystem\CheckOtherPlayer.xaml">
->>>>>>> 7be7a1ff4acc965030071f4516de1aff1f596fcd
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login\SetGameWindow.xaml">
