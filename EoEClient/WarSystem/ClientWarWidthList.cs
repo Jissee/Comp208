@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EoE.Client.WarSystem
 {
@@ -24,7 +25,11 @@ namespace EoE.Client.WarSystem
             {
                 WarWidthList.Add(warName, width);
             }
-            // todo show
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                AllocateArmy window = WindowManager.INSTANCE.GetWindows<AllocateArmy>();
+                window.battleafter.Text = width.ToString();
+            });
         }
     }
 }
