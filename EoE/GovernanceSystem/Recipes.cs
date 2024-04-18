@@ -40,7 +40,7 @@ namespace EoE.Server.GovernanceSystem
         public static readonly double IRON_PER_POP_TICK = 1.2f;
         public static readonly double ALUMINUM_PER_POP_TICK = 1.1f;
 
-        private static double ElectronicSynthetic = 5;
+        private static double ElectronicSynthetic = 5.5;
         private static double IndustrailSynthetic = 5;
 
         public static double SiliconSynthetic = 5;
@@ -56,11 +56,11 @@ namespace EoE.Server.GovernanceSystem
 
         private static int maxAllocation = 50;
 
-        public static double InformativePopSynthetic =  5.0;
+        public static int InformativePopSynthetic =  5;
         public static int InformativeResourceSynthetic = 2;
-        public static double MechanismPopSynthetic = 8.5;
+        public static int MechanismPopSynthetic = 8;
         public static int MechanismResourceSynthetic = 2;
-        public static double BattlePopSynthetic = 1.47;
+        public static int BattlePopSynthetic = 1;
 
         public static Produce calcSiliconP = (population,fields, _, _) =>
         {

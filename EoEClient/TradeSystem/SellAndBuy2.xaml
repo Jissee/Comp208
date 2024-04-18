@@ -28,6 +28,7 @@
         <Label Content="Aluminum" HorizontalAlignment="Left" Margin="478,207,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
         <Label Content="Electronic" HorizontalAlignment="Left" Margin="478,262,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
         <Label Content="Industrial" HorizontalAlignment="Left" Margin="478,317,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
+<<<<<<< HEAD
         <TextBox x:Name="buySilicon" HorizontalAlignment="Left" Margin="596,49,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="buyCopper" HorizontalAlignment="Left" Margin="596,102,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="buyIron" HorizontalAlignment="Left" Margin="596,157,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
@@ -36,5 +37,15 @@
         <TextBox x:Name="buyIndustrial" HorizontalAlignment="Left" Margin="596,322,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <Button x:Name="Confirm_Button" Content="Confirm" HorizontalAlignment="Left" Margin="256,366,0,0" VerticalAlignment="Top" Height="47" Width="112" FontSize="20" Background="White" Click="Confirm_Button_Click"/>
         <Button x:Name="Back_Button" Content="Back" HorizontalAlignment="Left" Margin="434,366,0,0" VerticalAlignment="Top" Height="47" Width="112" FontSize="20" Background="White" Click="Back_Button_Click"/>
+=======
+        <TextBox x:Name="Buy1" HorizontalAlignment="Left" Margin="596,49,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="Buy7" HorizontalAlignment="Left" Margin="596,102,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="Buy3" HorizontalAlignment="Left" Margin="596,157,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="Buy4" HorizontalAlignment="Left" Margin="596,212,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="Buy5" HorizontalAlignment="Left" Margin="596,267,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="Buy6" HorizontalAlignment="Left" Margin="596,322,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <Button x:Name="Confirm_Button" Content="Confirm" HorizontalAlignment="Left" Margin="421,378,0,0" VerticalAlignment="Top" Height="47" Width="112" FontSize="20" Background="White" Click="Confirm_Button_Click"/>
+        <Button x:Name="Back_Button" Content="Back" HorizontalAlignment="Left" Margin="256,378,0,0" VerticalAlignment="Top" Height="47" Width="112" FontSize="20" Background="White" Click="Back_Button_Click"/>
+>>>>>>> ad3ad3830aed69cfe726f1263c3ed452b6ab70db
     </Grid>
 </Window>
