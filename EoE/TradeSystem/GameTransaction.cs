@@ -44,6 +44,30 @@ namespace EoE.TradeSystem
             Recipient = recipient;
         }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || obj.GetType()!= this.GetType())
+            {
+                return false;
+            }
+            else
+            {
+                GameTransaction transaction = (GameTransaction)obj;
+                if (transaction.Id.Equals(this.Id))
+                {
+                    return true;
+                    
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
         public static Encoder<GameTransaction> encoder = (GameTransaction obj, BinaryWriter writer) =>
         {
             writer.Write(obj.Offeror);

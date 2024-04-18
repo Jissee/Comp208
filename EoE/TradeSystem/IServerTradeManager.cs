@@ -9,6 +9,7 @@ namespace EoE.TradeSystem
 {
     public interface IServerTradeManager : ITradeManager
     {
+        public List<GameTransaction> openOrders { get; }
         void CreatOponTransaction(GameTransaction transaction);
         void CreatSecretTransaction(GameTransaction transaction);
         void CancelOpenTransaction(Guid id, string operatorName);

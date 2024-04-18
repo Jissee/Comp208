@@ -33,10 +33,15 @@ namespace EoE.Client.Login
         {
             if (amount && round)
             {
-                Client.INSTANCE.SendPacket(new GameSettingPacket(new GameSettingRecord(int.Parse(SetResource.Text), int.Parse(selectedValueTextBox.Text))));
-                ignoreClosing = true;
-                this.Close();
-                WindowManager.INSTANCE.ShowWindows<EnterGameWindow>();
+                int playerCount;
+                int roundCount;
+                if(int.TryParse(SetResource.Text, out playerCount)&& int.TryParse(selectedValueTextBox.Text, out roundCount))
+                {
+                    Client.INSTANCE.SendPacket(new GameSettingPacket(new GameSettingRecord(playerCount, roundCount)));
+                    ignoreClosing = true;
+                    this.Close();
+                    WindowManager.INSTANCE.ShowWindows<EnterGameWindow>();
+                }
             }
             else {
                 MessageBox.Show("You haven't changed any values. If you confirm, please submit again.");

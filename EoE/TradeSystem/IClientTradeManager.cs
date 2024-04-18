@@ -17,7 +17,7 @@ namespace EoE.TradeSystem
         void RequireAlterOpenTransaction(Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer);
         void RequireAcceptSecretTransaction(GameTransaction transaction);
         void RejectSecretTransaction(GameTransaction transaction);
-        void CreateNewOpenTransaction(GameTransaction transaction);
+        void AdddOpenTransaction(GameTransaction transaction);
         void RemoveOpenTransaction(GameTransaction transaction);
         void Synchronize(List<GameTransaction> list);
     }
