@@ -52,14 +52,6 @@ namespace EoE.Client
             }
             return (T)WindowsDict[typeName];
         }
-        public void CloseWindow<T>() where T : Window, new()
-        {
-            Type t = typeof(T);
-            string typeName = t.FullName;
-            Window window = GetWindows<T>();
-            window.Close();
-            WindowsDict.Remove(typeName);
-        }
         public void ShowGameSettingWindow()
         {
             Application.Current.Dispatcher.Invoke(()=>
@@ -71,7 +63,6 @@ namespace EoE.Client
             });
             
         }
-
         public void ShowGameEntterWindow()
         {
             Application.Current.Dispatcher.Invoke(() =>
@@ -82,7 +73,6 @@ namespace EoE.Client
                 window.Close();
             });
         }
-
         public void SynchronizeOtherPlayersName()
         {
             Application.Current.Dispatcher.Invoke((() =>
@@ -155,7 +145,6 @@ namespace EoE.Client
             });
         }
       
-
         public void ShowGameMainPage()
         {
             Type t = typeof(MainGameWindow);

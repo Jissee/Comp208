@@ -42,7 +42,7 @@ namespace EoE.Client.TradeSystem
                     }
                 }
             }
-            ShowTranscations(list);
+           ShowTranscations(list);
         }
         public GameTransaction GetGameTransaction(int transactionNumber)
         {

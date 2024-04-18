@@ -280,7 +280,7 @@ namespace EoE.Server.TradeSystem
                     offerorResources.AddResourceStack(item);
                 }
 
-                foreach (ResourceStack item in transaction.OfferorOffer)
+                foreach (var item in transaction.OfferorOffer)
                 {
                     recipientResources.AddResourceStack(item);
                 }
