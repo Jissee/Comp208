@@ -46,7 +46,7 @@ namespace EoE.Client.Login
             player_number.Text = playerNumber.ToString();
             round_number.Text = gameRound.ToString();
         }
-        //todo 不能之间进入游戏
+
         private void EnterGame_Click(object sender, RoutedEventArgs e)
         {
             EnterGame.IsEnabled = false;

@@ -59,7 +59,7 @@ namespace EoE.Client.TradeSystem
                 {
                     if (players.SelectedItem != null)
                     {
-                        Guid id = new Guid();
+                        Guid id = Guid.NewGuid();
                         List<ResourceStack> offerorOffer =
                         [
                             new ResourceStack(GameResourceType.Silicon, seSilicon),

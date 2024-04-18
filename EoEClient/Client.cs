@@ -66,8 +66,7 @@ namespace EoE.Client
             INSTANCE = new Client();
         }
 
-        //TODO for test,change to public temporarily
-        public Client() 
+        private Client() 
         {
             Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Handler = new ClientPacketHandler();

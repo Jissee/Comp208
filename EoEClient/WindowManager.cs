@@ -52,7 +52,14 @@ namespace EoE.Client
             }
             return (T)WindowsDict[typeName];
         }
-
+        public void CloseWindow<T>() where T : Window, new()
+        {
+            Type t = typeof(T);
+            string typeName = t.FullName;
+            Window window = GetWindows<T>();
+            window.Close();
+            WindowsDict.Remove(typeName);
+        }
         public void ShowGameSettingWindow()
         {
             Application.Current.Dispatcher.Invoke(()=>
@@ -173,18 +180,6 @@ namespace EoE.Client
 
         }
 
-        public static void shutDown(System.ComponentModel.CancelEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
-
-            if (result == MessageBoxResult.Cancel)
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                App.Current.Shutdown();
-            }
-        }
+        
     }
 }
