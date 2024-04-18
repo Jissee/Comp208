@@ -9,10 +9,10 @@
     <Grid>
         <TextBlock x:Name="Silicon" Height="18" Margin="227,116,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Silicon " Margin="97,108,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Copper" Margin="97,141,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Copper" Margin="97,142,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Iron" Margin="97,180,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Aluminum" Margin="97,217,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Copper" Height="20" Margin="228,150,0,0" TextWrapping="Wrap" Text="TextBlock" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="Copper" Height="20" Margin="228,151,0,0" TextWrapping="Wrap" Text="TextBlock" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -32,7 +32,7 @@
         <Button Content="Submit" HorizontalAlignment="Left" Margin="463,354,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_2" Width="81" RenderTransformOrigin="1.788,0.753"/>
         <Label Content="Available population: " HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" FontSize="18"/>
         <TextBlock x:Name="SiliconPeople" Height="18" Margin="371,116,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="CopperPeople" Height="20" Margin="371,150,0,0" TextWrapping="Wrap" Text="TextBlock" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="CopperPeople" Height="20" Margin="371,151,0,0" TextWrapping="Wrap" Text="TextBlock" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -43,7 +43,7 @@
             </TextBlock.RenderTransform>
         </TextBlock>
         <TextBlock x:Name="IronPeople" Height="22" Margin="371,187,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="AlumiumPeople" Height="19" Margin="371,225,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="AlumiumPeople" Height="19" Margin="371,226,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock x:Name="ElectronPeople" Height="19" Margin="371,264,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock x:Name="IndustrialPeople" Height="19" Margin="371,301,0,0" TextWrapping="Wrap" Text="TextBlock" Width="72" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Allocate total population" HorizontalAlignment="Left" Margin="496,65,0,0" VerticalAlignment="Top" FontSize="15"/>
@@ -53,7 +53,7 @@
         <TextBox x:Name="IronAllocate" HorizontalAlignment="Left" Margin="529,192,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="AluminumAllocate" HorizontalAlignment="Left" Margin="529,228,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="ElectronicAllocate" HorizontalAlignment="Left" Margin="529,262,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
-        <TextBox x:Name="IndustrialAllocate" HorizontalAlignment="Left" Margin="530,299,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="IndustrialAllocate" HorizontalAlignment="Left" Margin="529,299,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBlock x:Name="population" HorizontalAlignment="Left" Margin="236,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Fields number" HorizontalAlignment="Left" Margin="207,65,0,0" VerticalAlignment="Top" FontSize="15"/>
         <Label Content="The number of resource fields determines the production limit." HorizontalAlignment="Left" Margin="210,400,0,0" VerticalAlignment="Top"/>
