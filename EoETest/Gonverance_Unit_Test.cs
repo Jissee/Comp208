@@ -33,7 +33,9 @@ namespace EoE.Test
             Assert.AreEqual(100, playerGonverance.PopManager.AvailablePopulation);
             playerGonverance.PopManager.SetAllocation(10, 10, 10, 10, 10, 10);
 
-            
+            ResourceStack a = new ResourceStack(GameResourceType.MechanismArmy, 10);
+            a.Split(a.Count);
+            Assert.AreEqual(0, a.Count);
             Assert.AreEqual(10, playerGonverance.PopManager.GetPopAllocCount(GameResourceType.Silicon));
             Assert.AreEqual(10, playerGonverance.PopManager.GetPopAllocCount(GameResourceType.Copper));
             Assert.AreEqual(10, playerGonverance.PopManager.GetPopAllocCount(GameResourceType.Iron));

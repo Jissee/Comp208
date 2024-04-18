@@ -61,11 +61,11 @@ namespace EoE.Client.GovernanceSystem
         }
         private void Submit3_Click(object sender, RoutedEventArgs e)
         {
-            if ((int.TryParse(battlechange.Text, out int value1) && value1 >= 0) && (int.TryParse(informativeChange.Text, out int value2) && value2 >= 0) && (int.TryParse(mechchange.Text, out int value3) && value3 >= 0))
+            if ((int.TryParse(battlechange.Text, out int battle) && battle >= 0) && (int.TryParse(informativeChange.Text, out int informative) && informative >= 0) && (int.TryParse(mechchange.Text, out int mech) && mech >= 0))
             {
-                Client.INSTANCE.GonveranceManager.SyntheticArmy(GameResourceType.BattleArmy,int.Parse(battlechange.Text));
-                Client.INSTANCE.GonveranceManager.SyntheticArmy(GameResourceType.InformativeArmy, int.Parse(informativeChange.Text));
-                Client.INSTANCE.GonveranceManager.SyntheticArmy(GameResourceType.MechanismArmy, int.Parse(mechchange.Text));
+                Client.INSTANCE.GonveranceManager.SyntheticArmy(GameResourceType.BattleArmy, battle);
+                Client.INSTANCE.GonveranceManager.SyntheticArmy(GameResourceType.InformativeArmy, informative);
+                Client.INSTANCE.GonveranceManager.SyntheticArmy(GameResourceType.MechanismArmy, mech);
             }
             else
             {

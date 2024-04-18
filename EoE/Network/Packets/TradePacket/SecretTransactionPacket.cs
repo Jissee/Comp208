@@ -35,7 +35,7 @@ namespace EoE.Network.Packets.TradePacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IServer server)
                 {
-                    if (transaction.IsOpen)
+                    if (!transaction.IsOpen)
                     {
                         switch (operation)
                         {
@@ -54,7 +54,7 @@ namespace EoE.Network.Packets.TradePacket
                     }
                     else
                     {
-                        throw new Exception("wrong call, not open");
+                        throw new Exception("wrong call, is open");
                     }
                 }
             }
