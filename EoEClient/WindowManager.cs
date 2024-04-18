@@ -36,19 +36,8 @@ namespace EoE.Client
         }
         public void ShowWindows<T>() where T : Window, new()
         {
-            Type t = typeof(T);
-            string typeName = t.FullName;
-
-            if (!WindowsDict.ContainsKey(typeName)) 
-            {
-                WindowsDict.Add(typeName, new T());
-            }
-            Window window = WindowsDict[typeName];
-            if (!window.IsVisible)
-            {
-                window.Show();
-            }
-            
+            Window window = GetWindows<T>();
+            window.Show();
         }
 
         public T GetWindows<T>() where T : Window, new()

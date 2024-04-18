@@ -1,4 +1,5 @@
-﻿using EoE.Client.GovernanceSystem;
+﻿using EoE.Client.ChatSystem;
+using EoE.Client.GovernanceSystem;
 using EoE.Client.Login;
 using EoE.Client.Network;
 using EoE.Client.TradeSystem;
@@ -87,7 +88,7 @@ namespace EoE.Client
             chat = new Dictionary<string, List<string>>();
         }
 
-        public void AddChatMessage(string senderName, string message)
+        public void AddOthersChatMessage(string senderName, string message)
         {
             string regularizationMessage = DateTime.Now.ToString()+"  "+senderName +": " + message;
             if (chat.ContainsKey(senderName))
@@ -98,6 +99,25 @@ namespace EoE.Client
             {
                 List<string> messageList = [regularizationMessage];
                 chat.Add(senderName, messageList);
+            }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                ChatWindow chat = WindowManager.INSTANCE.GetWindows<ChatWindow>();
+                chat.SynchronizeChat(senderName);
+            });
+        }
+
+        public void AddSelfChatMessage(string receiver, string message)
+        {
+            string regularizationMessage = DateTime.Now.ToString() + "  " + "You: " + message;
+            if (chat.ContainsKey(receiver))
+            {
+                chat[receiver].Add(regularizationMessage);
+            }
+            else
+            {
+                List<string> messageList = [regularizationMessage];
+                chat.Add(receiver, messageList);
             }
         }
 

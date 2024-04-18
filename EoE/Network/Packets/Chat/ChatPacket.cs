@@ -49,7 +49,7 @@ namespace EoE.Network.Packets.Chat
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    client.AddChatMessage(senderName, chatMessage);
+                    client.AddOthersChatMessage(senderName, chatMessage);
                 }
             }
         }
