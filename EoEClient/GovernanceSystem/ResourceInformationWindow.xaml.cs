@@ -61,7 +61,7 @@ namespace EoE.Client.GovernanceSystem
             Industrial.Text = record.industrialCount.ToString();
 
             BattleArmy.Text = record.battleArmyCount.ToString();
-            InfoArmy.Text = record.industrialCount.ToString();
+            InfoArmy.Text = record.informativeArmyCount.ToString();
             MechArmy.Text = record.mechanismArmyCount.ToString();
         }
 

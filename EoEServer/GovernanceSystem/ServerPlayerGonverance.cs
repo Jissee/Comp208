@@ -167,12 +167,12 @@ namespace EoE.Server.GovernanceSystem
                     ResourceList.SplitResource(GameResourceType.Iron, consume);
                     ResourceList.SplitResource(GameResourceType.Aluminum, consume);
                     PopManager.SetExploration(inutPopulation);
+                    player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                    player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                 }
                 else
                 {
                     player.SendPacket(new ServerMessagePacket("No enough resources"));
-                    player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                    player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                 }
 
             }
@@ -223,12 +223,12 @@ namespace EoE.Server.GovernanceSystem
                     {
                         PopManager.AlterPop(-popCount);
                         ResourceList.AddResourceStack(army);
+                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     else
                     {
                         player.SendPacket(new ServerMessagePacket("No enough available population"));
-                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     break;
                 case GameResourceType.InformativeArmy:
@@ -238,12 +238,12 @@ namespace EoE.Server.GovernanceSystem
                         PopManager.AlterPop(-popCount);
                         ResourceList.SplitResourceStack(resource);
                         ResourceList.AddResourceStack(army);
+                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     else
                     {
                         player.SendPacket(new ServerMessagePacket("No enough available population or resources"));
-                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     break;
                 case GameResourceType.MechanismArmy:
@@ -253,12 +253,12 @@ namespace EoE.Server.GovernanceSystem
                         PopManager.AlterPop(-popCount);
                         ResourceList.SplitResourceStack(resource);
                         ResourceList.AddResourceStack(army);
+                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
+                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     else
                     {
                         player.SendPacket(new ServerMessagePacket("No enough available population or resources"));
-                        player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
                     }
                     break;
                 default:

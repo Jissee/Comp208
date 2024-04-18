@@ -14,13 +14,13 @@
         </Grid.ColumnDefinitions>
         <Button Content="Initiate private transaction " HorizontalAlignment="Center" Margin="0,198,0,0" VerticalAlignment="Top" Height="56" Width="208" FontSize="16" Background="White" Click="Button_Click" Grid.Column="1"/>
         <Button Content="Post buying information" HorizontalAlignment="Center" Margin="0,114,0,0" VerticalAlignment="Top" Height="56" Width="208" FontSize="16" Background="White" Click="Button_Click_2" Grid.Column="1"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="334,327,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_4" Height="39" Width="132" Grid.ColumnSpan="2"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="343,344,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_4" Height="39" Width="131" Grid.ColumnSpan="2"/>
         <ListBox x:Name="tradeList" Margin="83,125,0,0" SelectionChanged="tradeList_SelectionChanged" Height="140" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
         <Label Content="Find: " HorizontalAlignment="Left" Margin="33,23,0,0" VerticalAlignment="Top" Height="25" Width="41"/>
         <TextBox x:Name="itemShow" HorizontalAlignment="Left" Margin="244,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="140"/>
         <Label Content="Transaction List:" HorizontalAlignment="Left" Margin="92,100,0,0" VerticalAlignment="Top" Height="25" Width="102"/>
         <Button Content="Delete" HorizontalAlignment="Left" Margin="108,284,0,0" VerticalAlignment="Top" Click="Button_Click_5" FontSize="20" Height="29" Width="66"/>
-        <Label Content="You can delete transactions that haven't been completed yet.Select the transaction and click the delete button." HorizontalAlignment="Left" Margin="77,371,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="25" Width="646"/>
+        <Label Content="You can delete transactions that haven't been completed yet.Select the transaction and click the delete button." HorizontalAlignment="Left" Margin="77,403,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="25" Width="646"/>
         <Button Content="Accept" HorizontalAlignment="Left" Margin="269,284,0,0" VerticalAlignment="Top" FontSize="20" Click="Button_Click_6" Height="29" Width="70"/>
         <Button x:Name="clear" Content="Clear" HorizontalAlignment="Left" Margin="358,39,0,0" VerticalAlignment="Top" Click="Button_Click_1" Height="19" Width="33"/>
         <RadioButton x:Name="silicon1" Content="silicon" HorizontalAlignment="Left" Margin="101,32,0,0" VerticalAlignment="Top" GroupName="OptionsGroup" Checked="silicon1_Checked" Height="14" Width="55"/>

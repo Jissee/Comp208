@@ -73,13 +73,6 @@ namespace EoE.Client.GovernanceSystem
             int count = siliconPop + copperPop + ironPop + aluminumPop + electronicPop + industrailPop;
             if (TotalPopulation >= count)
             {
-                int total = TotalPopulation;
-                popAloc[GameResourceType.Silicon] = siliconPop;
-                popAloc[GameResourceType.Copper] = copperPop;
-                popAloc[GameResourceType.Iron] = ironPop;
-                popAloc[GameResourceType.Aluminum] = aluminumPop;
-                popAloc[GameResourceType.Electronic] = electronicPop;
-                popAloc[GameResourceType.Industrial] = industrailPop;
                 Client.INSTANCE.SendPacket(new SetPopAllocationPacket(
                     new PopulationRecord(
                     siliconPop,
@@ -90,19 +83,11 @@ namespace EoE.Client.GovernanceSystem
                     industrailPop,
                     AvailablePopulation)
                     ));
-                
-                AvailablePopulation = total - count;
-                WindowManager.INSTANCE.UpdatePopulation();
             }
             else
             {
                 Client.INSTANCE.MsgBox("Population insufficient");
             }
-        }
-
-        public void AlterAvailablePop(int count)
-        {
-            AvailablePopulation += count;
         }
         public int GetPopAllocCount(GameResourceType type)
         {
