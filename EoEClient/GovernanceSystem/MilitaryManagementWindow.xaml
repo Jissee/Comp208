@@ -15,14 +15,14 @@
         <TextBox x:Name="battlechange" Margin="587,88,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" TextChanged="battlechange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="informativeChange" Margin="587,161,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="techchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="mechchange" Margin="587,241,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="mechchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
-        <Button x:Name="Submit3" Content="Submit" Margin="487,289,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Width="100" Height="50" Click="Submit3_Click"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="265,289,0,0" VerticalAlignment="Top" FontSize="20" Height="50" Width="100" Click="Button_Click"/>
+        <Button x:Name="Submit3" Content="Submit" Margin="487,289,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Width="100" Height="36" Click="Submit3_Click"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="265,289,0,0" VerticalAlignment="Top" FontSize="20" Height="36" Width="100" Click="Button_Click"/>
         <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="359,90,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
         <TextBlock x:Name="infobefore" HorizontalAlignment="Left" Margin="359,162,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
         <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="359,241,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="1 Battle army = 1 available population" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top"/>
-        <Label Content="1 Informative army = 5 available population + 6 electronic resources" HorizontalAlignment="Left" Margin="203,375,0,0" VerticalAlignment="Top"/>
-        <Label Content="1 Mechanization army = 8 available population + 5 electronic resources" HorizontalAlignment="Left" Margin="194,400,0,0" VerticalAlignment="Top"/>
+        <Label Content="1 Battle army = 1 available population" HorizontalAlignment="Left" Margin="302,331,0,0" VerticalAlignment="Top"/>
+        <Label Content="1 Informative army = 5 available population + 6 electronic resources" HorizontalAlignment="Left" Margin="220,356,0,0" VerticalAlignment="Top"/>
+        <Label Content="1 Mechanization army = 8 available population + 5 electronic resources" HorizontalAlignment="Left" Margin="211,381,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
