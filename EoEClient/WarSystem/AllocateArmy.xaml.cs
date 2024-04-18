@@ -1,6 +1,8 @@
-﻿using EoE.Network.Packets.WarPacket;
+﻿using EoE.Network.Packets.GonverancePacket.Record;
+using EoE.Network.Packets.WarPacket;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -44,13 +46,24 @@ namespace EoE.Client.WarSystem
 
         private void Submit3_Click(object sender, RoutedEventArgs e)
         {
+            int resultBattle, resultInformative, resultMechanism;
+
+            int.TryParse(battleAllocation.Text, out resultBattle);
+            int.TryParse(informativeAllocation.Text, out resultInformative);
+            int.TryParse(mechanismAllocation.Text, out resultMechanism);
             FillInFrontierPacket packet = new FillInFrontierPacket(
                 CheckStatus.selectedWarName,
-                int.Parse(battleAllocation.Text),
-                int.Parse(informativeAllocation.Text),
-                int.Parse(mechanismAllocation.Text)
+                resultBattle, resultInformative, resultMechanism
                 );
             Client.INSTANCE.SendPacket( packet );
+        }
+
+
+        public void SynchronizeResources(ResourceListRecord record)
+        {
+            battlebefore.Text = record.battleArmyCount.ToString();
+            infobefore.Text = record.informativeArmyCount.ToString();
+            mechbefore.Text = record.mechanismArmyCount.ToString();
         }
     }
 }

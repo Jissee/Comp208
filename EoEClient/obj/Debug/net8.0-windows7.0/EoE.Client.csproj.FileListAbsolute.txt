@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
@@ -160,6 +161,8 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-wind
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
 =======
+=======
+>>>>>>> milestone
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.exe
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.deps.json
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.Client.runtimeconfig.json
@@ -168,7 +171,6 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.dll
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\bin\Debug\net8.0-windows7.0\EoE.pdb
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.csproj.AssemblyReference.cache
-C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMainWindow.g.cs
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatWindow.g.cs
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\EstablishRelationWindow.g.cs
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\TreatyContentWindow.g.cs
@@ -198,7 +200,6 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\App.g.cs
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client_MarkupCompile.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client_MarkupCompile.lref
-C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatMainWindow.baml
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\ChatWindow.baml
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\EstablishRelationWindow.baml
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ChatSystem\TreatyContentWindow.baml
@@ -237,4 +238,3 @@ C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.pdb
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\EoE.Client.genruntimeconfig.cache
 C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\ref\EoE.Client.dll
->>>>>>>  SynchronizeOtherPalyerName

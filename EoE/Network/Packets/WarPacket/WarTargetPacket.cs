@@ -54,6 +54,8 @@ namespace EoE.Network.Packets.WarPacket
                         server.PlayerList.WarManager.WarTargets[player][targetPlayer] = target;
                     }
                 }
+                WarQueryTargetPacket queryPacket = new WarQueryTargetPacket(targetName, target);
+                player.SendPacket(queryPacket);
             }
         }
     }

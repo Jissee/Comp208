@@ -35,39 +35,6 @@ namespace EoE.GovernanceSystem
             this.Count = count;
         }
 
-       
-
-        /// <summary>
-        /// Add the adder to the target
-        /// </summary>
-        /// <param invitorName="adder"></param>
-        /// <exception cref="Exception"></exception>
-        public void Add(ResourceStack adder)
-        {
-            if(this.Type != adder.Type)
-            {
-                throw new Exception("Wrong resource type!");
-            }
-            else
-            {
-                this.Count += adder.Count;
-            }
-        }
-
-        public ResourceStack Split(int count)
-        {
-            if (this.Count >= count)
-            {
-                this.Count -= count;
-                return new ResourceStack(this.Type, count);
-            }
-            else
-            {
-                int tmpcnt = this.Count;
-                this.Count = 0;
-                return new ResourceStack(this.Type, tmpcnt);
-            }
-        }
 
         public override string ToString()
         {

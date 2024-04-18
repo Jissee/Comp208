@@ -97,14 +97,10 @@ namespace EoE.Client
                 selectTrader.SynchronizeOtherPlayerList();
                 MainGameWindow mainGameWindow = GetWindows<MainGameWindow>();
                 mainGameWindow.SynchronizeOtherPlayerList();
-<<<<<<< HEAD
                 ChatWindow chatWindow = GetWindows<ChatWindow>();
                 chatWindow.SynchronizeOtherPlayerList();
-=======
-
                 WarDetail warDetail = GetWindows<WarDetail>();
                 warDetail.SynchronizeOtherPlayerList();
->>>>>>> merge
             }));
         }
         public void UpdateResources()
@@ -118,6 +114,8 @@ namespace EoE.Client
                 military.SynchronizeResources(record);
                 ResourceInformationWindow resourceManage = GetWindows<ResourceInformationWindow>();
                 resourceManage.SynchronizeResources(record);
+                AllocateArmy allocateArmy = GetWindows<AllocateArmy>();
+                allocateArmy.SynchronizeResources(record);
             });
         }
 

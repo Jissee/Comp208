@@ -30,17 +30,45 @@ namespace EoE.Client.WarSystem
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WarTarget target = new WarTarget();
-            target.SiliconClaim = int.Parse(Silicon.Text);
-            target.IronClaim = int.Parse(Iron.Text);
-            target.CopperClaim = int.Parse(Copper.Text);
-            target.AluminumClaim = int.Parse(Aluminum.Text);
-            target.ElectronicClaim = int.Parse(Electronic.Text);
-            target.IndustrialClaim = int.Parse(Industrial.Text);
-            target.PopClaim = int.Parse(Population.Text);
-            target.FieldClaim = int.Parse(Blocks.Text);
-
-            WarTargetPacket packet = new WarTargetPacket(OtherPlayerName.SelectedItem.ToString()!, target); ;
-            MessageBox.Show("You have successfully submitted.");
+            int result;
+            if(int.TryParse(Silicon.Text, out result))
+            {
+                target.SiliconClaim = result;
+            }
+            if(int.TryParse(Copper.Text, out result))
+            {
+                target.CopperClaim = result;
+            }
+            if(int.TryParse(Iron.Text, out result))
+            {
+                target.IronClaim = result;
+            }
+            if(int.TryParse(Aluminum.Text, out result))
+            {
+                target.AluminumClaim = result;
+            }
+            if(int.TryParse(Electronic.Text, out result))
+            {
+                target.ElectronicClaim = result;
+            }
+            if(int.TryParse(Industrial.Text, out result))
+            {
+                target.IndustrialClaim = result;
+            }
+            if(int.TryParse(Population.Text, out result))
+            {
+                target.PopClaim = result;
+            }
+            if(int.TryParse(Blocks.Text, out result))
+            {
+                target.FieldClaim = result;
+            }
+            if(OtherPlayerName.SelectedItem != null)
+            {
+                WarTargetPacket packet = new WarTargetPacket(OtherPlayerName.SelectedItem.ToString()!, target);
+                Client.INSTANCE.SendPacket(packet);
+                MessageBox.Show("You have successfully submitted.");
+            }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -69,6 +97,12 @@ namespace EoE.Client.WarSystem
         {
             Regex re = new Regex("[^0-9]+");
             e.Handled = re.IsMatch(e.Text);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }
