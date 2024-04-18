@@ -11,7 +11,7 @@ namespace EoE.GovernanceSystem.ServerInterface
     public interface IServerPopManager : IPopManager
     {
         int ExploratoinPopulation { get; }
-        void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int industrialPop, int electronic);
+        void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int electronic, int industrialPop);
         void AlterPop(int count);
         void SetExploration(int population);
         void ClearAll();
