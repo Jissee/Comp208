@@ -50,11 +50,23 @@ namespace EoE.Client.Login
             if (tradeList.SelectedItem != null)
             {
                 int number = int.Parse(tradeList.SelectedItem.ToString());
-                itemShow.Text = tradeList.SelectedItem.ToString();
-            }
-                
+                GameTransaction transaction = Client.INSTANCE.TradeManager.GetGameTransaction(number);
+                itemShow.Text = "Offeror: " + transaction.Offeror + "\n"
+                    + "Offeror offer: " + transaction.OfferorOffer[0].ToString() + "\n"
+                    + transaction.OfferorOffer[1].ToString() + "\n"
+                    + transaction.OfferorOffer[2].ToString() + "\n"
+                    + transaction.OfferorOffer[3].ToString() + "\n"
+                    + transaction.OfferorOffer[4].ToString() + "\n"
+                    + transaction.OfferorOffer[5].ToString() + "\n"
+                    + "Recipient offer: " + transaction.RecipientOffer[0].ToString() + "\n"
+                    + transaction.RecipientOffer[1].ToString() + "\n"
+                    + transaction.RecipientOffer[2].ToString() + "\n"
+                    + transaction.RecipientOffer[3].ToString() + "\n"
+                    + transaction.RecipientOffer[4].ToString() + "\n"
+                    + transaction.RecipientOffer[5].ToString() + "\n";
 
-            
+            }
+
         }
         public void SynchronizeTransaction(Dictionary<int, GameTransaction> transverter)
         {

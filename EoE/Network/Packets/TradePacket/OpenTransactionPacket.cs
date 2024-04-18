@@ -70,21 +70,22 @@ namespace EoE.Network.Packets.TradePacket
             else
             {
                 INetworkEntity ne = context.Receiver!;
-                if (ne is IClient player)
+                if (ne is IClient client)
                 {
                     switch (operation)
                     {
                         case OpenTransactionOperation.Create:
-                            //Todo
+                            client.TradeManager.AdddOpenTransaction(transaction);
                             break;
                         case OpenTransactionOperation.Accept:
-                            //Todo
+                            client.TradeManager.RemoveOpenTransaction(transaction);
                             break;
                         case OpenTransactionOperation.Cancel:
-                            //Todo
+                            client.TradeManager.RemoveOpenTransaction(transaction);
                             break;
                         case OpenTransactionOperation.Alter:
-                            //Todo
+                            client.TradeManager.RemoveOpenTransaction(transaction);
+                            client.TradeManager.AdddOpenTransaction(transaction);
                             break;
                         default:
                             throw new Exception("no such type");
