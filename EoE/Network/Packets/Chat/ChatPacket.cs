@@ -6,8 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace EoE.Chat
+namespace EoE.Network.Packets.Chat
 {
     public class ChatPacket : IPacket<ChatPacket>
     {
@@ -32,7 +31,7 @@ namespace EoE.Chat
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == NetworkDirection.Server2Client)
+            if (context.NetworkDirection == NetworkDirection.Server2Client)
             {
                 IServer server = (IServer)context.Receiver;
                 IPlayer target = server.GetPlayer(targetPlayer)!;

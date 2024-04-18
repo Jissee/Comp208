@@ -116,7 +116,7 @@ namespace EoE.Client.Login
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            silicon1.IsChecked = false;
         }
     }
 }

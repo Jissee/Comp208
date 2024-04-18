@@ -50,5 +50,19 @@ namespace EoE.Client.ChatSystem
             e.Cancel = true;
             this.Hide();
         }
+
+        private void selectedName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (selectedName.SelectedItem!=null)
+            {
+                string name = selectedName.SelectedItem.ToString();
+                if (Client.INSTANCE.GetChatMessage(name) != null)
+                {
+                    List<string> message = Client.INSTANCE.GetChatMessage(name);
+
+                }
+            }
+            
+        }
     }
 }

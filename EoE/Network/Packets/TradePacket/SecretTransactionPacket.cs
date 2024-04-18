@@ -66,16 +66,32 @@ namespace EoE.Network.Packets.TradePacket
                     switch (operation)
                     {
                         case SecretTransactionOperation.Creat:
-                            //Todo
-                            break;
-                        case SecretTransactionOperation.Accept:
-                            //Todo
-                            break;
-                        case SecretTransactionOperation.Reject:
-                            //Todo
+                            string message = $"Player : {transaction.Offeror} send an trade requirement to you\n" +
+                                $"{transaction.Offeror} offer: \n" +
+                                transaction.OfferorOffer[0].ToString() + "\n" +
+                                transaction.OfferorOffer[1].ToString() + "\n" +
+                                transaction.OfferorOffer[2].ToString() + "\n" +
+                                transaction.OfferorOffer[3].ToString() + "\n" +
+                                transaction.OfferorOffer[4].ToString() + "\n" +
+                                transaction.OfferorOffer[5].ToString() + "\n"+
+                                "You offer: \n" +
+                                transaction.RecipientOffer[0].ToString() + "\n" +
+                                transaction.RecipientOffer[1].ToString() + "\n" +
+                                transaction.RecipientOffer[2].ToString() + "\n" +
+                                transaction.RecipientOffer[3].ToString() + "\n" +
+                                transaction.RecipientOffer[4].ToString() + "\n" +
+                                transaction.RecipientOffer[5].ToString() + "\n";
+                            if (player.MsgBoxYesNo(message))
+                            {
+                                player.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Accept, transaction));
+                            }
+                            else
+                            {
+                                player.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Accept, transaction));
+                            }
                             break;
                         default:
-                            throw new Exception("no such type");
+                            throw new Exception("wrong call");
                     }
                 }
             }
