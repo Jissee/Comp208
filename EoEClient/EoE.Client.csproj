@@ -14,4 +14,8 @@
     <ProjectReference Include="..\EoE\EoE.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TreatySystem\" />
+  </ItemGroup>
+
 </Project>

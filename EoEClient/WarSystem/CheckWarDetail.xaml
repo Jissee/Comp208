@@ -7,36 +7,36 @@
         mc:Ignorable="d"
         Title="CheckWarDetail" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
-        <Label Content="War Name: :" HorizontalAlignment="Left" Margin="56,5,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="189,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Our Side:" HorizontalAlignment="Left" Margin="174,65,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Enemy Side:" HorizontalAlignment="Left" Margin="539,57,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="542,371,0,0" VerticalAlignment="Top" FontSize="20" Height="46" Width="120" Click="Button_Click_1"/>
-        <Button Content="Manage for next round" HorizontalAlignment="Left" Margin="83,371,0,0" VerticalAlignment="Top" FontSize="20" Height="46" Click="Button_Click"/>
-        <Label Content="Total battle army:" HorizontalAlignment="Left" Margin="76,115,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="BattleWe" HorizontalAlignment="Left" Margin="306,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <Label Content="Total informative lost:" HorizontalAlignment="Left" Margin="53,270,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="InfoLostWe" HorizontalAlignment="Left" Margin="306,274,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20" RenderTransformOrigin="0.464,0.99"/>
-        <TextBox x:Name="BattleEnemy" HorizontalAlignment="Left" Margin="688,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <TextBox x:Name="InfoLostEnemy" HorizontalAlignment="Left" Margin="688,274,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <Label Content="Total informative army:" HorizontalAlignment="Left" Margin="49,150,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="InfoWe" HorizontalAlignment="Left" Margin="306,154,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <TextBox x:Name="InfoEnemy" HorizontalAlignment="Left" Margin="688,154,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <Label Content="Total mechanism army:" HorizontalAlignment="Left" Margin="49,190,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.335,0.416"/>
-        <TextBox x:Name="MechWe" HorizontalAlignment="Left" Margin="306,194,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <TextBox x:Name="MechEnemy" HorizontalAlignment="Left" Margin="688,194,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <Label Content="Total battle lost:" HorizontalAlignment="Left" Margin="83,232,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="BattleLostWe" HorizontalAlignment="Left" Margin="306,235,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <TextBox x:Name="BattleLostEnemy" HorizontalAlignment="Left" Margin="688,235,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <Label Content="Total mechanism lost:" HorizontalAlignment="Left" Margin="53,311,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="MechLostWe" HorizontalAlignment="Left" Margin="306,315,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <TextBox x:Name="MechLostEnemy" HorizontalAlignment="Left" Margin="688,315,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
-        <Label Content="Total battle army:" HorizontalAlignment="Left" Margin="463,115,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Total informative lost:" HorizontalAlignment="Left" Margin="440,270,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Total informative army:" HorizontalAlignment="Left" Margin="436,150,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Total mechanism army:" HorizontalAlignment="Left" Margin="436,190,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.335,0.416"/>
-        <Label Content="Total battle lost:" HorizontalAlignment="Left" Margin="470,232,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Total mechanism lost:" HorizontalAlignment="Left" Margin="440,311,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="War Name:" HorizontalAlignment="Left" Margin="56,5,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="WarName" HorizontalAlignment="Left" Margin="189,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Our Side:" HorizontalAlignment="Left" Margin="177,51,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Enemy Side:" HorizontalAlignment="Left" Margin="542,43,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="545,357,0,0" VerticalAlignment="Top" FontSize="20" Height="46" Width="120" Click="Button_Click_1"/>
+        <Button Content="Manage for next round" HorizontalAlignment="Left" Margin="86,357,0,0" VerticalAlignment="Top" FontSize="20" Height="46" Click="Button_Click"/>
+        <Label Content="Total battle army:" HorizontalAlignment="Left" Margin="79,101,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="BattleWe" HorizontalAlignment="Left" Margin="309,105,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <Label Content="Total informative lost:" HorizontalAlignment="Left" Margin="56,256,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="InfoLostWe" HorizontalAlignment="Left" Margin="309,260,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20" RenderTransformOrigin="0.464,0.99"/>
+        <TextBox x:Name="BattleEnemy" HorizontalAlignment="Left" Margin="691,105,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <TextBox x:Name="InfoLostEnemy" HorizontalAlignment="Left" Margin="691,260,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <Label Content="Total informative army:" HorizontalAlignment="Left" Margin="52,136,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="InfoWe" HorizontalAlignment="Left" Margin="309,140,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <TextBox x:Name="InfoEnemy" HorizontalAlignment="Left" Margin="691,140,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <Label Content="Total mechanism army:" HorizontalAlignment="Left" Margin="52,176,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.335,0.416"/>
+        <TextBox x:Name="MechWe" HorizontalAlignment="Left" Margin="309,180,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <TextBox x:Name="MechEnemy" HorizontalAlignment="Left" Margin="691,180,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <Label Content="Total battle lost:" HorizontalAlignment="Left" Margin="86,218,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="BattleLostWe" HorizontalAlignment="Left" Margin="309,221,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <TextBox x:Name="BattleLostEnemy" HorizontalAlignment="Left" Margin="691,221,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <Label Content="Total mechanism lost:" HorizontalAlignment="Left" Margin="56,297,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="MechLostWe" HorizontalAlignment="Left" Margin="309,301,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <TextBox x:Name="MechLostEnemy" HorizontalAlignment="Left" Margin="691,301,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" FontSize="20"/>
+        <Label Content="Total battle army:" HorizontalAlignment="Left" Margin="466,101,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Total informative lost:" HorizontalAlignment="Left" Margin="443,256,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Total informative army:" HorizontalAlignment="Left" Margin="439,136,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Total mechanism army:" HorizontalAlignment="Left" Margin="439,176,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.335,0.416"/>
+        <Label Content="Total battle lost:" HorizontalAlignment="Left" Margin="473,218,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Total mechanism lost:" HorizontalAlignment="Left" Margin="443,297,0,0" VerticalAlignment="Top" FontSize="20"/>
 
     </Grid>
 </Window>
