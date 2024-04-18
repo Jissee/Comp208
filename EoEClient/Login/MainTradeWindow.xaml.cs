@@ -101,5 +101,10 @@ namespace EoE.Client.Login
             e.Cancel = true;
             this.Hide();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

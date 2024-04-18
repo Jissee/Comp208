@@ -9,21 +9,12 @@ EoE.Client
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-<<<<<<< HEAD
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEClient\App.xaml
-27891281239
-
-501093239530
-1991352819285
-ChatSystem\ChatMainWindow.xaml;ChatSystem\ChatWindow.xaml;ChatSystem\EstablishRelationWindow.xaml;ChatSystem\TreatyContentWindow.xaml;GovernanceSystem\BlockManagementWindow.xaml;GovernanceSystem\CheckOtherFieldsWindow.xaml;GovernanceSystem\CheckOtherPlayer.xaml;GovernanceSystem\GovernenceMainWindow.xaml;GovernanceSystem\MilitaryManagementWindow.xaml;GovernanceSystem\ResourceInformationWindow.xaml;GovernanceSystem\SetExploreWindow.xaml;GovernanceSystem\UpgradeFieldWindow.xaml;Login\EnterGameWindow.xaml;Login\GameAgreementWindow.xaml;Login\LoginWindow.xaml;Login\MainGameWindow.xaml;Login\MainTradeWindow.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
-=======
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\App.xaml
 26-313457303
 
 491668675852
-199-1838406558
+1991352819285
 ChatSystem\ChatWindow.xaml;ChatSystem\EstablishRelationWindow.xaml;ChatSystem\TreatyContentWindow.xaml;GovernanceSystem\BlockManagementWindow.xaml;GovernanceSystem\CheckOtherFieldsWindow.xaml;GovernanceSystem\CheckOtherPlayer.xaml;GovernanceSystem\GovernenceMainWindow.xaml;GovernanceSystem\MilitaryManagementWindow.xaml;GovernanceSystem\ResourceInformationWindow.xaml;GovernanceSystem\SetExploreWindow.xaml;GovernanceSystem\UpgradeFieldWindow.xaml;Login\EnterGameWindow.xaml;Login\GameAgreementWindow.xaml;Login\LoginWindow.xaml;Login\MainGameWindow.xaml;Login\MainTradeWindow.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
->>>>>>> 758a7d84072c8cee11dcd551e71b93c2394c1b7c
 
 False
 

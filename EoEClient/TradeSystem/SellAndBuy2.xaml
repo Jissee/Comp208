@@ -34,7 +34,7 @@
         <TextBox x:Name="Buy4" HorizontalAlignment="Left" Margin="596,212,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="Buy5" HorizontalAlignment="Left" Margin="596,267,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="Buy6" HorizontalAlignment="Left" Margin="596,322,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
-        <Button x:Name="Confirm_Button" Content="Confirm" HorizontalAlignment="Left" Margin="256,366,0,0" VerticalAlignment="Top" Height="47" Width="112" FontSize="20" Background="White" Click="Confirm_Button_Click"/>
-        <Button x:Name="Back_Button" Content="Back" HorizontalAlignment="Left" Margin="434,366,0,0" VerticalAlignment="Top" Height="47" Width="112" FontSize="20" Background="White" Click="Back_Button_Click"/>
+        <Button x:Name="Confirm_Button" Content="Confirm" HorizontalAlignment="Left" Margin="421,378,0,0" VerticalAlignment="Top" Height="47" Width="112" FontSize="20" Background="White" Click="Confirm_Button_Click"/>
+        <Button x:Name="Back_Button" Content="Back" HorizontalAlignment="Left" Margin="256,378,0,0" VerticalAlignment="Top" Height="47" Width="112" FontSize="20" Background="White" Click="Back_Button_Click"/>
     </Grid>
 </Window>
