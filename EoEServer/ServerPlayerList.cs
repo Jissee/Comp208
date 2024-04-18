@@ -115,37 +115,45 @@ namespace EoE.Server
         }
         public void HandlePlayerMessage(PacketHandler packetHandler, IServer server)
         {
-            foreach (IPlayer player in Players)
+            try
             {
-                if (player.Connection.Available > 0)
+                foreach (IPlayer player in Players)
                 {
-                    byte[] lengthBuf = new byte[8];
-
-                    player.Connection.Receive(lengthBuf);
-                    MemoryStream msLen = new MemoryStream(lengthBuf);
-                    BinaryReader br = new BinaryReader(msLen);
-                    long length = br.ReadInt64();
-
-                    byte[] buf = new byte[length];
-                    int i = player.Connection.Receive(buf);
-                    //Console.WriteLine(i);
-                    PacketContext context = new PacketContext(NetworkDirection.Client2Server, player, server);
-                    string fromName = player.PlayerName;
-                    if(fromName == null)
+                    if (player.Connection.Available > 0)
                     {
-                        EndPoint? endpoint = player.Connection.RemoteEndPoint;
-                        if(endpoint != null)
+                        byte[] lengthBuf = new byte[8];
+
+                        player.Connection.Receive(lengthBuf);
+                        MemoryStream msLen = new MemoryStream(lengthBuf);
+                        BinaryReader br = new BinaryReader(msLen);
+                        long length = br.ReadInt64();
+
+                        byte[] buf = new byte[length];
+                        int i = player.Connection.Receive(buf);
+                        //Console.WriteLine(i);
+                        PacketContext context = new PacketContext(NetworkDirection.Client2Server, player, server);
+                        string fromName = player.PlayerName;
+                        if(fromName == null)
                         {
-                            fromName = endpoint.ToString();
+                            EndPoint? endpoint = player.Connection.RemoteEndPoint;
+                            if(endpoint != null)
+                            {
+                                fromName = endpoint.ToString();
+                            }
+                            else
+                            {
+                                fromName = "null";
+                            }
                         }
-                        else
-                        {
-                            fromName = "null";
-                        }
+                        packetHandler.ReceivePacket(buf, context, fromName);
                     }
-                    packetHandler.ReceivePacket(buf, context, fromName);
                 }
             }
+            catch (Exception e)
+            {
+
+            }
+            
         }
 
         public void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>
@@ -230,9 +238,19 @@ namespace EoE.Server
 
         public void Tick()
         {
+
             foreach (IPlayer player in Players)
             {
                 player.Tick();
+            }
+            for(var i = 0; i < Players.Count; i++)
+            {
+                IPlayer player = Players[i];
+                if ((player.IsLose))
+                {
+                    player.GameLose();
+                    i--;
+                }
             }
             TreatyManager.Tick();
             WarManager.Tick();
