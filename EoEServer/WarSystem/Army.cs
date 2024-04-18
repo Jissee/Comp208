@@ -15,11 +15,6 @@ namespace EoE.Server.WarSystem
         public static readonly MechanismArmyInfo mechanismArmyInfo = new MechanismArmyInfo();
         public static readonly InformativeArmyInfo informativeArmyInfo = new InformativeArmyInfo();
         public Dictionary<GameResourceType, int> armyStacks;
-        /*
-        public ResourceStack Battle { get; set; }
-        public ResourceStack Informative { get; set; }
-        public ResourceStack Mechanism { get; set; }
-        */
         public int Consumption { get; private set; }
         public Army(IWarParty warParty) 
         {

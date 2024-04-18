@@ -13,7 +13,7 @@
         <Label Content="Copper:" Margin="52,144,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
         <Label Content="Electronic:" Margin="42,299,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
         <Label Content="Iron:" Margin="66,182,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
-        <TextBlock x:Name="Copper" Height="30" Margin="164,148,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="Copper" Height="30" Margin="163,150,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -27,7 +27,7 @@
         <Label Content="Industrial：" Margin="43,258,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18" Width="96"/>
         <Button Content="Back" HorizontalAlignment="Center" Margin="0,360,0,0" VerticalAlignment="Top" FontSize="20" Height="42" Width="106" Click="Button_Click"/>
         <Label Content="Total Population：" HorizontalAlignment="Left" Margin="484,261,0,0" VerticalAlignment="Top" FontSize="18" TextBlock.FontSize="18"/>
-        <TextBlock x:Name="Electronic" Height="30" Margin="163,302,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="Electronic" Height="30" Margin="163,303,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -37,7 +37,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="Iron" Height="30" Margin="163,191,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="Iron" Height="30" Margin="163,188,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -47,7 +47,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="Aluminum" Height="30" Margin="163,228,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="Aluminum" Height="30" Margin="162,227,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -57,7 +57,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="Industrial" Height="30" Margin="163,266,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="Industrial" Height="30" Margin="163,265,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -80,7 +80,7 @@
         <Label Content="Resource quantity" HorizontalAlignment="Left" Margin="139,78,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
         <Label Content="Block quantity" HorizontalAlignment="Left" Margin="299,78,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
         <TextBlock x:Name="SiliconBlock" Height="30" Margin="321,112,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="CopperBlock" Height="30" Margin="321,148,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="CopperBlock" Height="30" Margin="321,149,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -100,7 +100,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="IronBlock" Height="30" Margin="320,191,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="IronBlock" Height="30" Margin="320,187,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -110,7 +110,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="AluminumBlock" Height="30" Margin="320,228,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="AluminumBlock" Height="30" Margin="320,226,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -120,7 +120,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="IndustrialBlock" Height="30" Margin="320,266,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="IndustrialBlock" Height="30" Margin="320,264,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -133,10 +133,10 @@
         <Label Content="Army quantity" HorizontalAlignment="Left" Margin="650,80,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
         <Label Content="Battle Army:" Margin="509,109,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
         <Label Content="Infomative Army:" Margin="488,146,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
-        <Label Content="Mechanism Army:" Margin="488,184,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
+        <Label Content="Mechanism Army:" Margin="487,185,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" TextBlock.FontSize="18"/>
         <TextBlock x:Name="BattleArmy" Height="30" Margin="664,114,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock x:Name="InfoArmy" Height="30" Margin="664,151,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="MechArmy" Height="30" Margin="664,187,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="MechArmy" Height="30" Margin="664,188,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Available Population：" HorizontalAlignment="Left" Margin="467,299,0,0" VerticalAlignment="Top" FontSize="18" TextBlock.FontSize="18"/>
         <TextBlock x:Name="AvailablePopulation" Height="29" Margin="664,303,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock.RenderTransform>

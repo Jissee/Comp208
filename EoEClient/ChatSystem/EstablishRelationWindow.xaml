@@ -16,7 +16,7 @@
         <Label Content="Only one player needs to send the application, the other player just needs to accept." HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="433,326,0,0" VerticalAlignment="Top" Height="30" Width="80" FontSize="20" Click="Button_Click_2"/>
         <Label Content="Silicon: " Margin="523,71,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Copper: " Margin="523,104,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Copper: " Margin="523,105,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Iron: " Margin="523,143,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Aluminum: " Margin="523,180,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Electronic: " Margin="523,218,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>

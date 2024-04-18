@@ -15,7 +15,7 @@ namespace EoE.Server.WarSystem
 
         public override int MechanDefense => 0;
 
-        public override int BattleAttack => 2;
+        public override int BattleAttack => 1;
 
     }
 }
