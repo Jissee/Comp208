@@ -64,10 +64,10 @@ namespace EoE.Server
 
         public void SendPacket<T>(T packet) where T : IPacket<T>
         {
-            if (IsConnected)
+            if (!IsLose && IsConnected)
             {
                 PacketHandler handler = Server.PacketHandler;
-                if (handler != null)
+                if (handler != null && !IsLose)
                 {
                     handler.SendPacket(packet, Connection, PlayerName);
                 }
@@ -99,10 +99,6 @@ namespace EoE.Server
         {
             FinishedTick = false;
             GonveranceManager.Tick();
-            if (IsLose)
-            {
-                GameLose();
-            }
         }
 
         public void CloseSocket()
