@@ -14,10 +14,14 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+366a5e2475ea8d435380dfb04b5842b00f69a96c")]
+=======
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eca7d82b017c3cb69f4e014f5ffc83eaabeea65f")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1dceb7c421927a1af9afc339c7942d3771435967")]
 >>>>>>> merge
+>>>>>>> 21441b28a80efb907d70b43ffc32aabadaca40e7
 [assembly: System.Reflection.AssemblyProductAttribute("EoE.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EoE.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

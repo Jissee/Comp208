@@ -49,7 +49,7 @@ namespace EoE.Client.TradeSystem
                 int.TryParse(buyIndustrial.Text, out int buyerIndustrial)&&(buyerIndustrial >= 0) 
                 )
             {
-                Guid id = new Guid();
+                Guid id = Guid.NewGuid();
                 string offer = Client.INSTANCE.PlayerName!;
                 List<ResourceStack> offerorOffer = new List<ResourceStack>();
                 List<ResourceStack> recipentOffer = new List<ResourceStack>();

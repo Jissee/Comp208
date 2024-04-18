@@ -264,7 +264,7 @@ namespace EoE.Server.TradeSystem
             IServerResourceList recipientResources = recipient.GonveranceManager.ResourceList;
             IServerResourceList offerorResources = offeror.GonveranceManager.ResourceList;
             bool flag = true;
-            foreach (var item in transaction.RecipientOffer)
+            foreach (ResourceStack item in transaction.RecipientOffer)
             {
                 if (recipientResources.GetResourceCount(item.Type)< item.Count)
                 {
@@ -274,13 +274,13 @@ namespace EoE.Server.TradeSystem
 
             if (flag)
             {
-                foreach (var item in transaction.RecipientOffer)
+                foreach (ResourceStack item in transaction.RecipientOffer)
                 {
                     recipientResources.SplitResourceStack(item);
                     offerorResources.AddResourceStack(item);
                 }
 
-                foreach (var item in transaction.OfferorOffer)
+                foreach (ResourceStack item in transaction.OfferorOffer)
                 {
                     recipientResources.AddResourceStack(item);
                 }
