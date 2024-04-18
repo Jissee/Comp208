@@ -45,10 +45,9 @@ namespace EoE.Server.GovernanceSystem
             this.PlayerStatus = new PlayerStatus(globalGameStatus);
 
             FieldList = new ServerPlayerFieldList(20,20,20,20,20,20,player);
-            ResourceList = new ServerPlayerResourceList((int)(7.5 * initPop), 6 * initPop, 9 * initPop, (int)(6.75 * initPop), 0, 0, 100,100,100);
+            ResourceList = new ServerPlayerResourceList((int)(7.5 * initPop), 6 * initPop, 9 * initPop, (int)(6.75 * initPop), 0, 0, 0, 0, 0);
             PopManager = new ServerPopulationManger(initPop, player);
             this.player = player;
-            // todo 军队先给一个值测试用
         }
 
         private void ProducePrimaryResource()

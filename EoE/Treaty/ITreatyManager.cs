@@ -18,6 +18,7 @@ namespace EoE.Treaty
         void AddCommonDefenseTreaty(IPlayer player1, IPlayer player2);
         void AddTruceTreaty(IPlayer player1, IPlayer player2);
         void RemoveRelationTreaty(ITreaty treaty);
+        void ClearAll(IPlayer player);
 
     }
 }

@@ -181,5 +181,26 @@ namespace EoE.Server.Treaty
             AddRelationTreaty(new CommonDefenseTreaty(player1, player2));
         }
 
+        public void ClearAll(IPlayer player)
+        {
+            for (int i = 0; i < RelationTreatyList.Count; i++)
+            {
+                ITreaty treaty = RelationTreatyList[i];
+                if (treaty.FirstParty == player || treaty.SecondParty == player)
+                {
+                    RelationTreatyList.RemoveAt(i);
+                    i--;
+                }
+            }
+            for (int i = 0; i < TruceTreatyList.Count; i++)
+            {
+                ITreaty treaty = TruceTreatyList[i];
+                if (treaty.FirstParty == player || treaty.SecondParty == player)
+                {
+                    TruceTreatyList.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
     }
 }

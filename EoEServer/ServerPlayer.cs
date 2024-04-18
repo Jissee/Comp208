@@ -90,7 +90,7 @@ namespace EoE.Server
             Server.PlayerList.WarManager.PlayerLose(this);
             Server.PlayerList.TradeManager.ClearAll(this);
             Server.Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(GonveranceManager.FieldList), this.PlayerName), thisPlayer => thisPlayer.PlayerName != this.PlayerName);
-            //TodO TreatyManager losse
+            Server.PlayerList.TreatyManager.ClearAll(this);
             Server.PlayerList.PlayerLogout(this);
         }
 
