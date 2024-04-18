@@ -34,7 +34,7 @@ namespace EoE.Server
 
         private readonly IPEndPoint address;
         private bool isServerRunning;
-        private bool isGameRunning;
+        public bool isGameRunning{ get; private set; }
         private bool needRestart;
         public PacketHandler PacketHandler { get; }
         public EventList EventList { get; }
