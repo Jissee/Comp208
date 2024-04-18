@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EoE.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+318e1a54220a30b7234d0c35361b8f76ce214440")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+940ce83078afc31b9d21447d1c3bf9ef7b5be138")]
+>>>>>>> 758a7d84072c8cee11dcd551e71b93c2394c1b7c
 [assembly: System.Reflection.AssemblyProductAttribute("EoE.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EoE.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

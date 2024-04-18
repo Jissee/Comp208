@@ -33,7 +33,7 @@ namespace EoE.Client.WarSystem
                 StringBuilder stringBuilder = new StringBuilder();
                 foreach(string protector in protectors)
                 {
-                    stringBuilder.Append(protector);
+                    stringBuilder.Append($" \"{protector}\" ");
                 }
                 window.aliance.Text = stringBuilder.ToString();
             });

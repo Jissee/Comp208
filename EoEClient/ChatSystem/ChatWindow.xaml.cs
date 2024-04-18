@@ -24,6 +24,7 @@ namespace EoE.Client.ChatSystem
         public ChatWindow()
         {
             InitializeComponent();
+            SynchronizeOtherPlayerList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -31,6 +32,14 @@ namespace EoE.Client.ChatSystem
             WindowManager.INSTANCE.ShowWindows<EstablishRelationWindow>();
         }
 
+        public void SynchronizeOtherPlayerList()
+        {
+            selectedName.Items.Clear();
+            foreach (string playerName in Client.INSTANCE.OtherPlayer)
+            {
+                selectedName.Items.Add(playerName);
+            }
+        }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<SelectTraderWindow>();

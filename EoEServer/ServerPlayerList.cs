@@ -96,6 +96,10 @@ namespace EoE.Server
                 Host = Players[0];
             }
             player.CloseSocket();
+            var nameEnum = from thisPlayer in Players
+                           select thisPlayer.PlayerName;
+            List<string> list = [.. nameEnum];
+            server.Boardcast(new PlayerListPacket(list, list.Count), player => true);
         }
         public void HandlePlayerDisconnection()
         {

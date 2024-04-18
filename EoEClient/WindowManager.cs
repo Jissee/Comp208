@@ -1,6 +1,8 @@
 ﻿
+using EoE.Client.ChatSystem;
 using EoE.Client.GovernanceSystem;
 using EoE.Client.Login;
+using EoE.Client.TradeSystem;
 using EoE.ClientInterface;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System;
@@ -82,6 +84,21 @@ namespace EoE.Client
                 window.ignoreClosing = true;
                 window.Close();
             });
+        }
+
+        public void SynchronizeOtherPlayersName()
+        {
+            Application.Current.Dispatcher.Invoke((() =>
+            {
+                EnterGameWindow entetPage = GetWindows<EnterGameWindow>();
+                entetPage.SynchronizeOtherPlayerList();
+                SelectTraderWindow selectTrader = GetWindows<SelectTraderWindow>();
+                selectTrader.SynchronizeOtherPlayerList();
+                MainGameWindow mainGameWindow = GetWindows<MainGameWindow>();
+                mainGameWindow.SynchronizeOtherPlayerList();
+                ChatWindow chatWindow = GetWindows<ChatWindow>();
+                chatWindow.SynchronizeOtherPlayerList();
+            }));
         }
         public void UpdateResources()
         {

@@ -77,8 +77,15 @@ namespace EoE.Server
 
         public void GameLose()
         {
-            Server.Boardcast(new ServerMessagePacket($"{this.PlayerName} lost the game."), player => true);
-            
+            if (Server.isGameRunning)
+            {
+                Server.Boardcast(new ServerMessagePacket($"{this.PlayerName} lost the game."), player => true);
+            }
+            else
+            {
+                Server.Boardcast(new ServerMessagePacket($"{this.PlayerName} leave the game."), player => true);
+            }
+             
             GonveranceManager.ClearAll();
             Server.PlayerList.WarManager.PlayerLose(this);
             Server.PlayerList.TradeManager.ClearAll(this);

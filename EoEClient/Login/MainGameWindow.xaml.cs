@@ -56,7 +56,7 @@ namespace EoE.Client.Login
 
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
-           WindowManager.INSTANCE.ShowWindows<ChatMainWindow>();
+           WindowManager.INSTANCE.ShowWindows<ChatWindow>();
         }
 
         public void SynchronizeResources(ResourceListRecord resourceListRecord)
@@ -71,6 +71,11 @@ namespace EoE.Client.Login
         public void SynchronizePopulation(PopulationRecord populationRecord)
         {
             Population.Text = populationRecord.availablePopulation.ToString();
+        }
+
+        public void SynchronizeOtherPlayerList()
+        {
+            PlayerName.Text = Client.INSTANCE.PlayerName;
         }
         public void SynchronizeRoundNumber(int round)
         {

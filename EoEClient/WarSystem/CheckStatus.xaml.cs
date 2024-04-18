@@ -19,6 +19,7 @@ namespace EoE.Client.WarSystem
     /// </summary>
     public partial class CheckStatus : Window
     {
+        public static string selectedWarName;
         public CheckStatus()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace EoE.Client.WarSystem
             CheckStatus window = WindowManager.INSTANCE.GetWindows<CheckStatus>();
             if(window.checkStatusListBoxWarName.SelectedItem != null)
             {
+                selectedWarName = checkStatusListBoxWarName.SelectedItem.ToString()!;
                 WindowManager.INSTANCE.ShowWindows<CheckWarDetail>();
             }
             else
