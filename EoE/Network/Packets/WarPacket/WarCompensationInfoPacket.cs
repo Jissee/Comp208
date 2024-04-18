@@ -45,7 +45,7 @@ namespace EoE.Network.Packets.WarPacket
             {
                 IClient client = (IClient)context.Receiver;
                 client.MsgBox($"""
-                    You will get these from {compensator} in the war \"{warName}\"!
+                    You will get these from {compensator} in the war "{warName}"!
                     Population: {pop}
                     Fields: {field}
                     Silion: {record.siliconCount}

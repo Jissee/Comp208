@@ -68,6 +68,7 @@ namespace EoE.Server.WarSystem
                 var war = kvp.Value;
                 war.Tick();
             }
+            CheckEnd();
             if(removal.Count > 0)
             {
                 foreach(string warname in removal)
@@ -77,6 +78,28 @@ namespace EoE.Server.WarSystem
                 removal.Clear();
             }
             PreparingWarDict.Clear();
+
+        }
+        public void CheckEnd()
+        {
+            foreach(IWar checkWar in WarDict.Values)
+            {
+                if (checkWar.Attackers.AllSurrendered)
+                {
+                    if (checkWar.Defenders.AllSurrendered)
+                    {
+                        checkWar.End(null);
+                    }
+                    else
+                    {
+                        checkWar.End(checkWar.Attackers);
+                    }
+                }
+                else
+                {
+                    checkWar.End(checkWar.Defenders);
+                }
+            }
         }
     }
 }

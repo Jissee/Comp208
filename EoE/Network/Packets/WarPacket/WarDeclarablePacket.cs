@@ -1,4 +1,5 @@
 ﻿using EoE.Network.Entities;
+using EoE.Treaty;
 using EoE.WarSystem.Interface;
 using System;
 using System.Collections.Generic;
@@ -64,8 +65,16 @@ namespace EoE.Network.Packets.WarPacket
                         }
                     }
                 }
+                list.Remove(context.PlayerSender!);
+                for(int i=0; i < list.Count; i++)
+                {
+                    if (server.PlayerList.GetProtectorsRecursively(list[i]).Contains(context.PlayerSender!))
+                    {
+                        list.RemoveAt(i);
+                        i--;
+                    }
+                }
                 var namesEnum = from player in list
-                                where player != context.PlayerSender
                                 select player.PlayerName;
                 WarDeclarablePacket packet = new WarDeclarablePacket(warName, namesEnum.ToArray());
                 context.PlayerSender!.SendPacket(packet);

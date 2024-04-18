@@ -55,12 +55,31 @@ namespace EoE.Client.ChatSystem
             if (window.selectedName.SelectedItem != null)
             {
                 ResourceListRecord record = new ResourceListRecord();
-                record.siliconCount = int.Parse(Res1.Text);
-                record.copperCount = int.Parse(Res2.Text);
-                record.ironCount = int.Parse(Res3.Text);
-                record.aluminumCount = int.Parse(Res4.Text);
-                record.electronicCount = int.Parse(Res5.Text);
-                record.industrialCount = int.Parse(Res6.Text);
+                int result;
+                if (int.TryParse(Res1.Text, out result))
+                {
+                    record.siliconCount = result;
+                }
+                if (int.TryParse(Res2.Text, out result))
+                {
+                    record.copperCount = result;
+                }
+                if (int.TryParse(Res3.Text, out result))
+                {
+                    record.ironCount = result;
+                }
+                if (int.TryParse(Res4.Text, out result))
+                {
+                    record.aluminumCount = result;
+                }
+                if (int.TryParse(Res5.Text, out result))
+                {
+                    record.electronicCount = result;
+                }
+                if (int.TryParse(Res6.Text, out result))
+                {
+                    record.industrialCount = result;
+                }
                 if ((bool)protecting.IsChecked)
                 {
                     NewProtectiveTreatyPacket packet = new NewProtectiveTreatyPacket(
@@ -87,6 +106,7 @@ namespace EoE.Client.ChatSystem
                         Client.INSTANCE.PlayerName!,
                         window.selectedName.SelectedItem.ToString()!
                         );
+                    Client.INSTANCE.SendPacket(packet);
                 }
             }
             else
