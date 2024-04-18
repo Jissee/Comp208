@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
 C:\Users\86151\Source\Repos\Qiuu\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
@@ -40,3 +41,26 @@ C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\refi
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
 C:\Users\32171\source\repos\HateUsername\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+=======
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.exe
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.deps.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.runtimeconfig.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.Server.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\bin\Debug\net8.0\EoE.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.AssemblyReference.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfoInputs.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.AssemblyInfo.cs
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.CoreCompileInputs.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.sourcelink.json
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.csproj.Up2Date
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\refint\EoE.Server.dll
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.pdb
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\EoE.Server.genruntimeconfig.cache
+C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEServer\obj\Debug\net8.0\ref\EoE.Server.dll
+>>>>>>>  SynchronizeOtherPalyerName

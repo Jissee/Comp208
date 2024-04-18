@@ -56,6 +56,15 @@ namespace EoE.Client.WarSystem
                 MessageBox.Show("You have not set a war target for this player!");
             }
         }
+
+        public void SynchronizeOtherPalyerName()
+        {
+            OtherPlayerName.items.Clear();
+            foreach (string name in Client.INSTANCE.OtherPlayer)
+            {
+                OtherPlayerName.item.Add(name);
+            }
+        }
         public void limitnumber(object sender, TextCompositionEventArgs e)
         {
             Regex re = new Regex("[^0-9]+");
