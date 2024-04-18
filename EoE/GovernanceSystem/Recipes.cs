@@ -35,51 +35,51 @@ namespace EoE.Server.GovernanceSystem
    );
     public static class Recipes
     {
-        public static readonly double SILICON_PER_POP_TICK = 1.0f;
-        public static readonly double COPPER_PER_POP_TICK = 1.1f;
-        public static readonly double IRON_PER_POP_TICK = 1.2f;
-        public static readonly double ALUMINUM_PER_POP_TICK = 1.1f;
+        public static readonly double SILICON_PER_POP_TICK = 1.25f;
+        public static readonly double COPPER_PER_POP_TICK = 1;
+        public static readonly double IRON_PER_POP_TICK = 1.5f;
+        public static readonly double ALUMINUM_PER_POP_TICK = 1.125f;
 
-        private static double ElectronicSynthetic = 5.5;
+        private static double ElectronicSynthetic = 4;
         private static double IndustrailSynthetic = 5;
 
-        public static double SiliconSynthetic = 5;
-        public static double CopperSynthetic = 5.5;
-        public static double IronSynthetic = 6;
-        public static double AluminumSynthetic = 5.5;
+        public static double SiliconSynthetic = 8.45;
+        public static double CopperSynthetic = 6.76;
+        public static double IronSynthetic = 10.14;
+        public static double AluminumSynthetic = 7.61;
 
-        public static double Silicon2Elec = 5.44;
-        public static double Copper2Elec = 3.63;
-        public static double Iron2Indus = 6.37;
-        public static double Aluminum2Indus = 4.38;
+        public static int Silicon2Elec = 5;
+        public static int Copper2Elec = 4;
+        public static int Iron2Indus = 6;
+        public static double Aluminum2Indus = 4.5;
 
 
-        private static int maxAllocation = 50;
+        private static int maxAllocation = 160;
 
-        public static int InformativePopSynthetic =  5;
+        public static int InformativePopSynthetic =  14;
         public static int InformativeResourceSynthetic = 2;
-        public static int MechanismPopSynthetic = 8;
-        public static int MechanismResourceSynthetic = 2;
-        public static int BattlePopSynthetic = 1;
+        public static int MechanismPopSynthetic = 16;
+        public static int MechanismResourceSynthetic = 3;
+        public static int BattlePopSynthetic = 6;
 
         public static Produce calcSiliconP = (population,fields, _, _) =>
         {
-            int count = (int)(Math.Min(population, maxAllocation * fields.Count) * SiliconSynthetic);
+            int count = (int)(population * SiliconSynthetic);
             return new ResourceStack(fields.Type, count);
         };
         public static Produce calcCopperP = (population, fields, _, _) =>
         {
-            int count = (int)(Math.Min(population, maxAllocation * fields.Count) * CopperSynthetic);
+            int count = (int)(population * CopperSynthetic);
             return new ResourceStack(fields.Type, count);
         };
         public static Produce calcIronP = (population, fields, _, _) =>
         {
-            int count = (int)(Math.Min(population, maxAllocation * fields.Count) * IronSynthetic);
+            int count = (int)(population * IronSynthetic);
             return new ResourceStack(fields.Type, count);
         };
         public static Produce calcAluminumP = (population, fields, _, _) =>
         {
-            int count = (int)(Math.Min(population, maxAllocation * fields.Count) * AluminumSynthetic);
+            int count = (int)(population * AluminumSynthetic);
             return new ResourceStack(fields.Type, count);
         };
 
@@ -145,7 +145,7 @@ namespace EoE.Server.GovernanceSystem
 
         public static int calcPopGrowthProgress(int popCount, int silicon, int copper, int iron, int aluminum)
         {
-            double rate = 0.18f;
+            double rate = 0.2;
             double K;
 
             
@@ -174,7 +174,7 @@ namespace EoE.Server.GovernanceSystem
 
             double popGrowth = popCount * rate * (1 - (double)popCount / K);
 
-            return (int)popGrowth;
+            return (int)popGrowth * 100;
         }
 
         public static ArmyPrduce BattleArmyproduce = (requiredArmy) =>
