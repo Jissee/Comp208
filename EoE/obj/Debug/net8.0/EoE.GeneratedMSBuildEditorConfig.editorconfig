@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EoE
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\86151\Source\Repos\Qiuu\Comp208\EoE\
+=======
+build_property.ProjectDir = /Users/jingyuansun/Desktop/comp208/Comp208/EoE/
+>>>>>>> 20291c4e1558e022d1fefd91917b3c8ee81bbbfb
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
