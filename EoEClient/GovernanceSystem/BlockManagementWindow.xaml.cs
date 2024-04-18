@@ -41,7 +41,7 @@ namespace EoE.Client.GovernanceSystem
             ElectronPeople.Text = Client.INSTANCE.GonveranceManager.PopManager.GetPopAllocCount(GameResourceType.Electronic).ToString();
             IndustrialPeople.Text = Client.INSTANCE.GonveranceManager.PopManager.GetPopAllocCount(GameResourceType.Industrial).ToString();
 
-            population.Text = Client.INSTANCE .GonveranceManager.PopManager.TotalPopulation.ToString()+"/"+ Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
+            population.Text = Client.INSTANCE.GonveranceManager.PopManager.AvailablePopulation.ToString();
 
         }
 

@@ -7,19 +7,22 @@
         mc:Ignorable="d"
         Title="MilitaryManagement" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
-        <Label Content="Existing Army" HorizontalAlignment="Left" Margin="303,58,0,0" VerticalAlignment="Top" FontSize="20" Width="149"/>
-        <Label Content="Battle Army: " Margin="106,119,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="InformativeArmy: " Margin="78,193,0,0" FontSize="20" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Mechanization Army: " Margin="63,270,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Bulid new Army" Margin="502,58,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="battlechange" Margin="564,121,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" TextChanged="battlechange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
-        <TextBox x:Name="informativeChange" Margin="564,194,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="techchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
-        <TextBox x:Name="mechchange" Margin="564,274,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="mechchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
-        <Button x:Name="Submit3" Content="Submit" Margin="465,361,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Width="100" Height="50" Click="Submit3_Click"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="243,361,0,0" VerticalAlignment="Top" FontSize="20" Height="50" Width="100" Click="Button_Click"/>
-        <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="336,123,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock x:Name="infobefore" HorizontalAlignment="Left" Margin="336,195,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="336,274,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Existing Army" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="20" Width="149"/>
+        <Label Content="Battle Army: " Margin="129,86,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="InformativeArmy: " Margin="101,160,0,0" FontSize="20" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Mechanization Army: " Margin="86,237,0,0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Bulid new Army" Margin="525,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="battlechange" Margin="587,88,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" TextChanged="battlechange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="informativeChange" Margin="587,161,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="techchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <TextBox x:Name="mechchange" Margin="587,241,0,0" TextWrapping="Wrap" Text="0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="mechchange_TextChanged" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
+        <Button x:Name="Submit3" Content="Submit" Margin="487,289,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Width="100" Height="36" Click="Submit3_Click"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="265,289,0,0" VerticalAlignment="Top" FontSize="20" Height="36" Width="100" Click="Button_Click"/>
+        <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="359,90,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="infobefore" HorizontalAlignment="Left" Margin="359,162,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="359,241,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="1 Battle army = 1 available population" HorizontalAlignment="Left" Margin="302,331,0,0" VerticalAlignment="Top"/>
+        <Label Content="1 Informative army = 5 available population + 6 electronic resources" HorizontalAlignment="Left" Margin="220,356,0,0" VerticalAlignment="Top"/>
+        <Label Content="1 Mechanization army = 8 available population + 5 electronic resources" HorizontalAlignment="Left" Margin="211,381,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
