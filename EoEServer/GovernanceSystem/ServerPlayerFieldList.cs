@@ -110,21 +110,19 @@ namespace EoE.Server.GovernanceSystem
             if ((int)originalType >= (int)(GameResourceType.Aluminum))
             {
                 player.SendPacket(new ServerMessagePacket("Can't convert secondary filed to primary field"));
-                player.SendPacket(new FieldUpdatePacket(new FieldListRecord(this)));
             }
             else if ((int)convertedType <= (int)(GameResourceType.Aluminum))
             {
                 player.SendPacket(new ServerMessagePacket("Can't convert one primary filed to another primary field"));
-                player.SendPacket(new FieldUpdatePacket(new FieldListRecord(this)));
             }else if (originalcount != convertedCount)
             {
                 player.SendPacket(new ServerMessagePacket("No enought field"));
-                player.SendPacket(new FieldUpdatePacket(new FieldListRecord(this)));
             }
             else
             {
                 SplitField(originalType, originalcount);
                 AddField(convertedType, convertedCount);
+                player.SendPacket(new FieldUpdatePacket(new FieldListRecord(this)));
             }
         }
         public void ClearAll()

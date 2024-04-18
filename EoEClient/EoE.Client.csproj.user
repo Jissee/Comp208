@@ -7,9 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="GovernanceSystem\CheckOtherFieldsWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="GovernanceSystem\CheckOtherPlayer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -18,9 +15,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="GovernanceSystem\CheckOtherFieldsWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="GovernanceSystem\GovernenceMainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -41,7 +35,7 @@
     </Page>
     <Page Update="Login\MainTradeWindow.xaml">
       <SubType>Designer</SubType>
-    </Page>    
+    </Page>
     <Page Update="GovernanceSystem\CheckOtherPlayer.xaml">
       <SubType>Designer</SubType>
     </Page>

@@ -65,10 +65,11 @@ namespace EoE.Server.GovernanceSystem
                 popAloc[GameResourceType.Aluminum] = aluminumPop;
                 popAloc[GameResourceType.Industrial] = industrialPop;
                 popAloc[GameResourceType.Electronic] = electronicPop;
+                player.SendPacket(new PopulationUpdatePacket(GetPopulationRecord()));
             }
             else
             {
-                player.SendPacket(new PopulationUpdatePacket(GetPopulationRecord()));
+                player.SendPacket(new ServerMessagePacket("Invalid population allocation"));
             }
         }
 

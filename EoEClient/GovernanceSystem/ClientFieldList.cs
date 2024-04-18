@@ -130,9 +130,6 @@ namespace EoE.Client.GovernanceSystem
             }
             else
             {
-                SplitField(originalType, originalcount);
-                AddField(convertedType, convertedCount);
-                WindowManager.INSTANCE.UpdateFields();
                 Client.INSTANCE.SendPacket(new FieldConvertPacket(new FieldStack(originalType, originalcount), new FieldStack(convertedType, convertedCount)));
             }
         }
