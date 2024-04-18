@@ -44,7 +44,7 @@
         <DockPanel x:Name="dockPanel" Grid.Column="1" LastChildFill="False" Margin="648,174,38,15">
             <Image Source="/th.jpg" Stretch="Fill" Width="68" Height="57"/>
         </DockPanel>
-        <TextBox x:Name="aliance" Grid.Column="1" HorizontalAlignment="Left" Margin="92,48,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <TextBox x:Name="aliance" Grid.Column="1" HorizontalAlignment="Left" Margin="92,48,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="15"/>
 
     </Grid>
 </Window>
