@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EoE.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1160ad587bf6ef78f29ce678f32e85e23859d4ee")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+68b7e3f5f8c85a4593aa3f71aef2d8e197b69346")]
->>>>>>> milestone
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb7b41c0c25f504c0370edf97e8b507e204f9bda")]
 [assembly: System.Reflection.AssemblyProductAttribute("EoE.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EoE.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
