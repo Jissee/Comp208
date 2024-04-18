@@ -118,7 +118,7 @@ namespace EoE.Server.WarSystem
         {
             int remainingMechAttack = MechAttack - TotalArmy.CalculateMechaDefense();
             remainingMechAttack = Math.Max(remainingMechAttack, 0);
-            int totalDamage = remainingMechAttack * 10 + BattAttack;
+            int totalDamage = remainingMechAttack * 6 + BattAttack;
 
             int battleDamage = (int)(totalDamage * 0.68);
             int informativeDamage = (int)(totalDamage * 0.21);
