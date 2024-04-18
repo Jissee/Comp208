@@ -10,11 +10,11 @@ namespace EoE.Server.WarSystem
 {
     public class InformativeArmyInfo : ArmyInfo
     {
-        public override int Worth => 3;
-        public override int MechanAttack => 0;
+        public override int Worth => 5;
+        public override int MechanAttack => 1;
 
         public override int MechanDefense => 2;
 
-        public override int BattleAttack => 1;
+        public override int BattleAttack => 0;
     }
 }
