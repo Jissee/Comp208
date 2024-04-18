@@ -34,7 +34,8 @@ namespace EoE.Network.Entities
         void SynchronizeOtherPlayersName(List<string> otherPlayers);
         void SynchronizePlayerName(string name);
         void SynchronizeOtherPlayerFieldLitst(string name, FieldListRecord record);
-        void AddChatMessage(string senderName, string message);
+        void AddOthersChatMessage(string senderName, string message);
+        void AddSelfChatMessage(string receiver, string message);
         IClientWarWidthList ClientWarWidthList { get; }
         IClientWarNameList ClientWarNameList { get; }
 

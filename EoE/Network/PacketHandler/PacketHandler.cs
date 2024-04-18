@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EoE.Network.Packets.WarPacket;
 using EoE.Network.Packets.TreatyPacket;
+using EoE.Network.Packets.Chat;
 
 namespace EoE.Network
 {
@@ -44,6 +45,7 @@ namespace EoE.Network
             Register<SyntheticArmyPacket>();
             Register<OtherPlayerFieldUpdate>();
             Register<FieldConvertPacket>();
+            Register<ChatPacket>();
 
             Register<FillInFrontierPacket>();
             Register<WarCompensationInfoPacket>();
@@ -83,14 +85,14 @@ namespace EoE.Network
             decoders[type] = T.Decode;
         }
         /// <summary>
-        /// 把从网络接收的二进制数据恢复成数据包，然后处理数据包
+        /// The binary data received from the network is recovered into a packet, and then the packet is processed
         /// </summary>
         /// <param invitorName="data"></param>
         public abstract void ReceivePacket(byte[] data, PacketContext context, string fromName);
 
 
         /// <summary>
-        /// 把数据包对象编码成二进制数据，然后从网络发送数据
+        /// The packet object is encoded into binary data, and then the data is sent from the network
         /// </summary>
         /// <param invitorName="packet"></param>
         public abstract void SendPacket<T>(T packet, Socket connection, string targetName) where T : IPacket<T>;

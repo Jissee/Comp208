@@ -1,4 +1,5 @@
 ﻿using EoE.Client.TradeSystem;
+using EoE.Network.Packets.Chat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace EoE.Client.ChatSystem
 {
@@ -53,16 +55,61 @@ namespace EoE.Client.ChatSystem
 
         private void selectedName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (selectedName.SelectedItem!=null)
+
+            ShowMessage();
+        }
+
+        private void ShowMessage()
+        {
+            if (selectedName.SelectedItem != null)
             {
+                messageBoard.Items.Clear();
                 string name = selectedName.SelectedItem.ToString();
                 if (Client.INSTANCE.GetChatMessage(name) != null)
                 {
-                    List<string> message = Client.INSTANCE.GetChatMessage(name);
+                    List<string> messages = Client.INSTANCE.GetChatMessage(name);
+
+                    foreach (string message in messages)
+                    {
+                        messageBoard.Items.Add(message);
+                    }
 
                 }
             }
-            
+        }
+
+        public void SynchronizeChat(string messageSender)
+        {
+            if (selectedName.SelectedItem != null)
+            {
+                if (messageSender == selectedName.SelectedItem.ToString())
+                {
+                    ShowMessage();
+                }
+            }
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (selectedName.SelectedItem != null)
+            {
+                if (chetBox.Text != null)
+                {
+                    Client.INSTANCE.AddSelfChatMessage(selectedName.SelectedItem.ToString(), chetBox.Text);
+                    ShowMessage();
+                    Client.INSTANCE.SendPacket(new ChatPacket(chetBox.Text, selectedName.SelectedItem.ToString(), Client.INSTANCE.PlayerName));
+                }
+                else
+                {
+                    MessageBox.Show("Can't send empty message");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a player to chat");
+            }
+                
         }
     }
 }
