@@ -21,8 +21,8 @@
         <Label Content="Aluminum: " Margin="523,180,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Electronic: " Margin="523,218,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Industrial: " Margin="523,256,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Resources you want to provide to the protected country" HorizontalAlignment="Left" Margin="434,23,0,0" VerticalAlignment="Top" Width="332"/>
-        <Label Content="Only can be filled in when choosing Protective Treaty" HorizontalAlignment="Left" Margin="442,48,0,0" VerticalAlignment="Top"/>
+        <Label Content="Resources you want to provide to the protecting country." HorizontalAlignment="Left" Margin="449,10,0,0" VerticalAlignment="Top" Width="341"/>
+        <Label Content="Only can be filled in when choosing Protective Treaty." HorizontalAlignment="Left" Margin="460,52,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Res1" HorizontalAlignment="Left" Margin="628,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="72" FontSize="15" IsReadOnly="True" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="Res2" HorizontalAlignment="Left" Margin="628,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="72" FontSize="15" IsReadOnly="True" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="Res3" HorizontalAlignment="Left" Margin="628,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="72" FontSize="15" IsReadOnly="True" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
@@ -30,6 +30,7 @@
         <TextBox x:Name="Res5" HorizontalAlignment="Left" Margin="628,224,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="72" FontSize="15" IsReadOnly="True" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="Res6" HorizontalAlignment="Left" Margin="628,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="72" FontSize="15" IsReadOnly="True" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <Button Content="Check resource" HorizontalAlignment="Left" Margin="567,294,0,0" VerticalAlignment="Top" FontSize="15" Click="Button_Click_3"/>
+        <Label Content="Or resources you want to ask from protected country." HorizontalAlignment="Left" Margin="459,30,0,0" VerticalAlignment="Top" Width="319"/>
 
     </Grid>
 </Window>
