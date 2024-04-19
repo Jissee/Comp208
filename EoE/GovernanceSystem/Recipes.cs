@@ -56,11 +56,11 @@ namespace EoE.Server.GovernanceSystem
 
         private static int maxAllocation = 160;
 
-        public static int InformativePopSynthetic =  14;
-        public static int InformativeResourceSynthetic = 2;
-        public static int MechanismPopSynthetic = 16;
-        public static int MechanismResourceSynthetic = 3;
-        public static int BattlePopSynthetic = 6;
+        public static int InformativePopSynthetic =  9;
+        public static int InformativeResourceSynthetic = 3;
+        public static int MechanismPopSynthetic = 12;
+        public static int MechanismResourceSynthetic = 4;
+        public static int BattlePopSynthetic = 5;
 
         public static Produce calcSiliconP = (population,fields, _, _) =>
         {

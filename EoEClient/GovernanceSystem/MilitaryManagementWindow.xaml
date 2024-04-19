@@ -24,9 +24,9 @@
         <TextBlock x:Name="battlebefore" HorizontalAlignment="Left" Margin="359,90,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
         <TextBlock x:Name="infobefore" HorizontalAlignment="Left" Margin="359,164,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
         <TextBlock x:Name="mechbefore" HorizontalAlignment="Left" Margin="359,241,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
-        <Label Content="1 Battle army = 1 available population" HorizontalAlignment="Left" Margin="302,331,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <Label Content="1 Informative army = 5 available population + 6 electronic resources" HorizontalAlignment="Left" Margin="220,356,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <Label Content="1 Mechanization army = 8 available population + 5 electronic resources" HorizontalAlignment="Left" Margin="211,381,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+        <Label Content="1 Battle army = 5 available population" HorizontalAlignment="Left" Margin="302,331,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+        <Label Content="1 Informative army = 9 available population + 3 electronic resources" HorizontalAlignment="Left" Margin="220,356,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+        <Label Content="1 Mechanization army = 12 available population + 4 electronic resources" HorizontalAlignment="Left" Margin="211,381,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
 
     </Grid>
 </Window>
