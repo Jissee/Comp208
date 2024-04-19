@@ -1,6 +1,7 @@
 ﻿using EoE.Events;
 using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.Interface;
+using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;

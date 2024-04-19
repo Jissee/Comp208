@@ -1,4 +1,5 @@
-﻿using EoE.Network;
+﻿using EoE.GovernanceSystem.ServerInterface;
+using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GameEventPacket;

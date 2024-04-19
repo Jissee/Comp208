@@ -1,4 +1,5 @@
-﻿using EoE.Network.Entities;
+﻿using EoE.GovernanceSystem.ServerInterface;
+using EoE.Network.Entities;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
 using System;

@@ -4,7 +4,6 @@ using EoE.Client.Login;
 using EoE.Client.Network;
 using EoE.Client.TradeSystem;
 using EoE.Client.WarSystem;
-using EoE.ClientInterface;
 using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network;
 using EoE.Network.Entities;

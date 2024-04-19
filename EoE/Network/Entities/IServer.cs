@@ -10,6 +10,7 @@ using EoE.GovernanceSystem.Interface;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
 using EoE.Events;
+using EoE.GovernanceSystem.ServerInterface;
 
 namespace EoE.Network.Entities
 {

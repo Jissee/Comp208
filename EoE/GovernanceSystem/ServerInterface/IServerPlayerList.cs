@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 using EoE.Network.Packets;
 using EoE.TradeSystem;
 
-namespace EoE
+namespace EoE.GovernanceSystem.ServerInterface
 {
-    public interface IServerPlayerList: ITickable
+    public interface IServerPlayerList : ITickable
     {
-        public int PlayerCount{get; }
+        public int PlayerCount { get; }
         IPlayer? Host { get; }
         ITreatyManager TreatyManager { get; }
         IWarManager WarManager { get; }

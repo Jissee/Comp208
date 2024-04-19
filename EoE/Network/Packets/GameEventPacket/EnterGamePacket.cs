@@ -1,5 +1,4 @@
-﻿using EoE.ClientInterface;
-using EoE.Network.Entities;
+﻿using EoE.Network.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

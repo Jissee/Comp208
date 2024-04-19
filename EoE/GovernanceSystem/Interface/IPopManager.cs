@@ -13,6 +13,8 @@ namespace EoE.GovernanceSystem.Interface
         int TotalPopulation { get; }
         int AvailablePopulation { get;  }
         int GetPopAllocCount(GameResourceType type);
+        void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int electronic, int industrialPop);
+
         PopulationRecord GetPopulationRecord();
 
     }

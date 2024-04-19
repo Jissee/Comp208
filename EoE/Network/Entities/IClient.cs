@@ -1,5 +1,4 @@
-﻿using EoE.ClientInterface;
-using EoE.GovernanceSystem.ClientInterface;
+﻿using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.TradeSystem;
