@@ -194,7 +194,24 @@ namespace EoE.Server.WarSystem
                     WarCompensationInfoPacket packet = new WarCompensationInfoPacket(this.WarName, record, popCompensation, fieldCompensation, playerWinner.PlayerName);
                     playerWinner.SendPacket(packet);
                 }
-                
+            }
+            foreach(var player in winner.Armies.Keys)
+            {
+                ResourceUpdatePacket packetR = new ResourceUpdatePacket(player.GonveranceManager.ResourceList.GetResourceListRecord());
+                player.SendPacket(packetR);
+                FieldUpdatePacket packetF = new FieldUpdatePacket(player.GonveranceManager.FieldList.GetFieldListRecord());
+                player.SendPacket(packetF);
+                PopulationUpdatePacket PacketP = new PopulationUpdatePacket(player.GonveranceManager.PopManager.GetPopulationRecord());
+                player.SendPacket(PacketP);
+            }
+            foreach (var player in loser.Armies.Keys)
+            {
+                ResourceUpdatePacket packetR = new ResourceUpdatePacket(player.GonveranceManager.ResourceList.GetResourceListRecord());
+                player.SendPacket(packetR);
+                FieldUpdatePacket packetF = new FieldUpdatePacket(player.GonveranceManager.FieldList.GetFieldListRecord());
+                player.SendPacket(packetF);
+                PopulationUpdatePacket PacketP = new PopulationUpdatePacket(player.GonveranceManager.PopManager.GetPopulationRecord());
+                player.SendPacket(PacketP);
             }
         }
         private void SurrenderAnouncement(string surrenderName, IWarParty attackerParty, IWarParty defenderParty)

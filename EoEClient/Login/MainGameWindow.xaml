@@ -24,10 +24,10 @@
         <Label x:Name="Resource6" Content="Industrial:" HorizontalAlignment="Left" Margin="284,196,0,0" VerticalAlignment="Top" Height="36" Width="108" FontSize="20"/>
         <TextBlock x:Name="Silicon" HorizontalAlignment="Left" Margin="186,84,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="100" FontSize="15"/>
         <TextBlock x:Name="Copper" HorizontalAlignment="Left" Margin="186,146,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="100" FontSize="15"/>
-        <TextBlock x:Name="Electronic" HorizontalAlignment="Left" Margin="186,0,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Height="28" Width="100" FontSize="15"/>
+        <TextBlock x:Name="Electronic" HorizontalAlignment="Left" Margin="186,203,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="100" FontSize="15"/>
         <TextBlock x:Name="Aluminum" HorizontalAlignment="Left" Margin="396,85,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="94" FontSize="15" />
         <TextBlock x:Name="Iron" HorizontalAlignment="Left" Margin="396,150,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="94" FontSize="15"/>
-        <TextBlock x:Name="Industrial" HorizontalAlignment="Left" Margin="397,0,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Height="28" Width="93" FontSize="15"/>
+        <TextBlock x:Name="Industrial" HorizontalAlignment="Left" Margin="397,203,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" Width="93" FontSize="15"/>
         <Label x:Name="People" Content="Available Population:" HorizontalAlignment="Left" Margin="82,293,0,0" VerticalAlignment="Top" Height="34" FontSize="20"/>
         <TextBlock x:Name="Population" HorizontalAlignment="Left" Margin="309,301,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="32" Width="169" FontSize="18" RenderTransformOrigin="0.586,-0.785"/>
         <Label Content="Round Number:" HorizontalAlignment="Left" Margin="62,363,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FFFEFEFE"/>
