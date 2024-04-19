@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.GovernanceSystem"
         mc:Ignorable="d"
-        Title="CheckOtherPlayer" Height="450" Width="800" Closing="Window_Closing">
+        Title="CheckOtherPlayer" Height="450" Width="800" Closing="Window_Closing"
+        ResizeMode="NoResize">
     <Grid x:Name="OtherPlayerFields">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.Background>
+            <ImageBrush ImageSource="../images/main.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>

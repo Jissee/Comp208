@@ -51,7 +51,6 @@ namespace EoE.Client.GovernanceSystem
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            this.Hide();
             WindowManager.INSTANCE.ShowWindows<CheckOtherPlayer>();
         }
 

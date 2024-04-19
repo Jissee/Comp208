@@ -37,7 +37,7 @@ namespace EoE.Client
         }
         public void ShowWindows<T>() where T : Window, new()
         {
-            Window window = GetWindows<T>();
+            T window = GetWindows<T>();
             window.Show();
         }
 

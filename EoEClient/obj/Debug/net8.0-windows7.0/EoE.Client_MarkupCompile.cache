@@ -4,39 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoEClient\obj\Debug\net8.0-windows7.0\
-=======
-C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\obj\Debug\net8.0-windows7.0\
->>>>>>> eb02aa60e3db34b75fa01dce2608c89161844d48
 EoE.Client
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-<<<<<<< HEAD
 D:\e-textbook3\comp208\EoE\EoEClient\App.xaml
-27891281239
-
-501093239530
-199-1301582816
-ChatSystem\ChatMainWindow.xaml;ChatSystem\ChatWindow.xaml;ChatSystem\EstablishRelationWindow.xaml;ChatSystem\TreatyContentWindow.xaml;GovernanceSystem\BlockManagementWindow.xaml;GovernanceSystem\CheckOtherFieldsWindow.xaml;GovernanceSystem\CheckOtherPlayer.xaml;GovernanceSystem\GovernenceMainWindow.xaml;GovernanceSystem\MilitaryManagementWindow.xaml;GovernanceSystem\ResourceInformationWindow.xaml;GovernanceSystem\SetExploreWindow.xaml;GovernanceSystem\UpgradeFieldWindow.xaml;Login\EnterGameWindow.xaml;Login\GameAgreementWindow.xaml;Login\LoginWindow.xaml;Login\MainGameWindow.xaml;Login\MainTradeWindow.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
-=======
-<<<<<<< HEAD
-C:\Users\ufowlc\source\repos\ufowang\Comp208\EoEClient\App.xaml
-26-313457303
-
-491668675852
-1991014721367
-ChatSystem\ChatWindow.xaml;ChatSystem\EstablishRelationWindow.xaml;ChatSystem\TreatyContentWindow.xaml;GovernanceSystem\BlockManagementWindow.xaml;GovernanceSystem\CheckOtherFieldsWindow.xaml;GovernanceSystem\CheckOtherPlayer.xaml;GovernanceSystem\GovernenceMainWindow.xaml;GovernanceSystem\MilitaryManagementWindow.xaml;GovernanceSystem\ResourceInformationWindow.xaml;GovernanceSystem\SetExploreWindow.xaml;GovernanceSystem\UpgradeFieldWindow.xaml;Login\EnterGameWindow.xaml;Login\GameAgreementWindow.xaml;Login\LoginWindow.xaml;Login\MainGameWindow.xaml;Login\MainTradeWindow.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
-=======
-C:\Users\32171\source\repos\HateUsername\Comp208\EoEClient\App.xaml
 251948319123
-
+9-1125398882
 48-475837775
-199-1838406558
+199-1301582816
 ChatSystem\ChatWindow.xaml;ChatSystem\EstablishRelationWindow.xaml;ChatSystem\TreatyContentWindow.xaml;GovernanceSystem\BlockManagementWindow.xaml;GovernanceSystem\CheckOtherPlayer.xaml;GovernanceSystem\GovernenceMainWindow.xaml;GovernanceSystem\MilitaryManagementWindow.xaml;GovernanceSystem\ResourceInformationWindow.xaml;GovernanceSystem\SetExploreWindow.xaml;GovernanceSystem\UpgradeFieldWindow.xaml;Login\EnterGameWindow.xaml;Login\GameAgreementWindow.xaml;Login\LoginWindow.xaml;Login\MainGameWindow.xaml;Login\MainTradeWindow.xaml;Login\SetGameWindow.xaml;TradeSystem\SelectTraderWindow.xaml;TradeSystem\SellAndBuy2.xaml;WarSystem\AbrogateTreaty.xaml;WarSystem\AllocateArmy.xaml;WarSystem\CheckStatus.xaml;WarSystem\CheckWarDetail.xaml;WarSystem\DeclareWar.xaml;WarSystem\WarDetail.xaml;WarSystem\WarMainPage.xaml;
->>>>>>> 38b229bbb77a9307040be36c61ea457ca2d5596f
->>>>>>> eb02aa60e3db34b75fa01dce2608c89161844d48
 
 False
 

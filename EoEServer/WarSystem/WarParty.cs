@@ -126,7 +126,7 @@ namespace EoE.Server.WarSystem
 
             int battleTopDamage = TotalArmy.GetBattleCount() * 2;
             int informativeTopDamage = TotalArmy.GetInformativeCount() * 2;
-            int mechanismTopDamage = TotalArmy.GetMechanismCount() * 2;
+            int mechanismTopDamage = TotalArmy.GetMechanismCount() * 6;
 
             if(battleDamage > battleTopDamage)
             {
@@ -145,7 +145,7 @@ namespace EoE.Server.WarSystem
 
             int battleDie = battleDamage / 2;
             int informativeDie = informativeDamage / 2;
-            int mechanismDie = mechanismDamage / 2;
+            int mechanismDie = mechanismDamage / 6;
             Random rand = new Random();
             for(int i = 1; i <= battleDie; i++)
             {

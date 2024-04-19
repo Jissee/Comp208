@@ -6,16 +6,19 @@
         xmlns:local="clr-namespace:EoE.Client.Login"
         mc:Ignorable="d"
         Title="EnterGamePage" Height="450" Width="800" Closing="Window_Closing"
-        >
+        ResizeMode="NoResize">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../images/login.jpg"/>
+        </Grid.Background>
         <Button x:Name="Logout" Content="Log out" HorizontalAlignment="Left" Margin="140,320,0,0" VerticalAlignment="Top" Height="60" Width="200" FontSize="20" Background="White" Click="Logout_Click"/>
         <Button x:Name="EnterGame" Content="Enter Game" HorizontalAlignment="Left" Margin="460,320,0,0" VerticalAlignment="Top" Height="60" Width="200" FontSize="20" Background="White" Click="EnterGame_Click"/>
         <ListBox x:Name="PlayerListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="140,86,140,218" FontSize="20"/>
-        <Label Content="Check if the username you entered and the other players' usernames you're playing with are correct." HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <Label Content="Player number: " HorizontalAlignment="Left" Margin="92,246,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBlock x:Name="player_number" HorizontalAlignment="Left" Margin="272,251,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="28" FontSize="22"/>
-        <Label Content="Round number:" HorizontalAlignment="Left" Margin="426,247,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBlock x:Name="round_number" HorizontalAlignment="Left" Margin="605,251,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="26" FontSize="22"/>
+        <Label Content="Check if the username you entered and the other players' usernames you're playing with are correct." HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <Label Content="Player number: " HorizontalAlignment="Left" Margin="92,246,0,0" VerticalAlignment="Top" FontSize="22" Foreground="#FFFFFDFD"/>
+        <TextBlock x:Name="player_number" Margin="272,251,427,156" TextWrapping="Wrap" Text="TextBlock" FontSize="22" Foreground="#FFFFFEFE"/>
+        <Label Content="Round number:" HorizontalAlignment="Left" Margin="426,247,0,0" VerticalAlignment="Top" FontSize="22" Foreground="#FFF8F8F8"/>
+        <TextBlock x:Name="round_number" HorizontalAlignment="Left" Margin="605,251,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="26" FontSize="22" Foreground="#FFFBF5F5"/>
 
     </Grid>
 </Window>

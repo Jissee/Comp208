@@ -15,27 +15,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="GovernanceSystem\GovernenceMainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="GovernanceSystem\MilitaryManagementWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="GovernanceSystem\ResourceInformationWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Login\EnterGameWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Login\GameAgreementWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Login\MainGameWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Login\MainTradeWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="GovernanceSystem\CheckOtherPlayer.xaml">
       <SubType>Designer</SubType>
     </Page>

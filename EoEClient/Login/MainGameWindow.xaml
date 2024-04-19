@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:EoE.Client.Login"
         mc:Ignorable="d"
         Title="MainGamePage" Height="450" Width="800" Closing="Window_Closing"
-        >
+        ResizeMode="NoResize">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../images/main.jpg"/>
+        </Grid.Background>
         <Button x:Name="Transaction" Content="Trading System" HorizontalAlignment="Left" Margin="596,24,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Transaction_Click" FontSize="16"/>
         <Button x:Name="War" Content="War System" HorizontalAlignment="Left" Margin="596,108,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="War_Click" FontSize="16"/>
         <Button x:Name="Goverment" Content="Governance System" HorizontalAlignment="Left" Margin="596,193,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Goverment_Click" FontSize="16"/>
@@ -27,12 +30,12 @@
         <TextBlock x:Name="Industrial" HorizontalAlignment="Left" Margin="397,0,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Height="28" Width="93" FontSize="15"/>
         <Label x:Name="People" Content="Available Population:" HorizontalAlignment="Left" Margin="82,293,0,0" VerticalAlignment="Top" Height="34" FontSize="20"/>
         <TextBlock x:Name="Population" HorizontalAlignment="Left" Margin="309,301,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="32" Width="169" FontSize="18" RenderTransformOrigin="0.586,-0.785"/>
-        <Label Content="Round Number:" HorizontalAlignment="Left" Margin="62,363,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Round Number:" HorizontalAlignment="Left" Margin="62,363,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FFFEFEFE"/>
         <TextBlock x:Name="RoundCount" HorizontalAlignment="Left" Margin="214,364,0,0" TextWrapping="Wrap" Text="0" FontSize="20" Background="White" Width="96" Height="30" VerticalAlignment="Top"/>
 
         <Canvas Width="100" Height="100" Margin="104,191,596,144"/>
-        <CheckBox x:Name="NextRound" Content="NextRound" HorizontalAlignment="Left" Margin="363,365,0,0" VerticalAlignment="Top" Height="38" Width="137" FontSize="20" RenderTransformOrigin="-1.018,0.767" Click="CheckBox_Clicked"/>
-        <Label Content="Player Name: " HorizontalAlignment="Left" Margin="57,8,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="PlayerName" HorizontalAlignment="Left" Margin="194,13,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
+        <CheckBox x:Name="NextRound" Content="NextRound" HorizontalAlignment="Left" Margin="363,365,0,0" VerticalAlignment="Top" Height="38" Width="137" FontSize="20" RenderTransformOrigin="-1.018,0.767" Click="CheckBox_Clicked" Foreground="White"/>
+        <Label Content="Player Name: " HorizontalAlignment="Left" Margin="57,8,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White"/>
+        <TextBlock x:Name="PlayerName" HorizontalAlignment="Left" Margin="194,13,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" Foreground="#FFF6F6F6"/>
     </Grid>
 </Window>

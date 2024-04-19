@@ -11,7 +11,6 @@ namespace EoE.GovernanceSystem.ClientInterface
     public interface IClientPopulationManager : IPopManager
     {
         void Synchronize(PopulationRecord popRecord);
-        void AlterAvailablePop(int count);
         public void SetAllocation(
            int siliconPop,
            int copperPop,

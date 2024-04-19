@@ -6,28 +6,31 @@
         xmlns:local="clr-namespace:EoE.Client.TradeSystem"
         mc:Ignorable="d"
         Title="SellAndBuy2" Height="450" Width="800" Closing="Window_Closing"
-        >
+        ResizeMode="NoResize">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../images/main.jpg"/>
+        </Grid.Background>
         <TextBox x:Name="sellSilicon" HorizontalAlignment="Left" Margin="219,47,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
-        <Label Content="Silicon" HorizontalAlignment="Left" Margin="101,42,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
-        <Label Content="Copper" HorizontalAlignment="Left" Margin="101,97,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
-        <Label Content="Iron" HorizontalAlignment="Left" Margin="101,152,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
-        <Label Content="Aluminum" HorizontalAlignment="Left" Margin="101,207,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
-        <Label Content="Electronic" HorizontalAlignment="Left" Margin="101,262,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
-        <Label Content="Industrial" HorizontalAlignment="Left" Margin="101,317,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
+        <Label Content="Silicon" HorizontalAlignment="Left" Margin="101,42,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
+        <Label Content="Copper" HorizontalAlignment="Left" Margin="101,97,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
+        <Label Content="Iron" HorizontalAlignment="Left" Margin="101,152,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
+        <Label Content="Aluminum" HorizontalAlignment="Left" Margin="101,207,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
+        <Label Content="Electronic" HorizontalAlignment="Left" Margin="101,262,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
+        <Label Content="Industrial" HorizontalAlignment="Left" Margin="101,317,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
         <TextBox x:Name="sellCopper" HorizontalAlignment="Left" Margin="219,102,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="sellIron" HorizontalAlignment="Left" Margin="219,157,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="sellAlluminum" HorizontalAlignment="Left" Margin="219,212,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="sellElecronic" HorizontalAlignment="Left" Margin="219,267,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="sellIndustrial" HorizontalAlignment="Left" Margin="219,322,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
-        <Label Content="Select Sell Item and Number" HorizontalAlignment="Left" Margin="85,2,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Select Buy Item and Number" HorizontalAlignment="Left" Margin="454,2,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Silicon" HorizontalAlignment="Left" Margin="478,42,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
-        <Label Content="Copper" HorizontalAlignment="Left" Margin="478,97,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
-        <Label Content="Iron" HorizontalAlignment="Left" Margin="478,152,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
-        <Label Content="Aluminum" HorizontalAlignment="Left" Margin="478,207,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
-        <Label Content="Electronic" HorizontalAlignment="Left" Margin="478,262,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
-        <Label Content="Industrial" HorizontalAlignment="Left" Margin="478,317,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20"/>
+        <Label Content="Select Sell Item and Number" HorizontalAlignment="Left" Margin="85,2,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
+        <Label Content="Select Buy Item and Number" HorizontalAlignment="Left" Margin="454,2,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
+        <Label Content="Silicon" HorizontalAlignment="Left" Margin="478,42,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
+        <Label Content="Copper" HorizontalAlignment="Left" Margin="478,97,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
+        <Label Content="Iron" HorizontalAlignment="Left" Margin="478,152,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
+        <Label Content="Aluminum" HorizontalAlignment="Left" Margin="478,207,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
+        <Label Content="Electronic" HorizontalAlignment="Left" Margin="478,262,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
+        <Label Content="Industrial" HorizontalAlignment="Left" Margin="478,317,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Foreground="White"/>
         <TextBox x:Name="buySilicon" HorizontalAlignment="Left" Margin="596,49,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="buyCopper" HorizontalAlignment="Left" Margin="596,102,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBox x:Name="buyIron" HorizontalAlignment="Left" Margin="596,157,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="20" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>

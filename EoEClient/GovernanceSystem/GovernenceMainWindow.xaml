@@ -5,9 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EoE.Client.GovernanceSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing"
+        ResizeMode="NoResize">
     <Grid x:Name="Manage_Resource1">
-        <Label x:Name="Content" Content="&quot;Management is the greatest social responsibility, representing the utmost respect for societal resources&quot;" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="15"/>
+       
+            <Grid.Background>
+                <ImageBrush ImageSource="../images/main.jpg"/>
+            </Grid.Background>
+            <Label x:Name="Content" Content="&quot;Management is the greatest social responsibility, representing the utmost respect for societal resources&quot;" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
         <Button x:Name="Manage_Resource" Content="All resources information" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" Height="55" Width="230" FontSize="18" Click="Manage_Resource_Click"/>
         <Button Content="Explore Fields" HorizontalAlignment="Left" Margin="539,209,0,0" VerticalAlignment="Top" FontSize="20" Height="54" Width="230" Click="Button_Click_2"/>
         <Button Content="Population Management" HorizontalAlignment="Left" Margin="38,184,0,0" VerticalAlignment="Top" Height="56" Width="230" FontSize="20" Click="Button_Click_1"/>

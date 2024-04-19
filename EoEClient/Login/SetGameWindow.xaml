@@ -6,9 +6,12 @@
         xmlns:local="clr-namespace:EoE.Client.Login"
         mc:Ignorable="d"
         Title="SetGameWindow" Height="450" Width="800" Closing="Window_Closing"
-        >
+        ResizeMode="NoResize">
     <Grid>
-        <ComboBox x:Name="SetResource" SelectedIndex="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="352" Margin="226,111,0,0" Height="52" FontSize="20" Background="White"  RenderTransformOrigin="0.418,0.52" SelectionChanged="SetResource_SelectionChanged">
+        <Grid.Background>
+            <ImageBrush ImageSource="../images/login.jpg"/>
+        </Grid.Background>
+        <ComboBox x:Name="SetResource" SelectedIndex="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="352" Margin="226,111,0,0" Height="52" FontSize="20" Background="White"  RenderTransformOrigin="0.418,0.52" SelectionChanged="SetResource_SelectionChanged" Foreground="#FF090808">
             <ComboBoxItem Content="1" Background="White"/>
             <ComboBoxItem Content="2" Background="White"/>
             <ComboBoxItem Content="3" Background="White"/>
@@ -17,8 +20,8 @@
             <ComboBoxItem Content="6" Background="White"/>
         </ComboBox>
         <Slider x:Name="slider" Minimum="20" Maximum="200" TickFrequency="1" IsSnapToTickEnabled="True" VerticalAlignment="Top" HorizontalAlignment="Left" Width="393" Margin="183,244,0,0" Height="38" ValueChanged="slider_ValueChanged" />
-        <Label Content="Please select the number of players" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Please select the number of war rounds for this game" HorizontalAlignment="Center" Margin="0,192,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Please select the number of players" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="20" Background="{x:Null}" Foreground="White"/>
+        <Label Content="Please select the number of war rounds for this game" HorizontalAlignment="Center" Margin="0,192,0,0" VerticalAlignment="Top" FontSize="20" Background="{x:Null}" Foreground="White"/>
         <Button x:Name="Confirm" Content="Confirm Set" HorizontalAlignment="Center" Margin="0,327,0,0" VerticalAlignment="Top" Height="58" Width="198" FontSize="20" Background="White" Click="Confirm_Click_1"/>
 
         <TextBox x:Name="selectedValueTextBox" Text="20" HorizontalAlignment="Left" Margin="594,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="52" Background="White" FontSize="18" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
