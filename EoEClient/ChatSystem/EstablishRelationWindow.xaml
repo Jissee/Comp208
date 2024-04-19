@@ -17,7 +17,7 @@
         <Label Content="Protective Treaty" HorizontalAlignment="Left" Margin="88,70,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FFFAFAFA"/>
         <CheckBox x:Name="_protected" Content="I want the other player to protect me." HorizontalAlignment="Left" Margin="75,170,0,0" VerticalAlignment="Top" FontSize="19" Checked="_protected_Checked" Foreground="White"/>
         <Button Content="View the specific content of the treaty" HorizontalAlignment="Center" Margin="0,366,0,0" VerticalAlignment="Top" FontSize="15" Height="29" Width="276" Click="Button_Click_1"/>
-        <Label Content="Only one player needs to send the application, the other player just needs to accept." HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Only one player needs to send the application, the other player just needs to accept." HorizontalAlignment="Center" Margin="0,393,0,0" Foreground="White" Height="25" VerticalAlignment="Top"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="433,326,0,0" VerticalAlignment="Top" Height="30" Width="80" FontSize="20" Click="Button_Click_2"/>
         <Label Content="Silicon: " Margin="523,71,0,0" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Copper: " Margin="523,105,0,0" FontSize="18" RenderTransformOrigin="0.432,1.806" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>

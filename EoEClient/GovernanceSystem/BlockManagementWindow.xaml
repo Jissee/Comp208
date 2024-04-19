@@ -60,7 +60,7 @@
         <TextBox x:Name="IndustrialAllocate" HorizontalAlignment="Left" Margin="529,299,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="15" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
         <TextBlock x:Name="population" HorizontalAlignment="Left" Margin="236,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" Foreground="White"/>
         <Label Content="Fields number" HorizontalAlignment="Left" Margin="207,65,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
-        <Label Content="The number of resource fields determines the production limit." HorizontalAlignment="Left" Margin="210,400,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="The number of resource fields determines the production limit." Margin="210,388,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371"/>
 
     </Grid>
 </Window>

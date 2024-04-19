@@ -16,7 +16,7 @@
         <ListBox x:Name="PlayerListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="140,86,140,218" FontSize="20"/>
         <Label Content="Check if the username you entered and the other players' usernames you're playing with are correct." HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
         <Label Content="Player number: " HorizontalAlignment="Left" Margin="92,246,0,0" VerticalAlignment="Top" FontSize="22" Foreground="#FFFFFDFD"/>
-        <TextBlock x:Name="player_number" Margin="272,251,427,156" TextWrapping="Wrap" Text="TextBlock" FontSize="22" Foreground="#FFFFFEFE"/>
+        <TextBlock x:Name="player_number" Margin="267,251,0,0" TextWrapping="Wrap" Text="TextBlock" FontSize="22" Foreground="#FFFFFEFE" HorizontalAlignment="Left" Width="149" Height="34" VerticalAlignment="Top"/>
         <Label Content="Round number:" HorizontalAlignment="Left" Margin="426,247,0,0" VerticalAlignment="Top" FontSize="22" Foreground="#FFF8F8F8"/>
         <TextBlock x:Name="round_number" HorizontalAlignment="Left" Margin="605,251,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="26" FontSize="22" Foreground="#FFFBF5F5"/>
 
