@@ -16,7 +16,7 @@ namespace EoE.GovernanceSystem
             get => type;
             init 
             {
-                if (value == GameResourceType.BattleArmy || value == GameResourceType.InformativeArmy||value == GameResourceType.MechanismArmy)
+                if ((int)value >= 6)
                 {
                     throw new Exception("No such field");
                 }
