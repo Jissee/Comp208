@@ -21,7 +21,7 @@ namespace EoE.Network.Entities
         IClientTreatyList ClientTreatyList { get; }
         IWindowManager WindowManager { get; }
         List<string> OtherPlayer{ get;}
-        public Dictionary<string, FieldListRecord> OtherPlayerFields { get; init; }
+        Dictionary<string, FieldListRecord> OtherPlayerFields { get; init; }
         void SendPacket<T>(T packet) where T : IPacket<T>;
         void MsgBox(string msg);
         bool MsgBoxYesNo(string msg);

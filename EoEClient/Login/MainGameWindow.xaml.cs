@@ -19,12 +19,14 @@ using EoE.Client.ChatSystem;
 using EoE.GovernanceSystem;
 using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket.Record;
+using System.Runtime.CompilerServices;
 
 
 namespace EoE.Client.Login
 {
     public partial class MainGameWindow : Window
     {
+        public bool ignoreClosing = false;
         public MainGameWindow()
         {
             InitializeComponent();
@@ -84,17 +86,22 @@ namespace EoE.Client.Login
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            if(!ignoreClosing)
+            {
+                MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
 
-            if (result == MessageBoxResult.Cancel)
-            {
-                e.Cancel = true;
+                if (result == MessageBoxResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    WindowManager.INSTANCE.GetWindows<EnterGameWindow>().ignoreClosing = true;
+                    WindowManager.INSTANCE.GetWindows<SetGameWindow>().ignoreClosing = true;
+                    Client.INSTANCE.Disconnect();
+                }
             }
-            else
-            {
-                Client.INSTANCE.Disconnect();
-                App.Current.Shutdown();
-            }
+
         }
 
         private void CheckBox_Clicked(object sender, RoutedEventArgs e)

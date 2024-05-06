@@ -67,6 +67,8 @@ namespace EoE.Client.Login
                 else
                 {
                     WindowManager.INSTANCE.GetWindows<SetGameWindow>().ignoreClosing = true;
+                    WindowManager.INSTANCE.GetWindows<MainGameWindow>().ignoreClosing = true;
+
                     Client.INSTANCE.Disconnect();
                 }
             }

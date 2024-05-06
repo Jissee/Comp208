@@ -57,7 +57,7 @@ namespace EoE.Client
                 ShowWindows<SetGameWindow>();
                 LoginWindow window = GetWindows<LoginWindow>();
                 window.ignoreClosing = true;
-                window.Close();
+                window.Hide();
             });
             
         }
@@ -68,7 +68,7 @@ namespace EoE.Client
                 ShowWindows<EnterGameWindow>();
                 LoginWindow window = GetWindows<LoginWindow>();
                 window.ignoreClosing = true;
-                window.Close();
+                window.Hide();
             });
         }
         public void SynchronizeOtherPlayersName()
@@ -152,7 +152,7 @@ namespace EoE.Client
                 ShowWindows<MainGameWindow>();
                 EnterGameWindow window = GetWindows<EnterGameWindow>();
                 window.ignoreClosing = true;
-                window.Close();
+                window.Hide();
             });
         }
         public void UpdateGameSetting(int playerNumber,int gameRound)

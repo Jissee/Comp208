@@ -38,8 +38,7 @@ namespace EoE.Client.Login
                 if(int.TryParse(SetResource.Text, out playerCount)&& int.TryParse(selectedValueTextBox.Text, out roundCount))
                 {
                     Client.INSTANCE.SendPacket(new GameSettingPacket(new GameSettingRecord(playerCount, roundCount)));
-                    ignoreClosing = true;
-                    this.Close();
+                    this.Hide();
                     WindowManager.INSTANCE.ShowWindows<EnterGameWindow>();
                 }
             }
@@ -78,6 +77,7 @@ namespace EoE.Client.Login
                 else
                 {
                     WindowManager.INSTANCE.GetWindows<EnterGameWindow>().ignoreClosing = true;
+                    WindowManager.INSTANCE.GetWindows<MainGameWindow>().ignoreClosing = true;
                     Client.INSTANCE.Disconnect();
                 }
             }

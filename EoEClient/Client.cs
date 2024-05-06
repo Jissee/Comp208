@@ -167,9 +167,9 @@ namespace EoE.Client
                 try
                 {
                     Connection.Connect(host, port);
-                }catch (SocketException ex)
+                }catch (Exception ex)
                 {
-                    ShowException("Connection", "Client connection failed", ex);
+                    ShowException("Connection", "Client connection failed. Please check the IP address and port number", ex);
                     return;
                 }
                 
