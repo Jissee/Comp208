@@ -53,14 +53,16 @@ namespace EoE.Events
                 if(remainingTicks > 0)
                 {
                     remainingTicks--;
-                    if(playerCondition(player) && serverCondition(server))
+                    if( player != null &&
+                        !player.IsLose &&
+                        playerCondition(player) && 
+                        serverCondition(server)
+                    )
                     {
                         eventCallBack(server, player);
                     }
                 }
             }
-
-            
         }
 
         public double MeanTimeToHappenProbability()

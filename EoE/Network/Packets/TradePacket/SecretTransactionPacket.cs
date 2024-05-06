@@ -87,7 +87,7 @@ namespace EoE.Network.Packets.TradePacket
                             }
                             else
                             {
-                                player.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Accept, transaction));
+                                player.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Reject, transaction));
                             }
                             break;
                         default:

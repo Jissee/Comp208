@@ -255,6 +255,7 @@ namespace EoE.Server.TradeSystem
                     resources.AddResourceStack(item);
                 }
                 offeror.SendPacket(new ServerMessagePacket("Your private trade has been rejected"));
+                offeror.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(offeror.GonveranceManager.ResourceList)));
             }
         }
 

@@ -21,7 +21,7 @@ namespace EoE.Client
     {
         public static WindowManager INSTANCE { get; private set; }
 
-        private Dictionary<string,Window> WindowsDict = new Dictionary<string,Window>();
+        private Dictionary<string, Window> WindowsDict = new Dictionary<string,Window>();
         static WindowManager()
         {
             INSTANCE = new WindowManager();
@@ -161,7 +161,7 @@ namespace EoE.Client
             string typeName = t.FullName;
             Application.Current.Dispatcher.Invoke(() =>
             {
-                EnterGameWindow window = (EnterGameWindow)GetWindows<EnterGameWindow>();
+                EnterGameWindow window = GetWindows<EnterGameWindow>();
                 window.SynchronizeGameSetting(playerNumber, gameRound);
             });
 

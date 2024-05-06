@@ -64,10 +64,10 @@ namespace EoE.Server
 
         public void SendPacket<T>(T packet) where T : IPacket<T>
         {
-            if (!IsLose && IsConnected)
+            if (IsConnected)
             {
                 PacketHandler handler = Server.PacketHandler;
-                if (handler != null && !IsLose)
+                if (handler != null)
                 {
                     handler.SendPacket(packet, Connection, PlayerName);
                 }
