@@ -122,7 +122,7 @@ namespace EoE.Server.GovernanceSystem
             {
                 SplitField(originalType, originalcount);
                 AddField(convertedType, convertedCount);
-                player.SendPacket(new FieldUpdatePacket(new FieldListRecord(this)));
+                player.SendPacket(new FieldUpdatePacket(this.GetFieldListRecord()));
             }
         }
         public void ClearAll()

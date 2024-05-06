@@ -88,5 +88,20 @@ namespace EoE.Client.GovernanceSystem
             resources[GameResourceType.MechanismArmy] = resourceListRecord.mechanismArmyCount;
             WindowManager.INSTANCE.UpdateResources();
         }
+
+        public ResourceListRecord GetResourceListRecord()
+        {
+            return new ResourceListRecord(
+                resources[GameResourceType.Silicon],
+                resources[GameResourceType.Copper],
+                resources[GameResourceType.Iron],
+                resources[GameResourceType.Aluminum],
+                resources[GameResourceType.Electronic],
+                resources[GameResourceType.Industrial],
+                resources[GameResourceType.BattleArmy],
+                resources[GameResourceType.InformativeArmy],
+                resources[GameResourceType.MechanismArmy]
+                );
+        }
     }
 }

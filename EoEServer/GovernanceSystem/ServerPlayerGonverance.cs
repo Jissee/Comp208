@@ -145,13 +145,13 @@ namespace EoE.Server.GovernanceSystem
             {
                 player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
                 player.SendPacket(new ServerMessagePacket("Negative input"));
-                player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
+                player.SendPacket(new ResourceUpdatePacket(ResourceList.GetResourceListRecord()));
             }
             if (inutPopulation > PopManager.AvailablePopulation)
             {
                 player.SendPacket(new ServerMessagePacket("No enough available population"));
                 player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
+                player.SendPacket(new ResourceUpdatePacket(ResourceList.GetResourceListRecord()));
             }
             else 
             {
@@ -167,7 +167,7 @@ namespace EoE.Server.GovernanceSystem
                     ResourceList.SplitResource(GameResourceType.Aluminum, consume);
                     PopManager.SetExploration(inutPopulation);
                     player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                    player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
+                    player.SendPacket(new ResourceUpdatePacket(ResourceList.GetResourceListRecord()));
                 }
                 else
                 {
@@ -223,7 +223,7 @@ namespace EoE.Server.GovernanceSystem
                         PopManager.AlterPop(-popCount);
                         ResourceList.AddResourceStack(army);
                         player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
+                        player.SendPacket(new ResourceUpdatePacket(ResourceList.GetResourceListRecord()));
                     }
                     else
                     {
@@ -238,7 +238,7 @@ namespace EoE.Server.GovernanceSystem
                         ResourceList.SplitResourceStack(resource);
                         ResourceList.AddResourceStack(army);
                         player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
+                        player.SendPacket(new ResourceUpdatePacket(ResourceList.GetResourceListRecord()));
                     }
                     else
                     {
@@ -253,7 +253,7 @@ namespace EoE.Server.GovernanceSystem
                         ResourceList.SplitResourceStack(resource);
                         ResourceList.AddResourceStack(army);
                         player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
-                        player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(ResourceList)));
+                        player.SendPacket(new ResourceUpdatePacket(ResourceList.GetResourceListRecord()));
                     }
                     else
                     {

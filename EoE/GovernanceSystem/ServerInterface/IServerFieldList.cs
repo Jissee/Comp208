@@ -10,7 +10,7 @@ namespace EoE.GovernanceSystem.ServerInterface
 {
     public interface IServerFieldList : IFieldList
     {
-        FieldListRecord GetFieldListRecord();
+
         void Filedconversion(FieldStack origin, FieldStack converted);
         void Filedconversion(GameResourceType originalType, int originalcount, GameResourceType convertedType, int convertedCount);
         void ClearAll();

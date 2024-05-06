@@ -11,5 +11,6 @@ namespace EoE.GovernanceSystem.Interface
         ResourceStack SplitResource(GameResourceType type, int count);
         void AddResourceStack(ResourceStack adder);
         void AddResource(GameResourceType type, int count);
+        ResourceListRecord GetResourceListRecord();
     }
 }

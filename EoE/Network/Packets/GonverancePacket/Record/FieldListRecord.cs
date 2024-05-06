@@ -33,16 +33,6 @@ namespace EoE.Network.Packets.GonverancePacket.Record
             this.industrialFieldCount = industrial;
 
         }
-        public FieldListRecord(IFieldList fieldList)
-        {
-            this.siliconFieldCount = fieldList.GetFieldCount(GameResourceType.Silicon);
-            this.copperFieldCount = fieldList.GetFieldCount(GameResourceType.Copper);
-            this.ironFieldCount = fieldList.GetFieldCount(GameResourceType.Iron);
-            this.aluminumFieldCount = fieldList.GetFieldCount(GameResourceType.Aluminum);
-            this.electronicFieldCount = fieldList.GetFieldCount(GameResourceType.Electronic);
-            this.industrialFieldCount = fieldList.GetFieldCount(GameResourceType.Industrial);
-
-        }
         public FieldListRecord() : this(0, 0, 0, 0, 0, 0)
         {
 

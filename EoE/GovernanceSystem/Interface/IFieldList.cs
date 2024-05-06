@@ -1,4 +1,5 @@
 ﻿using EoE.Network.Packets;
+using EoE.Network.Packets.GonverancePacket.Record;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace EoE.GovernanceSystem.Interface
         FieldStack SplitField(GameResourceType type, int count);
         int GetFieldCount(GameResourceType type);
         FieldStack GetFieldStack(GameResourceType type);
+        FieldListRecord GetFieldListRecord();
 
     }
 

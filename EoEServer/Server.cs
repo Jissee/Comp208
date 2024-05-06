@@ -78,10 +78,10 @@ namespace EoE.Server
             foreach (IPlayer player in PlayerList.Players)
             {
                 player.SendPacket(new EnterGamePacket());
-                player.SendPacket(new ResourceUpdatePacket(new ResourceListRecord(player.GonveranceManager.ResourceList)));
-                player.SendPacket(new FieldUpdatePacket(new FieldListRecord(player.GonveranceManager.FieldList)));
+                player.SendPacket(new ResourceUpdatePacket(player.GonveranceManager.ResourceList.GetResourceListRecord()));
+                player.SendPacket(new FieldUpdatePacket(player.GonveranceManager.FieldList.GetFieldListRecord()));
                 player.SendPacket(new PopulationUpdatePacket(player.GonveranceManager.PopManager.GetPopulationRecord()));
-                Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList),player.PlayerName), thisPlayer => thisPlayer != player);
+                Boardcast(new OtherPlayerFieldUpdate(player.GonveranceManager.FieldList.GetFieldListRecord(), player.PlayerName), thisPlayer => thisPlayer != player);
             }
             PlayerList.GameBegin();
         }
@@ -406,7 +406,7 @@ namespace EoE.Server
                 Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
                 foreach (IPlayer player in PlayerList.Players)
                 {
-                    Boardcast(new OtherPlayerFieldUpdate(new FieldListRecord(player.GonveranceManager.FieldList),player.PlayerName), thisPlayer => thisPlayer != player);
+                    Boardcast(new OtherPlayerFieldUpdate(player.GonveranceManager.FieldList.GetFieldListRecord(),player.PlayerName), thisPlayer => thisPlayer != player);
                 }
                 Boardcast(new OpenTransactionSynchronizePacket(PlayerList.TradeManager.openOrders.Count, PlayerList.TradeManager.openOrders), player => true);
             }

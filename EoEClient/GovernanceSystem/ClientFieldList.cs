@@ -133,5 +133,17 @@ namespace EoE.Client.GovernanceSystem
                 Client.INSTANCE.SendPacket(new FieldConvertPacket(new FieldStack(originalType, originalcount), new FieldStack(convertedType, convertedCount)));
             }
         }
+
+        public FieldListRecord GetFieldListRecord()
+        {
+            return new FieldListRecord(
+                fields[GameResourceType.Silicon],
+                fields[GameResourceType.Copper],
+                fields[GameResourceType.Iron],
+                fields[GameResourceType.Aluminum],
+                fields[GameResourceType.Electronic],
+                fields[GameResourceType.Industrial]
+                );
+        }
     }
 }

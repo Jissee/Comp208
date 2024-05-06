@@ -91,7 +91,7 @@ namespace EoE.Client
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                ResourceListRecord record = new ResourceListRecord(Client.INSTANCE.GonveranceManager.ResourceList);
+                ResourceListRecord record = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceListRecord();
                 MainGameWindow window = GetWindows<MainGameWindow>();
                 window.SynchronizeResources(record);
                 MilitaryManagementWindow military = GetWindows<MilitaryManagementWindow>();
@@ -107,7 +107,7 @@ namespace EoE.Client
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                FieldListRecord record = new FieldListRecord(Client.INSTANCE.GonveranceManager.FieldList);
+                FieldListRecord record = Client.INSTANCE.GonveranceManager.FieldList.GetFieldListRecord();
                 BlockManagementWindow blockManagement = GetWindows<BlockManagementWindow>();
                 blockManagement.SynchronizeFields(record);
                 ResourceInformationWindow resourceManage = GetWindows<ResourceInformationWindow>();

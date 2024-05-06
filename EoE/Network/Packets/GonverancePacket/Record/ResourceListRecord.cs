@@ -19,20 +19,6 @@ namespace EoE.Network.Packets.GonverancePacket.Record
         public int battleArmyCount;
         public int informativeArmyCount;
         public int mechanismArmyCount;
-
-        public ResourceListRecord(IResourceList resourceList)
-        {
-            this.siliconCount = resourceList.GetResourceCount(GameResourceType.Silicon);
-            this.copperCount = resourceList.GetResourceCount(GameResourceType.Copper);
-            this.ironCount = resourceList.GetResourceCount(GameResourceType.Iron);
-            this.aluminumCount = resourceList.GetResourceCount(GameResourceType.Aluminum);
-            this.electronicCount = resourceList.GetResourceCount(GameResourceType.Electronic);
-            this.industrialCount = resourceList.GetResourceCount(GameResourceType.Industrial);
-            this.battleArmyCount = resourceList.GetResourceCount(GameResourceType.BattleArmy);
-            this.informativeArmyCount = resourceList.GetResourceCount(GameResourceType.InformativeArmy);
-            this.mechanismArmyCount = resourceList.GetResourceCount(GameResourceType.MechanismArmy);
-
-        }
         public ResourceListRecord
             (
             int silicon,
