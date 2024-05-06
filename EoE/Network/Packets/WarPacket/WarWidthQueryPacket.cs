@@ -55,7 +55,7 @@ namespace EoE.Network.Packets.WarPacket
             else
             {
                 IClient client = (IClient)context.Receiver;
-                client.ClientWarWidthList.ChangeWarWidth(warName, width);
+                client.WarManager.ClientWarWidthList.ChangeWarWidth(warName, width);
             }
         }
     }

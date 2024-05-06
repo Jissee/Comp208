@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EoE.Events
+namespace EoE.Server.Events
 {
     public class EventList : ITickable
     {

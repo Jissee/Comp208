@@ -74,7 +74,7 @@ namespace EoE.Client.WarSystem
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string name = OtherPlayerName.SelectedItem.ToString()!;
-            if (((ClientWarTargetList)Client.INSTANCE.ClientWarTargetList).WarTargetList.ContainsKey(name))
+            if (((ClientWarTargetList)Client.INSTANCE.WarManager.ClientWarTargetList).WarTargetList.ContainsKey(name))
             {
                 WarQueryTargetPacket packet = new WarQueryTargetPacket(name,new WarTarget());
                 Client.INSTANCE.SendPacket(packet);

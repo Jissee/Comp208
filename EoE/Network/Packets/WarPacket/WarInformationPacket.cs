@@ -98,7 +98,7 @@ namespace EoE.Network.Packets.WarPacket
             if(context.NetworkDirection == Entities.NetworkDirection.Server2Client)
             {
                 IClient client = (IClient) context.Receiver;
-                client.ClientWarInformationList.ChangeWarInformationList(
+                client.WarManager.ClientWarInformationList.ChangeWarInformationList(
                     warName,
                     totalBattle,
                     totalInformative,

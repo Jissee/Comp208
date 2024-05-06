@@ -1,5 +1,4 @@
-﻿using EoE.Events;
-using EoE.GovernanceSystem;
+﻿using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.Interface;
 using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network;
@@ -9,6 +8,7 @@ using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Network.Packets.TradePacket;
+using EoE.Server.Events;
 using EoE.Server.GovernanceSystem;
 using EoE.Server.Network;
 using EoE.Server.TradeSystem;

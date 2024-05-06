@@ -55,7 +55,7 @@ namespace EoE.Network.Packets.WarPacket
             else
             {
                 IClient client = (IClient)context.Receiver;
-                client.ClientWarNameRelatedList.ChangeWarNames(warNames);
+                client.WarManager.ClientWarNameRelatedList.ChangeWarNames(warNames);
             }
         }
     }

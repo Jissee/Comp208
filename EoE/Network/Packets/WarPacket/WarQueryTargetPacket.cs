@@ -60,7 +60,7 @@ namespace EoE.Network.Packets.WarPacket
             else
             {
                 IClient client = (IClient) context.Receiver;
-                client.ClientWarTargetList.ChangeClaim(targetName, target);
+                client.WarManager.ClientWarTargetList.ChangeClaim(targetName, target);
             }
         }
     }

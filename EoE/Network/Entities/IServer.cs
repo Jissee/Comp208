@@ -9,7 +9,6 @@ using EoE.TradeSystem;
 using EoE.GovernanceSystem.Interface;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
-using EoE.Events;
 using EoE.GovernanceSystem.ServerInterface;
 
 namespace EoE.Network.Entities
@@ -18,7 +17,6 @@ namespace EoE.Network.Entities
     {
         Socket ServerSocket { get; }
         PacketHandler PacketHandler { get; }
-        EventList EventList { get; }
         GameStatus Status { get; }
         bool isGameRunning { get; }
         static void Log(string type, string message) 

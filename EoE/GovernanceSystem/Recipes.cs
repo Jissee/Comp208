@@ -32,7 +32,7 @@ namespace EoE.Server.GovernanceSystem
 
     public delegate (int, ResourceStack) ArmyPrduce(
        ResourceStack requiredArmy
-   );
+    );
     public static class Recipes
     {
         public static readonly double SILICON_PER_POP_TICK = 1.25f;

@@ -40,25 +40,12 @@ namespace EoE.Client
         public Dictionary<string,FieldListRecord> OtherPlayerFields { get; init; }
         public IClientGonveranceManager GonveranceManager { get; init; }
         public IClientTradeManager TradeManager { get; init; }
-
-        public IClientWarDeclarableList ClientWarDeclarableList {  get; set; }
-
-        public IClientWarInformationList ClientWarInformationList {  get; set; }
-
-        public IClientWarProtectorsList ClientWarProtectorsList {  get; set; }
-
-        public IClientWarParticipatibleList ClientWarParticipatibleList {  get; set; }
-        public IClientWarTargetList ClientWarTargetList { get; set; }
+        public IClientWarManager WarManager { get; init; }
         public IClientTreatyList ClientTreatyList {  get; set; }
-        IWindowManager IClient.WindowManager => WindowManager;
         private Dictionary<string, List<string>> chat;
         public WindowManager WindowManager { get; init; }
+        IWindowManager IClient.WindowManager => WindowManager;
 
-        public IClientWarNameList ClientWarNameList {  get; set; }
-
-        public IClientWarWidthList ClientWarWidthList {  get; set; }
-
-        public IClientWarNameRelatedList ClientWarNameRelatedList {  get; set; }
 
         static Client() 
         {
@@ -72,15 +59,7 @@ namespace EoE.Client
             OtherPlayer = new List<string>();
             GonveranceManager = new ClientGoverance();
             TradeManager = new ClientTradeManager();
-
-            ClientWarDeclarableList = new ClientWarDeclarableList();
-            ClientWarInformationList = new ClientWarInformationList();
-            ClientWarProtectorsList = new ClientWarProtectorsList();
-            ClientWarParticipatibleList = new ClientWarParticipatibleList();
-            ClientWarTargetList = new ClientWarTargetList();
-            ClientWarNameList = new ClientWarNameList();
-            ClientWarWidthList = new ClientWarWidthList();
-            ClientWarNameRelatedList = new ClientWarNameRelatedList();
+            WarManager = new ClientWarManager();
 
             ClientTreatyList = new ClientTreatyList();
             WindowManager = EoE.Client.WindowManager.INSTANCE;
