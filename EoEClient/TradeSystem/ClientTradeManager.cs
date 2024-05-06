@@ -220,12 +220,17 @@ namespace EoE.Client.TradeSystem
             }
             else
             {
+                Client.INSTANCE.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Reject, transaction));
                 MessageBox.Show("No enough reousrces");
             }
 
         }
-        public void RejectSecretTransaction(GameTransaction transaction)
+        public void RequireRejectSecretTransaction(GameTransaction transaction)
         {
+            if (transaction.Recipient == null)
+            {
+                throw new Exception("Wrong call, not secrert Transaction");
+            }
             if (Client.INSTANCE.PlayerName == transaction.Recipient)
             {
                 Client.INSTANCE.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Reject, transaction));

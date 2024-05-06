@@ -83,11 +83,11 @@ namespace EoE.Network.Packets.TradePacket
                                 transaction.RecipientOffer[5].ToString() + "\n";
                             if (player.MsgBoxYesNo(message))
                             {
-                                player.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Accept, transaction));
+                                player.TradeManager.RequireAcceptSecretTransaction(transaction);
                             }
                             else
                             {
-                                player.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Reject, transaction));
+                                player.TradeManager.RequireRejectSecretTransaction(transaction);
                             }
                             break;
                         default:

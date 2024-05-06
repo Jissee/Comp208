@@ -72,15 +72,17 @@ namespace EoE.Client
             OtherPlayer = new List<string>();
             GonveranceManager = new ClientGoverance();
             TradeManager = new ClientTradeManager();
+
             ClientWarDeclarableList = new ClientWarDeclarableList();
             ClientWarInformationList = new ClientWarInformationList();
             ClientWarProtectorsList = new ClientWarProtectorsList();
             ClientWarParticipatibleList = new ClientWarParticipatibleList();
             ClientWarTargetList = new ClientWarTargetList();
-            ClientTreatyList = new ClientTreatyList();
             ClientWarNameList = new ClientWarNameList();
             ClientWarWidthList = new ClientWarWidthList();
             ClientWarNameRelatedList = new ClientWarNameRelatedList();
+
+            ClientTreatyList = new ClientTreatyList();
             WindowManager = EoE.Client.WindowManager.INSTANCE;
             OtherPlayerFields = new Dictionary<string, FieldListRecord>();
             chat = new Dictionary<string, List<string>>();

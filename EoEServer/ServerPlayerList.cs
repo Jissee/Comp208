@@ -89,8 +89,6 @@ namespace EoE.Server
             if(Players.Count == 0)
             {
                 server.Stop();
-                //server.Restart();
-
             }
             else if (player == Host)
             {
