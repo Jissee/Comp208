@@ -1,32 +1,24 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
 using EoE.GovernanceSystem.ServerInterface;
-using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class ServerPlayerResourceList: IServerResourceList
+    public class ServerPlayerResourceList : IServerResourceList
     {
         private Dictionary<GameResourceType, int> resources = new Dictionary<GameResourceType, int>();
         public ServerPlayerResourceList(
             int silicon,
             int copper,
-            int iron, 
+            int iron,
             int aluminum,
-            int electronic, 
-            int industrial, 
-            int battleArmy, 
-            int informativeArmy, 
+            int electronic,
+            int industrial,
+            int battleArmy,
+            int informativeArmy,
             int mechanismArmy)
         {
-            resources.Add(GameResourceType.Silicon,silicon);
+            resources.Add(GameResourceType.Silicon, silicon);
             resources.Add(GameResourceType.Copper, copper);
             resources.Add(GameResourceType.Iron, iron);
             resources.Add(GameResourceType.Aluminum, aluminum);
@@ -65,7 +57,7 @@ namespace EoE.Server.GovernanceSystem
         }
         public ResourceStack SplitResourceStack(ResourceStack stack)
         {
-            return SplitResource(stack.Type,stack.Count);
+            return SplitResource(stack.Type, stack.Count);
         }
         public int GetResourceCount(GameResourceType type)
         {

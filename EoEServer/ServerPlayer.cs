@@ -1,19 +1,10 @@
-﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.ServerInterface;
+﻿using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket;
-using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Server.GovernanceSystem;
-using EoE.Server.WarSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Sockets;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server
 {
@@ -27,13 +18,14 @@ namespace EoE.Server
 
         public IServerGonveranceManager GonveranceManager { get; private set; }
 
-        public string? PlayerName { 
-            get 
+        public string? PlayerName
+        {
+            get
             {
                 return name;
             }
-            set 
-            { 
+            set
+            {
                 if (name == null)
                 {
                     name = value;
@@ -42,7 +34,7 @@ namespace EoE.Server
                 {
                     throw new Exception("Player name cannot be reset.");
                 }
-            } 
+            }
         }
         public bool IsAvailable => PlayerName != null;
         public ServerPlayer(Socket connection, IServer server)
@@ -60,7 +52,7 @@ namespace EoE.Server
 
         public bool FinishedTick { get; set; }
 
-        
+
 
         public void SendPacket<T>(T packet) where T : IPacket<T>
         {
@@ -77,7 +69,7 @@ namespace EoE.Server
 
         public void GameLose()
         {
-            if (Server.isGameRunning)
+            if (Server.IsGameRunning)
             {
                 Server.Boardcast(new ServerMessagePacket($"{this.PlayerName} lost the game."), player => true);
             }
@@ -85,7 +77,7 @@ namespace EoE.Server
             {
                 Server.Boardcast(new ServerMessagePacket($"{this.PlayerName} leave the game."), player => true);
             }
-             
+
             GonveranceManager.ClearAll();
             Server.PlayerList.WarManager.PlayerLose(this);
             Server.PlayerList.TradeManager.ClearAll(this);

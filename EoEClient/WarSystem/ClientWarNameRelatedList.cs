@@ -1,10 +1,4 @@
-﻿using EoE.Network.Packets.WarPacket;
-using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EoE.WarSystem.Interface;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,7 +6,7 @@ namespace EoE.Client.WarSystem
 {
     public class ClientWarNameRelatedList : IClientWarNameRelatedList
     {
-        public List<string> WarNameRelatedList {  get; set; }
+        public List<string> WarNameRelatedList { get; set; }
         public ClientWarNameRelatedList()
         {
             WarNameRelatedList = new List<string>();
@@ -30,7 +24,8 @@ namespace EoE.Client.WarSystem
             {
                 ChangeWarName(warNames[i]);
             }
-            Application.Current.Dispatcher.Invoke(() => {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
                 CheckStatus window = WindowManager.INSTANCE.GetWindows<CheckStatus>();
                 ListBox box = window.checkStatusListBoxWarName;
                 box.Items.Clear();

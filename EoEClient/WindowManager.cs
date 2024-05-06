@@ -4,24 +4,16 @@ using EoE.Client.Login;
 using EoE.Client.TradeSystem;
 using EoE.Client.WarSystem;
 using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Documents;
-using System.Windows.Media;
 
 
 namespace EoE.Client
 {
-    public class WindowManager: IWindowManager
+    public class WindowManager : IWindowManager
     {
         public static WindowManager INSTANCE { get; private set; }
 
-        private Dictionary<string, Window> WindowsDict = new Dictionary<string,Window>();
+        private Dictionary<string, Window> WindowsDict = new Dictionary<string, Window>();
         static WindowManager()
         {
             INSTANCE = new WindowManager();
@@ -52,14 +44,14 @@ namespace EoE.Client
         }
         public void ShowGameSettingWindow()
         {
-            Application.Current.Dispatcher.Invoke(()=>
+            Application.Current.Dispatcher.Invoke(() =>
             {
                 ShowWindows<SetGameWindow>();
                 LoginWindow window = GetWindows<LoginWindow>();
                 window.ignoreClosing = true;
                 window.Hide();
             });
-            
+
         }
         public void ShowGameEntterWindow()
         {
@@ -142,7 +134,7 @@ namespace EoE.Client
                 window.NextRound.IsChecked = false;
             });
         }
-      
+
         public void ShowGameMainPage()
         {
             Type t = typeof(MainGameWindow);
@@ -155,7 +147,7 @@ namespace EoE.Client
                 window.Hide();
             });
         }
-        public void UpdateGameSetting(int playerNumber,int gameRound)
+        public void UpdateGameSetting(int playerNumber, int gameRound)
         {
             Type t = typeof(EnterGameWindow);
             string typeName = t.FullName;
@@ -167,6 +159,6 @@ namespace EoE.Client
 
         }
 
-        
+
     }
 }

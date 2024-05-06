@@ -1,16 +1,11 @@
 ﻿using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace EoE.Client.WarSystem
 {
     public class ClientWarWidthList : IClientWarWidthList
     {
-        public Dictionary<string, int> WarWidthList {  get; set; }
+        public Dictionary<string, int> WarWidthList { get; set; }
         public ClientWarWidthList()
         {
             WarWidthList = new Dictionary<string, int>();

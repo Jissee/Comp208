@@ -1,10 +1,4 @@
 ﻿using EoE.Network.Entities;
-using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.TreatyPacket
 {
@@ -34,7 +28,7 @@ namespace EoE.Network.Packets.TreatyPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == Entities.NetworkDirection.Client2Server)
+            if (context.NetworkDirection == Entities.NetworkDirection.Client2Server)
             {
                 IServer server = (IServer)context.Receiver;
                 IPlayer senderPlayer = context.PlayerSender!;
@@ -43,7 +37,7 @@ namespace EoE.Network.Packets.TreatyPacket
             }
             else
             {
-                IClient client = (IClient) context.Receiver;
+                IClient client = (IClient)context.Receiver;
                 bool accepted = client.MsgBoxYesNo($"{sender} wants to create a common defense treaty with you");
                 ConfirmCommonDefenseTreatyPacket packet = new ConfirmCommonDefenseTreatyPacket(sender, receiver, accepted);
                 client.SendPacket(packet);

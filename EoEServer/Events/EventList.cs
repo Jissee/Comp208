@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EoE.Server.Events
+﻿namespace EoE.Server.Events
 {
     public class EventList : ITickable
     {
         private List<Event> events = new List<Event>();
         public EventList() { }
-        public void AddEvent(Event e) 
+        public void AddEvent(Event e)
         {
             events.Add(e);
         }

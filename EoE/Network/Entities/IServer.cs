@@ -1,15 +1,6 @@
-﻿using EoE.Network.Packets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using EoE.GovernanceSystem.ServerInterface;
+using EoE.Network.Packets;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using EoE.TradeSystem;
-using EoE.GovernanceSystem.Interface;
-using EoE.Treaty;
-using EoE.WarSystem.Interface;
-using EoE.GovernanceSystem.ServerInterface;
 
 namespace EoE.Network.Entities
 {
@@ -18,8 +9,8 @@ namespace EoE.Network.Entities
         Socket ServerSocket { get; }
         PacketHandler PacketHandler { get; }
         GameStatus Status { get; }
-        bool isGameRunning { get; }
-        static void Log(string type, string message) 
+        bool IsGameRunning { get; }
+        static void Log(string type, string message)
         {
             Console.WriteLine($"[{DateTime.Now}] [{type}] {message}");
         }

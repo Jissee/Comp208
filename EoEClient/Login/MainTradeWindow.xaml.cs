@@ -1,19 +1,9 @@
 ﻿using EoE.Client.TradeSystem;
 using EoE.GovernanceSystem;
 using EoE.TradeSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace EoE.Client.Login
 {
@@ -37,7 +27,7 @@ namespace EoE.Client.Login
         {
             WindowManager.INSTANCE.ShowWindows<SellAndBuy2>();
 
-        } 
+        }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {

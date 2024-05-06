@@ -1,22 +1,9 @@
-﻿using EoE.Client.GovernanceSystem;
-using EoE.Client.Login;
-using EoE.Client.TradeSystem;
+﻿using EoE.Client.Login;
 using EoE.GovernanceSystem;
 using EoE.TradeSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace EoE.Client.TradeSystem
 {
@@ -25,7 +12,7 @@ namespace EoE.Client.TradeSystem
     /// </summary>
     public partial class SellAndBuy2 : Window
     {
-       
+
         int[] sellValues = new int[6];
         int[] buyValues = new int[6];
         public SellAndBuy2()
@@ -35,7 +22,7 @@ namespace EoE.Client.TradeSystem
 
         private void Confirm_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(sellSilicon.Text,out int sellerSilicon)&&(sellerSilicon >=0)&&
+            if (int.TryParse(sellSilicon.Text, out int sellerSilicon) && (sellerSilicon >= 0) &&
                 int.TryParse(sellCopper.Text, out int sellerCopper) && (sellerCopper >= 0) &&
                 int.TryParse(sellIron.Text, out int sellerIron) && (sellerIron >= 0) &&
                 int.TryParse(sellAlluminum.Text, out int sellerAlluminum) && (sellerAlluminum >= 0) &&
@@ -46,14 +33,14 @@ namespace EoE.Client.TradeSystem
                 int.TryParse(buyIron.Text, out int buyerIron) && (buyerIron >= 0) &&
                 int.TryParse(buyAlluminum.Text, out int buyerAlluminum) && (buyerAlluminum >= 0) &&
                 int.TryParse(buyElecronic.Text, out int buyerElecronic) && (buyerElecronic >= 0) &&
-                int.TryParse(buyIndustrial.Text, out int buyerIndustrial)&&(buyerIndustrial >= 0) 
+                int.TryParse(buyIndustrial.Text, out int buyerIndustrial) && (buyerIndustrial >= 0)
                 )
             {
                 Guid id = Guid.NewGuid();
                 string offer = Client.INSTANCE.PlayerName!;
                 List<ResourceStack> offerorOffer = new List<ResourceStack>();
                 List<ResourceStack> recipentOffer = new List<ResourceStack>();
-                offerorOffer.Add(new ResourceStack(GameResourceType.Silicon,sellerSilicon));
+                offerorOffer.Add(new ResourceStack(GameResourceType.Silicon, sellerSilicon));
                 offerorOffer.Add(new ResourceStack(GameResourceType.Copper, sellerCopper));
                 offerorOffer.Add(new ResourceStack(GameResourceType.Iron, sellerIron));
                 offerorOffer.Add(new ResourceStack(GameResourceType.Aluminum, sellerAlluminum));
@@ -66,7 +53,7 @@ namespace EoE.Client.TradeSystem
                 recipentOffer.Add(new ResourceStack(GameResourceType.Aluminum, buyerAlluminum));
                 recipentOffer.Add(new ResourceStack(GameResourceType.Electronic, buyerElecronic));
                 recipentOffer.Add(new ResourceStack(GameResourceType.Industrial, buyerIndustrial));
-                GameTransaction gameTransaction = new GameTransaction(offer, id, offerorOffer, recipentOffer,true, null);
+                GameTransaction gameTransaction = new GameTransaction(offer, id, offerorOffer, recipentOffer, true, null);
                 Client.INSTANCE.TradeManager.RequireCreateOponTransaction(gameTransaction);
             }
             else

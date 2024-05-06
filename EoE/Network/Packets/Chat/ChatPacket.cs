@@ -1,12 +1,4 @@
-﻿using EoE.GovernanceSystem.ClientInterface;
-using EoE.Network;
-using EoE.Network.Entities;
-using EoE.Network.Packets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EoE.Network.Entities;
 namespace EoE.Network.Packets.Chat
 {
     public class ChatPacket : IPacket<ChatPacket>
@@ -14,7 +6,7 @@ namespace EoE.Network.Packets.Chat
         private string chatMessage;
         private string receiverName;
         private string senderName;
-        public ChatPacket(string chatMessage, string targetPlayer,string senderName)
+        public ChatPacket(string chatMessage, string targetPlayer, string senderName)
         {
             this.chatMessage = chatMessage;
             this.receiverName = targetPlayer;
@@ -41,7 +33,7 @@ namespace EoE.Network.Packets.Chat
                 if (ne is IServer server)
                 {
                     IPlayer target = server.GetPlayer(receiverName)!;
-                    target.SendPacket(new ChatPacket(chatMessage, context.PlayerSender!.PlayerName,context.PlayerSender.PlayerName));
+                    target.SendPacket(new ChatPacket(chatMessage, context.PlayerSender!.PlayerName, context.PlayerSender.PlayerName));
                 }
             }
             if (context.NetworkDirection == NetworkDirection.Server2Client)

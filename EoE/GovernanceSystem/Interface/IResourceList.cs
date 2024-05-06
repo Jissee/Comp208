@@ -1,5 +1,4 @@
-﻿using EoE.Network.Packets;
-using EoE.Network.Packets.GonverancePacket.Record;
+﻿using EoE.Network.Packets.GonverancePacket.Record;
 
 namespace EoE.GovernanceSystem.Interface
 {

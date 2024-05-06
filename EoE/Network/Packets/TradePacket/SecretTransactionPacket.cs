@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using EoE.Network.Entities;
 using System.Text;
-using System.Threading.Tasks;
-using EoE.Network.Entities;
 using GameTransaction = EoE.TradeSystem.GameTransaction;
 
 namespace EoE.Network.Packets.TradePacket
@@ -46,7 +42,7 @@ namespace EoE.Network.Packets.TradePacket
                                 server.PlayerList.TradeManager.AcceptSecretTransaction(transaction);
                                 break;
                             case SecretTransactionOperation.Reject:
-                                server.PlayerList.TradeManager.RejectSecretTransaction(transaction,context.PlayerSender.PlayerName);
+                                server.PlayerList.TradeManager.RejectSecretTransaction(transaction, context.PlayerSender.PlayerName);
                                 break;
                             default:
                                 throw new Exception("no such type");
@@ -70,9 +66,9 @@ namespace EoE.Network.Packets.TradePacket
                             sb.AppendLine($"Player : {transaction.Offeror} send an trade requirement to you");
                             sb.AppendLine($"{transaction.Offeror} offer:");
 
-                            foreach(var item in transaction.OfferorOffer)
+                            foreach (var item in transaction.OfferorOffer)
                             {
-                                if(item.Count > 0)
+                                if (item.Count > 0)
                                 {
                                     sb.AppendLine(item.ToString());
                                 }

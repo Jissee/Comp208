@@ -1,13 +1,6 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.Network.Packets.GonverancePacket;
-using EoE.Network.Packets.WarPacket;
-using EoE.Server.GovernanceSystem;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.WarSystem
 {
@@ -22,9 +15,9 @@ namespace EoE.Server.WarSystem
         private IWar war;
         public int WarWidth => 60 / Math.Max(Armies.Count - surrendered.Count, 1);
         public bool AllSurrendered => surrendered.Count == Armies.Count;
-        public WarParty() 
-        { 
-            Armies = new Dictionary<IPlayer,IArmy>();
+        public WarParty()
+        {
+            Armies = new Dictionary<IPlayer, IArmy>();
             surrendered = new List<IPlayer>();
             BattleArmyOwner = new List<IPlayer>();
             InformativeArmyOwner = new List<IPlayer>();
@@ -54,7 +47,7 @@ namespace EoE.Server.WarSystem
         }
         public void PlayerLose(IPlayer player)
         {
-            if(player.IsLose && !surrendered.Contains(player))
+            if (player.IsLose && !surrendered.Contains(player))
             {
                 Armies.Remove(player);
                 return;
@@ -68,13 +61,13 @@ namespace EoE.Server.WarSystem
 
         public void Dismiss()
         {
-            foreach(var kvp in Armies)
+            foreach (var kvp in Armies)
             {
                 IPlayer player = kvp.Key;
                 IArmy army = kvp.Value;
-                player.GonveranceManager.ResourceList.AddResource(GameResourceType.BattleArmy,army.GetBattleCount());
-                player.GonveranceManager.ResourceList.AddResource(GameResourceType.InformativeArmy,army.GetInformativeCount());
-                player.GonveranceManager.ResourceList.AddResource(GameResourceType.MechanismArmy,army.GetMechanismCount());
+                player.GonveranceManager.ResourceList.AddResource(GameResourceType.BattleArmy, army.GetBattleCount());
+                player.GonveranceManager.ResourceList.AddResource(GameResourceType.InformativeArmy, army.GetInformativeCount());
+                player.GonveranceManager.ResourceList.AddResource(GameResourceType.MechanismArmy, army.GetMechanismCount());
 
                 army.Clear();
                 player.SendPacket(new ResourceUpdatePacket(player.GonveranceManager.ResourceList.GetResourceListRecord()));
@@ -86,14 +79,14 @@ namespace EoE.Server.WarSystem
             InformativeArmyOwner = new List<IPlayer>();
             MechanismArmyOwner = new List<IPlayer>();
             TotalArmy = new Army(this);
-            foreach(var kvp in Armies)
+            foreach (var kvp in Armies)
             {
                 IPlayer player = kvp.Key;
                 IArmy army = kvp.Value;
                 TotalArmy.AddBattle(new ResourceStack(GameResourceType.BattleArmy, army.GetBattleCount()));
                 TotalArmy.AddInformative(new ResourceStack(GameResourceType.InformativeArmy, army.GetInformativeCount()));
                 TotalArmy.AddMechanism(new ResourceStack(GameResourceType.MechanismArmy, army.GetMechanismCount()));
-                for(int i = 1; i <= army.GetBattleCount(); i++)
+                for (int i = 1; i <= army.GetBattleCount(); i++)
                 {
                     BattleArmyOwner.Add(player);
                 }
@@ -128,7 +121,7 @@ namespace EoE.Server.WarSystem
             int informativeTopDamage = TotalArmy.GetInformativeCount() * 2;
             int mechanismTopDamage = TotalArmy.GetMechanismCount() * 6;
 
-            if(battleDamage > battleTopDamage)
+            if (battleDamage > battleTopDamage)
             {
                 informativeDamage += battleDamage - battleTopDamage;
                 battleDamage = battleTopDamage;
@@ -138,7 +131,7 @@ namespace EoE.Server.WarSystem
                 mechanismDamage += informativeDamage - informativeTopDamage;
                 informativeDamage = informativeTopDamage;
             }
-            if(mechanismDamage > mechanismTopDamage)
+            if (mechanismDamage > mechanismTopDamage)
             {
                 mechanismDamage = mechanismTopDamage;
             }
@@ -147,7 +140,7 @@ namespace EoE.Server.WarSystem
             int informativeDie = informativeDamage / 2;
             int mechanismDie = mechanismDamage / 6;
             Random rand = new Random();
-            for(int i = 1; i <= battleDie; i++)
+            for (int i = 1; i <= battleDie; i++)
             {
                 int dieIndex = rand.Next(BattleArmyOwner.Count);
                 IPlayer injuredPlayer = BattleArmyOwner[dieIndex];
@@ -174,7 +167,7 @@ namespace EoE.Server.WarSystem
         public bool HasFilled(IPlayer player)
         {
             IArmy army = Armies[player];
-            if(army.GetBattleCount() + army.GetInformativeCount() + army.GetMechanismCount() > 0)
+            if (army.GetBattleCount() + army.GetInformativeCount() + army.GetMechanismCount() > 0)
             {
                 return true;
             }

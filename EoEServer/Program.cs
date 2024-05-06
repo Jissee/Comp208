@@ -1,6 +1,4 @@
-﻿using EoE.Network;
-using EoE.Network.Entities;
-using EoE.Server.Network;
+﻿using EoE.Network.Entities;
 
 namespace EoE.Server
 {
@@ -12,12 +10,12 @@ namespace EoE.Server
             {
                 IServer.Log("Server", "Insufficient argument.");
             }
-            Server server; 
+            Server server;
 
             while (true)
             {
 
-                server= new Server(args[0], int.Parse(args[1]));
+                server = new Server(args[0], int.Parse(args[1]));
                 server.Start();
 
                 while (!server.IsNeedRestart())

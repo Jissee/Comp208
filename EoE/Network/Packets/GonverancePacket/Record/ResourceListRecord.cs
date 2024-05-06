@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
-
-namespace EoE.Network.Packets.GonverancePacket.Record
+﻿namespace EoE.Network.Packets.GonverancePacket.Record
 {
     public struct ResourceListRecord
     {
@@ -76,5 +68,5 @@ namespace EoE.Network.Packets.GonverancePacket.Record
                 );
         };
     }
-    
+
 }

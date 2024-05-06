@@ -1,17 +1,11 @@
-﻿using EoE.Network.Packets;
-using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EoE.Network.Packets.GonverancePacket.Record;
 
 namespace EoE.GovernanceSystem.Interface
 {
     public interface IPopManager
     {
         int TotalPopulation { get; }
-        int AvailablePopulation { get;  }
+        int AvailablePopulation { get; }
         int GetPopAllocCount(GameResourceType type);
         void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int electronic, int industrialPop);
 

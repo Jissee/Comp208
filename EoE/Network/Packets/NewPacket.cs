@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EoE.Network.Entities;
+﻿using EoE.Network.Entities;
 
 namespace EoE.Network.Packets
 {
@@ -32,7 +27,7 @@ namespace EoE.Network.Packets
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == NetworkDirection.Server2Client)
+            if (context.NetworkDirection == NetworkDirection.Server2Client)
             {
                 IClient client = (IClient)context.Receiver;
                 client.MsgBox($"{client.PlayerName} received from {context.PlayerSender.PlayerName}, x = {x}, y = {y}");
@@ -44,7 +39,7 @@ namespace EoE.Network.Packets
                 server.Boardcast(this, (player) => true);
 
             }
-            
+
         }
     }
 }

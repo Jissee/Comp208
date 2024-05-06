@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EoE.GovernanceSystem.Interface;
+﻿using EoE.GovernanceSystem.Interface;
 
 namespace EoE.GovernanceSystem.ServerInterface
 {
     public interface IServerGonveranceManager : IGonveranceManager, ITickable
     {
-        bool IsLose {  get; }
-        PlayerStatus PlayerStatus{get;}
+        bool IsLose { get; }
+        PlayerStatus PlayerStatus { get; }
         IServerPopManager PopManager { get; }
         IServerFieldList FieldList { get; }
         IServerResourceList ResourceList { get; }

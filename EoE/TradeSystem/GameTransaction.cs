@@ -1,11 +1,5 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.Network.Packets;
-using EoE.TradeSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.TradeSystem
 {
@@ -29,7 +23,7 @@ namespace EoE.TradeSystem
         /// <param invitorName="isOpen"></param>
         /// <param invitorName="recipient"></param>
         /// <exception cref="Exception"></exception>
-        public GameTransaction(string offeror,Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer,bool isOpen,string? recipient) 
+        public GameTransaction(string offeror, Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer, bool isOpen, string? recipient)
         {
             if (offerorOffer.Count != 6 || recipientOffer.Count != 6)
             {
@@ -46,7 +40,7 @@ namespace EoE.TradeSystem
 
         public override bool Equals(object? obj)
         {
-            if (obj == null || obj.GetType()!= this.GetType())
+            if (obj == null || obj.GetType() != this.GetType())
             {
                 return false;
             }
@@ -56,7 +50,7 @@ namespace EoE.TradeSystem
                 if (transaction.Id.Equals(this.Id))
                 {
                     return true;
-                    
+
                 }
                 else
                 {
@@ -79,7 +73,7 @@ namespace EoE.TradeSystem
             }
             foreach (var item in obj.OfferorOffer)
             {
-                ResourceStack.encoder(item,writer);
+                ResourceStack.encoder(item, writer);
             }
             foreach (var item in obj.RecipientOffer)
             {
@@ -98,8 +92,8 @@ namespace EoE.TradeSystem
             {
                 recipient = reader.ReadString();
             }
-             List<ResourceStack> offerorOffer = new List<ResourceStack>();
-             List<ResourceStack> recipientOffer = new List<ResourceStack>();
+            List<ResourceStack> offerorOffer = new List<ResourceStack>();
+            List<ResourceStack> recipientOffer = new List<ResourceStack>();
 
 
             for (int i = 0; i < 6; i++)

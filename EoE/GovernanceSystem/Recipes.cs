@@ -1,13 +1,4 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.Server.WarSystem;
-using EoE.WarSystem;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.GovernanceSystem
 {
@@ -56,13 +47,13 @@ namespace EoE.Server.GovernanceSystem
 
         private static int maxAllocation = 160;
 
-        public static int InformativePopSynthetic =  9;
+        public static int InformativePopSynthetic = 9;
         public static int InformativeResourceSynthetic = 3;
         public static int MechanismPopSynthetic = 12;
         public static int MechanismResourceSynthetic = 4;
         public static int BattlePopSynthetic = 5;
 
-        public static Produce calcSiliconP = (population,fields, _, _) =>
+        public static Produce calcSiliconP = (population, fields, _, _) =>
         {
             int count = (int)(population * SiliconSynthetic);
             return new ResourceStack(fields.Type, count);
@@ -86,20 +77,20 @@ namespace EoE.Server.GovernanceSystem
         public static Produce calcElectronicP = (population, fields, silicon, copper) =>
         {
             int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * ElectronicSynthetic);
-            if (silicon >= expectProduce * Silicon2Elec && copper>= expectProduce * Copper2Elec)
+            if (silicon >= expectProduce * Silicon2Elec && copper >= expectProduce * Copper2Elec)
             {
                 return new ResourceStack(fields.Type, expectProduce);
             }
             else
             {
                 int acutalProduce = 0;
-                if (silicon>= copper)
+                if (silicon >= copper)
                 {
-                    acutalProduce = (int)(silicon/ Silicon2Elec);
+                    acutalProduce = (int)(silicon / Silicon2Elec);
                 }
                 else
                 {
-                    acutalProduce = (int)(copper/ Copper2Elec);
+                    acutalProduce = (int)(copper / Copper2Elec);
                 }
                 return new ResourceStack(fields.Type, acutalProduce);
             }
@@ -110,20 +101,20 @@ namespace EoE.Server.GovernanceSystem
         {
             int expectProduce = (int)(Math.Min(population, maxAllocation * fields.Count) * IndustrailSynthetic);
 
-            if (iron>= expectProduce * Iron2Indus && aluminum>= expectProduce * Aluminum2Indus)
+            if (iron >= expectProduce * Iron2Indus && aluminum >= expectProduce * Aluminum2Indus)
             {
                 return new ResourceStack(fields.Type, expectProduce);
             }
             else
             {
                 int acutalProduce = 0;
-                if (iron>= aluminum)
+                if (iron >= aluminum)
                 {
-                    acutalProduce = (int)(iron/ Iron2Indus);
+                    acutalProduce = (int)(iron / Iron2Indus);
                 }
                 else
                 {
-                    acutalProduce = (int)(aluminum/ Aluminum2Indus);
+                    acutalProduce = (int)(aluminum / Aluminum2Indus);
                 }
                 return new ResourceStack(fields.Type, acutalProduce);
             }
@@ -148,7 +139,7 @@ namespace EoE.Server.GovernanceSystem
             double rate = 0.2;
             double K;
 
-            
+
             Dictionary<GameResourceType, double> resourceSynthetic = new Dictionary<GameResourceType, double>()
             {
                 { GameResourceType.Silicon, SILICON_PER_POP_TICK },
@@ -165,10 +156,12 @@ namespace EoE.Server.GovernanceSystem
             minK = Math.Min(minK, aluminum / resourceSynthetic[GameResourceType.Aluminum]);
 
             K = minK;
-            if (K > 5e8) { 
+            if (K > 5e8)
+            {
                 K = 5e8;
             }
-            else if (K < 1) {
+            else if (K < 1)
+            {
                 K = 1;
             }
 

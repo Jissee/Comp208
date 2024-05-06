@@ -1,10 +1,5 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.Treaty;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.Treaty
 {
@@ -18,7 +13,7 @@ namespace EoE.Server.Treaty
         public bool IsAvailable()
         {
             bool checkAvailable = true;
-            foreach(var entry in ConditionEntries)
+            foreach (var entry in ConditionEntries)
             {
                 checkAvailable = checkAvailable && (FirstParty.GonveranceManager.ResourceList.GetResourceCount(entry.Key) >= ConditionEntries[entry.Key]);
             }
@@ -26,7 +21,7 @@ namespace EoE.Server.Treaty
         }
         public void ConsumeRecourse()
         {
-            foreach(var kvp in ConditionEntries)
+            foreach (var kvp in ConditionEntries)
             {
                 ResourceStack addStack = FirstParty.GonveranceManager.ResourceList.SplitResource(kvp.Key, kvp.Value);
                 SecondParty.GonveranceManager.ResourceList.AddResourceStack(addStack);

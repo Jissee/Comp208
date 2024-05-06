@@ -1,25 +1,18 @@
 ﻿using EoE.Network;
-using EoE.Network.Entities;
 using EoE.Network.Packets;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace EoE.Client.Network
 {
     internal class ClientPacketHandler : PacketHandler
     {
-       
+
 
         public ClientPacketHandler()
         {
-            
+
         }
 
         public override void ReceivePacket(byte[] data, PacketContext context, string fromName)
@@ -38,7 +31,7 @@ namespace EoE.Client.Network
             }
             catch (Exception ex)
             {
-                Client.ShowException("Packet",$"Cannot find encoder for {tp}, it is not registered.", ex);
+                Client.ShowException("Packet", $"Cannot find encoder for {tp}, it is not registered.", ex);
                 return;
             }
             IBasePacket packet;
@@ -46,7 +39,7 @@ namespace EoE.Client.Network
             {
                 packet = (IBasePacket)decoder.DynamicInvoke(br);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Client.ShowException("Packet", $"Cannot decode packet {tp}.", ex);
                 return;
@@ -56,7 +49,7 @@ namespace EoE.Client.Network
             {
                 packet.Handle(context);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Client.ShowException("Packet", $"Cannot handle packet {tp}.", ex);
             }
@@ -64,7 +57,7 @@ namespace EoE.Client.Network
 
         public override void SendPacket<T>(T packet, Socket connection, string targetName)
         {
-            
+
             MemoryStream ms = new MemoryStream();
             BinaryWriter bw = new BinaryWriter(ms);
             bw.Write(0L);

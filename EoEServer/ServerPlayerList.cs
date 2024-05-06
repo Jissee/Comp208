@@ -10,18 +10,12 @@ using EoE.Server.WarSystem;
 using EoE.TradeSystem;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server
 {
     public class ServerPlayerList : IServerPlayerList, ITickable
-    { 
+    {
         public List<IPlayer> Players { get; }
         public ITreatyManager TreatyManager { get; }
         public IWarManager WarManager { get; }
@@ -29,21 +23,21 @@ namespace EoE.Server
         public IPlayer? Host { get; private set; }
         private IServer server;
         public int PlayerCount { get; private set; } = 1;
-        public bool AllBegins 
-        { 
+        public bool AllBegins
+        {
             get
             {
                 bool begin = true;
-                foreach(var player in Players)
+                foreach (var player in Players)
                 {
                     begin &= player.IsBegin;
                 }
                 return begin && Players.Count == PlayerCount;
-            } 
+            }
         }
 
 
-        public ServerPlayerList(IServer server) 
+        public ServerPlayerList(IServer server)
         {
             Players = new List<IPlayer>();
             TreatyManager = new TreatyManager(this);
@@ -81,12 +75,12 @@ namespace EoE.Server
             }
         }
 
-        
+
         public void PlayerLogout(IPlayer player)
         {
             IServer.Log("Connection", $"{player.PlayerName} logged out.");
             Players.Remove(player);
-            if(Players.Count == 0)
+            if (Players.Count == 0)
             {
                 server.Stop();
             }
@@ -132,10 +126,10 @@ namespace EoE.Server
                         //Console.WriteLine(i);
                         PacketContext context = new PacketContext(NetworkDirection.Client2Server, player, server);
                         string fromName = player.PlayerName;
-                        if(fromName == null)
+                        if (fromName == null)
                         {
                             EndPoint? endpoint = player.Connection.RemoteEndPoint;
-                            if(endpoint != null)
+                            if (endpoint != null)
                             {
                                 fromName = endpoint.ToString();
                             }
@@ -152,7 +146,7 @@ namespace EoE.Server
             {
 
             }
-            
+
         }
 
         public void Broadcast<T>(T packet, Predicate<IPlayer> condition) where T : IPacket<T>
@@ -170,13 +164,13 @@ namespace EoE.Server
         {
             foreach (var player in Players)
             {
-                if(player.PlayerName == name) return player;
+                if (player.PlayerName == name) return player;
             }
             return null;
         }
         public void InitPlayerName(IPlayer playerRef, string name)
         {
-            
+
             if (Host == null)
             {
                 playerRef.PlayerName = name;
@@ -197,15 +191,15 @@ namespace EoE.Server
                     playerRef.SendPacket(new PlayerLoginPacket(name));
                     playerRef.SendPacket(new ServerMessagePacket("Due to name conflict, your player name has been reset to " + name));
                 }
-                
+
                 playerRef.SendPacket(new EnterRoomPacket(false));
             }
             IServer.Log("Connection", $"{name} logged in");
-            server.Boardcast(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)),playerRef=>true);
+            server.Boardcast(new GameSettingPacket(new GameSettingRecord(server.PlayerList.PlayerCount, server.Status.TotalTick)), playerRef => true);
             var nameEnum = from player in Players
                            select player.PlayerName;
             List<string> list = [.. nameEnum];
-            server.Boardcast(new PlayerListPacket(list,list.Count),player=>true);
+            server.Boardcast(new PlayerListPacket(list, list.Count), player => true);
         }
 
         private bool CheckName(string name)
@@ -233,7 +227,7 @@ namespace EoE.Server
             }
             return allFinished;
         }
-        
+
 
         public void Tick()
         {
@@ -242,7 +236,7 @@ namespace EoE.Server
             {
                 player.Tick();
             }
-            for(var i = 0; i < Players.Count; i++)
+            for (var i = 0; i < Players.Count; i++)
             {
                 IPlayer player = Players[i];
                 if ((player.IsLose))

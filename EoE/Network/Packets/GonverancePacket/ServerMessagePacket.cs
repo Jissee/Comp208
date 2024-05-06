@@ -1,11 +1,5 @@
-﻿using EoE.GovernanceSystem.ClientInterface;
-using EoE.Network.Entities;
-using System;
-using System.Collections.Generic;
+﻿using EoE.Network.Entities;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.GonverancePacket
 {
@@ -35,7 +29,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IClient client)
                 {
-                    if(message == SERVER_FULL)
+                    if (message == SERVER_FULL)
                     {
                         client.MsgBoxYesNo(message);
                         Process.GetCurrentProcess().Kill();
@@ -44,7 +38,7 @@ namespace EoE.Network.Packets.GonverancePacket
                     {
                         client.MsgBox(message);
                     }
-                    
+
                 }
             }
         }

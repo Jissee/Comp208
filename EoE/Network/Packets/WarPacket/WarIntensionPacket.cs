@@ -1,10 +1,4 @@
 ﻿using EoE.Network.Entities;
-using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.WarPacket
 {
@@ -48,7 +42,7 @@ namespace EoE.Network.Packets.WarPacket
             writer.Write(obj.warName);
             writer.Write(obj.targetPlayerName);
             writer.Write(obj.protectors.Count);
-            foreach(string protector in obj.protectors)
+            foreach (string protector in obj.protectors)
             {
                 writer.Write(protector);
             }
@@ -61,7 +55,7 @@ namespace EoE.Network.Packets.WarPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == NetworkDirection.Client2Server)
+            if (context.NetworkDirection == NetworkDirection.Client2Server)
             {
                 IServer server = (IServer)context.Receiver;
                 IPlayer targetPlayer = server.GetPlayer(targetPlayerName)!;
@@ -74,7 +68,7 @@ namespace EoE.Network.Packets.WarPacket
                     server.PlayerList.WarManager.PreparingWarDict[warName].Defenders.AddPlayer(player);
                 }
                 var protectorsEnum = from protector in protectors
-                               select protector.PlayerName;
+                                     select protector.PlayerName;
 
                 List<IPlayer> allPlayers = [.. server.PlayerList.Players];
                 allPlayers.RemoveAll(protectors.Contains);

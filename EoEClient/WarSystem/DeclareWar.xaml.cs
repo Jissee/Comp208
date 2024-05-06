@@ -1,18 +1,6 @@
 ﻿using EoE.Network.Packets.WarPacket;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 
 namespace EoE.Client.WarSystem
 {
@@ -30,7 +18,7 @@ namespace EoE.Client.WarSystem
         {
             WarMainPage window = WindowManager.INSTANCE.GetWindows<WarMainPage>();
             var selectedName = listBox1.SelectedItem;
-            if(selectedName != null)
+            if (selectedName != null)
             {
                 WarIntensionPacket packet = new WarIntensionPacket(WarMainPage.theWarName, selectedName.ToString()!, [], []);
                 Client.INSTANCE.SendPacket(packet);
@@ -40,7 +28,7 @@ namespace EoE.Client.WarSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (listBox1.SelectedItem != null )
+            if (listBox1.SelectedItem != null)
             {
                 WarDeclarationPacket packet = new WarDeclarationPacket(WarMainPage.theWarName);
                 Client.INSTANCE.SendPacket(packet);
@@ -59,7 +47,7 @@ namespace EoE.Client.WarSystem
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if(listBox2.SelectedItem != null)
+            if (listBox2.SelectedItem != null)
             {
                 WarInvitationPacket packet = new WarInvitationPacket(WarMainPage.theWarName, listBox2.SelectedItem.ToString()!);
                 Client.INSTANCE.SendPacket(packet);

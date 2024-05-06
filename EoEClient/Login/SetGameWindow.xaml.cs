@@ -1,23 +1,12 @@
-﻿using EoE.Client;
-using EoE.Network.Packets.GameEventPacket;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using EoE.Network.Packets.GameEventPacket;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace EoE.Client.Login
 {
-   
+
     public partial class SetGameWindow : Window
     {
         bool amount = false;
@@ -28,32 +17,33 @@ namespace EoE.Client.Login
             InitializeComponent();
         }
 
-        
+
         private void Confirm_Click_1(object sender, RoutedEventArgs e)
         {
             if (amount && round)
             {
                 int playerCount;
                 int roundCount;
-                if(int.TryParse(SetResource.Text, out playerCount)&& int.TryParse(selectedValueTextBox.Text, out roundCount))
+                if (int.TryParse(SetResource.Text, out playerCount) && int.TryParse(selectedValueTextBox.Text, out roundCount))
                 {
                     Client.INSTANCE.SendPacket(new GameSettingPacket(new GameSettingRecord(playerCount, roundCount)));
                     this.Hide();
                     WindowManager.INSTANCE.ShowWindows<EnterGameWindow>();
                 }
             }
-            else {
+            else
+            {
                 MessageBox.Show("You haven't changed any values. If you confirm, please submit again.");
                 amount = true;
                 round = true;
             }
-           
+
         }
 
         private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             round = true;
-            if (selectedValueTextBox != null) 
+            if (selectedValueTextBox != null)
             {
                 selectedValueTextBox.Text = ((int)e.NewValue).ToString();
             }
@@ -81,7 +71,7 @@ namespace EoE.Client.Login
                     Client.INSTANCE.Disconnect();
                 }
             }
-            
+
         }
         public void limitnumber(object sender, TextCompositionEventArgs e)
         {

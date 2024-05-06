@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EoE.GovernanceSystem
+﻿namespace EoE.GovernanceSystem
 {
     public enum GameResourceType
     {

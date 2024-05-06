@@ -1,17 +1,6 @@
 ﻿using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace EoE.Client.GovernanceSystem
 {
@@ -37,7 +26,7 @@ namespace EoE.Client.GovernanceSystem
                 TextAlignment = TextAlignment.Center
             };
             Grid.SetRow(palyerNmae, 0);
-            Grid.SetColumn(palyerNmae,0);
+            Grid.SetColumn(palyerNmae, 0);
             OtherPlayerFields.Children.Add(palyerNmae);
 
             TextBlock Silicon = new TextBlock
@@ -150,7 +139,7 @@ namespace EoE.Client.GovernanceSystem
                     TextAlignment = TextAlignment.Center
                 };
                 Grid.SetRow(temp, 1);
-                Grid.SetColumn(temp, i+1);
+                Grid.SetColumn(temp, i + 1);
                 OtherPlayerFields.Children.Add(temp);
             }
 
@@ -192,7 +181,7 @@ namespace EoE.Client.GovernanceSystem
                         OtherPlayerFields.Children.Add(temp2);
                     }
                 }
-                
+
             }
         }
 

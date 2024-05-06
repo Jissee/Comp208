@@ -1,25 +1,10 @@
-﻿using EoE.Client.TradeSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using EoE.Client.WarSystem;
-using System.Windows.Navigation;
+﻿using EoE.Client.ChatSystem;
 using EoE.Client.GovernanceSystem;
-using EoE.Client.ChatSystem;
+using EoE.Client.WarSystem;
 using EoE.GovernanceSystem;
 using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket.Record;
-using System.Runtime.CompilerServices;
+using System.Windows;
 
 
 namespace EoE.Client.Login
@@ -50,7 +35,7 @@ namespace EoE.Client.Login
         {
             WindowManager.INSTANCE.ShowWindows<WarMainPage>();
         }
-        
+
         private void Goverment_Click(object sender, RoutedEventArgs e)
         {
             WindowManager.INSTANCE.ShowWindows<GovernenceMainWindow>();
@@ -58,7 +43,7 @@ namespace EoE.Client.Login
 
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
-           WindowManager.INSTANCE.ShowWindows<ChatWindow>();
+            WindowManager.INSTANCE.ShowWindows<ChatWindow>();
         }
 
         public void SynchronizeResources(ResourceListRecord resourceListRecord)
@@ -86,7 +71,7 @@ namespace EoE.Client.Login
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if(!ignoreClosing)
+            if (!ignoreClosing)
             {
                 MessageBoxResult result = MessageBox.Show("If you close this window, the program will stop running. Are you sure you want to close it?", "Close Confirmation", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
 

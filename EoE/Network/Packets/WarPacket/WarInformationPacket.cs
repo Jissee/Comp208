@@ -1,9 +1,4 @@
 ﻿using EoE.Network.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.WarPacket
 {
@@ -48,12 +43,12 @@ namespace EoE.Network.Packets.WarPacket
             this.battleLost = battleLost;
             this.informativeLost = informativeLost;
             this.mechanismLost = mechanismLost;
-            
+
             this.enemyTotalBattle = enemyTotalBattle;
             this.enemyTotalInformative = enemyTotalInformative;
             this.enemyTotalMechanism = enemyTotalMechanism;
             this.enemyBattleLost = enemyBattleLost;
-            this.enemyInformativeLost  = enemyInformativeLost ;
+            this.enemyInformativeLost = enemyInformativeLost;
             this.enemyMechanismLost = enemyMechanismLost;
         }
         public static WarInformationPacket Decode(BinaryReader reader)
@@ -95,9 +90,9 @@ namespace EoE.Network.Packets.WarPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == Entities.NetworkDirection.Server2Client)
+            if (context.NetworkDirection == Entities.NetworkDirection.Server2Client)
             {
-                IClient client = (IClient) context.Receiver;
+                IClient client = (IClient)context.Receiver;
                 client.WarManager.ClientWarInformationList.ChangeWarInformationList(
                     warName,
                     totalBattle,
@@ -106,7 +101,7 @@ namespace EoE.Network.Packets.WarPacket
                     battleLost,
                     informativeLost,
                     mechanismLost,
-                
+
                     enemyTotalBattle,
                     enemyTotalInformative,
                     enemyTotalMechanism,

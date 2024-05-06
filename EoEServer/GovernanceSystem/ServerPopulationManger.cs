@@ -1,18 +1,11 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
 using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class ServerPopulationManger: IServerPopManager
+    public class ServerPopulationManger : IServerPopManager
     {
         private Dictionary<GameResourceType, int> popAloc = new Dictionary<GameResourceType, int>();
         private IPlayer player;
@@ -22,7 +15,7 @@ namespace EoE.Server.GovernanceSystem
 
         public int TotalPopulation
         {
-            get 
+            get
             {
                 int count = 0;
                 foreach (var kvp in popAloc)
@@ -53,9 +46,9 @@ namespace EoE.Server.GovernanceSystem
         /// <param name="type"></param>
         /// <param name="count"></param>
         /// <exception cref="InvalidPopAllocException"></exception>
-        public void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int electronicPop,int industrialPop)
+        public void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int electronicPop, int industrialPop)
         {
-            if (CheckAvailability(siliconPop, copperPop, ironPop, aluminumPop, electronicPop, industrialPop ))
+            if (CheckAvailability(siliconPop, copperPop, ironPop, aluminumPop, electronicPop, industrialPop))
             {
                 int total = TotalPopulation;
                 AvailablePopulation = total - siliconPop - copperPop - ironPop - aluminumPop - industrialPop - electronicPop;
@@ -80,7 +73,8 @@ namespace EoE.Server.GovernanceSystem
             {
                 player.SendPacket(new ServerMessagePacket("Negative input"));
                 return false;
-            }else if (TotalPopulation >= siliconPop + copperPop + ironPop + aluminumPop + industrialPop + electronic)
+            }
+            else if (TotalPopulation >= siliconPop + copperPop + ironPop + aluminumPop + industrialPop + electronic)
             {
                 return true;
             }
@@ -108,7 +102,7 @@ namespace EoE.Server.GovernanceSystem
                     GameResourceType type = (GameResourceType)GetNextIndex();
                     if (popAloc[type] > 0)
                     {
-                        popAloc[type] --;
+                        popAloc[type]--;
                     }
                     else
                     {
@@ -146,7 +140,7 @@ namespace EoE.Server.GovernanceSystem
                 popAloc[GameResourceType.Iron],
                 popAloc[GameResourceType.Aluminum],
                 popAloc[GameResourceType.Electronic],
-                popAloc[GameResourceType.Industrial],      
+                popAloc[GameResourceType.Industrial],
                 AvailablePopulation
                 );
         }

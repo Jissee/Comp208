@@ -1,18 +1,11 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Interop;
-using System.Windows;
-using EoE.Network.Packets.GonverancePacket;
 using EoE.GovernanceSystem.ClientInterface;
+using EoE.Network.Packets.GonverancePacket;
+using EoE.Network.Packets.GonverancePacket.Record;
 
 namespace EoE.Client.GovernanceSystem
 {
-    public class ClientPopulationManager: IClientPopulationManager
+    public class ClientPopulationManager : IClientPopulationManager
     {
         private Dictionary<GameResourceType, int> popAloc = new Dictionary<GameResourceType, int>();
 

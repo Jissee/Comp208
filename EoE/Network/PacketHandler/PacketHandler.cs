@@ -1,18 +1,11 @@
 ﻿using EoE.Network.Packets;
+using EoE.Network.Packets.Chat;
 using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.TradePacket;
-using EoE.Network;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using EoE.Network.Packets.WarPacket;
 using EoE.Network.Packets.TreatyPacket;
-using EoE.Network.Packets.Chat;
+using EoE.Network.Packets.WarPacket;
+using System.Net.Sockets;
 
 namespace EoE.Network
 {
@@ -74,7 +67,7 @@ namespace EoE.Network
         {
             Type type = typeof(T);
             string packetTypeString = type.FullName;
-            if(packetTypeString == null)
+            if (packetTypeString == null)
             {
                 throw new Exception("Invalid packet type");
             }

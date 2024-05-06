@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EoE.Network.Packets.GonverancePacket.Record
+﻿namespace EoE.Network.Packets.GonverancePacket.Record
 {
     public struct PopulationRecord
     {
@@ -26,13 +20,13 @@ namespace EoE.Network.Packets.GonverancePacket.Record
             int availablePopulation
             )
         {
-           this.siliconPop = siliconPop;
-           this.copperPop = copperPop;
-           this.ironPop = ironPop;
-           this.aluminumPop = aluminumPop;
-           this.electronicPop = electronicPop;
-           this.industrailPop = industrailPop;
-           this.availablePopulation = availablePopulation;
+            this.siliconPop = siliconPop;
+            this.copperPop = copperPop;
+            this.ironPop = ironPop;
+            this.aluminumPop = aluminumPop;
+            this.electronicPop = electronicPop;
+            this.industrailPop = industrailPop;
+            this.availablePopulation = availablePopulation;
         }
 
         public static Encoder<PopulationRecord> encoder = (PopulationRecord obj, BinaryWriter writer) =>
@@ -48,7 +42,7 @@ namespace EoE.Network.Packets.GonverancePacket.Record
 
         public static Decoder<PopulationRecord> decoder = (BinaryReader reader) =>
         {
-            return new PopulationRecord( 
+            return new PopulationRecord(
                 reader.ReadInt32(),
                 reader.ReadInt32(),
                 reader.ReadInt32(),

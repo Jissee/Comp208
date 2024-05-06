@@ -1,13 +1,8 @@
 ﻿using EoE.GovernanceSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.TradeSystem
 {
-    public interface IClientTradeManager: ITradeManager
+    public interface IClientTradeManager : ITradeManager
     {
         List<GameTransaction> OpenOrders { get; }
         void RequireCreateOponTransaction(GameTransaction transaction);

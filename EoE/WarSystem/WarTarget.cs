@@ -1,19 +1,13 @@
-﻿using EoE.GovernanceSystem;
-using EoE.Network.Packets;
-using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using EoE.Network.Packets;
 
 namespace EoE.Server.WarSystem
 {
     public struct WarTarget
     {
-        public int SiliconClaim {  get; set; }
+        public int SiliconClaim { get; set; }
         public int CopperClaim { get; set; }
-        public int IronClaim {  get; set; }
-        public int AluminumClaim {  get; set; }
+        public int IronClaim { get; set; }
+        public int AluminumClaim { get; set; }
         public int ElectronicClaim { get; set; }
         public int IndustrialClaim { get; set; }
         public int FieldClaim { get; set; }

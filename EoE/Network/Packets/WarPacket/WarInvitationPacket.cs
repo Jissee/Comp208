@@ -1,9 +1,4 @@
 ﻿using EoE.Network.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.WarPacket
 {
@@ -31,7 +26,7 @@ namespace EoE.Network.Packets.WarPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == NetworkDirection.Client2Server)
+            if (context.NetworkDirection == NetworkDirection.Client2Server)
             {
                 IServer server = (IServer)context.Receiver!;
                 IPlayer player = context.PlayerSender!;
@@ -40,7 +35,7 @@ namespace EoE.Network.Packets.WarPacket
             }
             else
             {
-                IClient client = (IClient) context.Receiver!;
+                IClient client = (IClient)context.Receiver!;
                 bool accepted = client.MsgBoxYesNo(name + " invites you to join his war!");
                 WarInvitedPacket packet = new WarInvitedPacket(warName, accepted, name, client.PlayerName);
                 client.SendPacket(packet);

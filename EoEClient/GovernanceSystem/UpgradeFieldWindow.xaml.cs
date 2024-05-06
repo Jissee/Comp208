@@ -1,19 +1,8 @@
-﻿using EoE.Client;
-using EoE.GovernanceSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using EoE.GovernanceSystem;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace EoE.Client.GovernanceSystem
 {
@@ -22,7 +11,7 @@ namespace EoE.Client.GovernanceSystem
     /// </summary>
     public partial class UpgradeFieldWindow : Window
     {
-        
+
         public UpgradeFieldWindow()
         {
             InitializeComponent();
@@ -30,9 +19,9 @@ namespace EoE.Client.GovernanceSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(inputNumber.Text,out int count)&& count>=0)
+            if (int.TryParse(inputNumber.Text, out int count) && count >= 0)
             {
-                GameResourceType? origin =null;
+                GameResourceType? origin = null;
                 if (PrimaryField.SelectedItem == null)
                 {
                     MessageBox.Show("Please select a primary field");
@@ -58,11 +47,11 @@ namespace EoE.Client.GovernanceSystem
                         origin = GameResourceType.Aluminum;
                     }
                 }
-                
+
 
 
                 GameResourceType? convert = null;
-                if (PrimaryField.SelectedItem== null)
+                if (PrimaryField.SelectedItem == null)
                 {
                     MessageBox.Show("Please select a secondary field");
                 }
@@ -81,21 +70,21 @@ namespace EoE.Client.GovernanceSystem
 
 
 
-                
+
 
                 if (origin != null && convert != null)
                 {
                     Client.INSTANCE.GonveranceManager.FieldList.Filedconversion((GameResourceType)origin, count, (GameResourceType)convert, count);
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("Please input an positive value");
             }
-           
 
-            
+
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

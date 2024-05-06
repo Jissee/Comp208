@@ -1,18 +1,8 @@
 ﻿using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace EoE.Client.GovernanceSystem
 {
@@ -21,7 +11,7 @@ namespace EoE.Client.GovernanceSystem
     /// </summary>
     public partial class SetExploreWindow : Window
     {
-        
+
         public SetExploreWindow()
         {
             InitializeComponent();
@@ -35,7 +25,7 @@ namespace EoE.Client.GovernanceSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(number.Text,out int count) && count>=0)
+            if (int.TryParse(number.Text, out int count) && count >= 0)
             {
                 Client.INSTANCE.GonveranceManager.SetExploration(count);
                 WindowManager.INSTANCE.UpdatePopulation();

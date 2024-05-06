@@ -1,10 +1,5 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.Network.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.GonverancePacket
 {
@@ -41,7 +36,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 if (ne is IServer server)
                 {
                     IPlayer player = context.PlayerSender;
-                    player.GonveranceManager.SyntheticArmy(type,count);
+                    player.GonveranceManager.SyntheticArmy(type, count);
                 }
             }
         }

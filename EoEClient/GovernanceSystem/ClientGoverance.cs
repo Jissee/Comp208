@@ -1,21 +1,13 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.ClientInterface;
-using EoE.GovernanceSystem.Interface;
 using EoE.Network.Packets.GonverancePacket;
-using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Server.GovernanceSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using static EoE.GovernanceSystem.Interface.IGonveranceManager;
 
 namespace EoE.Client.GovernanceSystem
 {
-    public class ClientGoverance: IClientGonveranceManager
+    public class ClientGoverance : IClientGonveranceManager
     {
         public IClientFieldList FieldList { get; init; }
         public IClientResourceList ResourceList { get; init; }
@@ -95,7 +87,7 @@ namespace EoE.Client.GovernanceSystem
                     (popCount, resource) = Recipes.produceMechanismArmy(army);
                     if (popCount <= PopManager.AvailablePopulation && resource.Count <= ResourceList.GetResourceCount(GameResourceType.Industrial))
                     {
-                        Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type,count));
+                        Client.INSTANCE.SendPacket(new SyntheticArmyPacket(type, count));
                     }
                     else
                     {

@@ -1,10 +1,4 @@
-﻿using EoE.GovernanceSystem.ClientInterface;
-using EoE.Network.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EoE.Network.Entities;
 
 namespace EoE.Network.Packets.GameEventPacket
 {
@@ -35,7 +29,7 @@ namespace EoE.Network.Packets.GameEventPacket
                 if (ne is IServer server)
                 {
                     server.SetGame(record.playerCount, record.TotalTick);
-                    server.Boardcast(new GameSettingPacket(new GameSettingRecord(record.playerCount, record.TotalTick)),player => true);
+                    server.Boardcast(new GameSettingPacket(new GameSettingRecord(record.playerCount, record.TotalTick)), player => true);
                 }
             }
             if (context.NetworkDirection == NetworkDirection.Server2Client)
@@ -48,4 +42,4 @@ namespace EoE.Network.Packets.GameEventPacket
             }
         }
     }
-} 
+}

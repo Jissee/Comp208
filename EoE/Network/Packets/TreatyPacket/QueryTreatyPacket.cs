@@ -1,17 +1,12 @@
 ﻿using EoE.Network.Entities;
 using EoE.Treaty;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.TreatyPacket
 {
     public class QueryTreatyPacket : IPacket<QueryTreatyPacket>
     {
         private string[] names;
-        public QueryTreatyPacket(string[] names) 
+        public QueryTreatyPacket(string[] names)
         {
             this.names = names;
         }
@@ -19,7 +14,7 @@ namespace EoE.Network.Packets.TreatyPacket
         {
             int cnt = reader.ReadInt32();
             string[] names = new string[cnt];
-            for(int i = 0; i < cnt; i++)
+            for (int i = 0; i < cnt; i++)
             {
                 names[i] = reader.ReadString();
             }
@@ -29,7 +24,7 @@ namespace EoE.Network.Packets.TreatyPacket
         public static void Encode(QueryTreatyPacket obj, BinaryWriter writer)
         {
             writer.Write(obj.names.Length);
-            for(int i = 0;i < obj.names.Length; i++)
+            for (int i = 0; i < obj.names.Length; i++)
             {
                 writer.Write(obj.names[i]);
             }
@@ -48,7 +43,7 @@ namespace EoE.Network.Packets.TreatyPacket
                     {
                         list.Add(treaty.SecondParty);
                     }
-                    if(treaty.SecondParty == player)
+                    if (treaty.SecondParty == player)
                     {
                         list.Add(treaty.FirstParty);
                     }
@@ -60,7 +55,7 @@ namespace EoE.Network.Packets.TreatyPacket
             }
             else
             {
-                IClient client = (IClient) context.Receiver;
+                IClient client = (IClient)context.Receiver;
                 client.ClientTreatyList.ChangeTreatyList(names);
             }
         }

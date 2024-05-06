@@ -1,10 +1,5 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.Network.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.GonverancePacket
 {
@@ -25,7 +20,7 @@ namespace EoE.Network.Packets.GonverancePacket
 
         public static void Encode(FieldConvertPacket obj, BinaryWriter writer)
         {
-            FieldStack.encoder(obj.origin,writer);
+            FieldStack.encoder(obj.origin, writer);
             FieldStack.encoder(obj.converted, writer);
         }
 
@@ -37,7 +32,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 if (ne is IServer server)
                 {
                     IPlayer player = context.PlayerSender;
-                    player.GonveranceManager.FieldList.Filedconversion(origin,converted);
+                    player.GonveranceManager.FieldList.Filedconversion(origin, converted);
                 }
             }
         }

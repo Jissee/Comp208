@@ -1,19 +1,13 @@
 ﻿using EoE.Server.WarSystem;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace EoE.Client.WarSystem
 {
     public class ClientWarTargetList : IClientWarTargetList
     {
         public Dictionary<string, WarTarget> WarTargetList { get; set; }
-        public ClientWarTargetList() 
+        public ClientWarTargetList()
         {
             WarTargetList = new Dictionary<string, WarTarget>();
         }

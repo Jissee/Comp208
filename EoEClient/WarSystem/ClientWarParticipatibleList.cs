@@ -1,9 +1,4 @@
 ﻿using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -32,7 +27,7 @@ namespace EoE.Client.WarSystem
                 DeclareWar window = WindowManager.INSTANCE.GetWindows<DeclareWar>();
                 ListBox listBox = window.listBox2;
                 listBox.Items.Clear();
-                foreach(string participator in participators)
+                foreach (string participator in participators)
                 {
                     listBox.Items.Add(participator);
                 }

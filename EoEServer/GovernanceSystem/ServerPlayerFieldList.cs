@@ -1,26 +1,17 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
 using EoE.GovernanceSystem.ServerInterface;
-using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
-using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class ServerPlayerFieldList: IServerFieldList
+    public class ServerPlayerFieldList : IServerFieldList
     {
         private Dictionary<GameResourceType, int> fields = new Dictionary<GameResourceType, int>();
         private IPlayer player;
-        public int TotalFieldCount 
+        public int TotalFieldCount
         {
-            get 
+            get
             {
                 int count = 0;
                 foreach (var kvp in fields)
@@ -69,7 +60,7 @@ namespace EoE.Server.GovernanceSystem
             else
             {
                 fields[type] = 0;
-                return new FieldStack(type,count1);
+                return new FieldStack(type, count1);
             }
         }
         public FieldStack SplitFieldStack(FieldStack field)
@@ -96,7 +87,7 @@ namespace EoE.Server.GovernanceSystem
                 fields[GameResourceType.Aluminum],
                 fields[GameResourceType.Electronic],
                 fields[GameResourceType.Industrial]
-                
+
                 );
         }
 
@@ -113,7 +104,8 @@ namespace EoE.Server.GovernanceSystem
             else if ((int)convertedType <= (int)(GameResourceType.Aluminum))
             {
                 player.SendPacket(new ServerMessagePacket("Can't convert one primary filed to another primary field"));
-            }else if (originalcount != convertedCount)
+            }
+            else if (originalcount != convertedCount)
             {
                 player.SendPacket(new ServerMessagePacket("No enought field"));
             }
@@ -134,5 +126,5 @@ namespace EoE.Server.GovernanceSystem
             fields[GameResourceType.Industrial] = 0;
         }
     }
-  
+
 }

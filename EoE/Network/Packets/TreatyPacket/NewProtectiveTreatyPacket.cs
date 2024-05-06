@@ -1,12 +1,5 @@
 ﻿using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket.Record;
-using EoE.Treaty;
-using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.TreatyPacket
 {
@@ -16,7 +9,7 @@ namespace EoE.Network.Packets.TreatyPacket
         private bool requestForProtection;
         private string sender;
         private string receiver;
-        public NewProtectiveTreatyPacket(ResourceListRecord resourceListRecord,bool requestForProtection, string sender, string receiver)
+        public NewProtectiveTreatyPacket(ResourceListRecord resourceListRecord, bool requestForProtection, string sender, string receiver)
         {
             this.resourceListRecord = resourceListRecord;
             this.requestForProtection = requestForProtection;
@@ -44,7 +37,7 @@ namespace EoE.Network.Packets.TreatyPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == Entities.NetworkDirection.Client2Server)
+            if (context.NetworkDirection == Entities.NetworkDirection.Client2Server)
             {
                 IServer server = (IServer)context.Receiver;
                 IPlayer senderPlayer = context.PlayerSender!;
@@ -55,12 +48,12 @@ namespace EoE.Network.Packets.TreatyPacket
                     sender,
                     receiver
                     );
-                receiverPlayer.SendPacket( packet );
+                receiverPlayer.SendPacket(packet);
             }
             else
             {
                 IClient client = (IClient)context.Receiver;
-                if(requestForProtection)
+                if (requestForProtection)
                 {
                     bool accepted = client.MsgBoxYesNo($"""
                         {sender} is willing to use these resources in exchange for your protection
@@ -72,7 +65,7 @@ namespace EoE.Network.Packets.TreatyPacket
                         Industrial: {resourceListRecord.industrialCount}
                         """);
                     ConfirmProtectiveTreatyPacket packet = new ConfirmProtectiveTreatyPacket(resourceListRecord, requestForProtection, sender, receiver, accepted);
-                    client.SendPacket( packet );
+                    client.SendPacket(packet);
                 }
                 else
                 {

@@ -1,12 +1,4 @@
-﻿using EoE.GovernanceSystem;
-using EoE.WarSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EoE.Server.WarSystem
+﻿namespace EoE.Server.WarSystem
 {
     public class BattleArmyInfo : ArmyInfo
     {

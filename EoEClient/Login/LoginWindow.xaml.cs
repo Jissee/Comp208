@@ -1,25 +1,10 @@
-﻿using EoE.Client.TradeSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using EoE.Client.WarSystem;
-using EoE.Network.Packets.GameEventPacket;
-using System.Text.RegularExpressions;
 
 namespace EoE.Client.Login
 {
-    
+
     public partial class LoginWindow : Window
     {
         public bool ignoreClosing = false;
@@ -30,12 +15,12 @@ namespace EoE.Client.Login
             portNumber.Text = "25566";
         }
 
-        
+
 
         private void Quary_Click(object sender, RoutedEventArgs e)
         {
             GameAgreementWindow gameAgreementWindow = new GameAgreementWindow();
-            gameAgreementWindow.Owner = this; 
+            gameAgreementWindow.Owner = this;
             gameAgreementWindow.ShowDialog();
         }
 
@@ -67,16 +52,16 @@ namespace EoE.Client.Login
             }
 
             Client.INSTANCE.SetPlayerName(Username.Text);
-            Client.INSTANCE.Connect(ServerAddress.Text,int.Parse(portNumber.Text));
+            Client.INSTANCE.Connect(ServerAddress.Text, int.Parse(portNumber.Text));
         }
 
 
-            private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
-            {
-            
-            }
+        private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
+        {
 
-        
+        }
+
+
         private void UpdateConnectButtonState()
         {
             bool isChecked = agreeCheckBox.IsChecked ?? false;

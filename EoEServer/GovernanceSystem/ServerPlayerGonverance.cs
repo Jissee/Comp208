@@ -1,20 +1,7 @@
-﻿using System;
-using EoE.GovernanceSystem;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using EoE.Server.WarSystem;
-using System.Diagnostics;
-using EoE.Network;
-using EoE.WarSystem;
-using EoE.GovernanceSystem.Interface;
-using static EoE.GovernanceSystem.Interface.IGonveranceManager;
+﻿using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets.GonverancePacket;
-using EoE.Network.Entities;
-using EoE.Network.Packets.GonverancePacket.Record;
+using static EoE.GovernanceSystem.Interface.IGonveranceManager;
 
 namespace EoE.Server.GovernanceSystem
 {
@@ -24,7 +11,7 @@ namespace EoE.Server.GovernanceSystem
         public static readonly int FIELD_EXPLORE_THRESHOLD = 100;
         public static readonly int POP_GROWTH_THRESHOLD = 100;
 
-        
+
         public int FieldExplorationProgress { get; private set; }
 
         public bool IsLose => PopManager.TotalPopulation <= 0 || FieldList.TotalFieldCount <= 0;
@@ -36,15 +23,15 @@ namespace EoE.Server.GovernanceSystem
         private GameStatus globalGameStatus;
         public PlayerStatus PlayerStatus { get; init; }
         public IServerPopManager PopManager { get; init; }
-        
-        public int PopGrowthProgress { get; private set;}
 
-        public ServerPlayerGonverance(GameStatus globalGameStatus, int initPop,IPlayer player)
+        public int PopGrowthProgress { get; private set; }
+
+        public ServerPlayerGonverance(GameStatus globalGameStatus, int initPop, IPlayer player)
         {
             this.globalGameStatus = globalGameStatus;
             this.PlayerStatus = new PlayerStatus(globalGameStatus);
 
-            FieldList = new ServerPlayerFieldList(20,20,20,20,20,20,player);
+            FieldList = new ServerPlayerFieldList(20, 20, 20, 20, 20, 20, player);
             ResourceList = new ServerPlayerResourceList((int)(7.5 * initPop), 6 * initPop, 9 * initPop, (int)(6.75 * initPop), 0, 0, 0, 0, 0);
             PopManager = new ServerPopulationManger(initPop, player);
             this.player = player;
@@ -54,14 +41,14 @@ namespace EoE.Server.GovernanceSystem
         {
             ResourceStack resource = Recipes.calcSiliconP(
                 PopManager.GetPopAllocCount(GameResourceType.Silicon),
-                FieldList.GetFieldStack(GameResourceType.Silicon), 
+                FieldList.GetFieldStack(GameResourceType.Silicon),
                 0, 0);
             resource.Count = (int)PlayerStatus.CountrySiliconModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
 
             resource = Recipes.calcCopperP(
                 PopManager.GetPopAllocCount(GameResourceType.Copper),
-                FieldList.GetFieldStack(GameResourceType.Copper), 
+                FieldList.GetFieldStack(GameResourceType.Copper),
                 0, 0);
             resource.Count = (int)PlayerStatus.CountryCopperModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
@@ -75,7 +62,7 @@ namespace EoE.Server.GovernanceSystem
 
             resource = Recipes.calcAluminumP(
                 PopManager.GetPopAllocCount(GameResourceType.Aluminum),
-                FieldList.GetFieldStack(GameResourceType.Aluminum), 
+                FieldList.GetFieldStack(GameResourceType.Aluminum),
                 0, 0);
             resource.Count = (int)PlayerStatus.CountryAluminumModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
@@ -84,9 +71,9 @@ namespace EoE.Server.GovernanceSystem
         private void ProduceSecondaryResource()
         {
             ResourceStack resource = Recipes.calcElectronicP(
-                PopManager.GetPopAllocCount(GameResourceType.Electronic), 
-                FieldList.GetFieldStack(GameResourceType.Electronic), 
-                ResourceList.GetResourceCount(GameResourceType.Silicon), 
+                PopManager.GetPopAllocCount(GameResourceType.Electronic),
+                FieldList.GetFieldStack(GameResourceType.Electronic),
+                ResourceList.GetResourceCount(GameResourceType.Silicon),
                 ResourceList.GetResourceCount(GameResourceType.Copper));
             resource.Count = (int)PlayerStatus.CountryElectronicModifier.Apply(resource.Count);
             ResourceList.AddResourceStack(resource);
@@ -108,7 +95,7 @@ namespace EoE.Server.GovernanceSystem
         }
         private void UpdatePopGrowthProgress()
         {
-            
+
             PopGrowthProgress += Recipes.calcPopGrowthProgress(
                 PopManager.TotalPopulation,
                 ResourceList.GetResourceCount(GameResourceType.Silicon),
@@ -118,7 +105,7 @@ namespace EoE.Server.GovernanceSystem
         }
         private void UpdatePop()
         {
-            if (Math.Abs(PopGrowthProgress)>= POP_GROWTH_THRESHOLD)
+            if (Math.Abs(PopGrowthProgress) >= POP_GROWTH_THRESHOLD)
             {
                 PopManager.AlterPop(PopGrowthProgress / POP_GROWTH_THRESHOLD);
                 PopGrowthProgress %= POP_GROWTH_THRESHOLD;
@@ -127,7 +114,7 @@ namespace EoE.Server.GovernanceSystem
         private void ConsumePrimaryResource(int population)
         {
             int pop = PopManager.TotalPopulation;
-            
+
             int silionConsume = (int)(pop * Recipes.SILICON_PER_POP_TICK);
             int copperConsume = (int)(pop * Recipes.COPPER_PER_POP_TICK);
             int ironConsume = (int)(pop * Recipes.IRON_PER_POP_TICK);
@@ -153,7 +140,7 @@ namespace EoE.Server.GovernanceSystem
                 player.SendPacket(new PopulationUpdatePacket(PopManager.GetPopulationRecord()));
                 player.SendPacket(new ResourceUpdatePacket(ResourceList.GetResourceListRecord()));
             }
-            else 
+            else
             {
                 int consume = inutPopulation * EXPLORE_RESOURCE_PER_POP;
                 if (ResourceList.GetResourceCount(GameResourceType.Silicon) >= consume &&
@@ -161,7 +148,7 @@ namespace EoE.Server.GovernanceSystem
                     ResourceList.GetResourceCount(GameResourceType.Iron) >= consume &&
                     ResourceList.GetResourceCount(GameResourceType.Aluminum) >= consume)
                 {
-                    ResourceList.SplitResource(GameResourceType.Silicon,consume);
+                    ResourceList.SplitResource(GameResourceType.Silicon, consume);
                     ResourceList.SplitResource(GameResourceType.Copper, consume);
                     ResourceList.SplitResource(GameResourceType.Iron, consume);
                     ResourceList.SplitResource(GameResourceType.Aluminum, consume);
@@ -198,19 +185,19 @@ namespace EoE.Server.GovernanceSystem
                 for (int i = 0; i < acutalExplored; i++)
                 {
                     Random random = new Random();
-                    GameResourceType type = (GameResourceType) random.Next(4);
+                    GameResourceType type = (GameResourceType)random.Next(4);
                     FieldList.AddField(type, 1);
                 }
             }
         }
-        public void SyntheticArmy(GameResourceType type,int count)
+        public void SyntheticArmy(GameResourceType type, int count)
         {
-            if ((int)type < (int)GameResourceType.BattleArmy )
+            if ((int)type < (int)GameResourceType.BattleArmy)
             {
-                
+
             }
 
-            ResourceStack army = new ResourceStack(type,count);
+            ResourceStack army = new ResourceStack(type, count);
             int popCount;
             ResourceStack resource;
             switch (type)
@@ -247,7 +234,7 @@ namespace EoE.Server.GovernanceSystem
                     break;
                 case GameResourceType.MechanismArmy:
                     (popCount, resource) = Recipes.produceMechanismArmy(army);
-                    if(popCount <= PopManager.AvailablePopulation && resource.Count <= ResourceList.GetResourceCount(GameResourceType.Industrial))
+                    if (popCount <= PopManager.AvailablePopulation && resource.Count <= ResourceList.GetResourceCount(GameResourceType.Industrial))
                     {
                         PopManager.AlterPop(-popCount);
                         ResourceList.SplitResourceStack(resource);
@@ -272,7 +259,7 @@ namespace EoE.Server.GovernanceSystem
             PopManager.ClearAll();
         }
 
-       
+
         public void Tick()
         {
             ProducePrimaryResource();
@@ -289,4 +276,3 @@ namespace EoE.Server.GovernanceSystem
         }
     }
 }
- 

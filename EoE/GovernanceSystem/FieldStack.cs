@@ -1,9 +1,4 @@
 ﻿using EoE.Network.Packets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.GovernanceSystem
 {
@@ -11,10 +6,10 @@ namespace EoE.GovernanceSystem
     {
         private GameResourceType type;
 
-        public GameResourceType Type 
-        { 
+        public GameResourceType Type
+        {
             get => type;
-            init 
+            init
             {
                 if ((int)value >= 6)
                 {

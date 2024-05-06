@@ -1,16 +1,4 @@
-﻿ using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace EoE.Client.WarSystem
 {
@@ -33,7 +21,7 @@ namespace EoE.Client.WarSystem
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             CheckStatus window = WindowManager.INSTANCE.GetWindows<CheckStatus>();
-            if(window.checkStatusListBoxWarName.SelectedItem != null)
+            if (window.checkStatusListBoxWarName.SelectedItem != null)
             {
                 selectedWarName = checkStatusListBoxWarName.SelectedItem.ToString()!;
                 WindowManager.INSTANCE.ShowWindows<CheckWarDetail>();

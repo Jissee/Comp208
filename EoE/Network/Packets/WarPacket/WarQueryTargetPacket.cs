@@ -1,10 +1,5 @@
 ﻿using EoE.Network.Entities;
 using EoE.Server.WarSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.WarPacket
 {
@@ -12,7 +7,7 @@ namespace EoE.Network.Packets.WarPacket
     {
         private string targetName;
         private WarTarget target;
-        public WarQueryTargetPacket(string targetName, WarTarget target) 
+        public WarQueryTargetPacket(string targetName, WarTarget target)
         {
             this.targetName = targetName;
             this.target = target;
@@ -59,7 +54,7 @@ namespace EoE.Network.Packets.WarPacket
             }
             else
             {
-                IClient client = (IClient) context.Receiver;
+                IClient client = (IClient)context.Receiver;
                 client.WarManager.ClientWarTargetList.ChangeClaim(targetName, target);
             }
         }

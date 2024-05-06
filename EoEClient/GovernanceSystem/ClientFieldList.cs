@@ -1,15 +1,7 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.ClientInterface;
-using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
-using EoE.Client.GovernanceSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Client.GovernanceSystem
 {

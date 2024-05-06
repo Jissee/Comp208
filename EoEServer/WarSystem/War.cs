@@ -3,15 +3,8 @@ using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Network.Packets.WarPacket;
-using EoE.Server.Treaty;
 using EoE.Util;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.WarSystem
 {
@@ -41,7 +34,7 @@ namespace EoE.Server.WarSystem
         }
         public IWarParty GetWarPartyOfPlayer(IPlayer player)
         {
-            if(Attackers.Contains(player))
+            if (Attackers.Contains(player))
             {
                 return Attackers;
             }
@@ -68,22 +61,22 @@ namespace EoE.Server.WarSystem
         {
             AttackersTarget = warTarget;
         }
-        public void SetDefendersWarTarget(WarTarget warTarget) 
+        public void SetDefendersWarTarget(WarTarget warTarget)
         {
             DefendersTarget = warTarget;
         }
         public void End(IWarParty? defeated)
         {
-            foreach(var kvpFirst in Attackers.Armies)
+            foreach (var kvpFirst in Attackers.Armies)
             {
                 IPlayer playerFirst = kvpFirst.Key;
-                foreach(var kvpSecond in Defenders.Armies)
+                foreach (var kvpSecond in Defenders.Armies)
                 {
                     IPlayer playerSecond = kvpSecond.Key;
                     Server.PlayerList.TreatyManager.AddTruceTreaty(playerFirst, playerSecond);
                 }
             }
-            if(defeated != null)
+            if (defeated != null)
             {
                 if (defeated == Attackers)
                 {
@@ -101,19 +94,19 @@ namespace EoE.Server.WarSystem
         {
             int winnerTotalConsume = winner.TotalArmy.Consumption;
             int loserTotalConsume = loser.TotalArmy.Consumption;
-            foreach(var kvpWinner in winner.Armies)
+            foreach (var kvpWinner in winner.Armies)
             {
                 IPlayer playerWinner = kvpWinner.Key;
                 IArmy armyWinner = kvpWinner.Value;
                 int playerWinnerConsume = armyWinner.Consumption;
-                double winnerProportion = (double) playerWinnerConsume / winnerTotalConsume;
-                if(winnerTotalConsume == 0)
+                double winnerProportion = (double)playerWinnerConsume / winnerTotalConsume;
+                if (winnerTotalConsume == 0)
                 {
                     winnerProportion = 1 / winner.Armies.Count;
                 }
                 double loserTotalWeight = 0;
 
-                foreach(var kvpLoser in loser.Armies)
+                foreach (var kvpLoser in loser.Armies)
                 {
                     IPlayer playerLoser = kvpLoser.Key;
                     IArmy armyLoser = kvpLoser.Value;
@@ -134,12 +127,12 @@ namespace EoE.Server.WarSystem
                     }
                     loserTotalWeight += (double)loserTotalConsume / playerLoserConsume;
                 }
-                foreach(var kvpLoser in loser.Armies)
+                foreach (var kvpLoser in loser.Armies)
                 {
                     IPlayer playerLoser = kvpLoser.Key;
                     IArmy armyLoser = kvpLoser.Value;
                     int playerLoserConsume = armyLoser.Consumption;
-                    if(playerLoserConsume == 0)
+                    if (playerLoserConsume == 0)
                     {
                         playerLoserConsume = 1;
                     }
@@ -195,7 +188,7 @@ namespace EoE.Server.WarSystem
                     playerWinner.SendPacket(packet);
                 }
             }
-            foreach(var player in winner.Armies.Keys)
+            foreach (var player in winner.Armies.Keys)
             {
                 ResourceUpdatePacket packetR = new ResourceUpdatePacket(player.GonveranceManager.ResourceList.GetResourceListRecord());
                 player.SendPacket(packetR);
@@ -217,7 +210,7 @@ namespace EoE.Server.WarSystem
         private void SurrenderAnouncement(string surrenderName, IWarParty attackerParty, IWarParty defenderParty)
         {
             ServerMessagePacket packet = new ServerMessagePacket($"{surrenderName} surrenders in war {WarName}!");
-            foreach(IPlayer player in attackerParty.Armies.Keys)
+            foreach (IPlayer player in attackerParty.Armies.Keys)
             {
                 player.SendPacket(packet);
             }
@@ -268,7 +261,7 @@ namespace EoE.Server.WarSystem
             int aB2 = Attackers.TotalArmy.GetBattleCount();
             int aI2 = Attackers.TotalArmy.GetInformativeCount();
             int aM2 = Attackers.TotalArmy.GetMechanismCount();
-                  
+
             int dB2 = Defenders.TotalArmy.GetBattleCount();
             int dI2 = Defenders.TotalArmy.GetInformativeCount();
             int dM2 = Defenders.TotalArmy.GetMechanismCount();
@@ -286,11 +279,11 @@ namespace EoE.Server.WarSystem
             WarManager.Server.Boardcast(packetA, Attackers.Contains);
             WarManager.Server.Boardcast(packetD, Defenders.Contains);
         }
-        
+
         public void Tick()
         {
             AutoSurrender();
-            if(status == true)
+            if (status == true)
             {
                 WarTick();
             }

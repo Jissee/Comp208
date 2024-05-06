@@ -1,11 +1,5 @@
-﻿using EoE.GovernanceSystem.ServerInterface;
-using EoE.Network.Entities;
+﻿using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.GonverancePacket
 {
@@ -21,7 +15,7 @@ namespace EoE.Network.Packets.GonverancePacket
         }
         public static SetPopAllocationPacket Decode(BinaryReader reader)
         {
-            return new SetPopAllocationPacket(PopulationRecord.decoder(reader));           
+            return new SetPopAllocationPacket(PopulationRecord.decoder(reader));
         }
 
         public static void Encode(SetPopAllocationPacket obj, BinaryWriter writer)

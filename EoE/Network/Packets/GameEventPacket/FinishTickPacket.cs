@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EoE.GovernanceSystem.ClientInterface;
-using EoE.Network.Entities;
+﻿using EoE.Network.Entities;
 
 namespace EoE.Network.Packets.GameEventPacket
 {
@@ -19,7 +13,7 @@ namespace EoE.Network.Packets.GameEventPacket
         }
         public static FinishTickPacket Decode(BinaryReader reader)
         {
-            return new FinishTickPacket(reader.ReadBoolean(),reader.ReadInt32());
+            return new FinishTickPacket(reader.ReadBoolean(), reader.ReadInt32());
         }
 
         public static void Encode(FinishTickPacket obj, BinaryWriter writer)

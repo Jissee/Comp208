@@ -1,9 +1,4 @@
 ﻿using EoE.Network.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.WarPacket
 {
@@ -18,7 +13,7 @@ namespace EoE.Network.Packets.WarPacket
         {
             int cut = reader.ReadInt32();
             string[] names = new string[cut];
-            for(int i=0; i < cut; i++)
+            for (int i = 0; i < cut; i++)
             {
                 names[i] = reader.ReadString();
             }
@@ -28,7 +23,7 @@ namespace EoE.Network.Packets.WarPacket
         public static void Encode(WarNameQueryPacket obj, BinaryWriter writer)
         {
             writer.Write(obj.warNames.Length);
-            for(int i = 0; i < obj.warNames.Length; i++)
+            for (int i = 0; i < obj.warNames.Length; i++)
             {
                 writer.Write(obj.warNames[i]);
             }
@@ -36,7 +31,7 @@ namespace EoE.Network.Packets.WarPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == NetworkDirection.Client2Server)
+            if (context.NetworkDirection == NetworkDirection.Client2Server)
             {
                 IServer server = (IServer)context.Receiver;
                 IPlayer player = context.PlayerSender!;
@@ -45,7 +40,7 @@ namespace EoE.Network.Packets.WarPacket
                 {
                     names.Add(theWarName);
                 }
-                WarNameQueryPacket packet = new WarNameQueryPacket([..names]);
+                WarNameQueryPacket packet = new WarNameQueryPacket([.. names]);
                 player.SendPacket(packet);
             }
             else

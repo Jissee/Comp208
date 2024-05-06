@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using EoE.Client.WarSystem;
-using EoE.GovernanceSystem;
+﻿using EoE.GovernanceSystem;
 using EoE.Network.Packets.GonverancePacket.Record;
+using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Input;
 
 namespace EoE.Client.GovernanceSystem
 {
@@ -23,7 +11,7 @@ namespace EoE.Client.GovernanceSystem
     /// </summary>
     public partial class BlockManagementWindow : Window
     {
-        
+
         public BlockManagementWindow()
         {
             InitializeComponent();
@@ -49,12 +37,12 @@ namespace EoE.Client.GovernanceSystem
         {
             if ((int.TryParse(SiliconAllocate.Text, out int silicon) && silicon >= 0)
                 && (int.TryParse(CopperAllocate.Text, out int copper) && copper >= 0)
-                && (int.TryParse(IronAllocate.Text, out int iron) && iron >= 0) 
-                && (int.TryParse(AluminumAllocate.Text, out int aluminum) && aluminum >= 0) 
+                && (int.TryParse(IronAllocate.Text, out int iron) && iron >= 0)
+                && (int.TryParse(AluminumAllocate.Text, out int aluminum) && aluminum >= 0)
                 && (int.TryParse(ElectronicAllocate.Text, out int electronic) && electronic >= 0)
                 && (int.TryParse(IndustrialAllocate.Text, out int industrial) && industrial >= 0))
             {
-                Client.INSTANCE.GonveranceManager.PopManager.SetAllocation(silicon,copper, iron,aluminum,electronic,industrial);
+                Client.INSTANCE.GonveranceManager.PopManager.SetAllocation(silicon, copper, iron, aluminum, electronic, industrial);
             }
             else
             {
@@ -91,12 +79,11 @@ namespace EoE.Client.GovernanceSystem
             e.Cancel = true;
             this.Hide();
         }
-        
-       public void limitnumber(object sender, TextCompositionEventArgs e)
+
+        public void limitnumber(object sender, TextCompositionEventArgs e)
         {
             Regex re = new Regex("[^0-9]+");
             e.Handled = re.IsMatch(e.Text);
         }
     }
 }
- 

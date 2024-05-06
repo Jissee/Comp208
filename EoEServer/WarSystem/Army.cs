@@ -1,10 +1,5 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.WarSystem
 {
@@ -16,7 +11,7 @@ namespace EoE.Server.WarSystem
         public static readonly InformativeArmyInfo informativeArmyInfo = new InformativeArmyInfo();
         public Dictionary<GameResourceType, int> armyStacks;
         public int Consumption { get; private set; }
-        public Army(IWarParty warParty) 
+        public Army(IWarParty warParty)
         {
             this.warParty = warParty;
             armyStacks = new Dictionary<GameResourceType, int>
@@ -36,7 +31,7 @@ namespace EoE.Server.WarSystem
         }
         public void AddBattle(ResourceStack battle)
         {
-            if(battle.Type == GameResourceType.BattleArmy)
+            if (battle.Type == GameResourceType.BattleArmy)
             {
                 armyStacks[GameResourceType.BattleArmy] += battle.Count;
             }

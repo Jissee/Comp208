@@ -1,6 +1,5 @@
 ﻿using EoE.Client.ChatSystem;
 using EoE.Client.GovernanceSystem;
-using EoE.Client.Login;
 using EoE.Client.Network;
 using EoE.Client.TradeSystem;
 using EoE.Client.WarSystem;
@@ -12,14 +11,8 @@ using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.TradeSystem;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace EoE.Client
@@ -27,7 +20,7 @@ namespace EoE.Client
     public class Client : IClient
     {
         public static Client INSTANCE { get; }
-        public static void ShowException(string type,string message, Exception e)
+        public static void ShowException(string type, string message, Exception e)
         {
             MessageBox.Show($"[{type}] {message}:\n{e.ToString()}");
         }
@@ -35,24 +28,24 @@ namespace EoE.Client
         public string? PlayerName { get; private set; }
         private bool isRunning;
         public int TickCount { get; private set; }
-        public PacketHandler Handler { get; }
+        private PacketHandler Handler { get; }
         public List<string> OtherPlayer { get; private set; }
-        public Dictionary<string,FieldListRecord> OtherPlayerFields { get; init; }
+        public Dictionary<string, FieldListRecord> OtherPlayerFields { get; init; }
         public IClientGonveranceManager GonveranceManager { get; init; }
         public IClientTradeManager TradeManager { get; init; }
         public IClientWarManager WarManager { get; init; }
-        public IClientTreatyList ClientTreatyList {  get; set; }
+        public IClientTreatyList ClientTreatyList { get; set; }
         private Dictionary<string, List<string>> chat;
         public WindowManager WindowManager { get; init; }
         IWindowManager IClient.WindowManager => WindowManager;
 
 
-        static Client() 
+        static Client()
         {
             INSTANCE = new Client();
         }
 
-        private Client() 
+        private Client()
         {
             Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Handler = new ClientPacketHandler();
@@ -69,7 +62,7 @@ namespace EoE.Client
 
         public void AddOthersChatMessage(string senderName, string message)
         {
-            string regularizationMessage = DateTime.Now.ToString()+"  "+senderName +": " + message;
+            string regularizationMessage = DateTime.Now.ToString() + "  " + senderName + ": " + message;
             if (chat.ContainsKey(senderName))
             {
                 chat[senderName].Add(regularizationMessage);
@@ -104,7 +97,7 @@ namespace EoE.Client
         {
             if (chat.ContainsKey(name))
             {
-               return chat[name];
+                return chat[name];
             }
             else
             {
@@ -139,7 +132,7 @@ namespace EoE.Client
             WindowManager.INSTANCE.SynchronizeOtherPlayersName();
         }
 
-        public void SynchronizeOtherPlayerFieldLitst(string name,FieldListRecord record)
+        public void SynchronizeOtherPlayerFieldLitst(string name, FieldListRecord record)
         {
             if (name != PlayerName)
             {
@@ -149,7 +142,7 @@ namespace EoE.Client
                 }
                 else
                 {
-                    OtherPlayerFields.Add(name,record);
+                    OtherPlayerFields.Add(name, record);
                 }
                 Application.Current.Dispatcher.Invoke(() =>
                 {
@@ -157,7 +150,7 @@ namespace EoE.Client
                     window.SynchronizeOtherPlayersFields();
                 });
             }
-            
+
         }
 
         public void Connect(string host, int port)
@@ -167,12 +160,13 @@ namespace EoE.Client
                 try
                 {
                     Connection.Connect(host, port);
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     ShowException("Connection", "Client connection failed. Please check the IP address and port number", ex);
                     return;
                 }
-                
+
                 isRunning = true;
                 Task.Run(MessageLoop);
             }
@@ -204,7 +198,7 @@ namespace EoE.Client
         {
             while (isRunning)
             {
-                lock(this)
+                lock (this)
                 {
                     if (Connection.Connected)
                     {
@@ -235,7 +229,7 @@ namespace EoE.Client
 
         public void SendPacket<T>(T packet) where T : IPacket<T>
         {
-            lock(this)
+            lock (this)
             {
                 Handler.SendPacket(packet, this.Connection, "server");
             }
@@ -251,7 +245,7 @@ namespace EoE.Client
 
         public bool MsgBoxYesNo(string msg)
         {
-            if(MessageBox.Show(msg,"",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show(msg, "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 return true;
             }

@@ -3,11 +3,6 @@ using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.TradeSystem;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Entities
 {
@@ -20,7 +15,7 @@ namespace EoE.Network.Entities
         IClientWarManager WarManager { get; }
         IClientTreatyList ClientTreatyList { get; }
         IWindowManager WindowManager { get; }
-        List<string> OtherPlayer{ get;}
+        List<string> OtherPlayer { get; }
         Dictionary<string, FieldListRecord> OtherPlayerFields { get; init; }
         void SendPacket<T>(T packet) where T : IPacket<T>;
         void MsgBox(string msg);

@@ -1,9 +1,5 @@
 ﻿using EoE.Network.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.GameEventPacket
 {
@@ -49,7 +45,7 @@ namespace EoE.Network.Packets.GameEventPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == Entities.NetworkDirection.Server2Client)
+            if (context.NetworkDirection == Entities.NetworkDirection.Server2Client)
             {
                 IClient client = (IClient)context.Receiver;
                 StringBuilder sb = new StringBuilder();
@@ -60,7 +56,7 @@ namespace EoE.Network.Packets.GameEventPacket
                     i++;
                     sb.AppendLine($"{i}\t{name}\t{resourceScore}\t{fieldScore}\t{popScore}\t{armyScore}\t{totalScore}");
                 }
-                
+
                 client.MsgBox($"""
                     Game Finished!
                     {sb.ToString()}

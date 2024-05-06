@@ -2,11 +2,6 @@
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Treaty;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.TreatyPacket
 {
@@ -48,13 +43,13 @@ namespace EoE.Network.Packets.TreatyPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == Entities.NetworkDirection.Client2Server)
+            if (context.NetworkDirection == Entities.NetworkDirection.Client2Server)
             {
                 IServer server = (IServer)context.Receiver;
                 IPlayer senderPlayer = server.GetPlayer(sender)!;
                 IPlayer receiverPlayer = context.PlayerSender!;
                 ITreatyManager manager = server.PlayerList.TreatyManager;
-                if(accepted == true)
+                if (accepted == true)
                 {
                     ServerMessagePacket packet = new ServerMessagePacket("The player accepted your request!");
                     senderPlayer.SendPacket(packet);

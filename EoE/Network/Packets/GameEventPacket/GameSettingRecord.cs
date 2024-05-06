@@ -1,12 +1,4 @@
-﻿using EoE.GovernanceSystem;
-using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EoE.Network.Packets.GameEventPacket
+﻿namespace EoE.Network.Packets.GameEventPacket
 {
     public struct GameSettingRecord
     {
@@ -29,7 +21,7 @@ namespace EoE.Network.Packets.GameEventPacket
             return new GameSettingRecord(
             reader.ReadInt32(),
             reader.ReadInt32()
-                ) ;
+                );
         };
     }
 }

@@ -1,10 +1,4 @@
-﻿using EoE.Network.Packets;
-using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EoE.Network.Packets.GonverancePacket.Record;
 
 namespace EoE.GovernanceSystem.Interface
 {

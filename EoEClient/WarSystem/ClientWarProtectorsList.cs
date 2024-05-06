@@ -1,17 +1,12 @@
 ﻿using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace EoE.Client.WarSystem
 {
     public class ClientWarProtectorsList : IClientWarProtectorsList
     {
-        Dictionary<string, ClientWarProtectors> WarProtectorsList {  get; set; }
+        Dictionary<string, ClientWarProtectors> WarProtectorsList { get; set; }
         public ClientWarProtectorsList()
         {
             WarProtectorsList = new Dictionary<string, ClientWarProtectors>();
@@ -31,7 +26,7 @@ namespace EoE.Client.WarSystem
             {
                 DeclareWar window = WindowManager.INSTANCE.GetWindows<DeclareWar>();
                 StringBuilder stringBuilder = new StringBuilder();
-                foreach(string protector in protectors)
+                foreach (string protector in protectors)
                 {
                     stringBuilder.Append($" \"{protector}\" ");
                 }

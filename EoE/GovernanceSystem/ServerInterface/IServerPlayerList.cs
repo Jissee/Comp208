@@ -1,14 +1,9 @@
-﻿using EoE.Network.Entities;
-using EoE.Network;
-using EoE.Treaty;
-using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EoE.Network;
+using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.TradeSystem;
+using EoE.Treaty;
+using EoE.WarSystem.Interface;
 
 namespace EoE.GovernanceSystem.ServerInterface
 {

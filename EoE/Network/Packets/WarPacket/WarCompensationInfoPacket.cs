@@ -1,10 +1,5 @@
 ﻿using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.WarPacket
 {
@@ -15,8 +10,8 @@ namespace EoE.Network.Packets.WarPacket
         private int pop;
         private int field;
         private string compensator;
-        public WarCompensationInfoPacket(string warName, ResourceListRecord record, int pop, int field, string compensator) 
-        { 
+        public WarCompensationInfoPacket(string warName, ResourceListRecord record, int pop, int field, string compensator)
+        {
             this.warName = warName;
             this.record = record;
             this.pop = pop;
@@ -41,7 +36,7 @@ namespace EoE.Network.Packets.WarPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == NetworkDirection.Server2Client)
+            if (context.NetworkDirection == NetworkDirection.Server2Client)
             {
                 IClient client = (IClient)context.Receiver;
                 client.MsgBox($"""

@@ -1,18 +1,6 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.Network.Packets.GonverancePacket.Record;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace EoE.Client.GovernanceSystem
 {
@@ -38,12 +26,12 @@ namespace EoE.Client.GovernanceSystem
             CopperBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Copper).ToString();
             AluminumBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Aluminum).ToString();
             IronBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Aluminum).ToString();
-            ElectronicBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount (GameResourceType.Electronic).ToString();
-            IndustrialBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Industrial).ToString ();
+            ElectronicBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Electronic).ToString();
+            IndustrialBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Industrial).ToString();
 
-            BattleArmy.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount (GameResourceType.BattleArmy).ToString();
-            InfoArmy.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InformativeArmy).ToString ();
-            MechArmy.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.MechanismArmy).ToString ();
+            BattleArmy.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.BattleArmy).ToString();
+            InfoArmy.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InformativeArmy).ToString();
+            MechArmy.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.MechanismArmy).ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -77,7 +65,7 @@ namespace EoE.Client.GovernanceSystem
 
         public void SynchronizePopulation(PopulationRecord record)
         {
-            Population.Text = (record.siliconPop+record.copperPop+record.ironPop+record.aluminumPop+record.electronicPop+record.industrailPop+record.availablePopulation).ToString();
+            Population.Text = (record.siliconPop + record.copperPop + record.ironPop + record.aluminumPop + record.electronicPop + record.industrailPop + record.availablePopulation).ToString();
             AvailablePopulation.Text = record.availablePopulation.ToString();
         }
 

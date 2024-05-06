@@ -1,14 +1,8 @@
 ﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
 using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.WarPacket
 {
@@ -41,7 +35,7 @@ namespace EoE.Network.Packets.WarPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == Entities.NetworkDirection.Client2Server)
+            if (context.NetworkDirection == Entities.NetworkDirection.Client2Server)
             {
                 IServer server = (IServer)context.Receiver;
                 IPlayer player = context.PlayerSender!;
@@ -50,7 +44,7 @@ namespace EoE.Network.Packets.WarPacket
                 IWar war = warManager.WarDict[warName];
                 IWarParty warParty = war.GetWarPartyOfPlayer(player);
                 IServerResourceList resourceList = player.GonveranceManager.ResourceList;
-                if(fillBattle + fillInformative + fillMechanism < warParty.WarWidth)
+                if (fillBattle + fillInformative + fillMechanism < warParty.WarWidth)
                 {
                     ServerMessagePacket packet = new ServerMessagePacket("Your soldiers are insufficently assigned. You need to reposition them; otherwise, you will automatically surrender.");
                     player.SendPacket(packet);

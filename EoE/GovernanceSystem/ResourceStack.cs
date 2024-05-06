@@ -1,11 +1,4 @@
-﻿using EoE.GovernanceSystem;
-using EoE.Network.Packets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EoE.Network.Packets;
 
 namespace EoE.GovernanceSystem
 {
@@ -14,9 +7,9 @@ namespace EoE.GovernanceSystem
         public GameResourceType Type { get; init; }
         private int count;
         public int Count
-        { 
-            get => count; 
-            set 
+        {
+            get => count;
+            set
             {
                 if (value < 0)
                 {

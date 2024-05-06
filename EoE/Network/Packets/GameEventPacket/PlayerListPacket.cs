@@ -1,10 +1,4 @@
-﻿using EoE.GovernanceSystem.ClientInterface;
-using EoE.Network.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EoE.Network.Entities;
 
 namespace EoE.Network.Packets.GameEventPacket
 {
@@ -13,7 +7,7 @@ namespace EoE.Network.Packets.GameEventPacket
         private List<string> playerList;
         private int length;
 
-        public PlayerListPacket(List<string> playerList,int length)
+        public PlayerListPacket(List<string> playerList, int length)
         {
             this.playerList = playerList;
             this.length = length;
@@ -28,7 +22,7 @@ namespace EoE.Network.Packets.GameEventPacket
                 playerList.Add(reader.ReadString());
             }
 
-            return new PlayerListPacket(playerList,length);
+            return new PlayerListPacket(playerList, length);
         }
 
         public static void Encode(PlayerListPacket obj, BinaryWriter writer)

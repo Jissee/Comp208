@@ -1,9 +1,4 @@
 ﻿using EoE.Network.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.Events
 {
@@ -22,9 +17,9 @@ namespace EoE.Server.Events
 
         public void Tick()
         {
-            if(mtth == -1)
+            if (mtth == -1)
             {
-                if(happenIn > 0)
+                if (happenIn > 0)
                 {
                     happenIn--;
                     return;
@@ -38,7 +33,7 @@ namespace EoE.Server.Events
             {
                 double probability = MeanTimeToHappenProbability();
                 Random random = new Random();
-                if(random.NextDouble() < probability)
+                if (random.NextDouble() < probability)
                 {
                     started = true;
                 }
@@ -48,14 +43,14 @@ namespace EoE.Server.Events
                 }
             }
 
-            if(started)
+            if (started)
             {
-                if(remainingTicks > 0)
+                if (remainingTicks > 0)
                 {
                     remainingTicks--;
-                    if( player != null &&
+                    if (player != null &&
                         !player.IsLose &&
-                        playerCondition(player) && 
+                        playerCondition(player) &&
                         serverCondition(server)
                     )
                     {
@@ -78,8 +73,8 @@ namespace EoE.Server.Events
         public class Builder
         {
             Event tmp;
-            public Builder() 
-            { 
+            public Builder()
+            {
                 tmp = new Event();
             }
 
@@ -97,7 +92,7 @@ namespace EoE.Server.Events
             public Builder HappenIn(int ticks)
             {
                 tmp.mtth = -1;
-                if(ticks <= 0)
+                if (ticks <= 0)
                 {
                     throw new ArgumentException("Ticks must be larger than 0.");
                 }
@@ -136,13 +131,13 @@ namespace EoE.Server.Events
             }
             public Event Build()
             {
-                if(tmp.server != null)
+                if (tmp.server != null)
                 {
-                    if(tmp.eventCallBack != null)
+                    if (tmp.eventCallBack != null)
                     {
-                        if(tmp.serverCondition != null)
+                        if (tmp.serverCondition != null)
                         {
-                            if(tmp.playerCondition != null)
+                            if (tmp.playerCondition != null)
                             {
                                 return tmp;
                             }

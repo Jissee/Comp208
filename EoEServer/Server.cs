@@ -6,44 +6,29 @@ using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket;
-using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Network.Packets.TradePacket;
 using EoE.Server.Events;
-using EoE.Server.GovernanceSystem;
 using EoE.Server.Network;
-using EoE.Server.TradeSystem;
 using EoE.Server.WarSystem;
-using EoE.TradeSystem;
-using EoE.Treaty;
-using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading.Tasks.Dataflow;
 
 namespace EoE.Server
 {
-    public class Server : IServer, ITickable 
+    public class Server : IServer, ITickable
     {
         public Socket ServerSocket { get; }
 
         private readonly IPEndPoint address;
         private bool isServerRunning;
-        public bool isGameRunning{ get; private set; }
+        public bool IsGameRunning { get; private set; }
         private bool needRestart;
         public PacketHandler PacketHandler { get; }
         public EventList EventList { get; }
-        public GameStatus Status {get; private set;}
-        public IServerPlayerList PlayerList { get; private set;}
+        public GameStatus Status { get; private set; }
+        public IServerPlayerList PlayerList { get; private set; }
 
-        public Server(string ip, int port) 
+        public Server(string ip, int port)
         {
             ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             address = new IPEndPoint(IPAddress.Parse(ip), port);
@@ -51,19 +36,19 @@ namespace EoE.Server
             EventList = new EventList();
             PlayerList = new ServerPlayerList(this);
             isServerRunning = false;
-            isGameRunning = false;
+            IsGameRunning = false;
             needRestart = false;
             Status = new GameStatus(500, 100);
         }
         public void BeginGame()
         {
-            isGameRunning = true;
+            IsGameRunning = true;
             PrepareResourceBonusEvents();
             Random random = new Random();
             foreach (IPlayer player in PlayerList.Players)
             {
                 List<int> numberToSelected = new List<int>() { 1, 2, 3, 4, 5, 6 };
-                for (int i = 0; i < Math.Max(1,Status.TotalTick * 0.05); i++)
+                for (int i = 0; i < Math.Max(1, Status.TotalTick * 0.05); i++)
                 {
                     int index = random.Next(1, 6);
                     if (numberToSelected.Contains(index))
@@ -99,7 +84,7 @@ namespace EoE.Server
                    {
                        server.Status.GlobalAluminumModifier.AddValue("Primary Breakthrough", 2.5);
                        server.Boardcast(new ServerMessagePacket("Due to a new technological breakthrough, " +
-                           "the productivity of all country's four primary resources has been increased."),player=>true);
+                           "the productivity of all country's four primary resources has been increased."), player => true);
                    }
                  );
             EventList.AddEvent(builder1.Build());
@@ -116,14 +101,14 @@ namespace EoE.Server
                    {
                        server.Status.GlobalAluminumModifier.AddValue("Pandamic", -2.5);
                        server.Boardcast(new ServerMessagePacket("Due to the pandemic, " +
-                           "the productivity of all country's four primary resources has been decreased."),player=>true);
+                           "the productivity of all country's four primary resources has been decreased."), player => true);
                    }
                  );
             EventList.AddEvent(builder2.Build());
         }
         private void PrepareResourceBonusEvents()
         {
-            
+
             Event.Builder builder1 = new Event.Builder();
             builder1.ForServer(this)
                 .IfServer(server => true)
@@ -141,7 +126,7 @@ namespace EoE.Server
                            switch (index)
                            {
                                case 0:
-                                   player.GonveranceManager.PlayerStatus.CountrySiliconModifier.AddValue("Silicon Bonus",15);
+                                   player.GonveranceManager.PlayerStatus.CountrySiliconModifier.AddValue("Silicon Bonus", 15);
                                    player.SendPacket(new ServerMessagePacket("You gain a Silicon generation bonus"));
                                    break;
                                case 1:
@@ -175,7 +160,7 @@ namespace EoE.Server
 
         private void PreparePlayerRandomEvents(IPlayer player, int eventNumber)
         {
-            
+
             switch (eventNumber)
             {
                 case 1:
@@ -288,13 +273,9 @@ namespace EoE.Server
                     break;
             }
         }
-        public void PrepareGlobalEvent()
-        {
-            Status.GlobalSecondaryModifier.AddValue("name", 1);
-        }
         public void Start()
         {
-            lock(this)
+            lock (this)
             {
                 ServerSocket.Bind(address);
                 ServerSocket.Listen(6);
@@ -328,7 +309,7 @@ namespace EoE.Server
                 {
                     break;
                 }
-                Socket cl ;
+                Socket cl;
                 lock (ServerSocket)
                 {
                     try
@@ -338,27 +319,27 @@ namespace EoE.Server
 
                         IServer.Log("Connection", $"{endp} connecting.");
 
-                        lock(PlayerList)
+                        lock (PlayerList)
                         {
                             PlayerList.PlayerLogin(new ServerPlayer(cl, this));
                         }
                     }
                     catch (Exception ex)
                     {
-                        
+
                     }
 
                 }
                 // Extract the IP adress and Port num of client
 
-                
+
             }
         }
         public void DisconnectionLoop()
         {
             while (isServerRunning)
             {
-                lock(PlayerList)
+                lock (PlayerList)
                 {
                     PlayerList.HandlePlayerDisconnection();
                 }
@@ -394,26 +375,26 @@ namespace EoE.Server
             try
             {
                 Status.Tick();
-                if(Status.TickCount == Status.TotalTick)
+                if (Status.TickCount == Status.TotalTick)
                 {
                     GameSummary();
                 }
-                lock(PlayerList)
+                lock (PlayerList)
                 {
                     PlayerList.Tick();
                 }
                 EventList.Tick();
-                Boardcast(new FinishTickPacket(true,Status.TickCount),player=>true);
+                Boardcast(new FinishTickPacket(true, Status.TickCount), player => true);
                 foreach (IPlayer player in PlayerList.Players)
                 {
-                    Boardcast(new OtherPlayerFieldUpdate(player.GonveranceManager.FieldList.GetFieldListRecord(),player.PlayerName), thisPlayer => thisPlayer != player);
+                    Boardcast(new OtherPlayerFieldUpdate(player.GonveranceManager.FieldList.GetFieldListRecord(), player.PlayerName), thisPlayer => thisPlayer != player);
                 }
                 Boardcast(new OpenTransactionSynchronizePacket(PlayerList.TradeManager.openOrders.Count, PlayerList.TradeManager.openOrders), player => true);
             }
             catch (Exception ex)
             {
                 IServer.Log("Tick Error", "Tick encountered an exception:", ex);
-                
+
             }
 
         }
@@ -455,7 +436,7 @@ namespace EoE.Server
         {
             // name, resource score, field score, pop score, army score, total score
             List<(string, int, int, int, int, int)> ranks = new List<(string, int, int, int, int, int)>();
-            foreach(var player in PlayerList.Players)
+            foreach (var player in PlayerList.Players)
             {
                 IResourceList resourceList = player.GonveranceManager.ResourceList;
                 int silicon = resourceList.GetResourceCount(GameResourceType.Silicon);
@@ -465,20 +446,20 @@ namespace EoE.Server
                 int electronic = resourceList.GetResourceCount(GameResourceType.Electronic);
                 int industrial = resourceList.GetResourceCount(GameResourceType.Industrial);
 
-                int resourceScore = 
-                    silicon + 
-                    copper + 
-                    iron + 
-                    aluminum + 
-                    electronic * 2 + 
+                int resourceScore =
+                    silicon +
+                    copper +
+                    iron +
+                    aluminum +
+                    electronic * 2 +
                     industrial * 2;
 
                 int battle = resourceList.GetResourceCount(GameResourceType.BattleArmy);
                 int informative = resourceList.GetResourceCount(GameResourceType.InformativeArmy);
                 int mechanism = resourceList.GetResourceCount(GameResourceType.MechanismArmy);
 
-                int armyScore = 
-                    battle * new BattleArmyInfo().Worth + 
+                int armyScore =
+                    battle * new BattleArmyInfo().Worth +
                     informative * new InformativeArmyInfo().Worth +
                     mechanism * new MechanismArmyInfo().Worth;
 
@@ -490,12 +471,12 @@ namespace EoE.Server
                 int electronicf = fieldList.GetFieldCount(GameResourceType.Electronic);
                 int industrialf = fieldList.GetFieldCount(GameResourceType.Industrial);
 
-                int fieldScore = 
-                    siliconf + 
-                    copperf + 
-                    ironf + 
-                    aluminumf + 
-                    electronicf + 
+                int fieldScore =
+                    siliconf +
+                    copperf +
+                    ironf +
+                    aluminumf +
+                    electronicf +
                     industrialf;
 
 
@@ -508,7 +489,7 @@ namespace EoE.Server
 
                 ranks.Add((player.PlayerName, resourceScore, fieldScore, popScore, armyScore, totalScore));
             }
-            
+
             ranks.Sort((tuple1, tuple2) => tuple2.Item6.CompareTo(tuple2.Item6));
             Boardcast(new GameSummaryPacket(ranks), player => true);
         }

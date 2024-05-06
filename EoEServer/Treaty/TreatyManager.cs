@@ -4,11 +4,6 @@ using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.Treaty
 {
@@ -18,7 +13,7 @@ namespace EoE.Server.Treaty
         public List<ITreaty> TruceTreatyList { get; init; }
         public IPlayerRelation PlayerRelation { get; init; }
         private IServerPlayerList serverPlayerList;
-        public TreatyManager(IServerPlayerList serverPlayerList) 
+        public TreatyManager(IServerPlayerList serverPlayerList)
         {
             RelationTreatyList = new List<ITreaty>();
             TruceTreatyList = new List<ITreaty>();
@@ -70,7 +65,7 @@ namespace EoE.Server.Treaty
                         AddRelationTreaty(newDefenseTreaty);
                         return;
                     }
-                    if(((findTreaty.FirstParty == treaty.FirstParty && findTreaty.SecondParty == treaty.SecondParty) ||
+                    if (((findTreaty.FirstParty == treaty.FirstParty && findTreaty.SecondParty == treaty.SecondParty) ||
                         (findTreaty.SecondParty == treaty.FirstParty && findTreaty.FirstParty == treaty.SecondParty)) &&
                         findTreaty is CommonDefenseTreaty)
                     {
@@ -107,7 +102,7 @@ namespace EoE.Server.Treaty
         }
         public void UpdateTruceTreaty()
         {
-            for(int i = 0; i < TruceTreatyList.Count; i++)
+            for (int i = 0; i < TruceTreatyList.Count; i++)
             {
                 var treaty = (TruceTreaty)TruceTreatyList[i];
                 treaty.Tick();
@@ -123,7 +118,7 @@ namespace EoE.Server.Treaty
             for (int i = 0; i < RelationTreatyList.Count; i++)
             {
                 var treaty = RelationTreatyList[i];
-                if(treaty is ProtectiveTreaty protective)
+                if (treaty is ProtectiveTreaty protective)
                 {
                     if (!protective.IsAvailable())
                     {
@@ -137,7 +132,7 @@ namespace EoE.Server.Treaty
                     }
                 }
 
-                if(treaty is ITickableTreaty tickable)
+                if (treaty is ITickableTreaty tickable)
                 {
                     tickable.Tick();
                 }
@@ -146,13 +141,13 @@ namespace EoE.Server.Treaty
         public List<IPlayer> FindNonTruce(IPlayer player)
         {
             List<IPlayer> remainPlayer = [.. serverPlayerList.Players];
-            foreach(var truceTreaty in TruceTreatyList)
+            foreach (var truceTreaty in TruceTreatyList)
             {
-                if(truceTreaty.FirstParty == player)
+                if (truceTreaty.FirstParty == player)
                 {
                     remainPlayer.Remove(truceTreaty.SecondParty);
                 }
-                if(truceTreaty.SecondParty == player)
+                if (truceTreaty.SecondParty == player)
                 {
                     remainPlayer.Remove(truceTreaty.FirstParty);
                 }
@@ -168,7 +163,7 @@ namespace EoE.Server.Treaty
         public void AddProtectiveTreaty(IPlayer target, IPlayer protector, ResourceListRecord condition)
         {
             ProtectiveTreaty treaty = new ProtectiveTreaty(target, protector);
-            treaty.AddCondition(new ResourceStack(GameResourceType.Silicon,condition.siliconCount));
+            treaty.AddCondition(new ResourceStack(GameResourceType.Silicon, condition.siliconCount));
             treaty.AddCondition(new ResourceStack(GameResourceType.Copper, condition.copperCount));
             treaty.AddCondition(new ResourceStack(GameResourceType.Iron, condition.ironCount));
             treaty.AddCondition(new ResourceStack(GameResourceType.Aluminum, condition.aluminumCount));

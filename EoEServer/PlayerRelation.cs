@@ -1,18 +1,13 @@
 ﻿using EoE.Server.Treaty;
 using EoE.Treaty;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server
 {
-    public class PlayerRelation: IPlayerRelation
+    public class PlayerRelation : IPlayerRelation
     {
         public ITreatyManager TreatyManager;
-        public Dictionary<IPlayer, List<IPlayer>> ProtectedBy {  get; set; }
+        public Dictionary<IPlayer, List<IPlayer>> ProtectedBy { get; set; }
         private List<IPlayer> AlreadyIn;
         public PlayerRelation(ITreatyManager treatyManager)
         {
@@ -51,7 +46,7 @@ namespace EoE.Server
         }
         private void DeepSearch(IPlayer target)
         {
-            foreach(IPlayer protector in ProtectedBy[target])
+            foreach (IPlayer protector in ProtectedBy[target])
             {
                 if (AlreadyIn.Contains(protector))
                 {
@@ -69,7 +64,7 @@ namespace EoE.Server
             UpdateProtectGraph();
             AlreadyIn = new List<IPlayer>();
             DeepSearch(target);
-            if(AlreadyIn.Contains(target))
+            if (AlreadyIn.Contains(target))
             {
                 AlreadyIn.Remove(target);
             }
@@ -79,13 +74,13 @@ namespace EoE.Server
         {
             ProtectedBy.Clear();
             TreatyManager.BuildPlayerProtected();
-            foreach(var treaty in TreatyManager.RelationTreatyList)
+            foreach (var treaty in TreatyManager.RelationTreatyList)
             {
-                if(treaty is ProtectiveTreaty)
+                if (treaty is ProtectiveTreaty)
                 {
                     AddProtector(treaty.FirstParty, treaty.SecondParty);
                 }
-                else if(treaty is CommonDefenseTreaty)
+                else if (treaty is CommonDefenseTreaty)
                 {
                     AddProtector(treaty.FirstParty, treaty.SecondParty);
                     AddProtector(treaty.SecondParty, treaty.FirstParty);

@@ -1,11 +1,6 @@
 ﻿using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Treaty;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.TreatyPacket
 {
@@ -29,19 +24,19 @@ namespace EoE.Network.Packets.TreatyPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == NetworkDirection.Client2Server)
+            if (context.NetworkDirection == NetworkDirection.Client2Server)
             {
                 IServer server = (IServer)context.Receiver;
                 IPlayer player = context.PlayerSender!;
                 IPlayer targetPlayer = server.GetPlayer(target)!;
                 List<ITreaty> removeTreaty = new List<ITreaty>();
-                foreach(ITreaty treaty in server.PlayerList.TreatyManager.RelationTreatyList)
+                foreach (ITreaty treaty in server.PlayerList.TreatyManager.RelationTreatyList)
                 {
-                    if(treaty.FirstParty == player && treaty.SecondParty == targetPlayer)
+                    if (treaty.FirstParty == player && treaty.SecondParty == targetPlayer)
                     {
                         removeTreaty.Add(treaty);
                     }
-                    if(treaty.FirstParty == targetPlayer && treaty.SecondParty == player)
+                    if (treaty.FirstParty == targetPlayer && treaty.SecondParty == player)
                     {
                         removeTreaty.Add(treaty);
                     }

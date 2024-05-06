@@ -1,12 +1,6 @@
 ﻿using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Entities;
-using EoE.Treaty;
 using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Network.Packets.WarPacket
 {
@@ -14,7 +8,7 @@ namespace EoE.Network.Packets.WarPacket
     {
         private string warName;
         private string[] names;
-        public WarDeclarablePacket(string warName, string[] names) 
+        public WarDeclarablePacket(string warName, string[] names)
         {
             this.warName = warName;
             this.names = names;
@@ -24,7 +18,7 @@ namespace EoE.Network.Packets.WarPacket
             string warName = reader.ReadString();
             int cnt = reader.ReadInt32();
             string[] names = new string[cnt];
-            for(int i = 0; i < cnt; i++)
+            for (int i = 0; i < cnt; i++)
             {
                 names[i] = reader.ReadString();
             }
@@ -35,7 +29,7 @@ namespace EoE.Network.Packets.WarPacket
         {
             writer.Write(obj.warName);
             writer.Write(obj.names.Length);
-            for(int i = 0;i < obj.names.Length; i++)
+            for (int i = 0; i < obj.names.Length; i++)
             {
                 writer.Write(obj.names[i]);
             }
@@ -43,22 +37,22 @@ namespace EoE.Network.Packets.WarPacket
 
         public void Handle(PacketContext context)
         {
-            if(context.NetworkDirection == NetworkDirection.Client2Server)
+            if (context.NetworkDirection == NetworkDirection.Client2Server)
             {
                 IServer server = (IServer)context.Receiver;
                 IServerPlayerList playerList = server.PlayerList;
-                
+
                 List<IPlayer> list = playerList.TreatyManager.FindNonTruce(context.PlayerSender!);
-                foreach(IWar theWar in server.PlayerList.WarManager.WarDict.Values)
+                foreach (IWar theWar in server.PlayerList.WarManager.WarDict.Values)
                 {
-                    foreach(IPlayer player in theWar.Attackers.Armies.Keys)
+                    foreach (IPlayer player in theWar.Attackers.Armies.Keys)
                     {
                         if (list.Contains(player))
                         {
                             list.Remove(player);
                         }
                     }
-                    foreach(IPlayer player in theWar.Defenders.Armies.Keys)
+                    foreach (IPlayer player in theWar.Defenders.Armies.Keys)
                     {
                         if (list.Contains(player))
                         {
@@ -67,7 +61,7 @@ namespace EoE.Network.Packets.WarPacket
                     }
                 }
                 list.Remove(context.PlayerSender!);
-                for(int i=0; i < list.Count; i++)
+                for (int i = 0; i < list.Count; i++)
                 {
                     if (server.PlayerList.GetProtectorsRecursively(list[i]).Contains(context.PlayerSender!))
                     {

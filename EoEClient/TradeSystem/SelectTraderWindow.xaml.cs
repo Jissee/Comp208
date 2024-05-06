@@ -1,21 +1,9 @@
-﻿using EoE.Client.GovernanceSystem;
-using EoE.Client.Login;
+﻿using EoE.Client.Login;
 using EoE.GovernanceSystem;
 using EoE.TradeSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 
 namespace EoE.Client.TradeSystem
@@ -28,9 +16,9 @@ namespace EoE.Client.TradeSystem
         public SelectTraderWindow()
         {
             InitializeComponent();
-            
+
         }
-  
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -41,7 +29,7 @@ namespace EoE.Client.TradeSystem
 
         private void submit_click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(sellSilicon.Text ,out int seSilicon) && seSilicon>=0
+            if (int.TryParse(sellSilicon.Text, out int seSilicon) && seSilicon >= 0
                 && int.TryParse(sellCopper.Text, out int seCopper) && seCopper >= 0
                 && int.TryParse(sellIron.Text, out int seIron) && seIron >= 0
                  && int.TryParse(sellAluminum.Text, out int seAluminum) && seAluminum >= 0

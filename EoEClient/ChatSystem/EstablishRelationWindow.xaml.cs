@@ -1,22 +1,9 @@
 ﻿using EoE.Client.GovernanceSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using EoE.Client.ChatSystem;
-using EoE.Client.WarSystem;
-using System.Text.RegularExpressions;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Network.Packets.TreatyPacket;
+using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Input;
 
 namespace EoE.Client.ChatSystem
 {
@@ -32,7 +19,7 @@ namespace EoE.Client.ChatSystem
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            if(protecting.IsChecked == true)
+            if (protecting.IsChecked == true)
             {
                 _protected.IsChecked = false;
                 common.IsChecked = false;
@@ -47,7 +34,7 @@ namespace EoE.Client.ChatSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (!((bool)_protected.IsChecked || (bool)common.IsChecked|| (bool)protecting.IsChecked))
+            if (!((bool)_protected.IsChecked || (bool)common.IsChecked || (bool)protecting.IsChecked))
             {
                 MessageBox.Show("Please select a treaty!");
             }
@@ -88,7 +75,7 @@ namespace EoE.Client.ChatSystem
                         Client.INSTANCE.PlayerName!,
                         window.selectedName.SelectedItem.ToString()!
                         );
-                    Client.INSTANCE.SendPacket( packet );
+                    Client.INSTANCE.SendPacket(packet);
                 }
                 if ((bool)_protected.IsChecked)
                 {

@@ -1,12 +1,5 @@
-﻿using EoE.GovernanceSystem.ClientInterface;
-using EoE.Network.Entities;
+﻿using EoE.Network.Entities;
 using EoE.TradeSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
 
 namespace EoE.Network.Packets.TradePacket
 {
@@ -36,7 +29,7 @@ namespace EoE.Network.Packets.TradePacket
             writer.Write(obj.transactionCount);
             for (int i = 0; i < obj.transactionCount; i++)
             {
-                GameTransaction.encoder(obj.openOrders[i],writer);
+                GameTransaction.encoder(obj.openOrders[i], writer);
             }
         }
 

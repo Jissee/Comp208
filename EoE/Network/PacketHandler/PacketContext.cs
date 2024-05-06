@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Security;
-using System.Text;
-using System.Threading.Tasks;
-using EoE.Network.Entities;
+﻿using EoE.Network.Entities;
 
 namespace EoE.Network
 {
     public class PacketContext
     {
-        public PacketContext(NetworkDirection direction, IPlayer? playerSender, INetworkEntity? receiver) 
-        { 
+        public PacketContext(NetworkDirection direction, IPlayer? playerSender, INetworkEntity? receiver)
+        {
             NetworkDirection = direction;
             PlayerSender = playerSender;
             Receiver = receiver;

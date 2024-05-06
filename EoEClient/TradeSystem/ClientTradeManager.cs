@@ -1,24 +1,12 @@
-﻿using EoE.GovernanceSystem.ServerInterface;
+﻿using EoE.Client.Login;
 using EoE.GovernanceSystem;
-using EoE.Network.Entities;
-using EoE.Network.Packets.GonverancePacket.Record;
-using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.TradePacket;
 using EoE.TradeSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EoE.GovernanceSystem.ClientInterface;
 using System.Windows;
-using EoE.Client.Login;
-using System.Reflection;
-using System.Windows.Documents;
 
 namespace EoE.Client.TradeSystem
 {
-    public class ClientTradeManager: IClientTradeManager
+    public class ClientTradeManager : IClientTradeManager
     {
         private static readonly int MAX_TRANSACTION_NUMBER = 50;
         public List<GameTransaction> OpenOrders { get; private set; }
@@ -26,7 +14,7 @@ namespace EoE.Client.TradeSystem
         public ClientTradeManager()
         {
             transverter = new Dictionary<int, GameTransaction>();
-            OpenOrders =  new List<GameTransaction>();
+            OpenOrders = new List<GameTransaction>();
         }
 
         public void ShowAndSelectTransaction(GameResourceType type)
@@ -42,7 +30,7 @@ namespace EoE.Client.TradeSystem
                     }
                 }
             }
-           ShowTranscations(list);
+            ShowTranscations(list);
         }
         public GameTransaction GetGameTransaction(int transactionNumber)
         {
@@ -109,7 +97,7 @@ namespace EoE.Client.TradeSystem
 
                 if (flag)
                 {
-                    Client.INSTANCE.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Creat,transaction));
+                    Client.INSTANCE.SendPacket(new SecretTransactionPacket(SecretTransactionOperation.Creat, transaction));
                 }
                 else
                 {
@@ -159,7 +147,7 @@ namespace EoE.Client.TradeSystem
             {
                 MessageBox.Show("The transaction has been cancelled or has been accepted by another player");
             }
-            else if(transaction.Offeror != operatorName)
+            else if (transaction.Offeror != operatorName)
             {
                 MessageBox.Show("No operation authority");
             }
@@ -207,7 +195,7 @@ namespace EoE.Client.TradeSystem
             bool flag = true;
             foreach (var item in transaction.RecipientOffer)
             {
-                if (Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(item.Type)<item.Count)
+                if (Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(item.Type) < item.Count)
                 {
                     flag = false;
                 }
@@ -241,7 +229,7 @@ namespace EoE.Client.TradeSystem
         {
             if (!transaction.IsOpen)
             {
-                throw new Exception("wrong call"); 
+                throw new Exception("wrong call");
             }
 
             OpenOrders.Add(transaction);
@@ -261,7 +249,7 @@ namespace EoE.Client.TradeSystem
         {
             OpenOrders = list;
             ShowTranscations(list);
-           
+
         }
 
         public void ShowTranscations(List<GameTransaction> list)
@@ -280,7 +268,7 @@ namespace EoE.Client.TradeSystem
                 mainTrade.SynchronizeTransaction(transverter);
             }));
         }
-       
+
     }
 }
 

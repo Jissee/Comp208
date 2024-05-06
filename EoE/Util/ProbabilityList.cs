@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace EoE.Util
+﻿namespace EoE.Util
 {
     public class ProbabilityList<T>
     {

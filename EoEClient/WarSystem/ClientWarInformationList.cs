@@ -1,9 +1,4 @@
 ﻿using EoE.WarSystem.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -52,11 +47,12 @@ namespace EoE.Client.WarSystem
             {
                 WarInformationList[warName] = warInformation;
             }
-            else 
+            else
             {
                 WarInformationList.Add(warName, warInformation);
             }
-            Application.Current.Dispatcher.Invoke(() => {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
                 CheckWarDetail window = WindowManager.INSTANCE.GetWindows<CheckWarDetail>();
                 TextBox battleWe = window.BattleWe;
                 TextBox infoWe = window.InfoWe;

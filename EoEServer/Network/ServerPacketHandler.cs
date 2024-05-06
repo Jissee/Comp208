@@ -1,12 +1,7 @@
 ﻿using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EoE.Server.Network
 {
@@ -63,7 +58,7 @@ namespace EoE.Server.Network
 
         public override void SendPacket<T>(T packet, Socket connection, string playerName)
         {
-            
+
             MemoryStream ms = new MemoryStream();
             BinaryWriter bw = new BinaryWriter(ms);
             bw.Write(0L);
@@ -93,7 +88,7 @@ namespace EoE.Server.Network
             {
                 encoder.DynamicInvoke(packet, bw);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 IServer.Log("Packet Error", $"Cannot decode packet {tp}.", ex);
                 return;
@@ -110,7 +105,7 @@ namespace EoE.Server.Network
             {
                 connection.Send(data);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 IServer.Log("Packet Error", $"Cannot send packet {tp}.", ex);
             }
