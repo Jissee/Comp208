@@ -66,22 +66,26 @@ namespace EoE.Network.Packets.TradePacket
                     switch (operation)
                     {
                         case SecretTransactionOperation.Creat:
-                            string message = $"Player : {transaction.Offeror} send an trade requirement to you\n" +
-                                $"{transaction.Offeror} offer: \n" +
-                                transaction.OfferorOffer[0].ToString() + "\n" +
-                                transaction.OfferorOffer[1].ToString() + "\n" +
-                                transaction.OfferorOffer[2].ToString() + "\n" +
-                                transaction.OfferorOffer[3].ToString() + "\n" +
-                                transaction.OfferorOffer[4].ToString() + "\n" +
-                                transaction.OfferorOffer[5].ToString() + "\n"+
-                                "You offer: \n" +
-                                transaction.RecipientOffer[0].ToString() + "\n" +
-                                transaction.RecipientOffer[1].ToString() + "\n" +
-                                transaction.RecipientOffer[2].ToString() + "\n" +
-                                transaction.RecipientOffer[3].ToString() + "\n" +
-                                transaction.RecipientOffer[4].ToString() + "\n" +
-                                transaction.RecipientOffer[5].ToString() + "\n";
-                            if (player.MsgBoxYesNo(message))
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine($"Player : {transaction.Offeror} send an trade requirement to you");
+                            sb.AppendLine($"{transaction.Offeror} offer:");
+
+                            foreach(var item in transaction.OfferorOffer)
+                            {
+                                if(item.Count > 0)
+                                {
+                                    sb.AppendLine(item.ToString());
+                                }
+                            }
+                            sb.AppendLine("You offer:");
+                            foreach (var item in transaction.RecipientOffer)
+                            {
+                                if (item.Count > 0)
+                                {
+                                    sb.AppendLine(item.ToString());
+                                }
+                            }
+                            if (player.MsgBoxYesNo(sb.ToString()))
                             {
                                 player.TradeManager.RequireAcceptSecretTransaction(transaction);
                             }

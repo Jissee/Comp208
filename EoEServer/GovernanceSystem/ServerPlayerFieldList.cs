@@ -29,7 +29,6 @@ namespace EoE.Server.GovernanceSystem
                 }
                 return count;
             }
-
         }
 
         public ServerPlayerFieldList(

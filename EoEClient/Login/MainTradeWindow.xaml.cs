@@ -37,37 +37,11 @@ namespace EoE.Client.Login
         {
             WindowManager.INSTANCE.ShowWindows<SellAndBuy2>();
 
-        }
-
-        
+        } 
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             this.Hide();
-        }
-
-        private void tradeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (tradeList.SelectedItem != null)
-            {
-                int number = int.Parse(tradeList.SelectedItem.ToString());
-                GameTransaction transaction = Client.INSTANCE.TradeManager.GetGameTransaction(number);
-                itemShow.Text = "Offeror: " + transaction.Offeror + "\n"
-                    + "Offeror offer: " + transaction.OfferorOffer[0].ToString() + "\n"
-                    + transaction.OfferorOffer[1].ToString() + "\n"
-                    + transaction.OfferorOffer[2].ToString() + "\n"
-                    + transaction.OfferorOffer[3].ToString() + "\n"
-                    + transaction.OfferorOffer[4].ToString() + "\n"
-                    + transaction.OfferorOffer[5].ToString() + "\n"
-                    + "Recipient offer: " + transaction.RecipientOffer[0].ToString() + "\n"
-                    + transaction.RecipientOffer[1].ToString() + "\n"
-                    + transaction.RecipientOffer[2].ToString() + "\n"
-                    + transaction.RecipientOffer[3].ToString() + "\n"
-                    + transaction.RecipientOffer[4].ToString() + "\n"
-                    + transaction.RecipientOffer[5].ToString() + "\n";
-
-            }
-
         }
         public void SynchronizeTransaction(Dictionary<int, GameTransaction> transverter)
         {
@@ -155,6 +129,36 @@ namespace EoE.Client.Login
         private void industrial1_Checked(object sender, RoutedEventArgs e)
         {
             Client.INSTANCE.TradeManager.ShowAndSelectTransaction(GameResourceType.Industrial);
+        }
+
+        private void tradeList_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            if (tradeList.SelectedItem != null)
+            {
+                int number = int.Parse(tradeList.SelectedItem.ToString());
+                GameTransaction transaction = Client.INSTANCE.TradeManager.GetGameTransaction(number);
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Offeror: " + transaction.Offeror);
+                sb.AppendLine("Offeror offer: ");
+                foreach (var item in transaction.OfferorOffer)
+                {
+                    if (item.Count > 0)
+                    {
+                        sb.AppendLine(item.ToString());
+                    }
+                }
+                sb.AppendLine("Recipient offer: ");
+                foreach (var item in transaction.RecipientOffer)
+                {
+                    if (item.Count > 0)
+                    {
+                        sb.AppendLine(item.ToString());
+                    }
+                }
+
+                itemShow.Text = sb.ToString();
+
+            }
         }
     }
 }
