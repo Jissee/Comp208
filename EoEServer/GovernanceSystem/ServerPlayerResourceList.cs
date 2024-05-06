@@ -43,7 +43,7 @@ namespace EoE.Server.GovernanceSystem
 
         public void AddResource(GameResourceType type, int count)
         {
-            resources[type] += count;
+            AddResourceStack(new ResourceStack(type, count));
         }
         public void AddResourceStack(ResourceStack adder)
         {
