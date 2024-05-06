@@ -49,7 +49,7 @@ namespace EoE.GovernanceSystem
 
         public static Decoder<ResourceStack> decoder = (BinaryReader reader) =>
         {
-            int type = (reader.ReadInt32());
+            int type = reader.ReadInt32();
             int count = reader.ReadInt32();
             return new ResourceStack((GameResourceType)type, count);
         };
