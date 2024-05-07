@@ -1,7 +1,7 @@
 ﻿using EoE.GovernanceSystem;
 using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets.GonverancePacket;
-using static EoE.GovernanceSystem.Interface.IGonveranceManager;
+using static EoE.GovernanceSystem.Interface.IGonvernanceManager;
 
 namespace EoE.Server.GovernanceSystem
 {

@@ -3,16 +3,16 @@ using EoE.GovernanceSystem.ClientInterface;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Server.GovernanceSystem;
 using System.Windows;
-using static EoE.GovernanceSystem.Interface.IGonveranceManager;
+using static EoE.GovernanceSystem.Interface.IGonvernanceManager;
 
 namespace EoE.Client.GovernanceSystem
 {
-    public class ClientGoverance : IClientGonveranceManager
+    public class ClientGovernance : IClientGonveranceManager
     {
         public IClientFieldList FieldList { get; init; }
         public IClientResourceList ResourceList { get; init; }
         public IClientPopulationManager PopManager { get; init; }
-        public ClientGoverance()
+        public ClientGovernance()
         {
             FieldList = new ClientFieldList();
             ResourceList = new ClientResourceList();

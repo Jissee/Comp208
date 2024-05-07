@@ -2,7 +2,7 @@
 
 namespace EoE.GovernanceSystem.ServerInterface
 {
-    public interface IServerGonveranceManager : IGonveranceManager, ITickable
+    public interface IServerGonveranceManager : IGonvernanceManager, ITickable
     {
         bool IsLose { get; }
         PlayerStatus PlayerStatus { get; }

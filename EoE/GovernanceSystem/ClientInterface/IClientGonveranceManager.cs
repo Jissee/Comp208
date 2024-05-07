@@ -2,7 +2,7 @@
 
 namespace EoE.GovernanceSystem.ClientInterface
 {
-    public interface IClientGonveranceManager : IGonveranceManager
+    public interface IClientGonveranceManager : IGonvernanceManager
     {
         IClientPopulationManager PopManager { get; }
         IClientFieldList FieldList { get; }

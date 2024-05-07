@@ -126,7 +126,7 @@ namespace EoE.Server
                         //Console.WriteLine(i);
                         PacketContext context = new PacketContext(NetworkDirection.Client2Server, player, server);
                         string fromName = player.PlayerName;
-                        if (fromName == null)
+                        if (fromName == "")
                         {
                             EndPoint? endpoint = player.Connection.RemoteEndPoint;
                             if (endpoint != null)

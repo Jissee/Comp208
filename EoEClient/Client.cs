@@ -50,7 +50,7 @@ namespace EoE.Client
             Connection = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Handler = new ClientPacketHandler();
             OtherPlayer = new List<string>();
-            GonveranceManager = new ClientGoverance();
+            GonveranceManager = new ClientGovernance();
             TradeManager = new ClientTradeManager();
             WarManager = new ClientWarManager();
             PlayerName = "";
