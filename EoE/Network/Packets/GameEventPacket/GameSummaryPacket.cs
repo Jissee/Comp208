@@ -45,8 +45,24 @@ namespace EoE.Network.Packets.GameEventPacket
 
         public void Handle(PacketContext context)
         {
-            if (context.NetworkDirection == Entities.NetworkDirection.Server2Client)
+            if (context.NetworkDirection == NetworkDirection.Server2Client)
             {
+                string FixNumber(int number)
+                {
+                    if (number > 1000000000)
+                    {
+                        return $"{number / 1000000000}B";
+                    }
+                    if (number > 1000000)
+                    {
+                        return $"{number / 1000000}M";
+                    }
+                    if (number > 10000)
+                    {
+                        return $"{number / 1000}K";
+                    }
+                    return number.ToString();
+                }
                 IClient client = (IClient)context.Receiver;
                 StringBuilder sb = new StringBuilder();
                 int i = 0;
@@ -54,7 +70,7 @@ namespace EoE.Network.Packets.GameEventPacket
                 foreach (var (name, resourceScore, fieldScore, popScore, armyScore, totalScore) in ranks)
                 {
                     i++;
-                    sb.AppendLine($"{i}\t{name}\t{resourceScore}\t{fieldScore}\t{popScore}\t{armyScore}\t{totalScore}");
+                    sb.AppendLine($"{i}\t{name}\t{FixNumber(resourceScore)}\t{FixNumber(fieldScore)}\t{FixNumber(popScore)}\t{FixNumber(armyScore)}\t{FixNumber(totalScore)}");
                 }
 
                 client.MsgBox($"""
