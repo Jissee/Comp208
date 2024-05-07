@@ -13,35 +13,19 @@ namespace EoE.Server.Events
         private Predicate<IServer> serverCondition;
         private int happenIn;
         private int remainingTicks;
-        private int mtth = -1;
 
         public void Tick()
         {
-            if (mtth == -1)
+            if (happenIn > 0)
             {
-                if (happenIn > 0)
-                {
-                    happenIn--;
-                    return;
-                }
-                else
-                {
-                    started = true;
-                }
+                happenIn--;
+                return;
             }
             else
             {
-                double probability = MeanTimeToHappenProbability();
-                Random random = new Random();
-                if (random.NextDouble() < probability)
-                {
-                    started = true;
-                }
-                else
-                {
-                    return;
-                }
+                started = true;
             }
+            
 
             if (started)
             {
@@ -58,13 +42,6 @@ namespace EoE.Server.Events
                     }
                 }
             }
-        }
-
-        public double MeanTimeToHappenProbability()
-        {
-            float daylyChance = (float)(1.0f - Math.Exp(Math.Log(0.5f) / mtth));
-            float chance = (float)(1 - Math.Exp(server.Status.TickCount * Math.Log(1 - daylyChance)));
-            return chance;  //0-1% chance of event happening that day
         }
         public bool NeedRemove()
         {
@@ -91,7 +68,6 @@ namespace EoE.Server.Events
             }
             public Builder HappenIn(int ticks)
             {
-                tmp.mtth = -1;
                 if (ticks <= 0)
                 {
                     throw new ArgumentException("Ticks must be larger than 0.");
@@ -106,11 +82,6 @@ namespace EoE.Server.Events
                     throw new ArgumentException("Ticks must be larger than 0.");
                 }
                 tmp.remainingTicks = ticks;
-                return this;
-            }
-            public Builder MeanTimeToHappen(int ticks)
-            {
-                tmp.mtth = ticks;
                 return this;
             }
             public Builder IfPlayer(Predicate<IPlayer> playerCondition)

@@ -204,7 +204,7 @@ namespace EoE.Server
                     builder3.ForPlayer(player)
                         .IfServer(server => true)
                         .IfPlayer(thePlayer => true)
-                        .MeanTimeToHappen((int)(Status.TotalTick * 0.3f))
+                        .HappenIn((int)(Status.TotalTick * 0.3f))
                         .LastFor(1)
                         .Do
                         (
