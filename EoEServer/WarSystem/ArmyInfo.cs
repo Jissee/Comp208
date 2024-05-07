@@ -1,12 +1,10 @@
 ﻿namespace EoE.Server.WarSystem
 {
-    public class ArmyInfo
+    public abstract class ArmyInfo
     {
-        public virtual int Worth { get; }
-        public virtual int MechanAttack { get; }
-
-        public virtual int MechanDefense { get; }
-
-        public virtual int BattleAttack { get; }
+        public abstract int Worth { get; }
+        public abstract int MechanAttack { get; }
+        public abstract int MechanDefense { get; }
+        public abstract int BattleAttack { get; }
     }
 }
