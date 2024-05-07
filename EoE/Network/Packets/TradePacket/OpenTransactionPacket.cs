@@ -66,7 +66,7 @@ namespace EoE.Network.Packets.TradePacket
                     switch (operation)
                     {
                         case OpenTransactionOperation.Create:
-                            client.TradeManager.AdddOpenTransaction(transaction);
+                            client.TradeManager.AddOpenTransaction(transaction);
                             break;
                         case OpenTransactionOperation.Accept:
                             client.TradeManager.RemoveOpenTransaction(transaction);
@@ -76,7 +76,7 @@ namespace EoE.Network.Packets.TradePacket
                             break;
                         case OpenTransactionOperation.Alter:
                             client.TradeManager.RemoveOpenTransaction(transaction);
-                            client.TradeManager.AdddOpenTransaction(transaction);
+                            client.TradeManager.AddOpenTransaction(transaction);
                             break;
                         default:
                             throw new Exception("no such type");

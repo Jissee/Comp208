@@ -20,7 +20,7 @@ namespace EoE.Server
         {
             this.Connection = connection;
             Server = server;
-            GonveranceManager = new ServerPlayerGonverance(Server.Status, 10000, this);
+            GonveranceManager = new ServerPlayerGonvernance(Server.Status, 10000, this);
             PlayerName = "";
         }
         public void BeginGame()

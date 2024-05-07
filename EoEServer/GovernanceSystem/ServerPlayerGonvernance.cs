@@ -5,7 +5,7 @@ using static EoE.GovernanceSystem.Interface.IGonveranceManager;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class ServerPlayerGonverance : ITickable, IServerGonveranceManager
+    public class ServerPlayerGonvernance : ITickable, IServerGonveranceManager
     {
         public static readonly double EXPLORE_FIELD_PER_POP = 1.1f;
         public static readonly int FIELD_EXPLORE_THRESHOLD = 100;
@@ -26,7 +26,7 @@ namespace EoE.Server.GovernanceSystem
 
         public int PopGrowthProgress { get; private set; }
 
-        public ServerPlayerGonverance(GameStatus globalGameStatus, int initPop, IPlayer player)
+        public ServerPlayerGonvernance(GameStatus globalGameStatus, int initPop, IPlayer player)
         {
             this.globalGameStatus = globalGameStatus;
             this.PlayerStatus = new PlayerStatus(globalGameStatus);

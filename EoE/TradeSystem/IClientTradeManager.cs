@@ -11,7 +11,7 @@ namespace EoE.TradeSystem
         void RejectSecretTransaction(GameTransaction transaction);
         GameTransaction GetGameTransaction(int transactionNumber);
         void ShowAndSelectTransaction(GameResourceType type);
-        void AdddOpenTransaction(GameTransaction transaction);
+        void AddOpenTransaction(GameTransaction transaction);
         void RemoveOpenTransaction(GameTransaction transaction);
         void Synchronize(List<GameTransaction> list);
         void ShowTranscations(List<GameTransaction> list);

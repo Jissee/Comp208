@@ -224,7 +224,7 @@ namespace EoE.Client.TradeSystem
             }
         }
 
-        public void AdddOpenTransaction(GameTransaction transaction)
+        public void AddOpenTransaction(GameTransaction transaction)
         {
             if (!transaction.IsOpen)
             {
