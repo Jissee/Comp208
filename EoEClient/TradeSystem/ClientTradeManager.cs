@@ -8,7 +8,6 @@ namespace EoE.Client.TradeSystem
 {
     public class ClientTradeManager : IClientTradeManager
     {
-        private static readonly int MAX_TRANSACTION_NUMBER = 50;
         public List<GameTransaction> OpenOrders { get; private set; }
         private Dictionary<int, GameTransaction> transverter;
         public ClientTradeManager()
@@ -49,7 +48,7 @@ namespace EoE.Client.TradeSystem
             {
                 throw new Exception("wrong call, use CreatSecretTransaction instead");
             }
-            if (OpenOrders.Count >= MAX_TRANSACTION_NUMBER)
+            if (OpenOrders.Count >= ITradeManager.MAX_TRANSACTION_NUMBER)
             {
                 MessageBox.Show("Too many trades, the exchange is crowded Please wait for existing trades to close");
             }

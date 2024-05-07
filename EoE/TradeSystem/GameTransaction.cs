@@ -23,7 +23,14 @@ namespace EoE.TradeSystem
         /// <param invitorName="isOpen"></param>
         /// <param invitorName="recipient"></param>
         /// <exception cref="Exception"></exception>
-        public GameTransaction(string offeror, Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer, bool isOpen, string? recipient)
+        public GameTransaction(
+            string offeror,
+            Guid id,
+            List<ResourceStack> offerorOffer,
+            List<ResourceStack> recipientOffer,
+            bool isOpen,
+            string? recipient
+            )
         {
             if (offerorOffer.Count != 6 || recipientOffer.Count != 6)
             {
@@ -69,7 +76,7 @@ namespace EoE.TradeSystem
             writer.Write(obj.IsOpen);
             if (!obj.IsOpen)
             {
-                writer.Write(obj.Recipient);
+                writer.Write(obj.Recipient!);
             }
             foreach (var item in obj.OfferorOffer)
             {
