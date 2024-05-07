@@ -1,4 +1,4 @@
-﻿namespace EoE.WarSystem.Interface
+﻿namespace EoE.Treaty
 {
     public interface IPlayerRelation
     {

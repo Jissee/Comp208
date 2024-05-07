@@ -1,5 +1,4 @@
 ﻿using EoE.Network.Packets.GonverancePacket.Record;
-using EoE.WarSystem.Interface;
 
 namespace EoE.Treaty
 {

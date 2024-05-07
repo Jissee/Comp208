@@ -11,7 +11,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="../images/main.jpg"/>
         </Grid.Background>
-        <Button x:Name="Transaction" Content="Trading System" HorizontalAlignment="Left" Margin="596,24,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Transaction_Click" FontSize="16"/>
+        <Button x:Name="Transaction" Content="Trade System" HorizontalAlignment="Left" Margin="596,24,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Transaction_Click" FontSize="16"/>
         <Button x:Name="War" Content="War System" HorizontalAlignment="Left" Margin="596,108,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="War_Click" FontSize="16"/>
         <Button x:Name="Goverment" Content="Governance System" HorizontalAlignment="Left" Margin="596,193,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Goverment_Click" FontSize="16"/>
         <Button x:Name="Chat" Content="Chat" HorizontalAlignment="Left" Margin="596,278,0,0" VerticalAlignment="Top" Height="46" Width="160" Background="White" Click="Chat_Click" FontSize="16"/>

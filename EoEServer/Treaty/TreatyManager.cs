@@ -3,7 +3,6 @@ using EoE.GovernanceSystem.ServerInterface;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Treaty;
-using EoE.WarSystem.Interface;
 
 namespace EoE.Server.Treaty
 {

@@ -1,5 +1,4 @@
 ﻿using EoE.Treaty;
-using EoE.WarSystem.Interface;
 
 namespace EoE.Server.Treaty
 {
