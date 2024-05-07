@@ -12,37 +12,16 @@ namespace EoE.Server
     {
         public Socket Connection { get; }
         public IServer Server { get; }
-        private string? name;
         public bool IsLose => GonveranceManager.IsLose;
         public bool IsBegin { get; private set; } = false;
-
         public IServerGonveranceManager GonveranceManager { get; private set; }
-
-        public string? PlayerName
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if (name == null)
-                {
-                    name = value;
-                }
-                else
-                {
-                    throw new Exception("Player name cannot be reset.");
-                }
-            }
-        }
-        public bool IsAvailable => PlayerName != null;
+        public string PlayerName{ get; set; }
         public ServerPlayer(Socket connection, IServer server)
         {
             this.Connection = connection;
             Server = server;
             GonveranceManager = new ServerPlayerGonverance(Server.Status, 10000, this);
-
+            PlayerName = "";
         }
         public void BeginGame()
         {

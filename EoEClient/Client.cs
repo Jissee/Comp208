@@ -25,7 +25,7 @@ namespace EoE.Client
             MessageBox.Show($"[{type}] {message}:\n{e.ToString()}");
         }
         public Socket Connection { get; private set; }
-        public string? PlayerName { get; private set; }
+        public string PlayerName { get; private set; }
         private bool isRunning;
         public int TickCount { get; private set; }
         private PacketHandler Handler { get; }
@@ -53,6 +53,7 @@ namespace EoE.Client
             GonveranceManager = new ClientGoverance();
             TradeManager = new ClientTradeManager();
             WarManager = new ClientWarManager();
+            PlayerName = "";
 
             ClientTreatyList = new ClientTreatyList();
             WindowManager = EoE.Client.WindowManager.INSTANCE;

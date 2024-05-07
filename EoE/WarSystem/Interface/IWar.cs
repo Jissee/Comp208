@@ -9,7 +9,7 @@ namespace EoE.WarSystem.Interface
         public IWarParty Defenders { get; }
         public WarTarget AttackersTarget { get; }
         public WarTarget DefendersTarget { get; }
-        void SetWarManager(IWarManager manager);
+        //void SetWarManager(IWarManager manager);
         public void SetAttackersWarTarget(WarTarget warTarget);
         public void SetDefendersWarTarget(WarTarget warTarget);
         IWarParty GetWarPartyOfPlayer(IPlayer player);

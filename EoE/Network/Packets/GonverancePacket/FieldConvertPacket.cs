@@ -32,7 +32,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 if (ne is IServer server)
                 {
                     IPlayer player = context.PlayerSender;
-                    player.GonveranceManager.FieldList.Filedconversion(origin, converted);
+                    player.GonveranceManager.FieldList.FieldConversion(origin, converted);
                 }
             }
         }

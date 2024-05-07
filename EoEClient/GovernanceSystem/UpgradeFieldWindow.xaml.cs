@@ -74,7 +74,7 @@ namespace EoE.Client.GovernanceSystem
 
                 if (origin != null && convert != null)
                 {
-                    Client.INSTANCE.GonveranceManager.FieldList.Filedconversion((GameResourceType)origin, count, (GameResourceType)convert, count);
+                    Client.INSTANCE.GonveranceManager.FieldList.FieldConversion((GameResourceType)origin, count, (GameResourceType)convert, count);
                 }
 
             }

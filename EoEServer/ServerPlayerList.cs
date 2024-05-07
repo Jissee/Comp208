@@ -131,7 +131,7 @@ namespace EoE.Server
                             EndPoint? endpoint = player.Connection.RemoteEndPoint;
                             if (endpoint != null)
                             {
-                                fromName = endpoint.ToString();
+                                fromName = endpoint.ToString()!;
                             }
                             else
                             {
@@ -142,7 +142,7 @@ namespace EoE.Server
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }

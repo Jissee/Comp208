@@ -24,7 +24,7 @@ namespace EoE.Server.WarSystem
             }
             IWarParty attackers = new WarParty();
             IWarParty defenders = new WarParty();
-            IWar newWar = new War(attackers, defenders, name, Server);
+            IWar newWar = new War(attackers, defenders, name, Server, this);
             PreparingWarDict.Add(name, newWar);
         }
         public void DeclareWar(string warName)
@@ -34,7 +34,7 @@ namespace EoE.Server.WarSystem
             {
                 WarDict.Add(war.WarName, war);
                 PreparingWarDict.Remove(warName);
-                war.SetWarManager(this);
+                //war.SetWarManager(this);
                 WarTarget attackersTarget = new WarTarget();
                 WarTarget defendersTarget = new WarTarget();
                 foreach (IPlayer attackerPlayer in war.Attackers.Armies.Keys)

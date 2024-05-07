@@ -4,7 +4,7 @@
     {
         int WarWidth { get; }
         Dictionary<IPlayer, IArmy> Armies { get; }
-        IArmy TotalArmy { get; }
+        IArmy? TotalArmy { get; }
         void Clear();
         bool AllSurrendered { get; }
         void SetWar(IWar war);

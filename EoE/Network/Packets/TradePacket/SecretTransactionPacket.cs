@@ -42,7 +42,7 @@ namespace EoE.Network.Packets.TradePacket
                                 server.PlayerList.TradeManager.AcceptSecretTransaction(transaction);
                                 break;
                             case SecretTransactionOperation.Reject:
-                                server.PlayerList.TradeManager.RejectSecretTransaction(transaction, context.PlayerSender.PlayerName);
+                                server.PlayerList.TradeManager.RejectSecretTransaction(transaction, context.PlayerSender!.PlayerName);
                                 break;
                             default:
                                 throw new Exception("no such type");

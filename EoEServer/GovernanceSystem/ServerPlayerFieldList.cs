@@ -91,11 +91,11 @@ namespace EoE.Server.GovernanceSystem
                 );
         }
 
-        public void Filedconversion(FieldStack origin, FieldStack converted)
+        public void FieldConversion(FieldStack origin, FieldStack converted)
         {
-            Filedconversion(origin.Type, origin.Count, converted.Type, converted.Count);
+            FieldConversion(origin.Type, origin.Count, converted.Type, converted.Count);
         }
-        public void Filedconversion(GameResourceType originalType, int originalcount, GameResourceType convertedType, int convertedCount)
+        public void FieldConversion(GameResourceType originalType, int originalcount, GameResourceType convertedType, int convertedCount)
         {
             if ((int)originalType >= (int)(GameResourceType.Aluminum))
             {

@@ -20,7 +20,7 @@ namespace EoE.Server
 
                 while (!server.IsNeedRestart())
                 {
-                    int pausehere = 0;
+                    //int pausehere = 0;
                 }
                 server.Stop();
                 IServer.Log("Server", "Server restarting");

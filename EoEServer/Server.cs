@@ -296,7 +296,7 @@ namespace EoE.Server
             }
             catch (Exception ex)
             {
-
+                IServer.Log("Server", "Cannot stop the server", ex);
             }
 
         }
@@ -315,18 +315,18 @@ namespace EoE.Server
                     try
                     {
                         cl = ServerSocket.Accept();
-                        EndPoint endp = cl.RemoteEndPoint;
+                        EndPoint? endp = cl.RemoteEndPoint;
 
-                        IServer.Log("Connection", $"{endp} connecting.");
+                        IServer.Log("Connection", $"{(endp == null? "Unknown IP" : endp)} connecting.");
 
                         lock (PlayerList)
                         {
                             PlayerList.PlayerLogin(new ServerPlayer(cl, this));
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-
+                        
                     }
 
                 }
@@ -394,7 +394,6 @@ namespace EoE.Server
             catch (Exception ex)
             {
                 IServer.Log("Tick Error", "Tick encountered an exception:", ex);
-
             }
 
         }

@@ -19,7 +19,7 @@ namespace EoE.Server.WarSystem
         private bool status = true;
         private IServer Server;
 
-        public War(IWarParty attackers, IWarParty defenders, string warName, IServer server)
+        public War(IWarParty attackers, IWarParty defenders, string warName, IServer server, IWarManager warManager)
         {
             this.Attackers = attackers;
             this.Defenders = defenders;
@@ -27,11 +27,12 @@ namespace EoE.Server.WarSystem
             attackers.SetWar(this);
             defenders.SetWar(this);
             this.Server = server;
+            this.WarManager = warManager;
         }
-        public void SetWarManager(IWarManager manager)
-        {
-            this.WarManager = manager;
-        }
+        //public void SetWarManager(IWarManager manager)
+        //{
+        //    this.WarManager = manager;
+        //}
         public IWarParty GetWarPartyOfPlayer(IPlayer player)
         {
             if (Attackers.Contains(player))
@@ -92,8 +93,8 @@ namespace EoE.Server.WarSystem
         }
         private void DivideSpoil(IWarParty winner, IWarParty loser, WarTarget winnerTarget)
         {
-            int winnerTotalConsume = winner.TotalArmy.Consumption;
-            int loserTotalConsume = loser.TotalArmy.Consumption;
+            int winnerTotalConsume = winner.TotalArmy!.Consumption;
+            int loserTotalConsume = loser.TotalArmy!.Consumption;
             foreach (var kvpWinner in winner.Armies)
             {
                 IPlayer playerWinner = kvpWinner.Key;
@@ -246,11 +247,11 @@ namespace EoE.Server.WarSystem
             (int, int) attackerAttack = Attackers.GetMechAttackBattAttack();
             (int, int) defenderAttack = Defenders.GetMechAttackBattAttack();
 
-            int aB1 = Attackers.TotalArmy.GetBattleCount();
+            int aB1 = Attackers.TotalArmy!.GetBattleCount();
             int aI1 = Attackers.TotalArmy.GetInformativeCount();
             int aM1 = Attackers.TotalArmy.GetMechanismCount();
 
-            int dB1 = Defenders.TotalArmy.GetBattleCount();
+            int dB1 = Defenders.TotalArmy!.GetBattleCount();
             int dI1 = Defenders.TotalArmy.GetInformativeCount();
             int dM1 = Defenders.TotalArmy.GetMechanismCount();
 

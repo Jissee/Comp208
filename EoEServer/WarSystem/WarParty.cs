@@ -8,11 +8,11 @@ namespace EoE.Server.WarSystem
     {
         public Dictionary<IPlayer, IArmy> Armies { get; init; }
         private List<IPlayer> surrendered;
-        public IArmy TotalArmy { get; private set; }
+        public IArmy? TotalArmy { get; private set; }
         private List<IPlayer> BattleArmyOwner;
         private List<IPlayer> InformativeArmyOwner;
         private List<IPlayer> MechanismArmyOwner;
-        private IWar war;
+        private IWar? war;
         public int WarWidth => 60 / Math.Max(Armies.Count - surrendered.Count, 1);
         public bool AllSurrendered => surrendered.Count == Armies.Count;
         public WarParty()
@@ -104,12 +104,12 @@ namespace EoE.Server.WarSystem
         public (int, int) GetMechAttackBattAttack()
         {
             UpdateTotalArmy();
-            return (TotalArmy.CalculateMechaAttack(), TotalArmy.CalculateBattleAttack());
+            return (TotalArmy!.CalculateMechaAttack(), TotalArmy.CalculateBattleAttack());
         }
 
         public void AbsorbAttack(int MechAttack, int BattAttack)
         {
-            int remainingMechAttack = MechAttack - TotalArmy.CalculateMechaDefense();
+            int remainingMechAttack = MechAttack - TotalArmy!.CalculateMechaDefense();
             remainingMechAttack = Math.Max(remainingMechAttack, 0);
             int totalDamage = remainingMechAttack * 6 + BattAttack;
 

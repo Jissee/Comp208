@@ -30,7 +30,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 INetworkEntity ne = context.Receiver!;
                 if (ne is IServer server)
                 {
-                    IPlayer player = context.PlayerSender;
+                    IPlayer player = context.PlayerSender!;
                     player.GonveranceManager.PopManager.SetAllocation(record);
                 }
             }

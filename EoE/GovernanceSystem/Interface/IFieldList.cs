@@ -12,6 +12,8 @@ namespace EoE.GovernanceSystem.Interface
         int GetFieldCount(GameResourceType type);
         FieldStack GetFieldStack(GameResourceType type);
         FieldListRecord GetFieldListRecord();
+        void FieldConversion(FieldStack origin, FieldStack converted);
+        void FieldConversion(GameResourceType originalType, int originalcount, GameResourceType convertedType, int convertedCount);
 
     }
 

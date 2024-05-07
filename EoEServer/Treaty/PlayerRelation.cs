@@ -1,8 +1,7 @@
-﻿using EoE.Server.Treaty;
-using EoE.Treaty;
+﻿using EoE.Treaty;
 using EoE.WarSystem.Interface;
 
-namespace EoE.Server
+namespace EoE.Server.Treaty
 {
     public class PlayerRelation : IPlayerRelation
     {

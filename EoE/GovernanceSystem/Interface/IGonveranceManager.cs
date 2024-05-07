@@ -2,8 +2,8 @@
 {
     public interface IGonveranceManager
     {
-        public static readonly int EXPLORE_RESOURCE_PER_POP = 5;
-
+        static readonly int EXPLORE_RESOURCE_PER_POP = 5;
+        void SetExploration(int inutPopulation);
     }
 
 }
