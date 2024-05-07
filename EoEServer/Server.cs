@@ -283,7 +283,7 @@ namespace EoE.Server
                 Task.Run(ConnectionLoop);
                 Task.Run(DisconnectionLoop);
                 Task.Run(MessageLoop);
-                IServer.Log("Server", "Server started.");
+                IServer.Log("Server", $"Server started on {address}");
             }
         }
         public void Stop()

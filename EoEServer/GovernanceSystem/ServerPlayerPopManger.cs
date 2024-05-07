@@ -5,7 +5,7 @@ using EoE.Network.Packets.GonverancePacket.Record;
 
 namespace EoE.Server.GovernanceSystem
 {
-    public class ServerPopulationManger : IServerPopManager
+    public class ServerPlayerPopManger : IServerPopManager
     {
         private Dictionary<GameResourceType, int> popAloc = new Dictionary<GameResourceType, int>();
         private IPlayer player;
@@ -28,7 +28,7 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
-        public ServerPopulationManger(int initPop, IPlayer player)
+        public ServerPlayerPopManger(int initPop, IPlayer player)
         {
             popAloc.Add(GameResourceType.Silicon, 0);
             popAloc.Add(GameResourceType.Copper, 0);

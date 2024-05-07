@@ -3,7 +3,7 @@ using EoE.Network.Packets.GonverancePacket.Record;
 
 namespace EoE.GovernanceSystem.ClientInterface
 {
-    public interface IClientPopulationManager : IPopManager
+    public interface IClientPopManager : IPopManager
     {
         void Synchronize(PopulationRecord popRecord);
     }

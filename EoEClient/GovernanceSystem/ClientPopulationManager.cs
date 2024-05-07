@@ -5,7 +5,7 @@ using EoE.Network.Packets.GonverancePacket.Record;
 
 namespace EoE.Client.GovernanceSystem
 {
-    public class ClientPopulationManager : IClientPopulationManager
+    public class ClientPopulationManager : IClientPopManager
     {
         private Dictionary<GameResourceType, int> popAloc = new Dictionary<GameResourceType, int>();
 

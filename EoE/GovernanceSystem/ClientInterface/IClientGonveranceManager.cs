@@ -4,7 +4,7 @@ namespace EoE.GovernanceSystem.ClientInterface
 {
     public interface IClientGonveranceManager : IGonvernanceManager
     {
-        IClientPopulationManager PopManager { get; }
+        IClientPopManager PopManager { get; }
         IClientFieldList FieldList { get; }
         IClientResourceList ResourceList { get; }
         void SyntheticArmy(GameResourceType type, int count);
