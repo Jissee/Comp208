@@ -42,7 +42,16 @@ namespace EoE.Client.GovernanceSystem
                 && (int.TryParse(ElectronicAllocate.Text, out int electronic) && electronic >= 0)
                 && (int.TryParse(IndustrialAllocate.Text, out int industrial) && industrial >= 0))
             {
-                Client.INSTANCE.GonveranceManager.PopManager.SetAllocation(silicon, copper, iron, aluminum, electronic, industrial);
+                PopulationRecord record = new PopulationRecord(
+                    silicon,
+                    copper,
+                    iron,
+                    aluminum,
+                    electronic,
+                    industrial,
+                    0
+                    );
+                Client.INSTANCE.GonveranceManager.PopManager.SetAllocation(record);
             }
             else
             {
@@ -56,7 +65,7 @@ namespace EoE.Client.GovernanceSystem
             IronPeople.Text = record.ironPop.ToString();
             AlumiumPeople.Text = record.aluminumPop.ToString();
             ElectronPeople.Text = record.electronicPop.ToString();
-            IndustrialPeople.Text = record.industrailPop.ToString();
+            IndustrialPeople.Text = record.industrialPop.ToString();
             population.Text = record.availablePopulation.ToString();
         }
         public void SynchronizeFields(FieldListRecord record)

@@ -49,7 +49,7 @@ namespace EoE.Client.Login
             {
                 int transactionNumber = int.Parse(tradeList.SelectedItem.ToString());
                 GameTransaction transaction = Client.INSTANCE.TradeManager.GetGameTransaction(transactionNumber);
-                Client.INSTANCE.TradeManager.RequireCancelOpenTransaction(transaction);
+                Client.INSTANCE.TradeManager.CancelOpenTransaction(transaction);
             }
             else
             {
@@ -64,7 +64,7 @@ namespace EoE.Client.Login
             {
                 int transactionNumber = int.Parse(tradeList.SelectedItem.ToString());
                 GameTransaction transaction = Client.INSTANCE.TradeManager.GetGameTransaction(transactionNumber);
-                Client.INSTANCE.TradeManager.RequireAcceptOpenTransaction(transaction);
+                Client.INSTANCE.TradeManager.AcceptOpenTransaction(transaction);
             }
             else
             {

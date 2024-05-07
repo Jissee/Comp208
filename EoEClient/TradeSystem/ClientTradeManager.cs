@@ -43,7 +43,7 @@ namespace EoE.Client.TradeSystem
                 throw new Exception("transactionNumber");
             }
         }
-        public void RequireCreateOponTransaction(GameTransaction transaction)
+        public void CreateOpenTransaction(GameTransaction transaction)
         {
             if (!transaction.IsOpen)
             {
@@ -74,7 +74,7 @@ namespace EoE.Client.TradeSystem
                 }
             }
         }
-        public void RequireCreateSecretTransaction(GameTransaction transaction)
+        public void CreateSecretTransaction(GameTransaction transaction)
         {
             if (transaction.IsOpen)
             {
@@ -106,7 +106,7 @@ namespace EoE.Client.TradeSystem
             }
         }
 
-        public void RequireCancelOpenTransaction(GameTransaction transaction)
+        public void CancelOpenTransaction(GameTransaction transaction)
         {
             if (Client.INSTANCE.PlayerName == transaction.Offeror)
             {
@@ -118,7 +118,7 @@ namespace EoE.Client.TradeSystem
             }
 
         }
-        public void RequireAcceptOpenTransaction(GameTransaction transaction)
+        public void AcceptOpenTransaction(GameTransaction transaction)
         {
             bool flag = true;
             foreach (var item in transaction.RecipientOffer)
@@ -138,7 +138,7 @@ namespace EoE.Client.TradeSystem
             }
         }
 
-        public void RequireAlterOpenTransaction(Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer)
+        public void AlterOpenTransaction(Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer)
         {
             GameTransaction? transaction;
             string operatorName = Client.INSTANCE.PlayerName;
@@ -186,7 +186,7 @@ namespace EoE.Client.TradeSystem
             }
         }
 
-        public void RequireAcceptSecretTransaction(GameTransaction transaction)
+        public void AcceptSecretTransaction(GameTransaction transaction)
         {
             if (transaction.Recipient == null)
             {
@@ -213,7 +213,7 @@ namespace EoE.Client.TradeSystem
             }
 
         }
-        public void RequireRejectSecretTransaction(GameTransaction transaction)
+        public void RejectSecretTransaction(GameTransaction transaction)
         {
             if (transaction.Recipient == null)
             {

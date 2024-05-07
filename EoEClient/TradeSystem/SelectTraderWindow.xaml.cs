@@ -82,7 +82,7 @@ namespace EoE.Client.TradeSystem
                         if (exist)
                         {
                             GameTransaction transaction = new GameTransaction(Client.INSTANCE.PlayerName, id, offerorOffer, recrientOffer, false, recrientName);
-                            Client.INSTANCE.TradeManager.RequireCreateSecretTransaction(transaction);
+                            Client.INSTANCE.TradeManager.CreateSecretTransaction(transaction);
                         }
                         else
                         {

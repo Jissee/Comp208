@@ -46,18 +46,18 @@ namespace EoE.Server.GovernanceSystem
         /// <param name="type"></param>
         /// <param name="count"></param>
         /// <exception cref="InvalidPopAllocException"></exception>
-        public void SetAllocation(int siliconPop, int copperPop, int ironPop, int aluminumPop, int electronicPop, int industrialPop)
+        public void SetAllocation(PopulationRecord record)
         {
-            if (CheckAvailability(siliconPop, copperPop, ironPop, aluminumPop, electronicPop, industrialPop))
+            if (CheckAvailability(record))
             {
                 int total = TotalPopulation;
-                AvailablePopulation = total - siliconPop - copperPop - ironPop - aluminumPop - industrialPop - electronicPop;
-                popAloc[GameResourceType.Silicon] = siliconPop;
-                popAloc[GameResourceType.Copper] = copperPop;
-                popAloc[GameResourceType.Iron] = ironPop;
-                popAloc[GameResourceType.Aluminum] = aluminumPop;
-                popAloc[GameResourceType.Industrial] = industrialPop;
-                popAloc[GameResourceType.Electronic] = electronicPop;
+                AvailablePopulation = total - record.siliconPop - record.copperPop - record.ironPop - record.aluminumPop - record.industrialPop - record.electronicPop;
+                popAloc[GameResourceType.Silicon] = record.siliconPop;
+                popAloc[GameResourceType.Copper] = record.copperPop;
+                popAloc[GameResourceType.Iron] = record.ironPop;
+                popAloc[GameResourceType.Aluminum] = record.aluminumPop;
+                popAloc[GameResourceType.Industrial] = record.industrialPop;
+                popAloc[GameResourceType.Electronic] = record.electronicPop;
                 player.SendPacket(new PopulationUpdatePacket(GetPopulationRecord()));
             }
             else
@@ -66,15 +66,29 @@ namespace EoE.Server.GovernanceSystem
             }
         }
 
-        private bool CheckAvailability(int siliconPop, int copperPop, int ironPop, int aluminumPop, int electronic, int industrialPop)
+        private bool CheckAvailability(PopulationRecord record)
         {
-            List<int> list = [siliconPop, copperPop, ironPop, aluminumPop, industrialPop, electronic];
+            List<int> list = [
+                record.siliconPop,
+                record.copperPop,
+                record.ironPop,
+                record.aluminumPop,
+                record.industrialPop,
+                record.electronicPop
+                ];
             if (list.Min() < 0)
             {
                 player.SendPacket(new ServerMessagePacket("Negative input"));
                 return false;
             }
-            else if (TotalPopulation >= siliconPop + copperPop + ironPop + aluminumPop + industrialPop + electronic)
+            else if (TotalPopulation >= 
+                record.siliconPop + 
+                record.copperPop + 
+                record.ironPop + 
+                record.aluminumPop + 
+                record.industrialPop + 
+                record.electronicPop
+                )
             {
                 return true;
             }

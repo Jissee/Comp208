@@ -37,7 +37,7 @@ namespace EoE.Network.Packets.TradePacket
                         switch (operation)
                         {
                             case OpenTransactionOperation.Create:
-                                server.PlayerList.TradeManager.CreatOponTransaction(transaction);
+                                server.PlayerList.TradeManager.CreateOpenTransaction(transaction);
                                 break;
                             case OpenTransactionOperation.Accept:
                                 server.PlayerList.TradeManager.AcceptOpenTransaction(transaction.Id, context.PlayerSender.PlayerName);

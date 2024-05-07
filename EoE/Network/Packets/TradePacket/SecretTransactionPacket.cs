@@ -36,7 +36,7 @@ namespace EoE.Network.Packets.TradePacket
                         switch (operation)
                         {
                             case SecretTransactionOperation.Creat:
-                                server.PlayerList.TradeManager.CreatSecretTransaction(transaction);
+                                server.PlayerList.TradeManager.CreateSecretTransaction(transaction);
                                 break;
                             case SecretTransactionOperation.Accept:
                                 server.PlayerList.TradeManager.AcceptSecretTransaction(transaction);
@@ -83,11 +83,11 @@ namespace EoE.Network.Packets.TradePacket
                             }
                             if (player.MsgBoxYesNo(sb.ToString()))
                             {
-                                player.TradeManager.RequireAcceptSecretTransaction(transaction);
+                                player.TradeManager.AcceptSecretTransaction(transaction);
                             }
                             else
                             {
-                                player.TradeManager.RequireRejectSecretTransaction(transaction);
+                                player.TradeManager.RejectSecretTransaction(transaction);
                             }
                             break;
                         default:

@@ -54,7 +54,7 @@ namespace EoE.Client.TradeSystem
                 recipentOffer.Add(new ResourceStack(GameResourceType.Electronic, buyerElecronic));
                 recipentOffer.Add(new ResourceStack(GameResourceType.Industrial, buyerIndustrial));
                 GameTransaction gameTransaction = new GameTransaction(offer, id, offerorOffer, recipentOffer, true, null);
-                Client.INSTANCE.TradeManager.RequireCreateOponTransaction(gameTransaction);
+                Client.INSTANCE.TradeManager.CreateOpenTransaction(gameTransaction);
             }
             else
             {

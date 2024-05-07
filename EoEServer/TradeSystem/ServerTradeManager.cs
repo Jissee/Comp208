@@ -10,15 +10,15 @@ namespace EoE.Server.TradeSystem
 {
     public class ServerTradeManager : IServerTradeManager
     {
-        public List<GameTransaction> openOrders { get; private set; }
+        public List<GameTransaction> OpenOrders { get; private set; }
         private IServer server;
         public ServerTradeManager(IServer server)
         {
             this.server = server;
-            openOrders = new List<GameTransaction>();
+            OpenOrders = new List<GameTransaction>();
         }
 
-        public void CreatOponTransaction(GameTransaction transaction)
+        public void CreateOpenTransaction(GameTransaction transaction)
         {
             if (!transaction.IsOpen)
             {
@@ -41,7 +41,7 @@ namespace EoE.Server.TradeSystem
                 {
                     resources.SplitResourceStack(item);
                 }
-                openOrders.Add(transaction);
+                OpenOrders.Add(transaction);
                 offeror.SendPacket(new ServerMessagePacket("Transaction successfully created"));
                 offeror.SendPacket(new ResourceUpdatePacket(offeror.GonveranceManager.ResourceList.GetResourceListRecord()));
                 server.Boardcast(new OpenTransactionPacket(OpenTransactionOperation.Create, transaction), player => true);
@@ -51,7 +51,7 @@ namespace EoE.Server.TradeSystem
                 offeror.SendPacket(new ServerMessagePacket("No enough Resources"));
             }
         }
-        public void CreatSecretTransaction(GameTransaction transaction)
+        public void CreateSecretTransaction(GameTransaction transaction)
         {
             if (transaction.IsOpen)
             {
@@ -101,7 +101,7 @@ namespace EoE.Server.TradeSystem
         public void CancelOpenTransaction(Guid id, string operatorName)
         {
             GameTransaction? transaction;
-            transaction = openOrders.FirstOrDefault(t => t.Id == id);
+            transaction = OpenOrders.FirstOrDefault(t => t.Id == id);
             if (transaction != null)
             {
                 if (operatorName == transaction.Offeror)
@@ -134,7 +134,7 @@ namespace EoE.Server.TradeSystem
         {
             IPlayer recipient = server.GetPlayer(recipientName)!;
             GameTransaction? transaction;
-            transaction = openOrders.FirstOrDefault(t => t.Id == id);
+            transaction = OpenOrders.FirstOrDefault(t => t.Id == id);
             if (transaction == null)
             {
                 recipient.SendPacket(new ServerMessagePacket("The transaction has been cancelled or has been accepted by another player"));
@@ -162,7 +162,7 @@ namespace EoE.Server.TradeSystem
         public void AlterOpenTransaction(Guid id, List<ResourceStack> offerorOffer, List<ResourceStack> recipientOffer, string operatorName)
         {
             GameTransaction? transaction;
-            transaction = openOrders.FirstOrDefault(t => t.Id == id);
+            transaction = OpenOrders.FirstOrDefault(t => t.Id == id);
             IPlayer manipulator = server.GetPlayer(operatorName)!;
             if (transaction == null)
             {
@@ -287,13 +287,13 @@ namespace EoE.Server.TradeSystem
 
         public void ClearAll(IPlayer offeror)
         {
-            GameTransaction? transaction = openOrders.FirstOrDefault(t => t.Offeror == offeror.PlayerName);
+            GameTransaction? transaction = OpenOrders.FirstOrDefault(t => t.Offeror == offeror.PlayerName);
             while (transaction != null)
             {
-                openOrders.Remove(transaction);
-                transaction = openOrders.FirstOrDefault(t => t.Offeror == offeror.PlayerName);
+                OpenOrders.Remove(transaction);
+                transaction = OpenOrders.FirstOrDefault(t => t.Offeror == offeror.PlayerName);
             }
-            server.Boardcast(new OpenTransactionSynchronizePacket(openOrders.Count, openOrders), play => true);
+            server.Boardcast(new OpenTransactionSynchronizePacket(OpenOrders.Count, OpenOrders), play => true);
         }
     }
 }

@@ -44,38 +44,22 @@ namespace EoE.Client.GovernanceSystem
             popAloc[GameResourceType.Iron] = popRecord.ironPop;
             popAloc[GameResourceType.Aluminum] = popRecord.aluminumPop;
             popAloc[GameResourceType.Electronic] = popRecord.electronicPop;
-            popAloc[GameResourceType.Industrial] = popRecord.industrailPop;
+            popAloc[GameResourceType.Industrial] = popRecord.industrialPop;
             AvailablePopulation = popRecord.availablePopulation;
             WindowManager.INSTANCE.UpdatePopulation();
         }
 
-        public void SetAllocation(
-            int siliconPop,
-            int copperPop,
-            int ironPop,
-            int aluminumPop,
-            int electronicPop,
-            int industrailPop
-            )
+        public void SetAllocation(PopulationRecord record)
         {
-            List<int> list = [siliconPop, copperPop, ironPop, aluminumPop, electronicPop, industrailPop];
+            List<int> list = [record.siliconPop, record.copperPop, record.ironPop, record.aluminumPop, record.electronicPop, record.industrialPop];
             if (list.Min() < 0)
             {
                 Client.INSTANCE.MsgBox("Negative input");
             }
-            int count = siliconPop + copperPop + ironPop + aluminumPop + electronicPop + industrailPop;
+            int count = record.siliconPop + record.copperPop + record.ironPop + record.aluminumPop + record.electronicPop + record.industrialPop;
             if (TotalPopulation >= count)
             {
-                Client.INSTANCE.SendPacket(new SetPopAllocationPacket(
-                    new PopulationRecord(
-                    siliconPop,
-                    copperPop,
-                    ironPop,
-                    aluminumPop,
-                    electronicPop,
-                    industrailPop,
-                    AvailablePopulation)
-                    ));
+                Client.INSTANCE.SendPacket(new SetPopAllocationPacket(record));
             }
             else
             {

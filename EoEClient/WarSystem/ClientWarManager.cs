@@ -5,7 +5,6 @@ namespace EoE.Client.WarSystem
     public class ClientWarManager : IClientWarManager
     {
         public IClientWarDeclarableList ClientWarDeclarableList { get; set; }
-
         public IClientWarInformationList ClientWarInformationList { get; set; }
         public IClientWarNameList ClientWarNameList { get; set; }
         public IClientWarNameRelatedList ClientWarNameRelatedList { get; set; }

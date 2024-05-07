@@ -7,7 +7,7 @@
         public int ironPop;
         public int aluminumPop;
         public int electronicPop;
-        public int industrailPop;
+        public int industrialPop;
         public int availablePopulation;
 
         public PopulationRecord(
@@ -16,7 +16,7 @@
             int ironPop,
             int aluminumPop,
             int electronicPop,
-            int industrailPop,
+            int industrialPop,
             int availablePopulation
             )
         {
@@ -25,7 +25,7 @@
             this.ironPop = ironPop;
             this.aluminumPop = aluminumPop;
             this.electronicPop = electronicPop;
-            this.industrailPop = industrailPop;
+            this.industrialPop = industrialPop;
             this.availablePopulation = availablePopulation;
         }
 
@@ -36,7 +36,7 @@
             writer.Write(obj.ironPop);
             writer.Write(obj.aluminumPop);
             writer.Write(obj.electronicPop);
-            writer.Write(obj.industrailPop);
+            writer.Write(obj.industrialPop);
             writer.Write(obj.availablePopulation);
         };
 

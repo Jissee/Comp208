@@ -31,7 +31,7 @@ namespace EoE.Network.Packets.GonverancePacket
                 if (ne is IServer server)
                 {
                     IPlayer player = context.PlayerSender;
-                    player.GonveranceManager.PopManager.SetAllocation(record.siliconPop, record.copperPop, record.ironPop, record.aluminumPop, record.electronicPop, record.industrailPop);
+                    player.GonveranceManager.PopManager.SetAllocation(record);
                 }
             }
         }

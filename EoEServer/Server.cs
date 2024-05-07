@@ -389,7 +389,7 @@ namespace EoE.Server
                 {
                     Boardcast(new OtherPlayerFieldUpdate(player.GonveranceManager.FieldList.GetFieldListRecord(), player.PlayerName), thisPlayer => thisPlayer != player);
                 }
-                Boardcast(new OpenTransactionSynchronizePacket(PlayerList.TradeManager.openOrders.Count, PlayerList.TradeManager.openOrders), player => true);
+                Boardcast(new OpenTransactionSynchronizePacket(PlayerList.TradeManager.OpenOrders.Count, PlayerList.TradeManager.OpenOrders), player => true);
             }
             catch (Exception ex)
             {

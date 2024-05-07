@@ -65,7 +65,7 @@ namespace EoE.Client.GovernanceSystem
 
         public void SynchronizePopulation(PopulationRecord record)
         {
-            Population.Text = (record.siliconPop + record.copperPop + record.ironPop + record.aluminumPop + record.electronicPop + record.industrailPop + record.availablePopulation).ToString();
+            Population.Text = (record.siliconPop + record.copperPop + record.ironPop + record.aluminumPop + record.electronicPop + record.industrialPop + record.availablePopulation).ToString();
             AvailablePopulation.Text = record.availablePopulation.ToString();
         }
 
