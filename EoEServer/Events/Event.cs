@@ -25,7 +25,7 @@ namespace EoE.Server.Events
             {
                 started = true;
             }
-            
+
 
             if (started)
             {

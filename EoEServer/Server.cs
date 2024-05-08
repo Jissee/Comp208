@@ -317,7 +317,7 @@ namespace EoE.Server
                         cl = ServerSocket.Accept();
                         EndPoint? endp = cl.RemoteEndPoint;
 
-                        IServer.Log("Connection", $"{(endp == null? "Unknown IP" : endp)} connecting.");
+                        IServer.Log("Connection", $"{(endp == null ? "Unknown IP" : endp)} connecting.");
 
                         lock (PlayerList)
                         {
@@ -326,7 +326,7 @@ namespace EoE.Server
                     }
                     catch (Exception)
                     {
-                        
+
                     }
 
                 }

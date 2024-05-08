@@ -15,7 +15,7 @@ namespace EoE.Server
         public bool IsLose => GonveranceManager.IsLose;
         public bool IsBegin { get; private set; } = false;
         public IServerGonveranceManager GonveranceManager { get; private set; }
-        public string PlayerName{ get; set; }
+        public string PlayerName { get; set; }
         public ServerPlayer(Socket connection, IServer server)
         {
             this.Connection = connection;

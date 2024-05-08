@@ -81,12 +81,12 @@ namespace EoE.Server.GovernanceSystem
                 player.SendPacket(new ServerMessagePacket("Negative input"));
                 return false;
             }
-            else if (TotalPopulation >= 
-                record.siliconPop + 
-                record.copperPop + 
-                record.ironPop + 
-                record.aluminumPop + 
-                record.industrialPop + 
+            else if (TotalPopulation >=
+                record.siliconPop +
+                record.copperPop +
+                record.ironPop +
+                record.aluminumPop +
+                record.industrialPop +
                 record.electronicPop
                 )
             {
