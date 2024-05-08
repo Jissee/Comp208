@@ -28,6 +28,18 @@ namespace EoE
             GlobalAluminumModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
             GlobalIndustralModifier = new Modifier("", Modifier.ModifierType.Plus);
+
+            GlobalPrimaryModifier.AddNode(GlobalResourceModifier);
+            GlobalSecondaryModifier.AddNode(GlobalResourceModifier);
+
+            GlobalSiliconModifier.AddNode(GlobalPrimaryModifier);
+            GlobalCopperModifier.AddNode(GlobalPrimaryModifier);
+            GlobalIronModifier.AddNode(GlobalPrimaryModifier);
+            GlobalAluminumModifier.AddNode(GlobalPrimaryModifier);
+
+            GlobalElectronicModifier.AddNode(GlobalSecondaryModifier);
+            GlobalIndustralModifier.AddNode(GlobalSecondaryModifier);
+
             TickCount = 0;
             TotalTick = count;
             UnidentifiedField = initialUndentifiedField;

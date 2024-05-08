@@ -24,47 +24,24 @@
             CountryElectronicModifier = new Modifier("", Modifier.ModifierType.Plus);
             CountryIndustralModifier = new Modifier("", Modifier.ModifierType.Plus);
 
-            CountrySiliconModifier
-                .AddNode(CountryPrimaryModifier)
-                .AddNode(CountryResourceModifier)
-                .AddNode(globalGameStatus.GlobalSiliconModifier)
-                .AddNode(globalGameStatus.GlobalPrimaryModifier)
-                .AddNode(globalGameStatus.GlobalResourceModifier);
+            CountryPrimaryModifier.AddNode(CountryResourceModifier);
+            CountrySecondaryModifier.AddNode(CountryResourceModifier);
 
-            CountryCopperModifier
-                .AddNode(CountryPrimaryModifier)
-                .AddNode(CountryResourceModifier)
-                .AddNode(globalGameStatus.GlobalCopperModifier)
-                .AddNode(globalGameStatus.GlobalPrimaryModifier)
-                .AddNode(globalGameStatus.GlobalResourceModifier);
+            CountrySiliconModifier.AddNode(CountryPrimaryModifier);
+            CountryCopperModifier.AddNode(CountryPrimaryModifier);
+            CountryIronModifier.AddNode(CountryPrimaryModifier);
+            CountryAluminumModifier.AddNode(CountryPrimaryModifier);
 
-            CountryIronModifier
-                .AddNode(CountryPrimaryModifier)
-                .AddNode(CountryResourceModifier)
-                .AddNode(globalGameStatus.GlobalIronModifier)
-                .AddNode(globalGameStatus.GlobalPrimaryModifier)
-                .AddNode(globalGameStatus.GlobalResourceModifier);
+            CountryElectronicModifier.AddNode(CountrySecondaryModifier);
+            CountryIndustralModifier.AddNode(CountrySecondaryModifier);
 
-            CountryAluminumModifier
-               .AddNode(CountryPrimaryModifier)
-                .AddNode(CountryResourceModifier)
-                .AddNode(globalGameStatus.GlobalAluminumModifier)
-                .AddNode(globalGameStatus.GlobalPrimaryModifier)
-                .AddNode(globalGameStatus.GlobalResourceModifier);
 
-            CountryElectronicModifier
-               .AddNode(CountrySecondaryModifier)
-                .AddNode(CountryResourceModifier)
-                .AddNode(globalGameStatus.GlobalElectronicModifier)
-                .AddNode(globalGameStatus.GlobalSecondaryModifier)
-                .AddNode(globalGameStatus.GlobalResourceModifier);
-
-            CountryIndustralModifier
-              .AddNode(CountrySecondaryModifier)
-               .AddNode(CountryResourceModifier)
-               .AddNode(globalGameStatus.GlobalIndustralModifier)
-               .AddNode(globalGameStatus.GlobalSecondaryModifier)
-               .AddNode(globalGameStatus.GlobalResourceModifier);
+            CountrySiliconModifier.AddNode(globalGameStatus.GlobalSiliconModifier);
+            CountryCopperModifier.AddNode(globalGameStatus.GlobalCopperModifier);
+            CountryIronModifier.AddNode(globalGameStatus.GlobalIronModifier);
+            CountryAluminumModifier.AddNode(globalGameStatus.GlobalAluminumModifier);
+            CountryElectronicModifier.AddNode(globalGameStatus.GlobalElectronicModifier);
+            CountryIndustralModifier.AddNode(globalGameStatus.GlobalIndustralModifier);
         }
     }
 }

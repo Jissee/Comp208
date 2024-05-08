@@ -9,7 +9,6 @@ namespace EoE.GovernanceSystem.ServerInterface
         IServerPopManager PopManager { get; }
         IServerFieldList FieldList { get; }
         IServerResourceList ResourceList { get; }
-        void SyntheticArmy(GameResourceType type, int count);
         void ClearAll();
     }
 }
