@@ -9,9 +9,9 @@ namespace EoE.Server.WarSystem
         public Dictionary<IPlayer, IArmy> Armies { get; init; }
         private List<IPlayer> surrendered;
         public IArmy? TotalArmy { get; private set; }
-        private List<IPlayer> BattleArmyOwner;
-        private List<IPlayer> InformativeArmyOwner;
-        private List<IPlayer> MechanismArmyOwner;
+        private List<IPlayer> battleArmyOwner;
+        private List<IPlayer> informativeArmyOwner;
+        private List<IPlayer> mechanismArmyOwner;
         private IWar? war;
         public int WarWidth => 60 / Math.Max(Armies.Count - surrendered.Count, 1);
         public bool AllSurrendered => surrendered.Count == Armies.Count;
@@ -19,9 +19,9 @@ namespace EoE.Server.WarSystem
         {
             Armies = new Dictionary<IPlayer, IArmy>();
             surrendered = new List<IPlayer>();
-            BattleArmyOwner = new List<IPlayer>();
-            InformativeArmyOwner = new List<IPlayer>();
-            MechanismArmyOwner = new List<IPlayer>();
+            battleArmyOwner = new List<IPlayer>();
+            informativeArmyOwner = new List<IPlayer>();
+            mechanismArmyOwner = new List<IPlayer>();
         }
         public void Clear()
         {
@@ -75,9 +75,9 @@ namespace EoE.Server.WarSystem
         }
         public void UpdateTotalArmy()
         {
-            BattleArmyOwner = new List<IPlayer>();
-            InformativeArmyOwner = new List<IPlayer>();
-            MechanismArmyOwner = new List<IPlayer>();
+            battleArmyOwner = new List<IPlayer>();
+            informativeArmyOwner = new List<IPlayer>();
+            mechanismArmyOwner = new List<IPlayer>();
             TotalArmy = new Army(this);
             foreach (var kvp in Armies)
             {
@@ -88,15 +88,15 @@ namespace EoE.Server.WarSystem
                 TotalArmy.AddMechanism(new ResourceStack(GameResourceType.MechanismArmy, army.GetMechanismCount()));
                 for (int i = 1; i <= army.GetBattleCount(); i++)
                 {
-                    BattleArmyOwner.Add(player);
+                    battleArmyOwner.Add(player);
                 }
                 for (int i = 1; i <= army.GetInformativeCount(); i++)
                 {
-                    InformativeArmyOwner.Add(player);
+                    informativeArmyOwner.Add(player);
                 }
                 for (int i = 1; i <= army.GetMechanismCount(); i++)
                 {
-                    MechanismArmyOwner.Add(player);
+                    mechanismArmyOwner.Add(player);
                 }
                 TotalArmy.AddConsumption(army.Consumption);
             }
@@ -142,24 +142,24 @@ namespace EoE.Server.WarSystem
             Random rand = new Random();
             for (int i = 1; i <= battleDie; i++)
             {
-                int dieIndex = rand.Next(BattleArmyOwner.Count);
-                IPlayer injuredPlayer = BattleArmyOwner[dieIndex];
+                int dieIndex = rand.Next(battleArmyOwner.Count);
+                IPlayer injuredPlayer = battleArmyOwner[dieIndex];
                 Armies[injuredPlayer].DecreaseBattle(1);
-                BattleArmyOwner.RemoveAt(dieIndex);
+                battleArmyOwner.RemoveAt(dieIndex);
             }
             for (int i = 1; i <= informativeDie; i++)
             {
-                int dieIndex = rand.Next(InformativeArmyOwner.Count);
-                IPlayer injuredPlayer = InformativeArmyOwner[dieIndex];
+                int dieIndex = rand.Next(informativeArmyOwner.Count);
+                IPlayer injuredPlayer = informativeArmyOwner[dieIndex];
                 Armies[injuredPlayer].DecreaseInformative(1);
-                InformativeArmyOwner.RemoveAt(dieIndex);
+                informativeArmyOwner.RemoveAt(dieIndex);
             }
             for (int i = 1; i <= mechanismDie; i++)
             {
-                int dieIndex = rand.Next(MechanismArmyOwner.Count);
-                IPlayer injuredPlayer = MechanismArmyOwner[dieIndex];
+                int dieIndex = rand.Next(mechanismArmyOwner.Count);
+                IPlayer injuredPlayer = mechanismArmyOwner[dieIndex];
                 Armies[injuredPlayer].DecreaseMechanism(1);
-                MechanismArmyOwner.RemoveAt(dieIndex);
+                mechanismArmyOwner.RemoveAt(dieIndex);
             }
             UpdateTotalArmy();
             Dismiss();

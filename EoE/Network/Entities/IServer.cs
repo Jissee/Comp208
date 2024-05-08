@@ -10,6 +10,7 @@ namespace EoE.Network.Entities
         PacketHandler PacketHandler { get; }
         GameStatus Status { get; }
         bool IsGameRunning { get; }
+        IServerPlayerList PlayerList { get; }
         static void Log(string type, string message)
         {
             Console.WriteLine($"[{DateTime.Now}] [{type}] {message}");
@@ -18,7 +19,6 @@ namespace EoE.Network.Entities
         {
             Console.WriteLine($"[{DateTime.Now}] [{type}] {message}\n {e}");
         }
-        IServerPlayerList PlayerList { get; }
         void InitPlayerName(IPlayer player, string name);
         void Start();
         void Stop();

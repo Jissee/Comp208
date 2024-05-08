@@ -8,7 +8,7 @@ namespace EoE.Server
         {
             if (args.Length < 2)
             {
-                IServer.Log("Server", "Insufficient argument. The arguments are changed to 0.0.0.0:25566");
+                IServer.Log("server", "Insufficient argument. The arguments are changed to 0.0.0.0:25566");
                 args = ["0.0.0.0", "25566"];
             }
             Server server;
@@ -24,7 +24,7 @@ namespace EoE.Server
                     //int pausehere = 0;
                 }
                 server.Stop();
-                IServer.Log("Server", "Server restarting");
+                IServer.Log("server", "server restarting");
             }
         }
     }

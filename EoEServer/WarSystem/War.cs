@@ -17,7 +17,7 @@ namespace EoE.Server.WarSystem
         public WarTarget DefendersTarget { get; private set; }
         public IWarManager WarManager { get; private set; }
         private bool status = true;
-        private IServer Server;
+        private IServer server;
 
         public War(IWarParty attackers, IWarParty defenders, string warName, IServer server, IWarManager warManager)
         {
@@ -26,7 +26,7 @@ namespace EoE.Server.WarSystem
             WarName = warName;
             attackers.SetWar(this);
             defenders.SetWar(this);
-            this.Server = server;
+            this.server = server;
             this.WarManager = warManager;
         }
         //public void SetWarManager(IWarManager manager)
@@ -74,7 +74,7 @@ namespace EoE.Server.WarSystem
                 foreach (var kvpSecond in Defenders.Armies)
                 {
                     IPlayer playerSecond = kvpSecond.Key;
-                    Server.PlayerList.TreatyManager.AddTruceTreaty(playerFirst, playerSecond);
+                    server.PlayerList.TreatyManager.AddTruceTreaty(playerFirst, playerSecond);
                 }
             }
             if (defeated != null)
