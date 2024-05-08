@@ -1,9 +1,9 @@
-﻿using EoE.GovernanceSystem.ServerInterface;
+﻿using EoE.Governance.ServerInterface;
 using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket;
-using EoE.Server.GovernanceSystem;
+using EoE.Server.Governance;
 using System.Net.Sockets;
 
 namespace EoE.Server

@@ -1,5 +1,5 @@
 ﻿using EoE.Network.Entities;
-using EoE.Server.WarSystem;
+using EoE.War;
 
 namespace EoE.Network.Packets.WarPacket
 {

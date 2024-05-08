@@ -2,7 +2,7 @@
 
 namespace EoE.Server.Treaty
 {
-    public class Treaty : ITreaty
+    public abstract class Treaty : ITreaty
     {
         public IPlayer FirstParty { get; init; }
         public IPlayer SecondParty { get; init; }

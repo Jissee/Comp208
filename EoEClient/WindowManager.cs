@@ -1,8 +1,8 @@
-﻿using EoE.Client.ChatSystem;
-using EoE.Client.GovernanceSystem;
+﻿using EoE.Client.Chat;
+using EoE.Client.Governance;
 using EoE.Client.Login;
-using EoE.Client.TradeSystem;
-using EoE.Client.WarSystem;
+using EoE.Client.Trade;
+using EoE.Client.War;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System.Windows;
 

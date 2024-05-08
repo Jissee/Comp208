@@ -7,39 +7,33 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="GovernanceSystem\CheckOtherPlayer.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="WarSystem\AbrogateTreaty.xaml.cs">
+    <Compile Update="War\AbrogateTreaty.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="GovernanceSystem\CheckOtherPlayer.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Login\SetGameWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WarSystem\AbrogateTreaty.xaml">
+    <Page Update="War\AbrogateTreaty.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WarSystem\AllocateArmy.xaml">
+    <Page Update="War\AllocateArmy.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WarSystem\CheckStatus.xaml">
+    <Page Update="War\CheckStatus.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WarSystem\CheckWarDetail.xaml">
+    <Page Update="War\CheckWarDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WarSystem\DeclareWar.xaml">
+    <Page Update="War\DeclareWar.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WarSystem\WarDetail.xaml">
+    <Page Update="War\WarDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WarSystem\WarMainPage.xaml">
+    <Page Update="War\WarMainPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

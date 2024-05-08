@@ -1,8 +1,8 @@
-﻿using EoE.GovernanceSystem.ClientInterface;
+﻿using EoE.Governance.ClientInterface;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GonverancePacket.Record;
-using EoE.TradeSystem;
-using EoE.WarSystem.Interface;
+using EoE.Trade;
+using EoE.War.Interface;
 
 namespace EoE.Network.Entities
 {

@@ -1,6 +1,6 @@
-﻿using EoE.Client.TradeSystem;
-using EoE.GovernanceSystem;
-using EoE.TradeSystem;
+﻿using EoE.Client.Trade;
+using EoE.Governance;
+using EoE.Trade;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;

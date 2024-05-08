@@ -1,6 +1,6 @@
 ﻿using EoE.Network.Entities;
 using System.Text;
-using GameTransaction = EoE.TradeSystem.GameTransaction;
+using GameTransaction = EoE.Trade.GameTransaction;
 
 namespace EoE.Network.Packets.TradePacket
 {

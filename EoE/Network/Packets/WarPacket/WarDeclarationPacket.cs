@@ -1,7 +1,7 @@
 ﻿using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket;
-using EoE.Server.WarSystem;
-using EoE.WarSystem.Interface;
+using EoE.War;
+using EoE.War.Interface;
 using System.Text;
 
 namespace EoE.Network.Packets.WarPacket

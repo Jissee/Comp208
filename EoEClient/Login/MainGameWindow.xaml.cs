@@ -1,7 +1,7 @@
-﻿using EoE.Client.ChatSystem;
-using EoE.Client.GovernanceSystem;
-using EoE.Client.WarSystem;
-using EoE.GovernanceSystem;
+﻿using EoE.Client.Chat;
+using EoE.Client.Governance;
+using EoE.Client.War;
+using EoE.Governance;
 using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using System.Windows;

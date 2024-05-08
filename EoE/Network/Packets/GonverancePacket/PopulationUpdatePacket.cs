@@ -1,4 +1,4 @@
-﻿using EoE.GovernanceSystem.ClientInterface;
+﻿using EoE.Governance.ClientInterface;
 using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket.Record;
 

@@ -1,4 +1,4 @@
-﻿using EoE.GovernanceSystem;
+﻿using EoE.Governance;
 using EoE.Network.Entities;
 
 namespace EoE.Network.Packets.GonverancePacket

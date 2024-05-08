@@ -1,4 +1,4 @@
-﻿using EoE.GovernanceSystem;
+﻿using EoE.Governance;
 using EoE.Treaty;
 
 namespace EoE.Server.Treaty

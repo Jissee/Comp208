@@ -1,5 +1,5 @@
 ﻿using EoE.Network.Entities;
-using EoE.TradeSystem;
+using EoE.Trade;
 
 namespace EoE.Network.Packets.TradePacket
 {

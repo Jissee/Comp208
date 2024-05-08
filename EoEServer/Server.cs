@@ -1,6 +1,6 @@
-﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.Interface;
-using EoE.GovernanceSystem.ServerInterface;
+﻿using EoE.Governance;
+using EoE.Governance.Interface;
+using EoE.Governance.ServerInterface;
 using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
@@ -9,7 +9,7 @@ using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.TradePacket;
 using EoE.Server.Events;
 using EoE.Server.Network;
-using EoE.Server.WarSystem;
+using EoE.Server.War;
 using System.Net;
 using System.Net.Sockets;
 
@@ -395,7 +395,7 @@ namespace EoE.Server
             {
                 IServer.Log("Tick Error", "Tick encountered an exception:", ex);
             }
-
+            IServer.Log("Game", $"Tick {Status.TickCount} finished.");
         }
 
         public void CheckPlayerTickStatus()

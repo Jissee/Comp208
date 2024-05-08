@@ -1,0 +1,54 @@
+﻿<Window x:Class="EoE.Client.War.DeclareWar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EoE.Client.War"  
+        mc:Ignorable="d"
+        Title="DeclareWar" Height="450" Width="800" Closing="Window_Closing"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../images/main.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="97*"/>
+            <RowDefinition Height="56*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="193*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="&quot;Do you want to start a war? Have you thought about it?&quot;" HorizontalAlignment="Left" Margin="92,39,0,0" VerticalAlignment="Top" FontSize="20" Grid.Column="1" Foreground="White"/>
+        <Label Content="Choose your enemy: " HorizontalAlignment="Left" Margin="71,105,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="1" Foreground="White"/>
+        <ListBox x:Name="listBox1" SelectionChanged="ListBox_SelectionChanged" Margin="71,156,517,10" Grid.Column="1">
+            <!--
+            <ListBoxItem Content="USER1"/>
+            <ListBoxItem Content="USER2"/>
+            <ListBoxItem Content="USER3"/>
+            <ListBoxItem Content="USER4"/>
+            <ListBoxItem Content="USER5"/>
+            -->
+        </ListBox>
+        <Button x:Name="declareTheWar" Grid.Column="1" Content="Start the War!" HorizontalAlignment="Left" Margin="302,79,0,0" Grid.Row="1" VerticalAlignment="Top" Height="50" Width="140" FontSize="18" Click="Button_Click"/>
+        <Label Grid.Column="1" Content="Your enemy's alliance(s):" HorizontalAlignment="Left" Margin="69,9,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <Label Grid.Column="1" Content="Invite your alliance(s)" HorizontalAlignment="Left" Margin="459,105,0,0" VerticalAlignment="Top" Width="215" Height="33" FontSize="18" Foreground="White"/>
+        <ListBox x:Name="listBox2" Margin="459,156,129,11" Grid.Column="1" Height="109" SelectionMode="Multiple">
+            <!--
+            <ListBoxItem Content="USER1"/>
+            <ListBoxItem Content="USER2"/>
+            <ListBoxItem Content="USER3"/>
+            <ListBoxItem Content="USER4"/>
+            <ListBoxItem Content="USER5"/>
+            -->
+        </ListBox>
+        <Button x:Name="sendInvitation" Grid.Column="1" Content="Send Alliance Invitation" HorizontalAlignment="Left" Margin="470,20,0,0" VerticalAlignment="Top" Grid.Row="1" Height="23" FontSize="15" Click="Button_Click_2"/>
+        <Label Grid.Column="1" Content="You can select more than one ally." HorizontalAlignment="Left" Margin="453,131,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="43" Margin="662,174,0,0" VerticalAlignment="Top" Width="44"/>
+        <DockPanel x:Name="dockPanel" Grid.Column="1" LastChildFill="False" Margin="648,174,38,15">
+            <Image Source="/th.jpg" Stretch="Fill" Width="68" Height="57"/>
+        </DockPanel>
+        <TextBox x:Name="aliance" Grid.Column="1" HorizontalAlignment="Left" Margin="71,43,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" Width="294" FontSize="15" Height="21" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

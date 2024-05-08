@@ -1,5 +1,5 @@
-﻿using EoE.GovernanceSystem;
-using EoE.GovernanceSystem.ServerInterface;
+﻿using EoE.Governance;
+using EoE.Governance.ServerInterface;
 using EoE.Network.Packets.GonverancePacket;
 using EoE.Network.Packets.GonverancePacket.Record;
 using EoE.Treaty;

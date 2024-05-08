@@ -1,4 +1,4 @@
-﻿using EoE.GovernanceSystem.ServerInterface;
+﻿using EoE.Governance.ServerInterface;
 using EoE.Network.Packets;
 using System.Net.Sockets;
 

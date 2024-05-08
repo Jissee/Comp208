@@ -1,15 +1,16 @@
-﻿using EoE.GovernanceSystem.ServerInterface;
+﻿using EoE.Governance.ServerInterface;
 using EoE.Network;
 using EoE.Network.Entities;
 using EoE.Network.Packets;
 using EoE.Network.Packets.GameEventPacket;
 using EoE.Network.Packets.GonverancePacket;
-using EoE.Server.TradeSystem;
+using EoE.Server.Trade;
 using EoE.Server.Treaty;
-using EoE.Server.WarSystem;
-using EoE.TradeSystem;
+using EoE.Server.War;
+using EoE.Trade;
 using EoE.Treaty;
-using EoE.WarSystem.Interface;
+using EoE.War;
+using EoE.War.Interface;
 using System.Net;
 
 namespace EoE.Server

@@ -1,6 +1,6 @@
-﻿using EoE.GovernanceSystem.ServerInterface;
+﻿using EoE.Governance.ServerInterface;
 using EoE.Network.Entities;
-using EoE.WarSystem.Interface;
+using EoE.War.Interface;
 
 namespace EoE.Network.Packets.WarPacket
 {

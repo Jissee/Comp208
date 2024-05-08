@@ -1,6 +1,6 @@
 ﻿using EoE.Network.Entities;
 using EoE.Network.Packets.GonverancePacket;
-using EoE.WarSystem.Interface;
+using EoE.War.Interface;
 
 namespace EoE.Network.Packets.WarPacket
 {
