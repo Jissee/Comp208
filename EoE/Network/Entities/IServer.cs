@@ -18,7 +18,7 @@ namespace EoE.Network.Entities
         {
             Console.WriteLine($"[{DateTime.Now}] [{type}] {message}\n {e}");
         }
-        public IServerPlayerList PlayerList { get; }
+        IServerPlayerList PlayerList { get; }
         void InitPlayerName(IPlayer player, string name);
         void Start();
         void Stop();

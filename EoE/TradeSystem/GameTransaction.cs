@@ -5,13 +5,13 @@ namespace EoE.TradeSystem
 {
     public class GameTransaction
     {
-        public string Offeror { get; init; }
-        public Guid Id { get; init; }
-        public bool IsOpen { get; init; }
-        public string? Recipient { get; init; }
+        public string Offeror { get; }
+        public Guid Id { get; }
+        public bool IsOpen { get; }
+        public string? Recipient { get; }
 
-        public List<ResourceStack> OfferorOffer { get; init; } = new List<ResourceStack>();
-        public List<ResourceStack> RecipientOffer { get; init; } = new List<ResourceStack>();
+        public List<ResourceStack> OfferorOffer { get; } = new List<ResourceStack>();
+        public List<ResourceStack> RecipientOffer { get; } = new List<ResourceStack>();
 
         /// <summary>
         /// 
