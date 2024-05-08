@@ -126,27 +126,27 @@ namespace EoE.Server
                            switch (index)
                            {
                                case 0:
-                                   player.GonveranceManager.PlayerStatus.CountrySiliconModifier.AddValue("Silicon Bonus", 15);
+                                   player.GonveranceManager.PlayerStatus.CountrySiliconModifier.AddValue("Silicon Bonus", 8);
                                    player.SendPacket(new ServerMessagePacket("You gain a Silicon generation bonus"));
                                    break;
                                case 1:
-                                   player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("Copper Bonus", 15);
+                                   player.GonveranceManager.PlayerStatus.CountryCopperModifier.AddValue("Copper Bonus", 8);
                                    player.SendPacket(new ServerMessagePacket("You gain a Copper generation bonus"));
                                    break;
                                case 2:
-                                   player.GonveranceManager.PlayerStatus.CountryIronModifier.AddValue("Iron Bonus", 15);
+                                   player.GonveranceManager.PlayerStatus.CountryIronModifier.AddValue("Iron Bonus", 8);
                                    player.SendPacket(new ServerMessagePacket("You gain a Iron generation bonus"));
                                    break;
                                case 3:
-                                   player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("Aluminum Bonus", 15);
+                                   player.GonveranceManager.PlayerStatus.CountryAluminumModifier.AddValue("Aluminum Bonus", 8);
                                    player.SendPacket(new ServerMessagePacket("You gain a aluminum generation bonus"));
                                    break;
                                case 4:
-                                   player.GonveranceManager.PlayerStatus.CountryElectronicModifier.AddValue("Electronic Bonus", 7.5);
+                                   player.GonveranceManager.PlayerStatus.CountryElectronicModifier.AddValue("Electronic Bonus", 4);
                                    player.SendPacket(new ServerMessagePacket("You gain a Electronic generation bonus"));
                                    break;
                                case 5:
-                                   player.GonveranceManager.PlayerStatus.CountryIndustralModifier.AddValue("Industral Bonus", 7.5);
+                                   player.GonveranceManager.PlayerStatus.CountryIndustralModifier.AddValue("Industrial Bonus", 4);
                                    player.SendPacket(new ServerMessagePacket("You gain a Industrial generation bonus"));
                                    break;
                            }
