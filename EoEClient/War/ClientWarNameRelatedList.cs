@@ -20,6 +20,7 @@ namespace EoE.Client.War
         }
         public void ChangeWarNames(string[] warNames)
         {
+            WarNameRelatedList.Clear();
             for (int i = 0; i < warNames.Length; i++)
             {
                 ChangeWarName(warNames[i]);
