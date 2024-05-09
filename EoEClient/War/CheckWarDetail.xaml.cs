@@ -24,7 +24,6 @@ namespace EoE.Client.War
             BattleLostEnemy.IsReadOnly = true;
             InfoLostEnemy.IsReadOnly = true;
             MechLostEnemy.IsReadOnly = true;
-            WarName.Text = CheckStatus.selectedWarName;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

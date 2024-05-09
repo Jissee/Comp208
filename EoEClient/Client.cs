@@ -25,6 +25,7 @@ namespace EoE.Client
             MessageBox.Show($"[{type}] {message}:\n{e.ToString()}");
         }
         public Socket Connection { get; private set; }
+        public bool IsConnected => !((Connection.Poll(1000, SelectMode.SelectRead) && (Connection.Available == 0)) || !Connection.Connected);
         public string PlayerName { get; private set; }
         private bool isRunning;
         public int TickCount { get; private set; }
@@ -238,10 +239,20 @@ namespace EoE.Client
 
         public void MsgBox(string msg)
         {
-            Task.Run(() =>
+            if (msg == $"{INSTANCE.PlayerName} lost the game.")
             {
                 MessageBox.Show(msg);
-            });
+                MessageBox.Show("The program will exit.");
+                Environment.Exit(0);
+            }
+            else
+            {
+                Task.Run(() =>
+                {
+                    MessageBox.Show(msg);
+                });
+            }
+
         }
 
         public bool MsgBoxYesNo(string msg)

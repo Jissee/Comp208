@@ -283,7 +283,7 @@ namespace EoE.Server
                 Task.Run(ConnectionLoop);
                 Task.Run(DisconnectionLoop);
                 Task.Run(MessageLoop);
-                IServer.Log("server", $"server started on {address}");
+                IServer.Log("Server", $"server started on {address}");
             }
         }
         public void Stop()
@@ -296,7 +296,7 @@ namespace EoE.Server
             }
             catch (Exception ex)
             {
-                IServer.Log("server", "Cannot stop the server", ex);
+                IServer.Log("Server", "Cannot stop the server", ex);
             }
 
         }

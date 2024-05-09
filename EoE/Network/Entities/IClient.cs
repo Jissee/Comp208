@@ -10,6 +10,7 @@ namespace EoE.Network.Entities
     {
         int TickCount { get; }
         string PlayerName { get; }
+        public bool IsConnected { get; }
         IClientGonveranceManager GonveranceManager { get; }
         IClientTradeManager TradeManager { get; }
         IClientWarManager WarManager { get; }

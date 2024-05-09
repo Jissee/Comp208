@@ -3,6 +3,7 @@ using EoE.Network.Packets;
 using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
+using System.Windows;
 
 namespace EoE.Client.Network
 {

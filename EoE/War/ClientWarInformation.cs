@@ -2,19 +2,19 @@
 {
     public struct ClientWarInformation
     {
-        private int totalBattle;
-        private int totalInformative;
-        private int totalMechanism;
-        private int battleLost;
-        private int informativeLost;
-        private int mechanismLost;
+        public int totalBattle;
+        public int totalInformative;
+        public int totalMechanism;
+        public int battleLost;
+        public int informativeLost;
+        public int mechanismLost;
 
-        private int enemyTotalBattle;
-        private int enemyTotalInformative;
-        private int enemyTotalMechanism;
-        private int enemyBattleLost;
-        private int enemyInformativeLost;
-        private int enemyMechanismLost;
+        public int enemyTotalBattle;
+        public int enemyTotalInformative;
+        public int enemyTotalMechanism;
+        public int enemyBattleLost;
+        public int enemyInformativeLost;
+        public int enemyMechanismLost;
         public ClientWarInformation(
             int totalBattle,
             int totalInformative,

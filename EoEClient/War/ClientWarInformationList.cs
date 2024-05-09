@@ -51,6 +51,7 @@ namespace EoE.Client.War
             {
                 WarInformationList.Add(warName, warInformation);
             }
+            /*
             Application.Current.Dispatcher.Invoke(() =>
             {
                 CheckWarDetail window = WindowManager.INSTANCE.GetWindows<CheckWarDetail>();
@@ -79,7 +80,7 @@ namespace EoE.Client.War
                 battleLostEnemy.Text = enemyBattleLost.ToString();
                 infoLostEnemy.Text = enemyInformativeLost.ToString();
                 mechLostEnemy.Text = enemyMechanismLost.ToString();
-            });
+            });*/
         }
     }
 }
