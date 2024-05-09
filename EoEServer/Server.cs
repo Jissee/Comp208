@@ -489,7 +489,7 @@ namespace EoE.Server
                 ranks.Add((player.PlayerName, resourceScore, fieldScore, popScore, armyScore, totalScore));
             }
 
-            ranks.Sort((tuple1, tuple2) => tuple2.Item6.CompareTo(tuple2.Item6));
+            ranks.Sort((tuple1, tuple2) => tuple2.Item6.CompareTo(tuple1.Item6));
             Boardcast(new GameSummaryPacket(ranks), player => true);
         }
     }

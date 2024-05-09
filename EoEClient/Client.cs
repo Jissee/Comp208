@@ -241,7 +241,7 @@ namespace EoE.Client
         {
             if (msg == $"{INSTANCE.PlayerName} lost the game.")
             {
-                MessageBox.Show(msg);
+                MessageBox.Show(msg, PlayerName);
                 MessageBox.Show("The program will exit.");
                 Environment.Exit(0);
             }
@@ -249,7 +249,7 @@ namespace EoE.Client
             {
                 Task.Run(() =>
                 {
-                    MessageBox.Show(msg);
+                    MessageBox.Show(msg, PlayerName);
                 });
             }
 
@@ -257,7 +257,7 @@ namespace EoE.Client
 
         public bool MsgBoxYesNo(string msg)
         {
-            if (MessageBox.Show(msg, "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show(msg, PlayerName, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 return true;
             }
