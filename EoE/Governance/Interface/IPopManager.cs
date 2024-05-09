@@ -2,6 +2,9 @@
 
 namespace EoE.Governance.Interface
 {
+    /// <summary>
+    /// The base interface of population manager, including pupulation growth and field allocation.
+    /// </summary>
     public interface IPopManager
     {
         int TotalPopulation { get; }

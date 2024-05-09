@@ -2,6 +2,9 @@
 
 namespace EoE.War
 {
+    /// <summary>
+    /// A player's claim of other players resources, fields, pops.
+    /// </summary>
     public struct WarTarget
     {
         public int SiliconClaim { get; set; }

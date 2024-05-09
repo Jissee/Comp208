@@ -2,6 +2,9 @@
 
 namespace EoE.Governance
 {
+    /// <summary>
+    /// Used to manage the numerical modification and calculate the final count.
+    /// </summary>
     public class Modifier
     {
         private string nodeName;

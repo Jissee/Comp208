@@ -1,5 +1,8 @@
 ﻿namespace EoE.Client.War
 {
+    /// <summary>
+    /// Recording the information from every war tick.
+    /// </summary>
     public struct ClientWarInformation
     {
         public int totalBattle;

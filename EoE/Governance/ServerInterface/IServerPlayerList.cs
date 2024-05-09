@@ -7,6 +7,9 @@ using EoE.War.Interface;
 
 namespace EoE.Governance.ServerInterface
 {
+    /// <summary>
+    /// Managing all players including connection and disconnection.
+    /// </summary>
     public interface IServerPlayerList : ITickable
     {
         public int PlayerCount { get; }

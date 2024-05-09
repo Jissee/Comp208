@@ -4,6 +4,9 @@ using System.Net.Sockets;
 
 namespace EoE.Network.Entities
 {
+    /// <summary>
+    /// The interface of the server, including all public methods.
+    /// </summary>
     public interface IServer : INetworkEntity
     {
         Socket ServerSocket { get; }

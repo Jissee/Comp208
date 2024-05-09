@@ -45,7 +45,6 @@ namespace EoE.Server.Governance
         /// </summary>
         /// <param name="type"></param>
         /// <param name="count"></param>
-        /// <exception cref="InvalidPopAllocException"></exception>
         public void SetAllocation(PopulationRecord record)
         {
             if (CheckAvailability(record))

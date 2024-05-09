@@ -2,6 +2,9 @@
 
 namespace EoE.Governance.ServerInterface
 {
+    /// <summary>
+    /// The server side interface of population manager
+    /// </summary>
     public interface IServerPopManager : IPopManager
     {
         int ExploratoinPopulation { get; }

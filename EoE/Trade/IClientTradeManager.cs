@@ -2,6 +2,9 @@
 
 namespace EoE.Trade
 {
+    /// <summary>
+    /// Client side interface of the trade manager, including request and query data from the server.
+    /// </summary>
     public interface IClientTradeManager : ITradeManager
     {
         void CancelOpenTransaction(GameTransaction transaction);

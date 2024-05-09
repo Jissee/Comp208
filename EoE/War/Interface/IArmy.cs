@@ -2,6 +2,9 @@
 
 namespace EoE.War.Interface
 {
+    /// <summary>
+    /// Indicating the army, consisting of three different types of the soldiers.
+    /// </summary>
     public interface IArmy
     {
         int Consumption { get; }

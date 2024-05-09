@@ -1,5 +1,8 @@
 ﻿namespace EoE.Governance
 {
+    /// <summary>
+    /// Records the player's modifiers including bonuses or penalties.
+    /// </summary>
     public class PlayerStatus
     {
         public Modifier CountryResourceModifier { get; init; }

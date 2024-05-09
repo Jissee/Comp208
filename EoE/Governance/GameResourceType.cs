@@ -1,5 +1,8 @@
 ﻿namespace EoE.Governance
 {
+    /// <summary>
+    /// Indicates the type of the game resource.
+    /// </summary>
     public enum GameResourceType
     {
         Silicon,

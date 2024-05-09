@@ -2,6 +2,9 @@
 
 namespace EoE.Governance
 {
+    /// <summary>
+    /// A data structure for the fields the produces the specific resource..
+    /// </summary>
     public struct FieldStack
     {
         private GameResourceType type;

@@ -9,6 +9,9 @@ using System.Net.Sockets;
 
 namespace EoE.Network
 {
+    /// <summary>
+    /// The handler of packets, implemented by the server and the client.
+    /// </summary>
     public abstract class PacketHandler
     {
         protected static Dictionary<string, Type> packetTypes;

@@ -1,16 +1,36 @@
 ﻿namespace EoE.Governance
 {
+    /// <summary>
+    /// Calculate how many resources can be produced under the given condition
+    /// </summary>
+    /// <param name="popCount">Working population</param>
+    /// <param name="producingFields">Available fields for this resource</param>
+    /// <param name="input1">Input of the resource 1</param>
+    /// <param name="input2">Input of the resource 2</param>
+    /// <returns></returns>
     public delegate ResourceStack Produce(
         int popCount,
         FieldStack producingFields,
         int input1,
         int input2
     );
-
+    /// <summary>
+    /// Query how many resource will be consumed after producing the givin resources.
+    /// </summary>
+    /// <param name="input">The produced resources</param>
+    /// <returns>The consumption resources</returns>
     public delegate (ResourceStack, ResourceStack) ProductionConsume(
         ResourceStack input
     );
-
+    /// <summary>
+    /// Calculate how many population will grow under the current country condition.
+    /// </summary>
+    /// <param name="popCount">Current population numbers</param>
+    /// <param name="silicon">Current country silicon resource count</param>
+    /// <param name="copper">Current country copper resource count</param>
+    /// <param name="iron">Current country iron resource count</param>
+    /// <param name="aluminum">Current country aluminum resource count</param>
+    /// <returns>The growth of the population</returns>
     public delegate int PopModel(
         int popCount,
         int silicon,
@@ -18,10 +38,17 @@
         int iron,
         int aluminum
     );
-
+    /// <summary>
+    /// Query how many pops and the resources are required for producing the given armies.
+    /// </summary>
+    /// <param name="requiredArmy">The parget production of the army</param>
+    /// <returns>The population count and the consumption of the resources.</returns>
     public delegate (int, ResourceStack) ArmyPrduce(
        ResourceStack requiredArmy
     );
+    /// <summary>
+    /// Data conversion relations.
+    /// </summary>
     public static class Recipes
     {
         public static readonly double SILICON_PER_POP_TICK = 1.25f;

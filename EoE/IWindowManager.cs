@@ -1,5 +1,8 @@
 ﻿namespace EoE
 {
+    /// <summary>
+    /// Managing the client windows.
+    /// </summary>
     public interface IWindowManager
     {
 

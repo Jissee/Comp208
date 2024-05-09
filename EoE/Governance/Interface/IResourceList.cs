@@ -2,6 +2,9 @@
 
 namespace EoE.Governance.Interface
 {
+    /// <summary>
+    /// The base interface of resource list, including add or remove resources.
+    /// </summary>
     public interface IResourceList
     {
         int GetResourceCount(GameResourceType type);

@@ -2,6 +2,9 @@
 
 namespace EoE.Treaty
 {
+    /// <summary>
+    /// Managing the treaties, including establishment and break. manages the resource exchange of the treaties.
+    /// </summary>
     public interface ITreatyManager : ITickable
     {
         List<ITreaty> RelationTreatyList { get; }

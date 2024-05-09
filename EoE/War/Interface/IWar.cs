@@ -1,5 +1,8 @@
 ﻿namespace EoE.War.Interface
 {
+    /// <summary>
+    /// Represents a war, including players and war targets.
+    /// </summary>
     public interface IWar : ITickable
     {
         public string WarName { get; }

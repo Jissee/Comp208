@@ -2,6 +2,9 @@
 
 namespace EoE.Governance
 {
+    /// <summary>
+    /// A data structure for the resource stacks.
+    /// </summary>
     public struct ResourceStack
     {
         public GameResourceType Type { get; init; }

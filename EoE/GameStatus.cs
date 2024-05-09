@@ -2,6 +2,9 @@
 
 namespace EoE
 {
+    /// <summary>
+    /// Global game settings including tick counts and modifiers
+    /// </summary>
     public class GameStatus : ITickable
     {
         public int TotalTick { get; set; }

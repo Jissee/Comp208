@@ -6,6 +6,9 @@ using EoE.War.Interface;
 
 namespace EoE.Network.Entities
 {
+    /// <summary>
+    /// The interface of the client, including all public methods.
+    /// </summary>
     public interface IClient : INetworkEntity
     {
         int TickCount { get; }

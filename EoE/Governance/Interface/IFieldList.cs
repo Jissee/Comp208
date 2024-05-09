@@ -2,6 +2,9 @@
 
 namespace EoE.Governance.Interface
 {
+    /// <summary>
+    /// The base interface of field list, including add or remove fields.
+    /// </summary>
     public interface IFieldList
     {
         int TotalFieldCount { get; }

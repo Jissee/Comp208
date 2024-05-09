@@ -2,6 +2,9 @@
 
 namespace EoE.Network
 {
+    /// <summary>
+    /// Providing the environment for packet handler.
+    /// </summary>
     public class PacketContext
     {
         public PacketContext(NetworkDirection direction, IPlayer? playerSender, INetworkEntity? receiver)
@@ -12,11 +15,11 @@ namespace EoE.Network
         }
         public NetworkDirection NetworkDirection { get; }
         /// <summary>
-        /// 若接收方为服务端，则为发送的客户端
+        /// Only available on server side.
         /// </summary>
         public IPlayer? PlayerSender { get; }
         /// <summary>
-        /// 信息接收方，为服务端或客户端
+        /// Server or Client
         /// </summary>
         public INetworkEntity Receiver { get; }
     }

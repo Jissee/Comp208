@@ -5,6 +5,9 @@ using System.Net.Sockets;
 
 namespace EoE
 {
+    /// <summary>
+    /// The interface of the player
+    /// </summary>
     public interface IPlayer : ITickable
     {
         Socket Connection { get; }

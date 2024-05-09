@@ -3,6 +3,9 @@ using EoE.Network.Packets;
 
 namespace EoE.Trade
 {
+    /// <summary>
+    /// The data structure of the game transactions, distinguished by Guid.
+    /// </summary>
     public class GameTransaction
     {
         public string Offeror { get; }
