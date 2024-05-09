@@ -42,7 +42,6 @@
         public static int Iron2Indus = 6;
         public static double Aluminum2Indus = 4.5;
 
-
         private static int maxAllocation = 160;
 
         public static int InformativePopSynthetic = 9;
@@ -165,7 +164,7 @@
 
             double popGrowth = popCount * rate * (1 - popCount / K);
 
-            return (int)popGrowth * 100;
+            return (int)popGrowth;
         }
 
         public static ArmyPrduce BattleArmyproduce = (requiredArmy) =>

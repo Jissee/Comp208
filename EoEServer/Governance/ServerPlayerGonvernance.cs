@@ -9,7 +9,7 @@ namespace EoE.Server.Governance
     {
         public static readonly double EXPLORE_FIELD_PER_POP = 1.1f;
         public static readonly int FIELD_EXPLORE_THRESHOLD = 100;
-        public static readonly int POP_GROWTH_THRESHOLD = 100;
+        //public static readonly int POP_GROWTH_THRESHOLD = 100;
 
 
         public int FieldExplorationProgress { get; private set; }
@@ -23,8 +23,6 @@ namespace EoE.Server.Governance
         private GameStatus globalGameStatus;
         public PlayerStatus PlayerStatus { get; init; }
         public IServerPopManager PopManager { get; init; }
-
-        public int PopGrowthProgress { get; private set; }
 
         public ServerPlayerGonvernance(GameStatus globalGameStatus, int initPop, IPlayer player)
         {
@@ -93,23 +91,22 @@ namespace EoE.Server.Governance
             ResourceList.SplitResourceStack(consume1);
             ResourceList.SplitResourceStack(consume2);
         }
-        private void UpdatePopGrowthProgress()
+        private void UpdatePop()
         {
 
-            PopGrowthProgress += Recipes.calcPopGrowthProgress(
+            int popGrowth = Recipes.calcPopGrowthProgress(
                 PopManager.TotalPopulation,
                 ResourceList.GetResourceCount(GameResourceType.Silicon),
                 ResourceList.GetResourceCount(GameResourceType.Copper),
                 ResourceList.GetResourceCount(GameResourceType.Iron),
                 ResourceList.GetResourceCount(GameResourceType.Aluminum));
-        }
-        private void UpdatePop()
-        {
+            PopManager.AlterPop(popGrowth);
+            /*
             if (Math.Abs(PopGrowthProgress) >= POP_GROWTH_THRESHOLD)
             {
                 PopManager.AlterPop(PopGrowthProgress / POP_GROWTH_THRESHOLD);
                 PopGrowthProgress %= POP_GROWTH_THRESHOLD;
-            }
+            }*/
         }
         private void ConsumePrimaryResource(int population)
         {
@@ -265,7 +262,6 @@ namespace EoE.Server.Governance
             ProducePrimaryResource();
             ProduceSecondaryResource();
             int pop = PopManager.TotalPopulation;
-            UpdatePopGrowthProgress();
             UpdatePop();
             ConsumePrimaryResource(pop);
             UpdateFieldExplorationProgress();
