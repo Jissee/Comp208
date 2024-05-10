@@ -13,9 +13,9 @@
         </Grid.Background>
         <Label Content="Select a country and view or modify the war goals." HorizontalAlignment="Left" Margin="135,35,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="White"/>
         <Button Content="Submit war goal of this country" HorizontalAlignment="Center" Margin="0,334,0,0" VerticalAlignment="Top" FontSize="20" Height="41" Width="318" Click="Button_Click"/>
-        <Label Content="Blocks" HorizontalAlignment="Left" Margin="301,255,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
+        <Label Content="Fields" HorizontalAlignment="Left" Margin="301,255,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
         <Label Content="Population" HorizontalAlignment="Left" Margin="548,254,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
-        <TextBox x:Name="Blocks" HorizontalAlignment="Left" Margin="416,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27"/>
+        <TextBox x:Name="Fields" HorizontalAlignment="Left" Margin="416,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27"/>
         <TextBox x:Name="Population" HorizontalAlignment="Left" Margin="672,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20" Height="27"/>
         <TextBox x:Name="Silicon" HorizontalAlignment="Left" Margin="416,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
         <TextBox x:Name="Copper" HorizontalAlignment="Left" Margin="416,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" FontSize="20"/>
@@ -29,7 +29,7 @@
         <Label Content="Iron" HorizontalAlignment="Left" Margin="548,125,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
         <Label Content="Industrial" HorizontalAlignment="Left" Margin="548,206,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
         <Label Content="Aluminum" HorizontalAlignment="Left" Margin="548,167,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
-        <Label Content="People/blocks will be exchanged immediately after the end of the war." HorizontalAlignment="Center" Margin="0,405,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="People/Fields will be exchanged immediately after the end of the war." HorizontalAlignment="Center" Margin="0,405,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Resources will be delivered over several rounds." HorizontalAlignment="Left" Margin="252,380,0,0" VerticalAlignment="Top" Foreground="White"/>
         <ListBox x:Name="OtherPlayerName" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="76,123,557,152" SelectionChanged="ListBox_SelectionChanged"/>
 

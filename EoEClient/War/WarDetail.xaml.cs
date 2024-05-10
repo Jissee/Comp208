@@ -49,7 +49,7 @@ namespace EoE.Client.War
             {
                 target.PopClaim = result;
             }
-            if (int.TryParse(Blocks.Text, out result))
+            if (int.TryParse(Fields.Text, out result))
             {
                 target.FieldClaim = result;
             }

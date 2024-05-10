@@ -30,7 +30,7 @@ namespace EoE.Client.War
                 window.Aluminum.Text = warTarget.AluminumClaim.ToString();
                 window.Electronic.Text = warTarget.ElectronicClaim.ToString();
                 window.Industrial.Text = warTarget.IndustrialClaim.ToString();
-                window.Blocks.Text = warTarget.FieldClaim.ToString();
+                window.Fields.Text = warTarget.FieldClaim.ToString();
                 window.Population.Text = warTarget.PopClaim.ToString();
             });
         }
