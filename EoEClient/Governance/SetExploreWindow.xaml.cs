@@ -7,7 +7,7 @@ using System.Windows.Input;
 namespace EoE.Client.Governance
 {
     /// <summary>
-    /// ExpolreBlock.xaml 的交互逻辑
+    /// ExpolreField.xaml 的交互逻辑
     /// </summary>
     public partial class SetExploreWindow : Window
     {

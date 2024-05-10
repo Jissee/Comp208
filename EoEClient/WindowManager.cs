@@ -100,8 +100,8 @@ namespace EoE.Client
             Application.Current.Dispatcher.Invoke(() =>
             {
                 FieldListRecord record = Client.INSTANCE.GonveranceManager.FieldList.GetFieldListRecord();
-                BlockManagementWindow blockManagement = GetWindows<BlockManagementWindow>();
-                blockManagement.SynchronizeFields(record);
+                FieldManagementWindow fieldManagement = GetWindows<FieldManagementWindow>();
+                fieldManagement.SynchronizeFields(record);
                 ResourceInformationWindow resourceManage = GetWindows<ResourceInformationWindow>();
                 resourceManage.SynchronizeFields(record);
 
@@ -117,8 +117,8 @@ namespace EoE.Client
                 PopulationRecord record = Client.INSTANCE.GonveranceManager.PopManager.GetPopulationRecord();
                 MainGameWindow window = GetWindows<MainGameWindow>();
                 window.SynchronizePopulation(record);
-                BlockManagementWindow blockManagement = GetWindows<BlockManagementWindow>();
-                blockManagement.SynchronizePopulation(record);
+                FieldManagementWindow fieldManagement = GetWindows<FieldManagementWindow>();
+                fieldManagement.SynchronizePopulation(record);
                 ResourceInformationWindow resourceManage = GetWindows<ResourceInformationWindow>();
                 resourceManage.SynchronizePopulation(record);
                 SetExploreWindow setExploreWindow = GetWindows<SetExploreWindow>();

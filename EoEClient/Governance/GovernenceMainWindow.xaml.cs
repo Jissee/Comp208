@@ -25,7 +25,7 @@ namespace EoE.Client.Governance
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            WindowManager.INSTANCE.ShowWindows<BlockManagementWindow>();
+            WindowManager.INSTANCE.ShowWindows<FieldManagementWindow>();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

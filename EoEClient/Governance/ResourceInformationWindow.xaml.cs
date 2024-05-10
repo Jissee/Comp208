@@ -22,12 +22,12 @@ namespace EoE.Client.Governance
             Electronic.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Electronic).ToString();
             Industrial.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Industrial).ToString();
 
-            SiliconBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Silicon).ToString();
-            CopperBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Copper).ToString();
-            AluminumBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Aluminum).ToString();
-            IronBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Aluminum).ToString();
-            ElectronicBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Electronic).ToString();
-            IndustrialBlock.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Industrial).ToString();
+            SiliconField.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Silicon).ToString();
+            CopperField.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Copper).ToString();
+            AluminumField.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Aluminum).ToString();
+            IronField.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Aluminum).ToString();
+            ElectronicField.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Electronic).ToString();
+            IndustrialField.Text = Client.INSTANCE.GonveranceManager.FieldList.GetFieldCount(GameResourceType.Industrial).ToString();
 
             BattleArmy.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.BattleArmy).ToString();
             InfoArmy.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.InformativeArmy).ToString();
@@ -55,12 +55,12 @@ namespace EoE.Client.Governance
 
         public void SynchronizeFields(FieldListRecord record)
         {
-            SiliconBlock.Text = record.siliconFieldCount.ToString();
-            CopperBlock.Text = record.copperFieldCount.ToString();
-            AluminumBlock.Text = record.aluminumFieldCount.ToString();
-            IronBlock.Text = record.ironFieldCount.ToString();
-            ElectronicBlock.Text = record.electronicFieldCount.ToString();
-            IndustrialBlock.Text = record.industrialFieldCount.ToString();
+            SiliconField.Text = record.siliconFieldCount.ToString();
+            CopperField.Text = record.copperFieldCount.ToString();
+            AluminumField.Text = record.aluminumFieldCount.ToString();
+            IronField.Text = record.ironFieldCount.ToString();
+            ElectronicField.Text = record.electronicFieldCount.ToString();
+            IndustrialField.Text = record.industrialFieldCount.ToString();
         }
 
         public void SynchronizePopulation(PopulationRecord record)

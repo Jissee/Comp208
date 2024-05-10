@@ -19,12 +19,12 @@
         </ListBox>
         <Label Content="I want to convert" HorizontalAlignment="Left" Margin="27,163,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
         <TextBox x:Name="inputNumber" HorizontalAlignment="Left" Margin="186,167,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="83" FontSize="16" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="limitnumber"/>
-        <Label Content="block(s) into " HorizontalAlignment="Left" Margin="425,163,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
+        <Label Content="field(s) into " HorizontalAlignment="Left" Margin="425,163,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
         <ListBox x:Name="SecondaryField" Margin="539,145,133,224" FontSize="16">
             <ListBoxItem Content="Electronic"/>
             <ListBoxItem Content="Industrial"/>
         </ListBox>
-        <Label Content="block(s)." HorizontalAlignment="Left" Margin="683,161,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
+        <Label Content="field(s)." HorizontalAlignment="Left" Margin="683,161,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
         <Button Content="submit" HorizontalAlignment="Left" Margin="480,305,0,0" VerticalAlignment="Top" Height="56" Width="86" FontSize="20" Click="Button_Click"/>
         <Button Content="back" HorizontalAlignment="Left" Margin="244,300,0,0" VerticalAlignment="Top" FontSize="20" Height="61" Width="88" Click="Button_Click_1"/>
         <Label Content="The upgrade of fields is irreversible." HorizontalAlignment="Center" Margin="0,386,0,0" VerticalAlignment="Top" Foreground="White"/>

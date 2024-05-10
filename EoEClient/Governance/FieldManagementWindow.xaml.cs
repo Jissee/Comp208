@@ -7,12 +7,12 @@ using System.Windows.Input;
 namespace EoE.Client.Governance
 {
     /// <summary>
-    /// BlockManagement.xaml 的交互逻辑
+    /// FieldManagement.xaml 的交互逻辑
     /// </summary>
-    public partial class BlockManagementWindow : Window
+    public partial class FieldManagementWindow : Window
     {
 
-        public BlockManagementWindow()
+        public FieldManagementWindow()
         {
             InitializeComponent();
             Silicon.Text = Client.INSTANCE.GonveranceManager.ResourceList.GetResourceCount(GameResourceType.Silicon).ToString();

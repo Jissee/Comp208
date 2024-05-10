@@ -82,9 +82,9 @@
             </TextBlock.RenderTransform>
         </TextBlock>
         <Label Content="Resource quantity" HorizontalAlignment="Left" Margin="139,78,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="#FFFEFEFE"/>
-        <Label Content="Block quantity" HorizontalAlignment="Left" Margin="299,78,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="#FFFFF8F8"/>
-        <TextBlock x:Name="SiliconBlock" Height="30" Margin="321,112,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock x:Name="CopperBlock" Height="30" Margin="321,149,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
+        <Label Content="Field quantity" HorizontalAlignment="Left" Margin="299,78,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="#FFFFF8F8"/>
+        <TextBlock x:Name="SiliconField" Height="30" Margin="321,112,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="CopperField" Height="30" Margin="321,149,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -94,7 +94,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="ElectronicBlock" Height="30" Margin="320,302,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
+        <TextBlock x:Name="ElectronicField" Height="30" Margin="320,302,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -104,7 +104,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="IronBlock" Height="30" Margin="320,187,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
+        <TextBlock x:Name="IronField" Height="30" Margin="320,187,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -114,7 +114,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="AluminumBlock" Height="30" Margin="320,226,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
+        <TextBlock x:Name="AluminumField" Height="30" Margin="320,226,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -124,7 +124,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="IndustrialBlock" Height="30" Margin="320,264,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
+        <TextBlock x:Name="IndustrialField" Height="30" Margin="320,264,0,0" TextWrapping="Wrap" Text="TextBlock" Width="90" RenderTransformOrigin="0.5,0.5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
